@@ -1,0 +1,71 @@
+---
+---
+	* {
+				box-sizing: border-box;
+			}
+			
+			body {
+				background: #ECEBEB;
+				margin: 0px;
+			}
+			
+			section {
+				max-width: 560px;
+				margin: 0px auto;
+				padding: 20px 20px 60px 20px;
+			}
+			
+			h1 {
+				font-family: -apple-system, Helvetica, Arial, sans-serif;
+				font-size: 36px;
+				color: #665B49;
+				margin: 0px;
+			}
+			
+			h2 {
+				font-family: -apple-system, Helvetica, Arial, sans-serif;
+				font-size: 20px;
+				color: #665B49;
+				margin-top: 40px;
+			}
+			
+			p {
+				font-family: -apple-system, Helvetica, Arial, sans-serif;
+				font-size: 13px;
+				color: #665B49;
+			}
+			
+			a {
+				color: #FF9E2A;
+			}
+			
+			footer {
+				background: #E1E1E1;
+				width: 100%;
+				height: 110px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			footer:hover {
+				background-image: linear-gradient(135deg, #FFAE00 0%, #FF3136 72%, #FF004C 100%);
+			}
+			
+			footer:hover .toast path {
+				fill: white;
+			}
+			
+			.toast {
+				width: 150px;
+			}
+			
+			@media (min-width:1366px) {
+				footer {
+					height: 200px;
+				}
+				
+				.toast {
+					width: auto;
+				}
+			}
