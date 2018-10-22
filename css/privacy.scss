@@ -2,6 +2,7 @@
 ---
 	* {
 				box-sizing: border-box;
+				text-align: center !important;
 			}
 			
 			body {
@@ -10,9 +11,13 @@
 			}
 			
 			section {
-				max-width: 560px;
+				max-width: 650px;
 				margin: 0px auto;
 				padding: 20px 20px 60px 20px;
+			}
+			
+			svg {
+				margin-bottom: 20px;
 			}
 			
 			h1 {
@@ -31,8 +36,10 @@
 			
 			p {
 				font-family: -apple-system, Helvetica, Arial, sans-serif;
-				font-size: 13px;
+				font-size: 16px;
 				color: #665B49;
+				line-height: 24px;
+				margin-bottom: 30px;
 			}
 			
 			a {
