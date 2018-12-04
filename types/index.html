@@ -25,8 +25,10 @@
 				margin-bottom: 50px;
 				display: grid;
 				grid-gap: 30px;
-				grid-template-columns: repeat(3, 100px);
-				justify-content: space-between;
+				/* grid-template-columns: repeat(3, 100px); */
+				grid-template-columns: repeat(auto-fill, minmax(100px, 100px));
+				justify-content: space-around;
+				grid-template-rows: 100px;
 			}
 			
 			li {
