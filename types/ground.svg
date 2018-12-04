@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>ground</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#D97747" offset="0%"></stop>
+            <stop stop-color="#D49A6B" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="ground" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" fill="url(#linearGradient-1)" cx="75" cy="75" r="75"></circle>
+        <path d="M51,101 L72.2614929,44 L93.9019891,44 L115,101 L51,101 Z M49.4267578,61 L61.4267578,61 L46,101 L34,101 L49.4267578,61 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+    </g>
+</svg>

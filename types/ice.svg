@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>ice</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#74CEC0" offset="0%"></stop>
+            <stop stop-color="#96DDD7" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="ice" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" fill="url(#linearGradient-1)" cx="75" cy="75" r="75"></circle>
+        <path d="M78,71.4458008 L78,46.3505859 L100.702148,33 L100.702148,58.8662109 L78,71.4458008 Z M78,80 L100.702148,92.5795898 L100.702148,118.445801 L78,105.095215 L78,80 Z M72.7021484,71.4458008 L50,58.8662109 L50,33 L72.7021484,46.3505859 L72.7021484,71.4458008 Z M72.7021484,80 L72.7021484,105.095215 L50,118.445801 L50,92.5795898 L72.7021484,80 Z M71.6461144,75.6606373 L49.9130208,88.2082447 L27,75.2229004 L49.4007958,62.6557617 L71.6461144,75.6606373 Z M122.646114,75.6606373 L100.913021,88.2082447 L78,75.2229004 L100.702148,62.6557617 L122.646114,75.6606373 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+    </g>
+</svg>

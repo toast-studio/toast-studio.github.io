@@ -1,0 +1,268 @@
+<html>
+	<head>
+		<title>Test</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			body {
+				background: black;
+				padding: 10px;
+			}
+			
+			h1, h2, li, p {
+				text-transform: capitalize;
+				font-family: sans-serif;
+				color: white;
+			}
+			
+			ul {
+				padding: 0px;
+				margin-bottom: 50px;
+				display: grid;
+				grid-gap: 30px;
+				grid-template-columns: repeat(3, 100px);
+				justify-content: space-between;
+			}
+			
+			li {
+				list-style: none;
+				padding: 20px;
+				border-radius: 5px;
+				text-align: center;
+				font-weight: bold;
+				height: 100px;
+			}
+
+			.hidden {
+				display: none;
+			}
+			
+			#closebutton {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+			}
+			
+			.poison {
+				background-image: url(poison.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.fire {
+				background-image: url(fire.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.ground {
+				background-image: url(ground.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.water {
+				background-image: url(water.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.grass {
+				background-image: url(grass.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.bug {
+				background-image: url(bug.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.rock {
+				background-image: url(rock.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.ice {
+				background-image: url(ice.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.steel {
+				background-image: url(steel.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.fairy {
+				background-image: url(fairy.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.electric {
+				background-image: url(electric.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.normal {
+				background-image: url(normal.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.dark {
+				background-image: url(dark.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.ghost {
+				background-image: url(ghost.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.flying {
+				background-image: url(flying.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.psychic {
+				background-image: url(psychic.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.fighting {
+				background-image: url(fighting.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			.dragon {
+				background-image: url(dragon.svg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="typeselector">
+			<h1>Select a defending type</h1>
+			<ul>
+				<li class="typelist normal" data-type="https://pokeapi.co/api/v2/type/1/"></li>
+				<li class="typelist fighting" data-type="https://pokeapi.co/api/v2/type/2/"></li>
+				<li class="typelist flying" data-type="https://pokeapi.co/api/v2/type/3/"></li>
+				<li class="typelist poison" data-type="https://pokeapi.co/api/v2/type/4/"></li>
+				<li class="typelist ground" data-type="https://pokeapi.co/api/v2/type/5/"></li>
+				<li class="typelist rock" data-type="https://pokeapi.co/api/v2/type/6/"></li>
+				<li class="typelist bug" data-type="https://pokeapi.co/api/v2/type/7/"></li>
+				<li class="typelist ghost" data-type="https://pokeapi.co/api/v2/type/8/"></li>
+				<li class="typelist steel" data-type="https://pokeapi.co/api/v2/type/9/"></li>
+				<li class="typelist fire" data-type="https://pokeapi.co/api/v2/type/10/"></li>
+				<li class="typelist water" data-type="https://pokeapi.co/api/v2/type/11/"></li>
+				<li class="typelist grass" data-type="https://pokeapi.co/api/v2/type/12/"></li>
+				<li class="typelist electric" data-type="https://pokeapi.co/api/v2/type/13/"></li>
+				<li class="typelist psychic" data-type="https://pokeapi.co/api/v2/type/14/"></li>
+				<li class="typelist ice" data-type="https://pokeapi.co/api/v2/type/15/"></li>
+				<li class="typelist dragon" data-type="https://pokeapi.co/api/v2/type/16/"></li>
+				<li class="typelist dark" data-type="https://pokeapi.co/api/v2/type/17/"></li>
+				<li class="typelist fairy" data-type="https://pokeapi.co/api/v2/type/18/"></li>
+			</ul>
+		</div>
+		
+		<p id="closebutton" class="hidden">x</p>
+		<div id="container"></div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			
+			var selectedtype = 'Hello';
+			
+			$( ".typelist" ).click(function() {
+				selectedtype = $(this).attr('data-type');
+				
+				$( "#typeselector" ).toggleClass('hidden');
+				
+				$( "#closebutton" ).toggleClass('hidden');
+				
+				$( "#container" ).empty();
+				
+				$.getJSON( selectedtype, function( data ) {
+					
+					var heading = "<h1>" + data.name + "</h1>";
+					
+					$("#container").append(heading);
+				 						
+					var strong = [];
+					$.each( data.damage_relations.double_damage_from, function( key, val ) {
+						strong.push( "<li class='" + val.name + "'></li>" );
+					});
+				 		
+					$("<h2/>").text("Super Effective Moves").appendTo("#container");		
+				 			 
+					$( "<ul/>", {
+						html: strong.join( "" )
+					}).appendTo( "#container" );
+					
+					var weak = [];
+					$.each( data.damage_relations.half_damage_from, function( key, val ) {
+						weak.push( "<li class='" + val.name + "'></li>" );
+					});
+					
+					if($.isEmptyObject(weak)){
+					 	
+					}
+					else {
+						$("<h2/>").text("Not Effective Moves").appendTo("#container");		
+					 			 
+						$( "<ul/>", {
+							html: weak.join( "" )
+						}).appendTo( "#container" );
+					}
+				 						
+					var immune = [];
+					$.each( data.damage_relations.no_damage_from, function( key, val ) {
+						immune.push( "<li class='" + val.name + "'></li>" );
+					});
+				 	
+					if($.isEmptyObject(immune)){
+					 	
+					}
+					else {
+						$("<h2/>").text("Immune to").appendTo("#container");		
+					 			 
+						$( "<ul/>", {
+							html: immune.join( "" )
+						}).appendTo( "#container" );
+					}
+				});
+					
+				
+    		});			
+			
+			
+			$( "#closebutton" ).click(function() {
+				$( "#typeselector" ).toggleClass('hidden');
+				
+				$( "#closebutton" ).toggleClass('hidden');
+				
+				$( "#container" ).empty();
+			});
+		</script>
+		
+	</body>
+</html>
+
+<!-- strong.push( "<li class='" + val.name + "'>" + val.name + "</li>" ); -->

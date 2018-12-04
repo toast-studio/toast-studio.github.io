@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>poison</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="8.60856525e-15%" x2="50%" y2="99.8148483%" id="linearGradient-1">
+            <stop stop-color="#A567C6" offset="0%"></stop>
+            <stop stop-color="#C962D6" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="poison" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" fill="url(#linearGradient-1)" cx="75" cy="75" r="75"></circle>
+        <path d="M75,89 C89.3192082,89 100,79.8822509 100,70 C100,60.1177491 89.3192082,51 75,51 C60.6807918,51 50,60.1177491 50,70 C50,79.8822509 60.6807918,89 75,89 Z M65.4367867,106.225467 C64.0235346,110.748293 60.108485,114 55.5,114 C49.7010101,114 45,108.851275 45,102.5 C45,99.9245292 45.7730056,97.5467984 47.0787714,95.6299334 C39.0328521,89.2395566 34,80.12151 34,70 C34,50.6700338 52.3563253,35 75,35 C97.6436747,35 116,50.6700338 116,70 C116,80.3983233 110.688096,89.7375452 102.254365,96.1480889 C103.357428,97.9680708 104,100.151848 104,102.5 C104,108.851275 99.2989899,114 93.5,114 C89.3732477,114 85.8025359,111.392575 84.0863471,107.599872 C82.50312,111.377793 79.029946,114 75,114 C70.4974691,114 66.6899503,110.72673 65.4367867,106.225467 Z" id="Oval" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

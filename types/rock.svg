@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>rock</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="99.8148483%" id="linearGradient-1">
+            <stop stop-color="#C7B88C" offset="0%"></stop>
+            <stop stop-color="#D6CC95" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="rock" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" fill="url(#linearGradient-1)" cx="75" cy="75" r="75"></circle>
+        <path d="M30,94.2641779 L30,75.3646109 L60.0350997,41 L98.3931529,41 L92.6524588,70.7414628 L48.2810138,100.144857 L30,94.2641779 Z M61.3310894,104.151621 L95.8098135,81.0504154 L104.410325,92.6010181 L78.122795,110 L61.3310894,104.151621 Z M108.165455,42.6144412 L120,79.9296197 L112.796998,86.1962785 L103.229354,72.9265301 L108.165455,42.6144412 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+    </g>
+</svg>

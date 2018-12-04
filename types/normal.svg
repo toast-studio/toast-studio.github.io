@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>normal</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="99.8148483%" id="linearGradient-1">
+            <stop stop-color="#9099A1" offset="0%"></stop>
+            <stop stop-color="#A9A79F" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="normal" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" fill="url(#linearGradient-1)" cx="75" cy="75" r="75"></circle>
+        <path d="M75,125 C47.3857625,125 25,102.614237 25,75 C25,47.3857625 47.3857625,25 75,25 C102.614237,25 125,47.3857625 125,75 C125,102.614237 102.614237,125 75,125 Z M75,107 C92.673112,107 107,92.673112 107,75 C107,57.326888 92.673112,43 75,43 C57.326888,43 43,57.326888 43,75 C43,92.673112 57.326888,107 75,107 Z" id="Oval-2" fill="#FFFFFF"></path>
+    </g>
+</svg>

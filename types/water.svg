@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>water</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="8.60856525e-15%" x2="50%" y2="99.8148483%" id="linearGradient-1">
+            <stop stop-color="#4F90D5" offset="0%"></stop>
+            <stop stop-color="#73C6E4" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="water" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" fill="url(#linearGradient-1)" cx="75" cy="75" r="75"></circle>
+        <path d="M75,120 C58.9837423,120 46,107.016258 46,91 C46,90.627888 46.0070085,90.2574129 46.0209007,89.8886995 C46.1051764,86.4296244 46.3576054,83.8156946 46.7781875,82.0469102 C48.5931674,74.4138994 52.1140066,67.1481646 55.340705,60.2497058 C59.8061011,50.702997 66.3591994,40.2864284 75,29 C83.6408006,40.2864284 90.1938989,50.702997 94.659295,60.2497058 C97.8859934,67.1481646 101.406833,74.4138994 103.221812,82.0469102 C103.642395,83.8156946 103.894824,86.4296244 103.979099,89.8886995 C103.992991,90.2574129 104,90.627888 104,91 C104,107.016258 91.0162577,120 75,120 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+    </g>
+</svg>
