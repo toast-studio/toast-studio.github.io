@@ -2,8 +2,9 @@
 	<head>
 		<title>Types</title>
 		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<style>
 			* {
 				box-sizing: border-box;
@@ -11,24 +12,57 @@
 			
 			body {
 				background: black;
-				padding: 10px;
+				padding: 0px;
+				margin: 0px;
+				-webkit-user-select: none;
+				-webkit-tap-highlight-color: transparent;
+				-webkit-touch-callout: none;
 			}
 			
-			h1, h2, li, p {
+			h2, h3, li, p {
 				text-transform: capitalize;
-				font-family: sans-serif;
+				font-family: Avenir, sans-serif;
 				color: white;
+				font-weight: 100;
+			}
+			
+			h2 {
+				text-align: center;
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				color: white !important;
+				margin: 0px;
+				padding-top: calc(10px + env(safe-area-inset-top));
+				padding-bottom: 10px;
+				z-index: 2;
+			}
+			
+			h1 {
+				text-align: center;
+				font-family: Avenir, sans-serif;
+				color: white;
+				font-weight: 100;
+				position: fixed;
+				width: 100%;
+				top: -11px;
+				left: 0px;
+				padding: 20px;
+				background: black;
+				z-index: 2;
+				font-size: 16px;
 			}
 			
 			ul {
 				padding: 0px;
-				margin-bottom: 50px;
+				margin-bottom: 100px;
 				display: grid;
 				grid-gap: 30px;
-				/* grid-template-columns: repeat(3, 100px); */
 				grid-template-columns: repeat(auto-fill, minmax(100px, 100px));
 				justify-content: space-around;
 				grid-template-rows: 100px;
+				grid-row-gap: 70px;
 			}
 			
 			li {
@@ -38,124 +72,243 @@
 				text-align: center;
 				font-weight: bold;
 				height: 100px;
+				position: relative;
 			}
-
+			
+			.type span {
+				position: absolute;
+				bottom: -30px;
+				display: block;
+				font-family: Avenir, sans-serif;
+				font-weight: 100;
+				width: 100%;
+				left: 0px;
+			}
+			
 			.hidden {
 				display: none;
 			}
 			
+			#typeselector {
+				top: 50px;
+				position: relative;
+			}
+			
 			#closebutton {
-				position: absolute;
+				position: fixed;
 				top: 0px;
 				right: 10px;
+				z-index: 3;
+				margin: 0px;
+				padding-top: calc(5px + env(safe-area-inset-top));
+			}
+			
+			#closebutton:hover {
+				cursor: hand;
+			}
+			
+			.typelist:hover {
+				cursor: hand;
+			}
+			
+			.type {
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			#container {
+				padding-top: calc(54px + env(safe-area-inset-top));
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			
+			@media (min-width:768px) {
+				ul {
+					grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
+					grid-template-rows: 250px;
+					grid-gap: 40px;
+					grid-row-gap: 100px;
+				}
+				
+				li {
+					height: 250px;
+				}
+				
+				.type span {
+					font-size: 25px;
+					bottom: -50px;
+				}
+				
+				h1 {
+					font-size: 30px;
+					top: -21px;
+				}
+				
+				#typeselector {
+					top: 80px;
+				}
 			}
 			
 			.poison {
 				background-image: url(poison.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #C962D6;
+			}
+			
+			h2.poison {
+				background: #C962D6;
 			}
 			
 			.fire {
 				background-image: url(fire.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #FFB14F;
+			}
+			
+			h2.fire {
+				background: #FFB14F;
 			}
 			
 			.ground {
 				background-image: url(ground.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #D49A6B;
+			}
+			
+			h2.ground {
+				background: #D49A6B;
 			}
 			
 			.water {
 				background-image: url(water.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #73C6E4;
 			}
 			
+			h2.water {
+				background: #73C6E4;
+			}
+
 			.grass {
 				background-image: url(grass.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #5AC37D;
+			}
+			
+			h2.grass {
+				background: #5AC37D;
 			}
 			
 			.bug {
 				background-image: url(bug.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #ADC836;
+			}
+			
+			h2.bug {
+				background: #ADC836;
 			}
 			
 			.rock {
 				background-image: url(rock.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #D6CC95;
+			}
+			
+			h2.rock {
+				background: #D6CC95;
 			}
 			
 			.ice {
 				background-image: url(ice.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #96DDD7;
+			}
+			
+			h2.ice {
+				background: #96DDD7;
 			}
 			
 			.steel {
 				background-image: url(steel.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #57ACAD;
+			}
+			
+			h2.steel {
+				background: #57ACAD;
 			}
 			
 			.fairy {
 				background-image: url(fairy.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #F4AAE4;
+			}
+			
+			h2.fairy {
+				background: #F4AAE4;
 			}
 			
 			.electric {
 				background-image: url(electric.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #FAE277;
+			}
+			
+			h2.electric {
+				background: #FAE277;
 			}
 			
 			.normal {
 				background-image: url(normal.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #A9A79F;
+			}
+			
+			h2.normal {
+				background: #A9A79F;
 			}
 			
 			.dark {
 				background-image: url(dark.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #6F7684;
+			}
+			
+			h2.dark {
+				background: #6F7684;
 			}
 			
 			.ghost {
 				background-image: url(ghost.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #7A74D7;
+			}
+			
+			h2.ghost {
+				background: #7A74D7;
 			}
 			
 			.flying {
 				background-image: url(flying.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #8FA8DD;
+			}
+			
+			h2.flying {
+				background: #8FA8DD;
 			}
 			
 			.psychic {
 				background-image: url(psychic.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #FEA399;
+			}
+			
+			h2.psychic {
+				background: #FEA399;
 			}
 			
 			.fighting {
 				background-image: url(fighting.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #E2444B;
+			}
+			
+			h2.fighting {
+				background: #E2444B;
 			}
 			
 			.dragon {
 				background-image: url(dragon.svg);
-				background-repeat: no-repeat;
-				background-size: cover;
+				color: #0582BC;
+			}
+			
+			h2.dragon {
+				background: #0582BC;
 			}
 			
 			
@@ -163,34 +316,31 @@
 	</head>
 	<body>
 		<div id="typeselector">
-			<h1>Select a defending type</h1>
+			<h1>Select a Defending Type</h1>
 			<ul>
-				<li class="typelist normal" data-type="https://pokeapi.co/api/v2/type/1/"></li>
-				<li class="typelist fighting" data-type="https://pokeapi.co/api/v2/type/2/"></li>
-				<li class="typelist flying" data-type="https://pokeapi.co/api/v2/type/3/"></li>
-				<li class="typelist poison" data-type="https://pokeapi.co/api/v2/type/4/"></li>
-				<li class="typelist ground" data-type="https://pokeapi.co/api/v2/type/5/"></li>
-				<li class="typelist rock" data-type="https://pokeapi.co/api/v2/type/6/"></li>
-				<li class="typelist bug" data-type="https://pokeapi.co/api/v2/type/7/"></li>
-				<li class="typelist ghost" data-type="https://pokeapi.co/api/v2/type/8/"></li>
-				<li class="typelist steel" data-type="https://pokeapi.co/api/v2/type/9/"></li>
-				<li class="typelist fire" data-type="https://pokeapi.co/api/v2/type/10/"></li>
-				<li class="typelist water" data-type="https://pokeapi.co/api/v2/type/11/"></li>
-				<li class="typelist grass" data-type="https://pokeapi.co/api/v2/type/12/"></li>
-				<li class="typelist electric" data-type="https://pokeapi.co/api/v2/type/13/"></li>
-				<li class="typelist psychic" data-type="https://pokeapi.co/api/v2/type/14/"></li>
-				<li class="typelist ice" data-type="https://pokeapi.co/api/v2/type/15/"></li>
-				<li class="typelist dragon" data-type="https://pokeapi.co/api/v2/type/16/"></li>
-				<li class="typelist dark" data-type="https://pokeapi.co/api/v2/type/17/"></li>
-				<li class="typelist fairy" data-type="https://pokeapi.co/api/v2/type/18/"></li>
+				<li class="typelist type normal" data-type="https://pokeapi.co/api/v2/type/1/"><span>Normal</span></li>
+				<li class="typelist type fighting" data-type="https://pokeapi.co/api/v2/type/2/"><span>Fighting</span></li>
+				<li class="typelist type flying" data-type="https://pokeapi.co/api/v2/type/3/"><span>Flying</span></li>
+				<li class="typelist type poison" data-type="https://pokeapi.co/api/v2/type/4/"><span>Poison</span></li>
+				<li class="typelist type ground" data-type="https://pokeapi.co/api/v2/type/5/"><span>Ground</span></li>
+				<li class="typelist type rock" data-type="https://pokeapi.co/api/v2/type/6/"><span>Rock</span></li>
+				<li class="typelist type bug" data-type="https://pokeapi.co/api/v2/type/7/"><span>Bug</span></li>
+				<li class="typelist type ghost" data-type="https://pokeapi.co/api/v2/type/8/"><span>Ghost</span></li>
+				<li class="typelist type steel" data-type="https://pokeapi.co/api/v2/type/9/"><span>Steel</span></li>
+				<li class="typelist type fire" data-type="https://pokeapi.co/api/v2/type/10/"><span>Fire</span></li>
+				<li class="typelist type water" data-type="https://pokeapi.co/api/v2/type/11/"><span>Water</span></li>
+				<li class="typelist type grass" data-type="https://pokeapi.co/api/v2/type/12/"><span>Grass</span></li>
+				<li class="typelist type electric" data-type="https://pokeapi.co/api/v2/type/13/"><span>Electric</span></li>
+				<li class="typelist type psychic" data-type="https://pokeapi.co/api/v2/type/14/"><span>Psychic</span></li>
+				<li class="typelist type ice" data-type="https://pokeapi.co/api/v2/type/15/"><span>Ice</span></li>
+				<li class="typelist type dragon" data-type="https://pokeapi.co/api/v2/type/16/"><span>Dragon</span></li>
+				<li class="typelist type dark" data-type="https://pokeapi.co/api/v2/type/17/"><span>Dark</span></li>
+				<li class="typelist type fairy" data-type="https://pokeapi.co/api/v2/type/18/"><span>Fairy</span></li>
 			</ul>
 		</div>
 		
 		<p id="closebutton" class="hidden">
 			<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-			    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-			    <title>close</title>
-			    <desc>Created with Sketch.</desc>
 			    <g id="close" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 			        <circle id="Oval" fill="#FFFFFF" opacity="0.300000012" cx="20" cy="20" r="20"></circle>
 			        <path d="M22,18 L31,18 C32.1045695,18 33,18.8954305 33,20 C33,21.1045695 32.1045695,22 31,22 L22,22 L22,31 C22,32.1045695 21.1045695,33 20,33 C18.8954305,33 18,32.1045695 18,31 L18,22 L9,22 C7.8954305,22 7,21.1045695 7,20 C7,18.8954305 7.8954305,18 9,18 L18,18 L18,9 C18,7.8954305 18.8954305,7 20,7 C21.1045695,7 22,7.8954305 22,9 L22,18 Z" id="Combined-Shape" fill="#FFFFFF" transform="translate(20.000000, 20.000000) rotate(-315.000000) translate(-20.000000, -20.000000) "></path>
@@ -215,16 +365,16 @@
 				
 				$.getJSON( selectedtype, function( data ) {
 					
-					var heading = "<h1>" + data.name + "</h1>";
-					
+					var heading = "<h2 class=" + data.name + ">" + data.name + "</h2>";
+															
 					$("#container").append(heading);
 				 						
 					var strong = [];
 					$.each( data.damage_relations.double_damage_from, function( key, val ) {
-						strong.push( "<li class='" + val.name + "'></li>" );
+						strong.push( "<li class='type " + val.name + "'><span>" + val.name + "</span></li>" );
 					});
 				 		
-					$("<h2/>").text("Super Effective Moves").appendTo("#container");		
+					$("<h3/>").text("Super Effective Moves").appendTo("#container");		
 				 			 
 					$( "<ul/>", {
 						html: strong.join( "" )
@@ -232,14 +382,14 @@
 					
 					var weak = [];
 					$.each( data.damage_relations.half_damage_from, function( key, val ) {
-						weak.push( "<li class='" + val.name + "'></li>" );
+						weak.push( "<li class='type " + val.name + "'><span>" + val.name + "</span</li>" );
 					});
 					
 					if($.isEmptyObject(weak)){
 					 	
 					}
 					else {
-						$("<h2/>").text("Not Effective Moves").appendTo("#container");		
+						$("<h3/>").text("Not Effective Moves").appendTo("#container");		
 					 			 
 						$( "<ul/>", {
 							html: weak.join( "" )
@@ -248,14 +398,14 @@
 				 						
 					var immune = [];
 					$.each( data.damage_relations.no_damage_from, function( key, val ) {
-						immune.push( "<li class='" + val.name + "'></li>" );
+						immune.push( "<li class='type " + val.name + "'><span>" + val.name + "</span</li>" );
 					});
 				 	
 					if($.isEmptyObject(immune)){
 					 	
 					}
 					else {
-						$("<h2/>").text("Immune to").appendTo("#container");		
+						$("<h3/>").text("Immune to").appendTo("#container");		
 					 			 
 						$( "<ul/>", {
 							html: immune.join( "" )
