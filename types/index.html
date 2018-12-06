@@ -5,6 +5,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		
+		<link href="splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />		
+		
 		<style>
 			* {
 				box-sizing: border-box;
@@ -33,14 +45,13 @@
 				width: 100%;
 				top: 0px;
 				left: 0px;
-				background: rgba(51,51,51 ,0.6);
+				background: #333;
 				z-index: 2;
-				font-size: 16px;
+				font-size: 24px;
 				padding-top: calc(10px + env(safe-area-inset-top));
 				padding-bottom: 10px;
 				margin: 0px;
 				-webkit-backdrop-filter: blur(40px);
-				box-shadow: 0px 0px 1px 0px rgba(255,255,255,0.7);
 			}
 			
 			h2 {
@@ -68,9 +79,9 @@
 				margin-bottom: 100px;
 				display: grid;
 				grid-gap: 30px;
-				grid-template-columns: repeat(auto-fill, minmax(100px, 100px));
+				grid-template-columns: repeat(auto-fill, minmax(80px, 80px));
 				justify-content: space-around;
-				grid-template-rows: 100px;
+				grid-template-rows: 80px;
 				grid-row-gap: 70px;
 			}
 			
@@ -80,7 +91,7 @@
 				border-radius: 5px;
 				text-align: center;
 				font-weight: bold;
-				height: 100px;
+				height: 80px;
 				position: relative;
 			}
 			
@@ -100,10 +111,10 @@
 			#closebutton {
 				position: fixed;
 				top: 0px;
-				right: 10px;
+				right: 20px;
 				z-index: 3;
 				margin: 0px;
-				padding-top: calc(13px + env(safe-area-inset-top));
+				padding-top: calc(15px + env(safe-area-inset-top));
 				padding-right: env(safe-area-inset-right);
 			}
 			
@@ -132,16 +143,27 @@
 				padding-right: 10px;
 			}
 			
+			@media (min-width:414px) {
+				ul {
+					grid-template-columns: repeat(auto-fill, minmax(100px, 100px));
+					grid-template-rows: 100px;
+				}
+				
+				li {
+					height: 100px;
+				}
+			}
+			
 			@media (min-width:768px) {
 				ul {
-					grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
-					grid-template-rows: 200px;
+					grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
+					grid-template-rows: 150px;
 					grid-gap: 40px;
 					grid-row-gap: 100px;
 				}
 				
 				li {
-					height: 200px;
+					height: 150px;
 				}
 				
 				.type span {
@@ -149,15 +171,45 @@
 					bottom: -50px;
 				}
 				
-				h1 {
-					font-size: 30px;
-					top: -21px;
-				}
 				
 				#typeselector {
 					top: 80px;
 				}
 			}
+
+/*
+			@media (min-width:768px) {
+				h1 {
+					display: none;
+				}
+				
+				ul {
+					grid-template-columns: 300px;
+					width: 300px;
+					grid-gap: 20px;
+					grid-template-rows: 70px;
+					align-content: center;
+					align-items: flex-start;
+				}
+				
+				li {
+					height: 70px;
+				}
+				
+				#typeselector .type span {
+					position: relative;
+					bottom: 0px;
+					display: inline;
+					width: auto;
+					left: 0px;
+					text-align: left;
+				}
+				
+				#typeselector .type {
+					background-size: contain;
+				}
+			}
+*/
 			
 			.poison {
 				background-image: url(poison.svg);
