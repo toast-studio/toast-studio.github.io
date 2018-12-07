@@ -17,6 +17,12 @@
 		<link href="splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
 		<link href="splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />		
 		
+		<style>
+			ul {
+				list-style: none;
+			}
+		</style>
+		
 	</head>
 	<body>
 		<div id="container"></div>
@@ -24,6 +30,52 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 			
+/*
+			$.getJSON( "https://pokeapi.co/api/v2/pokemon/", function( data ) {
+				
+				var pokemon = [];
+				$.each( data.results, function( key, val ) {
+					pokemon.push( "<li>" + val.name + "</li>" );
+				});
+			 			 
+				$( "<ul/>", {
+					html: pokemon.join( "" )
+				}).appendTo( "#container" );
+				
+			});
+*/
+			
+			$.getJSON( "https://pokeapi.co/api/v2/pokemon/", function( data ) {
+				
+				$.each( data.results, function( key, val ) {
+					var pname = val.name;
+					
+					var pdetails = val.url;
+										
+					$.getJSON( pdetails, function( data ) {
+						
+						var pid = data.order;
+											
+						var pokemon = [];
+						pokemon.push( "<li><img src=" + data.sprites.front_default + " />" + pid + " " + pname + "</li>" );
+					 			 
+						$( "<ul/>", {
+							html: pokemon.join( "" )
+						}).appendTo( "#container" );
+						
+var sortedPokemon = unsortedPokemon.sort((a, b) => a.id - b.id);
+
+for (pokemon in sortedPokemon) {
+	// add things to your UL in here
+  
+}						
+						
+					
+					});	
+				});
+			});			
+			
+/*
 			$.getJSON( "https://pokeapi.co/api/v2/pokemon/1/", function( data ) {
 				var strong = [];
 				strong.push( "<li><img src=" + data.sprites.front_default + " /></li>" );
@@ -33,6 +85,7 @@
 				}).appendTo( "#container" );
 				
 			});
+*/
 		</script>
 		
 	</body>
