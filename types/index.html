@@ -60,7 +60,7 @@
 				top: 0px;
 				left: 0px;
 				width: 100%;
-				color: black !important;
+				color: white !important;
 				margin: 0px;
 				padding-top: calc(10px + env(safe-area-inset-top));
 				padding-bottom: 10px;
@@ -76,29 +76,26 @@
 						
 			ul {
 				padding: 0px;
-				margin-bottom: 100px;
+				margin-bottom: 50px;
 				display: grid;
 				grid-gap: 30px;
-				grid-template-columns: repeat(auto-fill, minmax(80px, 80px));
-				justify-content: space-around;
-				grid-template-rows: 80px;
-				grid-row-gap: 70px;
+				grid-template-columns: repeat(3, 1fr);
 			}
 			
 			li {
 				list-style: none;
-				padding: 20px;
-				border-radius: 5px;
 				text-align: center;
 				font-weight: bold;
-				height: 80px;
 				position: relative;
 				justify-content: center;
-				display: grid;
+				display: flex;
+				flex-direction: column;
 			}
 			
 			.type img {
-				max-width: 100%;
+				max-width:100%;
+				margin-bottom: 10px;
+				object-fit: contain;
 			}
 			
 /*
@@ -151,6 +148,29 @@
 				padding-right: 10px;
 			}
 			
+/*
+			@media (min-width:414px) {
+				ul {
+					grid-template-columns: 1fr;
+					grid-template-rows: 50px;
+					align-self: start;
+				}
+				
+				li {
+					height: 50px;
+					flex-direction: row;
+					align-items: center;
+				}
+				
+				.type img {
+					max-height:100%;
+					margin-bottom: 0px;
+					margin-right: 10px;
+				}
+			}
+*/
+			
+/*
 			@media (min-width:414px) {
 				ul {
 					grid-template-columns: repeat(auto-fill, minmax(100px, 100px));
@@ -183,6 +203,7 @@
 					top: 80px;
 				}
 			}
+*/
 
 /*
 			@media (min-width:768px) {
@@ -303,6 +324,7 @@
 			}
 			
 			h2.electric {
+				background: #F4D23F;
 			}
 			
 			.normal {
@@ -368,30 +390,30 @@
 		<div id="typeselector">
 			<h1>Select a Defending Type</h1>
 			<ul>
-				<li class="typelist type normal" data-type="https://pokeapi.co/api/v2/type/1/"><span>Normal</span></li>
-				<li class="typelist type fighting" data-type="https://pokeapi.co/api/v2/type/2/"><span>Fighting</span></li>
-				<li class="typelist type flying" data-type="https://pokeapi.co/api/v2/type/3/"><span>Flying</span></li>
-				<li class="typelist type poison" data-type="https://pokeapi.co/api/v2/type/4/"><span>Poison</span></li>
-				<li class="typelist type ground" data-type="https://pokeapi.co/api/v2/type/5/"><span>Ground</span></li>
-				<li class="typelist type rock" data-type="https://pokeapi.co/api/v2/type/6/"><span>Rock</span></li>
-				<li class="typelist type bug" data-type="https://pokeapi.co/api/v2/type/7/"><span>Bug</span></li>
-				<li class="typelist type ghost" data-type="https://pokeapi.co/api/v2/type/8/"><span>Ghost</span></li>
-				<li class="typelist type steel" data-type="https://pokeapi.co/api/v2/type/9/"><span>Steel</span></li>
-				<li class="typelist type fire" data-type="https://pokeapi.co/api/v2/type/10/"><span>Fire</span></li>
-				<li class="typelist type water" data-type="https://pokeapi.co/api/v2/type/11/"><span>Water</span></li>
-				<li class="typelist type grass" data-type="https://pokeapi.co/api/v2/type/12/"><span>Grass</span></li>
-				<li class="typelist type electric" data-type="https://pokeapi.co/api/v2/type/13/"><span>Electric</span></li>
-				<li class="typelist type psychic" data-type="https://pokeapi.co/api/v2/type/14/"><span>Psychic</span></li>
-				<li class="typelist type ice" data-type="https://pokeapi.co/api/v2/type/15/"><span>Ice</span></li>
-				<li class="typelist type dragon" data-type="https://pokeapi.co/api/v2/type/16/"><span>Dragon</span></li>
-				<li class="typelist type dark" data-type="https://pokeapi.co/api/v2/type/17/"><span>Dark</span></li>
-				<li class="typelist type fairy" data-type="https://pokeapi.co/api/v2/type/18/"><span>Fairy</span></li>
+				<li class="typelist type normal" data-type="https://pokeapi.co/api/v2/type/1/"><img src='normal.png' /><span>Normal</span></li>
+				<li class="typelist type fighting" data-type="https://pokeapi.co/api/v2/type/2/"><img src='fighting.png' /><span>Fighting</span></li>
+				<li class="typelist type flying" data-type="https://pokeapi.co/api/v2/type/3/"><img src='flying.png' /><span>Flying</span></li>
+				<li class="typelist type poison" data-type="https://pokeapi.co/api/v2/type/4/"><img src='poison.png' /><span>Poison</span></li>
+				<li class="typelist type ground" data-type="https://pokeapi.co/api/v2/type/5/"><img src='ground.png' /><span>Ground</span></li>
+				<li class="typelist type rock" data-type="https://pokeapi.co/api/v2/type/6/"><img src='rock.png' /><span>Rock</span></li>
+				<li class="typelist type bug" data-type="https://pokeapi.co/api/v2/type/7/"><img src='bug.png' /><span>Bug</span></li>
+				<li class="typelist type ghost" data-type="https://pokeapi.co/api/v2/type/8/"><img src='ghost.png' /><span>Ghost</span></li>
+				<li class="typelist type steel" data-type="https://pokeapi.co/api/v2/type/9/"><img src='steel.png' /><span>Steel</span></li>
+				<li class="typelist type fire" data-type="https://pokeapi.co/api/v2/type/10/"><img src='fire.png' /><span>Fire</span></li>
+				<li class="typelist type water" data-type="https://pokeapi.co/api/v2/type/11/"><img src='water.png' /><span>Water</span></li>
+				<li class="typelist type grass" data-type="https://pokeapi.co/api/v2/type/12/"><img src='grass.png' /><span>Grass</span></li>
+				<li class="typelist type electric" data-type="https://pokeapi.co/api/v2/type/13/"><img src='electric.png' /><span>Electric</span></li>
+				<li class="typelist type psychic" data-type="https://pokeapi.co/api/v2/type/14/"><img src='psychic.png' /><span>Psychic</span></li>
+				<li class="typelist type ice" data-type="https://pokeapi.co/api/v2/type/15/"><img src='ice.png' /><span>Ice</span></li>
+				<li class="typelist type dragon" data-type="https://pokeapi.co/api/v2/type/16/"><img src='dragon.png' /><span>Dragon</span></li>
+				<li class="typelist type dark" data-type="https://pokeapi.co/api/v2/type/17/"><img src='dark.png' /><span>Dark</span></li>
+				<li class="typelist type fairy" data-type="https://pokeapi.co/api/v2/type/18/"><img src='fairy.png' /><span>Fairy</span></li>
 			</ul>
 		</div>
 		
 		<p id="closebutton" class="hidden">
 			<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-			    <g id="close" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+			    <g id="close" stroke="none" stroke-width="1" fill="#FFFFFF" fill-rule="evenodd">
 			        <path d="M12,8 L21,8 C22.1045695,8 23,8.8954305 23,10 C23,11.1045695 22.1045695,12 21,12 L12,12 L12,21 C12,22.1045695 11.1045695,23 10,23 C8.8954305,23 8,22.1045695 8,21 L8,12 L-1,12 C-2.1045695,12 -3,11.1045695 -3,10 C-3,8.8954305 -2.1045695,8 -1,8 L8,8 L8,-1 C8,-2.1045695 8.8954305,-3 10,-3 C11.1045695,-3 12,-2.1045695 12,-1 L12,8 Z" id="Combined-Shape" fill="#000000" transform="translate(10.000000, 10.000000) rotate(-315.000000) translate(-10.000000, -10.000000) "></path>
 			    </g>
 			</svg>
@@ -420,7 +442,7 @@
 				 						
 					var strong = [];
 					$.each( data.damage_relations.double_damage_from, function( key, val ) {
-						strong.push( "<li class='type " + val.name + "'><img src='" + val.name + ".svg' /><span>" + val.name + "</span></li>" );
+						strong.push( "<li class='type " + val.name + "'><img src='" + val.name + ".png' /><span>" + val.name + "</span></li>" );
 					});
 				 		
 					$("<h3/>").text("Super Effective Moves").appendTo("#container");		
@@ -431,7 +453,7 @@
 					
 					var weak = [];
 					$.each( data.damage_relations.half_damage_from, function( key, val ) {
-						weak.push( "<li class='type " + val.name + "'><img src='" + val.name + ".svg' /><span>" + val.name + "</span</li>" );
+						weak.push( "<li class='type " + val.name + "'><img src='" + val.name + ".png' /><span>" + val.name + "</span</li>" );
 					});
 					
 					if($.isEmptyObject(weak)){
@@ -447,7 +469,7 @@
 				 						
 					var immune = [];
 					$.each( data.damage_relations.no_damage_from, function( key, val ) {
-						immune.push( "<li class='type " + val.name + "'><img src='" + val.name + ".svg' /><span>" + val.name + "</span</li>" );
+						immune.push( "<li class='type " + val.name + "'><img src='" + val.name + ".png' /><span>" + val.name + "</span</li>" );
 					});
 				 	
 					if($.isEmptyObject(immune)){
