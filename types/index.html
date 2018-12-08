@@ -93,8 +93,15 @@
 				font-weight: bold;
 				height: 80px;
 				position: relative;
+				justify-content: center;
+				display: grid;
 			}
 			
+			.type img {
+				max-width: 100%;
+			}
+			
+/*
 			.type span {
 				position: absolute;
 				bottom: -30px;
@@ -103,6 +110,7 @@
 				width: 100%;
 				left: 0px;
 			}
+*/
 			
 			.hidden {
 				display: none;
@@ -170,8 +178,7 @@
 					font-size: 25px;
 					bottom: -50px;
 				}
-				
-				
+								
 				#typeselector {
 					top: 80px;
 				}
@@ -212,7 +219,6 @@
 */
 			
 			.poison {
-				background-image: url(poison.svg);
 				color: #C962D6;
 			}
 			
@@ -221,7 +227,6 @@
 			}
 			
 			.fire {
-				background-image: url(fire.svg);
 				color: #FFB14F;
 			}
 			
@@ -230,7 +235,6 @@
 			}
 			
 			.ground {
-				background-image: url(ground.svg);
 				color: #D49A6B;
 			}
 			
@@ -239,7 +243,6 @@
 			}
 			
 			.water {
-				background-image: url(water.svg);
 				color: #73C6E4;
 			}
 			
@@ -248,7 +251,6 @@
 			}
 
 			.grass {
-				background-image: url(grass.svg);
 				color: #5AC37D;
 			}
 			
@@ -257,7 +259,6 @@
 			}
 			
 			.bug {
-				background-image: url(bug.svg);
 				color: #ADC836;
 			}
 			
@@ -266,7 +267,6 @@
 			}
 			
 			.rock {
-				background-image: url(rock.svg);
 				color: #D6CC95;
 			}
 			
@@ -275,7 +275,6 @@
 			}
 			
 			.ice {
-				background-image: url(ice.svg);
 				color: #96DDD7;
 			}
 			
@@ -284,7 +283,6 @@
 			}
 			
 			.steel {
-				background-image: url(steel.svg);
 				color: #57ACAD;
 			}
 			
@@ -293,7 +291,6 @@
 			}
 			
 			.fairy {
-				background-image: url(fairy.svg);
 				color: #F4AAE4;
 			}
 			
@@ -302,16 +299,13 @@
 			}
 			
 			.electric {
-				background-image: url(electric.svg);
 				color: #FAE277;
 			}
 			
 			h2.electric {
-				background: #FAE277;
 			}
 			
 			.normal {
-				background-image: url(normal.svg);
 				color: #A9A79F;
 			}
 			
@@ -320,7 +314,6 @@
 			}
 			
 			.dark {
-				background-image: url(dark.svg);
 				color: #6F7684;
 			}
 			
@@ -329,7 +322,6 @@
 			}
 			
 			.ghost {
-				background-image: url(ghost.svg);
 				color: #7A74D7;
 			}
 			
@@ -338,7 +330,6 @@
 			}
 			
 			.flying {
-				background-image: url(flying.svg);
 				color: #8FA8DD;
 			}
 			
@@ -347,7 +338,6 @@
 			}
 			
 			.psychic {
-				background-image: url(psychic.svg);
 				color: #FEA399;
 			}
 			
@@ -356,7 +346,6 @@
 			}
 			
 			.fighting {
-				background-image: url(fighting.svg);
 				color: #E2444B;
 			}
 			
@@ -365,7 +354,6 @@
 			}
 			
 			.dragon {
-				background-image: url(dragon.svg);
 				color: #0582BC;
 			}
 			
@@ -432,7 +420,7 @@
 				 						
 					var strong = [];
 					$.each( data.damage_relations.double_damage_from, function( key, val ) {
-						strong.push( "<li class='type " + val.name + "'><span>" + val.name + "</span></li>" );
+						strong.push( "<li class='type " + val.name + "'><img src='" + val.name + ".svg' /><span>" + val.name + "</span></li>" );
 					});
 				 		
 					$("<h3/>").text("Super Effective Moves").appendTo("#container");		
@@ -443,7 +431,7 @@
 					
 					var weak = [];
 					$.each( data.damage_relations.half_damage_from, function( key, val ) {
-						weak.push( "<li class='type " + val.name + "'><span>" + val.name + "</span</li>" );
+						weak.push( "<li class='type " + val.name + "'><img src='" + val.name + ".svg' /><span>" + val.name + "</span</li>" );
 					});
 					
 					if($.isEmptyObject(weak)){
@@ -459,7 +447,7 @@
 				 						
 					var immune = [];
 					$.each( data.damage_relations.no_damage_from, function( key, val ) {
-						immune.push( "<li class='type " + val.name + "'><span>" + val.name + "</span</li>" );
+						immune.push( "<li class='type " + val.name + "'><img src='" + val.name + ".svg' /><span>" + val.name + "</span</li>" );
 					});
 				 	
 					if($.isEmptyObject(immune)){
