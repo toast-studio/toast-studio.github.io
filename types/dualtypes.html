@@ -46,33 +46,13 @@
 		
 	</head>
 	<body>
-		<ul>
-			<li data-type="normal">Normal</li>
-			<li data-type="fighting">Fighting</li>
-			<li data-type="flying">Flying</li>
-			<li data-type="poison">Poison</li>
-			<li data-type="ground">Ground</li>
-			<li data-type="rock">Rock</li>
-			<li data-type="bug">Bug</li>
-			<li data-type="ghost">Ghost</li>
-			<li data-type="steel">Steel</li>
-			<li data-type="fire">Fire</li>
-			<li data-type="water">Water</li>
-			<li data-type="grass">Grass</li>
-			<li data-type="electric">Electric</li>
-			<li data-type="psychic">Psychic</li>
-			<li data-type="ice">Ice</li>
-			<li data-type="drgaon">Dragon</li>
-			<li data-type="dark">Dark</li>
-			<li data-type="fairy">Fairy</li>
-		</ul>
-		
-		
+		<h1>Test</h1>
+		<div id="container"></div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
-			$( "li" ).click(function() {
-				selectedtype = $(this).attr('data-type');
-				console.log(selectedtype);
+			$( "h1" ).click(function() {
+				typeOne = $(this).attr('data-type');
+				console.log(typeOne);
 				$(this).addClass('disabled');
 				
 				var types = {
@@ -158,6 +138,9 @@
 				
 				var allTypes = ['normal', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric','psychic', 'ice', 'dragon', 'dark', 'fairy']
 				
+				var typeOne = 'fire';
+				var typeTwo = 'water';
+				
 				function getMultipliers(typeOne, typeTwo) {
 					if(!typeTwo) {
 				  	// return type1's stuff, because type2 is empty
@@ -170,7 +153,7 @@
 				  //create multipliers for combo type
 				  var comboType = {};
 				  
-				  for (type in alltypes) {
+				  for (type in allTypes) {
 				  
 				    // inside this loop you'll check if 'type' is 
 				    // super effective, effective, not effective, or useless
@@ -206,14 +189,18 @@
 				  // we have calculated the types for this combo, now return it
 				  
 				  return comboType;
-				}
+				  
+				  console.log(comboType);
+				  
+					var heading = comboType;
+															
+					$("#container").append(heading);
+				  
+				};
 				
+				getMultipliers(typeOne, typeTwo);
 				
-				
-				
-				
-				
-			});			
+			});	
 		</script>
 		
 	</body>
