@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
     <title>dark</title>
     <desc>Created with Sketch.</desc>
-    <defs>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="99.8148483%" id="linearGradient-1">
-            <stop stop-color="#5A5366" offset="0%"></stop>
-            <stop stop-color="#6F7684" offset="100%"></stop>
-        </linearGradient>
-    </defs>
     <g id="dark" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <circle id="Oval" fill="url(#linearGradient-1)" cx="75" cy="75" r="75"></circle>
-        <path d="M75,125 C102.614237,125 125,102.614237 125,75 C125,47.3857625 102.614237,25 75,25 C47.3857625,25 25,47.3857625 25,75 C25,102.614237 47.3857625,125 75,125 Z M60.1785895,113.239115 C75.4968103,107.297663 86.357179,92.4171191 86.357179,75 C86.357179,57.5828809 75.4968103,42.7023369 60.1785895,36.7608846 C64.7753045,34.9779645 69.7734443,34 75,34 C97.6436747,34 116,52.3563253 116,75 C116,97.6436747 97.6436747,116 75,116 C69.7734443,116 64.7753045,115.022036 60.1785895,113.239115 Z" id="Oval-2" fill="#FFFFFF"></path>
+        <path d="M50,100 C77.6142375,100 100,77.6142375 100,50 C100,22.3857625 77.6142375,0 50,0 C22.3857625,0 0,22.3857625 0,50 C0,77.6142375 22.3857625,100 50,100 Z M35.1785895,88.2391154 C50.4968103,82.2976631 61.357179,67.4171191 61.357179,50 C61.357179,32.5828809 50.4968103,17.7023369 35.1785895,11.7608846 C39.7753045,9.97796449 44.7734443,9 50,9 C72.6436747,9 91,27.3563253 91,50 C91,72.6436747 72.6436747,91 50,91 C44.7734443,91 39.7753045,90.0220355 35.1785895,88.2391154 Z" id="Oval-2" fill="#FFFFFF"></path>
     </g>
 </svg>

@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
     <title>steel</title>
     <desc>Created with Sketch.</desc>
-    <defs>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="99.8148483%" id="linearGradient-1">
-            <stop stop-color="#54879C" offset="0%"></stop>
-            <stop stop-color="#57ACAD" offset="100%"></stop>
-        </linearGradient>
-    </defs>
     <g id="steel" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <circle id="Oval" fill="url(#linearGradient-1)" cx="75" cy="75" r="75"></circle>
-        <path d="M100.30127,32 L125.30127,75.3012702 L100.30127,118.60254 L50.3012702,118.60254 L25.3012702,75.3012702 L50.3012702,32 L100.30127,32 Z M75,100 C88.8071187,100 100,88.8071187 100,75 C100,61.1928813 88.8071187,50 75,50 C61.1928813,50 50,61.1928813 50,75 C50,88.8071187 61.1928813,100 75,100 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+        <path d="M75,7 L100,50.3012702 L75,93.6025404 L25,93.6025404 L-7.10542736e-15,50.3012702 L25,7 L75,7 Z M49.6987298,75 C63.5058486,75 74.6987298,63.8071187 74.6987298,50 C74.6987298,36.1928813 63.5058486,25 49.6987298,25 C35.8916111,25 24.6987298,36.1928813 24.6987298,50 C24.6987298,63.8071187 35.8916111,75 49.6987298,75 Z" id="Combined-Shape" fill="#FFFFFF"></path>
     </g>
 </svg>

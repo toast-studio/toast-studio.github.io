@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
     <title>fairy</title>
     <desc>Created with Sketch.</desc>
-    <defs>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="99.8148483%" id="linearGradient-1">
-            <stop stop-color="#ED8CE5" offset="0%"></stop>
-            <stop stop-color="#F4AAE4" offset="100%"></stop>
-        </linearGradient>
-    </defs>
     <g id="fairy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <circle id="Oval" fill="url(#linearGradient-1)" cx="75" cy="75" r="75"></circle>
-        <path d="M59,75 L69,80 L75,90 L81,80 L91,75 L81,70 L75,60 L69,70 L59,75 Z M26,75 L49,61 L46,47 L61,51 L75,26 L89,51 L104,47 L101,61 L124,75 L101,89 L104,103 L89,99 L75,124 L61,99 L46,103 L49,89 L26,75 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+        <path d="M34,50 L44,55 L50,65 L56,55 L66,50 L56,45 L50,35 L44,45 L34,50 Z M1,50 L24,36 L21,22 L36,26 L50,1 L64,26 L79,22 L76,36 L99,50 L76,64 L79,78 L64,74 L50,99 L36,74 L21,78 L24,64 L1,50 Z" id="Combined-Shape" fill="#FFFFFF"></path>
     </g>
 </svg>
