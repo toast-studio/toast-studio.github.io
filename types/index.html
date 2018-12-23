@@ -26,6 +26,9 @@
 				background: #1A1A1A;
 				padding: 0px;
 				margin: 0px;
+				-webkit-user-select: none;
+				-webkit-tap-highlight-color: transparent;
+				-webkit-touch-callout: none;
 			}
 			
 			@media (min-width: 768px) {
@@ -126,7 +129,7 @@
 				overflow: hidden;
 			}
 			
-			aside {
+			#sidebar {
 				height: 100vh;
 				padding: 0px;
 				overflow: scroll;
@@ -135,7 +138,7 @@
 			}
 			
 			@media (min-width: 768px) {
-				aside {
+				#sidebar {
 					border-right: 1px solid rgba(255,255,255,0.1);
 				}
 			}
@@ -240,7 +243,7 @@
 				text-align: center;
 			}
 			
-			aside header {
+			#sidebar header {
 				position: fixed;
 				top: 0px;
 				background: #313131;;
@@ -253,7 +256,7 @@
 				align-items: center;
 			}
 			
-			aside header h1 {
+			#sidebar header h1 {
 				font-size: 18px;
 				padding: 0px;
 				padding-top: env(safe-area-inset-top);
@@ -265,7 +268,7 @@
 			}
 			
 			@media (min-width: 768px) {
-				aside header {
+				#sidebar header {
 					width: 349px
 				}
 			}
@@ -276,7 +279,7 @@
 				right: 0px;
 			}
 						
-			aside li:hover {
+			#sidebar li:hover {
 				cursor: hand;
 			}
 			
@@ -298,7 +301,7 @@
 				}
 			}
 			
-			aside section {
+			#sidebar section {
 				background: #313131;
 				position: fixed;
 				bottom: 0px;
@@ -322,7 +325,7 @@
 			}
 			
 			@media (min-width: 768px) {
-				aside section {
+				#sidebar section {
 					display: none;
 				}
 			}
@@ -1950,7 +1953,7 @@
 					$('#half').removeClass('hidden');
 					$('#quarter').removeClass('hidden');
 					$('#immune').removeClass('hidden');
-					$('aside section').removeClass('hidden');
+					$('#sidebar section').removeClass('hidden');
 					
 					type1 = selectedtypes[0];
 					type2 = selectedtypes[1];
@@ -2065,12 +2068,13 @@
 					$('#selector li').removeClass('active');
 					clicks = 0;
 					$('#results').addClass('mobilehidden');
-					$('aside section').addClass('hidden');
+					$('#sidebar section').addClass('hidden');
+					window.scrollTo(0, 0);
 				});
 				
 			});
 		</script>
-		<aside>
+		<div id="sidebar">
 			<header>
 				<h1>Defending types</h1>
 			</header>
@@ -2078,7 +2082,7 @@
 			<section class="hidden">
 				<p id="showresults">Show results</p>
 			</section>
-		</aside>
+		</div>
 		<main>
 			<div id="results" class="hidden mobilehidden">
 				<header>
