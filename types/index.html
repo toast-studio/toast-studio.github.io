@@ -34,15 +34,7 @@
 					grid-template-columns: 350px 1fr;
 				}
 			}
-			
-/*
-			@media (min-width: 1440px) {
-				body {
-					grid-template-columns: 1fr 3fr;
-				}
-			}
-*/
-			
+
 			#results {
 				height: 100vh;
 				overflow: scroll;
@@ -111,7 +103,7 @@
 				}
 			}
 			
-			#content {
+			main {
 				background: url(logo_background.svg);
 				background-repeat: no-repeat;
 				background-position: center center;
@@ -134,32 +126,29 @@
 				overflow: hidden;
 			}
 			
-			#typeselector {
-				border-right: 1px solid rgba(255,255,255,0.1);
+			aside {
 				height: 100vh;
-				padding: 0px 20px;
+				padding: 0px;
 				overflow: scroll;
 				-webkit-overflow-scrolling: touch;
 				background: #313131;
-				padding-top: env(safe-area-inset-top);
+			}
+			
+			@media (min-width: 768px) {
+				aside {
+					border-right: 1px solid rgba(255,255,255,0.1);
+				}
 			}
 			
 			#selector {
-				padding: 0px;
+				padding: 0px 20px 80px 20px;
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
 				grid-gap: 10px;
 				grid-row-gap: 20px;
 				margin-bottom: 50px;
+				padding-top: calc(90px + env(safe-area-inset-top));
 			}
-			
-/*
-			@media (min-width: 1440px) {
-				#selector {
-					grid-template-columns: repeat(4, 1fr);
-				}
-			}
-*/
 			
 			#selector li {
 				color: rgba(255,255,255,0.5);
@@ -203,9 +192,6 @@
 				text-transform: capitalize;
 				font-family: -apple-system, helvetica;
 				color: white;
-				width: 100%;
-				grid-column-end: span 3;
-				padding-left: 10px;
 				margin: 0px;
 				padding-top: 20px;
 				padding-bottom: 20px;
@@ -232,6 +218,8 @@
 				margin-bottom: 10px;
 				text-transform: none;
 				padding: 0px 0px 10px 0px;
+				grid-column-end: span 3;
+				padding-left: 10px;
 				
 			}
 			
@@ -251,9 +239,31 @@
 				text-align: center;
 			}
 			
-			header {
-				text-align: center;
+			aside header {
+				position: fixed;
+				top: 0px;
+				background: #313131;;
+				width: 100%;
+				border-bottom: 1px solid black;
+				box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.1);
+				padding: 20px;
+				padding-top: calc(20px + env(safe-area-inset-top));
+			}
+			
+			aside header h1 {
+				height: 40px;
+				font-size: 18px;
+				padding-top: 10px;
+			}
+			
+			main header {
 				position: relative;
+			}
+			
+			@media (min-width: 768px) {
+				aside header {
+					width: 349px
+				}
 			}
 			
 			#reset {
@@ -262,7 +272,7 @@
 				right: 0px;
 			}
 						
-			#typeselector li:hover {
+			aside li:hover {
 				cursor: hand;
 			}
 			
@@ -272,6 +282,45 @@
 						
 			.hidden {
 				display: none;
+			}
+			
+			.mobilehidden {
+				visibility: hidden;
+			}
+			
+			@media (min-width: 768px) {
+				.mobilehidden {
+					visibility: visible;
+				}
+			}
+			
+			aside section {
+				background: #313131;
+				position: fixed;
+				bottom: 0px;
+				width: 100%;
+				padding: 20px;
+				font-family: -apple-system;
+				border-top: 1px solid rgba(255,255,255,0.1);
+				box-shadow: 0px -1px 0px 0px black, 0px 0px 20px 0px rgba(0,0,0,0.5);
+			}
+			
+			#showresults {
+				margin: 0px;
+				text-align: center;
+				background: white;
+				border-radius: 30px;
+				padding: 20px;
+			}
+			
+			#showresults:hover {
+				cursor: hand;
+			}
+			
+			@media (min-width: 768px) {
+				aside section {
+					display: none;
+				}
 			}
 			
 			#results .normal {
@@ -1842,12 +1891,42 @@
 				var halfDamage = []
 				var quarterDamage = []
 				var immune = []
+				var clicks = 0;
+				
 				
 				$.each( types.normal, function( key, val ) {
 					$("#selector").append("<li class='" + val.name + "' data-type='" + val.name + "'><img src='" + val.name + ".png' /><span>" + val.name + "</span></li>")
 				});
+				
+				$('#showresults').click(function() {
+					$('#results').removeClass('mobilehidden');
+				});
 								
 				$('#selector li').click(function() {
+														
+				    if (clicks == 2){
+						type1 = [];
+						type2 = [];
+						combo1 = [];
+						combo2 = [];
+						attackingtype = [];
+						$('#results li').remove();
+						$('#results li').empty();
+						$('#selectedtypes').empty();
+						$('#quadruple').removeClass('hidden');
+						$('#double').removeClass('hidden');
+						$('#half').removeClass('hidden');
+						$('#quarter').removeClass('hidden');
+						$('#immune').removeClass('hidden');
+						type1 = selectedtypes[0];
+						type2 = selectedtypes[1];
+						$('#results').addClass('hidden');
+						selectedtypes = []
+						$('#selector li').removeClass('active');
+						clicks = 0
+				    }
+				    ++clicks;
+					
 					$(this).addClass('active');
 					$('#results').removeClass('hidden');
 					var thisType = $(this).attr('data-type');
@@ -1867,6 +1946,7 @@
 					$('#half').removeClass('hidden');
 					$('#quarter').removeClass('hidden');
 					$('#immune').removeClass('hidden');
+					$('aside section').removeClass('hidden');
 					
 					type1 = selectedtypes[0];
 					type2 = selectedtypes[1];
@@ -1979,18 +2059,24 @@
 					$('#results').addClass('hidden');
 					selectedtypes = []
 					$('#selector li').removeClass('active');
+					clicks = 0;
+					$('#results').addClass('mobilehidden');
+					$('aside section').addClass('hidden');
 				});
 				
 			});
 		</script>
-		<div id="typeselector">
-			<h1>Defending types</h1>
-			<ul id="selector">
-				
-			</ul>
-		</div>
-		<div id="content">
-			<div id="results" class="hidden">
+		<aside>
+			<header>
+				<h1>Defending types</h1>
+			</header>
+			<ul id="selector"></ul>
+			<section class="hidden">
+				<p id="showresults">Show results</p>
+			</section>
+		</aside>
+		<main>
+			<div id="results" class="hidden mobilehidden">
 				<header>
 					<h1 id="selectedtypes"></h1>
 					<img src="close.svg" id="reset" />
@@ -1998,40 +2084,30 @@
 				
 				<section id="quadruple">
 					<h3>Takes 4&#215; damage from</h3>
-					<ul>
-						
-					</ul>
+					<ul></ul>
 				</section>
 				
 				<section id="double">
 					<h3>Takes 2&#215; damage from</h3>
-					<ul>
-						
-					</ul>
+					<ul></ul>
 				</section>
 				
 				<section id="half">
 					<h3>Takes &frac12;&#215; damage from</h3>
-					<ul>
-						
-					</ul>
+					<ul></ul>
 				</section>
 				
 				<section id="quarter">
 					<h3>Takes &frac14;&#215; damage from</h3>
-					<ul id="quarter">
-						
-					</ul>
+					<ul id="quarter"></ul>
 				</section>
 				
 				<section id="immune">
 					<h3>Immune to</h3>
-					<ul>
-						
-					</ul>
+					<ul></ul>
 				</section>
 				<p class="legal">Pok&eacute;mon &copy;2002-2019 Pok&eacute;mon. &copy;1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.&trade;, &reg; and Pok&eacute;mon character names are trademarks of Nintendo. No copyright or trademark infringement is intended in using Pok&eacute;mon content on this page.</p>
 			</div>
-		</div>
+		</main>
 	</body>
 </html>
