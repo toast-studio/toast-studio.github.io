@@ -1,2149 +1,269 @@
 <html>
 	<head>
-		<title>TypeDex</title>
+		<title>Viewport Test</title>
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-		
-		<link href="splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-		<link href="splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-		<link href="splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-		<link href="splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-		<link href="splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-		<link href="splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-		<link href="splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-		<link href="splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-		<link href="splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-		<link href="splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />		
 		
 		<style>
 			* {
 				box-sizing: border-box;
 			}
 			
-			body {
-				background: #1A1A1A;
-				padding: 0px;
-				margin: 0px;
-				-webkit-user-select: none;
-				-webkit-tap-highlight-color: transparent;
-				-webkit-touch-callout: none;
-				height: 100vh;
+			li {
+				font-family: -apple-system;
+				font-size: 30px;
+				padding-bottom: 30px;
+				list-style: none;
 			}
 			
-			@media (min-width: 768px) {
-				body {
-					display: grid;
-					grid-template-columns: 350px 1fr;
-				}
-			}
-
-			#results {
+			body {
+				margin: 0px;
 				height: 100vh;
 				overflow: scroll;
+			}
+			
+			aside {
+				position: fixed;
+				overflow: scroll;
 				-webkit-overflow-scrolling: touch;
-				position: absolute;
-				top: 0px;
+				height: 100%;
+				width: 100%;
 				left: 0px;
-				width: 100vw;
-				background: #1A1A1A;
-				padding: 0px 10px 10px 10px;
-				padding-top: env(safe-area-inset-top);
-				z-index: 2
-			}
-			
-			@media (min-width: 768px) {
-				#results {
-					padding: 0px 50px 50px 50px;
-					position: relative;
-					width: auto;
-				}
-			}
-			
-			@media (min-width: 1440px) {
-				#results {
-					padding: 0px 200px 50px 200px;
-				}
-			}
-			
-			#results ul {
-				padding: 0px;
-				display: grid;
-				grid-gap: 10px;
-				margin: 0px;
-			}
-						
-			@media (min-width: 375px) {
-				#results ul {
-					grid-template-columns: repeat(2, 1fr);
-				}
-			}
-			
-			@media (min-width: 768px) {
-				#results ul {
-					grid-gap: 20px;
-					padding: 20px;
-				}
-			}
-			
-			@media (min-width: 1024px) {
-				#results ul {
-					grid-template-columns: repeat(3, 1fr);
-				}
-			}
-			
-			@media (min-width: 1440px) {
-				#results ul {
-					grid-template-columns: repeat(4, 1fr);
-				}
-			}
-			
-			#results section {
-				margin-bottom: 40px;
-			}
-			
-			@media (min-width: 768px) {
-				#results section {
-					background: rgba(255,255,255,0.1);
-					border: 1px solid rgba(255,255,255,0.1);
-					border-radius: 10px;
-					margin-bottom: 40px;
-				}
+				transition: 0.2s left ease;
 			}
 			
 			main {
-				background: url(logo_background.svg);
-				background-repeat: no-repeat;
-				background-position: center center;
-			}
-			
-			#results li {
-				list-style: none;
-				font-size: 22px;
-				font-weight: 500;
-				font-family: -apple-system, helvetica;
-				display: flex;
-				align-items: center;
-				text-transform: capitalize;
-				color: white;
-				border-radius: 30px;
-				height: 60px;
-				padding:15px;
-				background: rgba(255,255,255,0.1);
-				box-shadow: inset 0px 0px 0px 2px rgba(255,255,255,0.2);
-				overflow: hidden;
-			}
-			
-			#sidebar {
-				padding: 0px;
-				background: #313131;
-				overflow-y: scroll;
-				-webkit-overflow-scrolling: touch;
-				padding-bottom: 44px;
 				position: fixed;
+				overflow: scroll;
+				-webkit-overflow-scrolling: touch;
 				height: 100%;
 				width: 100%;
+				left: 100%;
+				transition: 0.2s left ease;
 			}
 			
-			@media (min-width: 768px) {
-				#sidebar {
-					border-right: 1px solid rgba(255,255,255,0.1);
-					position: relative;
-					height: auto;
-				}
+			ul {
+			   padding-top: calc(70px + env(safe-area-inset-top));
+			   padding-bottom: env(safe-area-inset-bottom);
+			   padding-left: calc(20px + env(safe-area-inset-left));
+			}
+						
+			header {
+			    height: calc(60px + env(safe-area-inset-top));
+			    width: 200%;
+			    position: fixed;
+			    z-index: 3;
+			    background: blue;
+			    display: grid;
+			    grid-template-columns: 1fr 1fr;
+			    align-items: center;
+			    transition: 0.2s left ease;
+			    left: 0px;
 			}
 			
-			#selector {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				grid-gap: 10px;
-				grid-row-gap: 20px;
-				padding-top: calc(90px + env(safe-area-inset-top));
-				padding-left: calc(20px + env(safe-area-inset-left));
-				padding-right: 20px;
-				padding-bottom: 40px;
-				z-index: 0;	
+			header section {
 				width: 100%;
-				margin: 0px;
-				
-			}
-			
-			@media (min-width: 768px) {
-				#selector {
-					padding-bottom: 0px;
-				}
-			}
-			
-			#selector li {
-				color: rgba(255,255,255,0.5);
-				list-style: none;
-				font-size: 16px;
-				font-weight: 500;
-				font-family: -apple-system, helvetica;
-				text-transform: capitalize;
-				text-align: center;
-			}
-			
-			#selector li img {
-				max-width: 80%;
-				margin: 0px auto 5px auto;
-				border-radius: 50%;
-			}
-			
-			#selector li span {
-				display: block;
-			}
-			
-			#selector li:hover {
-				cursor: hand;
-			}
-			
-			#results li img {
-				width: 30px;
-				height: 30px;
-				margin-right: 10px;
-			}
-			
-			#reset:hover {
-				cursor: hand;
+				float: left;
 			}
 			
 			h1 {
-				text-align: center;
-			}
-
-			h1, h3 {
-				text-transform: capitalize;
-				font-family: -apple-system, helvetica;
 				color: white;
+				font-family: -apple-system;
 				margin: 0px;
-				padding-top: 20px;
-				padding-bottom: 20px;
-				padding-left: 0px;
-			}
-			
-			h2 {
-				font-family: -apple-system;
-				color: white;
-				width: 100%;
-				text-align: center;
-				padding: 20px;
-				border-radius: 10px;
-				background: rgba(255,255,255,0.2);
-			}
-			
-			h2:hover {
-				cursor: hand;
-				background: rgba(255,255,255,0.3);
-			}
-			
-			h3 {
-				border-bottom: 2px solid rgba(255,255,255,0.1);
-				margin-bottom: 10px;
-				text-transform: none;
-				padding: 0px 0px 10px 0px;
-				grid-column-end: span 3;
-				padding-left: 10px;
-				
-			}
-			
-			@media (min-width: 768px) {
-				h3 {
-					border-bottom: 1px solid black;
-					box-shadow: 0px 1px 0px rgba(255,255,255,0.1);
-					padding: 20px;
-					margin-bottom: 0px;
-				}
-			}
-			
-			.legal {
-				color: rgba(255,255,255,0.3);
-				font-family: -apple-system;
-				font-size: 12px;
-				text-align: center;
-				padding-bottom: env(safe-area-inset-bottom);
-			}
-			
-			#sidebar header {
-				position: fixed;
-				top: 0px;
-				background: #313131;;
-				width: 100%;
-				border-bottom: 1px solid black;
-				box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.1);
-				height: calc(70px + env(safe-area-inset-top));
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				z-index: 1;
-			}
-			
-			#sidebar header h1 {
-				font-size: 18px;
 				padding: 0px;
-				padding-top: env(safe-area-inset-top);
-				padding-left: env(safe-area-inset-left);
-			}
-			
-			main header {
-				position: relative;
-			}
-			
-			@media (min-width: 768px) {
-				#sidebar header {
-					width: 349px
-				}
-			}
-			
-			#reset {
-				position: absolute;
-				top: 28px;
-				right: 0px;
-			}
-						
-			#sidebar li:hover {
-				cursor: hand;
-			}
-			
-			li.active img {
-				box-shadow: 0 0px 0px 4px #313131, 0 0px 0px 6px white;
-			}
-			
-			.activemargin {
-				padding-bottom: 130px !important;
-			}
-						
-			.hidden {
-				display: none;
-			}
-			
-			.mobilehidden {
-				visibility: hidden;
-			}
-			
-			@media (min-width: 768px) {
-				.mobilehidden {
-					visibility: visible;
-				}
-			}
-			
-			#sidebar section {
-				background: #313131;
-				position: fixed;
-				bottom: 0px;
-				width: 100%;
-				padding: 20px;
-				font-family: -apple-system;
-				border-top: 1px solid rgba(255,255,255,0.1);
-				box-shadow: 0px -1px 0px 0px black, 0px 0px 20px 0px rgba(0,0,0,0.5);
-			}
-			
-			#showresults {
-				margin: 0px;
 				text-align: center;
-				background: white;
-				border-radius: 30px;
-				padding: 20px;
+				padding-top: calc(0px + env(safe-area-inset-top));
 			}
 			
-			#showresults:hover {
+			#toggle {
+				background: hotpink;
+				position: absolute;
+				bottom: 20px;
+				right: 20px;
+				height: 60px;
+				width: 60px;
+				border-radius: 50%;
+				z-index: 3;
+			}
+			
+			#toggle:hover {
 				cursor: hand;
+				background: pink;
+				box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
 			}
 			
+			.shiftAside {
+				left: -100%;
+				transition: 0.2s left ease;
+			}
+			
+			.shiftMain {
+				left: 0px;
+				transition: 0.2s left ease;
+			}
+			 
 			@media (min-width: 768px) {
-				#sidebar section {
+				aside {
+					width: 350px;
+					border-right: 1px solid rgba(0,0,0,0.2);
+				}
+				
+				main {
+					display: block;
+					width: calc(100% - 350px);
+					right: 0px;
+					left: 350px;
+				}
+				
+				header {
+					width: 100%;
+					grid-template-columns: 350px 1fr;
+				}
+				
+				#toggle {
 					display: none;
 				}
+				
+				.shiftAside {
+					left: 0px;
+					transition: 0.2s left ease;
+				}
+				
+				.shiftMain {
+					left: 350px;
+					transition: 0.2s left ease;
+				}
 			}
-			
-			#results .normal {
-				background-image: linear-gradient(90deg, #A9A79F 0%, #9099A1 100%);
-			}
-			
-			#results .normal::after {
-				content: url(normal.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-			
-			#results .fighting {
-				background-image: linear-gradient(90deg, #E2444B 0%, #CE406A 100%);
-			}
-			
-			#results .fighting::after {
-				content: url(fighting.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-			
-			#results .flying {
-				background-image: linear-gradient(90deg, #A5BFEE 0%, #8FA8DD 100%);
-			}
-			
-			#results .flying::after {
-				content: url(flying.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-			
-			#results .poison {
-				background-image: linear-gradient(90deg, #C962D6 0%, #A567C6 100%);
-			}
-			
-			#results .poison::after {
-				content: url(poison.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .ground {
-				background-image: linear-gradient(90deg, #D49A6B 0%, #D97747 100%);
-			}
-			
-			#results .ground::after {
-				content: url(ground.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .rock {
-				background-image: linear-gradient(90deg, #D6CC95 0%, #B2A06A 100%);
-			}
-			
-			#results .rock::after {
-				content: url(rock.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .bug {
-				background-image: linear-gradient(90deg, #ADC836 0%, #91C230 100%);
-			}
-			
-			#results .bug::after {
-				content: url(bug.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .ghost {
-				background-image: linear-gradient(90deg, #7A74D7 0%, #5369AC 100%);
-			}
-			
-			#results .ghost::after {
-				content: url(ghost.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .steel {
-				background-image: linear-gradient(90deg, #57ACAD 0%, #54879C 100%);
-			}
-			
-			#results .steel::after {
-				content: url(steel.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .fire {
-				background-image: linear-gradient(90deg, #FFB14F 0%, #FF9C55 100%);
-			}
-			
-			#results .fire::after {
-				content: url(fire.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .water {
-				background-image: linear-gradient(90deg, #73C6E4 0%, #4F90D5 100%);
-			}
-			
-			#results .water::after {
-				content: url(water.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .grass {
-				background-image: linear-gradient(90deg, #62BA56 0%, #5AC37D 100%);
-			}
-			
-			#results .grass::after {
-				content: url(grass.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .electric {
-				background-image: linear-gradient(90deg, #F4D63F 0%, #F4BD3F 100%);
-			}
-			
-			#results .electric::after {
-				content: url(electric.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .psychic {
-				background-image: linear-gradient(90deg, #FEA399 0%, #F86D74 100%);
-			}
-			
-			#results .psychic::after {
-				content: url(psychic.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .ice {
-				background-image: linear-gradient(90deg, #96DDD7 0%, #74CEC0 100%);
-			}
-			
-			#results .ice::after {
-				content: url(ice.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .dragon {
-				background-image: linear-gradient(90deg, #0582BC 0%, #0969C1 100%);
-			}
-			
-			#results .dragon::after {
-				content: url(dragon.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .dark {
-				background-image: linear-gradient(90deg, #6F7684 0%, #5A5366 100%);
-			}
-			
-			#results .dark::after {
-				content: url(dark.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			#results .fairy {
-				background-image: linear-gradient(90deg, #F4AAE4 0%, #ED8CE5 100%);
-			}
-			
-			#results .fairy::after {
-				content: url(fairy.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-
-			
-			
-			
+			 
+			 
+			 
 		</style>
 	</head>
 	<body>
+		<div id="toggle"></div>
+		<header>
+			<section>
+				<h1>Sidebar</h1>
+			</section>
+			<section>
+				<h1>Main Content</h1>
+			</section>
+		</header>
+		<aside>
+			<ul>
+				<li>First Item</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Sidebar</li>
+				<li>Last Item</li>
+			</ul>
+		</aside>
+		<main>
+			<ul>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+				<li>Main Content</li>
+			</ul>
+		</main>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
-			$('document').ready(function(){
-				
-				var types = {
-					"normal": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "A"
-						},
-						{
-							"name": "flying",
-							"multiplier": "B"
-						},
-						{
-							"name": "poison",
-							"multiplier": "B"
-						},
-						{
-							"name": "ground",
-							"multiplier": "B"
-						},
-						{
-							"name": "rock",
-							"multiplier": "B"
-						},
-						{
-							"name": "bug",
-							"multiplier": "B"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "D"
-						},
-						{
-							"name": "steel",
-							"multiplier": "B"
-						},
-						{
-							"name": "fire",
-							"multiplier": "B"
-						},
-						{
-							"name": "water",
-							"multiplier": "B"
-						},
-						{
-							"name": "grass",
-							"multiplier": "B"
-						},
-						{
-							"name": "electric",
-							"multiplier": "B"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "B"
-						},
-						{
-							"name": "ice",
-							"multiplier": "B"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "B"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "B"
-						}
-					],
-					"fighting": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "B"
-						},
-						{
-							"name": "flying",
-							"multiplier": "A"
-						},
-						{
-							"name": "poison",
-							"multiplier": "B"
-						},
-						{
-							"name": "ground",
-							"multiplier": "B"
-						},
-						{
-							"name": "rock",
-							"multiplier": "C"
-						},
-						{
-							"name": "bug",
-							"multiplier": "C"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "B"
-						},
-						{
-							"name": "fire",
-							"multiplier": "B"
-						},
-						{
-							"name": "water",
-							"multiplier": "B"
-						},
-						{
-							"name": "grass",
-							"multiplier": "B"
-						},
-						{
-							"name": "electric",
-							"multiplier": "B"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "A"
-						},
-						{
-							"name": "ice",
-							"multiplier": "B"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "C"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "A"
-						}
-					],
-					"flying": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "C"
-						},
-						{
-							"name": "flying",
-							"multiplier": "B"
-						},
-						{
-							"name": "poison",
-							"multiplier": "B"
-						},
-						{
-							"name": "ground",
-							"multiplier": "D"
-						},
-						{
-							"name": "rock",
-							"multiplier": "A"
-						},
-						{
-							"name": "bug",
-							"multiplier": "C"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "B"
-						},
-						{
-							"name": "fire",
-							"multiplier": "B"
-						},
-						{
-							"name": "water",
-							"multiplier": "B"
-						},
-						{
-							"name": "grass",
-							"multiplier": "C"
-						},
-						{
-							"name": "electric",
-							"multiplier": "A"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "B"
-						},
-						{
-							"name": "ice",
-							"multiplier": "A"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "B"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "B"
-						}
-					],
-					"poison": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "C"
-						},
-						{
-							"name": "flying",
-							"multiplier": "B"
-						},
-						{
-							"name": "poison",
-							"multiplier": "C"
-						},
-						{
-							"name": "ground",
-							"multiplier": "A"
-						},
-						{
-							"name": "rock",
-							"multiplier": "B"
-						},
-						{
-							"name": "bug",
-							"multiplier": "C"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "B"
-						},
-						{
-							"name": "fire",
-							"multiplier": "B"
-						},
-						{
-							"name": "water",
-							"multiplier": "V"
-						},
-						{
-							"name": "grass",
-							"multiplier": "C"
-						},
-						{
-							"name": "electric",
-							"multiplier": "B"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "A"
-						},
-						{
-							"name": "ice",
-							"multiplier": "B"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "B"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "C"
-						}
-					],
-					"ground": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "B"
-						},
-						{
-							"name": "flying",
-							"multiplier": "B"
-						},
-						{
-							"name": "poison",
-							"multiplier": "C"
-						},
-						{
-							"name": "ground",
-							"multiplier": "B"
-						},
-						{
-							"name": "rock",
-							"multiplier": "C"
-						},
-						{
-							"name": "bug",
-							"multiplier": "B"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "B"
-						},
-						{
-							"name": "fire",
-							"multiplier": "B"
-						},
-						{
-							"name": "water",
-							"multiplier": "A"
-						},
-						{
-							"name": "grass",
-							"multiplier": "A"
-						},
-						{
-							"name": "electric",
-							"multiplier": "D"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "B"
-						},
-						{
-							"name": "ice",
-							"multiplier": "A"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "B"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "B"
-						}
-					],
-					"rock": [
-						{
-							"name": "normal",
-							"multiplier": "C"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "A"
-						},
-						{
-							"name": "flying",
-							"multiplier": "C"
-						},
-						{
-							"name": "poison",
-							"multiplier": "C"
-						},
-						{
-							"name": "ground",
-							"multiplier": "A"
-						},
-						{
-							"name": "rock",
-							"multiplier": "B"
-						},
-						{
-							"name": "bug",
-							"multiplier": "B"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "A"
-						},
-						{
-							"name": "fire",
-							"multiplier": "C"
-						},
-						{
-							"name": "water",
-							"multiplier": "A"
-						},
-						{
-							"name": "grass",
-							"multiplier": "A"
-						},
-						{
-							"name": "electric",
-							"multiplier": "B"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "B"
-						},
-						{
-							"name": "ice",
-							"multiplier": "B"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "B"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "B"
-						}
-					],
-					"bug": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "C"
-						},
-						{
-							"name": "flying",
-							"multiplier": "A"
-						},
-						{
-							"name": "poison",
-							"multiplier": "B"
-						},
-						{
-							"name": "ground",
-							"multiplier": "C"
-						},
-						{
-							"name": "rock",
-							"multiplier": "A"
-						},
-						{
-							"name": "bug",
-							"multiplier": "B"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "B"
-						},
-						{
-							"name": "fire",
-							"multiplier": "A"
-						},
-						{
-							"name": "water",
-							"multiplier": "B"
-						},
-						{
-							"name": "grass",
-							"multiplier": "C"
-						},
-						{
-							"name": "electric",
-							"multiplier": "B"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "B"
-						},
-						{
-							"name": "ice",
-							"multiplier": "B"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "B"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "B"
-						}
-					],
-					"ghost": [
-						{
-							"name": "normal",
-							"multiplier": "D"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "D"
-						},
-						{
-							"name": "flying",
-							"multiplier": "B"
-						},
-						{
-							"name": "poison",
-							"multiplier": "C"
-						},
-						{
-							"name": "ground",
-							"multiplier": "B"
-						},
-						{
-							"name": "rock",
-							"multiplier": "B"
-						},
-						{
-							"name": "bug",
-							"multiplier": "C"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "A"
-						},
-						{
-							"name": "steel",
-							"multiplier": "B"
-						},
-						{
-							"name": "fire",
-							"multiplier": "B"
-						},
-						{
-							"name": "water",
-							"multiplier": "B"
-						},
-						{
-							"name": "grass",
-							"multiplier": "B"
-						},
-						{
-							"name": "electric",
-							"multiplier": "B"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "B"
-						},
-						{
-							"name": "ice",
-							"multiplier": "B"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "A"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "B"
-						}
-					],
-					"steel": [
-						{
-							"name": "normal",
-							"multiplier": "C"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "A"
-						},
-						{
-							"name": "flying",
-							"multiplier": "C"
-						},
-						{
-							"name": "poison",
-							"multiplier": "D"
-						},
-						{
-							"name": "ground",
-							"multiplier": "A"
-						},
-						{
-							"name": "rock",
-							"multiplier": "C"
-						},
-						{
-							"name": "bug",
-							"multiplier": "C"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "C"
-						},
-						{
-							"name": "fire",
-							"multiplier": "A"
-						},
-						{
-							"name": "water",
-							"multiplier": "B"
-						},
-						{
-							"name": "grass",
-							"multiplier": "C"
-						},
-						{
-							"name": "electric",
-							"multiplier": "B"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "C"
-						},
-						{
-							"name": "ice",
-							"multiplier": "C"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "C"
-						},
-						{
-							"name": "dark",
-							"multiplier": "B"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "C"
-						}
-					],
-					"fire": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "B"
-						},
-						{
-							"name": "flying",
-							"multiplier": "B"
-						},
-						{
-							"name": "poison",
-							"multiplier": "B"
-						},
-						{
-							"name": "ground",
-							"multiplier": "A"
-						},
-						{
-							"name": "rock",
-							"multiplier": "A"
-						},
-						{
-							"name": "bug",
-							"multiplier": "C"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "C"
-						},
-						{
-							"name": "fire",
-							"multiplier": "C"
-						},
-						{
-							"name": "water",
-							"multiplier": "A"
-						},
-						{
-							"name": "grass",
-							"multiplier": "C"
-						},
-						{
-							"name": "electric",
-							"multiplier": "B"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "B"
-						},
-						{
-							"name": "ice",
-							"multiplier": "C"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "B"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "C"
-						}
-					],
-					"water": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "B"
-						},
-						{
-							"name": "flying",
-							"multiplier": "B"
-						},
-						{
-							"name": "poison",
-							"multiplier": "B"
-						},
-						{
-							"name": "ground",
-							"multiplier": "B"
-						},
-						{
-							"name": "rock",
-							"multiplier": "B"
-						},
-						{
-							"name": "bug",
-							"multiplier": "B"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "C"
-						},
-						{
-							"name": "fire",
-							"multiplier": "C"
-						},
-						{
-							"name": "water",
-							"multiplier": "C"
-						},
-						{
-							"name": "grass",
-							"multiplier": "A"
-						},
-						{
-							"name": "electric",
-							"multiplier": "A"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "B"
-						},
-						{
-							"name": "ice",
-							"multiplier": "C"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "B"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "B"
-						}
-					],
-					"grass": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "B"
-						},
-						{
-							"name": "flying",
-							"multiplier": "A"
-						},
-						{
-							"name": "poison",
-							"multiplier": "A"
-						},
-						{
-							"name": "ground",
-							"multiplier": "C"
-						},
-						{
-							"name": "rock",
-							"multiplier": "B"
-						},
-						{
-							"name": "bug",
-							"multiplier": "A"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "B"
-						},
-						{
-							"name": "fire",
-							"multiplier": "A"
-						},
-						{
-							"name": "water",
-							"multiplier": "C"
-						},
-						{
-							"name": "grass",
-							"multiplier": "C"
-						},
-						{
-							"name": "electric",
-							"multiplier": "C"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "B"
-						},
-						{
-							"name": "ice",
-							"multiplier": "A"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "B"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "B"
-						}
-					],
-					"electric": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "B"
-						},
-						{
-							"name": "flying",
-							"multiplier": "C"
-						},
-						{
-							"name": "poison",
-							"multiplier": "B"
-						},
-						{
-							"name": "ground",
-							"multiplier": "A"
-						},
-						{
-							"name": "rock",
-							"multiplier": "B"
-						},
-						{
-							"name": "bug",
-							"multiplier": "B"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "C"
-						},
-						{
-							"name": "fire",
-							"multiplier": "B"
-						},
-						{
-							"name": "water",
-							"multiplier": "B"
-						},
-						{
-							"name": "grass",
-							"multiplier": "B"
-						},
-						{
-							"name": "electric",
-							"multiplier": "C"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "B"
-						},
-						{
-							"name": "ice",
-							"multiplier": "B"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "B"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "B"
-						}
-					],
-					"psychic": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "C"
-						},
-						{
-							"name": "flying",
-							"multiplier": "B"
-						},
-						{
-							"name": "poison",
-							"multiplier": "B"
-						},
-						{
-							"name": "ground",
-							"multiplier": "B"
-						},
-						{
-							"name": "rock",
-							"multiplier": "B"
-						},
-						{
-							"name": "bug",
-							"multiplier": "A"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "A"
-						},
-						{
-							"name": "steel",
-							"multiplier": "B"
-						},
-						{
-							"name": "fire",
-							"multiplier": "B"
-						},
-						{
-							"name": "water",
-							"multiplier": "B"
-						},
-						{
-							"name": "grass",
-							"multiplier": "B"
-						},
-						{
-							"name": "electric",
-							"multiplier": "B"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "C"
-						},
-						{
-							"name": "ice",
-							"multiplier": "B"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "A"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "B"
-						}
-					],
-					"ice": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "A"
-						},
-						{
-							"name": "flying",
-							"multiplier": "B"
-						},
-						{
-							"name": "poison",
-							"multiplier": "B"
-						},
-						{
-							"name": "ground",
-							"multiplier": "B"
-						},
-						{
-							"name": "rock",
-							"multiplier": "A"
-						},
-						{
-							"name": "bug",
-							"multiplier": "B"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "A"
-						},
-						{
-							"name": "fire",
-							"multiplier": "A"
-						},
-						{
-							"name": "water",
-							"multiplier": "B"
-						},
-						{
-							"name": "grass",
-							"multiplier": "B"
-						},
-						{
-							"name": "electric",
-							"multiplier": "B"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "B"
-						},
-						{
-							"name": "ice",
-							"multiplier": "C"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "B"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "B"
-						}
-					],
-					"dragon": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "B"
-						},
-						{
-							"name": "flying",
-							"multiplier": "B"
-						},
-						{
-							"name": "poison",
-							"multiplier": "B"
-						},
-						{
-							"name": "ground",
-							"multiplier": "B"
-						},
-						{
-							"name": "rock",
-							"multiplier": "B"
-						},
-						{
-							"name": "bug",
-							"multiplier": "B"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "B"
-						},
-						{
-							"name": "fire",
-							"multiplier": "C"
-						},
-						{
-							"name": "water",
-							"multiplier": "C"
-						},
-						{
-							"name": "grass",
-							"multiplier": "C"
-						},
-						{
-							"name": "electric",
-							"multiplier": "C"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "B"
-						},
-						{
-							"name": "ice",
-							"multiplier": "A"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "A"
-						},
-						{
-							"name": "dark",
-							"multiplier": "B"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "A"
-						}
-					],					
-					"dark": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "A"
-						},
-						{
-							"name": "flying",
-							"multiplier": "B"
-						},
-						{
-							"name": "poison",
-							"multiplier": "B"
-						},
-						{
-							"name": "ground",
-							"multiplier": "B"
-						},
-						{
-							"name": "rock",
-							"multiplier": "B"
-						},
-						{
-							"name": "bug",
-							"multiplier": "A"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "C"
-						},
-						{
-							"name": "steel",
-							"multiplier": "B"
-						},
-						{
-							"name": "fire",
-							"multiplier": "B"
-						},
-						{
-							"name": "water",
-							"multiplier": "B"
-						},
-						{
-							"name": "grass",
-							"multiplier": "B"
-						},
-						{
-							"name": "electric",
-							"multiplier": "B"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "D"
-						},
-						{
-							"name": "ice",
-							"multiplier": "B"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "B"
-						},
-						{
-							"name": "dark",
-							"multiplier": "C"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "A"
-						}
-					],
-					"fairy": [
-						{
-							"name": "normal",
-							"multiplier": "B"
-						},
-						{
-							"name": "fighting",
-							"multiplier": "C"
-						},
-						{
-							"name": "flying",
-							"multiplier": "B"
-						},
-						{
-							"name": "poison",
-							"multiplier": "A"
-						},
-						{
-							"name": "ground",
-							"multiplier": "B"
-						},
-						{
-							"name": "rock",
-							"multiplier": "B"
-						},
-						{
-							"name": "bug",
-							"multiplier": "C"
-						},
-						{
-							"name": "ghost",
-							"multiplier": "B"
-						},
-						{
-							"name": "steel",
-							"multiplier": "A"
-						},
-						{
-							"name": "fire",
-							"multiplier": "B"
-						},
-						{
-							"name": "water",
-							"multiplier": "B"
-						},
-						{
-							"name": "grass",
-							"multiplier": "B"
-						},
-						{
-							"name": "electric",
-							"multiplier": "B"
-						},
-						{
-							"name": "psychic",
-							"multiplier": "B"
-						},
-						{
-							"name": "ice",
-							"multiplier": "B"
-						},
-						{
-							"name": "dragon",
-							"multiplier": "D"
-						},
-						{
-							"name": "dark",
-							"multiplier": "C"
-						},
-						{
-							"name": "fairy",
-							"multiplier": "B"
-						}
-					]
-				}
-				var multipliers = {
-					Aundefined: "2&#215;",
-					Bundefined: "1&#215;",
-					Cundefined: "&frac12;&#215;",
-					Dundefined: "0&#215;",
-					AA: "4&#215;", // Super Effective | Super Effective
-					AB:	"2&#215;", // Super Effective | Effective
-					BA:	"2&#215;", // Super Effective | Effective
-					AC:	"1&#215;", // Super Effective | Not Effective
-					CA:	"1&#215;", // Super Effective | Not Effective
-					BB: "1&#215;", // Effective | Effective
-					BC: "&frac12;&#215;", // Effective | Not Effective
-					CB: "&frac12;&#215;", // Effective | Not Effective
-					CC: "&frac14;&#215;", // Not Effective | Not Effective
-					AD: "0&#215;", // Super Effective | Immune
-					DA: "0&#215;", // Super Effective | Immune
-					BD: "0&#215;", // Effective | Immune
-					DB: "0&#215;", // Effective | Immune
-					CD: "0&#215;", // Not Effective | Immune
-					DC: "0&#215;", // Not Effective | Immune
-					DD: "0&#215;", // Immune | Immune
-				}
-				
-				
-				var selector = [];
-				var type1 = [];
-				var type2 = [];
-								
-					
-				var combo1 = []
-				var combo2 = []
-				var attackingtype = []
-				
-				var splitvalue = []
-				var splittype = []
-				var output = []
-				
-				var selectedtypes = []
-				
-				var quadrupleDamage = []
-				var doubleDamage = []
-				var halfDamage = []
-				var quarterDamage = []
-				var immune = []
-				var clicks = 0;
-				
-				
-				$.each( types.normal, function( key, val ) {
-					$("#selector").append("<li class='" + val.name + "' data-type='" + val.name + "'><img src='" + val.name + ".png' /><span>" + val.name + "</span></li>")
-				});
-				
-				$('#showresults').click(function() {
-					$('#results').removeClass('mobilehidden');
-				});
-								
-				$('#selector li').click(function() {
-														
-				    if (clicks == 2){
-						type1 = [];
-						type2 = [];
-						combo1 = [];
-						combo2 = [];
-						attackingtype = [];
-						$('#results li').remove();
-						$('#results li').empty();
-						$('#selectedtypes').empty();
-						$('#quadruple').removeClass('hidden');
-						$('#double').removeClass('hidden');
-						$('#half').removeClass('hidden');
-						$('#quarter').removeClass('hidden');
-						$('#immune').removeClass('hidden');
-						type1 = selectedtypes[0];
-						type2 = selectedtypes[1];
-						$('#results').addClass('hidden');
-						selectedtypes = []
-						$('#selector li').removeClass('active');
-						clicks = 0
-				    }
-				    ++clicks;
-					
-					$(this).addClass('active');
-					$('#results').removeClass('hidden');
-					var thisType = $(this).attr('data-type');
-					selectedtypes.push(thisType);
-					selectedtypes = selectedtypes.slice(selectedtypes.length - 2);
-					$('#selector').addClass('activemargin');
-					
-					type1 = [];
-					type2 = [];
-					combo1 = [];
-					combo2 = [];
-					attackingtype = [];
-					$('#results li').remove();
-					$('#results li').empty();
-					$('#selectedtypes').empty();
-					$('#quadruple').removeClass('hidden');
-					$('#double').removeClass('hidden');
-					$('#half').removeClass('hidden');
-					$('#quarter').removeClass('hidden');
-					$('#immune').removeClass('hidden');
-					$('#sidebar section').removeClass('hidden');
-					
-					type1 = selectedtypes[0];
-					type2 = selectedtypes[1];
-					
-					if(!type2){
-						$('#selectedtypes').append(type1);
-					}
-					else {
-						$('#selectedtypes').append(type1 + " / " + type2);
-					}
-					
-					$.each( types[type1], function( key, val ) {
-						combo1.push(val.multiplier)
-						attackingtype.push(val.name)
-					});
-					
-					$.each( types[type2], function( key, val ) {
-						combo2.push(val.multiplier)
-					});
-	
-					var combined = combo1.map((item, index) => {
-						return `${combo1[index]}${combo2[index]}`;
-					});
-	
-					var combinedOutput = [];
-					var attackingOutput = [];
-					
-					$(combined).each(function(item, index){
-						splitvalue = multipliers[index]
-						combinedOutput.push(splitvalue)
-					});
-										
-					$(attackingtype).each(function(item, index){
-						splittype = index
-						attackingOutput.push(splittype)
-					});
-									
-					var output = attackingOutput.map((item, index) => {
-						return {
-							type: item,
-							value: combinedOutput[index]
-						}
-					})
-					
-						
-					var quadrupleDamage =  output.filter(item => item.value == "4&#215;");
-					var doubleDamage =  output.filter(item => item.value == "2&#215;");
-					var halfDamage =  output.filter(item => item.value == "&frac12;&#215;");
-					var quarterDamage =  output.filter(item => item.value == "&frac14;&#215;");
-					var immune =  output.filter(item => item.value == "0&#215;");
-										
-					quadrupleDamage.forEach(item => {
-						$("#quadruple ul").append(`<li class='${item.type}'><img src='${item.type}.svg' /> ${item.type}`)
-					})
-					
-					doubleDamage.forEach(item => {
-						$("#double ul").append(`<li class='${item.type}'><img src='${item.type}.svg' /> ${item.type}`)
-					})
-					
-					halfDamage.forEach(item => {
-						$("#half ul").append(`<li class='${item.type}'><img src='${item.type}.svg' /> ${item.type}`)
-					})
-					
-					quarterDamage.forEach(item => {
-						$("#quarter ul").append(`<li class='${item.type}'><img src='${item.type}.svg' /> ${item.type}`)
-					})
-					
-					immune.forEach(item => {
-						$("#immune ul").append(`<li class='${item.type}'><img src='${item.type}.svg' /> ${item.type}`)
-					})
-					
-					if(quadrupleDamage.length == 0){
-						$('#quadruple').addClass('hidden');
-					}
-					
-					if(doubleDamage.length == 0){
-						$('#double').addClass('hidden');
-					}
-										
-					if(halfDamage.length == 0){
-						$('#half').addClass('hidden');
-					}
-					
-					if(quarterDamage.length == 0){
-						$('#quarter').addClass('hidden');
-					}
-					
-					if(immune.length == 0){
-						$('#immune').addClass('hidden');
-					}
-
-				});
-				
-				$('#reset').click(function() {
-					type1 = [];
-					type2 = [];
-					combo1 = [];
-					combo2 = [];
-					attackingtype = [];
-					$('#results li').remove();
-					$('#results li').empty();
-					$('#selectedtypes').empty();
-					$('#quadruple').removeClass('hidden');
-					$('#double').removeClass('hidden');
-					$('#half').removeClass('hidden');
-					$('#quarter').removeClass('hidden');
-					$('#immune').removeClass('hidden');
-					type1 = selectedtypes[0];
-					type2 = selectedtypes[1];
-					$('#results').addClass('hidden');
-					selectedtypes = []
-					$('#selector li').removeClass('active');
-					clicks = 0;
-					$('#results').addClass('mobilehidden');
-					$('#sidebar section').addClass('hidden');
-					$('#selector').removeClass('activemargin');
-				});
-				
+			$('#toggle').click(function() {
+				$('aside').toggleClass('shiftAside');
+				$('main').toggleClass('shiftMain');
+				$('header').toggleClass('shiftAside');
 			});
 		</script>
-		<div id="sidebar">
-			<header>
-				<h1>Defending types</h1>
-			</header>
-			<ul id="selector"></ul>
-			<section class="hidden">
-				<p id="showresults">Show results</p>
-			</section>
-		</div>
-		<main>
-			<div id="results" class="hidden mobilehidden">
-				<header>
-					<h1 id="selectedtypes"></h1>
-					<img src="close.svg" id="reset" />
-				</header>
-				
-				<section id="quadruple">
-					<h3>Takes 4&#215; damage from</h3>
-					<ul></ul>
-				</section>
-				
-				<section id="double">
-					<h3>Takes 2&#215; damage from</h3>
-					<ul></ul>
-				</section>
-				
-				<section id="half">
-					<h3>Takes &frac12;&#215; damage from</h3>
-					<ul></ul>
-				</section>
-				
-				<section id="quarter">
-					<h3>Takes &frac14;&#215; damage from</h3>
-					<ul id="quarter"></ul>
-				</section>
-				
-				<section id="immune">
-					<h3>Immune to</h3>
-					<ul></ul>
-				</section>
-				<p class="legal">Pok&eacute;mon &copy;2002-2019 Pok&eacute;mon. &copy;1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.&trade;, &reg; and Pok&eacute;mon character names are trademarks of Nintendo. No copyright or trademark infringement is intended in using Pok&eacute;mon content on this page.</p>
-			</div>
-		</main>
+		
+		
+		
+		
+		
+		
+		
 	</body>
 </html>
