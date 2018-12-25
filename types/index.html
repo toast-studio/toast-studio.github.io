@@ -101,16 +101,16 @@
 				text-align: center;
 				padding-top: calc(0px + env(safe-area-inset-top));
 			}
-			
+						
 			h3 {
 				border-bottom: 2px solid rgba(255,255,255,0.1);
 				margin-bottom: 10px;
 				text-transform: none;
-				padding: 0px 0px 10px 0px;
+				padding: 0px 0px 20px 0px;
 				grid-column-end: span 3;
 				color: white;
 				font-family: -apple-system;
-				margin: 0px 10px;
+				margin: 0px;
 			}
 			
 			.legal {
@@ -125,6 +125,46 @@
 			
 			#selectedtypes {
 				text-transform: capitalize;
+			}
+			
+			#tabs {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				padding-top: calc(0px + env(safe-area-inset-top));
+				padding-bottom: 0px;
+				padding-left: calc(20px + env(safe-area-inset-left));
+				padding-right: 20px;
+			}
+			
+			#tab1 {
+				font-size: 18px;
+				color: white;
+				font-family: -apple-system;
+				text-align: center;
+				border: 1px solid rgba(255,255,255,0.4);
+				height: 40px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: rgba(255,255,255,0.3);
+				border-radius: 5px 0px 0px 5px;
+				margin: 0px;
+			}
+			
+			#tab2 {
+				font-size: 18px;
+				color: white;
+				font-family: -apple-system;
+				text-align: center;
+				border: 1px solid rgba(255,255,255,0.4);
+				border-left: none;
+				height: 40px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: rgba(255,255,255,0.1);
+				border-radius: 0px 5px 5px 0px;
+				margin: 0px;
 			}
 			
 			#toggle {
@@ -201,6 +241,8 @@
 			
 			#results {
 				padding-top: calc(80px + env(safe-area-inset-top));
+				padding-right: calc(10px + env(safe-area-inset-left));
+				padding-left: 10px;
 				background: #1A1A1A;
 				height: 100%;
 				overflow: scroll;
@@ -212,7 +254,10 @@
 			}
 			
 			#results ul {
-				padding: 10px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				padding-left: 0px;
+				padding-right: 0px;
 				display: grid;
 				grid-gap: 10px;
 				margin: 0px;
@@ -260,6 +305,7 @@
 					width: calc(100% - 350px);
 					left: 350px;
 					position: absolute;
+					height: 103%;
 				}
 				
 				header {
@@ -290,6 +336,11 @@
 					transition: 0.2s left ease;
 				}
 				
+				#results {
+					padding-right: calc(20px + env(safe-area-inset-left));
+					padding-left: 20px;
+				}
+				
 			}
 			
 			@media (min-width: 1024px) {
@@ -316,6 +367,13 @@
 					grid-template-columns: repeat(3, 1fr);
 					grid-gap: 20px;
 					padding: 20px;
+				}
+			}
+			
+			@media (min-width: 1600px) {
+				#results {
+					padding-left: 20%;
+					padding-right: 20%;
 				}
 			}
 			
@@ -506,11 +564,13 @@
 	<body>
 		<div id="toggle"></div>
 		<header>
-			<section>
-				<h1>Select types</h1>
+			<section id="tabs">
+				<h2 id="tab1">Types</h2>
+				<h2 id="tab2">Pok&eacute;mon</h2>
 			</section>
 			<section>
 				<h1 id="selectedtypes"></h1>
+<!-- 				<img src="close.svg" id="toggle" /> -->
 			</section>
 		</header>
 		<aside>
@@ -542,7 +602,7 @@
 					<h3>Immune to</h3>
 					<ul></ul>
 				</section>
-				<p class="legal">Pok&eacute;mon &copy;2002-2019 Pok&eacute;mon. &copy;1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.&trade;, &reg; and Pok&eacute;mon character names are trademarks of Nintendo. No copyright or trademark infringement is intended in using Pok&eacute;mon content on this page.</p>
+				<p class="legal">Pok&eacute;mon &copy;2002-2019 Pok&eacute;mon. &copy;1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.&trade;, &reg; and Pok&eacute;mon character names are trademarks of Nintendo. No copyright or trademark infringement is intended in using Pok&eacute;mon content.</p>
 			</div>
 		</main>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
