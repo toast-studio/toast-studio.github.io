@@ -32,9 +32,9 @@
 			body, html {
 				margin: 0px;
 				height: 100vh;
-				overflow: hidden;
 				background: #1A1A1A;
-				height: 10px;
+				overflow: scroll;
+				-webkit-overflow-scrolling: touch;
 			}
 			
 			aside {
@@ -108,10 +108,9 @@
 				text-transform: none;
 				padding: 0px 0px 10px 0px;
 				grid-column-end: span 3;
-				padding-left: 10px;
 				color: white;
 				font-family: -apple-system;
-				margin: 0px;
+				margin: 0px 10px;
 			}
 			
 			.legal {
@@ -120,6 +119,8 @@
 				font-size: 12px;
 				text-align: center;
 				padding-bottom: calc(20px + env(safe-area-inset-bottom));
+				padding-left: 20px;
+				padding-right: 20px;
 			}
 			
 			#selectedtypes {
@@ -170,7 +171,9 @@
 				padding-bottom: env(safe-area-inset-bottom);
 				padding-left: calc(20px + env(safe-area-inset-left));
 				padding-right: 20px;
-			}				
+				overflow: scroll;
+				-webkit-overflow-scrolling: touch;
+			}
 			
 			#selector li {
 				color: rgba(255,255,255,0.5);
@@ -201,6 +204,7 @@
 				background: #1A1A1A;
 				height: 100%;
 				overflow: scroll;
+				-webkit-overflow-scrolling: touch;
 			}
 			
 			#results section {
@@ -247,13 +251,14 @@
 				aside {
 					width: 350px;
 					border-right: 1px solid rgba(255,255,255,0.1);
+					position: absolute;
 				}
 				
 				main {
 					display: block;
 					width: calc(100% - 350px);
-					right: 0px;
 					left: 350px;
+					position: absolute;
 				}
 				
 				header {
@@ -284,6 +289,9 @@
 					transition: 0.2s left ease;
 				}
 				
+			}
+			
+			@media (min-width: 1024px) {
 				h3 {
 					border-bottom: 1px solid black;
 					box-shadow: 0px 1px 0px rgba(255,255,255,0.1);
@@ -302,9 +310,7 @@
 					border-radius: 10px;
 					margin-bottom: 40px;
 				}
-			}
-			
-			@media (min-width: 1024px) {
+				
 				#results ul {
 					grid-template-columns: repeat(3, 1fr);
 					grid-gap: 20px;
