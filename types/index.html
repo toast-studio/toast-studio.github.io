@@ -79,6 +79,7 @@
 			}
 						
 			header {
+				height: 60px;
 			    height: calc(60px + env(safe-area-inset-top));
 			    width: 200%;
 			    position: fixed;
@@ -92,6 +93,7 @@
 			header section {
 				width: 100%;
 				float: left;
+				height: 60px;
 				height: calc(60px + env(safe-area-inset-top));
 				display: flex;
 				align-items: center;
@@ -116,6 +118,7 @@
 				margin: 0px;
 				padding: 0px;
 				text-align: center;
+				padding-top: 0px;
 				padding-top: calc(0px + env(safe-area-inset-top));
 			}
 						
@@ -135,6 +138,7 @@
 				font-family: -apple-system, helvetica, arial, sans-serif;
 				font-size: 12px;
 				text-align: center;
+				padding-bottom: 20px;
 				padding-bottom: calc(20px + env(safe-area-inset-bottom));
 				padding-left: 20px;
 				padding-right: 20px;
@@ -147,8 +151,10 @@
 			#tabs {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
+				padding-top: 0px;
 				padding-top: calc(0px + env(safe-area-inset-top));
 				padding-bottom: 0px;
+				padding-left: 20px;
 				padding-left: calc(20px + env(safe-area-inset-left));
 				padding-right: 20px;
 			}
@@ -246,6 +252,11 @@
 				background: white;
 				border-radius: 30px;
 				padding: 20px;
+				font-family: 'Circular Std', helvetica, arial, sans-serif;
+			}
+			
+			#showresults:hover {
+				cursor: hand;
 			}
 			
 			.toggle:hover {
@@ -257,8 +268,10 @@
 				grid-template-columns: repeat(3, 1fr);
 				grid-gap: 10px;
 				grid-row-gap: 0px;
+				padding-top: 70px;
 				padding-top: calc(70px + env(safe-area-inset-top));
 				padding-bottom: env(safe-area-inset-bottom);
+				padding-left: 20px;
 				padding-left: calc(20px + env(safe-area-inset-left));
 				padding-right: 20px;
 				overflow: scroll;
@@ -290,7 +303,9 @@
 			}
 			
 			#results {
+				padding-top: 80px;
 				padding-top: calc(80px + env(safe-area-inset-top));
+				padding-right: 10px;
 				padding-right: calc(10px + env(safe-area-inset-left));
 				padding-left: 10px;
 				background: #1A1A1A;
@@ -327,12 +342,21 @@
 				padding:15px;
 				box-shadow: inset 0px 0px 0px 2px rgba(255,255,255,0.2);
 				overflow: hidden;
+				position: relative;
 			}
 			
-			#results img {
+			#results .icon {
 				width: 30px;
 				height: 30px;
 				margin-right: 10px;
+			}
+			
+			#results .background {
+				transform: rotate(30deg) scale(1.5);
+				opacity: 0.1;
+				right: 40px;
+				top: 0px;
+				position: absolute;
 			}
 			
 			@media (min-width: 375px) {
@@ -391,6 +415,7 @@
 				}
 				
 				#results {
+					padding-right: 20px;
 					padding-right: calc(20px + env(safe-area-inset-left));
 					padding-left: 20px;
 				}
@@ -458,180 +483,159 @@
 				background-image: linear-gradient(90deg, #A9A79F 0%, #9099A1 100%);
 			}
 			
-			.normal::after {
-				content: url(normal.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			
+			#results .normal .background {
+				right: -30px;
+				top: -70px;				
 			}
 			
 			.fighting {
 				background-image: linear-gradient(90deg, #E2444B 0%, #CE406A 100%);
 			}
 			
-			.fighting::after {
-				content: url(fighting.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
-			}
-			
 			.flying {
 				background-image: linear-gradient(90deg, #A5BFEE 0%, #8FA8DD 100%);
 			}
 			
-			.flying::after {
-				content: url(flying.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .flying .background {
+				right: 30px;
+				top: -20px;				
 			}
 			
 			.poison {
 				background-image: linear-gradient(90deg, #C962D6 0%, #A567C6 100%);
 			}
 			
-			.poison::after {
-				content: url(poison.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .poison .background {
+				transform: rotate(20deg) scale(1.3);
+				right: 10px;
+				top: -60px;				
 			}
 
 			.ground {
 				background-image: linear-gradient(90deg, #D49A6B 0%, #D97747 100%);
 			}
 			
-			.ground::after {
-				content: url(ground.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .ground .background {
+				transform: rotate(-30deg) scale(1.3);
+				right: 10px;
+				top: -20px;				
 			}
 
 			.rock {
 				background-image: linear-gradient(90deg, #D6CC95 0%, #B2A06A 100%);
 			}
 			
-			.rock::after {
-				content: url(rock.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .rock .background {
+				transform: rotate(0deg) scale(1.2);
+				right: 10px;
+				top: -30px;				
 			}
 
 			.bug {
 				background-image: linear-gradient(90deg, #ADC836 0%, #91C230 100%);
 			}
 			
-			.bug::after {
-				content: url(bug.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .bug .background {
+				right: 30px;
+				top: 10px;				
 			}
 
 			.ghost {
 				background-image: linear-gradient(90deg, #7A74D7 0%, #5369AC 100%);
 			}
 			
-			.ghost::after {
-				content: url(ghost.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .ghost .background {
+				transform: rotate(30deg) scale(1.2);
+				right: 30px;
+				top: -10px;			
 			}
 
 			.steel {
 				background-image: linear-gradient(90deg, #57ACAD 0%, #54879C 100%);
 			}
 			
-			.steel::after {
-				content: url(steel.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .steel .background {
+				transform: rotate(0deg) scale(1.5);
+				right: -30px;
+				top: -20px;				
 			}
 
 			.fire {
 				background-image: linear-gradient(90deg, #FFB14F 0%, #FF9C55 100%);
 			}
 			
-			.fire::after {
-				content: url(fire.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .fire .background {
+				transform: rotate(10deg) scale(1.5);
+				right: 20px;
+				top: -20px;
 			}
 
 			.water {
 				background-image: linear-gradient(90deg, #73C6E4 0%, #4F90D5 100%);
 			}
 			
-			.water::after {
-				content: url(water.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .water .background {
+				right: 20px;
+				top: -40px;
 			}
 
 			.grass {
 				background-image: linear-gradient(90deg, #62BA56 0%, #5AC37D 100%);
 			}
 			
-			.grass::after {
-				content: url(grass.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .grass .background {
+				transform: rotate(0deg) scale(1.5);
 			}
 
 			.electric {
 				background-image: linear-gradient(90deg, #F4D63F 0%, #F4BD3F 100%);
 			}
 			
-			.electric::after {
-				content: url(electric.svg);
+			#results .electric .background {
 				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+				opacity: 0.2;
+				right: 20px;
+				top: -10px;
 			}
 
 			.psychic {
 				background-image: linear-gradient(90deg, #FEA399 0%, #F86D74 100%);
 			}
 			
-			.psychic::after {
-				content: url(psychic.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .psychic .background {
+				top: -20px;
 			}
 
 			.ice {
 				background-image: linear-gradient(90deg, #96DDD7 0%, #74CEC0 100%);
 			}
 			
-			.ice::after {
-				content: url(ice.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .ice .background {
+				transform: rotate(0deg) scale(1.5);
+				right: 30px;
+				top: -20px;			
 			}
 
 			.dragon {
 				background-image: linear-gradient(90deg, #0582BC 0%, #0969C1 100%);
 			}
 			
-			.dragon::after {
-				content: url(dragon.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .dragon .background {
+				transform: rotate(0deg) scale(1.5);
+				right: 0px;
 			}
 
 			.dark {
 				background-image: linear-gradient(90deg, #6F7684 0%, #5A5366 100%);
 			}
 			
-			.dark::after {
-				content: url(dark.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
+			#results .dark .background {
+				top: -50px;
 			}
 
 			.fairy {
 				background-image: linear-gradient(90deg, #F4AAE4 0%, #ED8CE5 100%);
-			}
-			
-			.fairy::after {
-				content: url(fairy.svg);
-				transform: rotate(30deg) scale(1.5);
-				opacity: 0.1;
 			}
 		</style>
 	</head>
@@ -2180,23 +2184,23 @@
 					var immune =  output.filter(item => item.value == "0&#215;");
 										
 					quadrupleDamage.forEach(item => {
-						$("#quadruple ul").append(`<li class='${item.type}'><img src='${item.type}.svg' /> ${item.type}`)
+						$("#quadruple ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
 					})
 					
 					doubleDamage.forEach(item => {
-						$("#double ul").append(`<li class='${item.type}'><img src='${item.type}.svg' /> ${item.type}`)
+						$("#double ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
 					})
 					
 					halfDamage.forEach(item => {
-						$("#half ul").append(`<li class='${item.type}'><img src='${item.type}.svg' /> ${item.type}`)
+						$("#half ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
 					})
 					
 					quarterDamage.forEach(item => {
-						$("#quarter ul").append(`<li class='${item.type}'><img src='${item.type}.svg' /> ${item.type}`)
+						$("#quarter ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
 					})
 					
 					immune.forEach(item => {
-						$("#immune ul").append(`<li class='${item.type}'><img src='${item.type}.svg' /> ${item.type}`)
+						$("#immune ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
 					})
 					
 					if(quadrupleDamage.length == 0){
