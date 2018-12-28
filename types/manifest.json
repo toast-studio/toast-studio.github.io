@@ -3,8 +3,8 @@
   "short_name": "TypeDex",
   "description": "A Pokemon type calculator",
   "lang": "en-AU",
-  "start_url": "/types/",
-  "scope": "/types/",
+  "start_url": "/types",
+  "scope": "/types",
   "display": "standalone",
   "theme_color": "#313131",
   "icons": [
