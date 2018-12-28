@@ -231,8 +231,8 @@
 				display: none;
 			}
 			
-			.active img {
-				box-shadow: 0 0px 0px 4px #313131, 0 0px 0px 6px white;
+			.active {
+				background: rgba(255,255,255,0.1);
 			}
 			
 			#reset {
@@ -679,6 +679,8 @@
 		</aside>
 		<main>
 			<div id="results" class="hidden">
+				
+				<div id="largeSprite"></div>
 				<section id="quadruple">
 					<h3>4&#215; damage from</h3>
 					<ul></ul>
@@ -2236,8 +2238,181 @@
 				
 				
 				$.each( pokemon.pokedex, function( key, val ) {
-					$("#selector").append("<li><div><img class='sprite' src='sprites-small/" + val.index + ".png' /></div><div>" + val.name + "<br />" + val.number + "</div><div><img class='type' src='" + val.type1 + ".png' /><img class='type' src='" + val.type2 + ".png' /></div></li>")
+					$("#selector").append("<li data-type1=" + val.type1 + " data-type2=" + val.type2 + " data-index=" + val.index + "><div><img class='sprite' src='sprites-small/" + val.index + ".png' /></div><div>" + val.name + "<br />" + val.number + "</div><div><img class='type' src='" + val.type1 + ".png' /><img class='type' src='" + val.type2 + ".png' /></div></li>")
 				});
+				
+				$('#selector li').click(function() {
+														
+				    if (clicks == 2){
+						type1 = [];
+						type2 = [];
+						combo1 = [];
+						combo2 = [];
+						attackingtype = [];
+						$('#results li').remove();
+						$('#results li').empty();
+						$('#selectedtypes').empty();
+						$('#quadruple').removeClass('hidden');
+						$('#double').removeClass('hidden');
+						$('#half').removeClass('hidden');
+						$('#quarter').removeClass('hidden');
+						$('#immune').removeClass('hidden');
+						type1 = selectedtypes[0];
+						type2 = selectedtypes[1];
+						$('#results').addClass('hidden');
+						selectedtypes = []
+						$('#selector li').removeClass('active');
+						clicks = 0
+				    }
+				    ++clicks;
+					
+					$(this).addClass('active');
+					$('#results').removeClass('hidden');
+					
+					type1 = [];
+					type2 = [];
+					combo1 = [];
+					combo2 = [];
+					attackingtype = [];
+					$('#results li').remove();
+					$('#results li').empty();
+					$('#selectedtypes').empty();
+					$('#quadruple').removeClass('hidden');
+					$('#double').removeClass('hidden');
+					$('#half').removeClass('hidden');
+					$('#quarter').removeClass('hidden');
+					$('#immune').removeClass('hidden');
+					$('aside section').removeClass('hidden');
+					$('#selector').addClass('activemargin');
+					$('#reset').removeClass('hidden');
+					$('#largeSprite').empty();
+					
+					type1 = $(this).attr('data-type1');
+					type2 = $(this).attr('data-type2');
+					index = $(this).attr('data-index');
+					
+					if(!type2){
+						$('#selectedtypes').append(type1);
+					}
+					else {
+						$('#selectedtypes').append(type1 + " / " + type2);
+					}
+					
+					$.each( types[type1], function( key, val ) {
+						combo1.push(val.multiplier)
+						attackingtype.push(val.name)
+					});
+					
+					$.each( types[type2], function( key, val ) {
+						combo2.push(val.multiplier)
+					});
+	
+					var combined = combo1.map((item, index) => {
+						return `${combo1[index]}${combo2[index]}`;
+					});
+	
+					var combinedOutput = [];
+					var attackingOutput = [];
+					
+					$(combined).each(function(item, index){
+						splitvalue = multipliers[index]
+						combinedOutput.push(splitvalue)
+					});
+										
+					$(attackingtype).each(function(item, index){
+						splittype = index
+						attackingOutput.push(splittype)
+					});
+									
+					var output = attackingOutput.map((item, index) => {
+						return {
+							type: item,
+							value: combinedOutput[index]
+						}
+					})
+					
+						
+					var quadrupleDamage =  output.filter(item => item.value == "4&#215;");
+					var doubleDamage =  output.filter(item => item.value == "2&#215;");
+					var halfDamage =  output.filter(item => item.value == "&frac12;&#215;");
+					var quarterDamage =  output.filter(item => item.value == "&frac14;&#215;");
+					var immune =  output.filter(item => item.value == "0&#215;");
+										
+					quadrupleDamage.forEach(item => {
+						$("#quadruple ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
+					})
+					
+					doubleDamage.forEach(item => {
+						$("#double ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
+					})
+					
+					halfDamage.forEach(item => {
+						$("#half ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
+					})
+					
+					quarterDamage.forEach(item => {
+						$("#quarter ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
+					})
+					
+					immune.forEach(item => {
+						$("#immune ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
+					})
+					
+					if(quadrupleDamage.length == 0){
+						$('#quadruple').addClass('hidden');
+					}
+					
+					if(doubleDamage.length == 0){
+						$('#double').addClass('hidden');
+					}
+										
+					if(halfDamage.length == 0){
+						$('#half').addClass('hidden');
+					}
+					
+					if(quarterDamage.length == 0){
+						$('#quarter').addClass('hidden');
+					}
+					
+					if(immune.length == 0){
+						$('#immune').addClass('hidden');
+					}
+					
+					$("#largeSprite").append(`<img src="sprites-large/${index}.gif" style='margin:0px auto;display:block;padding-bottom:40px;max-width:100%;' />`)
+					
+					console.log(index)
+
+				});
+				
+				$('#reset').click(function() {
+					type1 = [];
+					type2 = [];
+					combo1 = [];
+					combo2 = [];
+					attackingtype = [];
+					$('#results li').remove();
+					$('#results li').empty();
+					$('#selectedtypes').empty();
+					$('#quadruple').removeClass('hidden');
+					$('#double').removeClass('hidden');
+					$('#half').removeClass('hidden');
+					$('#quarter').removeClass('hidden');
+					$('#immune').removeClass('hidden');
+					type1 = selectedtypes[0];
+					type2 = selectedtypes[1];
+					$('#results').addClass('hidden');
+					selectedtypes = []
+					$('#selector li').removeClass('active');
+					clicks = 0;
+					$('#results').addClass('mobilehidden');
+					$('aside section').addClass('hidden');
+					$('#selector').removeClass('activemargin');
+					$('#reset').addClass('hidden');
+					$('#largeSprite').empty();
+				});
+				
+				
+				
 			});
 		</script>
 		
