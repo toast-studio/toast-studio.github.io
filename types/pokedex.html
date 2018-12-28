@@ -127,6 +127,16 @@
 				padding-top: 0px;
 				padding-top: calc(0px + env(safe-area-inset-top));
 			}
+			
+			h2 {
+				color: rgba(255,255,255,0.3);
+				font-family: 'Circular Std Book', helvetica, arial, sans-serif;
+				margin: 0px;
+				padding: 0px;
+				text-align: center;
+				padding-top: 0px;
+				padding-top: calc(0px + env(safe-area-inset-top));
+			}
 						
 			h3 {
 				border-bottom: 2px solid rgba(255,255,255,0.1);
@@ -418,7 +428,7 @@
 				
 				header section:last-child {
 					border: none;
-					background: #1A1A1A;
+					background: none;
 				}
 								
 				.shiftAside {
@@ -667,7 +677,7 @@
 				<h2 id="tab2">Pok&eacute;mon</h2>
 			</section>
 			<section>
-				<h1 id="selectedtypes"></h1>
+				
 				<img src="close.svg" class="toggle hidden" id="reset" />
 			</section>
 		</header>
@@ -681,6 +691,8 @@
 			<div id="results" class="hidden">
 				
 				<div id="largeSprite"></div>
+				<h1 id="pokemon-name"></h1>
+				<h2 id="selectedtypes" style="margin-bottom: 40px;"></h2>
 				<section id="quadruple">
 					<h3>4&#215; damage from</h3>
 					<ul></ul>
@@ -2087,15 +2099,13 @@
 							"name": "Charmander",
 							"number": "004",
 							"index": "004",
-							"type1": "nil",
-							"type2": "fire",
+							"type1": "fire",
 						},
 						{
 							"name": "Charmeleon",
 							"number": "005",
 							"index": "005",
-							"type1": "nil",
-							"type2": "fire",
+							"type1": "fire",
 						},
 						{
 							"name": "Charizard",
@@ -2122,29 +2132,25 @@
 							"name": "Squirtle",
 							"number": "007",
 							"index": "007",
-							"type1": "nil",
-							"type2": "water",
+							"type1": "water",
 						},
 						{
 							"name": "Wartortle",
 							"number": "008",
 							"index": "008",
-							"type1": "nil",
-							"type2": "water",
+							"type1": "water",
 						},
 						{
 							"name": "Blastoise",
 							"number": "009",
 							"index": "009a",
-							"type1": "nil",
-							"type2": "water",
+							"type1": "water",
 						},
 						{
 							"name": "Mega Blastoise",
 							"number": "009",
 							"index": "009b",
-							"type1": "nil",
-							"type2": "water",
+							"type1": "water",
 						},
 						{
 							"name": "Rotom",
@@ -2238,12 +2244,12 @@
 				
 				
 				$.each( pokemon.pokedex, function( key, val ) {
-					$("#selector").append("<li data-type1=" + val.type1 + " data-type2=" + val.type2 + " data-index=" + val.index + "><div><img class='sprite' src='sprites-small/" + val.index + ".png' /></div><div>" + val.name + "<br />" + val.number + "</div><div><img class='type' src='" + val.type1 + ".png' /><img class='type' src='" + val.type2 + ".png' /></div></li>")
+					$("#selector").append("<li data-type1=" + val.type1 + " data-type2=" + val.type2 + " data-index=" + val.index + " data-name=" + val.name + "><div><img class='sprite' src='sprites-small/" + val.index + ".png' /></div><div>" + val.name + "<br />" + val.number + "</div><div><img class='type' src='" + val.type1 + ".png' /><img class='type' src='" + val.type2 + ".png' /></div></li>")
 				});
 				
 				$('#selector li').click(function() {
 														
-				    if (clicks == 2){
+				    if (clicks == 1){
 						type1 = [];
 						type2 = [];
 						combo1 = [];
@@ -2286,10 +2292,14 @@
 					$('#selector').addClass('activemargin');
 					$('#reset').removeClass('hidden');
 					$('#largeSprite').empty();
+					$('#pokemon-name').empty();
 					
 					type1 = $(this).attr('data-type1');
 					type2 = $(this).attr('data-type2');
 					index = $(this).attr('data-index');
+					name = $(this).attr('data-name');
+					
+					$('#pokemon-name').append(name);
 					
 					if(!type2){
 						$('#selectedtypes').append(type1);
@@ -2378,7 +2388,7 @@
 						$('#immune').addClass('hidden');
 					}
 					
-					$("#largeSprite").append(`<img src="sprites-large/${index}.gif" style='margin:0px auto;display:block;padding-bottom:40px;max-width:100%;' />`)
+					$("#largeSprite").append(`<img src="sprites-large/${index}.gif" style='margin:0px auto;display:block;padding-bottom:40px;max-height:200px;max-width:100%;' />`)
 					
 					console.log(index)
 
