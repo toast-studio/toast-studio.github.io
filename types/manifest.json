@@ -1,0 +1,17 @@
+{
+  "name": "TypeDex",
+  "short_name": "TypeDex",
+  "description": "A Pokemon type calculator",
+  "lang": "en-AU",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#313131",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "300x300",
+      "type": "image/png"
+    }
+  ]
+}
