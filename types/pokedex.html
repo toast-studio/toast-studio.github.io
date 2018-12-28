@@ -170,27 +170,27 @@
 				font-family: 'Circular Std', helvetica, arial, sans-serif;
 				text-align: center;
 				border: 1px solid rgba(255,255,255,0.2);
-				height: 40px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				background: rgba(255,255,255,0.3);
-				border-radius: 5px 0px 0px 5px;
-				margin: 0px;
-			}
-			
-			#tab2 {
-				font-size: 18px;
-				color: white;
-				font-family: 'Circular Std', helvetica, arial, sans-serif;
-				text-align: center;
-				border: 1px solid rgba(255,255,255,0.2);
-				border-left: none;
+				border-right: none;
 				height: 40px;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				background: rgba(255,255,255,0.1);
+				border-radius: 5px 0px 0px 5px;
+				margin: 0px;
+			}
+			
+			#tab2 {				
+				font-size: 18px;
+				color: white;
+				font-family: 'Circular Std', helvetica, arial, sans-serif;
+				text-align: center;
+				border: 1px solid rgba(255,255,255,0.2);
+				height: 40px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: rgba(255,255,255,0.3);
 				border-radius: 0px 5px 5px 0px;
 				margin: 0px;
 			}
@@ -269,16 +269,15 @@
 			}
 			
 			#selector {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
+				//display: grid;
+				//grid-template-columns: repeat(3, 1fr);
 				grid-gap: 10px;
 				grid-row-gap: 0px;
 				padding-top: 70px;
 				padding-top: calc(70px + env(safe-area-inset-top));
 				padding-bottom: env(safe-area-inset-bottom);
-				padding-left: 20px;
-				padding-left: calc(20px + env(safe-area-inset-left));
-				padding-right: 20px;
+				padding-left: 0px;
+				padding-right: 0px;
 				overflow: scroll;
 				-webkit-overflow-scrolling: touch;
 			}
@@ -289,19 +288,35 @@
 				font-size: 16px;
 				font-weight: 500;
 				font-family: 'Circular Std Book', helvetica, arial, sans-serif;
-				text-transform: capitalize;
-				text-align: center;
+				//text-transform: capitalize;
+				//text-align: center;
+				display: grid;
+				grid-template-columns: 64px 1fr 80px;
+			    border-bottom: 1px solid black;
+			    box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.1);
+			    padding: 10px;
+			    grid-gap: 20px;
+			    align-items: center;
+			}
+			
+			#selector .sprite {
+				max-width: 100%;
+			}
+			
+			#selector .type {
+				width: 30px;
+				margin-left: 10px;
+			}
+			
+			#selector div {
+				//border: 1px solid red;
+			
 			}
 			
 			#selector li:hover {
 				cursor: hand;
 			}
 			
-			#selector img {
-				max-width: 80%;
-				margin: 0px auto 5px auto;
-				border-radius: 50%;
-			}
 			
 			#selector span {
 				display: block;
@@ -647,8 +662,8 @@
 	<body>
 		<header>
 			<section id="tabs">
-				<h2 id="tab1">Types</h2>
-				<a href="pokedex.html"><h2 id="tab2">Pok&eacute;mon</h2></a>
+				<a href="index.html"><h2 id="tab1">Types</h2></a>
+				<h2 id="tab2">Pok&eacute;mon</h2>
 			</section>
 			<section>
 				<h1 id="selectedtypes"></h1>
@@ -2035,6 +2050,143 @@
 						}
 					]
 				}
+				var pokemon = {
+					"pokedex": [
+						{
+							"name": "Bulbasaur",
+							"number": "001",
+							"index": "001",
+							"type1": "grass",
+							"type2": "poison",
+						},
+						{
+							"name": "Ivysaur",
+							"number": "002",
+							"index": "002",
+							"type1": "grass",
+							"type2": "poison",
+						},
+						{
+							"name": "Venasaur",
+							"number": "003",
+							"index": "003a",
+							"type1": "grass",
+							"type2": "poison",
+						},
+						{
+							"name": "Mega Venasaur",
+							"number": "003",
+							"index": "003b",
+							"type1": "grass",
+							"type2": "poison",
+						},
+						{
+							"name": "Charmander",
+							"number": "004",
+							"index": "004",
+							"type1": "nil",
+							"type2": "fire",
+						},
+						{
+							"name": "Charmeleon",
+							"number": "005",
+							"index": "005",
+							"type1": "nil",
+							"type2": "fire",
+						},
+						{
+							"name": "Charizard",
+							"number": "006",
+							"index": "006a",
+							"type1": "fire",
+							"type2": "flying",
+						},
+						{
+							"name": "Mega Charizard X",
+							"number": "006",
+							"index": "006b",
+							"type1": "fire",
+							"type2": "dragon",
+						},
+						{
+							"name": "Mega Charizard Y",
+							"number": "006",
+							"index": "006c",
+							"type1": "fire",
+							"type2": "flying",
+						},
+						{
+							"name": "Squirtle",
+							"number": "007",
+							"index": "007",
+							"type1": "nil",
+							"type2": "water",
+						},
+						{
+							"name": "Wartortle",
+							"number": "008",
+							"index": "008",
+							"type1": "nil",
+							"type2": "water",
+						},
+						{
+							"name": "Blastoise",
+							"number": "009",
+							"index": "009a",
+							"type1": "nil",
+							"type2": "water",
+						},
+						{
+							"name": "Mega Blastoise",
+							"number": "009",
+							"index": "009b",
+							"type1": "nil",
+							"type2": "water",
+						},
+						{
+							"name": "Rotom",
+							"number": "479",
+							"index": "479a",
+							"type1": "electric",
+							"type2": "ghost",
+						},
+						{
+							"name": "Heat Rotom",
+							"number": "479",
+							"index": "479b",
+							"type1": "electric",
+							"type2": "fire",
+						},
+						{
+							"name": "Wash Rotom",
+							"number": "479",
+							"index": "479c",
+							"type1": "electric",
+							"type2": "water",
+						},
+						{
+							"name": "Frost Rotom",
+							"number": "479",
+							"index": "479d",
+							"type1": "electric",
+							"type2": "ice",
+						},
+						{
+							"name": "Fan Rotom",
+							"number": "479",
+							"index": "479e",
+							"type1": "electric",
+							"type2": "flying",
+						},
+						{
+							"name": "Mow Rotom",
+							"number": "479",
+							"index": "479f",
+							"type1": "electric",
+							"type2": "grass",
+						}
+					]
+				}
 				var multipliers = {
 					Aundefined: "2&#215;",
 					Bundefined: "1&#215;",
@@ -2082,180 +2234,9 @@
 				var clicks = 0;
 				
 				
-				$.each( types.normal, function( key, val ) {
-					$("#selector").append("<li data-type='" + val.name + "'><img src='" + val.name + ".png' /><span>" + val.name + "</span></li>")
+				$.each( pokemon.pokedex, function( key, val ) {
+					$("#selector").append("<li><div><img class='sprite' src='sprites-small/" + val.index + ".png' /></div><div>" + val.name + "<br />" + val.number + "</div><div><img class='type' src='" + val.type1 + ".png' /><img class='type' src='" + val.type2 + ".png' /></div></li>")
 				});
-				
-				$('#showresults').click(function() {
-					$('#results').removeClass('mobilehidden');
-				});
-								
-				$('#selector li').click(function() {
-														
-				    if (clicks == 2){
-						type1 = [];
-						type2 = [];
-						combo1 = [];
-						combo2 = [];
-						attackingtype = [];
-						$('#results li').remove();
-						$('#results li').empty();
-						$('#selectedtypes').empty();
-						$('#quadruple').removeClass('hidden');
-						$('#double').removeClass('hidden');
-						$('#half').removeClass('hidden');
-						$('#quarter').removeClass('hidden');
-						$('#immune').removeClass('hidden');
-						type1 = selectedtypes[0];
-						type2 = selectedtypes[1];
-						$('#results').addClass('hidden');
-						selectedtypes = []
-						$('#selector li').removeClass('active');
-						clicks = 0
-				    }
-				    ++clicks;
-					
-					$(this).addClass('active');
-					$('#results').removeClass('hidden');
-					var thisType = $(this).attr('data-type');
-					selectedtypes.push(thisType);
-					selectedtypes = selectedtypes.slice(selectedtypes.length - 2);
-					
-					type1 = [];
-					type2 = [];
-					combo1 = [];
-					combo2 = [];
-					attackingtype = [];
-					$('#results li').remove();
-					$('#results li').empty();
-					$('#selectedtypes').empty();
-					$('#quadruple').removeClass('hidden');
-					$('#double').removeClass('hidden');
-					$('#half').removeClass('hidden');
-					$('#quarter').removeClass('hidden');
-					$('#immune').removeClass('hidden');
-					$('aside section').removeClass('hidden');
-					$('#selector').addClass('activemargin');
-					$('#reset').removeClass('hidden');
-					
-					type1 = selectedtypes[0];
-					type2 = selectedtypes[1];
-					
-					if(!type2){
-						$('#selectedtypes').append(type1);
-					}
-					else {
-						$('#selectedtypes').append(type1 + " / " + type2);
-					}
-					
-					$.each( types[type1], function( key, val ) {
-						combo1.push(val.multiplier)
-						attackingtype.push(val.name)
-					});
-					
-					$.each( types[type2], function( key, val ) {
-						combo2.push(val.multiplier)
-					});
-	
-					var combined = combo1.map((item, index) => {
-						return `${combo1[index]}${combo2[index]}`;
-					});
-	
-					var combinedOutput = [];
-					var attackingOutput = [];
-					
-					$(combined).each(function(item, index){
-						splitvalue = multipliers[index]
-						combinedOutput.push(splitvalue)
-					});
-										
-					$(attackingtype).each(function(item, index){
-						splittype = index
-						attackingOutput.push(splittype)
-					});
-									
-					var output = attackingOutput.map((item, index) => {
-						return {
-							type: item,
-							value: combinedOutput[index]
-						}
-					})
-					
-						
-					var quadrupleDamage =  output.filter(item => item.value == "4&#215;");
-					var doubleDamage =  output.filter(item => item.value == "2&#215;");
-					var halfDamage =  output.filter(item => item.value == "&frac12;&#215;");
-					var quarterDamage =  output.filter(item => item.value == "&frac14;&#215;");
-					var immune =  output.filter(item => item.value == "0&#215;");
-										
-					quadrupleDamage.forEach(item => {
-						$("#quadruple ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
-					})
-					
-					doubleDamage.forEach(item => {
-						$("#double ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
-					})
-					
-					halfDamage.forEach(item => {
-						$("#half ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
-					})
-					
-					quarterDamage.forEach(item => {
-						$("#quarter ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
-					})
-					
-					immune.forEach(item => {
-						$("#immune ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
-					})
-					
-					if(quadrupleDamage.length == 0){
-						$('#quadruple').addClass('hidden');
-					}
-					
-					if(doubleDamage.length == 0){
-						$('#double').addClass('hidden');
-					}
-										
-					if(halfDamage.length == 0){
-						$('#half').addClass('hidden');
-					}
-					
-					if(quarterDamage.length == 0){
-						$('#quarter').addClass('hidden');
-					}
-					
-					if(immune.length == 0){
-						$('#immune').addClass('hidden');
-					}
-
-				});
-				
-				$('#reset').click(function() {
-					type1 = [];
-					type2 = [];
-					combo1 = [];
-					combo2 = [];
-					attackingtype = [];
-					$('#results li').remove();
-					$('#results li').empty();
-					$('#selectedtypes').empty();
-					$('#quadruple').removeClass('hidden');
-					$('#double').removeClass('hidden');
-					$('#half').removeClass('hidden');
-					$('#quarter').removeClass('hidden');
-					$('#immune').removeClass('hidden');
-					type1 = selectedtypes[0];
-					type2 = selectedtypes[1];
-					$('#results').addClass('hidden');
-					selectedtypes = []
-					$('#selector li').removeClass('active');
-					clicks = 0;
-					$('#results').addClass('mobilehidden');
-					$('aside section').addClass('hidden');
-					$('#selector').removeClass('activemargin');
-					$('#reset').addClass('hidden');
-				});
-				
 			});
 		</script>
 		
