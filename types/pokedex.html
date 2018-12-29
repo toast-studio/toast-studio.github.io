@@ -285,18 +285,19 @@
 			}
 			
 			#selector li {
-				color: rgba(255,255,255,0.5);
+				color: rgba(255,255,255,0.3);
 				list-style: none;
 				font-size: 16px;
 				font-weight: 500;
 				font-family: 'Circular Std Book', helvetica, arial, sans-serif;
 				display: grid;
-				grid-template-columns: 64px 1fr 80px;
+				grid-template-columns: 50px 1fr;
 			    border-bottom: 1px solid black;
 			    box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.1);
-			    padding: 10px;
+			    padding: 20px;
 			    grid-gap: 20px;
 			    align-items: center;
+			    height: 90px;
 			}
 			
 			#selector span {
@@ -306,18 +307,16 @@
 			
 			#selector .sprite {
 				max-width: 100%;
+				max-height: 50px;
+				display: block;
+				margin: 0px auto;
 			}
 			
 			#selector .type {
 				width: 30px;
 				margin-left: 10px;
 			}
-			
-			#selector div {
-				//border: 1px solid red;
-			
-			}
-			
+						
 			#selector li:hover {
 				cursor: hand;
 			}
@@ -2319,7 +2318,7 @@
 							"type2": "steel",
 						},
 						{
-							"name": "Nidoran&female;",
+							"name": "Nidoran&nbsp;&female;",
 							"number": "029",
 							"index": "029",
 							"type1": "poison",
@@ -2338,7 +2337,7 @@
 							"type2": "ground",
 						},
 						{
-							"name": "Nidoran&male;",
+							"name": "Nidoran&nbsp;&male;",
 							"number": "032",
 							"index": "032",
 							"type1": "poison",
@@ -3398,7 +3397,7 @@
 				
 				
 				$.each( pokemon.pokedex, function( key, val ) {
-					$("#selector").append("<li data-type1=" + val.type1 + " data-type2=" + val.type2 + " data-index=" + val.index + " data-name=" + val.name + "><div><img class='sprite' src='sprites-small/" + val.index + ".png' /></div><div><span>" + val.name + "</span>" + val.number + "</div></li>")
+					$("#selector").append("<li data-type1=" + val.type1 + " data-type2=" + val.type2 + " data-index=" + val.index + " data-name=" + val.name + "><div><img class='sprite' src='sprites/" + val.index + ".png' /></div><div><span>" + val.name + "</span>" + val.number + "</div></li>")
 				});
 				
 				$('#selector li').click(function() {
@@ -3544,7 +3543,7 @@
 						$('#immune').addClass('hidden');
 					}
 					
-					$("#largeSprite").append(`<img src="sprites-large/${index}.gif" style='margin:0px auto;display:block;padding-bottom:40px;max-height:200px;max-width:100%;' />`)
+					$("#largeSprite").append(`<img src="sprites/${index}.png" style='margin:0px auto;display:block;padding-bottom:40px;max-height:200px;max-width:100%;' />`)
 					
 					console.log(index)
 
