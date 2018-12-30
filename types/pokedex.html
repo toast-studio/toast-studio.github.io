@@ -81,8 +81,8 @@
 			}
 						
 			header {
-				height: 60px;
-			    height: calc(60px + env(safe-area-inset-top));
+				height: 120px;
+			    height: calc(120px + env(safe-area-inset-top));
 			    width: 200%;
 			    position: fixed;
 			    z-index: 3;
@@ -95,11 +95,8 @@
 			header section {
 				width: 100%;
 				float: left;
-				height: 60px;
-				height: calc(60px + env(safe-area-inset-top));
-				display: flex;
-				align-items: center;
-				justify-content: center;
+				height: 120px;
+				height: calc(120px + env(safe-area-inset-top));
 			}
 			
 			header section:first-child {
@@ -165,6 +162,8 @@
 				padding-left: 20px;
 				padding-left: calc(20px + env(safe-area-inset-left));
 				padding-right: 20px;
+				margin-top: 10px;
+				margin-bottom: 20px;
 			}
 			
 			#tab1 {
@@ -196,6 +195,25 @@
 				background: rgba(255,255,255,0.3);
 				border-radius: 0px 5px 5px 0px;
 				margin: 0px;
+			}
+			
+			input {
+				background: rgba(0,0,0,0.2);
+				color: white;
+				height: 40px;
+				border-radius: 5px;
+				border: 1px solid black;
+				box-shadow: 0px 1px 0px rgba(255,255,255,0.1);
+				outline: none;
+				width: calc(100% - 40px);
+				margin-left: 20px;
+				padding-left: 10px;
+				font-family: 'Circular Std Book', helvetica, arial, sans-serif;
+				font-size: 15px;
+			}
+			
+			input::placeholder {
+				font-style: italic;
 			}
 			
 			#toggle {
@@ -274,8 +292,8 @@
 			#selector {
 				grid-gap: 10px;
 				grid-row-gap: 0px;
-				padding-top: 70px;
-				padding-top: calc(60px + env(safe-area-inset-top));
+				padding-top: 120px;
+				padding-top: calc(120px + env(safe-area-inset-top));
 				padding-bottom: env(safe-area-inset-bottom);
 				padding-left: 0px;
 				padding-right: 0px;
@@ -665,9 +683,12 @@
 	</head>
 	<body>
 		<header>
-			<section id="tabs">
-				<a href="index.html"><h2 id="tab1">Types</h2></a>
-				<h2 id="tab2">Pok&eacute;mon</h2>
+			<section>
+				<div id="tabs">
+					<a href="index.html"><h2 id="tab1">Types</h2></a>
+					<h2 id="tab2">Pok&eacute;mon</h2>
+				</div>
+				<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Pokemon" autocomplete="on">
 			</section>
 			<section>
 				
@@ -720,6 +741,27 @@
 				$('main').toggleClass('shiftMain');
 				$('header').toggleClass('shiftAside');
 			});
+		</script>
+		<script>
+			function myFunction() {
+			  // Declare variables
+			  var input, filter, ul, li, a, i, txtValue;
+			  input = document.getElementById('myInput');
+			  filter = input.value.toUpperCase();
+			  ul = document.getElementById("selector");
+			  li = ul.getElementsByTagName('li');
+			
+			  // Loop through all list items, and hide those who don't match the search query
+			  for (i = 0; i < li.length; i++) {
+			    a = li[i].getElementsByTagName("span")[0];
+			    txtValue = a.textContent || a.innerText;
+			    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			      li[i].style.display = "";
+			    } else {
+			      li[i].style.display = "none";
+			    }
+			  }
+			}
 		</script>
 		<script>
 			$('document').ready(function(){
@@ -6069,8 +6111,7 @@
 				var quarterDamage = []
 				var immune = []
 				var clicks = 0;
-				
-				
+								
 				$.each( pokemon.pokedex, function( key, val ) {
 					$("#selector").append("<li data-type1=" + val.type1 + " data-type2=" + val.type2 + " data-index=" + val.index + " data-name=" + val.name + "><div><img class='sprite' src='small/" + val.index + ".png' /></div><div><span>" + val.name + "</span>" + val.number + "</div></li>")
 				});
