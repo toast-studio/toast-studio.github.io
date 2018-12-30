@@ -6072,7 +6072,7 @@
 				
 				
 				$.each( pokemon.pokedex, function( key, val ) {
-					$("#selector").append("<li data-type1=" + val.type1 + " data-type2=" + val.type2 + " data-index=" + val.index + " data-name=" + val.name + "><div><img class='sprite' src='sprites/" + val.index + ".png' /></div><div><span>" + val.name + "</span>" + val.number + "</div></li>")
+					$("#selector").append("<li data-type1=" + val.type1 + " data-type2=" + val.type2 + " data-index=" + val.index + " data-name=" + val.name + "><div><img class='sprite' src='small/" + val.index + ".png' /></div><div><span>" + val.name + "</span>" + val.number + "</div></li>")
 				});
 				
 				$('#selector li').click(function() {
@@ -6218,7 +6218,7 @@
 						$('#immune').addClass('hidden');
 					}
 					
-					$("#largeSprite").append(`<img src="sprites/${index}.png" style='margin:0px auto;display:block;padding-bottom:40px;max-height:200px;max-width:200px;' />`)
+					$("#largeSprite").append(`<img src="large/${index}.png" style='margin:0px auto;display:block;padding-bottom:40px;max-height:200px;max-width:200px;' />`)
 					
 					console.log(index)
 
