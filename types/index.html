@@ -2083,7 +2083,7 @@
 				
 				
 				$.each( types.normal, function( key, val ) {
-					$("#selector").append("<li data-type='" + val.name + "'><img src='" + val.name + ".png' /><span>" + val.name + "</span></li>")
+					$("#selector").append("<li data-type='" + val.name + "'><img src='types/" + val.name + ".png' /><span>" + val.name + "</span></li>")
 				});
 				
 				$('#showresults').click(function() {
@@ -2189,23 +2189,23 @@
 					var immune =  output.filter(item => item.value == "0&#215;");
 										
 					quadrupleDamage.forEach(item => {
-						$("#quadruple ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
+						$("#quadruple ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
 					})
 					
 					doubleDamage.forEach(item => {
-						$("#double ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
+						$("#double ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
 					})
 					
 					halfDamage.forEach(item => {
-						$("#half ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
+						$("#half ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
 					})
 					
 					quarterDamage.forEach(item => {
-						$("#quarter ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
+						$("#quarter ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
 					})
 					
 					immune.forEach(item => {
-						$("#immune ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
+						$("#immune ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
 					})
 					
 					if(quadrupleDamage.length == 0){
