@@ -40,6 +40,7 @@ aside {
 	height: calc(100% - 60px);
 	height: calc(100% + env(safe-area-inset-top) - 60px);
 	top: 60px;
+	top: calc(env(safe-area-inset-top) + 60px);
 	width: 100%;
 	left: 0px;
 	transition: 0.2s left ease;
@@ -48,8 +49,9 @@ aside {
 
 #pokemon aside {
 	height: calc(100% - 120px);
-	height: calc(100% + env(safe-area-inset-top) - 120px);
+	height: calc(100% - env(safe-area-inset-top) - 120px);
 	top: 120px;
+	top: calc(env(safe-area-inset-top) + 120px);
 }
 
 main {
@@ -326,7 +328,6 @@ aside section {
 	grid-gap: 30px;
 	grid-row-gap: 0px;
 	padding-top: 20px;
-	padding-top: calc(20px + env(safe-area-inset-top));
 	padding-bottom: env(safe-area-inset-bottom);
 	padding-left: 20px;
 	padding-left: calc(20px + env(safe-area-inset-left));
