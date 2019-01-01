@@ -349,6 +349,18 @@
 				display: block;
 			}
 			
+			#selector .typeicon {
+				width: 20px;
+				height: 20px;
+				margin-right: 5px;
+				margin-top: 5px;
+				background: none;
+			}
+			
+			.undefined {
+				display: none;
+			}
+			
 			#results {
 				padding-top: 30px;
 				padding-top: calc(30px + env(safe-area-inset-top));
@@ -8394,7 +8406,7 @@
 				var clicks = 0;
 								
 				$.each( pokemon.pokedex, function( key, val ) {
-					$("#selector").append("<li data-type1=" + val.type1 + " data-type2=" + val.type2 + " data-index=" + val.index + " data-name=" + val.name + "><div><img class='sprite' src='small/" + val.index + ".png' /></div><div><span>" + val.name + "</span>" + val.number + "</div></li>")
+					$("#selector").append("<li data-type1=" + val.type1 + " data-type2=" + val.type2 + " data-index=" + val.index + " data-name=" + val.name + "><div><img class='sprite' src='small/" + val.index + ".png' /></div><div><span>" + val.name + "</span><img src='types/" + val.type1 + ".png' class='typeicon " + val.type1 + "' /><img src='types/" + val.type2 + ".png' class='typeicon " + val.type2 + "' /></div></li>")
 				});
 				
 				$('#selector li').click(function() {
