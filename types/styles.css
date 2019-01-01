@@ -369,6 +369,7 @@ aside section {
 #pokedex {
 	margin: 0px;
 	padding-left: 0px;
+	padding-bottom: env(safe-area-inset-bottom);
 }
 
 #pokedex li {
