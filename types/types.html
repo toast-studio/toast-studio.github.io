@@ -1,0 +1,1644 @@
+<html>
+	<head>
+		<title>TypeDex</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="theme-color" content="#313131">
+		
+		<link rel="stylesheet" href="styles.css">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		
+		<link href="splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+		<link href="splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />		
+	</head>
+	<body id="types">
+		<header>
+			<section id="tabs">
+				<a href="index.html"><h2 id="tab1">Pok&eacute;mon</h2></a>
+				<h2 id="tab2">Types</h2>
+			</section>
+			<section>
+				<h1 id="selectedtypes"></h1>
+				<img src="close.svg" class="toggle hidden" id="reset" />
+			</section>
+		</header>
+		<aside>
+			<ul id="typeselector"></ul>
+			<section class="hidden toggle">
+				<p id="showresults">Show damage multipliers</p>
+			</section>
+		</aside>
+		<main>
+			<div id="results" class="hidden">
+				<section id="quadruple">
+					<h3>4&#215; damage from</h3>
+					<ul></ul>
+				</section>
+				
+				<section id="double">
+					<h3>2&#215; damage from</h3>
+					<ul></ul>
+				</section>
+				
+				<section id="half">
+					<h3>&frac12;&#215; damage from</h3>
+					<ul></ul>
+				</section>
+				
+				<section id="quarter">
+					<h3>&frac14;&#215; damage from</h3>
+					<ul id="quarter"></ul>
+				</section>
+				
+				<section id="immune">
+					<h3>Immune to</h3>
+					<ul></ul>
+				</section>
+				<p class="legal">Pok&eacute;mon &copy;2002-2019 Pok&eacute;mon. &copy;1995-2019 Nintendo/Creatures Inc./GAME FREAK inc.&trade;, &reg; and Pok&eacute;mon character names are trademarks of Nintendo. No copyright or trademark infringement is intended in using Pok&eacute;mon content.</p>
+			</div>
+		</main>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$('.toggle').click(function() {
+				//$('aside').toggleClass('shiftAside');
+				$('main').toggleClass('shiftMain');
+				$('header').toggleClass('shiftAside');
+			});
+		</script>
+		<script>
+			$('document').ready(function(){
+				
+				var types = {
+					"normal": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "A"
+						},
+						{
+							"name": "flying",
+							"multiplier": "B"
+						},
+						{
+							"name": "poison",
+							"multiplier": "B"
+						},
+						{
+							"name": "ground",
+							"multiplier": "B"
+						},
+						{
+							"name": "rock",
+							"multiplier": "B"
+						},
+						{
+							"name": "bug",
+							"multiplier": "B"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "D"
+						},
+						{
+							"name": "steel",
+							"multiplier": "B"
+						},
+						{
+							"name": "fire",
+							"multiplier": "B"
+						},
+						{
+							"name": "water",
+							"multiplier": "B"
+						},
+						{
+							"name": "grass",
+							"multiplier": "B"
+						},
+						{
+							"name": "electric",
+							"multiplier": "B"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "B"
+						},
+						{
+							"name": "ice",
+							"multiplier": "B"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "B"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "B"
+						}
+					],
+					"fighting": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "B"
+						},
+						{
+							"name": "flying",
+							"multiplier": "A"
+						},
+						{
+							"name": "poison",
+							"multiplier": "B"
+						},
+						{
+							"name": "ground",
+							"multiplier": "B"
+						},
+						{
+							"name": "rock",
+							"multiplier": "C"
+						},
+						{
+							"name": "bug",
+							"multiplier": "C"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "B"
+						},
+						{
+							"name": "fire",
+							"multiplier": "B"
+						},
+						{
+							"name": "water",
+							"multiplier": "B"
+						},
+						{
+							"name": "grass",
+							"multiplier": "B"
+						},
+						{
+							"name": "electric",
+							"multiplier": "B"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "A"
+						},
+						{
+							"name": "ice",
+							"multiplier": "B"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "C"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "A"
+						}
+					],
+					"flying": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "C"
+						},
+						{
+							"name": "flying",
+							"multiplier": "B"
+						},
+						{
+							"name": "poison",
+							"multiplier": "B"
+						},
+						{
+							"name": "ground",
+							"multiplier": "D"
+						},
+						{
+							"name": "rock",
+							"multiplier": "A"
+						},
+						{
+							"name": "bug",
+							"multiplier": "C"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "B"
+						},
+						{
+							"name": "fire",
+							"multiplier": "B"
+						},
+						{
+							"name": "water",
+							"multiplier": "B"
+						},
+						{
+							"name": "grass",
+							"multiplier": "C"
+						},
+						{
+							"name": "electric",
+							"multiplier": "A"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "B"
+						},
+						{
+							"name": "ice",
+							"multiplier": "A"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "B"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "B"
+						}
+					],
+					"poison": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "C"
+						},
+						{
+							"name": "flying",
+							"multiplier": "B"
+						},
+						{
+							"name": "poison",
+							"multiplier": "C"
+						},
+						{
+							"name": "ground",
+							"multiplier": "A"
+						},
+						{
+							"name": "rock",
+							"multiplier": "B"
+						},
+						{
+							"name": "bug",
+							"multiplier": "C"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "B"
+						},
+						{
+							"name": "fire",
+							"multiplier": "B"
+						},
+						{
+							"name": "water",
+							"multiplier": "V"
+						},
+						{
+							"name": "grass",
+							"multiplier": "C"
+						},
+						{
+							"name": "electric",
+							"multiplier": "B"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "A"
+						},
+						{
+							"name": "ice",
+							"multiplier": "B"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "B"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "C"
+						}
+					],
+					"ground": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "B"
+						},
+						{
+							"name": "flying",
+							"multiplier": "B"
+						},
+						{
+							"name": "poison",
+							"multiplier": "C"
+						},
+						{
+							"name": "ground",
+							"multiplier": "B"
+						},
+						{
+							"name": "rock",
+							"multiplier": "C"
+						},
+						{
+							"name": "bug",
+							"multiplier": "B"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "B"
+						},
+						{
+							"name": "fire",
+							"multiplier": "B"
+						},
+						{
+							"name": "water",
+							"multiplier": "A"
+						},
+						{
+							"name": "grass",
+							"multiplier": "A"
+						},
+						{
+							"name": "electric",
+							"multiplier": "D"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "B"
+						},
+						{
+							"name": "ice",
+							"multiplier": "A"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "B"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "B"
+						}
+					],
+					"rock": [
+						{
+							"name": "normal",
+							"multiplier": "C"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "A"
+						},
+						{
+							"name": "flying",
+							"multiplier": "C"
+						},
+						{
+							"name": "poison",
+							"multiplier": "C"
+						},
+						{
+							"name": "ground",
+							"multiplier": "A"
+						},
+						{
+							"name": "rock",
+							"multiplier": "B"
+						},
+						{
+							"name": "bug",
+							"multiplier": "B"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "A"
+						},
+						{
+							"name": "fire",
+							"multiplier": "C"
+						},
+						{
+							"name": "water",
+							"multiplier": "A"
+						},
+						{
+							"name": "grass",
+							"multiplier": "A"
+						},
+						{
+							"name": "electric",
+							"multiplier": "B"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "B"
+						},
+						{
+							"name": "ice",
+							"multiplier": "B"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "B"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "B"
+						}
+					],
+					"bug": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "C"
+						},
+						{
+							"name": "flying",
+							"multiplier": "A"
+						},
+						{
+							"name": "poison",
+							"multiplier": "B"
+						},
+						{
+							"name": "ground",
+							"multiplier": "C"
+						},
+						{
+							"name": "rock",
+							"multiplier": "A"
+						},
+						{
+							"name": "bug",
+							"multiplier": "B"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "B"
+						},
+						{
+							"name": "fire",
+							"multiplier": "A"
+						},
+						{
+							"name": "water",
+							"multiplier": "B"
+						},
+						{
+							"name": "grass",
+							"multiplier": "C"
+						},
+						{
+							"name": "electric",
+							"multiplier": "B"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "B"
+						},
+						{
+							"name": "ice",
+							"multiplier": "B"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "B"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "B"
+						}
+					],
+					"ghost": [
+						{
+							"name": "normal",
+							"multiplier": "D"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "D"
+						},
+						{
+							"name": "flying",
+							"multiplier": "B"
+						},
+						{
+							"name": "poison",
+							"multiplier": "C"
+						},
+						{
+							"name": "ground",
+							"multiplier": "B"
+						},
+						{
+							"name": "rock",
+							"multiplier": "B"
+						},
+						{
+							"name": "bug",
+							"multiplier": "C"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "A"
+						},
+						{
+							"name": "steel",
+							"multiplier": "B"
+						},
+						{
+							"name": "fire",
+							"multiplier": "B"
+						},
+						{
+							"name": "water",
+							"multiplier": "B"
+						},
+						{
+							"name": "grass",
+							"multiplier": "B"
+						},
+						{
+							"name": "electric",
+							"multiplier": "B"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "B"
+						},
+						{
+							"name": "ice",
+							"multiplier": "B"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "A"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "B"
+						}
+					],
+					"steel": [
+						{
+							"name": "normal",
+							"multiplier": "C"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "A"
+						},
+						{
+							"name": "flying",
+							"multiplier": "C"
+						},
+						{
+							"name": "poison",
+							"multiplier": "D"
+						},
+						{
+							"name": "ground",
+							"multiplier": "A"
+						},
+						{
+							"name": "rock",
+							"multiplier": "C"
+						},
+						{
+							"name": "bug",
+							"multiplier": "C"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "C"
+						},
+						{
+							"name": "fire",
+							"multiplier": "A"
+						},
+						{
+							"name": "water",
+							"multiplier": "B"
+						},
+						{
+							"name": "grass",
+							"multiplier": "C"
+						},
+						{
+							"name": "electric",
+							"multiplier": "B"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "C"
+						},
+						{
+							"name": "ice",
+							"multiplier": "C"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "C"
+						},
+						{
+							"name": "dark",
+							"multiplier": "B"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "C"
+						}
+					],
+					"fire": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "B"
+						},
+						{
+							"name": "flying",
+							"multiplier": "B"
+						},
+						{
+							"name": "poison",
+							"multiplier": "B"
+						},
+						{
+							"name": "ground",
+							"multiplier": "A"
+						},
+						{
+							"name": "rock",
+							"multiplier": "A"
+						},
+						{
+							"name": "bug",
+							"multiplier": "C"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "C"
+						},
+						{
+							"name": "fire",
+							"multiplier": "C"
+						},
+						{
+							"name": "water",
+							"multiplier": "A"
+						},
+						{
+							"name": "grass",
+							"multiplier": "C"
+						},
+						{
+							"name": "electric",
+							"multiplier": "B"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "B"
+						},
+						{
+							"name": "ice",
+							"multiplier": "C"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "B"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "C"
+						}
+					],
+					"water": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "B"
+						},
+						{
+							"name": "flying",
+							"multiplier": "B"
+						},
+						{
+							"name": "poison",
+							"multiplier": "B"
+						},
+						{
+							"name": "ground",
+							"multiplier": "B"
+						},
+						{
+							"name": "rock",
+							"multiplier": "B"
+						},
+						{
+							"name": "bug",
+							"multiplier": "B"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "C"
+						},
+						{
+							"name": "fire",
+							"multiplier": "C"
+						},
+						{
+							"name": "water",
+							"multiplier": "C"
+						},
+						{
+							"name": "grass",
+							"multiplier": "A"
+						},
+						{
+							"name": "electric",
+							"multiplier": "A"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "B"
+						},
+						{
+							"name": "ice",
+							"multiplier": "C"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "B"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "B"
+						}
+					],
+					"grass": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "B"
+						},
+						{
+							"name": "flying",
+							"multiplier": "A"
+						},
+						{
+							"name": "poison",
+							"multiplier": "A"
+						},
+						{
+							"name": "ground",
+							"multiplier": "C"
+						},
+						{
+							"name": "rock",
+							"multiplier": "B"
+						},
+						{
+							"name": "bug",
+							"multiplier": "A"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "B"
+						},
+						{
+							"name": "fire",
+							"multiplier": "A"
+						},
+						{
+							"name": "water",
+							"multiplier": "C"
+						},
+						{
+							"name": "grass",
+							"multiplier": "C"
+						},
+						{
+							"name": "electric",
+							"multiplier": "C"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "B"
+						},
+						{
+							"name": "ice",
+							"multiplier": "A"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "B"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "B"
+						}
+					],
+					"electric": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "B"
+						},
+						{
+							"name": "flying",
+							"multiplier": "C"
+						},
+						{
+							"name": "poison",
+							"multiplier": "B"
+						},
+						{
+							"name": "ground",
+							"multiplier": "A"
+						},
+						{
+							"name": "rock",
+							"multiplier": "B"
+						},
+						{
+							"name": "bug",
+							"multiplier": "B"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "C"
+						},
+						{
+							"name": "fire",
+							"multiplier": "B"
+						},
+						{
+							"name": "water",
+							"multiplier": "B"
+						},
+						{
+							"name": "grass",
+							"multiplier": "B"
+						},
+						{
+							"name": "electric",
+							"multiplier": "C"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "B"
+						},
+						{
+							"name": "ice",
+							"multiplier": "B"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "B"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "B"
+						}
+					],
+					"psychic": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "C"
+						},
+						{
+							"name": "flying",
+							"multiplier": "B"
+						},
+						{
+							"name": "poison",
+							"multiplier": "B"
+						},
+						{
+							"name": "ground",
+							"multiplier": "B"
+						},
+						{
+							"name": "rock",
+							"multiplier": "B"
+						},
+						{
+							"name": "bug",
+							"multiplier": "A"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "A"
+						},
+						{
+							"name": "steel",
+							"multiplier": "B"
+						},
+						{
+							"name": "fire",
+							"multiplier": "B"
+						},
+						{
+							"name": "water",
+							"multiplier": "B"
+						},
+						{
+							"name": "grass",
+							"multiplier": "B"
+						},
+						{
+							"name": "electric",
+							"multiplier": "B"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "C"
+						},
+						{
+							"name": "ice",
+							"multiplier": "B"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "A"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "B"
+						}
+					],
+					"ice": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "A"
+						},
+						{
+							"name": "flying",
+							"multiplier": "B"
+						},
+						{
+							"name": "poison",
+							"multiplier": "B"
+						},
+						{
+							"name": "ground",
+							"multiplier": "B"
+						},
+						{
+							"name": "rock",
+							"multiplier": "A"
+						},
+						{
+							"name": "bug",
+							"multiplier": "B"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "A"
+						},
+						{
+							"name": "fire",
+							"multiplier": "A"
+						},
+						{
+							"name": "water",
+							"multiplier": "B"
+						},
+						{
+							"name": "grass",
+							"multiplier": "B"
+						},
+						{
+							"name": "electric",
+							"multiplier": "B"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "B"
+						},
+						{
+							"name": "ice",
+							"multiplier": "C"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "B"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "B"
+						}
+					],
+					"dragon": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "B"
+						},
+						{
+							"name": "flying",
+							"multiplier": "B"
+						},
+						{
+							"name": "poison",
+							"multiplier": "B"
+						},
+						{
+							"name": "ground",
+							"multiplier": "B"
+						},
+						{
+							"name": "rock",
+							"multiplier": "B"
+						},
+						{
+							"name": "bug",
+							"multiplier": "B"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "B"
+						},
+						{
+							"name": "fire",
+							"multiplier": "C"
+						},
+						{
+							"name": "water",
+							"multiplier": "C"
+						},
+						{
+							"name": "grass",
+							"multiplier": "C"
+						},
+						{
+							"name": "electric",
+							"multiplier": "C"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "B"
+						},
+						{
+							"name": "ice",
+							"multiplier": "A"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "A"
+						},
+						{
+							"name": "dark",
+							"multiplier": "B"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "A"
+						}
+					],					
+					"dark": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "A"
+						},
+						{
+							"name": "flying",
+							"multiplier": "B"
+						},
+						{
+							"name": "poison",
+							"multiplier": "B"
+						},
+						{
+							"name": "ground",
+							"multiplier": "B"
+						},
+						{
+							"name": "rock",
+							"multiplier": "B"
+						},
+						{
+							"name": "bug",
+							"multiplier": "A"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "C"
+						},
+						{
+							"name": "steel",
+							"multiplier": "B"
+						},
+						{
+							"name": "fire",
+							"multiplier": "B"
+						},
+						{
+							"name": "water",
+							"multiplier": "B"
+						},
+						{
+							"name": "grass",
+							"multiplier": "B"
+						},
+						{
+							"name": "electric",
+							"multiplier": "B"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "D"
+						},
+						{
+							"name": "ice",
+							"multiplier": "B"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "B"
+						},
+						{
+							"name": "dark",
+							"multiplier": "C"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "A"
+						}
+					],
+					"fairy": [
+						{
+							"name": "normal",
+							"multiplier": "B"
+						},
+						{
+							"name": "fighting",
+							"multiplier": "C"
+						},
+						{
+							"name": "flying",
+							"multiplier": "B"
+						},
+						{
+							"name": "poison",
+							"multiplier": "A"
+						},
+						{
+							"name": "ground",
+							"multiplier": "B"
+						},
+						{
+							"name": "rock",
+							"multiplier": "B"
+						},
+						{
+							"name": "bug",
+							"multiplier": "C"
+						},
+						{
+							"name": "ghost",
+							"multiplier": "B"
+						},
+						{
+							"name": "steel",
+							"multiplier": "A"
+						},
+						{
+							"name": "fire",
+							"multiplier": "B"
+						},
+						{
+							"name": "water",
+							"multiplier": "B"
+						},
+						{
+							"name": "grass",
+							"multiplier": "B"
+						},
+						{
+							"name": "electric",
+							"multiplier": "B"
+						},
+						{
+							"name": "psychic",
+							"multiplier": "B"
+						},
+						{
+							"name": "ice",
+							"multiplier": "B"
+						},
+						{
+							"name": "dragon",
+							"multiplier": "D"
+						},
+						{
+							"name": "dark",
+							"multiplier": "C"
+						},
+						{
+							"name": "fairy",
+							"multiplier": "B"
+						}
+					]
+				}
+				var multipliers = {
+					Aundefined: "2&#215;",
+					Bundefined: "1&#215;",
+					Cundefined: "&frac12;&#215;",
+					Dundefined: "0&#215;",
+					AA: "4&#215;", // Super Effective | Super Effective
+					AB:	"2&#215;", // Super Effective | Effective
+					BA:	"2&#215;", // Super Effective | Effective
+					AC:	"1&#215;", // Super Effective | Not Effective
+					CA:	"1&#215;", // Super Effective | Not Effective
+					BB: "1&#215;", // Effective | Effective
+					BC: "&frac12;&#215;", // Effective | Not Effective
+					CB: "&frac12;&#215;", // Effective | Not Effective
+					CC: "&frac14;&#215;", // Not Effective | Not Effective
+					AD: "0&#215;", // Super Effective | Immune
+					DA: "0&#215;", // Super Effective | Immune
+					BD: "0&#215;", // Effective | Immune
+					DB: "0&#215;", // Effective | Immune
+					CD: "0&#215;", // Not Effective | Immune
+					DC: "0&#215;", // Not Effective | Immune
+					DD: "0&#215;", // Immune | Immune
+				}
+				
+				
+				var selector = [];
+				var type1 = [];
+				var type2 = [];
+								
+					
+				var combo1 = []
+				var combo2 = []
+				var attackingtype = []
+				
+				var splitvalue = []
+				var splittype = []
+				var output = []
+				
+				var selectedtypes = []
+				
+				var quadrupleDamage = []
+				var doubleDamage = []
+				var halfDamage = []
+				var quarterDamage = []
+				var immune = []
+				var clicks = 0;
+				
+				
+				$.each( types.normal, function( key, val ) {
+					$("#typeselector").append("<li data-type='" + val.name + "'><img src='types/" + val.name + ".png' /><span>" + val.name + "</span></li>")
+				});
+				
+				$('#showresults').click(function() {
+					$('#results').removeClass('mobilehidden');
+				});
+								
+				$('#typeselector li').click(function() {
+														
+				    if (clicks == 2){
+						type1 = [];
+						type2 = [];
+						combo1 = [];
+						combo2 = [];
+						attackingtype = [];
+						$('#results li').remove();
+						$('#results li').empty();
+						$('#selectedtypes').empty();
+						$('#quadruple').removeClass('hidden');
+						$('#double').removeClass('hidden');
+						$('#half').removeClass('hidden');
+						$('#quarter').removeClass('hidden');
+						$('#immune').removeClass('hidden');
+						type1 = selectedtypes[0];
+						type2 = selectedtypes[1];
+						$('#results').addClass('hidden');
+						selectedtypes = []
+						$('#typeselector li').removeClass('active');
+						clicks = 0
+				    }
+				    ++clicks;
+					
+					$(this).addClass('active');
+					$('#results').removeClass('hidden');
+					var thisType = $(this).attr('data-type');
+					selectedtypes.push(thisType);
+					selectedtypes = selectedtypes.slice(selectedtypes.length - 2);
+					
+					type1 = [];
+					type2 = [];
+					combo1 = [];
+					combo2 = [];
+					attackingtype = [];
+					$('#results li').remove();
+					$('#results li').empty();
+					$('#selectedtypes').empty();
+					$('#quadruple').removeClass('hidden');
+					$('#double').removeClass('hidden');
+					$('#half').removeClass('hidden');
+					$('#quarter').removeClass('hidden');
+					$('#immune').removeClass('hidden');
+					$('aside section').removeClass('hidden');
+					$('#typeselector').addClass('activemargin');
+					$('#reset').removeClass('hidden');
+					
+					type1 = selectedtypes[0];
+					type2 = selectedtypes[1];
+					
+					if(!type2){
+						$('#selectedtypes').append(type1);
+					}
+					else {
+						$('#selectedtypes').append(type1 + " / " + type2);
+					}
+					
+					$.each( types[type1], function( key, val ) {
+						combo1.push(val.multiplier)
+						attackingtype.push(val.name)
+					});
+					
+					$.each( types[type2], function( key, val ) {
+						combo2.push(val.multiplier)
+					});
+	
+					var combined = combo1.map((item, index) => {
+						return `${combo1[index]}${combo2[index]}`;
+					});
+	
+					var combinedOutput = [];
+					var attackingOutput = [];
+					
+					$(combined).each(function(item, index){
+						splitvalue = multipliers[index]
+						combinedOutput.push(splitvalue)
+					});
+										
+					$(attackingtype).each(function(item, index){
+						splittype = index
+						attackingOutput.push(splittype)
+					});
+									
+					var output = attackingOutput.map((item, index) => {
+						return {
+							type: item,
+							value: combinedOutput[index]
+						}
+					})
+					
+						
+					var quadrupleDamage =  output.filter(item => item.value == "4&#215;");
+					var doubleDamage =  output.filter(item => item.value == "2&#215;");
+					var halfDamage =  output.filter(item => item.value == "&frac12;&#215;");
+					var quarterDamage =  output.filter(item => item.value == "&frac14;&#215;");
+					var immune =  output.filter(item => item.value == "0&#215;");
+										
+					quadrupleDamage.forEach(item => {
+						$("#quadruple ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
+					})
+					
+					doubleDamage.forEach(item => {
+						$("#double ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
+					})
+					
+					halfDamage.forEach(item => {
+						$("#half ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
+					})
+					
+					quarterDamage.forEach(item => {
+						$("#quarter ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
+					})
+					
+					immune.forEach(item => {
+						$("#immune ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
+					})
+					
+					if(quadrupleDamage.length == 0){
+						$('#quadruple').addClass('hidden');
+					}
+					
+					if(doubleDamage.length == 0){
+						$('#double').addClass('hidden');
+					}
+										
+					if(halfDamage.length == 0){
+						$('#half').addClass('hidden');
+					}
+					
+					if(quarterDamage.length == 0){
+						$('#quarter').addClass('hidden');
+					}
+					
+					if(immune.length == 0){
+						$('#immune').addClass('hidden');
+					}
+
+				});
+				
+				$('#reset').click(function() {
+					type1 = [];
+					type2 = [];
+					combo1 = [];
+					combo2 = [];
+					attackingtype = [];
+					$('#results li').remove();
+					$('#results li').empty();
+					$('#selectedtypes').empty();
+					$('#quadruple').removeClass('hidden');
+					$('#double').removeClass('hidden');
+					$('#half').removeClass('hidden');
+					$('#quarter').removeClass('hidden');
+					$('#immune').removeClass('hidden');
+					type1 = selectedtypes[0];
+					type2 = selectedtypes[1];
+					$('#results').addClass('hidden');
+					selectedtypes = []
+					$('#typeselector li').removeClass('active');
+					clicks = 0;
+					$('#results').addClass('mobilehidden');
+					$('aside section').addClass('hidden');
+					$('#typeselector').removeClass('activemargin');
+					$('#reset').addClass('hidden');
+				});
+				
+			});
+		</script>
+		
+		
+		
+		
+		
+		
+	</body>
+</html>
