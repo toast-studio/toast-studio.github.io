@@ -35,9 +35,6 @@
 		</header>
 		<aside>
 			<ul id="pokedex"></ul>
-			<section class="hidden toggle">
-				<p id="showresults">Show results</p>
-			</section>
 		</aside>
 		<main>
 			<div id="results" class="hidden">
@@ -73,13 +70,6 @@
 			</div>
 		</main>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script>
-			$('.toggle').click(function() {
-				//$('aside').toggleClass('shiftAside');
-				$('main').toggleClass('shiftMain');
-				$('header').toggleClass('shiftAside');
-			});
-		</script>
 		<script>
 			function myFunction() {
 			  // Declare variables
@@ -7771,11 +7761,12 @@
 					$('#half').removeClass('hidden');
 					$('#quarter').removeClass('hidden');
 					$('#immune').removeClass('hidden');
-					$('aside section').removeClass('hidden');
 					$('#pokedex').addClass('activemargin');
 					$('#reset').removeClass('hidden');
 					$('#largeSprite').empty();
 					$('#pokemon-name').empty();
+					$('main').toggleClass('shiftMain');
+					$('header').toggleClass('shiftAside');
 					
 					type1 = $(this).attr('data-type1');
 					type2 = $(this).attr('data-type2');
@@ -7898,7 +7889,6 @@
 					$('#pokedex li').removeClass('active');
 					clicks = 0;
 					$('#results').addClass('mobilehidden');
-					$('aside section').addClass('hidden');
 					$('#pokedex').removeClass('activemargin');
 					$('#reset').addClass('hidden');
 					$('#largeSprite').empty();
