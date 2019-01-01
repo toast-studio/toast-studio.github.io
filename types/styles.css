@@ -48,10 +48,11 @@ aside {
 }
 
 #pokemon aside {
-	height: calc(100% - 120px);
-	height: calc(100% - env(safe-area-inset-top) - 120px);
-	top: 120px;
-	top: calc(env(safe-area-inset-top) + 120px);
+	height: calc(100% - 110px);
+	height: calc(100% - env(safe-area-inset-top) - 110px);
+	top: 110px;
+	top: calc(env(safe-area-inset-top) + 110px);
+	overflow-x: hidden;
 }
 
 main {
@@ -82,8 +83,8 @@ header {
 }
 
 #pokemon header {
-	height: 120px;
-    height: calc(120px + env(safe-area-inset-top));
+	height: 110px;
+    height: calc(110px + env(safe-area-inset-top));
 }
 
 header section {
@@ -97,8 +98,8 @@ header section {
 }
 
 #pokemon header section {
-	height: 120px;
-	height: calc(120px + env(safe-area-inset-top));
+	height: 110px;
+	height: calc(110px + env(safe-area-inset-top));
 }
 
 header section:first-child {
@@ -188,7 +189,7 @@ h3 {
 }
 
 #pokemon #tabs {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	width: 100%;
 }
 
@@ -247,7 +248,9 @@ input {
 	box-shadow: 0px 1px 0px rgba(255,255,255,0.1);
 	outline: none;
 	width: calc(100% - 40px);
+	width: calc(100% - 40px - env(safe-area-inset-left));
 	margin-left: 0px;
+	margin-left: calc(0px + env(safe-area-inset-left));
 	padding-left: 10px;
 	font-family: 'Circular Std Book', helvetica, arial, sans-serif;
 	font-size: 16px;
@@ -291,7 +294,9 @@ input::placeholder {
 #reset {
 	position: absolute;
 	right: 10px;
+	right: calc(10px + env(safe-area-inset-right));
 	top: 20px;
+	top: calc(20px + env(safe-area-inset-top));
 }
 
 aside section {
@@ -377,6 +382,7 @@ aside section {
     border-bottom: 1px solid black;
     box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.1);
     padding: 20px;
+    padding-left: calc(20px + env(safe-area-inset-left));
     grid-gap: 20px;
     align-items: center;
     height: 90px;
@@ -430,6 +436,11 @@ aside section {
 	height: 100%;
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
+}
+
+#pokemon #results {
+	padding-top: 20px;
+	padding-top: calc(20px + env(safe-area-inset-top));
 }
 
 #results section {
