@@ -37,12 +37,19 @@ aside {
 	position: fixed;
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
-	height: 100%;
-	height: calc(100% + env(safe-area-inset-top));
+	height: calc(100% - 60px);
+	height: calc(100% + env(safe-area-inset-top) - 60px);
+	top: 60px;
 	width: 100%;
 	left: 0px;
 	transition: 0.2s left ease;
 	background: #313131;
+}
+
+#pokemon aside {
+	height: calc(100% - 120px);
+	height: calc(100% + env(safe-area-inset-top) - 120px);
+	top: 120px;
 }
 
 main {
@@ -72,6 +79,11 @@ header {
     left: 0px;
 }
 
+#pokemon header {
+	height: 120px;
+    height: calc(120px + env(safe-area-inset-top));
+}
+
 header section {
 	width: 100%;
 	float: left;
@@ -82,16 +94,31 @@ header section {
 	justify-content: center;
 }
 
+#pokemon header section {
+	height: 120px;
+	height: calc(120px + env(safe-area-inset-top));
+}
+
 header section:first-child {
     border-bottom: 1px solid black;
     box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.1);
     background: #313131;
 }
 
+#pokemon header section:first-child {
+	display: flex;
+	flex-direction: column;
+}
+
 header section:last-child {
     background: #1A1A1A;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     background: #313131;
+}
+
+#pokemon header section:last-child {
+    background: none;
+    border-bottom: none;
 }
 
 a {
@@ -104,8 +131,21 @@ h1 {
 	margin: 0px;
 	padding: 0px;
 	text-align: center;
+	padding: 0px;
+}
+
+header h1 {
 	padding-top: 0px;
 	padding-top: calc(0px + env(safe-area-inset-top));
+}
+
+h2 {
+	color: rgba(255,255,255,0.3);
+	font-family: 'Circular Std Book', helvetica, arial, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	padding-top: 0px;
 }
 			
 h3 {
@@ -143,6 +183,11 @@ h3 {
 	padding-left: 20px;
 	padding-left: calc(20px + env(safe-area-inset-left));
 	padding-right: 20px;
+}
+
+#pokemon #tabs {
+	margin-bottom: 20px;
+	width: 100%;
 }
 
 #tab1 {
@@ -183,21 +228,36 @@ h3 {
 	background: rgba(255,255,255,0.3);
 }
 
-#toggle {
-	background: hotpink;
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-	height: 60px;
-	width: 60px;
-	border-radius: 50%;
-	z-index: 3;
+#pokemon #tab1 {
+	background: rgba(255,255,255,0.3);
 }
 
-#toggle:hover {
-	cursor: hand;
-	background: pink;
-	box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+#pokemon #tab2 {
+	border-left: none;
+}
+
+input {
+	background: rgba(0,0,0,0.2);
+	color: white;
+	height: 40px;
+	border-radius: 5px;
+	border: 1px solid black;
+	box-shadow: 0px 1px 0px rgba(255,255,255,0.1);
+	outline: none;
+	width: calc(100% - 40px);
+	margin-left: 0px;
+	padding-left: 10px;
+	font-family: 'Circular Std Book', helvetica, arial, sans-serif;
+	font-size: 16px;
+	-webkit-appearance: none;
+}
+
+select:focus {
+	font-size: 16px;
+}
+
+input::placeholder {
+	font-style: italic;
 }
 
 .shiftAside {
@@ -218,10 +278,18 @@ h3 {
 	box-shadow: 0 0px 0px 4px #313131, 0 0px 0px 6px white;
 }
 
+#pokedex .active {
+	background: rgba(255,255,255,0.1);
+}
+
+#pokedex .active img {
+	box-shadow: none;
+}
+
 #reset {
 	position: absolute;
 	right: 10px;
-	bottom: 20px;
+	top: 20px;
 }
 
 aside section {
@@ -257,8 +325,8 @@ aside section {
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 30px;
 	grid-row-gap: 0px;
-	padding-top: 80px;
-	padding-top: calc(80px + env(safe-area-inset-top));
+	padding-top: 20px;
+	padding-top: calc(20px + env(safe-area-inset-top));
 	padding-bottom: env(safe-area-inset-bottom);
 	padding-left: 20px;
 	padding-left: calc(20px + env(safe-area-inset-left));
@@ -290,6 +358,65 @@ aside section {
 
 #typeselector span {
 	display: block;
+}
+
+#pokedex {
+	margin: 0px;
+	padding-left: 0px;
+}
+
+#pokedex li {
+	color: rgba(255,255,255,0.3);
+	list-style: none;
+	font-size: 16px;
+	font-weight: 500;
+	font-family: 'Circular Std Book', helvetica, arial, sans-serif;
+	display: grid;
+	grid-template-columns: 50px 1fr;
+    border-bottom: 1px solid black;
+    box-shadow: 0px 1px 0px 0px rgba(255,255,255,0.1);
+    padding: 20px;
+    grid-gap: 20px;
+    align-items: center;
+    height: 90px;
+}
+
+#pokedex span {
+	color: white;
+	font-family: 'Circular Std', helvetica, arial, sans-serif;
+}
+
+#pokedex .sprite {
+	max-width: 100%;
+	max-height: 50px;
+	display: block;
+	margin: 0px auto;
+}
+
+#pokedex .type {
+	width: 30px;
+	margin-left: 10px;
+}
+			
+#pokedex li:hover {
+	cursor: hand;
+}
+
+
+#pokedex span {
+	display: block;
+}
+
+#pokedex .typeicon {
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+	margin-top: 5px;
+	background: none;
+}
+
+.undefined {
+	display: none;
 }
 
 #results {
