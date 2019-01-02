@@ -38,7 +38,7 @@ aside {
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
 	height: calc(100% - 60px);
-	height: calc(100% + env(safe-area-inset-top) - 60px);
+	height: calc(100% - env(safe-area-inset-top) - 60px);
 	top: 60px;
 	top: calc(env(safe-area-inset-top) + 60px);
 	width: 100%;
@@ -333,7 +333,7 @@ input::placeholder {
 	grid-gap: 30px;
 	grid-row-gap: 0px;
 	padding-top: 10px;
-	padding-bottom: env(safe-area-inset-bottom);
+	
 	padding-left: 10px;
 	padding-left: calc(10px + env(safe-area-inset-left));
 	padding-right: 10px;
