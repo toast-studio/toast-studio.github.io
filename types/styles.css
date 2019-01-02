@@ -49,7 +49,7 @@ aside {
 
 #pokemon aside {
 	height: calc(100% - 110px);
-	height: calc(100% - env(safe-area-inset-top) - 110px);
+	height: calc(100% + env(safe-area-inset-top) - 110px);
 	top: 110px;
 	top: calc(env(safe-area-inset-top) + 110px);
 	overflow-x: hidden;
