@@ -182,9 +182,9 @@ h3 {
 	padding-top: 0px;
 	padding-top: calc(0px + env(safe-area-inset-top));
 	padding-bottom: 0px;
-	padding-left: 20px;
-	padding-left: calc(20px + env(safe-area-inset-left));
-	padding-right: 20px;
+	padding-left: 10px;
+	padding-left: calc(10px + env(safe-area-inset-left));
+	padding-right: 10px;
 }
 
 #pokemon #tabs {
@@ -246,8 +246,8 @@ input {
 	border: 1px solid black;
 	box-shadow: 0 1px 0 0 rgba(255,255,255,0.10), inset 0 1px 3px 0 rgba(0,0,0,0.20);
 	outline: none;
-	width: calc(100% - 40px);
-	width: calc(100% - 40px - env(safe-area-inset-left));
+	width: calc(100% - 20px);
+	width: calc(100% - 20px - env(safe-area-inset-left));
 	margin-left: 0px;
 	margin-left: calc(0px + env(safe-area-inset-left));
 	padding-left: 10px;
@@ -331,11 +331,11 @@ aside section {
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 30px;
 	grid-row-gap: 0px;
-	padding-top: 20px;
+	padding-top: 10px;
 	padding-bottom: env(safe-area-inset-bottom);
-	padding-left: 20px;
-	padding-left: calc(20px + env(safe-area-inset-left));
-	padding-right: 20px;
+	padding-left: 10px;
+	padding-left: calc(10px + env(safe-area-inset-left));
+	padding-right: 10px;
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
 	margin-top: 0px;
