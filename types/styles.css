@@ -493,6 +493,12 @@ aside section {
 	margin-bottom: 90px;
 }
 
+#toast {
+	opacity: 0.1;
+	display: block;
+	margin: 0px auto 40px auto;
+}
+
 @media (min-width: 375px) {
 	#results ul {
 		grid-template-columns: repeat(2, 1fr);
