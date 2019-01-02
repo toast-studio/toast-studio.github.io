@@ -495,10 +495,10 @@ input::placeholder {
 
 #largeSprite {
 	height: 200px;
-	width: 200px;
+	width: 300px;
 	display: flex;
 	justify-content: center;
-	align-items: flex-end;
+	align-items: center;
 	margin: 0px auto 20px auto;
 }
 
