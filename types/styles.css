@@ -562,7 +562,7 @@ input::placeholder {
 		transition: 0.2s left ease;
 	}
 	
-	aside section {
+	#togglebutton {
 		display: none;
 	}
 	
