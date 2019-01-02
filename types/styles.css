@@ -163,7 +163,7 @@ h3 {
 
 .legal {
 	color: rgba(255,255,255,0.3);
-	font-family: -apple-system, helvetica, arial, sans-serif;
+	font-family: 'Circular Std Book', helvetica, arial, sans-serif;
 	font-size: 12px;
 	text-align: center;
 	padding-bottom: 20px;
@@ -304,7 +304,7 @@ input::placeholder {
 	bottom: 0px;
 	width: 100%;
 	padding: 20px;
-	font-family: -apple-system;
+	font-family: 'Circular Std', helvetica, arial, sans-serif;
 	border-top: 1px solid rgba(255,255,255,0.1);
 	box-shadow: 0px -1px 0px 0px black, 0px 0px 20px 0px rgba(0,0,0,0.5);
 	z-index: 2;
