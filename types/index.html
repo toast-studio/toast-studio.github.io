@@ -7,6 +7,7 @@
 		<meta name="theme-color" content="#313131">
 		
 		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="sprites.css">
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 		
 		<link href="splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
@@ -7717,7 +7718,7 @@
 				var clicks = 0;
 								
 				$.each( pokemon.pokedex, function( key, val ) {
-					$("#pokedex").append("<li data-type1=" + val.type1 + " data-type2=" + val.type2 + " data-index=" + val.index + " data-name=" + val.name + "><div><img class='sprite' src='small/" + val.index + ".png' /></div><div><span>" + val.name + "</span><img src='types/" + val.type1 + ".png' class='typeicon " + val.type1 + "' /><img src='types/" + val.type2 + ".png' class='typeicon " + val.type2 + "' /></div></li>")
+					$("#pokedex").append("<li data-type1=" + val.type1 + " data-type2=" + val.type2 + " data-index=" + val.index + " data-name=" + val.name + "><div class='_" + val.index + "'></div><div><span>" + val.name + "</span><img src='types/" + val.type1 + ".png' class='typeicon " + val.type1 + "' /><img src='types/" + val.type2 + ".png' class='typeicon " + val.type2 + "' /></div></li>")
 				});
 				
 				$('#pokedex li').click(function() {
