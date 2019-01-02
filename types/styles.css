@@ -298,7 +298,7 @@ input::placeholder {
 	top: calc(20px + env(safe-area-inset-top));
 }
 
-aside section {
+#togglebutton {
 	background: #313131;
 	position: fixed;
 	bottom: 0px;
@@ -307,6 +307,7 @@ aside section {
 	font-family: -apple-system;
 	border-top: 1px solid rgba(255,255,255,0.1);
 	box-shadow: 0px -1px 0px 0px black, 0px 0px 20px 0px rgba(0,0,0,0.5);
+	z-index: 2;
 }
 
 #showresults {

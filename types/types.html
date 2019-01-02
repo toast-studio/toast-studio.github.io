@@ -31,11 +31,11 @@
 				<img src="close.svg" class="toggle hidden" id="reset" />
 			</section>
 		</header>
-		<aside>
-			<ul id="typeselector"></ul>
-			<section class="hidden toggle">
+			<section id="togglebutton" class="hidden toggle">
 				<p id="showresults">Show damage multipliers</p>
 			</section>
+		<aside>
+			<ul id="typeselector"></ul>
 		</aside>
 		<main>
 			<div id="results" class="hidden">
@@ -1463,10 +1463,10 @@
 					$("#typeselector").append("<li data-type='" + val.name + "'><img src='types/" + val.name + ".png' /><span>" + val.name + "</span></li>")
 				});
 				
-				$('#showresults').click(function() {
-					$('#results').removeClass('mobilehidden');
+				$('#togglebutton').click(function() {
+					$('#togglebutton').addClass('hidden');
 				});
-								
+
 				$('#typeselector li').click(function() {
 														
 				    if (clicks == 2){
@@ -1511,7 +1511,7 @@
 					$('#half').removeClass('hidden');
 					$('#quarter').removeClass('hidden');
 					$('#immune').removeClass('hidden');
-					$('aside section').removeClass('hidden');
+					$('#togglebutton').removeClass('hidden');
 					$('#typeselector').addClass('activemargin');
 					$('#reset').removeClass('hidden');
 					
@@ -1628,7 +1628,7 @@
 					$('#typeselector li').removeClass('active');
 					clicks = 0;
 					$('#results').addClass('mobilehidden');
-					$('aside section').addClass('hidden');
+					$('#togglebutton').addClass('hidden');
 					$('#typeselector').removeClass('activemargin');
 					$('#reset').addClass('hidden');
 				});
