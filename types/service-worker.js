@@ -65,7 +65,7 @@ var offlineFundamentals = [
   '/types/steel.svg',
   '/types/undefined.png',
   '/types/water.png',
-  '/types/water.svg',  
+  '/types/water.svg'
 ];
 
 /* The install event fires when the service worker is first installed.
