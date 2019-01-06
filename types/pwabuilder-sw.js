@@ -3,6 +3,7 @@
 var CACHE = 'pwabuilder-precache';
 var precacheFiles = [
       /* Add an array of files to precache for your app */
+      '/',
 	  'apple-touch-icon.png',
 	  'close.svg',
 	  'index.html',
