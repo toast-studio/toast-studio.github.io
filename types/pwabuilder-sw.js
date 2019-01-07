@@ -71,7 +71,13 @@ console.log('[ServiceWorker] Claiming clients for current page');
 
 self.addEventListener('fetch', function(evt) {
   console.log('The service worker is serving the asset.'+ evt.request.url);
-  evt.respondWith(fromCache(evt.request).catch(fromServerAndAddCache(evt.request)));
+  evt.respondWith(caches.match(evt.request).then(function(response){
+      if(response)
+        return response;
+      return fetch(evt.request).then(function(response){
+        return response;
+      });
+  }));
 });
 
 function precache() {
