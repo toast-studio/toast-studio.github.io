@@ -27,8 +27,8 @@ li {
 		
 body, html {
 	margin: 0px;
-	height: calc(100% + env(safe-area-inset-bottom));
-	background: #1A1A1A;
+	height: 100vh;
+	background: #313131;
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
 }

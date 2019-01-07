@@ -1,4 +1,4 @@
-const CACHE = 'pwabuilder-precache';
+const CACHE = 'typedex-1';
 const precacheFiles = [
     /* Add an array of files to precache for your app */
 	  './close.svg',
