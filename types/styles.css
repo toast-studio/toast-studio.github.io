@@ -27,7 +27,7 @@ li {
 		
 body, html {
 	margin: 0px;
-	height: 100vh;
+	height: calc(100% + env(safe-area-inset-bottom));
 	background: #1A1A1A;
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
@@ -52,6 +52,7 @@ aside {
 	top: 110px;
 	top: calc(env(safe-area-inset-top) + 110px);
 	overflow-x: hidden;
+	padding-bottom: env(safe-area-inset-bottom);
 }
 
 main {
