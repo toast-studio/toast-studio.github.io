@@ -172,6 +172,15 @@ h3 {
 	padding-right: 20px;
 }
 
+.legal a {
+	color: rgba(255,255,255,0.3);
+	text-decoration: underline;
+}
+
+.legal a:hover {
+	color: white;
+}
+
 #selectedtypes {
 	text-transform: capitalize;
 }
@@ -508,9 +517,13 @@ input::placeholder {
 }
 
 #toast {
-	opacity: 0.1;
+	opacity: 0.2;
 	display: block;
 	margin: 0px auto 40px auto;
+}
+
+#toast:hover {
+	opacity: 1;
 }
 
 @media (min-width: 375px) {
