@@ -7813,6 +7813,7 @@
 					$('#pokemon-name').empty();
 					$('main').toggleClass('shiftMain');
 					$('header').toggleClass('shiftAside');
+					$('#largeSprite').removeAttr('style');
 					
 					type1 = $(this).attr('data-type1');
 					type2 = $(this).attr('data-type2');
@@ -7909,6 +7910,11 @@
 					}
 					
 					$("#largeSprite").append(`<img src="large/${index}.png" />`)
+					
+					$("#largeSprite img").on("error", function() {
+					  $("#largeSprite").hide();
+					});				
+					
 
 				});
 				
@@ -7940,6 +7946,7 @@
 					$('header').toggleClass('shiftAside');
 					$("input[type=text], textarea").val("");
 					$('#pokedex li').removeAttr('style');
+					$('#largeSprite').removeAttr('style');
 				});
 				
 				
