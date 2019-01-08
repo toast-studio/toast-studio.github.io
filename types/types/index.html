@@ -8,6 +8,7 @@
 		})(window,document,'script','dataLayer','GTM-WMN92VP');</script>
 		<!-- End Google Tag Manager -->
 		
+		<title>Types | TypeDex</title>
 		<meta name="title" content="TypeDex">
 		<meta name="description" content="A comprehensive Pokemon type calculator and Pokedex">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,9 +16,9 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<meta name="theme-color" content="#313131">
 		
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="../styles.css">
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
-		<link rel="icon" href="favicon.ico">
+		<link rel="icon" href="../favicon.ico">
 		<link rel="manifest" href="manifest.json">
 		
 		<!-- Open Graph / Facebook -->
@@ -63,12 +64,12 @@
 		
 		<header>
 			<section id="tabs">
-				<a href="index.html"><h2 id="tab1">Pok&eacute;mon</h2></a>
+				<a href="/"><h2 id="tab1">Pok&eacute;mon</h2></a>
 				<h2 id="tab2">Types</h2>
 			</section>
 			<section>
 				<h1 id="selectedtypes"></h1>
-				<img src="close.svg" class="toggle hidden" id="reset" />
+				<img src="../close.svg" class="toggle hidden" id="reset" />
 			</section>
 		</header>
 			<section id="togglebutton" class="hidden toggle">
@@ -104,7 +105,7 @@
 					<ul></ul>
 				</section>
 				<p class="legal">Pok&eacute;mon content &copy;1995 Nintendo, The Pok&eacute;mon Company, Game Freak Inc, and Creatures Inc. No copyright or trademark infringement is intended in using Pok&eacute;mon content. Use of TypeDex is covered by our <a href="http://toast-studio.com/typedex/privacy/" target="_blank">Privacy Policy.</a></p>
-				<a href="http://toast-studio.com" target="_blank"><img src="toast.svg" id="toast" /></a>
+				<a href="http://toast-studio.com" target="_blank"><img src="../toast.svg" id="toast" /></a>
 			</div>
 		</main>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -1517,7 +1518,7 @@
 				
 				
 				$.each( types.normal, function( key, val ) {
-					$("#typeselector").append("<li data-type='" + val.name + "'><img src='types/" + val.name + ".png' /><span>" + val.name + "</span></li>")
+					$("#typeselector").append("<li data-type='" + val.name + "'><img src='" + val.name + ".png' /><span>" + val.name + "</span></li>")
 				});
 				
 				$('#togglebutton').click(function() {
@@ -1623,23 +1624,23 @@
 					var immune =  output.filter(item => item.value == "0&#215;");
 										
 					quadrupleDamage.forEach(item => {
-						$("#quadruple ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
+						$("#quadruple ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
 					})
 					
 					doubleDamage.forEach(item => {
-						$("#double ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
+						$("#double ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
 					})
 					
 					halfDamage.forEach(item => {
-						$("#half ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
+						$("#half ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
 					})
 					
 					quarterDamage.forEach(item => {
-						$("#quarter ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
+						$("#quarter ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
 					})
 					
 					immune.forEach(item => {
-						$("#immune ul").append(`<li class='${item.type}'><img src='types/${item.type}.svg' class='icon' /> ${item.type} <img src='types/${item.type}.svg' class='background' />`)
+						$("#immune ul").append(`<li class='${item.type}'><img src='${item.type}.svg' class='icon' /> ${item.type} <img src='${item.type}.svg' class='background' />`)
 					})
 					
 					if(quadrupleDamage.length == 0){

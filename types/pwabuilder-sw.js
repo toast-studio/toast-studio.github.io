@@ -1,6 +1,9 @@
-const CACHE = 'typedex-2';
+const CACHE = 'typedex-7';
 const precacheFiles = [
     /* Add an array of files to precache for your app */
+	  './',
+	  './types',
+	  './types/',
 	  './close.svg',
 	  './index.html',
 	  './logo_background.svg',
@@ -13,7 +16,7 @@ const precacheFiles = [
 	  './sprites.css',
 	  './styles.css',
 	  './toast.svg',
-	  './types.html',
+	  './types/index.html',
 	  './types/bug.png',
 	  './types/bug.svg',
 	  './types/dark.png',
