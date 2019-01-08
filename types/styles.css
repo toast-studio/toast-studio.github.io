@@ -167,10 +167,7 @@ h3 {
 	font-family: 'Circular Std Book', helvetica, arial, sans-serif;
 	font-size: 12px;
 	text-align: center;
-	padding-bottom: 20px;
-	padding-bottom: calc(20px + env(safe-area-inset-bottom));
-	padding-left: 20px;
-	padding-right: 20px;
+	padding: 0px 10px 20px 10px;
 }
 
 .legal a {
@@ -520,7 +517,8 @@ input::placeholder {
 #toast {
 	opacity: 0.2;
 	display: block;
-	margin: 0px auto 40px auto;
+	margin: 0px auto;
+	margin-bottom: calc(100px + env(safe-area-inset-bottom));
 }
 
 #toast:hover {

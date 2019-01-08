@@ -1,4 +1,4 @@
-const CACHE = 'typedex-1';
+const CACHE = 'typedex-2';
 const precacheFiles = [
     /* Add an array of files to precache for your app */
 	  './close.svg',
