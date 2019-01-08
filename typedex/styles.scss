@@ -73,17 +73,19 @@ footer {
 	justify-content: center;
 }
 
-footer:hover {
-	background-image: linear-gradient(135deg, #FFAE00 0%, #FF3136 72%, #FF004C 100%);
-}
-
-footer:hover .toast path {
-	fill: white;
-}
-
 .toast {
-	width: 150px;
+	width: 213px;
+	height: 93px;
+	opacity: 0.2;
+	transform: translateX(-30px);
+	background: url(images/toast.svg);
 }
+
+.toast:hover {
+	opacity: 1;
+	background: url(images/toast_active.svg);
+}
+
 
 h1 {
 	color: white;
@@ -133,14 +135,19 @@ h4 {
 
 #support {
 	font-family: 'Circular Std Book', helvetica, arial, sans-serif;
-	color: white;
-	opacity: 0.5;
+	
 	font-weight: 100;
 	font-size: 15px;
 	
 	a {
 		color: white;
 		margin: 0px 10px;
+		opacity: 0.5;
+		text-decoration: none;
+		
+		&:hover {
+			opacity: 1;
+		}
 	}
 }
 
@@ -305,9 +312,5 @@ main section {
 	
 	footer {
 		height: 200px;
-	}
-	
-	.toast {
-		width: auto;
 	}
 }
