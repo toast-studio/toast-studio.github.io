@@ -285,6 +285,25 @@ main section {
 		grid-template-rows: repeat(4, 370px);
 	}
 }
+
+@media (min-width: 568px) {
+	#pokedex {
+		img {
+			width: 80%;
+		}
+	}
+}
+
+@media (min-width: 667px) {
+	#pokedex {
+		aside {
+			width: 275px;
+			left: 20px;
+			bottom: 20px;
+			text-align: left;
+		}
+	}
+}
 			
 @media (min-width: 768px) {
 	body {
@@ -337,7 +356,6 @@ main section {
 			width: 495px;
 			left: 30px;
 			bottom: 55px;
-			text-align: left;
 		}
 	
 		img {
