@@ -15,26 +15,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
-@keyframes forms {
-  0%   {background-image: url(images/form_regional.png);}
-  11%   {background-image: url(images/form_regional.png);}
-  12%  {background-image: url(images/form_mega.png);}
-  23%  {background-image: url(images/form_mega.png);}
-  24%  {background-image: url(images/form_ultra.png);}
-  35%  {background-image: url(images/form_ultra.png);}
-  36%  {background-image: url(images/form_primal.png);}
-  47%  {background-image: url(images/form_primal.png);}
-  48%   {background-image: url(images/form_fusion.png);}
-  59%   {background-image: url(images/form_fusion.png);}
-  60%  {background-image: url(images/form_item.png);}
-  71%  {background-image: url(images/form_item.png);}
-  72%  {background-image: url(images/form_move.png);}
-  83%  {background-image: url(images/form_move.png);}
-  84% {background-image: url(images/form_environment.png);}
-  99% {background-image: url(images/form_environment.png);}
-  100% {background-image: url(images/form_regional.png);}
-}
     
 * {
 	box-sizing: border-box;
@@ -58,8 +38,8 @@ footer {
 	width: 213px;
 	height: 93px;
 	opacity: 0.2;
-	transform: translateX(-30px);
 	background: url(images/toast.svg);
+	transform: scale(0.7);
 }
 
 .toast:hover {
@@ -208,30 +188,29 @@ main section {
 	img {
 		position: absolute;
 		top: 0px;
-		right: 0px;
-		width: 110%;
+		right: -30px;
+		width: 120%;
 	}
 }
 
 #forms {
 	background-image: linear-gradient(-180deg, #54879C 0%, #57ACAD 98%);
 	grid-area: forms;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	padding: 10px;
 	
 	h3, h4 {
 		text-align: center;
 	}
 	
-	#image {
-		width: 465px;
+	img {
 		max-width: 100%;
-		height: 318px;
-		margin: 20px auto 20px auto;
-		animation-name: forms;
-		animation-duration: 20s;
-		animation-iteration-count: infinite;
-		background-size: contain;	
-		background-repeat: no-repeat;
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
 	}
 }
 
@@ -264,15 +243,15 @@ main section {
 	grid-area: types;
 	
 	img {
-		position: absolute;
-		bottom: -5%;
-		left: 20px;
-		width: 150%;
+		max-width: 100%;
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
 	}
 	
 	aside {
 		width: 100%;
-		position: absolute;
 		right: 0px;
 		top: 0px;
 		text-align: center;
@@ -290,6 +269,21 @@ main section {
 	#pokedex {
 		img {
 			width: 80%;
+			right: 0px;
+		}
+	}
+	
+	#forms {
+		img {
+			max-width: 50%;
+		}
+	}
+	
+	#pwa {
+		padding: 45px;
+		
+		img {
+			width: 40%
 		}
 	}
 }
@@ -308,6 +302,10 @@ main section {
 @media (min-width: 768px) {
 	body {
 		padding: 40px;
+	}
+	
+	.toast {
+		transform: scale(1);
 	}
 	
 	h1 {
@@ -364,7 +362,6 @@ main section {
 	}
 	
 	#pwa {
-		padding: 45px;
 		
 		img {
 			margin-bottom: 30px;
@@ -375,22 +372,20 @@ main section {
 	#forms {
 		padding: 45px;
 		
-		#image {
-			margin: 50px auto 50px auto;
+		img {
+			margin-top: 50px;
+			max-width: 100%;
 		}
 	}
 	
-	#types {
-		img {
-			width: auto;
-		}
-		
+	#types {		
 		aside {
 			width: 520px;
-			right: 40px;
-			top: 85px;
+			right: 100px;
+			top: 150px;
 			text-align: left;
 			padding: 0px;
+			position: absolute;
 		}
 	}
 	
