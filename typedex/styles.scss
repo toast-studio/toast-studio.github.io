@@ -265,7 +265,7 @@ main section {
 	}
 }
 
-@media (min-width: 568px) {
+@media (min-width: 415px) {
 	#pokedex {
 		img {
 			width: 80%;
@@ -301,11 +301,88 @@ main section {
 			
 @media (min-width: 768px) {
 	body {
-		padding: 40px;
+		padding: 20px;
 	}
 	
 	.toast {
 		transform: scale(1);
+	}
+		
+	.cta {
+		font-size: 27px;
+		width: 360px;
+		margin: 40px 0px 10px 0px;
+	}
+	
+	header {
+		padding: 40px 0px;
+	}
+	
+	main {
+		max-width: 1200px;
+		margin: 0px auto;
+		grid-gap: 20px;
+		grid-template-rows: 360px 360px 250px;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-areas: "pokedex pokedex" "forms pwa" "types types";
+	}
+	
+	#pokedex {
+		aside {
+			width: 275px;
+			left: 30px;
+			bottom: 55px;
+		}
+	}
+		
+	#forms {
+		padding: 45px;
+		
+		img {
+			max-width: 100%;
+		}
+	}
+	
+	#pwa {
+		img {
+			width: 50%;
+		}
+	}
+	
+	#types {		
+		aside {
+			width: 400px;
+			left: 40%;
+			top: 110px;
+			text-align: left;
+			padding: 0px;
+			position: absolute;
+		}
+		
+		img {
+			margin-left: 0px;
+			margin-right: 0px;
+			max-width: 40%;
+			margin-top: 30px;
+		}
+	}
+	
+	footer {
+		height: 200px;
+	}
+}
+
+@media (min-width: 1023px) {
+	#forms {
+		img {
+			max-width: 70%;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	body {
+		padding: 40px;
 	}
 	
 	h1 {
@@ -330,66 +407,45 @@ main section {
 		display: block;
 	}
 	
-	.cta {
-		font-size: 27px;
-		width: 360px;
-		margin: 40px 0px 10px 0px;
-	}
-	
-	header {
-		padding: 40px 0px;
-	}
-	
 	main {
-		max-width: 1200px;
-		margin: 0px auto;
 		grid-gap: 40px;
 		grid-template-rows: 665px 665px 410px;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-areas: "pokedex pokedex" "forms pwa" "types types";
 	}
 	
 	#pokedex {
 		aside {
 			width: 495px;
-			left: 30px;
-			bottom: 55px;
 		}
-	
-		img {
-			width: auto;
-		}
-	}
-	
-	#pwa {
 		
 		img {
-			margin-bottom: 30px;
 			width: auto;
 		}
 	}
 	
 	#forms {
-		padding: 45px;
-		
 		img {
 			margin-top: 50px;
 			max-width: 100%;
 		}
 	}
 	
-	#types {		
-		aside {
-			width: 520px;
-			right: 100px;
-			top: 150px;
-			text-align: left;
-			padding: 0px;
-			position: absolute;
+	#pwa {
+		img {
+			width: auto;
+			margin-bottom: 30px;
 		}
 	}
 	
-	footer {
-		height: 200px;
+	#types {		
+		aside {
+			width: 520px;
+			left: 600px;
+			top: 150px;
+		}
+		
+		img {
+			max-width: 100%;
+			margin-left: 40px;
+		}
 	}
 }
