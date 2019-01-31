@@ -17,7 +17,88 @@
 
 body {
 	margin: 0px;
+	padding: 20px;
 }
+	
+header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px 0px;
+	
+	img {
+		margin-bottom: 20px;
+	}
+	
+	h1, h2 {
+		text-align: center;
+	}
+	
+	.cta {
+		font-family: var(--font-header);
+		font-size: 17px;
+		color: white;
+		background: var(--tint);
+		border-radius: 100px;
+		padding: 15px 50px;
+		text-decoration: none;
+		margin: 20px 0px 10px 0px;
+		transition: 0.2s ease opacity;
+		opacity: 1;
+		width: 100%;
+		text-align: center;
+	}
+	
+	.cta:hover {
+		opacity: 0.8;
+		transition: 0.5s ease opacity;
+	}
+	
+	@media (min-width: 768px) {
+		.cta {
+			font-size: 27px;
+			width: 360px;
+			margin: 40px 0px 10px 0px;
+		}
+		
+		header {
+			padding: 40px 0px;
+		}
+	}
+}
+
+h1 {
+	color: var(--tint);
+	font-family: var(--font-header);
+	font-size: 50px;
+	margin: 0px;
+}
+
+h2 {
+	color: var(--main);
+	font-family: var(--font-body);
+	font-size: 20px;
+	margin: 0px;
+	font-weight: 100;
+}
+
+#support {
+	font-family: var(--font-body);
+	font-weight: 100;
+	font-size: 15px;
+	
+	a {
+		color: var(--tint);
+		margin: 0px 10px;
+		text-decoration: none;
+		
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+
 
 .toast-page {
 	--background: #F4F4F4;
@@ -27,6 +108,7 @@ body {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	padding: 0px;
 	
 	header {
 		width: 100%;
@@ -389,7 +471,6 @@ body {
 	--tint: #a567c6;
 	
 	background: var(--background);
-	padding: 20px;
 	
 	footer {
 		width: 100%;
@@ -412,25 +493,15 @@ body {
 		transition: background 0.5s ease;
 	}
 	
+	.cta {
+		background: white;
+		color: var(--background);
+	}
 	
 	h1 {
 		color: white;
-		font-family: 'Circular Std', helvetica, arial, sans-serif;
-		font-size: 50px;
-		margin: 0px;
-		text-align: center;
 	}
-	
-	h2 {
-		color: white;
-		font-family: 'Circular Std Book', helvetica, arial, sans-serif;
-		font-size: 20px;
-		margin: 0px;
-		opacity: 0.5;
-		text-align: center;
-		font-weight: 100;
-	}
-	
+			
 	h3 {
 		color: white;
 		font-family: 'Circular Std', helvetica, arial, sans-serif;
@@ -457,59 +528,11 @@ body {
 		font-weight: 100;
 		margin-top: 40px;
 	}
-	
-	#support {
-		font-family: 'Circular Std Book', helvetica, arial, sans-serif;
 		
-		font-weight: 100;
-		font-size: 15px;
-		
-		a {
-			color: white;
-			margin: 0px 10px;
-			opacity: 0.5;
-			text-decoration: none;
-			
-			&:hover {
-				opacity: 1;
-			}
-		}
-	}
-	
 	br {
 		display: none;
 	}
 	
-	.cta {
-		font-family: 'Circular Std', helvetica, arial, sans-serif;
-		font-size: 17px;
-		color: #1A1A1A;
-		background: white;
-		border-radius: 100px;
-		padding: 15px 50px;
-		text-decoration: none;
-		margin: 20px 0px 10px 0px;
-		transition: 0.2s ease opacity;
-		opacity: 1;
-		width: 100%;
-		text-align: center;
-	}
-	
-	.cta:hover {
-		opacity: 0.8;
-		transition: 0.5s ease opacity;
-	}
-	
-	header {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 20px 0px;
-		
-		img {
-			margin-bottom: 20px;
-		}
-	}
 	
 	main {
 		display: grid;
@@ -672,17 +695,7 @@ body {
 		.toast {
 			transform: scale(1);
 		}
-			
-		.cta {
-			font-size: 27px;
-			width: 360px;
-			margin: 40px 0px 10px 0px;
-		}
-		
-		header {
-			padding: 40px 0px;
-		}
-		
+					
 		main {
 			max-width: 1200px;
 			margin: 0px auto;
@@ -1022,6 +1035,7 @@ body {
 		width: 50%;
 	}
 	
+/*
 	h1 {
 		font-family: -apple-system, Helvetica, Arial, sans-serif;
 		font-size: 36px;
@@ -1045,6 +1059,7 @@ body {
 		font-weight: 600;
 		text-align: center;
 	}
+*/
 	
 	.metalink {
 		font-family: -apple-system, Helvetica, Arial, sans-serif;
