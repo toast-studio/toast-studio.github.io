@@ -3,13 +3,27 @@
 
 @import url("../circular.css");
 
+:root {
+	--background: white;
+	--main: black;
+	--tint: red;
+	--font-body: 'Circular Std Book', helvetica, arial, sans-serif;
+	--font-header: 'Circular Std', helvetica, arial, sans-serif;
+}
+
 * {
 	box-sizing: border-box;
 }
 
-.toast-page {
-	background: #F4F4F4;
+body {
 	margin: 0px;
+}
+
+.toast-page {
+	--background: #F4F4F4;
+	--main: white;
+	
+	background: var(--background);
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -370,8 +384,11 @@
 }
 
 .typedex-page {
-	background: #1a1a1a;
-	margin: 0px;
+	--background: #1a1a1a;
+	--main: #8D8D8D;
+	--tint: #a567c6;
+	
+	background: var(--background);
 	padding: 20px;
 	
 	footer {
@@ -800,30 +817,12 @@
 }
 
 .simplescales-page {
-	background: #ECEBEB;
-	margin: 0px;
+	--background: #ECEBEB;
+	--main: #665B49;
+	--tint: #FF9E2A;
 	
-	footer {
-		background: #E1E1E1;
-		width: 100%;
-		height: 110px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	
-	footer:hover {
-		background-image: linear-gradient(135deg, #FFAE00 0%, #FF3136 72%, #FF004C 100%);
-	}
-	
-	footer:hover .toast path {
-		fill: white;
-	}
-	
-	.toast {
-		width: 150px;
-	}
-	
+	background: var(--background);
+
 	section {
 		display: flex;
 		flex-direction: column;
@@ -984,29 +983,11 @@
 }
 
 .linkbadges-page {
-	background: #FBFBFB;
-	margin: 0px;
+	--background: #FBFBFB;
+	--main: #90928E;
+	--tint: #91DE5A;
 	
-	footer {
-		background: #F4F4F4;
-		width: 100%;
-		height: 110px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	
-	footer:hover {
-		background-image: linear-gradient(135deg, #FFAE00 0%, #FF3136 72%, #FF004C 100%);
-	}
-	
-	footer:hover .toast path {
-		fill: white;
-	}
-	
-	.toast {
-		width: 150px;
-	}
+	background: var(--background);
 	
 	section {
 		display: flex;
@@ -1143,24 +1124,20 @@
 }
 
 .privacy-page {
-	background: #ECEBEB;
-	margin: 0px;
-	
 	section {
 		max-width: 650px;
 		margin: 0px auto;
 		padding: 20px 20px 60px 20px;
-	}
-	
-	svg {
-		margin-bottom: 20px;
+		flex-direction: column;
 	}
 	
 	h1 {
-		font-family: -apple-system, Helvetica, Arial, sans-serif;
+		font-family: var(--font-header);
 		font-size: 36px;
-		color: #434343;
+		color: var(--tint);
 		margin: 0px;
+		text-align: left;
+		opacity: 1;
 	}
 	
 	h1 + p {
@@ -1169,22 +1146,25 @@
 	}
 	
 	h2 {
-		font-family: -apple-system, Helvetica, Arial, sans-serif;
+		font-family: var(--font-header);
 		font-size: 20px;
-		color: #434343;
+		color: var(--main);
 		margin-top: 40px;
+		text-align: left;
+		opacity: 1;
 	}
 	
 	p, li {
-		font-family: -apple-system, Helvetica, Arial, sans-serif;
+		font-family: var(--font-body);
+		font-weight: 100 !important;
 		font-size: 16px;
-		color: #434343;
+		color: var(--main);
 		line-height: 24px;
-		margin-bottom: 30px;
+		margin-bottom: 20px;
 	}
 	
 	a {
-		color: #ff673d;
+		color: var(--tint);
 		text-decoration: none;
 	}
 	
@@ -1192,34 +1172,19 @@
 		text-decoration: underline;
 	}
 	
-	footer {
-		background: #E1E1E1;
-		width: 100%;
-		height: 110px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	
-	footer:hover {
-		background-image: linear-gradient(135deg, #FFAE00 0%, #FF3136 72%, #FF004C 100%);
-	}
-	
-	footer:hover .toast path {
-		fill: white;
-	}
-	
-	.toast {
-		width: 150px;
-	}
-	
-	@media (min-width:1366px) {
-		footer {
-			height: 200px;
-		}
+	.logo {
+		fill: var(--main);
+		transform: scale(0.7);
+		transform-origin: top left;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		opacity: 0.5;
+		transition: opacity 0.2s ease;
+		display: block;
 		
-		.toast {
-			width: auto;
-		}
-	}	
+		&:hover {
+			opacity: 1;
+			transition: opacity 0.5s ease;
+		}		
+	}
 }
