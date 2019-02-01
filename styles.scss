@@ -837,8 +837,14 @@ main {
 	--background: #ECEBEB;
 	--main: #665B49;
 	--tint: #FF9E2A;
+	--font-body: -apple-system, helvetica, arial, sans-serif;
+	--font-header: -apple-system, helvetica, arial, sans-serif;
 	
 	background: var(--background);
+	
+	h2, h3, h4, p, #support {
+		font-weight: normal;
+	}
 
 	section {
 		display: flex;
