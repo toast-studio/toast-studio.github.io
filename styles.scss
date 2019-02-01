@@ -3,6 +3,8 @@
 
 @import url("../circular.css");
 
+//SHARED ACROSS ALL PAGES
+
 :root {
 	--background: white;
 	--main: black;
@@ -37,7 +39,7 @@ header {
 	.cta {
 		font-family: var(--font-header);
 		font-size: 17px;
-		color: white;
+		color: var(--background);
 		background: var(--tint);
 		border-radius: 100px;
 		padding: 15px 50px;
@@ -98,7 +100,48 @@ h2 {
 	}
 }
 
+main {
+	display: grid;
+	grid-gap: 20px;
+	
+	section {
+		border-radius: 10px;
+		box-shadow: 0px 2px 24px rgba(0,0,0,0.5);
+		position: relative;
+		overflow: hidden;
+		
+		&::before {
+			content: "";
+			width: 100%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+			position: absolute;
+			border-radius: 10px;
+			z-index: 2;
+		}
+	}
+	
+	&.dark-background section::before {
+		box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.3);
+	}
+	
+	&.light-background section::before {
+		box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2);
+	}
+	
+	@media (min-width: 768px) {
+		max-width: 1200px;
+		margin: 0px auto;
+		grid-gap: 20px;
+	}
+	
+	@media (min-width: 1200px) {
+		grid-gap: 40px;
+	}
+}
 
+//PAGE SPECIFIC
 
 .toast-page {
 	--background: #F4F4F4;
@@ -468,7 +511,7 @@ h2 {
 .typedex-page {
 	--background: #1a1a1a;
 	--main: #8D8D8D;
-	--tint: #a567c6;
+	--tint: white;
 	
 	background: var(--background);
 	
@@ -491,11 +534,6 @@ h2 {
 	.toast:hover {
 		background: url(/typedex/images/toast_active.svg);
 		transition: background 0.5s ease;
-	}
-	
-	.cta {
-		background: white;
-		color: var(--background);
 	}
 	
 	h1 {
@@ -532,31 +570,23 @@ h2 {
 	br {
 		display: none;
 	}
-	
-	
+		
 	main {
-		display: grid;
-		grid-gap: 20px;
 		grid-template-rows: repeat(4, 320px);
 		grid-template-areas: "pokedex" "forms" "pwa" "types";
-	}
-	
-	main section {
-		border-radius: 10px;
-		box-shadow: 0px 2px 24px rgba(0,0,0,0.5);
-		position: relative;
-		overflow: hidden;
 		
-		&::before {
-			content: "";
-			box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.3);
-			width: 100%;
-			height: 100%;
-			top: 0px;
-			left: 0px;
-			position: absolute;
-			border-radius: 10px;
-			z-index: 2;
+		@media (min-width: 375px) {
+			grid-template-rows: repeat(4, 370px);
+		}
+		
+		@media (min-width: 768px) {
+			grid-template-rows: 360px 360px 250px;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-areas: "pokedex pokedex" "forms pwa" "types types";
+		}
+		
+		@media (min-width: 1200px) {
+			grid-template-rows: 665px 665px 410px;
 		}
 	}
 	
@@ -646,13 +676,7 @@ h2 {
 			padding: 10px;
 		}
 	}
-	
-	@media (min-width: 375px) {
-		main {
-			grid-template-rows: repeat(4, 370px);
-		}
-	}
-	
+		
 	@media (min-width: 415px) {
 		#pokedex {
 			img {
@@ -694,15 +718,6 @@ h2 {
 		
 		.toast {
 			transform: scale(1);
-		}
-					
-		main {
-			max-width: 1200px;
-			margin: 0px auto;
-			grid-gap: 20px;
-			grid-template-rows: 360px 360px 250px;
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-areas: "pokedex pokedex" "forms pwa" "types types";
 		}
 		
 		#pokedex {
@@ -783,11 +798,6 @@ h2 {
 		
 		br {
 			display: block;
-		}
-		
-		main {
-			grid-gap: 40px;
-			grid-template-rows: 665px 665px 410px;
 		}
 		
 		#pokedex {
