@@ -3,7 +3,7 @@
 
 @import url("../circular.css");
 
-//SHARED ACROSS ALL PAGES
+/* SHARED ACROSS ALL PAGES */
 
 :root {
 	--background: white;
@@ -59,7 +59,7 @@ header {
 	@media (min-width: 768px) {
 		.cta {
 			font-size: 27px;
-			width: 360px;
+			width: auto;
 			margin: 40px 0px 10px 0px;
 		}
 		
@@ -166,26 +166,26 @@ main {
 		}
 	}
 	
-	&.dark-background section {
-		box-shadow: 0px 2px 24px rgba(0,0,0,0.5);
-		
-		&::before {
-			box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.3);
-		}
+	&.dark-background section::before {
+		box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.3);
 	}
 	
-	&.light-background section {
-		box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.1);
-		
-		&::before {
-			box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2);
-		}
+	&.light-background section::before {
+		box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2);
 	}
 	
 	@media (min-width: 768px) {
 		max-width: 1200px;
 		margin: 0px auto;
 		grid-gap: 20px;
+		
+		&.dark-background section {
+			box-shadow: 0px 2px 24px rgba(0,0,0,0.5);
+		}
+		
+		&.light-background section {
+			box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.1);
+		}
 	}
 	
 	@media (min-width: 1200px) {
@@ -193,7 +193,42 @@ main {
 	}
 }
 
-//PAGE SPECIFIC
+footer {
+	width: 100%;
+	height: 110px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.toast {
+	width: 213px;
+	height: 93px;
+	background: url(/typedex/images/toast.svg);
+	transform: scale(0.7);
+	transition: background 0.2s ease;
+}
+
+.toast:hover {
+	background: url(/typedex/images/toast_active.svg);
+	transition: background 0.5s ease;
+}
+
+.centered-vertical {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.centered-horizontal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+
+/* PAGE SPECIFIC */
 
 .toast-page {
 	--background: #F4F4F4;
@@ -553,28 +588,7 @@ main {
 	--tint: white;
 	
 	background: var(--background);
-	
-	footer {
-		width: 100%;
-		height: 110px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	
-	.toast {
-		width: 213px;
-		height: 93px;
-		background: url(/typedex/images/toast.svg);
-		transform: scale(0.7);
-		transition: background 0.2s ease;
-	}
-	
-	.toast:hover {
-		background: url(/typedex/images/toast_active.svg);
-		transition: background 0.5s ease;
-	}
-	
+		
 	h1 {
 		color: white;
 	}
@@ -626,9 +640,6 @@ main {
 	#forms {
 		background-image: linear-gradient(-180deg, #54879C 0%, #57ACAD 98%);
 		grid-area: forms;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		padding: 10px;
 		
 		h3, h4 {
@@ -647,9 +658,6 @@ main {
 	#pwa {
 		background-image: linear-gradient(-179deg, #62BA56 0%, #5AC37D 98%);
 		grid-area: pwa;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		padding: 10px;
 		
 		div {
@@ -841,80 +849,84 @@ main {
 	--font-header: -apple-system, helvetica, arial, sans-serif;
 	
 	background: var(--background);
-	
-	h2, h3, h4, p, #support {
+		
+	h3 {
+		font-weight: bold;
+	}
+		
+	h2, h4, p, #support {
 		font-weight: normal;
 	}
-
-	section {
-		display: flex;
-		flex-direction: column;
-		max-width: 1440px;
-		margin: 20px auto 0px auto;
-	}
 	
-	.screenshot {
-		width: 100%;
-	}
-	
-	.grid {
-		display: flex;
-		flex-wrap: wrap;
-		margin-top: 30px;
-	}
-	
-	.grid div {
-		width: calc(50% - 20px);
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		margin: 0px 10px 30px 10px;
-	}
-	
-	.icon {
-		width: 60%;
-	}
-	
-	.promo {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 0px 30px;
-	}
-	
-	.appicon {
-		width: 50%;
-	}
-	
-	@media (min-width:768px) {
-		.grid div {
-			width: 25%;
-			margin: 0px 0px 30px 0px;
-		}
-		.screenshot {
-			width: 50%;
-			display: block;
-			margin: 0px auto;
-		}
-	}
-				
-	@media (min-width:1366px) {
-		section {
-			flex-direction: row;
-			margin: 50px auto 0px auto;
+	main {
+		grid-template-rows: repeat(4, 320px);
+		grid-template-areas: "phone" "healthkit" "watch" "support";
+		
+		@media (min-width: 375px) {
+			grid-template-rows: repeat(4, 370px);
 		}
 		
-		.screenshot {
-			width: auto;
-			align-self: flex-end
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-areas: "phone healthkit" "phone watch" "support watch";
 		}
-
-		.grid div {
-			width: 50%;
-			margin: 0px 0px 90px 0px;
+		
+		@media (min-width: 1200px) {
+			grid-template-rows: repeat(3, 420px);
 		}
-	}	
+	}
 	
+	#phone {
+		grid-area: phone;
+		background: url(simple-scales/images/wood.jpg);
+		background-size: cover;
+		background-position: top right;
+		
+		h3, h4 {
+			color: var(--main);
+		}
+	}
+	
+	#healthkit {
+		grid-area: healthkit;
+		background: white;
+		
+		h3, h4 {
+			color: #7C7C7C;
+		}
+		
+		aside {
+			text-align: center;
+		}
+	}
+	
+	#watch {
+		grid-area: watch;
+		background: black;
+		
+		h3, h4 {
+			color: white;
+		}
+		
+		aside {
+			text-align: center;
+		}
+	}
+	
+	#completesupport {
+		grid-area: support;
+		background: url(simple-scales/images/support.jpg);
+		background-size: cover;
+		background-position: center bottom;
+		
+		h3, h4 {
+			color: #09435A;
+		}
+		
+		aside {
+			text-align: center;
+		}
+	}
 }
 
 .linkbadges-page {

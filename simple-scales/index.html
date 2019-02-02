@@ -29,30 +29,41 @@
 			<a href="https://itunes.apple.com/au/app/simple-scales-easily-track-your-weight/id1144473563?mt=8" class="cta" target="_blank">Get the app</a>
 			<p id="support"><a href="mailto:{{ site.email }}">Support</a><a href="privacy/">Privacy Policy</a><a href="/simple-scales/presskit.zip">Press Kit</a></p>
 		</header>
-		
-		<section>
-			<div>
-				<div class="grid">
-					<div>
-						<img src="../images/simplescales/icon_quick.svg" class="icon"/>
-						<h3>Quick Weight Entry</h3>
-					</div>
-					<div>
-						<img src="../images/simplescales/icon_weight.svg" class="icon" />
-						<h3>Save Weight and BMI</h3>
-					</div>
-					<div>
-						<img src="../images/simplescales/icon_healthkit.svg" class="icon" />
+		<main class="light-background">
+			<section id="phone">
+				<aside>
+					<h3>Slide to save</h3>
+					<h4>Saving your weight shouldn’t involve lots of taps, just scroll and save</h4>
+				</aside>
+				<img src="images/phone.png" srcset="images/phone.png, images/phone@2x.png 2x" alt="Screenshot of the phone app" />
+			</section>
+			<section id="healthkit" class="centered-vertical">
+				<div class="centered-horizontal">
+					<img src="images/heart.svg" alt="HealthKit logo" />
+					<aside>
 						<h3>Works with HealthKit</h3>
-					</div>
-					<div>
-						<img src="../images/simplescales/icon_watch.svg" class="icon" />
-						<h3>Apple Watch App</h3>
-					</div>
+						<h4>HealthKit makes every record you save available to all of your health and fitness apps</h4>
+					</aside>
 				</div>
-			</div>
-			<img src="../images/simplescales/screenshot_desktop.png" srcset="../images/simplescales/screenshot_desktop.png, ../images/simplescales/screenshot_desktop@2x.png 2x" alt="Simple Scales screenshots" class="screenshot" />
-		</section>
-		{% include footer.html %}
+			</section>
+			<section id="watch" class="centered-vertical">
+				<div class="centered-horizontal">
+					<img src="images/watch.png" srcset="images/watch.png, images/watch@2x.png 2x" alt="Screenshot of the watch app" />
+					<aside>
+						<h3>Quick access</h3>
+						<h4>Launch Simple Scales with a single tap from your watch face</h4>
+					</aside>
+				</div>
+			</section>
+			<section id="completesupport">
+				<aside>
+					<h3>Complete support</h3>
+					<h4>Simple Scales support Kilograms, Pounds, and Stones. It will also save your BMI</h4>
+				</aside>
+			</section>
+		</main>
+	    <footer>
+	        <a href="/"><div class="toast"></div></a>
+	    </footer>
 	</body>
 </html>

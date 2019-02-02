@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="163px" height="145px" viewBox="0 0 163 145" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Heart</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="1.11022302e-14%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FF5EA9" offset="0%"></stop>
+            <stop stop-color="#FF2314" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M81.6247909,144.99997 C93.6353109,144.957008 163.06458,97.862013 162.999955,47.5454793 C162.96611,21.1937899 141.813593,-0.0929097212 115.754487,0.000304975632 C102.239425,0.0486490142 90.0588878,5.83822925 81.4686022,15.0769477 C72.852905,5.90901581 60.6488685,0.197420467 47.122944,0.24580336 C21.0638378,0.339018056 -0.0338046418,21.7768485 4.06646318e-05,48.1285379 C0.0646656866,98.4450717 69.6142709,145.042933 81.6247909,144.99997 Z" id="Heart" fill="url(#linearGradient-1)"></path>
+    </g>
+</svg>
