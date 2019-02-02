@@ -9,56 +9,51 @@
 		<meta name="description" content="Add more context to your chats">
 		
 		<link rel="canonical" href="http://www.toast-studio.com/link-badges/">
-		<link rel="icon" href="../images/link-badges/favicon.ico">
+		<link rel="icon" href="favicon.ico">
+		<link rel="preload" href="images/toast_active.svg" as="image">
 		
 		<meta property="og:site_name" content="Toast">
 		<meta property="og:title" content="Link Badges">
-		<meta property="og:image" content="../images/link-badges/link-icon.png">
+		<meta property="og:image" content="ogimage.png">
 		<meta property="og:description" content="Add more context to your chats">
 		<meta property="og:url" content="http://www.toast-studio.com/link-badges/">
 		<meta property="og:type" content="website">
-		<meta property="og:logo" content="../images/simplescales/link-icon.png">		
+		<meta property="og:logo" content="oglogo.png">		
 		
 		<link rel="stylesheet" href="../styles.css">
 	</head>
 	<body class="linkbadges-page">
-		
-		<section>
-			<header>
-				<img src="../images/link-badges/linkbadges-icon.png" srcset="../images/link-badges/linkbadges-icon.png, ../images/link-badges/linkbadges-icon@2x.png 2x" alt="Link Badges icon" />
-				<h1>Link Badges</h1>
-				<h2>Add more context to your chats</h2>
-				<a href="https://itunes.apple.com/au/app/link-badges/id1363437661?mt=8" class="cta" target="_blank">Get the stickers</a>
-				<p id="support"><a href="mailto:{{ site.email }}">Support</a><a href="privacy/">Privacy Policy</a></p>
-			</header>
-			<div class="grid">
-				<img src="../images/link-badges/view-link.png" alt="View the link" class="sticker" />
-				<img src="../images/link-badges/view-thread.png" alt="View the thread" class="sticker" />
-				<img src="../images/link-badges/read-comments.png" alt="View the comments" class="sticker" />
-				<img src="../images/link-badges/tldr.png" alt="Too long didn't read" class="sticker" />
-				<img src="../images/link-badges/thoughts.png" alt="What do you think?" class="sticker" />
-				<img src="../images/link-badges/checkout.png" alt="Check this out" class="sticker" />
-				<img src="../images/link-badges/agree-disagree.png" alt="Agree or disagree" class="sticker" />
-				<img src="../images/link-badges/agree.png" alt="Agree" class="sticker" />
-				<img src="../images/link-badges/disagree.png" alt="Disagree" class="sticker" />
-				<img src="../images/link-badges/headphones.png" alt="Wear headphones" class="sticker" />
-				<img src="../images/link-badges/nsfw.png" alt="Not safe for work" class="sticker" />
-				<img src="../images/link-badges/sfw.png" alt="Safe for work" class="sticker" />
-				<img src="../images/link-badges/read-later.png" alt="I'll read it later" class="sticker" />
-				<img src="../images/link-badges/read-it.png" alt="I read it" class="sticker" />
-				<img src="../images/link-badges/watch-later.png" alt="I'll watch it later" class="sticker" />
-				<img src="../images/link-badges/watched-it.png" alt="I watched it" class="sticker" />
-				<img src="../images/link-badges/me.png" alt="ME" class="sticker" />
-				<img src="../images/link-badges/video.png" alt="video" class="sticker" />
-				<img src="../images/link-badges/gif.png" alt="gif" class="sticker" />
-				<img src="../images/link-badges/sound.png" alt="sound" class="sticker" />
-				<img src="../images/link-badges/photo.png" alt="photo" class="sticker" />
-				<img src="../images/link-badges/2-photos.png" alt="2-photos" class="sticker" class="sticker" />
-				<img src="../images/link-badges/3-photos.png" alt="3-photos" class="sticker" />
-				<img src="../images/link-badges/4-photos.png" alt="4-photos" class="sticker" />
-				<img src="../images/link-badges/file.png" alt="file" class="sticker" />
-			</div>
-		</section>
-		{% include footer.html %}
+		<header>
+			<img src="images/icon.png" srcset="images/icon.png, images/icon@2x.png 2x" alt="Link Badges icon" />
+			<h1>Link Badges</h1>
+			<h2>Add more context to your chats</h2>
+			<a href="https://itunes.apple.com/au/app/link-badges/id1363437661?mt=8" class="cta" target="_blank">Get the stickers</a>
+			<p id="support"><a href="mailto:{{ site.email }}">Support</a><a href="privacy/">Privacy Policy</a></p>
+		</header>
+		<main class="light-background">
+			<section id="chat">
+				<div><img src="images/chat1.png" srcset="images/chat1.png, images/chat1@2x.png 2x" alt="Tired of sending a tweet and having to write out 'View all the images' or 'Read the comments'?" /></div>
+				<div><img src="images/chat2.png" srcset="images/chat2.png, images/chat2@2x.png 2x" alt="Replace all that extra text with a simple sticker that lets your friends know what’s behind the link preview!" /></div>
+				<div><img src="images/chat3.png" srcset="images/chat3.png, images/chat3@2x.png 2x" alt="A message with a link to a Reductress article with the ME sticker" /></div>
+				<div><img src="images/chat4.png" srcset="images/chat4.png, images/chat4@2x.png 2x" alt="A message with a link to a video on YouTube with the Love It! and Watched It stickers" /></div>
+			</section>
+			<section id="stickers">
+				<aside>
+					<h3>Over 30 different stickers</h3>
+				</aside>
+			</section>
+			<section id="facetime" class="centered-vertical">
+				<div class="centered-horizontal">
+					<img src="images/facetime.svg" alt="FaceTime logo" />
+					<aside>
+						<h3>Works&nbsp;with&nbsp;FaceTime</h3>
+						<h4>Link Badges become AR stickers inside FaceTime. Stick them anywhere.</h4>
+					</aside>
+				</div>
+			</section>			
+		</main>
+	    <footer>
+	        <a href="/"><div class="toast"></div></a>
+	    </footer>
 	</body>
 </html>

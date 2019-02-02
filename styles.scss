@@ -1026,55 +1026,135 @@ footer {
 	--background: #FBFBFB;
 	--main: #90928E;
 	--tint: #91DE5A;
-	
+	--font-body: -apple-system, helvetica, arial, sans-serif;
+	--font-header: -apple-system, helvetica, arial, sans-serif;
+
 	background: var(--background);
 	
-	section {
-		display: flex;
-		flex-direction: column;
-		max-width: 1440px;
-		margin: 20px auto 0px auto;
+	h3, .cta {
+		font-weight: bold;
+	}
+		
+	h2, h4, p, #support {
+		font-weight: normal;
 	}
 	
-	.grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-gap: 10px;
-		padding-bottom: 100px;
+	footer {
+		.toast {
+			background: url(/link-badges/images/toast.svg);
+		}
 		
-		img {
+		.toast:hover {
+			background: url(/link-badges/images/toast-active.svg);
+		}
+	}
+	
+	main {
+		grid-template-rows: auto 250px 320px;
+		grid-template-areas: "chat" "facetime" "stickers";
+		
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(2, 330px);
+			grid-template-areas: "chat stickers" "chat facetime";
+		}
+		
+		@media (min-width: 1200px) {
+			grid-template-rows: repeat(2, 420px);
+		}
+	}
+	
+	#chat {
+		grid-area: chat;
+		background: white;
+		padding: 20px;
+		
+		div {
+			margin-bottom: 25px;
 			width: 100%;
 		}
-	}
-				
-	.icon {
-		width: 60%;
-	}
-	
-	.promo {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding-bottom: 50px;
-	}
-	
-	@media (min-width:768px) {
-		.appicon {
-			width: auto;
-		}
-
-		.grid {
-			grid-template-columns: repeat( auto-fit, minmax(160px, 1fr) );
+		
+		div:nth-child(odd) {
+			display: flex;
+			justify-content: flex-end;
 		}
 		
-		section {
-			width: 90vw;
+		div:last-child {
+			margin-bottom: 0px;
+		}
+		
+		img {
+			max-width: 100%;
+			align-self: center
+		}
+		
+		@media (min-width: 768px) {
+			img {
+				max-width: 52%;
+			}
+		}
+		
+		@media (min-width: 1200px) {
+			img {
+				max-width: 100%;
+			}
 		}
 	}
-				
-	@media (min-width:1366px) {				
-		.appicon {
-			width: auto;
+	
+	#stickers {
+		grid-area: stickers;
+		background: url(/link-badges/images/stickers.png);
+		background-size: cover;
+		background-position: center center;
+		
+		h3 {
+			color: rgba(0,0,0,0.8);
+		}
+		
+		aside {
+			background: #E5E6E9;
+			width: 100%;
+			max-width: 100%;
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+			text-align: center;
+			padding: 20px;
+		}
+		
+		@media (min-width: 1200px) {
+			aside h3 {
+				font-size: 40px;
+			}
+		}
+	}
+	
+	#facetime {
+		grid-area: facetime;
+		background-image: linear-gradient(-179deg, #84FA6E 2%, #16D223 100%);
+		
+		h3 {
+			color: white;
+		}
+		
+		h4 {
+			color: white;
+			opacity: 0.8;
+		}
+		
+		aside {
+			text-align: center;
+		}
+		
+		img {
+			margin-bottom: 20px;
+			max-width: 40%;
+		}
+		
+		@media (min-width: 1200px) {
+			img {
+				max-width: 100%;
+			}
 		}
 	}
 }
