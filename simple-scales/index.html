@@ -9,15 +9,16 @@
 		<meta name="description" content="Simple scales lets you quickly track your weight with an easy-to-use interface. Includes seamless integration with HealthKit.">
 		
 		<link rel="canonical" href="http://www.toast-studio.com/simple-scales/">
-		<link rel="icon" href="../images/simplescales/favicon.ico">
+		<link rel="icon" href="favicon.ico">
+		<link rel="preload" href="images/toast_active.svg" as="image">
 		
 		<meta property="og:site_name" content="Toast">
 		<meta property="og:title" content="Simple Scales">
-		<meta property="og:image" content="../images/simplescales/ogimage.png">
+		<meta property="og:image" content="ogimage.png">
 		<meta property="og:description" content="Simple scales lets you quickly track your weight with an easy-to-use interface. Includes seamless integration with HealthKit.">
 		<meta property="og:url" content="http://www.toast-studio.com/simple-scales/">
 		<meta property="og:type" content="website">
-		<meta property="og:logo" content="../images/simplescales/oglogo.png">		
+		<meta property="og:logo" content="oglogo.png">		
 		
 		<link rel="stylesheet" href="../styles.css">
 	</head>
@@ -35,7 +36,11 @@
 					<h3>Slide to save</h3>
 					<h4>Saving your weight shouldn’t involve lots of taps, just scroll and save</h4>
 				</aside>
-				<img src="images/phone.png" srcset="images/phone.png, images/phone@2x.png 2x" alt="Screenshot of the phone app" />
+				<picture>
+					<source media="(min-width: 768px)" srcset="images/phone.png, images/phone@2x.png 2x">
+					<source media="(min-width: 0px)" srcset="images/phone-phone.png, images/phone-phone@2x.png 2x">
+					<img src="images/phone-phone.png" class="promo">
+				</picture>				
 			</section>
 			<section id="healthkit" class="centered-vertical">
 				<div class="centered-horizontal">
@@ -56,10 +61,12 @@
 				</div>
 			</section>
 			<section id="completesupport">
-				<aside>
-					<h3>Complete support</h3>
-					<h4>Simple Scales support Kilograms, Pounds, and Stones. It will also save your BMI</h4>
-				</aside>
+				<div class="centered-horizontal">
+					<aside>
+						<h3>Complete support</h3>
+						<h4>Simple Scales support Kilograms, Pounds, and Stones. It will also save your BMI</h4>
+					</aside>
+				</div>
 			</section>
 		</main>
 	    <footer>
@@ -67,3 +74,5 @@
 	    </footer>
 	</body>
 </html>
+
+

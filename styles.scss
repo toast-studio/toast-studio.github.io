@@ -133,7 +133,7 @@ h4 {
 	font-size: 15px;
 	
 	a {
-		color: var(--tint);
+		color: var(--main);
 		margin: 0px 10px;
 		text-decoration: none;
 		
@@ -152,6 +152,7 @@ main {
 		border-radius: 10px;
 		position: relative;
 		overflow: hidden;
+		padding: 20px;
 		
 		&::before {
 			content: "";
@@ -184,12 +185,26 @@ main {
 		}
 		
 		&.light-background section {
-			box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.1);
+			box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.05);
 		}
 	}
 	
 	@media (min-width: 1200px) {
 		grid-gap: 40px;
+		
+		 section {
+			 padding: 45px;
+		 }
+	}
+}
+
+aside {
+	@media (min-width: 768px) {
+		max-width: 80%;
+	}
+	
+	@media (min-width: 1200px) {
+		max-width: 100%;
 	}
 }
 
@@ -199,19 +214,25 @@ footer {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-.toast {
-	width: 213px;
-	height: 93px;
-	background: url(/typedex/images/toast.svg);
-	transform: scale(0.7);
-	transition: background 0.2s ease;
-}
-
-.toast:hover {
-	background: url(/typedex/images/toast_active.svg);
-	transition: background 0.5s ease;
+	
+	.toast {
+		width: 213px;
+		height: 93px;
+		transform: scale(0.7);
+		transition: background 0.2s ease;
+	}
+	
+	.toast:hover {
+		transition: background 0.5s ease;
+	}
+	
+	@media (min-width: 768px) {
+		height: 200px;
+		
+		.toast {
+			transform: scale(1);
+		}
+	}
 }
 
 .centered-vertical {
@@ -315,6 +336,7 @@ footer {
 		
 		section {
 			transition: transform 0.2s ease;
+			padding: 0px;
 			
 			a {
 				position: absolute;
@@ -596,6 +618,16 @@ footer {
 	br {
 		display: none;
 	}
+	
+	footer {
+		.toast {
+			background: url(/typedex/images/toast.svg);
+		}
+		
+		.toast:hover {
+			background: url(/typedex/images/toast_active.svg);
+		}
+	}
 		
 	main {
 		grid-template-rows: repeat(4, 320px);
@@ -736,10 +768,6 @@ footer {
 			padding: 20px;
 		}
 		
-		.toast {
-			transform: scale(1);
-		}
-		
 		#pokedex {
 			aside {
 				width: 275px;
@@ -778,10 +806,6 @@ footer {
 				max-width: 40%;
 				margin-top: 30px;
 			}
-		}
-		
-		footer {
-			height: 200px;
 		}
 	}
 	
@@ -850,7 +874,7 @@ footer {
 	
 	background: var(--background);
 		
-	h3 {
+	h3, .cta {
 		font-weight: bold;
 	}
 		
@@ -858,16 +882,23 @@ footer {
 		font-weight: normal;
 	}
 	
-	main {
-		grid-template-rows: repeat(4, 320px);
-		grid-template-areas: "phone" "healthkit" "watch" "support";
-		
-		@media (min-width: 375px) {
-			grid-template-rows: repeat(4, 370px);
+	footer {
+		.toast {
+			background: url(/simple-scales/images/toast.svg);
 		}
+		
+		.toast:hover {
+			background: url(/simple-scales/images/toast-active.svg);
+		}
+	}
+		
+	main {
+		grid-template-rows: 450px 320px 400px 320px;
+		grid-template-areas: "phone" "healthkit" "watch" "support";
 		
 		@media (min-width: 768px) {
 			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(3, 330px);
 			grid-template-areas: "phone healthkit" "phone watch" "support watch";
 		}
 		
@@ -885,6 +916,47 @@ footer {
 		h3, h4 {
 			color: var(--main);
 		}
+		
+		img {
+			margin-top: 10px;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 90%;
+			display: block;
+		}
+		
+		aside {
+			text-align: center;
+		}
+		
+		@media (min-width: 415px) {
+			img {
+				max-width: 40%;
+			}
+		}
+		
+		@media (min-width: 768px) {
+			img {
+				top: inherit;
+				bottom: -70px;
+				right: -160px;
+				position: absolute;
+				margin: 0px;
+				max-width: inherit;
+			}
+			
+			aside {
+				text-align: left;
+				width: 75%;
+				margin-top: 40px;
+			}
+		}
+		
+		@media (min-width: 1200px) {
+			img {
+				bottom: 30px;
+			}
+		}
 	}
 	
 	#healthkit {
@@ -898,6 +970,10 @@ footer {
 		aside {
 			text-align: center;
 		}
+		
+		img {
+			margin-bottom: 30px;
+		}
 	}
 	
 	#watch {
@@ -910,6 +986,23 @@ footer {
 		
 		aside {
 			text-align: center;
+		}
+		
+		img {
+			margin-bottom: 30px;
+			max-width: 40%;
+			
+			@media (min-width: 415px) {
+				max-width: 30%;
+			}
+			
+			@media (min-width: 768px) {
+				max-width: 70%;
+			}
+			
+			@media (min-width: 1200px) {
+				max-width: 100%;
+			}
 		}
 	}
 	
