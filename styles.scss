@@ -20,6 +20,7 @@
 body {
 	margin: 0px;
 	padding: 20px;
+	background: var(--background);
 }
 	
 header {
@@ -255,7 +256,6 @@ footer {
 	--background: #F4F4F4;
 	--main: white;
 	
-	background: var(--background);
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -604,12 +604,300 @@ footer {
 	}
 }
 
+.simplescales-page {
+	--background: #ECEBEB;
+	--main: #665B49;
+	--tint: #FF9E2A;
+	--font-body: -apple-system, helvetica, arial, sans-serif;
+	--font-header: -apple-system, helvetica, arial, sans-serif;
+			
+	h3, .cta {
+		font-weight: bold;
+	}
+		
+	h2, h4, p, #support {
+		font-weight: normal;
+	}
+	
+	footer {
+		.toast {
+			background: url(/simple-scales/images/toast.svg);
+		}
+		
+		.toast:hover {
+			background: url(/simple-scales/images/toast-active.svg);
+		}
+	}
+		
+	main {
+		grid-template-rows: 450px 320px 400px 320px;
+		grid-template-areas: "phone" "healthkit" "watch" "support";
+		
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(3, 330px);
+			grid-template-areas: "phone healthkit" "phone watch" "support watch";
+		}
+		
+		@media (min-width: 1200px) {
+			grid-template-rows: repeat(3, 420px);
+		}
+	}
+	
+	#phone {
+		grid-area: phone;
+		background: url(simple-scales/images/wood.jpg);
+		background-size: cover;
+		background-position: top right;
+		
+		h3, h4 {
+			color: var(--main);
+		}
+		
+		img {
+			margin-top: 10px;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 90%;
+			display: block;
+		}
+		
+		aside {
+			text-align: center;
+		}
+		
+		@media (min-width: 415px) {
+			img {
+				max-width: 40%;
+			}
+		}
+		
+		@media (min-width: 768px) {
+			img {
+				top: inherit;
+				bottom: -70px;
+				right: -160px;
+				position: absolute;
+				margin: 0px;
+				max-width: inherit;
+			}
+			
+			aside {
+				text-align: left;
+				width: 75%;
+				margin-top: 40px;
+			}
+		}
+		
+		@media (min-width: 1200px) {
+			img {
+				bottom: 30px;
+			}
+		}
+	}
+	
+	#healthkit {
+		grid-area: healthkit;
+		background: white;
+		
+		h3, h4 {
+			color: #7C7C7C;
+		}
+		
+		aside {
+			text-align: center;
+		}
+		
+		img {
+			margin-bottom: 30px;
+		}
+	}
+	
+	#watch {
+		grid-area: watch;
+		background: black;
+		
+		h3, h4 {
+			color: white;
+		}
+		
+		aside {
+			text-align: center;
+		}
+		
+		img {
+			margin-bottom: 30px;
+			max-width: 40%;
+			
+			@media (min-width: 415px) {
+				max-width: 30%;
+			}
+			
+			@media (min-width: 768px) {
+				max-width: 70%;
+			}
+			
+			@media (min-width: 1200px) {
+				max-width: 100%;
+			}
+		}
+	}
+	
+	#completesupport {
+		grid-area: support;
+		background: url(simple-scales/images/support.jpg);
+		background-size: cover;
+		background-position: center bottom;
+		
+		h3, h4 {
+			color: #09435A;
+		}
+		
+		aside {
+			text-align: center;
+		}
+	}
+}
+
+.linkbadges-page {
+	--background: #FBFBFB;
+	--main: #90928E;
+	--tint: #91DE5A;
+	--font-body: -apple-system, helvetica, arial, sans-serif;
+	--font-header: -apple-system, helvetica, arial, sans-serif;
+	
+	h3, .cta {
+		font-weight: bold;
+	}
+		
+	h2, h4, p, #support {
+		font-weight: normal;
+	}
+	
+	footer {
+		.toast {
+			background: url(/link-badges/images/toast.svg);
+		}
+		
+		.toast:hover {
+			background: url(/link-badges/images/toast-active.svg);
+		}
+	}
+	
+	main {
+		grid-template-rows: auto 250px 320px;
+		grid-template-areas: "chat" "facetime" "stickers";
+		
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(2, 330px);
+			grid-template-areas: "chat stickers" "chat facetime";
+		}
+		
+		@media (min-width: 1200px) {
+			grid-template-rows: repeat(2, 420px);
+		}
+	}
+	
+	#chat {
+		grid-area: chat;
+		background: white;
+		padding: 20px;
+		
+		div {
+			margin-bottom: 25px;
+			width: 100%;
+		}
+		
+		div:nth-child(odd) {
+			display: flex;
+			justify-content: flex-end;
+		}
+		
+		div:last-child {
+			margin-bottom: 0px;
+		}
+		
+		img {
+			max-width: 100%;
+			align-self: center
+		}
+		
+		@media (min-width: 768px) {
+			img {
+				max-width: 52%;
+			}
+		}
+		
+		@media (min-width: 1200px) {
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+	
+	#stickers {
+		grid-area: stickers;
+		background: url(/link-badges/images/stickers.png);
+		background-size: cover;
+		background-position: center center;
+		
+		h3 {
+			color: rgba(0,0,0,0.8);
+		}
+		
+		aside {
+			background: #E5E6E9;
+			width: 100%;
+			max-width: 100%;
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+			text-align: center;
+			padding: 20px;
+		}
+		
+		@media (min-width: 1200px) {
+			aside h3 {
+				font-size: 40px;
+			}
+		}
+	}
+	
+	#facetime {
+		grid-area: facetime;
+		background-image: linear-gradient(-179deg, #84FA6E 2%, #16D223 100%);
+		
+		h3 {
+			color: white;
+		}
+		
+		h4 {
+			color: white;
+			opacity: 0.8;
+		}
+		
+		aside {
+			text-align: center;
+		}
+		
+		img {
+			margin-bottom: 20px;
+			max-width: 40%;
+		}
+		
+		@media (min-width: 1200px) {
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+}
+
 .typedex-page {
 	--background: #1a1a1a;
 	--main: #8D8D8D;
 	--tint: white;
-	
-	background: var(--background);
 		
 	h1 {
 		color: white;
@@ -625,7 +913,7 @@ footer {
 		}
 		
 		.toast:hover {
-			background: url(/typedex/images/toast_active.svg);
+			background: url(/typedex/images/toast-active.svg);
 		}
 	}
 		
@@ -865,296 +1153,73 @@ footer {
 	}
 }
 
-.simplescales-page {
-	--background: #ECEBEB;
-	--main: #665B49;
-	--tint: #FF9E2A;
-	--font-body: -apple-system, helvetica, arial, sans-serif;
-	--font-header: -apple-system, helvetica, arial, sans-serif;
+.lifecast-page {
+	--background: #0D1526;
+	--main: #868A92;
+	--tint: #FFFFFF;
+	--font-body: 'Work Sans', helvetica, arial, sans-serif;
+	--font-header: 'Work Sans', helvetica, arial, sans-serif;
 	
-	background: var(--background);
-		
-	h3, .cta {
-		font-weight: bold;
-	}
-		
-	h2, h4, p, #support {
-		font-weight: normal;
+	.cta {
+		font-weight: 700;
 	}
 	
 	footer {
 		.toast {
-			background: url(/simple-scales/images/toast.svg);
+			background: url(/lifecast/images/toast.svg);
 		}
 		
 		.toast:hover {
-			background: url(/simple-scales/images/toast-active.svg);
+			background: url(/lifecast/images/toast-active.svg);
 		}
 	}
-		
+	
 	main {
-		grid-template-rows: 450px 320px 400px 320px;
-		grid-template-areas: "phone" "healthkit" "watch" "support";
+		grid-template-rows: repeat(4, 320px);
+		grid-template-areas: "life" "themes" "formats" "counters";
+		
+		@media (min-width: 375px) {
+			grid-template-rows: repeat(4, 370px);
+		}
 		
 		@media (min-width: 768px) {
+			grid-template-rows: 360px 360px 250px;
 			grid-template-columns: repeat(2, 1fr);
-			grid-template-rows: repeat(3, 330px);
-			grid-template-areas: "phone healthkit" "phone watch" "support watch";
+			grid-template-areas: "life life" "counters themes" "counters formats";
 		}
 		
 		@media (min-width: 1200px) {
-			grid-template-rows: repeat(3, 420px);
+			grid-template-rows: 455px 420px 420px;
 		}
 	}
-	
-	#phone {
-		grid-area: phone;
-		background: url(simple-scales/images/wood.jpg);
+
+	#life {
+		grid-area: life;
+		background: url(/lifecast/images/life.jpg);
 		background-size: cover;
-		background-position: top right;
-		
-		h3, h4 {
-			color: var(--main);
-		}
-		
-		img {
-			margin-top: 10px;
-			margin-left: auto;
-			margin-right: auto;
-			max-width: 90%;
-			display: block;
-		}
-		
-		aside {
-			text-align: center;
-		}
-		
-		@media (min-width: 415px) {
-			img {
-				max-width: 40%;
-			}
-		}
-		
-		@media (min-width: 768px) {
-			img {
-				top: inherit;
-				bottom: -70px;
-				right: -160px;
-				position: absolute;
-				margin: 0px;
-				max-width: inherit;
-			}
-			
-			aside {
-				text-align: left;
-				width: 75%;
-				margin-top: 40px;
-			}
-		}
-		
-		@media (min-width: 1200px) {
-			img {
-				bottom: 30px;
-			}
-		}
+		background-position: center;		
 	}
 	
-	#healthkit {
-		grid-area: healthkit;
-		background: white;
-		
-		h3, h4 {
-			color: #7C7C7C;
-		}
-		
-		aside {
-			text-align: center;
-		}
-		
-		img {
-			margin-bottom: 30px;
-		}
+	#counters {
+		grid-area: counters;
+		background: url(/lifecast/images/counters.jpg);
+		background-size: cover;
+		background-position: center top;		
 	}
 	
-	#watch {
-		grid-area: watch;
-		background: black;
-		
-		h3, h4 {
-			color: white;
-		}
-		
-		aside {
-			text-align: center;
-		}
-		
-		img {
-			margin-bottom: 30px;
-			max-width: 40%;
-			
-			@media (min-width: 415px) {
-				max-width: 30%;
-			}
-			
-			@media (min-width: 768px) {
-				max-width: 70%;
-			}
-			
-			@media (min-width: 1200px) {
-				max-width: 100%;
-			}
-		}
+	#themes {
+		grid-area: themes;
 	}
 	
-	#completesupport {
-		grid-area: support;
-		background: url(simple-scales/images/support.jpg);
+	#formats {
+		grid-area: formats;
+		background: url(/lifecast/images/formats.jpg);
 		background-size: cover;
 		background-position: center bottom;
 		
 		h3, h4 {
-			color: #09435A;
-		}
-		
-		aside {
+			color: black;
 			text-align: center;
-		}
-	}
-}
-
-.linkbadges-page {
-	--background: #FBFBFB;
-	--main: #90928E;
-	--tint: #91DE5A;
-	--font-body: -apple-system, helvetica, arial, sans-serif;
-	--font-header: -apple-system, helvetica, arial, sans-serif;
-
-	background: var(--background);
-	
-	h3, .cta {
-		font-weight: bold;
-	}
-		
-	h2, h4, p, #support {
-		font-weight: normal;
-	}
-	
-	footer {
-		.toast {
-			background: url(/link-badges/images/toast.svg);
-		}
-		
-		.toast:hover {
-			background: url(/link-badges/images/toast-active.svg);
-		}
-	}
-	
-	main {
-		grid-template-rows: auto 250px 320px;
-		grid-template-areas: "chat" "facetime" "stickers";
-		
-		@media (min-width: 768px) {
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-rows: repeat(2, 330px);
-			grid-template-areas: "chat stickers" "chat facetime";
-		}
-		
-		@media (min-width: 1200px) {
-			grid-template-rows: repeat(2, 420px);
-		}
-	}
-	
-	#chat {
-		grid-area: chat;
-		background: white;
-		padding: 20px;
-		
-		div {
-			margin-bottom: 25px;
-			width: 100%;
-		}
-		
-		div:nth-child(odd) {
-			display: flex;
-			justify-content: flex-end;
-		}
-		
-		div:last-child {
-			margin-bottom: 0px;
-		}
-		
-		img {
-			max-width: 100%;
-			align-self: center
-		}
-		
-		@media (min-width: 768px) {
-			img {
-				max-width: 52%;
-			}
-		}
-		
-		@media (min-width: 1200px) {
-			img {
-				max-width: 100%;
-			}
-		}
-	}
-	
-	#stickers {
-		grid-area: stickers;
-		background: url(/link-badges/images/stickers.png);
-		background-size: cover;
-		background-position: center center;
-		
-		h3 {
-			color: rgba(0,0,0,0.8);
-		}
-		
-		aside {
-			background: #E5E6E9;
-			width: 100%;
-			max-width: 100%;
-			position: absolute;
-			bottom: 0px;
-			left: 0px;
-			text-align: center;
-			padding: 20px;
-		}
-		
-		@media (min-width: 1200px) {
-			aside h3 {
-				font-size: 40px;
-			}
-		}
-	}
-	
-	#facetime {
-		grid-area: facetime;
-		background-image: linear-gradient(-179deg, #84FA6E 2%, #16D223 100%);
-		
-		h3 {
-			color: white;
-		}
-		
-		h4 {
-			color: white;
-			opacity: 0.8;
-		}
-		
-		aside {
-			text-align: center;
-		}
-		
-		img {
-			margin-bottom: 20px;
-			max-width: 40%;
-		}
-		
-		@media (min-width: 1200px) {
-			img {
-				max-width: 100%;
-			}
 		}
 	}
 }
