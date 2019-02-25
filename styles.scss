@@ -329,10 +329,10 @@ footer {
 		margin-bottom: 40px;
 		grid-gap: 10px;
 		grid-auto-columns: 1fr;
-		grid-template-rows: repeat(3, 240px);
+		grid-template-rows: repeat(4, 240px);
 		padding-left: 10px;
 		padding-right: 10px;
-		grid-template-areas: "simplescales" "typedex" "linkbadges";
+		grid-template-areas: "lifecast" "simplescales" "typedex" "linkbadges";
 		
 		section {
 			transition: transform 0.2s ease;
@@ -381,13 +381,13 @@ footer {
 			padding-right: 40px;
 			grid-gap: 20px;
 			grid-template-columns: 1fr 1fr;
-			grid-template-rows: 330px 430px;
-			grid-template-areas: "simplescales simplescales" "typedex linkbadges";
+			grid-template-rows: 330px 330px 430px;
+			grid-template-areas: "lifecast lifecast" "simplescales simplescales" "typedex linkbadges";
 		}
 		
 		@media (min-width: 1340px) {
 			padding: 0px;
-			grid-template-rows: 430px 650px;
+			grid-template-rows: 430px 430px 650px;
 			grid-gap: 40px;
 		}
 	}
@@ -407,6 +407,13 @@ footer {
 		font-weight: 100;
 		font-size: 18px;
 		margin: 0px;
+	}
+	
+	#lifecast {
+		grid-area: lifecast;
+		background-image: url(../images/toast/promo-lifecast.jpg);
+		background-size: cover;
+		background-position: right;
 	}
 		
 	#simplescales {
