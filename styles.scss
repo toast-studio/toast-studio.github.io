@@ -249,6 +249,21 @@ footer {
 	flex-direction: column;
 }
 
+@keyframes theme {
+	0% {
+		background: url(../lifecast/images/theme1.jpg);
+	}
+	30% {
+		background: url(../lifecast/images/theme2.jpg);
+	}
+	60% {
+		background: url(../lifecast/images/theme3.jpg);
+	}
+	100% {
+		background: url(../lifecast/images/theme1.jpg);
+	}
+}
+
 
 /* PAGE SPECIFIC */
 
@@ -1216,6 +1231,8 @@ footer {
 	
 	#themes {
 		grid-area: themes;
+		animation: theme 20s ease infinite;
+		background-size: cover;
 	}
 	
 	#formats {
