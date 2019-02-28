@@ -253,11 +253,44 @@ footer {
 	0% {
 		background: url(../lifecast/images/theme1.jpg);
 	}
-	30% {
+	7% {
 		background: url(../lifecast/images/theme2.jpg);
 	}
-	60% {
+	14% {
 		background: url(../lifecast/images/theme3.jpg);
+	}
+	21% {
+		background: url(../lifecast/images/theme4.jpg);
+	}
+	28% {
+		background: url(../lifecast/images/theme5.jpg);
+	}
+	35% {
+		background: url(../lifecast/images/theme6.jpg);
+	}
+	42% {
+		background: url(../lifecast/images/theme7.jpg);
+	}
+	49% {
+		background: url(../lifecast/images/theme8.jpg);
+	}
+	56% {
+		background: url(../lifecast/images/theme9.jpg);
+	}
+	63% {
+		background: url(../lifecast/images/theme10.jpg);
+	}
+	70% {
+		background: url(../lifecast/images/theme11.jpg);
+	}
+	77% {
+		background: url(../lifecast/images/theme12.jpg);
+	}
+	84% {
+		background: url(../lifecast/images/theme13.jpg);
+	}
+	91% {
+		background: url(../lifecast/images/theme14.jpg);
 	}
 	100% {
 		background: url(../lifecast/images/theme1.jpg);
@@ -1182,6 +1215,18 @@ footer {
 	--font-body: 'Work Sans', helvetica, arial, sans-serif;
 	--font-header: 'Work Sans', helvetica, arial, sans-serif;
 	
+	h3 {
+		@media (min-width: 1200px) {
+			font-size: 35px;
+		}
+	}
+	
+	h4 {
+		@media (min-width: 1200px) {
+			font-size: 20px;
+		}
+	}
+	
 	.cta {
 		font-weight: 700;
 	}
@@ -1219,7 +1264,13 @@ footer {
 		grid-area: life;
 		background: url(/lifecast/images/life.jpg);
 		background-size: cover;
-		background-position: center;		
+		background-position: center;
+		
+		aside {
+			@media (min-width: 1200px) {
+				width: 550px;
+			}
+		}	
 	}
 	
 	#counters {
@@ -1227,12 +1278,23 @@ footer {
 		background: url(/lifecast/images/counters.jpg);
 		background-size: cover;
 		background-position: center top;		
+		
+		h3, h4 {
+			text-align: center;
+		}
 	}
 	
 	#themes {
 		grid-area: themes;
-		animation: theme 20s ease infinite;
+		animation: theme 100s ease infinite;
 		background-size: cover;
+		
+		h3, h4 {
+			text-align: center;
+			color: white;
+			text-shadow: 0px 0px 50px black;
+			opacity: 1;
+		}
 	}
 	
 	#formats {
