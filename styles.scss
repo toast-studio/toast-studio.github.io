@@ -459,9 +459,48 @@ footer {
 	
 	#lifecast {
 		grid-area: lifecast;
-		background-image: url(../images/toast/promo-lifecast.jpg);
-		background-size: cover;
-		background-position: right;
+		background-color: #0D1526;
+		
+		h3 {
+			color: white;
+			opacity: 0.5;
+		}
+		
+		@media (min-width: 768px) {
+			background-image: url(../images/toast/promo-lifecast.jpg);
+			background-size: cover;
+			background-position: right;
+			
+			h2 {
+				font-size: 50px;
+			}
+			
+			h3 {
+				font-size: 24px;
+			}
+			
+			aside {
+				width: 223px;
+				position: absolute;
+				bottom: 50px;
+				right: 90px;
+			}
+		}
+		
+		@media (min-width: 1340px) {
+			aside {
+				width: 465px;
+				right: 50px;
+			}
+			
+			h2 {
+				font-size: 70px;
+			}
+			
+			h3 {
+				font-size: 30px;
+			}
+		}
 	}
 		
 	#simplescales {
@@ -538,7 +577,7 @@ footer {
 	
 	#typedex {
 		grid-area: typedex;
-		background: linear-gradient(290deg, #A567C6 0%, #C962D6 100%);
+		background: #1a1a1a;
 		
 		h2 {
 			color: white;
@@ -550,6 +589,8 @@ footer {
 		}
 		
 		@media (min-width: 768px) {
+			background: linear-gradient(290deg, #A567C6 0%, #C962D6 100%);
+			
 			h2 {
 				font-size: 40px;
 			}
@@ -1227,6 +1268,12 @@ footer {
 		}
 	}
 	
+	br {
+		@media (min-width: 414px) {
+			display: none;
+		}
+	}
+	
 	.cta {
 		font-weight: 700;
 	}
@@ -1242,11 +1289,11 @@ footer {
 	}
 	
 	main {
-		grid-template-rows: repeat(4, 320px);
+		grid-template-rows: 500px 320px 320px 320px;
 		grid-template-areas: "life" "themes" "formats" "counters";
 		
 		@media (min-width: 375px) {
-			grid-template-rows: repeat(4, 370px);
+			grid-template-rows: 530px 370px 370px 370px;
 		}
 		
 		@media (min-width: 768px) {
@@ -1262,15 +1309,50 @@ footer {
 
 	#life {
 		grid-area: life;
-		background: url(/lifecast/images/life.jpg);
+		background: url(/lifecast/images/wood.jpg);
 		background-size: cover;
 		background-position: center;
 		
+		@media (min-width: 768px) {
+			background: url(/lifecast/images/life.jpg);
+			background-size: cover;
+			background-position: center;
+		}
+		
 		aside {
+			@media (min-width: 768px) {
+				width: 350px;
+			}
+			
+			@media (min-width: 1024px) {
+				width: 450px;
+				margin-top: 30px;
+			}
+			
 			@media (min-width: 1200px) {
 				width: 550px;
 			}
-		}	
+		}
+		
+		img {
+			max-width: 80%;
+			display: block;
+			margin: 20px auto 0px auto;
+			
+			@media (min-width: 568px) {
+				max-width: 50%;
+			}
+			
+			@media (min-width: 768px) {
+				display: none;
+			}
+		}
+	}
+	
+	aside {
+		@media (min-width: 768px) and (max-width: 1199px) {
+			max-width: 100%;
+		}
 	}
 	
 	#counters {
@@ -1282,11 +1364,26 @@ footer {
 		h3, h4 {
 			text-align: center;
 		}
+		
+		img {
+			max-width: 100%;
+			margin: 20px auto 0px auto;
+			display: block;
+			transform: translateX(10px);
+			
+			@media (min-width: 768px) and (max-width: 1023px) {
+				margin-top: 80px;
+			}
+			
+			@media (min-width: 1200px) {
+				margin-top: 80px;
+			}
+		}
 	}
 	
 	#themes {
 		grid-area: themes;
-		animation: theme 100s ease infinite;
+		animation: theme 50s ease infinite;
 		background-size: cover;
 		
 		h3, h4 {
