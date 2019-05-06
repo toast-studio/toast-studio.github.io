@@ -20,6 +20,7 @@
 body {
 	margin: 0px;
 	padding: 20px;
+	background: var(--background);
 }
 	
 header {
@@ -248,6 +249,54 @@ footer {
 	flex-direction: column;
 }
 
+@keyframes theme {
+	0% {
+		background: url(../lifecast/images/theme1.jpg);
+	}
+	7% {
+		background: url(../lifecast/images/theme2.jpg);
+	}
+	14% {
+		background: url(../lifecast/images/theme3.jpg);
+	}
+	21% {
+		background: url(../lifecast/images/theme4.jpg);
+	}
+	28% {
+		background: url(../lifecast/images/theme5.jpg);
+	}
+	35% {
+		background: url(../lifecast/images/theme6.jpg);
+	}
+	42% {
+		background: url(../lifecast/images/theme7.jpg);
+	}
+	49% {
+		background: url(../lifecast/images/theme8.jpg);
+	}
+	56% {
+		background: url(../lifecast/images/theme9.jpg);
+	}
+	63% {
+		background: url(../lifecast/images/theme10.jpg);
+	}
+	70% {
+		background: url(../lifecast/images/theme11.jpg);
+	}
+	77% {
+		background: url(../lifecast/images/theme12.jpg);
+	}
+	84% {
+		background: url(../lifecast/images/theme13.jpg);
+	}
+	91% {
+		background: url(../lifecast/images/theme14.jpg);
+	}
+	100% {
+		background: url(../lifecast/images/theme1.jpg);
+	}
+}
+
 
 /* PAGE SPECIFIC */
 
@@ -255,7 +304,6 @@ footer {
 	--background: #F4F4F4;
 	--main: white;
 	
-	background: var(--background);
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -329,10 +377,10 @@ footer {
 		margin-bottom: 40px;
 		grid-gap: 10px;
 		grid-auto-columns: 1fr;
-		grid-template-rows: repeat(3, 240px);
+		grid-template-rows: repeat(4, 240px);
 		padding-left: 10px;
 		padding-right: 10px;
-		grid-template-areas: "simplescales" "typedex" "linkbadges";
+		grid-template-areas: "lifecast" "simplescales" "typedex" "linkbadges";
 		
 		section {
 			transition: transform 0.2s ease;
@@ -381,13 +429,13 @@ footer {
 			padding-right: 40px;
 			grid-gap: 20px;
 			grid-template-columns: 1fr 1fr;
-			grid-template-rows: 330px 430px;
-			grid-template-areas: "simplescales simplescales" "typedex linkbadges";
+			grid-template-rows: 330px 330px 430px;
+			grid-template-areas: "lifecast lifecast" "simplescales simplescales" "typedex linkbadges";
 		}
 		
 		@media (min-width: 1340px) {
 			padding: 0px;
-			grid-template-rows: 430px 650px;
+			grid-template-rows: 430px 430px 650px;
 			grid-gap: 40px;
 		}
 	}
@@ -407,6 +455,52 @@ footer {
 		font-weight: 100;
 		font-size: 18px;
 		margin: 0px;
+	}
+	
+	#lifecast {
+		grid-area: lifecast;
+		background-color: #0D1526;
+		
+		h3 {
+			color: white;
+			opacity: 0.5;
+		}
+		
+		@media (min-width: 768px) {
+			background-image: url(../images/toast/promo-lifecast.jpg);
+			background-size: cover;
+			background-position: right;
+			
+			h2 {
+				font-size: 50px;
+			}
+			
+			h3 {
+				font-size: 24px;
+			}
+			
+			aside {
+				width: 223px;
+				position: absolute;
+				bottom: 50px;
+				right: 90px;
+			}
+		}
+		
+		@media (min-width: 1340px) {
+			aside {
+				width: 465px;
+				right: 50px;
+			}
+			
+			h2 {
+				font-size: 70px;
+			}
+			
+			h3 {
+				font-size: 30px;
+			}
+		}
 	}
 		
 	#simplescales {
@@ -483,7 +577,7 @@ footer {
 	
 	#typedex {
 		grid-area: typedex;
-		background: linear-gradient(290deg, #A567C6 0%, #C962D6 100%);
+		background: #1a1a1a;
 		
 		h2 {
 			color: white;
@@ -495,6 +589,8 @@ footer {
 		}
 		
 		@media (min-width: 768px) {
+			background: linear-gradient(290deg, #A567C6 0%, #C962D6 100%);
+			
 			h2 {
 				font-size: 40px;
 			}
@@ -604,12 +700,300 @@ footer {
 	}
 }
 
+.simplescales-page {
+	--background: #ECEBEB;
+	--main: #665B49;
+	--tint: #FF9E2A;
+	--font-body: -apple-system, helvetica, arial, sans-serif;
+	--font-header: -apple-system, helvetica, arial, sans-serif;
+			
+	h3, .cta {
+		font-weight: bold;
+	}
+		
+	h2, h4, p, #support {
+		font-weight: normal;
+	}
+	
+	footer {
+		.toast {
+			background: url(/simple-scales/images/toast.svg);
+		}
+		
+		.toast:hover {
+			background: url(/simple-scales/images/toast-active.svg);
+		}
+	}
+		
+	main {
+		grid-template-rows: 450px 320px 400px 320px;
+		grid-template-areas: "phone" "healthkit" "watch" "support";
+		
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(3, 330px);
+			grid-template-areas: "phone healthkit" "phone watch" "support watch";
+		}
+		
+		@media (min-width: 1200px) {
+			grid-template-rows: repeat(3, 420px);
+		}
+	}
+	
+	#phone {
+		grid-area: phone;
+		background: url(simple-scales/images/wood.jpg);
+		background-size: cover;
+		background-position: top right;
+		
+		h3, h4 {
+			color: var(--main);
+		}
+		
+		img {
+			margin-top: 10px;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 90%;
+			display: block;
+		}
+		
+		aside {
+			text-align: center;
+		}
+		
+		@media (min-width: 415px) {
+			img {
+				max-width: 40%;
+			}
+		}
+		
+		@media (min-width: 768px) {
+			img {
+				top: inherit;
+				bottom: -70px;
+				right: -160px;
+				position: absolute;
+				margin: 0px;
+				max-width: inherit;
+			}
+			
+			aside {
+				text-align: left;
+				width: 75%;
+				margin-top: 40px;
+			}
+		}
+		
+		@media (min-width: 1200px) {
+			img {
+				bottom: 30px;
+			}
+		}
+	}
+	
+	#healthkit {
+		grid-area: healthkit;
+		background: white;
+		
+		h3, h4 {
+			color: #7C7C7C;
+		}
+		
+		aside {
+			text-align: center;
+		}
+		
+		img {
+			margin-bottom: 30px;
+		}
+	}
+	
+	#watch {
+		grid-area: watch;
+		background: black;
+		
+		h3, h4 {
+			color: white;
+		}
+		
+		aside {
+			text-align: center;
+		}
+		
+		img {
+			margin-bottom: 30px;
+			max-width: 40%;
+			
+			@media (min-width: 415px) {
+				max-width: 30%;
+			}
+			
+			@media (min-width: 768px) {
+				max-width: 70%;
+			}
+			
+			@media (min-width: 1200px) {
+				max-width: 100%;
+			}
+		}
+	}
+	
+	#completesupport {
+		grid-area: support;
+		background: url(simple-scales/images/support.jpg);
+		background-size: cover;
+		background-position: center bottom;
+		
+		h3, h4 {
+			color: #09435A;
+		}
+		
+		aside {
+			text-align: center;
+		}
+	}
+}
+
+.linkbadges-page {
+	--background: #FBFBFB;
+	--main: #90928E;
+	--tint: #91DE5A;
+	--font-body: -apple-system, helvetica, arial, sans-serif;
+	--font-header: -apple-system, helvetica, arial, sans-serif;
+	
+	h3, .cta {
+		font-weight: bold;
+	}
+		
+	h2, h4, p, #support {
+		font-weight: normal;
+	}
+	
+	footer {
+		.toast {
+			background: url(/link-badges/images/toast.svg);
+		}
+		
+		.toast:hover {
+			background: url(/link-badges/images/toast-active.svg);
+		}
+	}
+	
+	main {
+		grid-template-rows: auto 250px 320px;
+		grid-template-areas: "chat" "facetime" "stickers";
+		
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(2, 330px);
+			grid-template-areas: "chat stickers" "chat facetime";
+		}
+		
+		@media (min-width: 1200px) {
+			grid-template-rows: repeat(2, 420px);
+		}
+	}
+	
+	#chat {
+		grid-area: chat;
+		background: white;
+		padding: 20px;
+		
+		div {
+			margin-bottom: 25px;
+			width: 100%;
+		}
+		
+		div:nth-child(odd) {
+			display: flex;
+			justify-content: flex-end;
+		}
+		
+		div:last-child {
+			margin-bottom: 0px;
+		}
+		
+		img {
+			max-width: 100%;
+			align-self: center
+		}
+		
+		@media (min-width: 768px) {
+			img {
+				max-width: 52%;
+			}
+		}
+		
+		@media (min-width: 1200px) {
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+	
+	#stickers {
+		grid-area: stickers;
+		background: url(/link-badges/images/stickers.png);
+		background-size: cover;
+		background-position: center center;
+		
+		h3 {
+			color: rgba(0,0,0,0.8);
+		}
+		
+		aside {
+			background: #E5E6E9;
+			width: 100%;
+			max-width: 100%;
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+			text-align: center;
+			padding: 20px;
+		}
+		
+		@media (min-width: 1200px) {
+			aside h3 {
+				font-size: 40px;
+			}
+		}
+	}
+	
+	#facetime {
+		grid-area: facetime;
+		background-image: linear-gradient(-179deg, #84FA6E 2%, #16D223 100%);
+		
+		h3 {
+			color: white;
+		}
+		
+		h4 {
+			color: white;
+			opacity: 0.8;
+		}
+		
+		aside {
+			text-align: center;
+		}
+		
+		img {
+			margin-bottom: 20px;
+			max-width: 40%;
+		}
+		
+		@media (min-width: 1200px) {
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+}
+
 .typedex-page {
 	--background: #1a1a1a;
 	--main: #8D8D8D;
 	--tint: white;
-	
-	background: var(--background);
 		
 	h1 {
 		color: white;
@@ -625,7 +1009,7 @@ footer {
 		}
 		
 		.toast:hover {
-			background: url(/typedex/images/toast_active.svg);
+			background: url(/typedex/images/toast-active.svg);
 		}
 	}
 		
@@ -865,296 +1249,160 @@ footer {
 	}
 }
 
-.simplescales-page {
-	--background: #ECEBEB;
-	--main: #665B49;
-	--tint: #FF9E2A;
-	--font-body: -apple-system, helvetica, arial, sans-serif;
-	--font-header: -apple-system, helvetica, arial, sans-serif;
+.lifecast-page {
+	--background: #0D1526;
+	--main: #868A92;
+	--tint: #FFFFFF;
+	--font-body: 'Work Sans', helvetica, arial, sans-serif;
+	--font-header: 'Work Sans', helvetica, arial, sans-serif;
 	
-	background: var(--background);
-		
-	h3, .cta {
-		font-weight: bold;
+	h3 {
+		@media (min-width: 1200px) {
+			font-size: 35px;
+		}
 	}
-		
-	h2, h4, p, #support {
-		font-weight: normal;
+	
+	h4 {
+		@media (min-width: 1200px) {
+			font-size: 20px;
+		}
+	}
+	
+	br {
+		@media (min-width: 414px) {
+			display: none;
+		}
+	}
+	
+	.cta {
+		font-weight: 700;
 	}
 	
 	footer {
 		.toast {
-			background: url(/simple-scales/images/toast.svg);
+			background: url(/lifecast/images/toast.svg);
 		}
 		
 		.toast:hover {
-			background: url(/simple-scales/images/toast-active.svg);
+			background: url(/lifecast/images/toast-active.svg);
 		}
 	}
-		
+	
 	main {
-		grid-template-rows: 450px 320px 400px 320px;
-		grid-template-areas: "phone" "healthkit" "watch" "support";
+		grid-template-rows: 500px 320px 320px 320px;
+		grid-template-areas: "life" "themes" "formats" "counters";
+		
+		@media (min-width: 375px) {
+			grid-template-rows: 530px 370px 370px 370px;
+		}
 		
 		@media (min-width: 768px) {
+			grid-template-rows: 360px 360px 250px;
 			grid-template-columns: repeat(2, 1fr);
-			grid-template-rows: repeat(3, 330px);
-			grid-template-areas: "phone healthkit" "phone watch" "support watch";
+			grid-template-areas: "life life" "counters themes" "counters formats";
 		}
 		
 		@media (min-width: 1200px) {
-			grid-template-rows: repeat(3, 420px);
+			grid-template-rows: 455px 420px 420px;
 		}
 	}
-	
-	#phone {
-		grid-area: phone;
-		background: url(simple-scales/images/wood.jpg);
+
+	#life {
+		grid-area: life;
+		background: url(/lifecast/images/wood.jpg);
 		background-size: cover;
-		background-position: top right;
-		
-		h3, h4 {
-			color: var(--main);
-		}
-		
-		img {
-			margin-top: 10px;
-			margin-left: auto;
-			margin-right: auto;
-			max-width: 90%;
-			display: block;
-		}
-		
-		aside {
-			text-align: center;
-		}
-		
-		@media (min-width: 415px) {
-			img {
-				max-width: 40%;
-			}
-		}
+		background-position: center;
 		
 		@media (min-width: 768px) {
-			img {
-				top: inherit;
-				bottom: -70px;
-				right: -160px;
-				position: absolute;
-				margin: 0px;
-				max-width: inherit;
-			}
-			
-			aside {
-				text-align: left;
-				width: 75%;
-				margin-top: 40px;
-			}
-		}
-		
-		@media (min-width: 1200px) {
-			img {
-				bottom: 30px;
-			}
-		}
-	}
-	
-	#healthkit {
-		grid-area: healthkit;
-		background: white;
-		
-		h3, h4 {
-			color: #7C7C7C;
+			background: url(/lifecast/images/life.jpg);
+			background-size: cover;
+			background-position: center;
 		}
 		
 		aside {
-			text-align: center;
-		}
-		
-		img {
-			margin-bottom: 30px;
-		}
-	}
-	
-	#watch {
-		grid-area: watch;
-		background: black;
-		
-		h3, h4 {
-			color: white;
-		}
-		
-		aside {
-			text-align: center;
-		}
-		
-		img {
-			margin-bottom: 30px;
-			max-width: 40%;
-			
-			@media (min-width: 415px) {
-				max-width: 30%;
-			}
-			
 			@media (min-width: 768px) {
-				max-width: 70%;
+				width: 350px;
+			}
+			
+			@media (min-width: 1024px) {
+				width: 450px;
+				margin-top: 30px;
 			}
 			
 			@media (min-width: 1200px) {
-				max-width: 100%;
+				width: 550px;
+			}
+		}
+		
+		img {
+			max-width: 80%;
+			display: block;
+			margin: 20px auto 0px auto;
+			
+			@media (min-width: 568px) {
+				max-width: 50%;
+			}
+			
+			@media (min-width: 768px) {
+				display: none;
 			}
 		}
 	}
 	
-	#completesupport {
-		grid-area: support;
-		background: url(simple-scales/images/support.jpg);
+	aside {
+		@media (min-width: 768px) and (max-width: 1199px) {
+			max-width: 100%;
+		}
+	}
+	
+	#counters {
+		grid-area: counters;
+		background: url(/lifecast/images/counters.jpg);
+		background-size: cover;
+		background-position: center top;		
+		
+		h3, h4 {
+			text-align: center;
+		}
+		
+		img {
+			max-width: 100%;
+			margin: 20px auto 0px auto;
+			display: block;
+			transform: translateX(10px);
+			
+			@media (min-width: 768px) and (max-width: 1023px) {
+				margin-top: 80px;
+			}
+			
+			@media (min-width: 1200px) {
+				margin-top: 80px;
+			}
+		}
+	}
+	
+	#themes {
+		grid-area: themes;
+		animation: theme 50s ease infinite;
+		background-size: cover;
+		
+		h3, h4 {
+			text-align: center;
+			color: white;
+			text-shadow: 0px 0px 50px black;
+			opacity: 1;
+		}
+	}
+	
+	#formats {
+		grid-area: formats;
+		background: url(/lifecast/images/formats.jpg);
 		background-size: cover;
 		background-position: center bottom;
 		
 		h3, h4 {
-			color: #09435A;
-		}
-		
-		aside {
+			color: black;
 			text-align: center;
-		}
-	}
-}
-
-.linkbadges-page {
-	--background: #FBFBFB;
-	--main: #90928E;
-	--tint: #91DE5A;
-	--font-body: -apple-system, helvetica, arial, sans-serif;
-	--font-header: -apple-system, helvetica, arial, sans-serif;
-
-	background: var(--background);
-	
-	h3, .cta {
-		font-weight: bold;
-	}
-		
-	h2, h4, p, #support {
-		font-weight: normal;
-	}
-	
-	footer {
-		.toast {
-			background: url(/link-badges/images/toast.svg);
-		}
-		
-		.toast:hover {
-			background: url(/link-badges/images/toast-active.svg);
-		}
-	}
-	
-	main {
-		grid-template-rows: auto 250px 320px;
-		grid-template-areas: "chat" "facetime" "stickers";
-		
-		@media (min-width: 768px) {
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-rows: repeat(2, 330px);
-			grid-template-areas: "chat stickers" "chat facetime";
-		}
-		
-		@media (min-width: 1200px) {
-			grid-template-rows: repeat(2, 420px);
-		}
-	}
-	
-	#chat {
-		grid-area: chat;
-		background: white;
-		padding: 20px;
-		
-		div {
-			margin-bottom: 25px;
-			width: 100%;
-		}
-		
-		div:nth-child(odd) {
-			display: flex;
-			justify-content: flex-end;
-		}
-		
-		div:last-child {
-			margin-bottom: 0px;
-		}
-		
-		img {
-			max-width: 100%;
-			align-self: center
-		}
-		
-		@media (min-width: 768px) {
-			img {
-				max-width: 52%;
-			}
-		}
-		
-		@media (min-width: 1200px) {
-			img {
-				max-width: 100%;
-			}
-		}
-	}
-	
-	#stickers {
-		grid-area: stickers;
-		background: url(/link-badges/images/stickers.png);
-		background-size: cover;
-		background-position: center center;
-		
-		h3 {
-			color: rgba(0,0,0,0.8);
-		}
-		
-		aside {
-			background: #E5E6E9;
-			width: 100%;
-			max-width: 100%;
-			position: absolute;
-			bottom: 0px;
-			left: 0px;
-			text-align: center;
-			padding: 20px;
-		}
-		
-		@media (min-width: 1200px) {
-			aside h3 {
-				font-size: 40px;
-			}
-		}
-	}
-	
-	#facetime {
-		grid-area: facetime;
-		background-image: linear-gradient(-179deg, #84FA6E 2%, #16D223 100%);
-		
-		h3 {
-			color: white;
-		}
-		
-		h4 {
-			color: white;
-			opacity: 0.8;
-		}
-		
-		aside {
-			text-align: center;
-		}
-		
-		img {
-			margin-bottom: 20px;
-			max-width: 40%;
-		}
-		
-		@media (min-width: 1200px) {
-			img {
-				max-width: 100%;
-			}
 		}
 	}
 }
