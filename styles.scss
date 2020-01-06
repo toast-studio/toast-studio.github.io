@@ -71,7 +71,7 @@ header {
 }
 
 h1 {
-	color: var(--tint);
+	color: var(--main);
 	font-family: var(--font-header);
 	font-size: 50px;
 	margin: 0px;
@@ -119,6 +119,16 @@ h4 {
 	}
 }
 
+p {
+	color: var(--main);
+	opacity: 0.4;
+	font-family: var(--font-body);
+	font-size: 16px;
+	font-weight: 100;
+	margin: 0px;
+}
+
+
 #legal {
 	color: var(--main);
 	font-family: var(--font-body);
@@ -142,6 +152,10 @@ h4 {
 			text-decoration: underline;
 		}
 	}
+}
+
+.glyph {
+	fill: var(--main);
 }
 
 main {
@@ -990,16 +1004,27 @@ footer {
 }
 
 .typedex-page {
-	--background: #1a1a1a;
-	--main: #8D8D8D;
-	--tint: white;
-		
-	h1 {
-		color: white;
+	background-image: url(typedex/images/header.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	--background: #EFEFEF;
+	--main: #585858;
+	--tint: #0091FF;
+	
+	@media (prefers-color-scheme: dark) {
+		--background: #222222;
+		--main: white;
+		--tint: #6BD7FF;
 	}
-					
-	br {
-		display: none;
+	
+	h3 {
+		color: var(--main);
+		font-size: 28px;
+		text-align: center;
+	}
+
+	p {
+		text-align: center;
 	}
 	
 	footer {
@@ -1013,238 +1038,17 @@ footer {
 	}
 		
 	main {
-		grid-template-rows: repeat(4, 320px);
-		grid-template-areas: "pokedex" "forms" "pwa" "types";
-		
-		@media (min-width: 375px) {
-			grid-template-rows: repeat(4, 370px);
-		}
-		
-		@media (min-width: 768px) {
-			grid-template-rows: 360px 360px 250px;
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-areas: "pokedex pokedex" "forms pwa" "types types";
-		}
-		
-		@media (min-width: 1200px) {
-			grid-template-rows: 665px 665px 410px;
-		}
-	}
-	
-	#pokedex {
-		background-image: linear-gradient(-179deg, #A567C6 0%, #C962D6 100%);
-		grid-area: pokedex;
-		position: relative;
-		
-		aside {
-			width: 100%;
-			position: absolute;
-			left: 0px;
-			bottom: 20px;
-			text-align: center;
-		}
-	
-		img {
-			position: absolute;
-			top: 0px;
-			right: -30px;
-			width: 120%;
-		}
-	}
-	
-	#forms {
-		background-image: linear-gradient(-180deg, #54879C 0%, #57ACAD 98%);
-		grid-area: forms;
-		padding: 10px;
-		
-		h3, h4 {
-			text-align: center;
-		}
-		
-		img {
-			max-width: 100%;
-			margin-top: 10px;
-			margin-left: auto;
-			margin-right: auto;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 40px;
+
+		svg {
+			margin: 0px auto 0px auto;
 			display: block;
 		}
 	}
 	
-	#pwa {
-		background-image: linear-gradient(-179deg, #62BA56 0%, #5AC37D 98%);
-		grid-area: pwa;
-		padding: 10px;
-		
-		div {
-			display: flex;
-			align-items: center;
-			flex-direction: column;
-		}
-		
-		img {
-			margin-bottom: 10px;
-			width: 65%;
-		}
-		
-		h3, h4 {
-			text-align: center;
-		}
-	}
-	
-	#types {
-		background-image: linear-gradient(-179deg, #FF9C55 0%, #FFB14F 98%);
-		grid-area: types;
-		
-		img {
-			max-width: 100%;
-			margin-top: 10px;
-			margin-left: auto;
-			margin-right: auto;
-			display: block;
-		}
-		
-		aside {
-			width: 100%;
-			right: 0px;
-			top: 0px;
-			text-align: center;
-			padding: 10px;
-		}
-	}
-		
-	@media (min-width: 415px) {
-		#pokedex {
-			img {
-				width: 80%;
-				right: 0px;
-			}
-		}
-		
-		#forms {
-			img {
-				max-width: 50%;
-			}
-		}
-		
-		#pwa {
-			padding: 45px;
-			
-			img {
-				width: 40%
-			}
-		}
-	}
-	
-	@media (min-width: 667px) {
-		#pokedex {
-			aside {
-				width: 275px;
-				left: 20px;
-				bottom: 20px;
-				text-align: left;
-			}
-		}
-	}
-				
-	@media (min-width: 768px) {
-		body {
-			padding: 20px;
-		}
-		
-		#pokedex {
-			aside {
-				width: 275px;
-				left: 30px;
-				bottom: 55px;
-			}
-		}
-			
-		#forms {
-			padding: 45px;
-			
-			img {
-				max-width: 100%;
-			}
-		}
-		
-		#pwa {
-			img {
-				width: 50%;
-			}
-		}
-		
-		#types {		
-			aside {
-				width: 400px;
-				left: 40%;
-				top: 110px;
-				text-align: left;
-				padding: 0px;
-				position: absolute;
-			}
-			
-			img {
-				margin-left: 0px;
-				margin-right: 0px;
-				max-width: 40%;
-				margin-top: 30px;
-			}
-		}
-	}
-	
-	@media (min-width: 1023px) {
-		#forms {
-			img {
-				max-width: 70%;
-			}
-		}
-	}
-	
-	@media (min-width: 1200px) {
-		body {
-			padding: 40px;
-		}
-		
-		br {
-			display: block;
-		}
-		
-		#pokedex {
-			aside {
-				width: 495px;
-			}
-			
-			img {
-				width: auto;
-			}
-		}
-		
-		#forms {
-			img {
-				margin-top: 50px;
-				max-width: 100%;
-			}
-		}
-		
-		#pwa {
-			img {
-				width: auto;
-				margin-bottom: 30px;
-			}
-		}
-		
-		#types {		
-			aside {
-				width: 520px;
-				left: 600px;
-				top: 150px;
-			}
-			
-			img {
-				max-width: 100%;
-				margin-left: 40px;
-			}
-		}
+	section {
+		padding: 0px;
 	}
 }
 
