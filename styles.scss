@@ -1043,10 +1043,13 @@ footer {
 	}
 		
 	main {
-		grid-template-columns: repeat(3, 1fr);
 		grid-gap: 40px;
 		margin-top: 40px;
 		margin-bottom: 100px;
+		
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
 
 		svg {
 			margin: 0px auto 0px auto;
