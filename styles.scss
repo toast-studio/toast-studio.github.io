@@ -163,6 +163,34 @@ p {
 	margin: 0px auto;
 }
 
+.videoWrapper {
+	position: relative;
+	padding-bottom: 74.85%;
+	height: 0;
+	grid-column: 1/-1;
+	
+	&::before {
+		content: "";
+		background-image: url(typedex/images/mask.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+		width: 1208px;
+		height: 927px;
+		z-index: 2;
+		position: absolute;
+	}
+	
+	iframe, video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transform: scale(0.945) translateX(43px) translateY(43px);
+		transform-origin: top left;
+	}
+}
+
 main {
 	display: grid;
 	grid-gap: 20px;
