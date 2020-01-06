@@ -158,6 +158,11 @@ p {
 	fill: var(--main);
 }
 
+.screenshot {
+	display: block;
+	margin: 0px auto;
+}
+
 main {
 	display: grid;
 	grid-gap: 20px;
@@ -1006,7 +1011,7 @@ footer {
 .typedex-page {
 	background-image: url(typedex/images/header.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: contain;
 	--background: #EFEFEF;
 	--main: #585858;
 	--tint: #0091FF;
@@ -1040,6 +1045,8 @@ footer {
 	main {
 		grid-template-columns: repeat(3, 1fr);
 		grid-gap: 40px;
+		margin-top: 40px;
+		margin-bottom: 100px;
 
 		svg {
 			margin: 0px auto 0px auto;
