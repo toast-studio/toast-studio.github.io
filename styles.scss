@@ -1072,6 +1072,10 @@ footer {
 		
 		.toast:hover {
 			background: url(/typedex/images/toast-active.svg);
+			
+			@media (prefers-color-scheme: dark) {
+				background: url(/typedex/images/toast-active-dark.svg);
+			}
 		}
 	}
 		
