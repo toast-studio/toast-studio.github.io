@@ -1056,8 +1056,10 @@ footer {
 		text-align: center;
 	}
 	
-	#legal {
-		margin-top: 10px;
+	@media (min-width: 768px) {
+		#legal {
+			margin-top: 10px;
+		}
 	}
 	
 	footer {
@@ -1090,6 +1092,12 @@ footer {
 	
 	section {
 		padding: 0px;
+	}
+	
+	@media (max-width: 765px) {
+		.videoWrapper {
+			order: -1;
+		}
 	}
 }
 
