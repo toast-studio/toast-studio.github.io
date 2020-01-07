@@ -1081,10 +1081,10 @@ footer {
 		
 	main {
 		grid-gap: 40px;
-		margin-top: 40px;
 		
 		@media (min-width: 768px) {
 			grid-template-columns: repeat(2, 1fr);
+			margin-top: 40px;
 		}
 		
 		@media (min-width: 1200px) {
