@@ -1049,14 +1049,17 @@ footer {
 	h3 {
 		color: var(--main);
 		font-size: 28px;
-		text-align: center;
-	}
-
-	p {
-		text-align: center;
 	}
 	
 	@media (min-width: 768px) {
+		h3 {
+			text-align: center;
+		}
+	
+		p {
+			text-align: center;
+		}
+		
 		#legal {
 			margin-top: 10px;
 		}
@@ -1092,9 +1095,17 @@ footer {
 	
 	section {
 		padding: 0px;
+		display: grid;
+		grid-template-columns: 70px 1fr;
+		align-items: center;
+		grid-gap: 10px;
+		
+		@media (min-width: 768px) {
+			display: block;
+		}
 	}
 	
-	@media (max-width: 765px) {
+	@media (max-width: 767px) {
 		.videoWrapper {
 			order: -1;
 		}
