@@ -11,3 +11,5 @@ email: toaststudioinbox@gmail.com
 
 # Build settings
 markdown: kramdown
+
+theme: jekyll-theme-minimal
