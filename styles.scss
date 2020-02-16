@@ -152,6 +152,12 @@ p {
 			text-decoration: underline;
 		}
 	}
+	
+	@media (max-width: 320px) {
+		span {
+			display: none;
+		}
+	}
 }
 
 .glyph {
@@ -1325,6 +1331,10 @@ footer {
 		line-height: 24px;
 		margin-bottom: 20px;
 		margin-top: 5px;
+	}
+	
+	li {
+		margin-bottom: 0px;
 	}
 	
 	a {
