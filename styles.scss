@@ -70,6 +70,51 @@ header {
 	}
 }
 
+.featuregrid {
+	grid-gap: 40px;
+	
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(2, 1fr);
+		margin-top: 40px;
+	}
+	
+	@media (min-width: 1200px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	svg {
+		margin: 0px auto 0px auto;
+		display: block;
+	}
+	
+	section {
+		padding: 0px;
+		display: grid;
+		grid-template-columns: 70px 1fr;
+		align-items: center;
+		grid-gap: 10px;
+		
+		@media (min-width: 768px) {
+			display: block;
+		}
+	}
+	
+	h3 {
+		color: var(--main);
+		font-size: 28px;
+	}
+	
+	@media (min-width: 768px) {
+		h3 {
+			text-align: center;
+		}
+	
+		p {
+			text-align: center;
+		}
+	}
+}
+
 h1 {
 	color: var(--main);
 	font-family: var(--font-header);
@@ -297,55 +342,6 @@ footer {
 	align-items: center;
 	flex-direction: column;
 }
-
-@keyframes theme {
-	0% {
-		background: url(../lifecast/images/theme1.jpg);
-	}
-	7% {
-		background: url(../lifecast/images/theme2.jpg);
-	}
-	14% {
-		background: url(../lifecast/images/theme3.jpg);
-	}
-	21% {
-		background: url(../lifecast/images/theme4.jpg);
-	}
-	28% {
-		background: url(../lifecast/images/theme5.jpg);
-	}
-	35% {
-		background: url(../lifecast/images/theme6.jpg);
-	}
-	42% {
-		background: url(../lifecast/images/theme7.jpg);
-	}
-	49% {
-		background: url(../lifecast/images/theme8.jpg);
-	}
-	56% {
-		background: url(../lifecast/images/theme9.jpg);
-	}
-	63% {
-		background: url(../lifecast/images/theme10.jpg);
-	}
-	70% {
-		background: url(../lifecast/images/theme11.jpg);
-	}
-	77% {
-		background: url(../lifecast/images/theme12.jpg);
-	}
-	84% {
-		background: url(../lifecast/images/theme13.jpg);
-	}
-	91% {
-		background: url(../lifecast/images/theme14.jpg);
-	}
-	100% {
-		background: url(../lifecast/images/theme1.jpg);
-	}
-}
-
 
 /* PAGE SPECIFIC */
 
@@ -1052,20 +1048,7 @@ footer {
 		--tint: #6BD7FF;
 	}
 	
-	.featuregrid h3 {
-		color: var(--main);
-		font-size: 28px;
-	}
-	
 	@media (min-width: 768px) {
-		.featuregrid h3 {
-			text-align: center;
-		}
-	
-		.featuregrid p {
-			text-align: center;
-		}
-		
 		#legal {
 			margin-top: 10px;
 		}
@@ -1084,37 +1067,7 @@ footer {
 			}
 		}
 	}
-		
-	main {
-		grid-gap: 40px;
-		
-		@media (min-width: 768px) {
-			grid-template-columns: repeat(2, 1fr);
-			margin-top: 40px;
-		}
-		
-		@media (min-width: 1200px) {
-			grid-template-columns: repeat(3, 1fr);
-		}
-
-		svg {
-			margin: 0px auto 0px auto;
-			display: block;
-		}
-	}
-	
-	section {
-		padding: 0px;
-		display: grid;
-		grid-template-columns: 70px 1fr;
-		align-items: center;
-		grid-gap: 10px;
-		
-		@media (min-width: 768px) {
-			display: block;
-		}
-	}
-	
+				
 	@media (max-width: 767px) {
 		.videoWrapper {
 			order: -1;
@@ -1129,11 +1082,20 @@ footer {
 }
 
 .lifecast-page {
-	--background: #0D1526;
-	--main: #868A92;
-	--tint: #FFFFFF;
+	background-image: url(lifecast/images/header.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	--background: #FFFFFF;
+	--main: #0D1526;
+	--tint: #0D1526;
 	--font-body: 'Work Sans', helvetica, arial, sans-serif;
 	--font-header: 'Work Sans', helvetica, arial, sans-serif;
+	
+	@media (prefers-color-scheme: dark) {
+		--background: #0D1526;
+		--main: #FFFFFF;
+		--tint: #FFFFFF;
+	}
 	
 	h3 {
 		@media (min-width: 1200px) {
@@ -1164,124 +1126,6 @@ footer {
 		
 		.toast:hover {
 			background: url(/lifecast/images/toast-active.svg);
-		}
-	}
-	
-	main {
-		grid-template-rows: 500px 320px 320px 320px;
-		grid-template-areas: "life" "themes" "formats" "counters";
-		
-		@media (min-width: 375px) {
-			grid-template-rows: 530px 370px 370px 370px;
-		}
-		
-		@media (min-width: 768px) {
-			grid-template-rows: 360px 360px 250px;
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-areas: "life life" "counters themes" "counters formats";
-		}
-		
-		@media (min-width: 1200px) {
-			grid-template-rows: 455px 420px 420px;
-		}
-	}
-
-	#life {
-		grid-area: life;
-		background: url(/lifecast/images/wood.jpg);
-		background-size: cover;
-		background-position: center;
-		
-		@media (min-width: 768px) {
-			background: url(/lifecast/images/life.jpg);
-			background-size: cover;
-			background-position: center;
-		}
-		
-		aside {
-			@media (min-width: 768px) {
-				width: 350px;
-			}
-			
-			@media (min-width: 1024px) {
-				width: 450px;
-				margin-top: 30px;
-			}
-			
-			@media (min-width: 1200px) {
-				width: 550px;
-			}
-		}
-		
-		img {
-			max-width: 80%;
-			display: block;
-			margin: 20px auto 0px auto;
-			
-			@media (min-width: 568px) {
-				max-width: 50%;
-			}
-			
-			@media (min-width: 768px) {
-				display: none;
-			}
-		}
-	}
-	
-	aside {
-		@media (min-width: 768px) and (max-width: 1199px) {
-			max-width: 100%;
-		}
-	}
-	
-	#counters {
-		grid-area: counters;
-		background: url(/lifecast/images/counters.jpg);
-		background-size: cover;
-		background-position: center top;		
-		
-		h3, h4 {
-			text-align: center;
-		}
-		
-		img {
-			max-width: 100%;
-			margin: 20px auto 0px auto;
-			display: block;
-			transform: translateX(10px);
-			
-			@media (min-width: 768px) and (max-width: 1023px) {
-				margin-top: 80px;
-			}
-			
-			@media (min-width: 1200px) {
-				margin-top: 80px;
-			}
-		}
-	}
-	
-	#themes {
-		grid-area: themes;
-		animation: theme 50s ease infinite;
-		background-size: cover;
-		
-		h3, h4 {
-			text-align: center;
-			color: white;
-			text-shadow: 0px 0px 50px black;
-			opacity: 1;
-		}
-	}
-	
-	#formats {
-		grid-area: formats;
-		background: url(/lifecast/images/formats.jpg);
-		background-size: cover;
-		background-position: center bottom;
-		
-		h3, h4 {
-			color: black;
-			text-align: center;
 		}
 	}
 }
