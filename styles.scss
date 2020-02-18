@@ -282,10 +282,6 @@ main {
 	
 	&.light-background section::before {
 		box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2);
-		
-		@media (prefers-color-scheme: dark) {
-			box-shadow: none;
-		}
 	}
 	
 	@media (min-width: 768px) {
@@ -299,10 +295,6 @@ main {
 		
 		&.light-background section {
 			box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.05);
-			
-			@media (prefers-color-scheme: dark) {
-				box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4);
-			}
 		}
 	}
 	
@@ -368,16 +360,8 @@ footer {
 /* PAGE SPECIFIC */
 
 .toast-page {
-	background-image: url(/images/toast/header.png);
-	background-repeat: no-repeat;
-	background-size: contain;
 	--background: #F4F4F4;
 	--main: white;
-	
-	@media (prefers-color-scheme: dark) {
-		--background: #2B2B2B;
-		--main: white;
-	}
 	
 	display: flex;
 	align-items: center;
@@ -386,6 +370,9 @@ footer {
 	
 	header {
 		width: 100%;
+		background-image: linear-gradient(135deg, #FFAE00 0%, #FF3136 72%, #FF004C 100%);
+		background-repeat: no-repeat;
+		background-position: center center;
 		padding: 40px 20px 20px;
 		position: relative;
 		
@@ -397,7 +384,7 @@ footer {
 		}
 		
 		@media (min-width: 768px) {
-			height: 400px;
+			height: 430px;
 			padding: 70px;
 		}
 	}
@@ -406,19 +393,11 @@ footer {
 		p {
 			font-family: 'Circular Std Book', helvetica, arial, sans-serif;
 			font-weight: 100;
-			color: rgba(0,0,0,0.8);
-			
-			@media (prefers-color-scheme: dark) {
-				color: white;
-			}
+			color: white;
 		
 			a {
 				text-decoration: underline;
-				color: rgba(0,0,0,0.8);
-				
-				@media (prefers-color-scheme: dark) {
-					color: white;
-				}
+				color: white;
 			}
 		}
 	}
@@ -722,20 +701,12 @@ footer {
 		grid-area: linkbadges;
 		background: white;
 		
-		@media (prefers-color-scheme: dark) {
-			background: rgba(255,255,255,0.1);
-		}
-		
 		h2 {
 			color: #91DE5A;
 		}
 		
 		h3 {
 			color: #90928E;
-			
-			@media (prefers-color-scheme: dark) {
-				color: rgba(255,255,255,0.5);
-			}
 		}
 		
 		@media (min-width: 768px) {
