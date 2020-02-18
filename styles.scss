@@ -117,6 +117,16 @@ header {
 	img {
 		grid-column: 1/-1;
 	}
+	
+	.promoimage {
+		@media (max-width: 767px) {
+			order: -1;
+		}
+		
+		max-width: 100%;
+		display: block;
+		margin: 0px auto;
+	}
 }
 
 h1 {
@@ -1071,13 +1081,7 @@ footer {
 			}
 		}
 	}
-				
-	@media (max-width: 767px) {
-		.videoWrapper {
-			order: -1;
-		}
-	}
-	
+					
 	&.privacy-page {
 		p {
 			opacity: 1;
@@ -1126,10 +1130,18 @@ footer {
 	footer {
 		.toast {
 			background: url(/lifecast/images/toast.svg);
+			
+			@media (prefers-color-scheme: dark) {
+				background: url(/lifecast/images/toast-dark.svg);
+			}
 		}
 		
 		.toast:hover {
 			background: url(/lifecast/images/toast-active.svg);
+			
+			@media (prefers-color-scheme: dark) {
+				background: url(/lifecast/images/toast-active-dark.svg);
+			}
 		}
 	}
 }
