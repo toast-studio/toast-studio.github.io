@@ -37,6 +37,14 @@ header {
 		text-align: center;
 	}
 	
+	div {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		flex-direction: column;
+		margin: 20px 0px;
+	}
+	
 	.cta {
 		font-family: var(--font-header);
 		font-size: 17px;
@@ -45,7 +53,7 @@ header {
 		border-radius: 100px;
 		padding: 15px 50px;
 		text-decoration: none;
-		margin: 20px 0px 10px 0px;
+		margin: 10px 0px;
 		transition: 0.2s ease opacity;
 		opacity: 1;
 		width: 100%;
@@ -58,10 +66,14 @@ header {
 	}
 	
 	@media (min-width: 768px) {
+		div {
+			flex-direction: row;
+		}
+		
 		.cta {
 			font-size: 27px;
 			width: auto;
-			margin: 40px 0px 10px 0px;
+			margin: 0px 10px;
 		}
 		
 		header {
