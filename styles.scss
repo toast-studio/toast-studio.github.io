@@ -1095,14 +1095,14 @@ footer {
 	background-size: contain;
 	--background: #FFFFFF;
 	--main: #0D1526;
-	--tint: #0D1526;
+	--tint: #fe9a48;
 	--font-body: 'Work Sans', helvetica, arial, sans-serif;
 	--font-header: 'Work Sans', helvetica, arial, sans-serif;
 	
 	@media (prefers-color-scheme: dark) {
 		--background: #0D1526;
 		--main: #FFFFFF;
-		--tint: #FFFFFF;
+		--tint: #ffe758;
 	}
 	
 	h3 {
