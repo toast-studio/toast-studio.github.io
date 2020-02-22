@@ -17,6 +17,24 @@
 	box-sizing: border-box;
 }
 
+.light {
+	display: block;
+}
+
+.dark {
+	display: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+	.light {
+		display: none !important;
+	}
+	
+	.dark {
+		display: block !important;
+	}
+}
+
 body {
 	margin: 0px;
 	padding: 20px;
