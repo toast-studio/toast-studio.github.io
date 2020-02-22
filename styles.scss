@@ -316,7 +316,12 @@ main {
 	
 	&.light-background section::before {
 		box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2);
+		
+		@media (prefers-color-scheme: dark) {
+			box-shadow: none;
+		}
 	}
+	
 	
 	@media (min-width: 768px) {
 		max-width: 1200px;
@@ -396,6 +401,10 @@ footer {
 .toast-page {
 	--background: #F4F4F4;
 	--main: white;
+	
+	@media (prefers-color-scheme: dark) {
+		--background: #222222;
+	}
 	
 	display: flex;
 	align-items: center;
@@ -793,11 +802,18 @@ footer {
 }
 
 .simplescales-page {
-	--background: #ECEBEB;
-	--main: #665B49;
-	--tint: #FF9E2A;
+	--background: white;
+	--main: #423C30;
+	--tint: #FFA300;
 	--font-body: -apple-system, helvetica, arial, sans-serif;
 	--font-header: -apple-system, helvetica, arial, sans-serif;
+	
+	
+	@media (prefers-color-scheme: dark) {
+		--background: black;
+		--main: #E9E3D9;
+		--tint: #FFBC46;
+	}
 			
 	h3, .cta {
 		font-weight: bold;
@@ -839,7 +855,7 @@ footer {
 		background-position: top right;
 		
 		h3, h4 {
-			color: var(--main);
+			color: #423C30;
 		}
 		
 		img {
@@ -904,6 +920,7 @@ footer {
 	#watch {
 		grid-area: watch;
 		background: black;
+		border: 1px solid rgba(255,255,255,0.2);
 		
 		h3, h4 {
 			color: white;
