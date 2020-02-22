@@ -965,13 +965,19 @@ footer {
 }
 
 .linkbadges-page {
+	background-image: url(link-badges/images/header-light.png);
+	background-repeat: no-repeat;
+	background-size: contain;	
 	--background: white;
-	--main: #90928E;
+	--main: black;
 	--tint: #91DE5A;
 	--font-body: -apple-system, helvetica, arial, sans-serif;
 	--font-header: -apple-system, helvetica, arial, sans-serif;
 	
 	@media (prefers-color-scheme: dark) {
+		background-image: url(link-badges/images/header-dark.png);
+		background-repeat: no-repeat;
+		background-size: contain;	
 		--background: black;
 		--main: white;
 	}
