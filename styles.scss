@@ -1010,7 +1010,7 @@ footer {
 	--tint: #0091FF;
 	
 	@media (prefers-color-scheme: dark) {
-		--background: black;
+		--background: #222222;
 		--main: white;
 		--tint: #6BD7FF;
 	}
@@ -1018,6 +1018,10 @@ footer {
 	@media (min-width: 768px) {
 		#legal {
 			margin-top: 10px;
+		}
+		
+		@media (prefers-color-scheme: dark) {
+			--background: black;
 		}
 	}
 	
