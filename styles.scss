@@ -1005,12 +1005,12 @@ footer {
 	background-image: url(typedex/images/header.png);
 	background-repeat: no-repeat;
 	background-size: contain;
-	--background: #EFEFEF;
+	--background: #E8E8E8;
 	--main: #585858;
 	--tint: #0091FF;
 	
 	@media (prefers-color-scheme: dark) {
-		--background: #222222;
+		--background: black;
 		--main: white;
 		--tint: #6BD7FF;
 	}
