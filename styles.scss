@@ -144,7 +144,7 @@ header {
 		}
 	}
 	
-	img {
+	img, picture {
 		grid-column: 1/-1;
 	}
 	
@@ -1141,18 +1141,18 @@ footer {
 	
 	footer {
 		.toast {
-			background: url(/lifecast/images/toast.svg);
+			background: url(/critterdex/images/toast.svg);
 			
 			@media (prefers-color-scheme: dark) {
-				background: url(/lifecast/images/toast-dark.svg);
+				background: url(/critterdex/images/toast-dark.svg);
 			}
 		}
 		
 		.toast:hover {
-			background: url(/lifecast/images/toast-active.svg);
+			background: url(/critterdex/images/toast-active.svg);
 			
 			@media (prefers-color-scheme: dark) {
-				background: url(/lifecast/images/toast-active-dark.svg);
+				background: url(/critterdex/images/toast-active-dark.svg);
 			}
 		}
 	}
