@@ -1103,6 +1103,61 @@ footer {
 	}
 }
 
+.critterdex-page {
+	background-image: url(critterdex/images/header.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	--background: #F7F6F2;
+	--main: #5F5B38;
+	--tint: #2B9E93;
+	--font-body: ui-rounded, system-ui, helvetica, sans-serif;
+	--font-header: ui-rounded, system-ui, helvetica, sans-serif;
+	
+	@media (prefers-color-scheme: dark) {
+		--background: #252521;
+		--main: #E6E5DA;
+		--tint: #81E4DB;
+	}
+	
+	p, h2, #support, #legal {
+		font-weight: 400;
+	}
+	
+	h3 {
+		@media (min-width: 1200px) {
+			font-size: 35px;
+		}
+	}
+	
+	h4 {
+		@media (min-width: 1200px) {
+			font-size: 20px;
+		}
+	}
+		
+	.cta {
+		font-weight: 700;
+	}
+	
+	footer {
+		.toast {
+			background: url(/lifecast/images/toast.svg);
+			
+			@media (prefers-color-scheme: dark) {
+				background: url(/lifecast/images/toast-dark.svg);
+			}
+		}
+		
+		.toast:hover {
+			background: url(/lifecast/images/toast-active.svg);
+			
+			@media (prefers-color-scheme: dark) {
+				background: url(/lifecast/images/toast-active-dark.svg);
+			}
+		}
+	}
+}
+
 .privacy-page {
 	background-image: none;
 	
