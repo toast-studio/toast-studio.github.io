@@ -478,10 +478,10 @@ footer {
 		margin-bottom: 40px;
 		grid-gap: 10px;
 		grid-auto-columns: 1fr;
-		grid-template-rows: repeat(4, 240px);
+		grid-template-rows: repeat(5, 240px);
 		padding-left: 10px;
 		padding-right: 10px;
-		grid-template-areas: "lifecast" "simplescales" "typedex" "linkbadges";
+		grid-template-areas: "lifecast" "simplescales" "typedex" "critterdex" "linkbadges";
 		
 		section {
 			transition: transform 0.2s ease;
@@ -530,13 +530,13 @@ footer {
 			padding-right: 40px;
 			grid-gap: 20px;
 			grid-template-columns: 1fr 1fr;
-			grid-template-rows: 330px 330px 430px;
-			grid-template-areas: "lifecast lifecast" "simplescales simplescales" "typedex linkbadges";
+			grid-template-rows: 330px 330px 430px 430px;
+			grid-template-areas: "lifecast lifecast" "simplescales simplescales" "typedex critterdex" "linkbadges linkbadges";
 		}
 		
 		@media (min-width: 1340px) {
 			padding: 0px;
-			grid-template-rows: 500px 430px 650px;
+			grid-template-rows: 500px 430px 650px 650px;
 			grid-gap: 40px;
 		}
 	}
@@ -692,6 +692,68 @@ footer {
 		@media (min-width: 768px) {
 			background: #74CEC0;
 			
+			h2 {
+				font-size: 40px;
+			}
+			
+			h3 {
+				font-size: 18px;
+			}
+			
+			div {
+				display: flex;
+				justify-content: center;
+			}
+			
+			aside {
+				position: absolute;
+				bottom: 20px;
+				width: 380px;
+				max-width: 90%;
+			}
+			
+			.promo {
+				align-self: center;
+				position: absolute;
+				top: 20px;
+				width: 460px;
+			}
+		}
+		
+		@media (min-width: 1340px) {
+			h2 {
+				font-size: 50px;
+			}
+			
+			h3 {
+				font-size: 24px;
+			}
+			
+			aside {
+				bottom: 40px;
+			}
+			
+			.promo {
+				width: 637px;
+				top: 60px;
+			}
+		}
+	}
+	
+	#critterdex {
+		grid-area: critterdex;
+		background: #F7F6F2;
+		
+		h2 {
+			color: #5F5B38;
+		}
+		
+		h3 {
+			color: #5F5B38;
+			opacity: 0.5;
+		}
+		
+		@media (min-width: 768px) {			
 			h2 {
 				font-size: 40px;
 			}
