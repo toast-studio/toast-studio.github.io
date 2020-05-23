@@ -400,10 +400,11 @@ footer {
 
 .toast-page {
 	--background: #F4F4F4;
-	--main: white;
+	--main: #4b4948;
 	
 	@media (prefers-color-scheme: dark) {
 		--background: #222222;
+		--main: white;
 	}
 	
 	display: flex;
@@ -474,18 +475,23 @@ footer {
 	}
 	
 	main {
-		margin-top: 10px;
+		margin-top: 20px;
 		margin-bottom: 40px;
-		grid-gap: 10px;
+		grid-gap: 20px;
 		grid-auto-columns: 1fr;
 		grid-template-rows: repeat(5, 240px);
-		padding-left: 10px;
-		padding-right: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
 		grid-template-areas: "lifecast" "simplescales" "typedex" "critterdex" "linkbadges";
 		
 		section {
 			transition: transform 0.2s ease;
 			padding: 0px;
+			background: white;
+			
+			@media (prefers-color-scheme: dark) {
+				background: rgba(255, 255, 255, 0.05);
+			}
 			
 			a {
 				position: absolute;
@@ -549,6 +555,7 @@ footer {
 		font-family: 'Circular Std', helvetica, arial, sans-serif;
 		font-size: 30px;
 		margin: 0px;
+		color: var(--main);
 	}
 	
 	h3 {
@@ -556,15 +563,15 @@ footer {
 		font-weight: 100;
 		font-size: 18px;
 		margin: 0px;
+		opacity: 0.5;
+		color: var(--main);
 	}
 	
 	#lifecast {
 		grid-area: lifecast;
-		background-color: #0D1526;
 		
-		h3 {
-			color: white;
-			opacity: 0.5;
+		h2, h3 {
+			color: white !important;
 		}
 		
 		@media (min-width: 768px) {
@@ -606,16 +613,6 @@ footer {
 		
 	#simplescales {
 		grid-area: simplescales;
-		background-color: #ECEBEB;
-		
-		h2 {
-			color: #665B49;
-		}
-		
-		h3 {
-			color: #665B49;
-			opacity: 0.5;
-		}
 		
 		@media (min-width: 768px) {			
 			h2 {
@@ -668,20 +665,8 @@ footer {
 	
 	#typedex {
 		grid-area: typedex;
-		background: #1a1a1a;
-		
-		h2 {
-			color: white;
-		}
-		
-		h3 {
-			color: white;
-			opacity: 0.5;
-		}
 		
 		@media (min-width: 768px) {
-			background: #74CEC0;
-			
 			h2 {
 				font-size: 40px;
 			}
@@ -732,16 +717,6 @@ footer {
 	
 	#critterdex {
 		grid-area: critterdex;
-		background: #F7F6F2;
-		
-		h2 {
-			color: #5F5B38;
-		}
-		
-		h3 {
-			color: #5F5B38;
-			opacity: 0.5;
-		}
 		
 		@media (min-width: 768px) {			
 			h2 {
@@ -794,15 +769,6 @@ footer {
 	
 	#linkbadges {
 		grid-area: linkbadges;
-		background: white;
-		
-		h2 {
-			color: #91DE5A;
-		}
-		
-		h3 {
-			color: #90928E;
-		}
 		
 		@media (min-width: 768px) {
 			h2 {
