@@ -333,7 +333,7 @@ main {
 		}
 		
 		&.light-background section {
-			box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.1);
+			box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.05);
 		}
 	}
 	
@@ -535,6 +535,10 @@ footer {
 			section {
 				box-shadow: none;
 			}
+			
+			picture {
+				display: none;
+			}
 		}
 		
 		@media (min-width: 768px) {
@@ -543,7 +547,7 @@ footer {
 			padding-right: 40px;
 			grid-gap: 20px;
 			grid-template-columns: 1fr 1fr;
-			grid-template-rows: 330px 430px 430px;
+			grid-template-rows: 330px 460px 460px;
 			grid-template-areas: "lifecast lifecast" "simplescales linkbadges" "typedex critterdex";
 			
 			aside {
@@ -649,8 +653,9 @@ footer {
 			.promo {
 				align-self: center;
 				position: absolute;
-				top: 20px;
-				width: 460px;
+				top: 6%;
+				max-width: 100%;
+				left: 0px;
 			}
 		}
 		
@@ -702,7 +707,8 @@ footer {
 				align-self: center;
 				position: absolute;
 				top: 20px;
-				width: 460px;
+				max-width: 100%;
+				left: 0px;
 			}
 		}
 		
@@ -753,8 +759,9 @@ footer {
 			.promo {
 				align-self: center;
 				position: absolute;
-				top: 20px;
-				width: 460px;
+				top: 6%;
+				max-width: 100%;
+				left: 0px;
 			}
 		}
 		
@@ -797,7 +804,7 @@ footer {
 			
 			aside {
 				position: absolute;
-				bottom: 20px;
+				bottom: 40px;
 				width: 380px;
 				max-width: 90%;
 			}
@@ -805,7 +812,7 @@ footer {
 			.promo {
 				align-self: center;
 				position: absolute;
-				top: 20px;
+				top: 6%;
 				width: 330px;
 			}
 		}
