@@ -510,12 +510,15 @@ footer {
 			}
 			
 			&:hover {
-				transform: scale(1.03);
-				transition: transform 0.5s ease;
-			}
-				
-			&:hover {
 				cursor: hand;
+				background: rgba(0,0,0,0.03);
+				
+			}
+			
+			@media (prefers-color-scheme: dark) {
+				&:hover {
+					background: rgba(255,255,255,0.1);
+				}
 			}
 			
 			@media (min-width: 768px) {
@@ -552,6 +555,17 @@ footer {
 			
 			aside {
 				text-align: center;
+			}
+			
+			section:hover {
+				box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.15);
+				background: white;
+			}
+			
+			@media (prefers-color-scheme: dark) {
+				section:hover {
+					background: rgba(255,255,255,0.1);
+				}
 			}
 		}
 		
