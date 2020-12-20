@@ -396,6 +396,36 @@ footer {
 	flex-direction: column;
 }
 
+.privacy-card {
+	background: rgba(0,0,0,0.02);
+	border-radius: 10px;
+	padding: 20px;
+	text-align: center;
+	margin-top: 10px;
+	
+	h3 {
+		color: var(--main);
+		font-weight: bold;
+		font-size: 20px !important;
+	}
+	
+	p {
+		margin-bottom: 0px !important;
+	}
+	
+	.cardIcon {
+		margin-bottom: 5px;
+		
+		path {
+			fill: var(--tint);
+		}
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		background: rgba(255,255,255,0.1)
+	}
+}
+
 /* PAGE SPECIFIC */
 
 .toast-page {
