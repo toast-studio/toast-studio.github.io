@@ -409,7 +409,11 @@ footer {
 	h3 {
 		color: var(--main);
 		font-weight: bold;
-		font-size: 20px !important;
+		font-size: 16px !important;
+		
+		@media (min-width: 768px) {
+			font-size: 20px !important;
+		}
 	}
 	
 	p {
@@ -427,8 +431,12 @@ footer {
 	.cardTypesGroup {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		width: 50%;
 		margin-top: 10px;
+		grid-gap: 20px;
+		
+		@media (min-width: 768px) {
+			width: 50%;
+		}
 	}
 	
 	.typeIcon {
@@ -1135,7 +1143,7 @@ footer {
 	section {
 		max-width: 650px;
 		margin: 0px auto;
-		padding: 20px 20px 60px 20px;
+		padding: 20px 0px 60px 0px;
 		flex-direction: column;
 		display: block;
 	}
