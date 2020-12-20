@@ -402,6 +402,9 @@ footer {
 	padding: 20px;
 	text-align: center;
 	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 	
 	h3 {
 		color: var(--main);
@@ -410,7 +413,7 @@ footer {
 	}
 	
 	p {
-		margin-bottom: 0px !important;
+		margin: 0px !important;
 	}
 	
 	.cardIcon {
@@ -418,6 +421,21 @@ footer {
 		
 		path {
 			fill: var(--tint);
+		}
+	}
+	
+	.cardTypesGroup {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		width: 50%;
+		margin-top: 10px;
+	}
+	
+	.typeIcon {
+		transform: translateY(4px);
+		
+		path {
+			fill: var(--main);
 		}
 	}
 	
