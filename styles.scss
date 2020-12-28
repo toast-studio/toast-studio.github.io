@@ -400,7 +400,6 @@ footer {
 	background: rgba(0,0,0,0.02);
 	border-radius: 10px;
 	padding: 20px;
-	text-align: center;
 	margin-top: 10px;
 	display: flex;
 	align-items: center;
@@ -432,15 +431,16 @@ footer {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		margin-top: 10px;
-		grid-gap: 20px;
+		grid-gap: 10px 20px;
 		
 		@media (min-width: 768px) {
-			width: 50%;
+			width: 40%;
 		}
 	}
 	
 	.typeIcon {
 		transform: translateY(4px);
+		margin-right: 3px;
 		
 		path {
 			fill: var(--main);
