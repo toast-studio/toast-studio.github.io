@@ -429,26 +429,33 @@ footer {
 	
 	.cardTypesGroup {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		// grid-template-columns: 1fr 1fr;
 		margin-top: 10px;
-		grid-gap: 10px 20px;
+		grid-gap: 5px;
+		align-self: flex-start;
+		
+		@media (min-width: 414px) {
+			align-self: center !important;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 10px 20px;
+		}
 		
 		@media (min-width: 768px) {
-			width: 40%;
-		}
-	}
-	
-	.typeIcon {
-		transform: translateY(4px);
-		margin-right: 3px;
-		
-		path {
-			fill: var(--main);
+			width: 60%;
 		}
 	}
 	
 	@media (prefers-color-scheme: dark) {
 		background: rgba(255,255,255,0.1)
+	}
+}
+	
+.typeIcon {
+	transform: translateY(3px);
+	margin-right: 3px;
+	
+	path {
+		fill: var(--main);
 	}
 }
 
