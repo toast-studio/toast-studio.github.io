@@ -2,3 +2,5 @@ _site
 .sass-cache
 .jekyll-metadata
 *.gem
+.nova/Configuration.json
+.nova/Artwork
