@@ -666,7 +666,7 @@ footer .toast:hover {
 
 @media (min-width: 768px) {
 	.toast-page #lifecast {
-		background-image: url(../images/toast/promo-lifecast.jpg);
+		background-image: url(/toast/promo-lifecast.jpg);
 		background-size: cover;
 		background-position: right;
 	}
