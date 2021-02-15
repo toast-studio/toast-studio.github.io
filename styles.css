@@ -148,7 +148,7 @@ header .cta:hover {
 }
 
 .featuregrid img, .featuregrid picture {
-	grid-column: -1;
+	grid-column: 1/-1;
 }
 
 .featuregrid .promoimage {
