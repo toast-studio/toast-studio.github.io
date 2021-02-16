@@ -15,20 +15,19 @@
 .light {
     display: block;
 }
-
-       
+ 
  .dark {
     display: none !important;
 }
 
- @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     .light {
-            display: none !important;
-        }
+        display: none !important;
+    }
 
-   .dark {
-            display: block !important;
-        }
+    .dark {
+        display: block !important;
+    }
 }
 
 body {
@@ -82,18 +81,18 @@ header .cta:hover {
 
 @media (min-width: 768px) {
     header div {
-            flex-direction: row;
-        }
-
-   header .cta {
-            font-size: 27px;
-            width: auto;
-            margin: 0px 10px;
-        }
-
-   header header {
-            padding: 40px 0px;
-        }
+        flex-direction: row;
+    }
+    
+    header .cta {
+        font-size: 27px;
+        width: auto;
+        margin: 0px 10px;
+    }
+    
+    header header {
+        padding: 40px 0px;
+    }
 }
 
 .featuregrid {
@@ -102,15 +101,15 @@ header .cta:hover {
 
 @media (min-width: 768px) {
     .featuregrid {
-            grid-template-columns: repeat(2, 1fr);
-            margin-top: 40px;
-        }
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 40px;
+    }
 }
 
 @media (min-width: 1200px) {
     .featuregrid {
-            grid-template-columns: repeat(3, 1fr);
-        }
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .featuregrid svg {
@@ -128,8 +127,8 @@ header .cta:hover {
 
 @media (min-width: 768px) {
     .featuregrid section {
-            display: block;
-        }
+        display: block;
+    }
 }
 
 .featuregrid h3 {
@@ -139,12 +138,12 @@ header .cta:hover {
 
 @media (min-width: 768px) {
     .featuregrid h3 {
-            text-align: center;
-        }
+        text-align: center;
+    }
 
-   .featuregrid p {
-            text-align: center;
-        }
+    .featuregrid p {
+        text-align: center;
+    }
 }
 
 .featuregrid img, .featuregrid picture {
@@ -159,8 +158,8 @@ header .cta:hover {
 
 @media (max-width: 767px) {
     .featuregrid .promoimage {
-            order: -1;
-        }
+        order: -1;
+    }
 }
 
 h1 {
@@ -172,8 +171,8 @@ h1 {
 
 @media (min-width: 1200px) {
     h1 {
-            font-size: 70px;
-        }
+        font-size: 70px;
+    }
 }
 
 h2 {
@@ -186,8 +185,8 @@ h2 {
 
 @media (min-width: 1200px) {
     h2 {
-            font-size: 24px;
-        }
+        font-size: 24px;
+    }
 }
 
 h3 {
@@ -200,9 +199,9 @@ h3 {
 
 @media (min-width: 1200px) {
     h3 {
-            font-size: 50px;
-            margin-bottom: 5px;
-        }
+        font-size: 50px;
+        margin-bottom: 5px;
+    }
 }
 
 h4 {
@@ -216,8 +215,8 @@ h4 {
 
 @media (min-width: 1200px) {
     h4 {
-            font-size: 22px;
-        }
+        font-size: 22px;
+    }
 }
 
 p {
@@ -256,47 +255,12 @@ p {
 
 @media (max-width: 320px) {
     #support span {
-            display: none;
-        }
+        display: none;
+    }
 }
 
 .glyph {
     fill: var(--main);
-}
-
-.videoWrapper {
-    position: relative;
-    padding-bottom: 71.85%;
-    height: 0;
-    grid-column: 1/-1;
-}
-
-.videoWrapper::before {
-    content: "";
-    background-image: url(typedex/images/mask.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 1208px;
-    height: 100%;
-    z-index: 2;
-    position: absolute;
-    max-width: 100%;
-}
-
-.videoWrapper iframe, .videoWrapper video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: scale(0.936) translateX(3.5%) translateY(3.5%);
-    transform-origin: top left;
-}
-
-@media (max-width: 767px) {
-    .videoWrapper {
-            order: -1;
-        }
 }
 
 main {
@@ -324,52 +288,30 @@ main section::before {
     pointer-events: none;
 }
 
-main.dark-background section::before {
-    box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.3);
-}
-
-@media (prefers-color-scheme: dark) {
-    main.light-background section::before {
-            box-shadow: none;
-        }
-}
-
 @media (min-width: 768px) {
     main {
-            max-width: 1200px;
-            margin: 0px auto;
-            grid-gap: 20px;
-        }
-
-   main.dark-background section {
-            box-shadow: 0px 2px 24px rgba(0, 0, 0, 0.5);
-        }
-
-   main.light-background section {
-            box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.05);
-        }
+        max-width: 1200px;
+        margin: 0px auto;
+        grid-gap: 20px;
+    }
+    
+    aside {
+        max-width: 80%;
+    }
 }
 
 @media (min-width: 1200px) {
     main {
-            grid-gap: 40px;
-        }
+        grid-gap: 40px;
+    }
 
-   main section {
-            padding: 45px;
-        }
-}
-
-@media (min-width: 768px) {
+    main section {
+        padding: 45px;
+    }
+    
     aside {
-            max-width: 80%;
-        }
-}
-
-@media (min-width: 1200px) {
-    aside {
-            max-width: 100%;
-        }
+        max-width: 100%;
+    }
 }
 
 footer {
@@ -393,12 +335,12 @@ footer .toast:hover {
 
 @media (min-width: 768px) {
     footer {
-            height: 200px;
-        }
+        height: 200px;
+    }
 
-   footer .toast {
-            transform: scale(1);
-        }
+    footer .toast {
+        transform: scale(1);
+    }
 }
 
 .centered-vertical {
@@ -432,8 +374,8 @@ footer .toast:hover {
 
 @media (min-width: 768px) {
     .privacy-card h3 {
-            font-size: 20px !important;
-        }
+        font-size: 20px !important;
+    }
 }
 
 .privacy-card p {
@@ -457,22 +399,22 @@ footer .toast:hover {
 
 @media (min-width: 414px) {
     .privacy-card .cardTypesGroup {
-            align-self: center !important;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 10px 20px;
-        }
+        align-self: center !important;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px 20px;
+    }
 }
 
 @media (min-width: 768px) {
     .privacy-card .cardTypesGroup {
-            width: 60%;
-        }
+        width: 60%;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
     .privacy-card {
-            background: rgba(255, 255, 255, 0.1);
-        }
+        background: rgba(255, 255, 255, 0.1);
+    }
 }
 
 .typeIcon {
@@ -483,6 +425,7 @@ footer .toast:hover {
 .typeIcon path {
     fill: var(--main);
 }
+
 /* PAGE SPECIFIC */
  .toast-page {
     --background: #F4F4F4;
@@ -495,9 +438,9 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .toast-page {
-            --background: #222222;
-            --main: white;
-        }
+        --background: #222222;
+        --main: white;
+    }
 }
 
 .toast-page header {
@@ -518,9 +461,9 @@ footer .toast:hover {
 
 @media (min-width: 768px) {
     .toast-page header {
-            height: 430px;
-            padding: 70px;
-        }
+        height: 430px;
+        padding: 70px;
+    }
 }
 
 .toast-page nav p {
@@ -541,8 +484,8 @@ footer .toast:hover {
 
 @media (min-width: 768px) {
     .toast-page .logo {
-            width: 400px;
-        }
+        width: 400px;
+    }
 }
 
 .toast-page .icon {
@@ -553,8 +496,8 @@ footer .toast:hover {
 
 @media (min-width: 768px) {
     .toast-page .icon {
-            display: none;
-        }
+        display: none;
+    }
 }
 
 .toast-page .promo {
@@ -563,8 +506,8 @@ footer .toast:hover {
 
 @media (min-width: 768px) {
     .toast-page .promo {
-            display: block;
-        }
+        display: block;
+    }
 }
 
 .toast-page main {
@@ -586,9 +529,9 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .toast-page main section {
-            background: rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid black;
-        }
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid black;
+    }
 }
 
 .toast-page main section a {
@@ -614,67 +557,67 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .toast-page main section:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
+        background: rgba(255, 255, 255, 0.1);
+    }
 }
 
 @media (min-width: 768px) {
     .toast-page main section {
-            border: none;
-            border-radius: 10px;
-        }
+        border: none;
+        border-radius: 10px;
+    }
 
-   .toast-page main section a {
-            padding: 0px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .toast-page main section a {
+        padding: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 767px) {
     .toast-page main section {
-            box-shadow: none;
-        }
+        box-shadow: none;
+    }
 
-   .toast-page main picture {
-            display: none;
-        }
+    .toast-page main picture {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {
     .toast-page main {
-            transform: translateY(-70px);
-            padding-left: 40px;
-            padding-right: 40px;
-            grid-gap: 20px;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 330px 460px 460px;
-            grid-template-areas: "lifecast lifecast" "simplescales linkbadges" "typedex critterdex";
-        }
+        transform: translateY(-70px);
+        padding-left: 40px;
+        padding-right: 40px;
+        grid-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 330px 460px 460px;
+        grid-template-areas: "lifecast lifecast" "simplescales linkbadges" "typedex critterdex";
+    }
 
-   .toast-page main aside {
-            text-align: center;
-        }
+    .toast-page main aside {
+        text-align: center;
+    }
 
-   .toast-page main section:hover {
-            box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.15);
-            background: white;
-        }
+    .toast-page main section:hover {
+        box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.15);
+        background: white;
+    }
 }
 
 @media (min-width: 768px) and (prefers-color-scheme: dark) {
     .toast-page main section:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
+        background: rgba(255, 255, 255, 0.1);
+    }
 }
 
 @media (min-width: 1340px) {
     .toast-page main {
-            padding: 0px;
-            grid-template-rows: 500px 650px 650px;
-            grid-gap: 40px;
-        }
+        padding: 0px;
+        grid-template-rows: 500px 650px 650px;
+        grid-gap: 40px;
+    }
 }
 
 .toast-page a {
@@ -703,44 +646,44 @@ footer .toast:hover {
 
 @media (min-width: 768px) {
     .toast-page #lifecast {
-            background-image: url(/toast/promo-lifecast.jpg);
-            background-size: cover;
-            background-position: right;
-        }
+        background-image: url(/toast/promo-lifecast.jpg);
+        background-size: cover;
+        background-position: right;
+    }
 
-   .toast-page #lifecast h2 {
-            font-size: 50px;
-        }
+    .toast-page #lifecast h2 {
+        font-size: 50px;
+    }
 
-   .toast-page #lifecast h3 {
-            font-size: 24px;
-        }
+    .toast-page #lifecast h3 {
+        font-size: 24px;
+    }
 
-   .toast-page #lifecast h2, .toast-page #lifecast h3 {
-            color: white !important;
-        }
+    .toast-page #lifecast h2, .toast-page #lifecast h3 {
+        color: white !important;
+    }
 
-   .toast-page #lifecast aside {
-            width: 223px;
-            position: absolute;
-            bottom: 50px;
-            right: 90px;
-        }
+    .toast-page #lifecast aside {
+        width: 223px;
+        position: absolute;
+        bottom: 50px;
+        right: 90px;
+    }
 }
 
 @media (min-width: 1340px) {
     .toast-page #lifecast aside {
-            width: 465px;
-            right: 50px;
-        }
+        width: 465px;
+        right: 50px;
+    }
 
-   .toast-page #lifecast h2 {
-            font-size: 70px;
-        }
+    .toast-page #lifecast h2 {
+        font-size: 70px;
+    }
 
-   .toast-page #lifecast h3 {
-            font-size: 30px;
-        }
+    .toast-page #lifecast h3 {
+        font-size: 30px;
+    }
 }
 
 .toast-page #simplescales {
@@ -749,51 +692,51 @@ footer .toast:hover {
 
 @media (min-width: 768px) {
     .toast-page #simplescales h2 {
-            font-size: 40px;
-        }
+        font-size: 40px;
+    }
 
-   .toast-page #simplescales h3 {
-            font-size: 18px;
-        }
+    .toast-page #simplescales h3 {
+        font-size: 18px;
+    }
 
-   .toast-page #simplescales div {
-            display: flex;
-            justify-content: center;
-        }
+    .toast-page #simplescales div {
+        display: flex;
+        justify-content: center;
+    }
 
-   .toast-page #simplescales aside {
-            position: absolute;
-            bottom: 20px;
-            width: 380px;
-            max-width: 90%;
-        }
+    .toast-page #simplescales aside {
+        position: absolute;
+        bottom: 20px;
+        width: 380px;
+        max-width: 90%;
+    }
 
-   .toast-page #simplescales .promo {
-            align-self: center;
-            position: absolute;
-            top: 6%;
-            max-width: 100%;
-            left: 0px;
-        }
+    .toast-page #simplescales .promo {
+        align-self: center;
+        position: absolute;
+        top: 6%;
+        max-width: 100%;
+        left: 0px;
+    }
 }
 
 @media (min-width: 1340px) {
     .toast-page #simplescales h2 {
-            font-size: 50px;
-        }
+        font-size: 50px;
+    }
 
-   .toast-page #simplescales h3 {
-            font-size: 24px;
-        }
+    .toast-page #simplescales h3 {
+        font-size: 24px;
+    }
 
-   .toast-page #simplescales aside {
-            bottom: 40px;
-        }
+    .toast-page #simplescales aside {
+        bottom: 40px;
+    }
 
-   .toast-page #simplescales .promo {
-            width: 637px;
-            top: 60px;
-        }
+    .toast-page #simplescales .promo {
+        width: 637px;
+        top: 60px;
+    }
 }
 
 .toast-page #typedex {
@@ -802,51 +745,51 @@ footer .toast:hover {
 
 @media (min-width: 768px) {
     .toast-page #typedex h2 {
-            font-size: 40px;
-        }
+        font-size: 40px;
+    }
 
-   .toast-page #typedex h3 {
-            font-size: 18px;
-        }
+    .toast-page #typedex h3 {
+        font-size: 18px;
+    }
 
-   .toast-page #typedex div {
-            display: flex;
-            justify-content: center;
-        }
+    .toast-page #typedex div {
+        display: flex;
+        justify-content: center;
+    }
 
-   .toast-page #typedex aside {
-            position: absolute;
-            bottom: 20px;
-            width: 380px;
-            max-width: 90%;
-        }
+    .toast-page #typedex aside {
+        position: absolute;
+        bottom: 20px;
+        width: 380px;
+        max-width: 90%;
+    }
 
-   .toast-page #typedex .promo {
-            align-self: center;
-            position: absolute;
-            top: 20px;
-            max-width: 100%;
-            left: 0px;
-        }
+    .toast-page #typedex .promo {
+        align-self: center;
+        position: absolute;
+        top: 20px;
+        max-width: 100%;
+        left: 0px;
+    }
 }
 
 @media (min-width: 1340px) {
     .toast-page #typedex h2 {
-            font-size: 50px;
-        }
+        font-size: 50px;
+    }
 
-   .toast-page #typedex h3 {
-            font-size: 24px;
-        }
+    .toast-page #typedex h3 {
+        font-size: 24px;
+    }
 
-   .toast-page #typedex aside {
-            bottom: 40px;
-        }
+    .toast-page #typedex aside {
+        bottom: 40px;
+    }
 
-   .toast-page #typedex .promo {
-            width: 637px;
-            top: 60px;
-        }
+    .toast-page #typedex .promo {
+        width: 637px;
+        top: 60px;
+    }
 }
 
 .toast-page #critterdex {
@@ -855,51 +798,51 @@ footer .toast:hover {
 
 @media (min-width: 768px) {
     .toast-page #critterdex h2 {
-            font-size: 40px;
-        }
+        font-size: 40px;
+    }
 
-   .toast-page #critterdex h3 {
-            font-size: 18px;
-        }
+    .toast-page #critterdex h3 {
+        font-size: 18px;
+    }
 
-   .toast-page #critterdex div {
-            display: flex;
-            justify-content: center;
-        }
+    .toast-page #critterdex div {
+        display: flex;
+        justify-content: center;
+    }
 
-   .toast-page #critterdex aside {
-            position: absolute;
-            bottom: 20px;
-            width: 380px;
-            max-width: 90%;
-        }
+    .toast-page #critterdex aside {
+        position: absolute;
+        bottom: 20px;
+        width: 380px;
+        max-width: 90%;
+    }
 
-   .toast-page #critterdex .promo {
-            align-self: center;
-            position: absolute;
-            top: 6%;
-            max-width: 100%;
-            left: 0px;
-        }
+    .toast-page #critterdex .promo {
+        align-self: center;
+        position: absolute;
+        top: 6%;
+        max-width: 100%;
+        left: 0px;
+    }
 }
 
 @media (min-width: 1340px) {
     .toast-page #critterdex h2 {
-            font-size: 50px;
-        }
+        font-size: 50px;
+    }
 
-   .toast-page #critterdex h3 {
-            font-size: 24px;
-        }
+    .toast-page #critterdex h3 {
+        font-size: 24px;
+    }
 
-   .toast-page #critterdex aside {
-            bottom: 40px;
-        }
+    .toast-page #critterdex aside {
+        bottom: 40px;
+    }
 
-   .toast-page #critterdex .promo {
-            width: 637px;
-            top: 60px;
-        }
+    .toast-page #critterdex .promo {
+        width: 637px;
+        top: 60px;
+    }
 }
 
 .toast-page #linkbadges {
@@ -908,49 +851,49 @@ footer .toast:hover {
 
 @media (min-width: 768px) {
     .toast-page #linkbadges h2 {
-            font-size: 40px;
-        }
+        font-size: 40px;
+    }
 
-   .toast-page #linkbadges h3 {
-            font-size: 18px;
-        }
+    .toast-page #linkbadges h3 {
+        font-size: 18px;
+    }
 
-   .toast-page #linkbadges div {
-            display: flex;
-            justify-content: center;
-        }
+    .toast-page #linkbadges div {
+        display: flex;
+        justify-content: center;
+    }
 
-   .toast-page #linkbadges aside {
-            position: absolute;
-            bottom: 40px;
-            width: 380px;
-            max-width: 90%;
-        }
+    .toast-page #linkbadges aside {
+        position: absolute;
+        bottom: 40px;
+        width: 380px;
+        max-width: 90%;
+    }
 
-   .toast-page #linkbadges .promo {
-            align-self: center;
-            position: absolute;
-            top: 6%;
-            width: 330px;
-        }
+    .toast-page #linkbadges .promo {
+        align-self: center;
+        position: absolute;
+        top: 6%;
+        width: 330px;
+    }
 }
 
 @media (min-width: 1340px) {
     .toast-page #linkbadges h2 {
-            font-size: 50px;
-        }
+        font-size: 50px;
+    }
 
-   .toast-page #linkbadges h3 {
-            font-size: 24px;
-        }
+    .toast-page #linkbadges h3 {
+        font-size: 24px;
+    }
 
-   .toast-page #linkbadges aside {
-            bottom: 40px;
-        }
+    .toast-page #linkbadges aside {
+        bottom: 40px;
+    }
 
-   .toast-page #linkbadges .promo {
-            width: 540px;
-        }
+    .toast-page #linkbadges .promo {
+        width: 540px;
+    }
 }
 
 .simplescales-page {
@@ -966,10 +909,10 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .simplescales-page {
-            --background: #222;
-            --main: #E9E3D9;
-            --tint: #FFBC46;
-        }
+        --background: #222;
+        --main: #E9E3D9;
+        --tint: #FFBC46;
+    }
 }
 
 .simplescales-page h3, .simplescales-page .cta {
@@ -1001,12 +944,12 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .linkbadges-page {
-            background-image: url(link-badges/images/header-dark.png);
-            background-repeat: no-repeat;
-            background-size: contain;
-            --background: black;
-            --main: white;
-        }
+        background-image: url(link-badges/images/header-dark.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        --background: black;
+        --main: white;
+    }
 }
 
 .linkbadges-page h3, .linkbadges-page .cta {
@@ -1036,22 +979,22 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .typedex-page {
-            --background: #222222;
-            --main: white;
-            --tint: #6BD7FF;
-        }
+        --background: #222222;
+        --main: white;
+        --tint: #6BD7FF;
+    }
 }
 
 @media (min-width: 768px) {
     .typedex-page #legal {
-            margin-top: 10px;
-        }
+        margin-top: 10px;
+    }
 }
 
 @media (min-width: 768px) and (prefers-color-scheme: dark) {
     .typedex-page {
-            --background: black;
-        }
+        --background: black;
+    }
 }
 
 .typedex-page footer .toast {
@@ -1064,8 +1007,8 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .typedex-page footer .toast:hover {
-            background: url(/typedex/images/toast-active-dark.svg);
-        }
+        background: url(/typedex/images/toast-active-dark.svg);
+    }
 }
 
 .typedex-page.privacy-page p {
@@ -1085,28 +1028,28 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .lifecast-page {
-            --background: #0D1526;
-            --main: #FFFFFF;
-            --tint: #ffe758;
-        }
+        --background: #0D1526;
+        --main: #FFFFFF;
+        --tint: #ffe758;
+    }
 }
 
 @media (min-width: 1200px) {
     .lifecast-page h3 {
-            font-size: 35px;
-        }
+        font-size: 35px;
+    }
 }
 
 @media (min-width: 1200px) {
     .lifecast-page h4 {
-            font-size: 20px;
-        }
+        font-size: 20px;
+    }
 }
 
 @media (min-width: 414px) {
     .lifecast-page br {
-            display: none;
-        }
+        display: none;
+    }
 }
 
 .lifecast-page .cta {
@@ -1119,8 +1062,8 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .lifecast-page footer .toast {
-            background: url(/lifecast/images/toast-dark.svg);
-        }
+        background: url(/lifecast/images/toast-dark.svg);
+    }
 }
 
 .lifecast-page footer .toast:hover {
@@ -1129,8 +1072,8 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .lifecast-page footer .toast:hover {
-            background: url(/lifecast/images/toast-active-dark.svg);
-        }
+        background: url(/lifecast/images/toast-active-dark.svg);
+    }
 }
 
 .critterdex-page {
@@ -1146,10 +1089,10 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .critterdex-page {
-            --background: #252521;
-            --main: #E6E5DA;
-            --tint: #81E4DB;
-        }
+        --background: #252521;
+        --main: #E6E5DA;
+        --tint: #81E4DB;
+    }
 }
 
 .critterdex-page p, .critterdex-page h2, .critterdex-page #support, .critterdex-page #legal {
@@ -1158,14 +1101,14 @@ footer .toast:hover {
 
 @media (min-width: 1200px) {
     .critterdex-page h3 {
-            font-size: 35px;
-        }
+        font-size: 35px;
+    }
 }
 
 @media (min-width: 1200px) {
     .critterdex-page h4 {
-            font-size: 20px;
-        }
+        font-size: 20px;
+    }
 }
 
 .critterdex-page .cta {
@@ -1178,8 +1121,8 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .critterdex-page footer .toast {
-            background: url(/critterdex/images/toast-dark.svg);
-        }
+        background: url(/critterdex/images/toast-dark.svg);
+    }
 }
 
 .critterdex-page footer .toast:hover {
@@ -1188,8 +1131,8 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .critterdex-page footer .toast:hover {
-            background: url(/critterdex/images/toast-active-dark.svg);
-        }
+        background: url(/critterdex/images/toast-active-dark.svg);
+    }
 }
 
 .privacy-page {
@@ -1269,4 +1212,3 @@ footer .toast:hover {
     opacity: 1;
     transition: opacity 0.5s ease;
 }
-
