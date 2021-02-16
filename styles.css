@@ -357,13 +357,22 @@ footer .toast:hover {
 }
 
 .privacy-card {
-    background: rgba(0, 0, 0, 0.02);
+    background: white;
     border-radius: 10px;
     padding: 20px;
     margin-top: 10px;
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1), 0px 0px 0px 1px rgba(0,0,0,0.1);
+    /* border: 1px solid rgba(0,0,0,0.1); */
+}
+
+@media (prefers-color-scheme: dark) {
+    .privacy-card {
+        background: rgba(255, 255, 255, 0.15);
+    }
 }
 
 .privacy-card h3 {
@@ -380,6 +389,10 @@ footer .toast:hover {
 
 .privacy-card p {
     margin: 0px !important;
+}
+
+.privacy-card h3 + p {
+    text-align: center;
 }
 
 .privacy-card .cardIcon {
@@ -400,20 +413,14 @@ footer .toast:hover {
 @media (min-width: 414px) {
     .privacy-card .cardTypesGroup {
         align-self: center !important;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 10px 20px;
     }
 }
 
 @media (min-width: 768px) {
     .privacy-card .cardTypesGroup {
-        width: 60%;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .privacy-card {
-        background: rgba(255, 255, 255, 0.1);
+        width: 90%;
     }
 }
 
