@@ -413,8 +413,14 @@ footer .toast:hover {
 @media (min-width: 414px) {
     .privacy-card .cardTypesGroup {
         align-self: center !important;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         grid-gap: 10px 20px;
+    }
+}
+
+@media (min-width: 590px) {
+    .privacy-card .cardTypesGroup {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
