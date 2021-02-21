@@ -365,8 +365,7 @@ footer .toast:hover {
     display: flex;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1), 0px 0px 0px 1px rgba(0,0,0,0.1);
-    /* border: 1px solid rgba(0,0,0,0.1); */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
 }
 
 @media (prefers-color-scheme: dark) {
