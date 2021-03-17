@@ -949,9 +949,9 @@ footer .toast:hover {
     background-size: contain;
     --background: white;
     --main: black;
-    --tint: #91DE5A;
-    --font-body: -apple-system, helvetica, arial, sans-serif;
-    --font-header: -apple-system, helvetica, arial, sans-serif;
+    --tint: #1ac327;
+    --font-body: ui-rounded, system-ui, helvetica, sans-serif;
+    --font-header: ui-rounded, system-ui, helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -961,6 +961,7 @@ footer .toast:hover {
         background-size: contain;
         --background: black;
         --main: white;
+        --tint: #07FD1A;
     }
 }
 
