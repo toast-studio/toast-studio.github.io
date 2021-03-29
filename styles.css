@@ -1231,6 +1231,9 @@ footer .toast:hover {
     border-radius: 4px;
     margin-right: 10px;
     margin-left: -15px;
+    width: 50px;
+    display: inline-block;
+    text-align: center;
 }
 
 /* 404 */
