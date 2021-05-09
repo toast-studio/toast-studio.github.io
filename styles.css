@@ -525,8 +525,8 @@ footer .toast:hover {
     margin-bottom: 0px;
     grid-gap: 0px;
     grid-auto-columns: 1fr;
-    grid-template-rows: repeat(5, 140px);
-    grid-template-areas: "lifecast" "simplescales" "typedex" "critterdex" "linkbadges";
+    grid-template-rows: repeat(6, 140px);
+    grid-template-areas: "lifecast" "simplescales" "screensizes" "typedex" "critterdex" "linkbadges";
 }
 
 .toast-page main section {
@@ -1143,6 +1143,26 @@ footer .toast:hover {
 @media (prefers-color-scheme: dark) {
     .critterdex-page footer .toast:hover {
         background: url(/critterdex/images/toast-active-dark.svg);
+    }
+}
+
+/* SCREEN SIZES */
+.screensizes-page {
+    background-image: url(critterdex/images/header.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    --background: #F7F6F2;
+    --main: #5F5B38;
+    --tint: #2B9E93;
+    --font-body: ui-rounded, system-ui, helvetica, sans-serif;
+    --font-header: ui-rounded, system-ui, helvetica, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    .critterdex-page {
+        --background: #252521;
+        --main: #E6E5DA;
+        --tint: #81E4DB;
     }
 }
 
