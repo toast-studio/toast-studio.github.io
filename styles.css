@@ -655,12 +655,36 @@ footer .toast:hover {
 }
 
 @media (min-width: 768px) {
-    .toast-page #lifecast {
-        background-image: url(/toast/promo-lifecast.jpg);
-        background-size: cover;
-        background-position: right;
+    .toast-page #lifecast h2 {
+        font-size: 40px;
     }
 
+    .toast-page #lifecast h3 {
+        font-size: 18px;
+    }
+
+    .toast-page #lifecast div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .toast-page #lifecast aside {
+        position: absolute;
+        bottom: 20px;
+        width: 380px;
+        max-width: 90%;
+    }
+
+    .toast-page #lifecast .promo {
+        align-self: center;
+        position: absolute;
+        top: 6%;
+        max-width: 100%;
+        left: 0px;
+    }
+}
+
+@media (min-width: 1340px) {
     .toast-page #lifecast h2 {
         font-size: 50px;
     }
@@ -669,30 +693,13 @@ footer .toast:hover {
         font-size: 24px;
     }
 
-    .toast-page #lifecast h2, .toast-page #lifecast h3 {
-        color: white !important;
-    }
-
     .toast-page #lifecast aside {
-        width: 223px;
-        position: absolute;
-        bottom: 50px;
-        right: 90px;
-    }
-}
-
-@media (min-width: 1340px) {
-    .toast-page #lifecast aside {
-        width: 465px;
-        right: 50px;
+        bottom: 40px;
     }
 
-    .toast-page #lifecast h2 {
-        font-size: 70px;
-    }
-
-    .toast-page #lifecast h3 {
-        font-size: 30px;
+    .toast-page #lifecast .promo {
+        width: 637px;
+        top: 60px;
     }
 }
 
