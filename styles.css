@@ -1219,6 +1219,14 @@ footer .toast:hover {
     }
 }
 
+.screensizes-page h2, .screensizes-page p, .screensizes-page a, .screensizes-page #legal {
+    font-weight: 400;
+}
+
+.screensizes-page .cta {
+    font-weight: 700;
+}
+
 .privacy-page {
     background-image: none;
 }
