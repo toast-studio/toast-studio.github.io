@@ -539,7 +539,7 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .toast-page main section {
-        background: rgba(255, 255, 255, 0.05);
+        background: #2D2D2D;
         border-bottom: 1px solid black;
     }
 }
@@ -562,12 +562,12 @@ footer .toast:hover {
 
 .toast-page main section:hover {
     cursor: hand;
-    background: rgba(0, 0, 0, 0.03);
+    background: #393939;
 }
 
 @media (prefers-color-scheme: dark) {
     .toast-page main section:hover {
-        background: rgba(255, 255, 255, 0.1);
+        background: #393939;
     }
 }
 
@@ -602,8 +602,8 @@ footer .toast:hover {
         padding-right: 40px;
         grid-gap: 20px;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 330px 460px 460px;
-        grid-template-areas: "lifecast lifecast" "simplescales linkbadges" "typedex critterdex";
+        grid-template-rows: 460px 460px 460px;
+        grid-template-areas: "lifecast simplescales" "screensizes linkbadges" "typedex critterdex";
     }
 
     .toast-page main aside {
@@ -618,14 +618,14 @@ footer .toast:hover {
 
 @media (min-width: 768px) and (prefers-color-scheme: dark) {
     .toast-page main section:hover {
-        background: rgba(255, 255, 255, 0.1);
+        background: #393939;
     }
 }
 
 @media (min-width: 1340px) {
     .toast-page main {
         padding: 0px;
-        grid-template-rows: 500px 650px 650px;
+        grid-template-rows: 650px 650px 650px;
         grid-gap: 40px;
     }
 }
@@ -850,6 +850,59 @@ footer .toast:hover {
     }
 
     .toast-page #critterdex .promo {
+        width: 637px;
+        top: 60px;
+    }
+}
+
+.toast-page #screensizes {
+    grid-area: screensizes;
+}
+
+@media (min-width: 768px) {
+    .toast-page #screensizes h2 {
+        font-size: 40px;
+    }
+
+    .toast-page #screensizes h3 {
+        font-size: 18px;
+    }
+
+    .toast-page #screensizes div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .toast-page #screensizes aside {
+        position: absolute;
+        bottom: 20px;
+        width: 380px;
+        max-width: 90%;
+    }
+
+    .toast-page #screensizes .promo {
+        align-self: center;
+        position: absolute;
+        top: 6%;
+        max-width: 100%;
+        left: 0px;
+    }
+}
+
+@media (min-width: 1340px) {
+    .toast-page #screensizes h2 {
+        font-size: 50px;
+    }
+
+    .toast-page #screensizes h3 {
+        font-size: 24px;
+    }
+
+    .toast-page #screensizes aside {
+        bottom: 40px;
+    }
+
+    .toast-page #screensizes .promo {
         width: 637px;
         top: 60px;
     }
