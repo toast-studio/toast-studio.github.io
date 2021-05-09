@@ -1148,21 +1148,21 @@ footer .toast:hover {
 
 /* SCREEN SIZES */
 .screensizes-page {
-    background-image: url(critterdex/images/header.png);
+    background-image: url(screen-sizes/images/header.png);
     background-repeat: no-repeat;
     background-size: contain;
-    --background: #F7F6F2;
-    --main: #5F5B38;
-    --tint: #2B9E93;
-    --font-body: ui-rounded, system-ui, helvetica, sans-serif;
-    --font-header: ui-rounded, system-ui, helvetica, sans-serif;
+    --background: #FFFFFF;
+    --main: #000000;
+    --tint: #5F65B1;
+    --font-body: system-ui, helvetica, roboto, sans-serif;
+    --font-header: system-ui, helvetica, roboto, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
-    .critterdex-page {
-        --background: #252521;
-        --main: #E6E5DA;
-        --tint: #81E4DB;
+    .screensizes-page {
+        --background: #000000;
+        --main: #FFFFFF;
+        --tint: #888FF6;
     }
 }
 
