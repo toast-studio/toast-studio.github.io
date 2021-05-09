@@ -1227,6 +1227,26 @@ footer .toast:hover {
     font-weight: 700;
 }
 
+.screensizes-page footer .toast {
+    background: url(/screen-sizes/images/toast.svg);
+}
+
+@media (prefers-color-scheme: dark) {
+    .screensizes-page footer .toast {
+        background: url(/screen-sizes/images/toast-dark.svg);
+    }
+}
+
+.screensizes-page footer .toast:hover {
+    background: url(/screen-sizes/images/toast-active.svg);
+}
+
+@media (prefers-color-scheme: dark) {
+    .screensizes-page footer .toast:hover {
+        background: url(/screen-sizes/images/toast-active-dark.svg);
+    }
+}
+
 .privacy-page {
     background-image: none;
 }
