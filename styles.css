@@ -526,7 +526,7 @@ footer .toast:hover {
     grid-gap: 0px;
     grid-auto-columns: 1fr;
     grid-template-rows: repeat(6, 140px);
-    grid-template-areas: "lifecast" "simplescales" "screensizes" "typedex" "critterdex" "linkbadges";
+    grid-template-areas: "lifecast" "simplescales" "screensizes" "linkbadges" "typedex" "critterdex";
 }
 
 .toast-page main section {
