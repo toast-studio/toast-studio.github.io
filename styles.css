@@ -1226,6 +1226,13 @@ footer .toast:hover {
     }
 }
 
+@media (pointer: fine) and (prefers-color-scheme: dark) {
+    .screensizes-page {
+        --background: #1E1E1E;
+    }
+}
+
+
 .screensizes-page h2, .screensizes-page p, .screensizes-page a, .screensizes-page #legal {
     font-weight: 400;
 }
