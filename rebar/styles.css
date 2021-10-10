@@ -1,0 +1,225 @@
+/* DEFAULT AND CUSTOM ACCENTS */
+[data-accent="default"] { --accent: 250, 192, 0; }
+[data-accent="custom"] { --accent: 124, 14, 226; }
+
+@media (prefers-color-scheme: dark) {
+	[data-theme="light"][data-accent="default"] { --accent: 250, 192, 0; }
+	[data-accent="default"] { --accent: 250, 154, 0; }
+	[data-accent="custom"] { --accent: 152, 94, 206; }
+}
+
+[data-theme="dark"][data-accent="default"] { --accent: 250, 154, 0; }
+
+/* CUSTOM THEME */
+[data-theme="custom"] {
+	--main: 73, 66, 54;
+	--destructive: 206, 27, 45;
+	--positive: 19, 180, 138;
+	--background: 230, 225, 215;
+	--foreground: 225, 218, 205;
+	--divider: 203, 198, 190;
+	--systempanel: 255, 255, 255;
+	--image-tick: url(images/ui/tick-light.svg);
+}
+
+[data-theme="custom"] [data-accent="default"] {
+	--accent: 223, 52, 0;
+}
+
+[data-theme="custom"][data-accent="default"] {
+	--accent: 223, 52, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+	[data-theme="custom"] {
+		--main: 118, 139, 155;
+		--background: 28, 38, 52;
+		--foreground: 23, 28, 40;
+		--divider: 55, 62, 76;
+		--systempanel: 77, 77, 77;
+		--image-tick: url(images/ui/tick-dark.svg);
+	}
+	
+	[data-theme="custom"] [data-accent="default"] {
+		--accent: 0, 233, 255;
+	}
+	
+	[data-theme="custom"][data-accent="default"] {
+		--accent: 0, 233, 255;
+	}
+}
+
+#containerWelcome {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+#explainer {
+	padding: var(--base-gap-size);
+	width: 100%;
+	height: calc(100% - var(--toolbar-height));
+	top: var(--toolbar-height);
+	overflow: auto;
+	position: absolute;
+}
+
+@media (min-width: 1200px) {
+	#explainer {
+		padding: calc(var(--base-gap-size) * 2) calc(var(--base-gap-size) * 3);
+	}
+}
+
+@media (min-width: 1800px) {
+	#explainer {
+		padding: calc(var(--base-gap-size) * 2) calc(var(--base-gap-size) * 15);
+	}
+}
+
+#exampleSidebar1, #exampleSidebar2, #exampleItemList1, #exampleTabBar1, #exampleTabBar2, #accent1, #accent2, #appearance1, #appearance2, #appearance3, #appearance4, #exampleToolbar2, #exampleToolbar3, #exampleToolbar4, #exampleColumns1, #exampleTableview1, #scrollview1, #exampleBlankState {
+	height: 500px;
+	position: relative;
+	overflow: hidden;
+}
+
+#exampleTableview1, #exampleTableview2, #exampleTableview1 {
+	overflow: auto;
+}
+
+#exampleToolbar1 {
+	height: 200px;
+	position: relative;
+	overflow: hidden;
+}
+
+#accentContent1, #accentContent2, #appearance1, #appearance2, #appearance3, #appearance4  {
+	padding: var(--base-gap-size);
+}
+
+#accent2 {
+	--accent: 43,182,220;
+}
+
+.appearanceContent {
+	width: 100%;
+	height: calc(100% - var(--toolbar-height) - var(--tabbar-height));
+	top: var(--toolbar-height);
+	position: absolute;
+	padding: var(--base-gap-size);
+}
+
+#headerContent2, #headerContent3 {
+	width: 100%;
+	height: calc(100% - var(--toolbar-height));
+	top: var(--toolbar-height);
+	left: 0px;
+	position: absolute;
+	overflow: auto;
+}
+
+.headerContent4 {
+	width: 100%;
+	height: calc(100% - var(--toolbar-height));
+	left: 0px;
+	position: absolute;
+	overflow: auto;
+	border: 1px solid red;
+}
+
+.groupText {
+	padding: var(--base-gap-size);
+}
+
+@media (max-width: 1199px) {
+	#explainer .columnSecondary button.back {
+		display: inline-flex;
+	}
+}
+
+#exampleToolbar1 button.back {
+	display: inline-flex;
+}
+
+#exampleNoToolbarSheet div {
+	width: 100%;
+	height: 40%;
+	background: url(images/ui/image.jpg);
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-end;
+	padding: var(--base-gap-size);
+	flex-direction: column;
+	gap: calc(var(--base-gap-size) / 2);
+}
+
+#exampleNoToolbarSheet h1 {
+	margin: 0px;
+	padding: 0px;
+	color: white;
+	text-shadow: 2px 5px 10px rgba(0,0,0,0.3);
+}
+
+#exampleNoToolbarSheet p {
+	padding: 0px var(--base-gap-size);
+}
+
+#scrollview1 .groupText {
+	padding: var(--base-gap-size);
+}
+
+#disappearingScrollview h1 {
+	margin-top: calc(var(--base-gap-size) * 1);
+}
+
+#exampleIcons svg {
+	margin-inline-end: var(--base-gap-size);
+}
+
+#exampleIcons path {
+	fill: rgb(var(--main));
+}
+
+[data-setting="context9"] button {
+	width: 250px;
+}
+
+#iconGallery {
+	/* display: grid;
+	gap: var(--base-gap-size); */
+}
+
+#iconGallery div {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: center;
+	gap: calc(var(--base-gap-size) / 2);
+	margin-block-end: calc(var(--base-gap-size) / 2);
+	color: rgb(var(--main));
+	font-family: var(--font-regular);
+	font-size: var(--base-font-size);
+}
+
+#iconGallery .iconPlatter {
+	background: rgb(var(--foreground));
+	border-radius: var(--base-radius-size);
+	width: calc(var(--base-font-size) * 3);
+	height: calc(var(--base-font-size) * 3);
+	min-width: calc(var(--base-font-size) * 3);
+	min-height: calc(var(--base-font-size) * 3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+	
+#iconGallery svg {
+	width: calc(var(--base-font-size) * 1.5);
+	height: calc(var(--base-font-size) * 1.5);
+}
+
+#iconGallery path {
+	fill: rgb(var(--main));
+}
