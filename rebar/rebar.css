@@ -2801,9 +2801,11 @@
 	@keyframes containerToastInactive {
 		0% {
 			transform: translateY(0px);
+			opacity: 1;
 		}
 		100% {
-			transform: translateY(-7vh);
+			transform: translateY(-10vh);
+			opacity: 0;
 		}
 	}
 	
@@ -2825,6 +2827,7 @@
 	
 	.inactive .containerToast {
 		transform: translateY(-7vh);
+		opacity: 0;
 		animation: containerToastInactive var(--base-time-length) 1;
 	}
 	
