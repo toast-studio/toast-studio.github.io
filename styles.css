@@ -554,7 +554,7 @@ footer .toast:hover {
 
 .toast-page main section a div {
     display: grid;
-    grid-template-columns: 100 1fr;
+    grid-template-columns: 100px 1fr;
     grid-gap: 20px;
     justify-content: center;
     align-items: center;
@@ -1065,12 +1065,6 @@ footer .toast:hover {
     
     .typedex-page .featuregrid svg {
         margin-bottom: 10px;
-    }
-}
-
-@media (min-width: 768px) and (prefers-color-scheme: dark) {
-    .typedex-page {
-        --background: black;
     }
 }
 
