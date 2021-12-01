@@ -1131,8 +1131,12 @@ footer .toast:hover {
     }
 }
 
-.lifecast-page .cta {
-    font-weight: 700;
+.lifecast-page h3, .typedex-page .cta {
+    font-weight: bold;
+}
+
+.lifecast-page h2, .lifecast-page h4, .lifecast-page p, .lifecast-page #support {
+    font-weight: normal;
 }
 
 .lifecast-page footer .toast {
