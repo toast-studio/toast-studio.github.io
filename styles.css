@@ -260,7 +260,7 @@ p {
 }
 
 .glyph {
-    fill: var(--main);
+    fill: var(--tint);
 }
 
 main {
@@ -562,7 +562,7 @@ footer .toast:hover {
 
 .toast-page main section:hover {
     cursor: hand;
-    background: #393939;
+    background: rgba(0, 0, 0, 0.05);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -967,7 +967,6 @@ footer .toast:hover {
 }
 
 .simplescales-page {
-    background-image: url(simple-scales/images/header.png);
     background-repeat: no-repeat;
     background-size: contain;
     --background: #ECEBEB;
@@ -1002,7 +1001,6 @@ footer .toast:hover {
 }
 
 .linkbadges-page {
-    background-image: url(link-badges/images/header-light.png);
     background-repeat: no-repeat;
     background-size: contain;
     --background: white;
@@ -1040,7 +1038,6 @@ footer .toast:hover {
 }
 
 .typedex-page {
-    background-image: url(typedex/images/header.png);
     background-repeat: no-repeat;
     background-size: contain;
     --background: #f5f5f5;
@@ -1072,7 +1069,7 @@ footer .toast:hover {
     font-weight: bold;
 }
 
-.typedex-page h2, .typedex-page h4, .typedex-page p, .typedex-page #support {
+.typedex-page h2, .typedex-page h4, .typedex-page p, .typedex-page #support, .typedex-page #legal {
     font-weight: normal;
 }
 
@@ -1095,7 +1092,6 @@ footer .toast:hover {
 }
 
 .lifecast-page {
-    background-image: url(lifecast/images/header.png);
     background-repeat: no-repeat;
     background-size: contain;
     --background: #FFFFFF;
@@ -1135,7 +1131,7 @@ footer .toast:hover {
     font-weight: bold;
 }
 
-.lifecast-page h2, .lifecast-page h4, .lifecast-page p, .lifecast-page #support {
+.lifecast-page h2, .lifecast-page h4, .lifecast-page p, .lifecast-page #support, .lifecast-page #legal {
     font-weight: normal;
 }
 
@@ -1160,7 +1156,6 @@ footer .toast:hover {
 }
 
 .critterdex-page {
-    background-image: url(critterdex/images/header.png);
     background-repeat: no-repeat;
     background-size: contain;
     --background: #F7F6F2;
@@ -1220,7 +1215,6 @@ footer .toast:hover {
 
 /* SCREEN SIZES */
 .screensizes-page {
-    background-image: url(screen-sizes/images/header.png);
     background-repeat: no-repeat;
     background-size: contain;
     --background: #FFFFFF;
