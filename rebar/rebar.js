@@ -1,15 +1,16 @@
-//REBAR 1.0
+//REBAR 1.1
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
 const queryReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').matches;
 
 //FIRST RUN
 	//SHEETS
 	function summonInstallBanner() {
 		summonPanel({ 
 			type: 'toast', 
-			backing: 'transparent', 
+			backing: 'gradient', 
 			title: `Tap to install ${appName}`,
 			icon: `<img src="icon.png" />`,
 			containerID: "buttonInstallApp"
@@ -91,8 +92,14 @@ const queryReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 		
 	//ACTIVATE FUNCTIONS
 	$(document).ready(function(){
-		if (localStorage.getItem("firstRun") != "complete") {
-			localStorage.setItem("firstRun", "complete");
+		if (getPreferenceGroup("rebar.appSettings").firstRun != "complete") {
+			//GENERATE REBAR SETTINGS
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "firstRun",
+				value: "complete",
+			})
 			
 			//SUMMON INSTALL TOAST
 			let isRunningOnMobileSafari = CSS.supports("-webkit-touch-callout", "inherit");
@@ -102,46 +109,23 @@ const queryReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 		}
 		
 		//SET APPEARANCE
-		if (localStorage.getItem("appearance") == undefined) {
-			//SET DEFAULT APPEARANCE IN LOCAL STORAGE
-			localStorage.setItem("appearance", "system");
-			$("body").attr("data-theme", localStorage.getItem("appearance"));
-		} else {
-			//APPLY STORED APPEARANCE
-			$("body").attr("data-theme", localStorage.getItem("appearance"));
-		}
+		$("body").attr("data-theme", getPreferenceGroup("rebar.appSettings").appearance);
 		
 		//SET ACCENT
-		if (localStorage.getItem("accent") == undefined) {
-			//SET DEFAULT APPEARANCE IN LOCAL STORAGE
-			localStorage.setItem("accent", "default");
-			$("body").attr("data-accent", localStorage.getItem("accent"));
-		} else {
-			//APPLY STORED APPEARANCE
-			$("body").attr("data-accent", localStorage.getItem("accent"));
-		}
+		$("body").attr("data-accent", getPreferenceGroup("rebar.appSettings").accent);
 		
 		//SET TYPE SIZE
-		if (localStorage.getItem("dynamicTypeSize") == undefined) {
-			//SET DEFAULT TYPE SIZE IN LOCAL STORAGE
-			localStorage.setItem("dynamicTypeSize", "medium");
-			localStorage.setItem("dynamicTypeSizeLabel", "Medium");
-			document.documentElement.style.setProperty('--base-font-size', dynamicTypeSizes.medium);
-		} else {
-			//APPLY STORED TYPE SIZE
-			document.documentElement.style.setProperty('--base-font-size', dynamicTypeSizes[localStorage.getItem("dynamicTypeSize")]);
-		}
+		document.documentElement.style.setProperty('--base-font-size', dynamicTypeSizes[getPreferenceGroup("rebar.appSettings").dynamicTypeSize.value]);
+		$("body").attr("data-textsize", getPreferenceGroup("rebar.appSettings").dynamicTypeSize.value);
 		
 		//SET FONT WEIGHT
-		if (localStorage.getItem("dynamicTypeWeight") == undefined) {
-			//SET DEFAULT TYPE SIZE IN LOCAL STORAGE
-			localStorage.setItem("dynamicTypeWeight", "regular");
-			localStorage.setItem("dynamicTypeWeightLabel", "Regular");
-			$("body").attr("data-weight", "regular");
+		$("body").attr("data-textweight", getPreferenceGroup("rebar.appSettings").textWeight);
+		
+		//SET INCREASED CONTRAST
+		if (queryIncreasedContrast == true) {
+			$("body").attr("data-contrast", "more");
 		} else {
-			//APPLY STORED TYPE SIZE
-			document.documentElement.style.setProperty('--base-font-size', dynamicTypeSizes[localStorage.getItem("dynamicTypeSize")]);
-			$("body").attr("data-weight", localStorage.getItem("dynamicTypeWeight"));
+			$("body").attr("data-contrast", getPreferenceGroup("rebar.appSettings").increaseContrast);
 		}
 		
 		//SET REDUCED MOTION
@@ -161,6 +145,38 @@ const queryReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 		
 		//SET META THEME TAG
 		setMetaTheme();
+		
+		//TIPS PROMPT
+		if (promptForTips == true && getPreferenceGroup("rebar.appSettings").clickedDonationLink == false) {
+			//GRAB THE CURRENT AMOUNT OF OPENINGS
+			let countOpenings = getPreferenceGroup("rebar.appSettings").openings;
+			
+			//INCREMENT THE STORED OPENINGS COUNT BY 1
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "openings",
+				value: ++countOpenings,
+			})
+			
+			//DISPLAY TIPS PROMPT
+			if (countOpenings == 20 || countOpenings == 100  || countOpenings == 500 ) {
+				summonPanel({ 
+					type: 'sheet', 
+					size: 'full',
+					backing: 'dark', 
+					toolbar: "hidden",
+					width: "slim",
+					containerID: "sheetTips"
+				});
+				generateTipJar({
+					target: "sheetTips",
+					linkSmall: "https://buy.stripe.com/4gwaI6cKwaMCaQ0aEH",
+					linkMedium: "https://buy.stripe.com/14kbMa8ug1c2cY88wC",
+					linkLarge: "https://buy.stripe.com/bIYaI639W7Aqgak007"
+				});
+			}
+		}
 	});
 	
 //SET TIME LENGTH
@@ -168,10 +184,7 @@ function setTimeLength() {
 	if (queryReducedMotion == true) {
 		document.documentElement.style.setProperty('--base-time-length', '0s');
 	} else {
-		switch (localStorage.getItem("reduceMotion")) {
-			case null:
-				localStorage.setItem("reduceMotion", "off");
-				break;
+		switch (getPreferenceGroup("rebar.appSettings").reduceMotion) {
 			case 'on':
 				document.documentElement.style.setProperty('--base-time-length', '0s');
 				break;
@@ -184,46 +197,19 @@ function setTimeLength() {
 
 //GRAB URL PARAMETER
 function grabURLParameter() {
-	let source = new URLSearchParams(window.location.search).get(urlParam);
-	return {type: "deeplink", source}
+	const urlSearchParams = new URLSearchParams(window.location.search);
+	const params = Object.fromEntries(urlSearchParams.entries());
+	return {
+		type: "deeplink",
+		query: Object.keys(params).join(),
+		source: Object.values(params).join(),
+	}
 }
 
 //SUMMON HOW TO INSTALL SHEET
 	$(document).on('click', '#buttonInstallApp', function() {
 		dismissPanel();
 		setTimeout(function(){ summonHowToInstallSheet(); }, 500);
-	});
-		
-//SELECT AND SET DYNAMIC TYPE
-	//TEXT SIZE
-	$(document).on('click', '[data-setting="dynamicTypeSize"] .contextContainerMenu button', function() {
-		let selectedValue = clickContextMenuItem(this);
-		document.documentElement.style.setProperty('--base-font-size', dynamicTypeSizes[selectedValue[0]]);
-		localStorage.setItem("dynamicTypeSizeLabel", selectedValue[1])
-	});
-	
-	//FONT WEIGHT
-	$(document).on('click', '[data-setting="dynamicTypeWeight"] .contextContainerMenu button', function() {
-		let selectedValue = clickContextMenuItem(this);
-		$("body").attr("data-weight", selectedValue[0]);
-		localStorage.setItem("dynamicTypeWeightLabel", selectedValue[1]);
-	});
-	
-//SET REDUCED MOTION
-$(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
-	let state = clickSwitch(this);
-	if (state == "on") {
-		document.documentElement.style.setProperty('--base-time-length', '0s');
-	}
-	if (state == "off") {
-		document.documentElement.style.setProperty('--base-time-length', baseTimeLength);
-	}
-});
-
-//DISABLE ZOOM
-	document.addEventListener('gesturestart', function(e) {
-		e.preventDefault();
-		document.body.style.zoom = 1.0;
 	});
 	
 //DISABLE ANIMATIONS WHILE RESIZING
@@ -240,16 +226,12 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 
 //SEGMENTED CONTROLS
 	function clickSegment(dataValue) {
-		//GET VALUES
-		let setting = $(dataValue).parent().data("setting"); //The key name to be used for local storage
+		//GET VALUE
 		let value = $(dataValue).data("value"); //The value to be used for local storage
 		
 		//SET STATE
 		$(dataValue).siblings().removeClass("picked"); //Removes the picked class from all siblings of the clicked item
 		$(dataValue).addClass("picked"); //Adds the picked class to the clicked item
-		
-		//SET LOCAL STORAGE
-		localStorage.setItem(setting, value);
 		
 		return value;
 	}
@@ -274,12 +256,9 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 			$(dataValue).siblings().removeClass("picked"); //Removes the picked class from all siblings of the clicked item
 			$(dataValue).addClass("picked"); //Adds the picked class to the clicked item
 			$(`[data-setting="${setting}"] .contextLabel`).empty().append(label); //Clears the label of the parent button and appends the clicked item value
-			
-			//SET LOCAL STORAGE
-			localStorage.setItem(setting, value);
 		}
 		
-		return [value, label];
+		return {value, label};
 	}
 	
 	//DISMISS MENU CLICK
@@ -299,10 +278,10 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 		
 		//SET LOCAL STORAGE AND RETURN
 		if (isOn ==  true) {
-			localStorage.setItem(setting, "on");
+			$(dataValue).attr("title", "On")
 			return "on";
 		} else {
-			localStorage.setItem(setting, "off");
+			$(dataValue).attr("title", "Off")
 			return "off";
 		}
 	}
@@ -334,7 +313,7 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 		
 		//SET STATE
 		if (dataValue.source != "defaultView") {
-			$(`#${dataValue.properties.parentContainer} *`).removeClass("picked subdued"); //Removes the picked state in the parent container
+			$(`#${dataValue.properties.removePicked} *`).removeClass("picked subdued"); //Removes the picked state in the target container
 			$(`[data-value="${dataValue.source}"]`).addClass("picked"); //Adds the picked state to the selected list item
 			if ($(`[data-value="${dataValue.source}"]`).hasClass("itemList") == true) {
 				$(`[data-value="${dataValue.properties.parentRoute}"]`).addClass("subdued"); //Adds a subdued class to the current list item that has a picked class (this is used when selecting an item in the secondary column to set the look of the primary column in 3 column layouts)
@@ -342,15 +321,15 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 			$(`#${dataValue.properties.parentContainer}`).addClass("slightSlide"); //Adds the slightSlide class to the true parent container of the clicked item to have the container slightly slide while the next active container is sliding in
 			$(`#${dataValue.properties.targetContainer}`).empty().addClass("active").removeClass("slightSlide"); //Clears out the target container and adds an active class to it
 			$(`#${dataValue.properties.clearContainer}`).empty().removeClass("active"); //Clears out a secondary container (this is used when switching between sidebar sources in 3 column layouts)
-		}		
+		}
 		
 		//UPDATE URL
 		//"navigation" is chosen here so that the browser history doesn't populate with the same entry over and over
 		if (dataValue.type == "navigation") {
 			if (dataValue.source == undefined) {
-				window.history.pushState(null, null, `?${urlParam}=index`);
+				window.history.pushState(null, null, `?${dataValue.properties.query}=index`);
 			} else {
-				window.history.pushState(null, null, `?${urlParam}=${dataValue.source}`);
+				window.history.pushState(null, null, `?${dataValue.properties.query}=${dataValue.source}`);
 			}
 		}
 	}
@@ -384,23 +363,24 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 		let removeActive = $(this).data("removeactive");
 		let removeSlide = $(this).data("removeslide");
 		let clearContent = $(this).data("clear");
+		let query = $(this).data("query");
 		let target = $(this).data("target");
 		
 		//REMOVE PARENT ACTIVE STATE
 		$("#" + removeActive).removeClass("active").removeClass("slightSlide");
 		
 		//RESET STATE OF PREVIOUS COLUMN
-		$("#" + removeSlide + " button").removeClass("picked").removeClass("subdued");
+		$("#" + removeSlide + " :not(.containerTabBar) button").removeClass("picked").removeClass("subdued");
 		$("#" + removeSlide).removeClass("slightSlide");
 		
 		//EMPTY THE MAIN COLUMN
-		$("#" + clearContent).empty().removeClass("active");
+		setTimeout(function(){ $("#" + clearContent).empty().removeClass("active"); }, 500);
 		
 		//UPDATE URL
 		if (target == undefined) {
 			window.history.pushState(null, null, "?");
 		} else {
-			window.history.pushState(null, null, `?${urlParam}=${target}`);
+			window.history.pushState(null, null, `?${query}=${target}`);
 		}
 	});
 	
@@ -418,7 +398,7 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 		//SETUP PANEL SKELETON
 		$("body").prepend(`
 			<div class="containerPanel ${options.size} ${options.outerPadding}Padding">
-				<div class="backingPanel ${options.backing}"></div>
+				<div class="backingPanel ${options.backing}" title="Dismiss"></div>
 			</div>
 		`);
 		
@@ -458,7 +438,7 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 				if (options.toolbar == "hidden") {
 					$(".containerSheetContents").addClass("toolbarHidden");
 					$(".containerSheet").prepend(`
-						<button class="secondary xclose" id="buttonSheetDismiss">${iconShapes.timesFill}</button>
+						<button class="secondary xclose" id="buttonSheetDismiss" title="Dismiss">${iconShapes.timesFill}</button>
 					`);
 				}
 				
@@ -473,7 +453,7 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 							</div>
 							<div class="buttons">
 								<button class="${options.buttonStyle}" id="${options.actionID}">${options.action}</button>
-								<button class="secondary" id="buttonAlertDismiss">Cancel</button>
+								<button class="transparent" id="buttonAlertDismiss">Cancel</button>
 							</div>
 						</div>
 					</div>
@@ -491,7 +471,7 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 						<div class="containerToastContents" id="${options.containerID}">
 							<p>${options.title}</p>
 						</div>
-						<span class="buttonToastDismiss">${iconShapes.timesCircleDuo}</span>
+						<span class="buttonToastDismiss" title="Dismiss">${iconShapes.timesCircleDuo}</span>
 					</div>
 				`);
 				
@@ -506,7 +486,7 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 				`);
 				
 				$(".backingPanel").prepend(`
-					<button class="secondary xclose">${iconShapes.timesFill}</button>
+					<button class="secondary xclose" title="Dismiss">${iconShapes.timesFill}</button>
 				`);
 				
 				break;
@@ -564,36 +544,60 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 			});
 		});
 	}
-
+	
 	$(document).keyup(function(e) {
-		switch (e.key) {
-			case 'Control':
-				if ($('.containerPanel').length == 0) {
-					summonShortcutsPanel();
-				} else {
+		let checkFocus = (document.activeElement === document.getElementsByTagName('input')[0])
+		
+		if (checkFocus == false) {
+			switch (e.key) {
+				case 'Control':
+					if ($('.containerPanel').length == 0) {
+						summonShortcutsPanel();
+					} else {
+						dismissPanel();
+					}
+					break;
+				case 'Escape':
 					dismissPanel();
-				}
-				break;
+					break;
+			}
 		}
 	});
 	
 //ACCORDIONS
 	$(document).on('click', '.headerAccordion', function() {
 		$(this).toggleClass("active");
-		$(this).next().toggleClass("active");
+		$(this).parent().find(".containerAccordionContents:first").toggleClass("active");
 	});
 	
 //SEARCH
 	function search(options) {
-		$(options.inputID).on("keyup", function() {
-			var value = $(this).val().toLowerCase();
-			$(options.searchScope).filter(function() {
-				$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-			});
-			if (value.length == 0) {
-				$(options.inputID).next().removeClass("active"); //Hide the clear button
+		$(`#${options.inputID}`).on("keyup", function() {
+			//GATHER THE INPUTED TEXT
+			let input = document.getElementById(options.inputID); //The search field
+			let enteredText = input.value.toUpperCase(); // The text entered in to the search field
+			let parentContainer = document.getElementById(options.parentID); //The container that holds the items to be searched
+			let items = parentContainer.getElementsByClassName(options.itemClass); //The items to be searched
+			
+			//SET THE CONTAINER SCROLL BACK TO THE TOP
+			document.getElementById(options.parentID).scrollTop = 0;
+			
+			//HIDE AND SHOW THE CLEAR SEARCH BUTTON
+			if (enteredText.length == 0) {
+				$(input).next().removeClass("active"); //Hide the clear button
 			} else {
-				$(options.inputID).next().addClass("active"); //Show the clear button
+				$(input).next().addClass("active"); //Show the clear button
+			}
+			
+			//FILTER THE LIST BASED ON THE SEARCH INPUT
+			for (i = 0; i < items.length; i++) {
+				a = items[i].getElementsByClassName(options.valueClass)[0];
+				txtValue = a.textContent || a.innerText;
+				if (txtValue.toUpperCase().indexOf(enteredText) > -1) {
+					items[i].style.display = "";
+				} else {
+					items[i].style.display = "none";
+				}
 			}
 		});
 	}
@@ -605,27 +609,53 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 	}
 	
 //SELECTION GRIDS
-	function selectionGrid(dataValue) {
-		//GET VALUES
-		let value = $(dataValue).data("value");
-		let setting = $(dataValue).parent().data("setting");
-		let maxCount = $(dataValue).parent().data("max");
+	//SET PICKED ITEMS	
+	function selectionGrid(selectedItem) {
+		const selectedOption = $(selectedItem);
+		const optionAlreadyPicked = selectedOption.hasClass("picked");
+		const container = selectedOption.parent();
+		const maxCount = container.data("max");
 		
-		//SET STATE
-		let amountPicked = $(dataValue).parent().children(".picked").length; //Get amount of items picked
-		if (amountPicked == maxCount) {
-			$(dataValue).siblings().removeClass("picked"); //Removes the picked class from all siblings of the clicked item
+		if (optionAlreadyPicked) {
+			selectedOption.removeClass("picked");
+			return;
 		}
-		$(dataValue).addClass("picked"); //Adds the picked class to the clicked item
 		
-		//GET SELECTED ITEM VALUES
-		let pickedChildren = $(dataValue).parent().children(".picked"); //Find all items that are picked
-		let selectedValues = [];
-		$.each( pickedChildren, function( key, val ) {
-			selectedValues.push($(val).data("value")); //For each picked item extract the data-value and stash it
-		});		
+		const selectionCount = container.children(".picked").length;
 		
-		return {setting, selectedValues};
+		//LIMIT SELECTION TO THE MAX COUNT AND RESET IF NEEDED
+		if (maxCount != "any") {
+			if (selectionCount >= maxCount) {
+				container.children(".picked").removeClass("picked");
+			}
+		}
+		
+		selectedOption.addClass("picked");
+	}
+	
+	//RETRIEVE PICKED ITEMS
+	function getSelectionGridValues(settingKey) {
+		if (!settingKey) return [];
+		
+		const valueOptionElements = $(`[data-setting="${settingKey}"] [data-value].picked`);
+		const gridValues = valueOptionElements.get().map((ele) => $(ele).data("value"));
+		return gridValues;
+	}
+	
+	//PLACE PICKED ITEMS WITHIN THEIR GROUPS
+	function getSelectionGridGroups(groups) {
+		const filters = {};
+		const searchFilterKeys = groups;
+		
+		searchFilterKeys.forEach((key) => {
+			const values = getSelectionGridValues(key);
+			
+			if (!values || values.length === 0) return;
+			
+			filters[key] = values;
+		});
+		
+		return filters;
 	}
 	
 //BLANK STATES
@@ -649,31 +679,46 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 		if (options.actionFirst != undefined) {
 			$(".blankStateContents").append(`
 				<div class="containerActions">
-					<button class="primary" id="${options.actionIDFirst}">${options.actionFirst}</button>
+					<button class="primary transparent" id="${options.actionIDFirst}">${options.actionFirst}</button>
 				</div>
 			`);
 		}
 		
 		if (options.actionSecond != undefined) {
-			$(".blankStateContents .containerActions").append(`<button class="secondary" id="${options.actionIDSecond}">${options.actionSecond}</button>`)
+			$(".blankStateContents .containerActions").append(`<button class="secondary transparent" id="${options.actionIDSecond}">${options.actionSecond}</button>`)
 		}
 	}
 	
+//SPINNERS
+	function generateSpinner(options) {
+		$(`#${options.target}`).append(`
+			<div class="containerSpinner">
+				<div class="spinner alwaysMain">
+					${options.icon}
+				</div>
+			</div>
+		`);
+	}
+	
 //SHARE BUTTON
-	$(document).on('click', 'button.share', function() {
+	function shareURL() {
 		//GRAB URL PARAMETER
 		let url = grabURLParameter();
 		
 		//SHARE
 		navigator.share({
 			title: `${appName}`,
-			url: `${appDomain}?${urlParam}=${url.source}`
+			url: `${appDomain}?${url.query}=${url.source}`
 		}).then(() => {
 			console.log('Share completed');
 		})
 		.catch(err => {
 			console.log(`Share failed: ${err.message}`);
 		});
+	}
+
+	$(document).on('click', 'button.share', function() {
+		shareURL();
 	});
 	
 //THEME PICKER
@@ -683,44 +728,52 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 		if (options.themeOptions == true) {
 			//SET UP THE CONTAINER
 			$(`#${options.target}`).append(`
-				<h2 class="headerList">Themes</h2>
+				<div class="headerDisplayOptions spacerHalf">
+					<h2 class="headerList excludePadding">Themes</h2>
+					<p class="subtext textAlignRight excludeMargin" id="selectedAppearance"></p>
+				</div>
 				<div class="containerAccents containerSection" id="pickerAppearance" data-max="1" data-setting="appearance"></div>
 			`);
 			
 			//GENERATE THE TOKENS
 			$.each( appThemes, function( key, val ) {
 				$(`#pickerAppearance`).append(`
-					<div class="accentChip selectionRing" data-value="${val}" style="background: url(images/themes/${val}.svg);"></div>
+					<div class="accentChip selectionRing" data-value="${key}" style="background: url(images/themes/${key}.svg);" title="${val}"></div>
 				`);
 			});
 			
 			//SET THE PICKED TOKEN
-			$(`#pickerAppearance [data-value="${localStorage.getItem("appearance")}"]`).addClass("picked");
+			$(`#pickerAppearance [data-value="${getPreferenceGroup("rebar.appSettings").appearance}"]`).addClass("picked");
+			$(`#selectedAppearance`).empty().append(appThemes[getPreferenceGroup("rebar.appSettings").appearance]);
 		}
 		
 		//ACCENTS
 		if (options.accentOptions == true) {
 			//SET UP THE CONTAINER
 			$(`#${options.target}`).append(`
-				<h2 class="headerList">Accents</h2>
+				<div class="headerDisplayOptions spacerHalf">
+					<h2 class="headerList excludePadding">Accents</h2>
+					<p class="subtext textAlignRight excludeMargin" id="selectedAccent"></p>
+				</div>
 				<div class="containerAccents containerSection" id="pickerAccent" data-max="1" data-setting="accent"></div>
 			`);
 			
 			//GENERATE THE TOKENS
 			$.each( appAccents, function( key, val ) {
 				$(`#pickerAccent`).append(`
-					<div class="accentChip selectionRing" data-value="${val}" data-accent="${val}"></div>
+					<div class="accentChip selectionRing" data-value="${key}" data-accent="${key}" title="${val}"></div>
 				`);
 			});
 			
 			//SET THE PICKED TOKEN
-			$(`#pickerAccent [data-value="${localStorage.getItem("accent")}"]`).addClass("picked");
+			$(`#pickerAccent [data-value="${getPreferenceGroup("rebar.appSettings").accent}"]`).addClass("picked");
+			$(`#selectedAccent`).empty().append(appAccents[getPreferenceGroup("rebar.appSettings").accent]);
 		}
 		
-		if (options.textSizeOptions == true || options.textWeightOptions == true) {
+		if (options.textSizeOptions == true || options.textWeightOptions == true || options.contrastOptions == true || options.motionOptions == true) {
 			//SET UP THE CONTAINER
 			$(`#${options.target}`).append(`
-				<h2 class="headerList">Text</h2>
+				<h2 class="headerList">Other Options</h2>
 				<div class="containerItemList inset inline spacerDouble alwaysBackgroundColor">
 					<section class="containerSection excludePadding excludeMargin" id="textOptions"></section>
 				</div>
@@ -730,15 +783,16 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 			if (options.textSizeOptions == true) {
 				//GENERATE MENU
 				$(`#textOptions`).append(`
-					<div class="itemList">
+					<div class="itemList fixedIconSize">
+						${iconInterfaceElements.textSize}
 						<div class="label">
-							<span>Size</span>
+							<span>Text Size</span>
 						</div>
 						<div class="containerContextButton" data-setting="dynamicTypeSize">
-							<button class="buttonContext transparent">
+							<button class="buttonContext transparent excludePadding">
 								<div class="contextContainerLabel">
 									<span class="contextLabel"></span>
-									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
+									<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
 								</div>
 							</button>
 							<div class="contextContainerMenu" data-position="right" data-type="picker"></div>
@@ -754,57 +808,207 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 				});
 				
 				//SET TEXT SIZE DROPDOWN
-				$(`[data-setting='dynamicTypeSize'] button[data-value='${localStorage.getItem("dynamicTypeSize")}']`).addClass("picked");
-				$("[data-setting='dynamicTypeSize'] .contextLabel").append(localStorage.getItem("dynamicTypeSizeLabel"));
+				$(`[data-setting='dynamicTypeSize'] button[data-value='${getPreferenceGroup("rebar.appSettings").dynamicTypeSize.value}']`).addClass("picked");
+				$("[data-setting='dynamicTypeSize'] .contextLabel").append(getPreferenceGroup("rebar.appSettings").dynamicTypeSize.label);
 			}
 			
-			//GENERATE FONT WEIGHT OPTIONS
+			//GENERATE BOLD TEXT OPTIONS
 			if (options.textWeightOptions == true) {
 				//GENERATE MENU
 				$(`#textOptions`).append(`
-					<div class="itemList">
+					<div class="itemList fixedIconSize">
+						${iconInterfaceElements.textWeight}
 						<div class="label">
-							<span>Weight</span>
+							<span>Bold Text</span>
 						</div>
-						<div class="containerContextButton" data-setting="dynamicTypeWeight">
-							<button class="buttonContext transparent">
-								<div class="contextContainerLabel">
-									<span class="contextLabel"></span>
-									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
-								</div>
-							</button>
-							<div class="contextContainerMenu" data-position="right" data-type="picker"></div>
-						</div>
+						<button class="switch positive" data-setting="boldText">
+							<div class="knob"></div>
+						</button>
 					</div>
 				`);
 				
-				//GENERATE MENU ITEMS
-				$.each( appTextWeights, function( key, val ) {
-					$(`[data-setting="dynamicTypeWeight"] .contextContainerMenu`).append(`
-						<button data-value="${key}" data-label="${val}">${val}</button>
-					`)
-				});
+				if (getPreferenceGroup("rebar.appSettings").textWeight == "regular") {
+					$('[data-setting="boldText"]').addClass("off");
+					$('[data-setting="boldText"]').attr("title", "Off")
+				} else {
+					$('[data-setting="boldText"]').attr("title", "On")
+				}
+			}
+			
+			//GENERATE INCREASED CONTRAST OPTIONS
+			if (options.contrastOptions == true) {
+				//GENERATE MENU
+				$(`#textOptions`).append(`
+					<div class="itemList fixedIconSize">
+						${iconShapes.circleHalfVerticalRightFill}
+						<div class="label" id="increaseContrastLabel">
+							<span>Increase Contrast</span>
+						</div>
+						<button class="switch positive" data-setting="increaseContrast">
+							<div class="knob"></div>
+						</button>
+					</div>
+				`);
 				
-				//SENT PICKED ITEM
-				$(`[data-setting='dynamicTypeWeight'] button[data-value='${localStorage.getItem("dynamicTypeWeight")}']`).addClass("picked");
-				$("[data-setting='dynamicTypeWeight'] .contextLabel").append(localStorage.getItem("dynamicTypeWeightLabel"));
+				//SET SWITCH STATE
+				if (getPreferenceGroup("rebar.appSettings").increaseContrast == "less") {
+					$('[data-setting="increaseContrast"]').addClass("off");
+					$('[data-setting="increaseContrast"]').attr("title", "Off")
+				} else {
+					$('[data-setting="increaseContrast"]').attr("title", "On")
+				}
+				
+				if (queryIncreasedContrast == true) {
+					$('[data-setting="increaseContrast"]').addClass("disabled").removeClass("off");
+					$("#increaseContrastLabel").append(`<span class="subtext">Using device settings</span>`)
+					$('[data-setting="increaseContrast"]').attr("title", "On")
+				}
+			}
+			
+			//GENERATE REDUCED MOTION OPTIONS
+			if (options.motionOptions == true) {
+				//GENERATE MENU
+				$(`#textOptions`).append(`
+					<div class="itemList fixedIconSize">
+						${iconObjects.dialOffStroke}
+						<div class="label" id="reducedMotionLabel">
+							<span>Reduce Motion</span>
+						</div>
+						<button class="switch positive" data-setting="reduceMotion">
+							<div class="knob"></div>
+						</button>
+					</div>
+				`);
+				
+				//SET SWITCH STATE
+				if (getPreferenceGroup("rebar.appSettings").reduceMotion == "off") {
+					$('[data-setting="reduceMotion"]').addClass("off");
+					$('[data-setting="reduceMotion"]').attr("title", "Off")
+				} else {
+					$('[data-setting="reduceMotion"]').attr("title", "On")
+				}
+				
+				if (queryReducedMotion == true) {
+					$('[data-setting="reduceMotion"]').addClass("disabled").removeClass("off");
+					$("#reducedMotionLabel").append(`<span class="subtext">Using device settings</span>`)
+					$('[data-setting="reduceMotion"]').attr("title", "On")
+				}
 			}
 		}
 	}
 	
 	//MAKE THE THEME PICKER CLICKABLE
 	$(document).on('click', '#pickerAppearance div', function() {
-		let selectedSection = selectionGrid(this);
-		localStorage.setItem("appearance", selectedSection.selectedValues);
-		$("body").attr("data-theme", selectedSection.selectedValues);
+		selectionGrid(this);
+		let selectedAppearance = getSelectionGridGroups(["appearance"])
+		modifyPreference({
+			group: "rebar.appSettings",
+			mode: "update",
+			preference: "appearance",
+			value: selectedAppearance.appearance,
+		})
+		$("body").attr("data-theme", selectedAppearance.appearance);
+		setMetaTheme();
+		$(`#selectedAppearance`).empty().append(appThemes[getPreferenceGroup("rebar.appSettings").appearance]);
 	});
 	
 	//MAKE THE ACCENT PICKER CLICKABLE
 	$(document).on('click', '#pickerAccent div', function() {
-		let selectedSection = selectionGrid(this);
-		localStorage.setItem("accent", selectedSection.selectedValues);
-		$("body").attr("data-accent", selectedSection.selectedValues);
-		setMetaTheme();
+		selectionGrid(this);
+		let selectedAccent = getSelectionGridGroups(["accent"])
+		modifyPreference({
+			group: "rebar.appSettings",
+			mode: "update",
+			preference: "accent",
+			value: selectedAccent.accent,
+		})
+		$("body").attr("data-accent", selectedAccent.accent);
+		$(`#selectedAccent`).empty().append(appAccents[getPreferenceGroup("rebar.appSettings").accent]);
+	});
+	
+	//MAKE THE TEXT SIZE PICKER CLICKABLE
+	$(document).on('click', '[data-setting="dynamicTypeSize"] .contextContainerMenu button', function() {
+		let selectedValue = clickContextMenuItem(this);
+		$("body").attr("data-textsize", selectedValue.value);
+		document.documentElement.style.setProperty('--base-font-size', dynamicTypeSizes[selectedValue.value]);
+		modifyPreference({
+			group: "rebar.appSettings",
+			mode: "update",
+			preference: "dynamicTypeSize",
+			value: {
+				value: selectedValue.value,
+				label: selectedValue.label
+			},
+		})
+	});
+		
+	//SET BOLD TEXT
+	$(document).on('click', '.switch[data-setting="boldText"]', function() {
+		let state = clickSwitch(this);
+		if (state == "on") {
+			$("body").attr("data-textweight", "bold");
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "textWeight",
+				value: "bold",
+			})
+		}
+		if (state == "off") {
+			$("body").attr("data-textweight", "regular");
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "textWeight",
+				value: "regular",
+			})
+		}
+	});
+	
+	//SET INCREASED CONTRAST
+	$(document).on('click', '.switch[data-setting="increaseContrast"]', function() {
+		let state = clickSwitch(this);
+		if (state == "on") {
+			$("body").attr("data-contrast", "more");
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "increaseContrast",
+				value: "more",
+			})
+		}
+		if (state == "off") {
+			$("body").attr("data-contrast", "less");
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "increaseContrast",
+				value: "less",
+			})
+		}
+	});
+		
+	//SET REDUCED MOTION
+	$(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
+		let state = clickSwitch(this);
+		if (state == "on") {
+			document.documentElement.style.setProperty('--base-time-length', '0s');
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "reduceMotion",
+				value: "on",
+			})
+		}
+		if (state == "off") {
+			document.documentElement.style.setProperty('--base-time-length', baseTimeLength);
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "reduceMotion",
+				value: "off",
+			})
+		}
 	});
 
 //UPDATE BANNER
@@ -815,5 +1019,126 @@ $(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
 //SET THEME META TAG
 	function setMetaTheme() {
 		var style = getComputedStyle(document.body)
-		document.querySelector('meta[name="theme-color"]').setAttribute('content', `rgb(${style.getPropertyValue('--accent')})`)
+		document.querySelector('meta[name="theme-color"]').setAttribute('content', `rgb(${style.getPropertyValue('--background')})`)
+	}
+	
+	window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+		setMetaTheme()
+	});
+	
+//TIP JAR
+	function generateTipJar(options) {
+		$(`#${options.target}`).append(`
+			<div class="containerTipJar">
+				<span class="alwaysAccent spacerDouble">${iconLogos.thanksEN}</span>
+				<p class="textAlignCenter h5 spacerDouble">${appName} is developed by just two people. If you'd like to show your support you can leave us a tip. It's much appreciated!</p>
+				<div id="containerTips" class="spacerDouble">
+					<a href="${options.linkSmall}" target="_blank">
+						<span class="emoji">🧁</span>
+						<span class="name">Small</span>
+						<span class="value">$1.00</span>
+					</a>
+					<a href="${options.linkMedium}" target="_blank">
+						<span class="emoji">☕️</span>
+						<span class="name">Medium</span>
+						<span class="value">$5.00</span>
+					</a>
+					<a href="${options.linkLarge}" target="_blank">
+						<span class="emoji">🍔</span>
+						<span class="name">Large</span>
+						<span class="value">$10.00</span>
+					</a>
+				</div>
+				<p class="textAlignCenter subtext">Prices are set in USD and payment is handled by Stripe. ${appName} does not require payment to use. If you have any issues, please contact <a href="mailto:${appEmail}?subject=Help%20with%20${appName}%20tip%20jar">Support</a>. For more information on how your data is handled please refer to the <a href="${appPrivacyPolicy}" target="_blank">Toast Studio Privacy Policy</a> and the <a href="https://stripe.com/privacy" target="_blank">Stripe Privacy Policy</a>.</p>
+			</div>
+		`);
+	}
+	
+	$(document).on('click', '#containerTips a', function() {
+		modifyPreference({
+			group: "rebar.appSettings",
+			mode: "update",
+			preference: "clickedDonationLink",
+			value: "true",
+		})
+	});
+	
+//CAPITALIZE WORD
+	function capitalize(word) {
+		return word[0].toUpperCase() + word.slice(1).toLowerCase();
+	}
+
+//COPT TO CLIPBOARD
+	function copyToClipboard(text) {
+		//COPY CONTENT
+		var $temp = $("<input>");
+		$("body").append($temp);
+		$temp.val(text).select();
+		document.execCommand("copy");
+		$temp.remove();
+		
+		//DISPLAY TOAST
+		summonPanel({
+			type: 'toast', 
+			backing: 'none', 
+			title: `Copied to Clipboard`,
+			icon: `${iconShapes.checkmarkCircleStroke}`,
+			containerID: "buttonUpdateApp"
+		})
+		
+		//DESTROY TOAST
+		setTimeout(function(){ dismissPanel(); }, 1800);
+	}
+	
+//PREFERENCE MANAGEMENT
+	//CONVERT LOCAL STORAGE PREFERENCE STRING
+	function parsePreferenceGroup(options) {
+		//options.group = the name of the preference group
+		//options.string = the returned string from local storage
+			
+		if (options.string == null) {
+			return appPreferencesDefault[options.group];
+		} else {
+			const parsedPreferences = JSON.parse(options.string).version;
+			
+			if (parsedPreferences != appPreferencesVersion) {
+				return appPreferencesDefault[options.group]; //This will reset preferences if a breaking change needs to be made
+			} else {
+				return JSON.parse(options.string);
+			}
+		}
+	}
+	
+	//RETRIEVE PREFERENCE GROUP
+	function getPreferenceGroup(option) {
+		//option = the name of the preference group
+		
+		return parsePreferenceGroup({
+			group: option,
+			string: localStorage.getItem(option),
+		})
+	}
+	
+	//MODIFY PREFERENCE 
+	function modifyPreference(options) {
+		//options.group = the name of the preference group
+		//options.mode = whether this change will save a modified entry or delete an existing entry
+		//options.preference = the name of the child item to be modified or deleted
+		//options.value = the content to save in to the selected preference
+		
+		//RETRIEVE THE PREFERENCE GROUP FROM LOCAL STORAGE
+		const prefs = getPreferenceGroup(options.group)
+		
+		//UPDATE THE IN MEMORY PREFERENCE GROUP
+		switch (options.mode) {
+			case 'update':
+				prefs[options.preference] = options.value //This will both add a new item and modify an existing one
+				break;
+			case 'delete':
+				delete prefs[options.preference]
+				break
+		}
+		
+		//UPDATE THE PREFERENCE GROUP IN LOCAL STORAGE
+		localStorage.setItem(options.group, JSON.stringify(prefs));
 	}
