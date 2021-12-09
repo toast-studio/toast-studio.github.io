@@ -1114,6 +1114,8 @@ const views = {
 					<li>Right Hand Wave</li>
 					<li>User</li>
 					<li>User in Circle</li>
+					<li>Open Eye</li>
+					<li>Closed Eye</li>
 					
 				</ul>
 				<h5 class="h6">Nature</h5>
