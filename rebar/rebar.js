@@ -121,6 +121,9 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		//SET FONT WEIGHT
 		$("body").attr("data-textweight", getPreferenceGroup("rebar.appSettings").textWeight);
 		
+		//SET DYSLEXIC FONT
+		$("body").attr("data-textdyslexia", getPreferenceGroup("rebar.appSettings").textDyslexia);
+		
 		//SET INCREASED CONTRAST
 		if (queryIncreasedContrast == true) {
 			$("body").attr("data-contrast", "more");
@@ -724,65 +727,141 @@ function grabURLParameter() {
 //THEME PICKER
 	//GENERATE THE THEME PICKER
 	function generateDisplayOptions(options) {
-		//THEMES
-		if (options.themeOptions == true) {
+		if (options.themeOptions == true || options.accentOptions == true || options.contrastOptions == true || options.motionOptions == true) {
 			//SET UP THE CONTAINER
 			$(`#${options.target}`).append(`
-				<div class="headerDisplayOptions spacerHalf">
-					<h2 class="headerList excludePadding">Themes</h2>
-					<p class="subtext textAlignRight excludeMargin" id="selectedAppearance"></p>
-				</div>
-				<div class="containerAccents containerSection" id="pickerAppearance" data-max="1" data-setting="appearance"></div>
-			`);
-			
-			//GENERATE THE TOKENS
-			$.each( appThemes, function( key, val ) {
-				$(`#pickerAppearance`).append(`
-					<div class="accentChip selectionRing" data-value="${key}" style="background: url(images/themes/${key}.svg);" title="${val}"></div>
-				`);
-			});
-			
-			//SET THE PICKED TOKEN
-			$(`#pickerAppearance [data-value="${getPreferenceGroup("rebar.appSettings").appearance}"]`).addClass("picked");
-			$(`#selectedAppearance`).empty().append(appThemes[getPreferenceGroup("rebar.appSettings").appearance]);
-		}
-		
-		//ACCENTS
-		if (options.accentOptions == true) {
-			//SET UP THE CONTAINER
-			$(`#${options.target}`).append(`
-				<div class="headerDisplayOptions spacerHalf">
-					<h2 class="headerList excludePadding">Accents</h2>
-					<p class="subtext textAlignRight excludeMargin" id="selectedAccent"></p>
-				</div>
-				<div class="containerAccents containerSection" id="pickerAccent" data-max="1" data-setting="accent"></div>
-			`);
-			
-			//GENERATE THE TOKENS
-			$.each( appAccents, function( key, val ) {
-				$(`#pickerAccent`).append(`
-					<div class="accentChip selectionRing" data-value="${key}" data-accent="${key}" title="${val}"></div>
-				`);
-			});
-			
-			//SET THE PICKED TOKEN
-			$(`#pickerAccent [data-value="${getPreferenceGroup("rebar.appSettings").accent}"]`).addClass("picked");
-			$(`#selectedAccent`).empty().append(appAccents[getPreferenceGroup("rebar.appSettings").accent]);
-		}
-		
-		if (options.textSizeOptions == true || options.textWeightOptions == true || options.contrastOptions == true || options.motionOptions == true) {
-			//SET UP THE CONTAINER
-			$(`#${options.target}`).append(`
-				<h2 class="headerList">Other Options</h2>
+				<h2 class="headerList">Visuals</h2>
 				<div class="containerItemList inset inline spacerDouble alwaysBackgroundColor">
-					<section class="containerSection excludePadding excludeMargin" id="textOptions"></section>
+					<section class="containerSection excludePadding excludeMargin" id="containerVisuals"></section>
+				</div>
+			`);
+			
+			//THEMES
+			if (options.themeOptions == true) {
+				//SET UP THE CONTAINER
+				$(`#containerVisuals`).append(`
+					<div class="itemList fixedIconSize" style="border: none; padding-block-end: 0px;">
+						${iconInterfaceElements.appearance}
+						<div class="label" id="increaseContrastLabel">
+							<span>Theme</span>
+						</div>
+						<p class="subtext textAlignRight excludeMargin" id="selectedAppearance"></p>
+					</div>
+					<div class="containerAccents itemList fixedIconSize" id="pickerAppearance" data-max="1" data-setting="appearance"></div>
+				`);
+				
+				//GENERATE THE TOKENS
+				$.each( appThemes, function( key, val ) {
+					$(`#pickerAppearance`).append(`
+						<div class="accentChip selectionRing" data-value="${key}" style="background: url(images/themes/${key}.svg);" title="${val}"></div>
+					`);
+				});
+				
+				//SET THE PICKED TOKEN
+				$(`#pickerAppearance [data-value="${getPreferenceGroup("rebar.appSettings").appearance}"]`).addClass("picked");
+				$(`#selectedAppearance`).empty().append(appThemes[getPreferenceGroup("rebar.appSettings").appearance]);
+			}
+			
+			//ACCENTS
+			if (options.accentOptions == true) {
+				//SET UP THE CONTAINER
+				$(`#containerVisuals`).append(`
+					<div class="itemList fixedIconSize" style="border: none; padding-block-end: 0px;">
+						${iconObjects.swatchBookRight}
+						<div class="label" id="increaseContrastLabel">
+							<span>Accent</span>
+						</div>
+						<p class="subtext textAlignRight excludeMargin" id="selectedAccent"></p>
+					</div>
+					<div class="containerAccents itemList fixedIconSize" id="pickerAccent" data-max="1" data-setting="accent"></div>
+				`);
+				
+				//GENERATE THE TOKENS
+				$.each( appAccents, function( key, val ) {
+					$(`#pickerAccent`).append(`
+						<div class="accentChip selectionRing" data-value="${key}" data-accent="${key}" title="${val}"></div>
+					`);
+				});
+				
+				//SET THE PICKED TOKEN
+				$(`#pickerAccent [data-value="${getPreferenceGroup("rebar.appSettings").accent}"]`).addClass("picked");
+				$(`#selectedAccent`).empty().append(appAccents[getPreferenceGroup("rebar.appSettings").accent]);
+			}
+			
+			//GENERATE INCREASED CONTRAST OPTIONS
+			if (options.contrastOptions == true) {
+				//GENERATE MENU
+				$(`#containerVisuals`).append(`
+					<div class="itemList fixedIconSize">
+						${iconShapes.circleHalfVerticalRightFill}
+						<div class="label" id="increaseContrastLabel">
+							<span>Increase Contrast</span>
+						</div>
+						<button class="switch positive" data-setting="increaseContrast">
+							<div class="knob"></div>
+						</button>
+					</div>
+				`);
+				
+				//SET SWITCH STATE
+				if (getPreferenceGroup("rebar.appSettings").increaseContrast == "less") {
+					$('[data-setting="increaseContrast"]').addClass("off");
+					$('[data-setting="increaseContrast"]').attr("title", "Off")
+				} else {
+					$('[data-setting="increaseContrast"]').attr("title", "On")
+				}
+				
+				if (queryIncreasedContrast == true) {
+					$('[data-setting="increaseContrast"]').addClass("disabled").removeClass("off");
+					$("#increaseContrastLabel").append(`<span class="subtext">Using device settings</span>`)
+					$('[data-setting="increaseContrast"]').attr("title", "On")
+				}
+			}
+			
+			//GENERATE REDUCED MOTION OPTIONS
+			if (options.motionOptions == true) {
+				//GENERATE MENU
+				$(`#containerVisuals`).append(`
+					<div class="itemList fixedIconSize">
+						${iconObjects.dialOffStroke}
+						<div class="label" id="reducedMotionLabel">
+							<span>Reduce Motion</span>
+						</div>
+						<button class="switch positive" data-setting="reduceMotion">
+							<div class="knob"></div>
+						</button>
+					</div>
+				`);
+				
+				//SET SWITCH STATE
+				if (getPreferenceGroup("rebar.appSettings").reduceMotion == "off") {
+					$('[data-setting="reduceMotion"]').addClass("off");
+					$('[data-setting="reduceMotion"]').attr("title", "Off")
+				} else {
+					$('[data-setting="reduceMotion"]').attr("title", "On")
+				}
+				
+				if (queryReducedMotion == true) {
+					$('[data-setting="reduceMotion"]').addClass("disabled").removeClass("off");
+					$("#reducedMotionLabel").append(`<span class="subtext">Using device settings</span>`)
+					$('[data-setting="reduceMotion"]').attr("title", "On")
+				}
+			}
+		}
+		
+		if (options.textSizeOptions == true || options.textWeightOptions == true || options.textDyslexicOptions == true) {
+			//SET UP THE CONTAINER
+			$(`#${options.target}`).append(`
+				<h2 class="headerList">Text</h2>
+				<div class="containerItemList inset inline spacerDouble alwaysBackgroundColor">
+					<section class="containerSection excludePadding excludeMargin" id="containerText"></section>
 				</div>
 			`);
 			
 			//GENERATE TEXT SIZE OPTIONS
 			if (options.textSizeOptions == true) {
 				//GENERATE MENU
-				$(`#textOptions`).append(`
+				$(`#containerText`).append(`
 					<div class="itemList fixedIconSize">
 						${iconInterfaceElements.textSize}
 						<div class="label">
@@ -815,7 +894,7 @@ function grabURLParameter() {
 			//GENERATE BOLD TEXT OPTIONS
 			if (options.textWeightOptions == true) {
 				//GENERATE MENU
-				$(`#textOptions`).append(`
+				$(`#containerText`).append(`
 					<div class="itemList fixedIconSize">
 						${iconInterfaceElements.textWeight}
 						<div class="label">
@@ -835,63 +914,26 @@ function grabURLParameter() {
 				}
 			}
 			
-			//GENERATE INCREASED CONTRAST OPTIONS
-			if (options.contrastOptions == true) {
+			//GENERATE DYSLEXIC TEXT OPTIONS
+			if (options.textDyslexicOptions == true) {
 				//GENERATE MENU
-				$(`#textOptions`).append(`
+				$(`#containerText`).append(`
 					<div class="itemList fixedIconSize">
-						${iconShapes.circleHalfVerticalRightFill}
-						<div class="label" id="increaseContrastLabel">
-							<span>Increase Contrast</span>
+						${iconInterfaceElements.textDyslexia}
+						<div class="label">
+							<span>Dyslexic Font</span>
 						</div>
-						<button class="switch positive" data-setting="increaseContrast">
+						<button class="switch positive" data-setting="dyslexiaText">
 							<div class="knob"></div>
 						</button>
 					</div>
 				`);
 				
-				//SET SWITCH STATE
-				if (getPreferenceGroup("rebar.appSettings").increaseContrast == "less") {
-					$('[data-setting="increaseContrast"]').addClass("off");
-					$('[data-setting="increaseContrast"]').attr("title", "Off")
+				if (getPreferenceGroup("rebar.appSettings").textDyslexia == "off") {
+					$('[data-setting="dyslexiaText"]').addClass("off");
+					$('[data-setting="dyslexiaText"]').attr("title", "Off")
 				} else {
-					$('[data-setting="increaseContrast"]').attr("title", "On")
-				}
-				
-				if (queryIncreasedContrast == true) {
-					$('[data-setting="increaseContrast"]').addClass("disabled").removeClass("off");
-					$("#increaseContrastLabel").append(`<span class="subtext">Using device settings</span>`)
-					$('[data-setting="increaseContrast"]').attr("title", "On")
-				}
-			}
-			
-			//GENERATE REDUCED MOTION OPTIONS
-			if (options.motionOptions == true) {
-				//GENERATE MENU
-				$(`#textOptions`).append(`
-					<div class="itemList fixedIconSize">
-						${iconObjects.dialOffStroke}
-						<div class="label" id="reducedMotionLabel">
-							<span>Reduce Motion</span>
-						</div>
-						<button class="switch positive" data-setting="reduceMotion">
-							<div class="knob"></div>
-						</button>
-					</div>
-				`);
-				
-				//SET SWITCH STATE
-				if (getPreferenceGroup("rebar.appSettings").reduceMotion == "off") {
-					$('[data-setting="reduceMotion"]').addClass("off");
-					$('[data-setting="reduceMotion"]').attr("title", "Off")
-				} else {
-					$('[data-setting="reduceMotion"]').attr("title", "On")
-				}
-				
-				if (queryReducedMotion == true) {
-					$('[data-setting="reduceMotion"]').addClass("disabled").removeClass("off");
-					$("#reducedMotionLabel").append(`<span class="subtext">Using device settings</span>`)
-					$('[data-setting="reduceMotion"]').attr("title", "On")
+					$('[data-setting="dyslexiaText"]').attr("title", "On")
 				}
 			}
 		}
@@ -961,6 +1003,29 @@ function grabURLParameter() {
 				mode: "update",
 				preference: "textWeight",
 				value: "regular",
+			})
+		}
+	});
+	
+	//SET DYSLEXIC TEXT
+	$(document).on('click', '.switch[data-setting="dyslexiaText"]', function() {
+		let state = clickSwitch(this);
+		if (state == "on") {
+			$("body").attr("data-textdyslexia", "on");
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "textDyslexia",
+				value: "on",
+			})
+		}
+		if (state == "off") {
+			$("body").attr("data-textdyslexia", "off");
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "textDyslexia",
+				value: "off",
 			})
 		}
 	});

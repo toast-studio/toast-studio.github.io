@@ -958,7 +958,7 @@ const views = {
 					<li>New multicoloured icon style for icons that need to carry semantic meaning with colours</li>
 					<li>Added a styling hook for Dynamic Type Size</li>
 					<li>Added support for an Increased Contrast mode which also supports the device settings</li>
-					<li>Added <code>--warning</code> and <code>--info</code> CSS variables</li>
+					<li>Added <code>--warning</code>, <code>--info</code>, <code>--font-serif</code>, and <code>--font-dyslexic</code> CSS variables</li>
 					<li>Added <code>.alwaysPositive</code>, <code>.alwaysDestructive</code>, <code>.alwaysWarning</code>, and <code>.alwaysInfo</code></li>
 				</ul>
 				<h4>Changes</h4>
@@ -1034,6 +1034,8 @@ const views = {
 					<li>Text Size</li>
 					<li>Text Weight</li>
 					<li>Text Edit</li>
+					<li>Text Capital</li>
+					<li>Text Dyslexia</li>
 					<li>Filter</li>
 					<li>Filter in Circle</li>
 					<li>Location Arrow</li>
@@ -5745,6 +5747,7 @@ $(document).keyup(function(e) {
 					<h5>This is an H5</h5>
 					<h6>This is an H6</h6>
 				</section>
+				
 				<h2 class="headerSection">Body</h2>
 				<section class="containerSection">
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
@@ -5762,6 +5765,15 @@ $(document).keyup(function(e) {
 					<p><a href="https://toast-studio.com/">This is a link</a></p>
 					<p class="subtext">This is subtext with a <a href="https://toast-studio.com/">link</a></p>
 					<code>Text wrapped in a code tag</code>
+				</section>
+				
+				<h2 class="headerSection">Fonts</h2>
+				<section class="containerSection">
+					<h2>This is some --font-regular text.</h2>
+					<h2 id="exampleTextRounded">This is some --font-rounded text.</h2>
+					<h2 id="exampleTextMonospace">This is some --font-monospace text.</h2>
+					<h2 id="exampleTextSerif">This is some --font-serif text.</h2>
+					<h2 id="exampleTextDyslexic">This is some --font-dyslexic text.</h2>
 				</section>
 			</div>
 		`,
@@ -5798,46 +5810,14 @@ $(document).keyup(function(e) {
 				<h3>Text Size</h3>
 				<p>Dynamic Type is the text size engine of Rebar. Components are designed to scale with <code>--base-font-size</code> and Dynamic Type can override this with a new value. By default Rebar has 3 text sizes: <code>small</code> (12px), <code>medium</code> (16px), and <code>large</code> (24px). The default size is <code>medium</code>.</p>
 				<p>If required you can include any amount of extra sizes that you need. To do this add more sizes to the <code>dynamicTypeSizes</code> constant in the <code>metadata.js</code> file. The Dynamic Type Picker will need to be modified accordingly. It is worth noting that on first run when no size is set Rebar will default to <code>medium</code>, if this is missing it will fallback to whatever value is set for <code>--base-font-size</code>.
-				<p>Rebar comes with a Text Size Picker in the form of Display Options. If you want a Type Size Picker with a different style you can use this code to set it up:</p>
-<pre class="spacerTriple">
-let selectedValue = {
-    value: "value",
-    label: "label"
-}
+				<p class="spacerTriple">Rebar comes with a Text Size Picker in the form of Display Options. You can set up your own custom picker but it is not recommended.</p>
 
-$("body").attr("data-textsize", selectedValue.value);
-document.documentElement.style.setProperty('--base-font-size', dynamicTypeSizes[selectedValue.value]);
-modifyPreference({
-    group: "rebar.appSettings",
-    mode: "update",
-    preference: "dynamicTypeSize",
-    value: {
-        value: selectedValue.value,
-        label: selectedValue.label
-    },
-})
-</pre>
 				<h3>Bold Text</h3>
 				<p>The <code>font-weight</code> of all components can be overriden with Dynamic Type as well. There are 2 included font weights and these are not changable: Regular and Bold (Extra options for Light and Extra Bold exist in the Rebar CSS but are not presented in the Display Options component but can be used in a custom picker if you need). Each options corresponds to the same values for the <code>font-weight</code> CSS property.</p>
-				<p>Rebar comes with a Bold Text Picker in the form of Display Options. If you want a Font Weight Picker with a different style or more options you can use this code to set it up:</p>
-<pre class="spacerTriple">
-let selectedValue = {
-    value: "value",
-    label: "label"
-}
+				<p class="spacerTriple">Rebar comes with a Bold Text Picker in the form of Display Options. You can set up your own custom picker but it is not recommended.</p>
 
-$("body").attr("data-textweight", selectedValue.value);
-document.documentElement.style.setProperty('--base-font-size', dynamicTypeWeight[selectedValue.value]);
-modifyPreference({
-    group: "rebar.appSettings",
-    mode: "update",
-    preference: "dynamicTypeWeight",
-    value: {
-        value: selectedValue.value,
-        label: selectedValue.label
-    },
-})
-</pre>
+				<h3>Dyslexic Font</h3>
+				<p>Rebar comes with Open Dyslexia 3, a font specifically designed to make it easier for Dyslexic users to read. A picker for this font is included in the Display Options and when set it will override ALL fonts of every component. You can set up your own custom picker but it is not recommended.</p>
 			</div>
 		`,
 	},
@@ -6708,7 +6688,7 @@ generateBlankState({
 		properties: {
 			originContainer: "primaryNav",
 			parentContainer: "secondaryNav",
-			parentRoute: "code",
+			parentRoute: "visuals",
 			targetContainer: "primaryContent",
 			clearContainer: null,
 			columnLevel: 2,
@@ -6736,8 +6716,10 @@ generateBlankState({
 				<ul>
 					<li><code>--main</code>: The primary colour predominately found in body copy.</li>
 					<li><code>--accent</code>: The app tint colour.</li>
-					<li><code>--destructive</code>: Destructive or negative actions.</li>
-					<li><code>--positive</code>: Positive or confirmation actions.</li>
+					<li><code>--destructive</code>: Destructive or negative actions and messages.</li>
+					<li><code>--positive</code>: Positive or confirmation actions and messages.</li>
+					<li><code>--warning</code>: Warning messages.</li>
+					<li><code>--info</code>: Informational messages.</li>
 					<li><code>--background</code>: The base background colour.</li>
 					<li><code>--foreground:</code> A colour that contrasts against <code>--background</code>.</li>
 					<li><code>--divider</code>: For dividers and borders.</li>
@@ -6747,9 +6729,11 @@ generateBlankState({
 				
 				<h2>Fonts</h2>
 				<ul>	
-					<li><code>--font-regular</code>: The primary font stack.</li>
+					<li><code>--font-regular</code>: The sans-serif font stack.</li>
 					<li><code>--font-rounded</code>: A rounded font stack.</li>
 					<li><code>--font-monospace</code>: A monospaced font stack.</li>
+					<li><code>--font-serif</code>: A serif font stack.</li>
+					<li><code>--font-dyslexic</code>: A font stack for Dyslexic users.</li>
 					<li><code>--base-font-size</code>: This size is used for fonts as well as anything that should scale with the size of text, to enable Dynamic Type like text scaling.</li>
 				</ul>
 				
@@ -6785,7 +6769,7 @@ generateBlankState({
 		properties: {
 			originContainer: "primaryNav",
 			parentContainer: "secondaryNav",
-			parentRoute: "code",
+			parentRoute: "visuals",
 			targetContainer: "primaryContent",
 			clearContainer: null,
 			columnLevel: 2,
@@ -6836,7 +6820,7 @@ generateBlankState({
 		properties: {
 			originContainer: "primaryNav",
 			parentContainer: "secondaryNav",
-			parentRoute: "code",
+			parentRoute: "visuals",
 			targetContainer: "primaryContent",
 			clearContainer: null,
 			columnLevel: 2,
@@ -6872,7 +6856,7 @@ generateBlankState({
 		properties: {
 			originContainer: "primaryNav",
 			parentContainer: "secondaryNav",
-			parentRoute: "code",
+			parentRoute: "visuals",
 			targetContainer: "primaryContent",
 			clearContainer: null,
 			columnLevel: 2,
@@ -6940,7 +6924,7 @@ generateBlankState({
 		properties: {
 			originContainer: "primaryNav",
 			parentContainer: "secondaryNav",
-			parentRoute: "code",
+			parentRoute: "visuals",
 			targetContainer: "primaryContent",
 			clearContainer: null,
 			columnLevel: 2,
@@ -6981,7 +6965,7 @@ generateSpinner({
 		properties: {
 			originContainer: "primaryNav",
 			parentContainer: "secondaryNav",
-			parentRoute: "code",
+			parentRoute: "visuals",
 			targetContainer: "primaryContent",
 			clearContainer: null,
 			columnLevel: 2,
@@ -7018,7 +7002,7 @@ function setMetaTheme() {
 		properties: {
 			originContainer: "primaryNav",
 			parentContainer: "secondaryNav",
-			parentRoute: "code",
+			parentRoute: "visuals",
 			targetContainer: "primaryContent",
 			clearContainer: null,
 			columnLevel: 2,
@@ -7081,7 +7065,7 @@ function setMetaTheme() {
 		properties: {
 			originContainer: "primaryNav",
 			parentContainer: "secondaryNav",
-			parentRoute: "code",
+			parentRoute: "helpers",
 			targetContainer: "primaryContent",
 			clearContainer: null,
 			columnLevel: 2,
@@ -7161,7 +7145,7 @@ modifyPreference({
 		properties: {
 			originContainer: "primaryNav",
 			parentContainer: "secondaryNav",
-			parentRoute: "code",
+			parentRoute: "helpers",
 			targetContainer: "primaryContent",
 			clearContainer: null,
 			columnLevel: 2,
@@ -7210,7 +7194,7 @@ generateTipJar({
 		properties: {
 			originContainer: "primaryNav",
 			parentContainer: "secondaryNav",
-			parentRoute: "code",
+			parentRoute: "helpers",
 			targetContainer: "primaryContent",
 			clearContainer: null,
 			columnLevel: 2,
@@ -7245,7 +7229,7 @@ function capitalize(word) {
 		properties: {
 			originContainer: "primaryNav",
 			parentContainer: "secondaryNav",
-			parentRoute: "code",
+			parentRoute: "helpers",
 			targetContainer: "primaryContent",
 			clearContainer: null,
 			columnLevel: 2,
@@ -7298,7 +7282,7 @@ function copyToClipboard(text) {
 			properties: {
 				originContainer: "primaryNav",
 				parentContainer: "secondaryNav",
-				parentRoute: "code",
+				parentRoute: "helpers",
 				targetContainer: "primaryContent",
 				clearContainer: null,
 				columnLevel: 2,
@@ -7344,7 +7328,7 @@ function setTimeLength() {
 			properties: {
 				originContainer: "primaryNav",
 				parentContainer: "secondaryNav",
-				parentRoute: "code",
+				parentRoute: "helpers",
 				targetContainer: "primaryContent",
 				clearContainer: null,
 				columnLevel: 2,

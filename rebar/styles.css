@@ -317,3 +317,19 @@
 	color: rgb(var(--main));
 	text-align: center;
 }
+
+#exampleTextRounded {
+	font-family: var(--font-rounded);
+}
+
+#exampleTextMonospace {
+	font-family: var(--font-monospace);
+}
+
+#exampleTextSerif {
+	font-family: var(--font-serif);
+}
+
+#exampleTextDyslexic {
+	font-family: var(--font-dyslexic);
+}

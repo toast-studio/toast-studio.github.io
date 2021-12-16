@@ -46,6 +46,7 @@ const appPreferencesDefault = {
 			label: "Medium",
 		},
 		textWeight: "regular",
+		textDyslexia: "off",
 		increaseContrast: "less",
 		reduceMotion: "off",
 		firstRun: null,

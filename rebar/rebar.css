@@ -2,15 +2,22 @@
 /* COPYRIGHT TOAST STUDIO */
 
 /* SETUP */
+	@font-face {
+		font-family: "Open Dyslexic Regular";
+		src: url("fonts/OpenDyslexic3-Regular.ttf");
+	}
+
 	:root {
 		/* COLOURS */
 		--systempanel: 255, 255, 255;
 		--systemBlue: 0, 122, 255;
 		
 		/* FONTS */
-		--font-regular: system-ui, Roboto, Helvetica, sans-serif;
-		--font-rounded: ui-rounded, system-ui, Roboto, Helvetica, sans-serif;
+		--font-regular: system-ui, ui-sans-serif, Roboto, Helvetica, sans-serif;
+		--font-rounded: ui-rounded, system-ui, ui-sans-serif, Roboto, Helvetica, sans-serif;
 		--font-monospace: ui-monospace, Consolas, Monaco, monospace;
+		--font-serif: ui-serif, "Times New Roman", serif;
+		--font-dyslexic: "Open Dyslexic Regular", serif;
 		--base-font-size: 16px;
 		
 		/* EFFECTS */
@@ -413,6 +420,10 @@
 	}
 
 /* TEXT */
+	[data-textdyslexia="on"] * {
+		font-family: var(--font-dyslexic) !important;
+	}
+
 	h1, h2, h3, h4, h5, h6 {
 		font-family: var(--font-regular);
 		color: rgb(var(--main));
@@ -837,7 +848,7 @@
 	}
 	
 	.columnPrimary.slightSlide {
-		transform: translateX(-5vw);
+		transform: translateX(-20vw);
 		transition: calc(var(--base-time-length) * 1.5) transform ease;
 	}
 	
@@ -859,7 +870,7 @@
 	}
 	
 	.columnSecondary.slightSlide {
-		transform: translateX(-10vw);
+		transform: translateX(-20vw);
 		transition: calc(var(--base-time-length) * 1.5) transform ease;
 	}
 	
@@ -908,6 +919,10 @@
 			width: var(--aside-width);
 		}
 		
+		.columnPrimary.slightSlide {
+			transform: translateX(-10vw);
+		}
+		
 		.containerAside.single .columnPrimary.slightSlide {
 			transform: none;
 		}
@@ -917,6 +932,7 @@
 		}
 		
 		.columnSecondary.slightSlide {
+			transform: translateX(-10vw);
 			transform: none;
 		}
 		
@@ -1191,7 +1207,7 @@
 		border-radius: 0px 0px var(--base-radius-size) var(--base-radius-size);
 	}
 	
-	.containerItemList.inset .containerSection > :first-child:last-child:hover, .containerItemList.inset .containerSection > .picked:first-child:last-child {
+	.containerItemList.inset .containerSection > :not(div):first-child:last-child:hover, .containerItemList.inset .containerSection > .picked:first-child:last-child {
 		border-radius: var(--base-radius-size);
 		border-block-start: 1px solid transparent;
 	}
@@ -2813,7 +2829,7 @@
 		background: rgb(var(--accent));
 		border-radius: calc(var(--base-radius-size) * 20);
 		box-shadow: inset 0px 0px 0px 1px rgba(var(--main),0.1);
-		background-size: contain !important;
+		background-size: cover !important;
 	}
 	
 	.accentChip:hover {

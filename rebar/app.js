@@ -251,6 +251,7 @@ $(document).ready(function(){
 						accentOptions: false,
 						textSizeOptions: true,
 						textWeightOptions: true,
+						textDyslexicOptions: true,
 					});
 					
 					break;
@@ -264,6 +265,7 @@ $(document).ready(function(){
 						textWeightOptions: true,
 						contrastOptions: true,
 						motionOptions: true,
+						textDyslexicOptions: true,
 					});
 					
 					break;
@@ -290,6 +292,11 @@ $(document).ready(function(){
 				case 'reduceMotion':
 					generateDisplayOptions({
 						target: "pickerMotion",
+						themeOptions: false,
+						accentOptions: false,
+						textSizeOptions: false,
+						textWeightOptions: false,
+						contrastOptions: false,
 						motionOptions: true,
 					});
 					
