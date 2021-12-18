@@ -1099,6 +1099,8 @@ const views = {
 					<li>Swatch Book</li>
 					<li>Clipboard</li>
 					<li>Briefcase</li>
+					<li>Cube</li>
+					<li>Box</li>
 				</ul>
 				<h5 class="h6">Charts</h5>
 				<ul>
@@ -7106,6 +7108,7 @@ const appPreferencesDefault = {
             label: "Medium",
         },
         textWeight: "regular",
+		textDyslexia: "off",
         increaseContrast: "less",
         reduceMotion: "off",
         firstRun: null,
