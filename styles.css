@@ -525,8 +525,8 @@ footer .toast:hover {
     margin-bottom: 0px;
     grid-gap: 0px;
     grid-auto-columns: 1fr;
-    grid-template-rows: repeat(6, 140px);
-    grid-template-areas: "lifecast" "simplescales" "screensizes" "linkbadges" "typedex" "critterdex";
+    grid-template-rows: repeat(8, 140px);
+    grid-template-areas: "screensizes" "simplescales" "lifecast" "clearread" "linkbadges" "typedex" "critterdex" "empty";
 }
 
 .toast-page main section {
@@ -602,8 +602,11 @@ footer .toast:hover {
         padding-right: 40px;
         grid-gap: 20px;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 460px 460px 460px;
-        grid-template-areas: "lifecast simplescales" "screensizes linkbadges" "typedex critterdex";
+        grid-template-rows: 460px 460px 460px 460px;
+        grid-template-areas:    "screensizes simplescales"
+                                "lifecast clearread" 
+                                "typedex critterdex" 
+                                "linkbadges empty";
     }
 
     .toast-page main aside {
@@ -964,6 +967,17 @@ footer .toast:hover {
     .toast-page #linkbadges .promo {
         width: 540px;
     }
+}
+
+.toast-page #clearread {
+    grid-area: clearread;
+}
+
+.toast-page #empty {
+    grid-area: empty;
+    background: none;
+    box-shadow: none;
+    pointer-events: none;
 }
 
 .simplescales-page {
