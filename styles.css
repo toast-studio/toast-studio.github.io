@@ -973,6 +973,55 @@ footer .toast:hover {
     grid-area: clearread;
 }
 
+@media (min-width: 768px) {
+    .toast-page #clearread h2 {
+        font-size: 40px;
+    }
+
+    .toast-page #clearread h3 {
+        font-size: 18px;
+    }
+
+    .toast-page #clearread div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .toast-page #clearread aside {
+        position: absolute;
+        bottom: 20px;
+        width: 380px;
+        max-width: 90%;
+    }
+
+    .toast-page #clearread .promo {
+        align-self: center;
+        position: absolute;
+        top: 6%;
+        max-width: 100%;
+        left: 0px;
+    }
+}
+
+@media (min-width: 1340px) {
+    .toast-page #clearread h2 {
+        font-size: 50px;
+    }
+
+    .toast-page #clearread h3 {
+        font-size: 24px;
+    }
+
+    .toast-page #clearread aside {
+        bottom: 40px;
+    }
+
+    .toast-page #clearread .promo {
+        width: 637px;
+        top: 60px;
+    }
+}
+
 .toast-page #empty {
     grid-area: empty;
     background: none;
