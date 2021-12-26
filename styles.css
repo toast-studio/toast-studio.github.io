@@ -525,8 +525,8 @@ footer .toast:hover {
     margin-bottom: 0px;
     grid-gap: 0px;
     grid-auto-columns: 1fr;
-    grid-template-rows: repeat(6, 140px);
-    grid-template-areas: "lifecast" "simplescales" "screensizes" "linkbadges" "typedex" "critterdex";
+    grid-template-rows: repeat(8, 140px);
+    grid-template-areas: "screensizes" "simplescales" "lifecast" "clearread" "linkbadges" "typedex" "critterdex" "empty";
 }
 
 .toast-page main section {
@@ -602,8 +602,11 @@ footer .toast:hover {
         padding-right: 40px;
         grid-gap: 20px;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 460px 460px 460px;
-        grid-template-areas: "lifecast simplescales" "screensizes linkbadges" "typedex critterdex";
+        grid-template-rows: 460px 460px 460px 460px;
+        grid-template-areas:    "screensizes simplescales"
+                                "lifecast clearread" 
+                                "typedex critterdex" 
+                                "linkbadges empty";
     }
 
     .toast-page main aside {
@@ -966,6 +969,66 @@ footer .toast:hover {
     }
 }
 
+.toast-page #clearread {
+    grid-area: clearread;
+}
+
+@media (min-width: 768px) {
+    .toast-page #clearread h2 {
+        font-size: 40px;
+    }
+
+    .toast-page #clearread h3 {
+        font-size: 18px;
+    }
+
+    .toast-page #clearread div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .toast-page #clearread aside {
+        position: absolute;
+        bottom: 20px;
+        width: 380px;
+        max-width: 90%;
+    }
+
+    .toast-page #clearread .promo {
+        align-self: center;
+        position: absolute;
+        top: 6%;
+        max-width: 100%;
+        left: 0px;
+    }
+}
+
+@media (min-width: 1340px) {
+    .toast-page #clearread h2 {
+        font-size: 50px;
+    }
+
+    .toast-page #clearread h3 {
+        font-size: 24px;
+    }
+
+    .toast-page #clearread aside {
+        bottom: 40px;
+    }
+
+    .toast-page #clearread .promo {
+        width: 637px;
+        top: 60px;
+    }
+}
+
+.toast-page #empty {
+    grid-area: empty;
+    background: none;
+    box-shadow: none;
+    pointer-events: none;
+}
+
 .simplescales-page {
     background-repeat: no-repeat;
     background-size: contain;
@@ -1263,6 +1326,55 @@ footer .toast:hover {
 
 @media (prefers-color-scheme: dark) {
     .screensizes-page footer .toast:hover {
+        background: url(/screen-sizes/images/toast-active-dark.svg);
+    }
+}
+
+/* CLEAR READ */
+@font-face {
+    font-family: "Open Dyslexic Regular";
+    src: url("clear-read/OpenDyslexic3-Regular.ttf");
+}
+
+.clearread-page {
+    background-repeat: no-repeat;
+    background-size: contain;
+    --background: #FFFFFF;
+    --main: #000000;
+    --tint: #4372FD;
+    --font-body: "Open Dyslexic Regular", serif;
+    --font-header: "Open Dyslexic Regular", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    .clearread-page {
+        --background: #000000;
+        --main: #FFFFFF;
+    }
+}
+
+@media (pointer: fine) and (prefers-color-scheme: dark) {
+    .clearread-page {
+        --background: #1E1E1E;
+    }
+}
+
+.clearread-page footer .toast {
+    background: url(/screen-sizes/images/toast.svg);
+}
+
+@media (prefers-color-scheme: dark) {
+    .clearread-page footer .toast {
+        background: url(/screen-sizes/images/toast-dark.svg);
+    }
+}
+
+.clearread-page footer .toast:hover {
+    background: url(/screen-sizes/images/toast-active.svg);
+}
+
+@media (prefers-color-scheme: dark) {
+    .clearread-page footer .toast:hover {
         background: url(/screen-sizes/images/toast-active-dark.svg);
     }
 }
