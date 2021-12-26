@@ -526,7 +526,14 @@ footer .toast:hover {
     grid-gap: 0px;
     grid-auto-columns: 1fr;
     grid-template-rows: repeat(8, 140px);
-    grid-template-areas: "screensizes" "simplescales" "lifecast" "clearread" "linkbadges" "typedex" "critterdex" "empty";
+    grid-template-areas:    "screensizes"
+                            "simplescales"
+                            "lifecast"
+                            "clearread"
+                            "linkbadges"
+                            "typedex"
+                            "critterdex"
+                            "empty";
 }
 
 .toast-page main section {
@@ -628,7 +635,7 @@ footer .toast:hover {
 @media (min-width: 1340px) {
     .toast-page main {
         padding: 0px;
-        grid-template-rows: 650px 650px 650px;
+        grid-template-rows: 650px 650px 650px 650px;
         grid-gap: 40px;
     }
 }
