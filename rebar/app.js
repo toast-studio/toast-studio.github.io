@@ -42,9 +42,15 @@ $(document).ready(function(){
 					Visuals
 				</div>
 			</button>
+			<button class="sidebar" data-value="helpers">
+				<div class="labelSidebar">
+					${iconObjects.cogStroke}
+					Helpers
+				</div>
+			</button>
 			<button class="sidebar" data-value="iconBrowser">
 				<div class="labelSidebar">
-					${iconShapes.starStroke}
+					${iconShapes.starFivePointStroke}
 					Icons
 				</div>
 			</button>
@@ -54,31 +60,60 @@ $(document).ready(function(){
 	//ROUTING
 		//LOADING A ROUTE ON IN-APP NAVIGATION
 		function routes(value) {
-			//LOADING A DEFAULT VIEW
-			if ((value.source == null || value.source == undefined) && window.matchMedia("(max-width: 1099px)").matches) {
-				value = {type: "deeplink", source: "defaultView"} //Gives a source to target to handle browser navigation back to the initial view
-			}
-			
-			if ((value.source == null || value.source == undefined) && window.matchMedia("(min-width: 1100px)").matches) {
-				value = {type: "deeplink", source: "welcome"} //Select the view you would like to be the default view on larger screens
-			}
+			//BLANK URLS
+				//SMALL SCREENS
+				if (value.source == "" && window.matchMedia("(max-width: 1099px)").matches) {
+					value = {
+						type: "deeplink",
+						query: "section",
+						source: "defaultView"
+					}
+				}
+				
+				//LARGE SCREENS
+				if (value.source == "" && window.matchMedia("(min-width: 1100px)").matches) {
+					value = {
+						type: "deeplink",
+						query: "detail",
+						source: "welcome"
+					}
+				}
 			
 			//GET VALUES
-			let properties = views[value.source].properties
+			let properties
 			let type = value.type
+			let category = value.query
 			let source = value.source
 			
-			//SET STATE
-			changeView({type, source, properties})
-			
 			//GENERATE VIEW
-			$(`#${views[value.source].properties.targetContainer}`).append(views[value.source].content);
-			
-			//GENERATE A DEEP LINK COLUMN
-			//This will generate the second column if you are loading in the third column
-			if (type == "deeplink" && properties.columnLevel == 2) {
-				$(`#${properties.parentContainer}`).append(views[properties.parentRoute].content).addClass("active slightSlide");
-				$(`[data-value="${source}"]`).addClass("picked");
+			switch (category) {
+				case 'section':
+					//CONTENT
+					properties = views[source].properties
+					changeView({type, source, properties})
+					$(`#${views[source].properties.targetContainer}`).append(views[source].content);
+					
+					break;
+				case 'category':
+					//CONTENT
+					properties = views[source].properties
+					changeView({type, source, properties})
+					$(`#${views[source].properties.targetContainer}`).append(views[source].content);
+					
+					break;
+				case 'detail':
+					//CONTENT
+					properties = views[source].properties
+					changeView({type, source, properties})
+					$(`#${views[source].properties.targetContainer}`).append(views[source].content);
+					
+					//DEEP LINK COLUMN GENERATION
+					if (type == "deeplink") {
+						$(`#${properties.parentContainer}`).append(views[properties.parentRoute].content).addClass("active slightSlide");
+						$(`[data-value="${source}"]`).addClass("picked");
+					}
+					
+					break;
 			}
 			
 			//ACTIVATE FUNCTIONALITY ON-LOAD
@@ -120,7 +155,7 @@ $(document).ready(function(){
 						$("#pokemon").append(`
 							<div class="itemList">
 								<div class="label">
-									<span>${val}</span>
+									<span class="itemLabel">${val}</span>
 								</div>
 							</div>
 						`);
@@ -128,8 +163,10 @@ $(document).ready(function(){
 					
 					//SEARCH LIST
 					search({
-						inputID: "#pokemonSearch",
-						searchScope: "#pokemon div"
+						inputID: "pokemonSearch",
+						parentID: "pokemon",
+						itemClass: "itemList",
+						valueClass: "itemLabel"
 					})
 					
 					$(document).on('click', '.buttonClearSearch', function() {
@@ -214,6 +251,7 @@ $(document).ready(function(){
 						accentOptions: false,
 						textSizeOptions: true,
 						textWeightOptions: true,
+						textDyslexicOptions: true,
 					});
 					
 					break;
@@ -225,6 +263,9 @@ $(document).ready(function(){
 						accentOptions: true,
 						textSizeOptions: true,
 						textWeightOptions: true,
+						contrastOptions: true,
+						motionOptions: true,
+						textDyslexicOptions: true,
 					});
 					
 					break;
@@ -249,15 +290,29 @@ $(document).ready(function(){
 					
 					break;
 				case 'reduceMotion':
-					//SET SWITCH STATE
-					if (localStorage.getItem("reduceMotion") == "off") {
-						$('[data-setting="reduceMotion"]').addClass("off");
-					}
+					generateDisplayOptions({
+						target: "pickerMotion",
+						themeOptions: false,
+						accentOptions: false,
+						textSizeOptions: false,
+						textWeightOptions: false,
+						contrastOptions: false,
+						motionOptions: true,
+					});
 					
-					if (queryReducedMotion == true) {
-						$('[data-setting="reduceMotion"]').addClass("disabled").removeClass("off");
-						$("#reducedMotionLabel").append(`<span class="subtext">Using device settings</span>`)
-					}
+					break;
+				case 'increasedContrast':
+					generateDisplayOptions({
+						target: "pickerContrast",
+						contrastOptions: true,
+					});
+					
+					break;
+				case 'spinners':
+					generateSpinner({
+						target: "exampleSpinner",
+						icon: `${iconInterfaceElements.spinnerDuo}`, 
+					});
 					
 					break;
 				case 'blankStates':
@@ -277,18 +332,29 @@ $(document).ready(function(){
 				case 'galleryInterfaceElements':
 					//GENERATE LIST
 					$.each( iconInterfaceElements, function( key, val ) {
-						$("#iconGallery").append(`
-							<div>
-								<span class="iconPlatter">${val}</span>
-								${key}
-							</div>
-						`)
+						if (key.includes("Multi") == true) {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconInterfaceElements.${key}">
+									<span class="iconPlatter useInitialFill">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						} else {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconInterfaceElements.${key}">
+									<span class="iconPlatter">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						}
 					});
 					
 					//SEARCH LIST
 					search({
-						inputID: "#iconSearch",
-						searchScope: "#iconGallery div"
+						inputID: "iconSearch",
+						parentID: "iconGallery",
+						itemClass: "containerIcon",
+						valueClass: "iconName"
 					})
 					
 					$(document).on('click', '.buttonClearSearch', function() {
@@ -310,18 +376,29 @@ $(document).ready(function(){
 				case 'galleryShapes':
 					//GENERATE LIST
 					$.each( iconShapes, function( key, val ) {
-						$("#iconGallery").append(`
-							<div>
-								<span class="iconPlatter">${val}</span>
-								${key}
-							</div>
-						`)
+						if (key.includes("Multi") == true) {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconShapes.${key}">
+									<span class="iconPlatter useInitialFill">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						} else {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconShapes.${key}">
+									<span class="iconPlatter">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						}
 					});
 					
 					//SEARCH LIST
 					search({
-						inputID: "#iconSearch",
-						searchScope: "#iconGallery div"
+						inputID: "iconSearch",
+						parentID: "iconGallery",
+						itemClass: "containerIcon",
+						valueClass: "iconName"
 					})
 					
 					$(document).on('click', '.buttonClearSearch', function() {
@@ -343,18 +420,29 @@ $(document).ready(function(){
 				case 'galleryObjects':
 					//GENERATE LIST
 					$.each( iconObjects, function( key, val ) {
-						$("#iconGallery").append(`
-							<div>
-								<span class="iconPlatter">${val}</span>
-								${key}
-							</div>
-						`)
+						if (key.includes("Multi") == true) {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconObjects.${key}">
+									<span class="iconPlatter useInitialFill">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						} else {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconObjects.${key}">
+									<span class="iconPlatter">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						}
 					});
 					
 					//SEARCH LIST
 					search({
-						inputID: "#iconSearch",
-						searchScope: "#iconGallery div"
+						inputID: "iconSearch",
+						parentID: "iconGallery",
+						itemClass: "containerIcon",
+						valueClass: "iconName"
 					})
 					
 					$(document).on('click', '.buttonClearSearch', function() {
@@ -376,18 +464,29 @@ $(document).ready(function(){
 				case 'galleryIndices':
 					//GENERATE LIST
 					$.each( iconIndices, function( key, val ) {
-						$("#iconGallery").append(`
-							<div>
-								<span class="iconPlatter">${val}</span>
-								${key}
-							</div>
-						`)
+						if (key.includes("Multi") == true) {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconIndices.${key}">
+									<span class="iconPlatter useInitialFill">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						} else {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconIndices.${key}">
+									<span class="iconPlatter">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						}
 					});
 					
 					//SEARCH LIST
 					search({
-						inputID: "#iconSearch",
-						searchScope: "#iconGallery div"
+						inputID: "iconSearch",
+						parentID: "iconGallery",
+						itemClass: "containerIcon",
+						valueClass: "iconName"
 					})
 					
 					$(document).on('click', '.buttonClearSearch', function() {
@@ -409,18 +508,249 @@ $(document).ready(function(){
 				case 'galleryNature':
 					//GENERATE LIST
 					$.each( iconNature, function( key, val ) {
-						$("#iconGallery").append(`
-							<div>
-								<span class="iconPlatter">${val}</span>
-								${key}
-							</div>
-						`)
+						if (key.includes("Multi") == true) {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconNature.${key}">
+									<span class="iconPlatter useInitialFill">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						} else {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconNature.${key}">
+									<span class="iconPlatter">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						}
 					});
 					
 					//SEARCH LIST
 					search({
-						inputID: "#iconSearch",
-						searchScope: "#iconGallery div"
+						inputID: "iconSearch",
+						parentID: "iconGallery",
+						itemClass: "containerIcon",
+						valueClass: "iconName"
+					})
+					
+					$(document).on('click', '.buttonClearSearch', function() {
+						searchClear({
+							inputID: "#iconSearch",
+							searchScope: "#iconGallery div",
+							clearButton: this
+						})
+					});
+					
+					//TOOLBAR SCROLL DIVIDERS
+					toolbarDivider({
+						scrollview: ".containerInlineAccessory",
+						toolbar: "#galleryHeader",
+						height: 50
+					});
+					
+					break;
+				case 'galleryCharts':
+					//GENERATE LIST
+					$.each( iconCharts, function( key, val ) {
+						if (key.includes("Multi") == true) {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconCharts.${key}">
+									<span class="iconPlatter useInitialFill">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						} else {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconCharts.${key}">
+									<span class="iconPlatter">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						}
+					});
+					
+					//SEARCH LIST
+					search({
+						inputID: "iconSearch",
+						parentID: "iconGallery",
+						itemClass: "containerIcon",
+						valueClass: "iconName"
+					})
+					
+					$(document).on('click', '.buttonClearSearch', function() {
+						searchClear({
+							inputID: "#iconSearch",
+							searchScope: "#iconGallery div",
+							clearButton: this
+						})
+					});
+					
+					//TOOLBAR SCROLL DIVIDERS
+					toolbarDivider({
+						scrollview: ".containerInlineAccessory",
+						toolbar: "#galleryHeader",
+						height: 50
+					});
+					
+					break;
+				case 'galleryHuman':
+					//GENERATE LIST
+					$.each( iconHuman, function( key, val ) {
+						if (key.includes("Multi") == true) {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconHuman.${key}">
+									<span class="iconPlatter useInitialFill">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						} else {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconHuman.${key}">
+									<span class="iconPlatter">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						}
+					});
+					
+					//SEARCH LIST
+					search({
+						inputID: "iconSearch",
+						parentID: "iconGallery",
+						itemClass: "containerIcon",
+						valueClass: "iconName"
+					})
+					
+					$(document).on('click', '.buttonClearSearch', function() {
+						searchClear({
+							inputID: "#iconSearch",
+							searchScope: "#iconGallery div",
+							clearButton: this
+						})
+					});
+					
+					//TOOLBAR SCROLL DIVIDERS
+					toolbarDivider({
+						scrollview: ".containerInlineAccessory",
+						toolbar: "#galleryHeader",
+						height: 50
+					});
+					
+					break;
+				case 'galleryHardware':
+					//GENERATE LIST
+					$.each( iconHardware, function( key, val ) {
+						if (key.includes("Multi") == true) {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconHardware.${key}">
+									<span class="iconPlatter useInitialFill">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						} else {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconHardware.${key}">
+									<span class="iconPlatter">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						}
+					});
+					
+					//SEARCH LIST
+					search({
+						inputID: "iconSearch",
+						parentID: "iconGallery",
+						itemClass: "containerIcon",
+						valueClass: "iconName"
+					})
+					
+					$(document).on('click', '.buttonClearSearch', function() {
+						searchClear({
+							inputID: "#iconSearch",
+							searchScope: "#iconGallery div",
+							clearButton: this
+						})
+					});
+					
+					//TOOLBAR SCROLL DIVIDERS
+					toolbarDivider({
+						scrollview: ".containerInlineAccessory",
+						toolbar: "#galleryHeader",
+						height: 50
+					});
+					
+					break;
+				case 'galleryLogos':
+					//GENERATE LIST
+					$.each( iconLogos, function( key, val ) {
+						if (key.includes("Multi") == true) {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconLogos.${key}">
+									<span class="iconPlatter useInitialFill">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						} else {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconLogos.${key}">
+									<span class="iconPlatter">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						}
+					});
+					
+					//SEARCH LIST
+					search({
+						inputID: "iconSearch",
+						parentID: "iconGallery",
+						itemClass: "containerIcon",
+						valueClass: "iconName"
+					})
+					
+					$(document).on('click', '.buttonClearSearch', function() {
+						searchClear({
+							inputID: "#iconSearch",
+							searchScope: "#iconGallery div",
+							clearButton: this
+						})
+					});
+					
+					//TOOLBAR SCROLL DIVIDERS
+					toolbarDivider({
+						scrollview: ".containerInlineAccessory",
+						toolbar: "#galleryHeader",
+						height: 50
+					});
+					
+					break;
+				case 'galleryTransport':
+					//GENERATE LIST
+					$.each( iconTransport, function( key, val ) {
+						if (key.includes("Multi") == true) {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconTransport.${key}">
+									<span class="iconPlatter useInitialFill">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						} else {
+							$("#iconGallery").append(`
+								<div class="containerIcon" title="Copy ${key} to Clipboard" data-iconname="iconTransport.${key}">
+									<span class="iconPlatter">${val}</span>
+									<span class="iconName">${key}</span>
+								</div>
+							`)
+						}
+					});
+					
+					//SEARCH LIST
+					search({
+						inputID: "iconSearch",
+						parentID: "iconGallery",
+						itemClass: "containerIcon",
+						valueClass: "iconName"
 					})
 					
 					$(document).on('click', '.buttonClearSearch', function() {
@@ -477,20 +807,41 @@ $(document).ready(function(){
 		//MAKE SWITCHES CLICKABLE
 		$(document).on('click', '.switch[data-setting="switch1"]', function() {
 			let state = clickSwitch(this);
+			
+			if (state ==  "on") {
+				$('.switch[data-setting="switch1"]').attr("title", "On")
+			} else {
+				$('.switch[data-setting="switch1"]').attr("title", "Off")
+			}
+			
 		});
 		
 		$(document).on('click', '.switch[data-setting="switch2"]', function() {
 			let state = clickSwitch(this);
+			
+			if (state ==  "on") {
+				$('.switch[data-setting="switch2"]').attr("title", "On")
+			} else {
+				$('.switch[data-setting="switch2"]').attr("title", "Off")
+			}
+			
 		});
 		
 		$(document).on('click', '.switch[data-setting="switch3"]', function() {
 			let state = clickSwitch(this);
+			
+			if (state ==  "on") {
+				$('.switch[data-setting="switch3"]').attr("title", "On")
+			} else {
+				$('.switch[data-setting="switch3"]').attr("title", "Off")
+			}
 		});
 		
 	//SAMPLE APP NAVIGATION
 		$(document).on('click', '#primaryNav button', function() {
 			routes({
 				type: "navigation",
+				query: "category",
 				source: $(this).data("value")
 			});
 		});
@@ -498,6 +849,7 @@ $(document).ready(function(){
 		$(document).on('click', '#secondaryNav button.itemList', function() {
 			routes({
 				type: "navigation",
+				query: "detail",
 				source: $(this).data("value")
 			});
 		});
@@ -545,7 +897,7 @@ $(document).ready(function(){
 		$(document).on('click', '#exampleToast1', function() {
 			summonPanel({ 
 				type: 'toast', 
-				backing: 'transparent', 
+				backing: 'gradient',
 				title: "This is an example Toast",
 				containerID: "exampleTextToast"
 			});
@@ -554,7 +906,7 @@ $(document).ready(function(){
 		$(document).on('click', '#exampleToast2', function() {
 			summonPanel({ 
 				type: 'toast', 
-				backing: 'transparent', 
+				backing: 'gradient', 
 				title: "This is an example Toast with an SVG",
 				icon: `${iconInterfaceElements.appearance}`,
 				containerID: "exampleSVGToast"
@@ -564,7 +916,7 @@ $(document).ready(function(){
 		$(document).on('click', '#exampleToast3', function() {
 			summonPanel({ 
 				type: 'toast', 
-				backing: 'transparent', 
+				backing: 'gradient', 
 				title: "This is an example Toast with an image",
 				icon: `<img src="images/ui/sidebar1.png" />`,
 				containerID: "exampleImageToast"
@@ -730,7 +1082,12 @@ $(document).ready(function(){
 		});
 		
 		$(document).on('click', '#exampleInstallReset', function() {
-			localStorage.setItem("firstRun", "");
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "firstRun",
+				value: null,
+			})
 			location.reload();
 		});
 		
@@ -763,16 +1120,41 @@ $(document).ready(function(){
 		//SET PICKED TOKENS
 		$(document).on('click', '#exampleTokenField .token', function() {
 			let selectedSection = selectionGrid(this);
-			
-			//PUSH THE SELECTED VALUES TO A GLOBAL VARIABLE
-			selectedTokens = selectedTokens.filter(item => item.setting !== selectedSection.setting); //Removes an existing entry
-			selectedTokens.push(selectedSection)
 		});
 		
 		//GET VALUES OF PICKED TOKENS
 		$(document).on('click', '#displaySelections', function() {
 			//GET THE VALUES OF THE SELECTED TOKENS
-			console.log(selectedTokens.find(ele => ele.setting === 'critters').selectedValues)
-			console.log(selectedTokens.find(ele => ele.setting === 'type').selectedValues)
+			console.log(getSelectionGridGroups(["critters", "type"]))
+		});
+		
+	//COPY ICON NAMES
+		$(document).on('click', '.containerIcon', function() {
+			let text = $(this).data("iconname")
+			copyToClipboard(text)
+		});
+		
+	//CHANGE THEME AND ACCENT FROM THE ICON BROWSER
+		$(document).on('click', '#miniThemePicker', function() {
+			summonPanel({ 
+				type: 'sheet', 
+				backing: 'dark', 
+				size: 'full', 
+				width: 'slim',
+				outerPadding: 'include', 
+				title: 'Display Options',
+				toolbar: 'include',
+				containerID: "sheetDisplayOptions"
+			});
+			
+			generateDisplayOptions({
+				target: "sheetDisplayOptions",
+				themeOptions: true,
+				accentOptions: true,
+				textSizeOptions: false,
+				textWeightOptions: false,
+				contrastOptions: true,
+				motionOptions: false,
+			});
 		});
 });

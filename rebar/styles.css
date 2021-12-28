@@ -174,11 +174,24 @@
 	margin-top: calc(var(--base-gap-size) * 1);
 }
 
-#exampleIcons svg {
-	margin-inline-end: var(--base-gap-size);
+#exampleIcons {
+	display: flex;
+	justify-content: space-around;
 }
 
-#exampleIcons path {
+#exampleIcons span {
+	display: flex;
+	gap: calc(var(--base-gap-size) / 2);
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: rgb(var(--main));
+	font-family: var(--font-regular);
+	font-size: var(--base-font-size);
+	text-align: center;
+}
+
+#exampleIcons span:not(.useInitialFill) path {
 	fill: rgb(var(--main));
 }
 
@@ -187,13 +200,16 @@
 }
 
 #iconGallery {
-	/* display: grid;
-	gap: var(--base-gap-size); */
+	display: grid;
+	grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+	grid-template-rows: repeat(auto-fill,minmax(120px,1fr));
+	gap: var(--base-gap-size);
+	align-items: flex-start;
 }
 
 #iconGallery div {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: left;
 	align-items: center;
 	gap: calc(var(--base-gap-size) / 2);
@@ -201,10 +217,25 @@
 	color: rgb(var(--main));
 	font-family: var(--font-regular);
 	font-size: var(--base-font-size);
+	background: rgb(var(--foreground));
+	border-radius: var(--base-radius-size);
+	padding: var(--base-gap-size) calc(var(--base-gap-size) / 2);
+	height: 120px;
+}
+
+#iconGallery div:hover {
+	background: rgba(var(--main), 0.1);
+	cursor: pointer;
+}
+
+#iconGallery div span {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
 }
 
 #iconGallery .iconPlatter {
-	background: rgb(var(--foreground));
 	border-radius: var(--base-radius-size);
 	width: calc(var(--base-font-size) * 3);
 	height: calc(var(--base-font-size) * 3);
@@ -215,11 +246,90 @@
 	align-items: center;
 }
 	
-#iconGallery svg {
-	width: calc(var(--base-font-size) * 1.5);
-	height: calc(var(--base-font-size) * 1.5);
+#iconGallery .iconPlatter svg {
+	width: calc(var(--base-font-size) * 2);
+	height: calc(var(--base-font-size) * 2);
 }
 
-#iconGallery path {
+#iconGallery .iconPlatter:not(.useInitialFill) path {
 	fill: rgb(var(--main));
+}
+
+#toastCrafted {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+#toastCrafted svg {
+	width: 150px;
+	height: 70px;
+}
+
+#toastCrafted svg path {
+	fill: rgba(var(--main), 0.2)
+}
+
+#gridWelcome {
+	display: grid;
+	gap: var(--base-gap-size);
+	margin-block-end: calc(var(--base-gap-size) * 4);
+}
+
+@media (min-width: 1100px) {
+	#gridWelcome {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+#exampleAccordion2 {
+	overflow: hidden;
+}
+
+#exampleSpinner {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	border-radius: var(--base-radius-size);
+	border: 1px solid rgb(var(--divider));
+}
+
+#gridColours {
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+	gap: var(--base-gap-size);
+}
+
+#gridColours .tile {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: calc(var(--base-gap-size) / 2);
+	text-align: center;
+	background: rgb(var(--foreground));
+	padding: var(--base-gap-size);
+	border-radius: var(--base-radius-size);
+}
+
+#gridColours .label {
+	font-family: var(--font-regular);
+	font-size: var(--base-font-size);
+	color: rgb(var(--main));
+	text-align: center;
+}
+
+#exampleTextRounded {
+	font-family: var(--font-rounded);
+}
+
+#exampleTextMonospace {
+	font-family: var(--font-monospace);
+}
+
+#exampleTextSerif {
+	font-family: var(--font-serif);
+}
+
+#exampleTextDyslexic {
+	font-family: var(--font-dyslexic);
 }
