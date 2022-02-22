@@ -502,6 +502,8 @@ footer .toast:hover {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 23px;
 }
 
 @media (min-width: 768px) {
@@ -529,10 +531,10 @@ footer .toast:hover {
     grid-template-areas:    "screensizes"
                             "simplescales"
                             "lifecast"
-                            "clearread"
-                            "linkbadges"
                             "typedex"
                             "critterdex"
+                            "clearread"
+                            "linkbadges"
                             "empty";
 }
 
@@ -1287,18 +1289,18 @@ footer .toast:hover {
 .screensizes-page {
     background-repeat: no-repeat;
     background-size: contain;
-    --background: #FFFFFF;
+    --background: #F5F5F5;
     --main: #000000;
-    --tint: #5F65B1;
+    --tint: #7C0EE2;
     --font-body: system-ui, helvetica, roboto, sans-serif;
     --font-header: system-ui, helvetica, roboto, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
     .screensizes-page {
-        --background: #000000;
+        --background: #1E1E1E;
         --main: #FFFFFF;
-        --tint: #888FF6;
+        --tint: #CF8EFF;
     }
 }
 
