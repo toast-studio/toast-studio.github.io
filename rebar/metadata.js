@@ -19,6 +19,7 @@ const appAccents = {
 	orange: "Orange",
 	yellow: "Yellow",
 	green: "Green",
+	teal: "Teal",
 	blue: "Blue",
 	purple: "Purple",
 	pink: "Pink",
@@ -39,6 +40,8 @@ const appPreferencesVersion = 1;
 const appPreferencesDefault = {
 	"rebar.appSettings": {
 		version: 1,
+		openings: 1,
+		firstRun: null,
 		accent: ["default"],
 		appearance: ["system"],
 		dynamicTypeSize: {
@@ -49,8 +52,6 @@ const appPreferencesDefault = {
 		textDyslexia: "off",
 		increaseContrast: "less",
 		reduceMotion: "off",
-		firstRun: null,
-		openings: 1,
 		clickedDonationLink: false,
 	},
 }

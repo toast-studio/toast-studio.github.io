@@ -169,6 +169,12 @@ const views = {
 								<span>Context Menus</span>
 							</div>
 						</button>
+						<button class="itemList rounded fixedIconSize" data-value="popovers">
+							${iconShapes.viewfinder}
+							<div class="label">
+								<span>Popovers</span>
+							</div>
+						</button>
 						<button class="itemList rounded fixedIconSize" data-value="segmentedControls">
 							${iconInterfaceElements.segmentedControl}
 							<div class="label">
@@ -249,7 +255,7 @@ const views = {
 							</div>
 						</button>
 					</section>
-					<h2 class="headerList">Content Blocks</h2>
+					<h2 class="headerList">Structure</h2>
 					<section class="containerSection excludePadding">
 						<button class="itemList rounded fixedIconSize" data-value="columns">
 							${iconInterfaceElements.columnsTripleStroke}
@@ -282,7 +288,7 @@ const views = {
 							</div>
 						</button>
 					</section>
-					<h2 class="headerList">Content Containers</h2>
+					<h2 class="headerList">Containers</h2>
 					<section class="containerSection excludePadding">
 						<button class="itemList rounded fixedIconSize" data-value="scrollviews">
 							${iconInterfaceElements.scrollviewStroke}
@@ -294,6 +300,12 @@ const views = {
 							${iconInterfaceElements.windowBarTopStroke}
 							<div class="label">
 								<span>Sections</span>
+							</div>
+						</button>
+						<button class="itemList rounded fixedIconSize" data-value="tables">
+							${iconInterfaceElements.tableFill}
+							<div class="label">
+								<span>Tables</span>
 							</div>
 						</button>
 						<button class="itemList rounded fixedIconSize" data-value="accordions">
@@ -440,6 +452,12 @@ const views = {
 							${iconInterfaceElements.spinnerDuo}
 							<div class="label">
 								<span>Spinners</span>
+							</div>
+						</button>
+						<button class="itemList rounded fixedIconSize" data-value="appGlyph">
+							${iconLogos.rebarDuo}
+							<div class="label">
+								<span>App Glyph</span>
 							</div>
 						</button>
 					</section>
@@ -590,6 +608,12 @@ const views = {
 							${iconObjects.compassStroke}
 							<div class="label">
 								<span>Grab URL Parameters</span>
+							</div>
+						</button>
+						<button class="itemList rounded fixedIconSize" data-value="scrollToTop">
+							${iconShapes.chevronSingleCircleUpStroke}
+							<div class="label">
+								<span>Scroll to Top</span>
 							</div>
 						</button>
 					</section>
@@ -932,6 +956,145 @@ const views = {
 				<div class="pinRight"></div>
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
+				<h2 class="h4">1.2</h2>
+				<p class="subtext">27 February 2022</p>
+				<h3>Framework</h3>
+				<h4>Added</h4>
+				<ul>
+					<li>You can now apply <code>.cropAccessoryBar</code> to a <code>.containerItemList</code> to have the Item List avoid an Accessory Bar</li>
+					<li>Tables</li>
+					<li><code>.hidden</code> helper class</li>
+					<li><code>scrollToTop()</code> function</li>
+					<li>In three column layouts you can now have routes that only use two columns</li>
+					<li>Popovers</li>
+					<li><code>--systempanel-lift</code> colour variable</li>
+					<li>Teal as a default accent colour</li>
+					<li><code>searchTable()</code> function specifically for searching tables</li>
+					<li><code>insertShareButton()</code> function to handle insert Share buttons only when the browser supports Share functionality</li>
+				</ul>
+				
+				<h4>Changes</h4>
+				<ul>
+					<li>The icon size on Content Menu Item buttons now matches the base font size</li>
+					<li><code>changeView()</code> can now take a modifier value which can be used to set the subdued state of sidebar items in cases that are using Route Categories</li>
+					<li>Sidebar icons can now use their initial fill</li>
+					<li>Buttons now have a default gap applied to allow for spacing when an icon is included</li>
+					<li><code>setMetaTheme()</code> now uses the <code>foreground</code> colour variable</li>
+					<li>Made the Dyslexic Font display setting more clearly labelled</li>
+					<li>Increased the background opacity of the Segmented Control track</li>
+					<li>Set <code>.containerApp</code> to <code>position: fixed</code> in an attempt to stop Mobile Safari from positioning it incorrectly</li>
+				</ul>
+				
+				<h4>Fixed</h4>
+				<ul>
+					<li><code>.pinLeft</code> and <code>.pinRight</code> now vertically centre their child items</li>
+					<li>The grippers for Context Menu buttons now use the correct colour when set to <code>.toolbarItem</code></li>
+					<li>The height of Accessory Bars are now sized to fix components when Open Dyslexic is used</li>
+					<li>Toolbar layouts respect the notch better</li>
+					<li>Open Dyslexic is now part of the default Service Worker cache</li>
+				</ul>
+				
+				<h3>Icons</h3>
+				<h4>Added</h4>
+				<ul>
+					<li>iPhone Touch ID</li>
+					<li>iPhone Wide Face ID</li>
+					<li>iPhone Narrow Face ID</li>
+					<li>iPhone Liquid Retina</li>
+					<li>iPhone Face View</li>
+					<li>iPad Original</li>
+					<li>iPad Home Button</li>
+					<li>iPad Touch ID</li>
+					<li>iPad Liquid Retina</li>
+					<li>iPad Face View</li>
+					<li>iPod touch Original</li>
+					<li>iPod touch Retina</li>
+					<li>iPod touch Face View</li>
+					<li>Apple Watch Original</li>
+					<li>Apple Watch Series 4</li>
+					<li>Apple Watch Series 5</li>
+					<li>Apple Watch Series 7</li>
+					<li>Apple Watch Side View</li>
+					<li>AppleTV</li>
+					<li>SD Badge</li>
+					<li>HD Badge</li>
+					<li>2K Badge</li>
+					<li>4K Badge</li>
+					<li>8K Badge</li>
+					<li>16K Badge</li>
+					<li>Camera</li>
+					<li>Screenshot</li>
+					<li>Icon Grid</li>
+					<li>Complication</li>
+					<li>Car</li>
+					<li>Group List</li>
+					<li>Calendar</li>
+					<li>Small Pixels</li>
+					<li>Large Pixels</li>
+					<li>Single Arrow Up</li>
+					<li>Single Arrow Right</li>
+					<li>Single Arrow Down</li>
+					<li>Single Arrow Left</li>
+					<li>Double Arrow Vertical</li>
+					<li>Double Arrow Horizontal</li>
+					<li>Double Arrow Diagonal Leading</li>
+					<li>Double Arrow Diagonal Trailing</li>
+					<li>Sun with Haze</li>
+					<li>Watchface</li>
+					<li>Closed Lock</li>
+					<li>Open Lock</li>
+					<li>Target</li>
+					<li>Circle in Circle</li>
+					<li>Pointing Hand</li>
+					<li>Pressing Pointer Hand</li>
+					<li>Horizontal Ruler</li>
+					<li>Vertical Ruler</li>
+					<li>Viewfinder</li>
+					<li>Figma</li>
+					<li>Sketch</li>
+					<li>Zoom Square</li>
+					<li>Face ID</li>
+					<li>Touch ID</li>
+					<li>Fingerprint</li>
+					<li>LiDAR</li>
+					<li>ProMotion</li>
+					<li>iMac</li>
+					<li>Tablet and Phone</li>
+					<li>Chat Bubble</li>
+					<li>EV Charging Plug</li>
+					<li>Parking Sign</li>
+					<li>Single Music Note</li>
+					<li>Double Music Note</li>
+					<li>Handset Leading</li>
+					<li>Handset Trailing</li>
+					<li>Handset Down</li>
+					<li>Fork</li>
+					<li>Knife</li>
+					<li>Fork and Knife</li>
+					<li>NFC</li>
+					<li>Table</li>
+					<li>Thumbs Up</li>
+					<li>Thumbs Down</li>
+					<li>Rounded Square</li>
+					<li>Squircle</li>
+					<li>Teardrop</li>
+				</ul>
+				
+				<h4>Updated</h4>
+				<ul>
+					<li>Shortcuts</li>
+					<li>TV</li>
+					<li>Monitor</li>
+					<li>Compare Rectangles</li>
+					<li>Screen Sizes Stroke</li>
+					<li>Screen Sizes Fill</li>
+				</ul>
+				
+				<h4>Removed</h4>
+				<ul>
+					<li>Screen Sizes Duo</li>
+				</ul>
+			
 				<h2 class="h4">1.1</h2>
 				<p class="subtext">3 December 2021</p>
 				<h3>Framework</h3>
@@ -1203,8 +1366,11 @@ const views = {
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
 				<p>These requirements are based on needing to support <code>min()</code>, <code>max()</code>, <code>minmax()</code>, <code>clamp()</code>, <code>env()</code>, and <code>aspect-ratio</code>. For this reason (among many others) no version of Internet Explorer is supported. The minimum requirements for any Rebar app are:</p>
-				<h2>Version 1.1</h2>
-				<p class="subtext">Increased due to needing <code>aspect-ratio</code>.</p>
+				<h2>1.2</h2>
+				<p>No changes</p>
+				
+				<h2>1.1</h2>
+				<p class="subtext">Increased because of <code>aspect-ratio</code>.</p>
 				<ul>
 					<li>Edge 88</li>
 					<li>Firefox 89</li>
@@ -1213,7 +1379,7 @@ const views = {
 					<li>Opera 74</li>
 				</ul>
 				
-				<h2>Version 1.0</h2>
+				<h2>1.0</h2>
 				<ul>
 					<li>Edge 79</li>
 					<li>Firefox 75</li>
@@ -1443,10 +1609,27 @@ const views = {
 						</div>
 						<div class="containerBadge">14</div>
 					</button>
+					<br><br>
+					<button class="sidebar useInitialFill">
+						<div class="labelSidebar">
+							${iconObjects.compassMulti}
+							Use Initial Fill
+						</div>
+						<div class="containerBadge">14</div>
+					</button>
+					<br><br>
+					<button class="sidebar picked useInitialFill">
+						<div class="labelSidebar">
+							${iconObjects.compassMulti}
+							Use Initial Fill
+						</div>
+						<div class="containerBadge">14</div>
+					</button>
 				</section>
 				
 				<h2>Documentation</h2>
 				<p>Sidebar Items are buttons with the <code>sidebar</code> class. They come with default, <code>picked</code>, and <code>subdued</code> (this is used when an item in a secondary column is picked) states. An icon is not mandatory but highly recommended. You can include a Badge if need.</p>
+				<p>The <code>.useInitialFill</code> class will allow an SVG used as the icon to keep the <code>fill</code> colours that are baked in to it's code.</p>
 				<h3 class="h6">Template</h3>
 <pre>
 &lt;button class="sidebar"&gt;
@@ -2155,6 +2338,58 @@ $(document).on('click', '.contextActive', function() {
 				<h3>CSS</h3>
 				<p>Most of the styling is handled for you. If you use a standard Button all of the Button styling classes will apply. On top of this you don't have to use a Button, any element with the <code>buttonContext</code> class will make the element clickable.</p>
 				<p>Menu items must be Buttons. They will infer styling from the <code>.contextContainerMenu</code> class. You can add the <code>destructive</code> class to a menu item Button to change the text and icon to red.</p>
+			</div>
+		`,
+	},
+	popovers: {
+		properties: {
+			originContainer: "primaryNav",
+			parentContainer: "secondaryNav",
+			parentRoute: "controls",
+			targetContainer: "primaryContent",
+			clearContainer: null,
+			columnLevel: 2,
+			removePicked: "secondaryNav",
+			query: "detail"
+		},
+		content: `
+			<header class="containerToolbar alwaysLeft">
+				<div class="pinLeft">
+					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
+						${iconShapes.chevronBackwardsStroke}
+						Rebar
+					</button>
+					<button class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
+				<h1 class="headerToolbar">Popovers</h1>
+				<div class="pinRight"></div>
+			</header>
+			<div class="scrollview cropToolbar paddingContent">
+				<h2>Examples</h2>
+				<div class="containerContextButton spacerTriple" data-setting="examplePopover">
+					<button class="buttonContext">
+						<span class="contextLabel">Show Popover</span>
+					</button>
+					<div class="contextContainerMenu" data-position="left" data-type="popover">
+						<div class="containerPopoverContent">
+							<h1 class="textAlignCenter excludePadding">This is an example Popover</h1>
+						</div>
+					</div>
+				</div>
+				
+				<h2>Documentation</h2>
+				<h3>HTML</h3>
+				<p class="spacerTriple">Popovers are an extension of Context Menus to the point they are the exact same structure except <code>data-type</code> on <code>contextContainerMenu</code> is set to <code>popover</code>.</p>
+				
+				<h3>Functions</h3>
+				<p class="spacerTriple">Popovers have no functions of their own. All functionality is inherited from Context Menus.</p>
+				
+				<h3>CSS</h3>
+				<p>It is important to note that <code>contextContainerMenu</code> can not have any padding added to it because Chrome will display this when the menu is collapsed. Instead add a container inside and add the padding to that.</p>
+				<p>You will need to manually set the <code>width</code> and <code>height</code> for <code>.contextContainerMenu</code>. Rebar does not want to make any assumptions about how you want to size each Popover.</p>
+				<p>All other styling considerations are inherited from Context Menus.</code>
 			</div>
 		`,
 	},
@@ -3085,7 +3320,9 @@ columnLevel: 0
 </pre>
 				
 				<h3>Functions</h3>
-				<p class="spacerTriple">The columns themselves do not have any functions attached to them. Forwards navigation is handled through <code>changeView()</code> on the list items in a column (See Source Lists for more info). Backwards navigation is handled through a click function that applies to all Back Buttons (See the Back Buttons section for more info).</p>
+				<p>The columns themselves do not have any functions attached to them. Forwards navigation is handled through <code>changeView()</code> on the list items in a column (See Source Lists for more info). Backwards navigation is handled through a click function that applies to all Back Buttons (See the Back Buttons section for more info).</p>
+				<h4>Two Column Layouts in a Three Column App</h4>
+				<p class="spacerTriple">You might want your app to have a three column for the majority of views but need a two column layout in a few instances. Rebar can accomodate this by setting <code>expandSecondaryColumn</code> to <code>true</code> in the <code>properties</code> of a route. <code>changeView()</code> will then handle all of the column shuffling that needs to be done to accomodate this. You are still required to manually target the secondary column as the place for your content to fill in to.</p>
 				
 				<h3>CSS</h3>
 				<p>Both <code>columnPrimary</code> and <code>columnSecondary</code> have a fixed size based on <code>--aside-width</code>. On larger screens <code>containerAside</code> and <code>main</code> will adjust accordingly depending on how many columns are in <code>containerAside</code>.</p>
@@ -3125,54 +3362,6 @@ columnLevel: 0
 				<p>Buttons in a Source List will use the <code>changeView()</code> function to activate view management. The function will take the <code>data-value</code> attribute on the button and return it so you can then display the corresponding content in the container named in <code>data-target</code> on the parent container.</p>
 				<p><code>changeView()</code> also manages forward navigation states and transitions based on the <code>data-target</code> attribute. There is a special case for selecting Sidebar items in a three column layout to clear out the Main column's content when switching Sidebar items if the Secondary column has already activated content in the Main column, on the Sidebar's parent container there should be a <code>data-clear</code> attribute that has the ID of the main container.</p>
 				<p>There is an if statement in here to handle lists with grouped buttons. This requires buttons to <b>always</b> be grouped with a <code>section</code> element.</p>
-<pre class="spacerTriple">
-function changeView(dataValue) {
-    //HANDLE DEEP LINKS
-    if (dataValue.type == "deeplink") {
-        //CLEAR COLUMN STATES
-        $("#&#36;{dataValue.properties.clearContainer}").removeClass("active");
-        $("#&#36;{dataValue.properties.targetContainer}").removeClass("slightSlide");
-        $("#&#36;{dataValue.properties.parentContainer}").removeClass("slightSlide");
-        
-        //CLEAR BUTTON STATES
-        $("#&#36;{dataValue.properties.parentContainer} *").removeClass("picked subdued");
-        $("#&#36;{dataValue.properties.targetContainer} *").removeClass("picked subdued");
-        $("#&#36;{dataValue.properties.originContainer} *").removeClass("picked subdued");
-        
-        //TEMPORARILY DISABLE ALL ANIMATIONS
-        document.documentElement.style.setProperty('--base-time-length', '0s');
-        setTimeout(function(){ setTimeLength(); }, 100);
-        
-        //GENERATE CONTENT
-        if (dataValue.properties.columnLevel == 2) {
-            $("[data-value="&#36;{dataValue.properties.parentRoute}"]").addClass("picked subdued");
-            $("#&#36;{dataValue.properties.originContainer}").addClass("slightSlide");
-        }
-    }
-    
-    //SET STATE
-    if (dataValue.source != "defaultView") {
-        $("#&#36;{dataValue.properties.removePicked} *").removeClass("picked subdued");
-        $("[data-value="&#36;{dataValue.source}"]").addClass("picked");
-        if ($("[data-value="&#36;{dataValue.source}"]").hasClass("itemList") == true) {
-            $("[data-value="&#36;{dataValue.properties.parentRoute}"]").addClass("subdued");
-        }
-        $("#&#36;{dataValue.properties.parentContainer}").addClass("slightSlide");
-        $("#&#36;{dataValue.properties.targetContainer}").empty().addClass("active").removeClass("slightSlide");
-        $("#&#36;{dataValue.properties.clearContainer}"").empty().removeClass("active");
-    }
-    
-    //UPDATE URL
-    //"navigation" is chosen here so that the browser history doesn't populate with the same entry over and over
-    if (dataValue.type == "navigation") {
-        if (dataValue.source == undefined) {
-            window.history.pushState(null, null, "?&#36;{dataValue.properties.query}=index");
-        } else {
-            window.history.pushState(null, null, "?&#36;{dataValue.properties.query}=&#36;{dataValue.source}");
-        }
-    }
-}
-</pre>
 			</div>
 		`,
 	},
@@ -5078,6 +5267,153 @@ $(document).on('click', '.headerAccordion', function() {
 			</div>
 		`,
 	},
+	tables: {
+		properties: {
+			originContainer: "primaryNav",
+			parentContainer: "secondaryNav",
+			parentRoute: "layout",
+			targetContainer: "primaryContent",
+			clearContainer: null,
+			columnLevel: 2,
+			removePicked: "secondaryNav",
+			query: "detail"
+		},
+		content: `
+			<header class="containerToolbar alwaysLeft">
+				<div class="pinLeft">
+					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
+						${iconShapes.chevronBackwardsStroke}
+						Rebar
+					</button>
+					<button class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
+				<h1 class="headerToolbar">Tables</h1>
+				<div class="pinRight"></div>
+			</header>
+			<div class="scrollview cropToolbar paddingContent">
+				<h2>Examples</h2>
+				<h3 class="h6">Information Table</h3>
+				<table class="spacerDouble tableGuideIcons">
+					<thead>
+						<tr>
+							<th>Purpose <span>${iconShapes.caretDown}</span></th>
+							<th>Dimensions <span>${iconShapes.caretDown}</span></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Notifications</td>
+							<td>
+								<span>40 &times; 40 px</span>
+								<span>60 &times; 60 px</span>
+							</td>
+						</tr>
+						<tr>
+							<td>Settings</td>
+							<td>
+								<span>58 &times; 58 px</span>
+								<span>87 &times; 87 px</span>
+							</td>
+						</tr>
+						<tr>
+							<td>Spotlight</td>
+							<td>
+								<span>80 &times; 80 px</span>
+								<span>120 &times; 120 px</span>
+							</td>
+						</tr>
+						<tr>
+							<td>Home Screen</td>
+							<td>
+								<span>120 &times; 120 px</span>
+								<span>180 &times; 180 px</span>
+							</td>
+						</tr>
+						<tr>
+							<td>App Store</td>
+							<td>1024 &times; 1024 px</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<h3 class="h6">Data Table</h3>
+				<table class="spacerTriple data withBorder tableGuideIcons" id="tableData">
+					<thead>
+						<tr>
+							<th>Purpose <span>${iconShapes.caretDown}</span></th>
+							<th>Dimensions <span>${iconShapes.caretDown}</span></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Notifications</td>
+							<td>
+								<span>40 &times; 40 px</span>
+								<span>60 &times; 60 px</span>
+							</td>
+						</tr>
+						<tr>
+							<td>Settings</td>
+							<td>
+								<span>58 &times; 58 px</span>
+								<span>87 &times; 87 px</span>
+							</td>
+						</tr>
+						<tr>
+							<td>Spotlight</td>
+							<td>
+								<span>80 &times; 80 px</span>
+								<span>120 &times; 120 px</span>
+							</td>
+						</tr>
+						<tr>
+							<td>Home Screen</td>
+							<td>
+								<span>120 &times; 120 px</span>
+								<span>180 &times; 180 px</span>
+							</td>
+						</tr>
+						<tr>
+							<td>App Store</td>
+							<td>1024 &times; 1024 px</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				
+				<h2>Documentation</h2>
+				<h3>HTML</h3>
+				<p class="spacerTriple">Tables in Rebar are designed to be semantic while offering modern layout techniques. You should structure your table with the standard <code>table</code> element set.</p>
+				
+				<h3>Functions</h3>
+				<h4>Sorting</h4>
+				<p>Columns can be sorted but this is not on by default due to requiring a 3rd party plugin, Table Sorter, to accomplish this. If you do include this plugin you will need to acknowledge its inclusion. The plugin is included by default with the Starter app and should be removed if not used.</p>
+				<p>To use Table Sorter you need to call this function <code>$("table").tablesorter({ sortList: [[2,1]] });</code>. The sortList property will determine which column is used by default for sorting and in which direction.</p>
+				<p>If you wish to include a sorting caret in your column headers you can use an image, SVG, or Rebar Icon wrapped in a <code>span</code>.</p>
+				
+				<h4>Search</h4>
+				<p>Table search requires a different function compared to List search. You will need to use <code>searchTable()</code> which handles hiding the rows (the <code>search()</code> was not able to work with tables).</p>
+				<ul>
+					<li><code>enteredText</code>: This should always be set to <code>this</code></li>
+					<li><code>parentID</code>: The ID of the table container</li>
+					<li><code>inputID</code>: The ID of the search field</li>
+				</ul>
+<pre class="spacerTriple">
+searchTable({
+    enteredText: this,
+    parentID: "containerCompareTable",
+    inputID: "searchCompare",
+})
+</pre>
+				
+				<h3>CSS</h3>
+				<p>The bulk of styling for tables are handled on the <code>table</code> element itself but there are some classes that will give you the Information and Data styles. Information is the default and Data builds on top so no class is required for the Information style but you will need to include the <code>.data</code> class to transform it in to a Data table. On top of that if you want a border you will need to add the <code>.withBorder</code> class.</p>
+				<p class="spacerTriple">All of the default styling and layout that a browser will apply to a standard <code>table</code> element has been overrided. Rebar Tables are based on CSS Grid which gives you the most flexibility to handle responsiveness (whether you want the table to scroll or reflow is up to you). This means there is no default column sizing and you will have to define that yourself.</p>
+			</div>
+		`,
+	},
 	
 	//MODALS
 	panels: {
@@ -6963,6 +7299,39 @@ generateSpinner({
 			</div>
 		`,
 	},
+	appGlyph: {
+			properties: {
+				originContainer: "primaryNav",
+				parentContainer: "secondaryNav",
+				parentRoute: "visuals",
+				targetContainer: "primaryContent",
+				clearContainer: null,
+				columnLevel: 2,
+				removePicked: "secondaryNav",
+				query: "detail"
+			},
+			content: `
+				<header class="containerToolbar alwaysLeft">
+					<div class="pinLeft">
+						<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
+							${iconShapes.chevronBackwardsStroke}
+							Rebar
+						</button>
+						<button class="toolbarItem collapseAside">
+							${iconInterfaceElements.sidebarLeftStroke}
+						</button>
+					</div>
+					<h1 class="headerToolbar">App Glyph</h1>
+					<div class="pinRight"></div>
+				</header>
+				<div class="scrollview cropToolbar paddingContent">
+					<h2>Documentation</h2>
+					<p>The App Glyph is a place to display an image in blank content columns. It is not required but does help fill out blank views.</p>
+					<p>You will need to manually insert an SVG in to <code>index.html</code>, an image should not be used here. Rebar Icons are unable to be used for this.</p>
+					<p>It's recommended to make an SVG of 240&times;240 px with 10px strokes. All objects should be converted in to paths and transparency is not allowed.</p>
+				</div>
+			`,
+		},
 	themeMetaTag: {
 		properties: {
 			originContainer: "primaryNav",
@@ -6989,7 +7358,7 @@ generateSpinner({
 				<div class="pinRight"></div>
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
-				<p><code>setMetaTheme()</code> is a function that is used to update the value in the <code>theme</code> meta tag. This is done to make sure the UI of Safari 15 and Android Chrome blends in with your app. It will set the theme value to your <code>--background</code> CSS variable's current value (this was chosen because <code>foreground</code> will often be white and Safari will ignore this).</p>
+				<p><code>setMetaTheme()</code> is a function that is used to update the value in the <code>theme</code> meta tag. This is done to make sure the UI of Safari 15 and Android Chrome blends in with your app. It will set the theme value to your <code>--foreground</code> CSS variable's current value.</p>
 				<p>Rebar is already set up to invoke this function when needed. So only call this when changing the current app theme in a custom way.</p>
 <pre>
 function setMetaTheme() {
@@ -7368,6 +7737,42 @@ function grabURLParameter() {
 				</div>
 			`,
 		},
+		scrollToTop: {
+					properties: {
+						originContainer: "primaryNav",
+						parentContainer: "secondaryNav",
+						parentRoute: "helpers",
+						targetContainer: "primaryContent",
+						clearContainer: null,
+						columnLevel: 2,
+						removePicked: "secondaryNav",
+						query: "detail"
+					},
+					content: `
+						<header class="containerToolbar alwaysLeft">
+							<div class="pinLeft">
+								<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="helpers" title="Navigate Back">
+									${iconShapes.chevronBackwardsStroke}
+									Rebar
+								</button>
+								<button class="toolbarItem collapseAside">
+									${iconInterfaceElements.sidebarLeftStroke}
+								</button>
+							</div>
+							<h1 class="headerToolbar">Scroll to Top</h1>
+							<div class="pinRight"></div>
+						</header>
+						<div class="scrollview cropToolbar paddingContent">
+							<p><code>scrollToTop()</code> is a function to scroll an element to the top of a list. It takes an ID as the single parameter (it must be an ID as other elements did not work well).</p>
+<pre>
+function scrollToTop(value) {
+    var elmnt = document.getElementById(value);
+    elmnt.scrollIntoView();
+}
+</pre>
+						</div>
+					`,
+				},
 	
 	//ICONS
 	galleryInterfaceElements: {
