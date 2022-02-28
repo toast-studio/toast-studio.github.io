@@ -106,6 +106,7 @@ $(document).ready(function(){
 					properties = views[source].properties
 					changeView({type, source, properties})
 					$(`#${views[source].properties.targetContainer}`).append(views[source].content);
+					$("#tableData").tablesorter({ sortList: [[0,0]] });
 					
 					//DEEP LINK COLUMN GENERATION
 					if (type == "deeplink") {

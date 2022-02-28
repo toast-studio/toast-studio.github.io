@@ -333,3 +333,15 @@
 #exampleTextDyslexic {
 	font-family: var(--font-dyslexic);
 }
+
+.tableGuideIcons tr {
+	grid-template-columns: 1fr calc(var(--base-font-size) * 12);
+}
+
+[data-setting="examplePopover"] .containerPopoverContent {
+	padding: var(--base-gap-size);
+}
+
+[data-setting="examplePopover"] .contextContainerMenu {
+	width: 400px !important;
+}

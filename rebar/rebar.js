@@ -1,4 +1,4 @@
-//REBAR 1.1
+//REBAR 1.2
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -320,10 +320,16 @@ function grabURLParameter() {
 			$(`[data-value="${dataValue.source}"]`).addClass("picked"); //Adds the picked state to the selected list item
 			if ($(`[data-value="${dataValue.source}"]`).hasClass("itemList") == true) {
 				$(`[data-value="${dataValue.properties.parentRoute}"]`).addClass("subdued"); //Adds a subdued class to the current list item that has a picked class (this is used when selecting an item in the secondary column to set the look of the primary column in 3 column layouts)
+				$(`[data-value="${dataValue.modifier}"]`).addClass("subdued");
 			}
 			$(`#${dataValue.properties.parentContainer}`).addClass("slightSlide"); //Adds the slightSlide class to the true parent container of the clicked item to have the container slightly slide while the next active container is sliding in
 			$(`#${dataValue.properties.targetContainer}`).empty().addClass("active").removeClass("slightSlide"); //Clears out the target container and adds an active class to it
 			$(`#${dataValue.properties.clearContainer}`).empty().removeClass("active"); //Clears out a secondary container (this is used when switching between sidebar sources in 3 column layouts)
+			if (dataValue.properties.expandSecondaryColumn == true) {
+				$(`.containerApp`).addClass(`expandSecondaryColumn`); //Adds a class to the App Container so that a two column layout can be shown in a three column setup
+			} else {
+				$(`.containerApp`).removeClass(`expandSecondaryColumn`);
+			}
 		}
 		
 		//UPDATE URL
@@ -581,6 +587,7 @@ function grabURLParameter() {
 			let enteredText = input.value.toUpperCase(); // The text entered in to the search field
 			let parentContainer = document.getElementById(options.parentID); //The container that holds the items to be searched
 			let items = parentContainer.getElementsByClassName(options.itemClass); //The items to be searched
+			console.log(parentContainer)
 			
 			//SET THE CONTAINER SCROLL BACK TO THE TOP
 			document.getElementById(options.parentID).scrollTop = 0;
@@ -603,6 +610,24 @@ function grabURLParameter() {
 				}
 			}
 		});
+	}
+	
+	function searchTable(options) {
+		let input = document.getElementById(options.inputID);
+		var value = $(options.enteredText).val().toLowerCase();
+		$("table :not(thead) tr").filter(function() {
+			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		});
+		
+		//SET THE CONTAINER SCROLL BACK TO THE TOP
+		document.getElementById(options.parentID).scrollTop = 0;
+		
+		//HIDE AND SHOW THE CLEAR SEARCH BUTTON
+		if (options.enteredText.value.length == 0) {
+			$(input).next().removeClass("active"); //Hide the clear button
+		} else {
+			$(input).next().addClass("active"); //Show the clear button
+		}
 	}
 	
 	function searchClear(options) {
@@ -723,6 +748,16 @@ function grabURLParameter() {
 	$(document).on('click', 'button.share', function() {
 		shareURL();
 	});
+	
+	function insertShareButton(options) {
+		if (navigator.share) {
+			$(options.location).append(`
+				<button class="share ${options.style}" title="${options.title}">
+					${iconInterfaceElements.shareSquareUpStroke}
+				</button>	
+			`);
+		}
+	}
 	
 //THEME PICKER
 	//GENERATE THE THEME PICKER
@@ -921,7 +956,7 @@ function grabURLParameter() {
 					<div class="itemList fixedIconSize">
 						${iconInterfaceElements.textDyslexia}
 						<div class="label">
-							<span>Dyslexic Font</span>
+							<span>Use OpenDyslexic Font</span>
 						</div>
 						<button class="switch positive" data-setting="dyslexiaText">
 							<div class="knob"></div>
@@ -1084,7 +1119,7 @@ function grabURLParameter() {
 //SET THEME META TAG
 	function setMetaTheme() {
 		var style = getComputedStyle(document.body)
-		document.querySelector('meta[name="theme-color"]').setAttribute('content', `rgb(${style.getPropertyValue('--background')})`)
+		document.querySelector('meta[name="theme-color"]').setAttribute('content', `rgb(${style.getPropertyValue('--foreground')})`)
 	}
 	
 	window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
@@ -1153,6 +1188,12 @@ function grabURLParameter() {
 		
 		//DESTROY TOAST
 		setTimeout(function(){ dismissPanel(); }, 1800);
+	}
+	
+//SCROLL ITEM TO TOP
+	function scrollToTop(value) {
+		var elmnt = document.getElementById(value);
+		elmnt.scrollIntoView();
 	}
 	
 //PREFERENCE MANAGEMENT
