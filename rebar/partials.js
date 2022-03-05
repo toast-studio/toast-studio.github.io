@@ -7062,6 +7062,7 @@ generateBlankState({
 					<li><code>--foreground:</code> A colour that contrasts against <code>--background</code>.</li>
 					<li><code>--divider</code>: For dividers and borders.</li>
 					<li><code>--systempanel</code>: For elements that overlay the app.</li>
+					<li><code>--systempanel-lift</code>: For elements that sit on top of a <code>--systempanel</code> background.</li>
 					<li><code>--systemBlue</code>: A colour that represents objects that come from the system itself.</li>
 				</ul>
 				
