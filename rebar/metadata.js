@@ -1,4 +1,4 @@
-const appVersion = "1.1";
+const appVersion = "1.2.1";
 const appName = "Rebar";
 const appDomain = "https://toast-studio.com/";
 const appPrivacyPolicy = "https://toast-studio.com/";
@@ -40,7 +40,7 @@ const appPreferencesVersion = 1;
 const appPreferencesDefault = {
 	"rebar.appSettings": {
 		version: 1,
-		openings: 1,
+		openings: 0,
 		firstRun: null,
 		accent: ["default"],
 		appearance: ["system"],

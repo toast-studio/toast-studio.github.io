@@ -956,6 +956,14 @@ const views = {
 				<div class="pinRight"></div>
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
+				<h2 class="h4">1.2.1</h2>
+				<p class="subtext">19 March 2022</p>
+				<ul class="spacerTriple">
+					<li>Set the prompt for tips counter to activate at 4, 8, and 14 openings</li>
+					<li>Added Brightness icon</li>
+					<li>Fixed the layout of Context Menu Buttons with trailing icons</li>
+				</ul>
+			
 				<h2 class="h4">1.2</h2>
 				<p class="subtext">27 February 2022</p>
 				<h3>Framework</h3>
@@ -1091,7 +1099,7 @@ const views = {
 				</ul>
 				
 				<h4>Removed</h4>
-				<ul>
+				<ul class="spacerTriple">
 					<li>Screen Sizes Duo</li>
 				</ul>
 			
@@ -1316,7 +1324,7 @@ const views = {
 					<li>starFivePointFill</li>
 				</ul>
 				<h4>Renamed</h4>
-				<ul>
+				<ul class="spacerTriple">
 					<li>starStroke &rarr; starFivePointStroke</li>
 					<li>starFill &rarr; starFivePointFill</li>
 					<li>starHalfStroke &rarr; starFivePointHalfStroke</li>
@@ -1366,12 +1374,15 @@ const views = {
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
 				<p>These requirements are based on needing to support <code>min()</code>, <code>max()</code>, <code>minmax()</code>, <code>clamp()</code>, <code>env()</code>, and <code>aspect-ratio</code>. For this reason (among many others) no version of Internet Explorer is supported. The minimum requirements for any Rebar app are:</p>
+				<h2>1.2.1</h2>
+				<p class="spacerDouble">No changes</p>
+				
 				<h2>1.2</h2>
-				<p>No changes</p>
+				<p class="spacerDouble">No changes</p>
 				
 				<h2>1.1</h2>
 				<p class="subtext">Increased because of <code>aspect-ratio</code>.</p>
-				<ul>
+				<ul class="spacerDouble">
 					<li>Edge 88</li>
 					<li>Firefox 89</li>
 					<li>Chrome 88</li>
@@ -7558,7 +7569,7 @@ generateTipJar({
 </pre>
 			
 				<h2>Prompt for Tips</h2>
-				<p>You also have the option to automatically prompt users for tips. Whether the prompt appears is determined by <code>promptForTips</code> being set to <code>true</code> in the Metadata file. When set to true Rebar will keep track of how many times the app has been loaded and when the counter hits 20, 100, and 500 the prompt will be shown.</p>
+				<p>You also have the option to automatically prompt users for tips. Whether the prompt appears is determined by <code>promptForTips</code> being set to <code>true</code> in the Metadata file. When set to <code>true</code> Rebar will keep track of how many times the app has been loaded and when the counter hits <code>4</code>, <code>8</code>, and <code>14</code> the prompt will be shown.</p>
 				<p>If a user clicks on one of the links in the prompt this will cause the prompt to not be shown again (this is a way to not bother users who have already donated).</p>
 			</div>
 		`,
