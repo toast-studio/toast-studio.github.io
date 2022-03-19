@@ -1,4 +1,4 @@
-//REBAR 1.2
+//REBAR 1.2.1
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -163,7 +163,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			})
 			
 			//DISPLAY TIPS PROMPT
-			if (countOpenings == 20 || countOpenings == 100  || countOpenings == 500 ) {
+			if (countOpenings == 4 || countOpenings == 8  || countOpenings == 14 ) {
 				summonPanel({ 
 					type: 'sheet', 
 					size: 'full',
