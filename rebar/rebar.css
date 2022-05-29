@@ -1,4 +1,4 @@
-/* REBAR 1.2.1 */
+/* REBAR 1.2.2 */
 /* COPYRIGHT TOAST STUDIO */
 
 /* SETUP */
@@ -3071,6 +3071,42 @@
 	table.withBorder th:last-child {
 		padding-inline-end: calc(var(--base-gap-size) / 2);
 	}
+	
+	table th span {
+		display: none;
+		width: var(--base-font-size);
+		height: var(--base-font-size);
+	}
+	
+	table th div {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+	
+	table.tablesorter th:hover {
+		cursor: pointer;
+		background: rgb(var(--divider))
+	}
+	
+	table th span svg {
+		width: var(--base-font-size);
+		height: var(--base-font-size);
+	}
+	
+	table th span path {
+		fill: rgb(var(--main));
+	}
+	
+	table th.tablesorter-headerDesc span {
+		display: block;
+	}
+	
+	table th.tablesorter-headerAsc span {
+		display: block;
+		transform: rotate(180deg)
+	}
+
 	
 	
 /* MODALS */
