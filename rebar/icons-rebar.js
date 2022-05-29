@@ -1,4 +1,4 @@
-//REBAR 1.2.1
+//REBAR 1.2.2
 //COPYRIGHT TOAST STUDIO
 
 const iconInterfaceElements = {

@@ -174,7 +174,8 @@ $(document).ready(function(){
 						searchClear({
 							inputID: "#pokemonSearch",
 							searchScope: "#pokemon div",
-							clearButton: this
+							clearButton: this,
+							parentID: "pokemon",
 						})
 					});
 					

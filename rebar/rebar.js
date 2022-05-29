@@ -1,4 +1,4 @@
-//REBAR 1.2.1
+//REBAR 1.2.2
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -587,7 +587,6 @@ function grabURLParameter() {
 			let enteredText = input.value.toUpperCase(); // The text entered in to the search field
 			let parentContainer = document.getElementById(options.parentID); //The container that holds the items to be searched
 			let items = parentContainer.getElementsByClassName(options.itemClass); //The items to be searched
-			console.log(parentContainer)
 			
 			//SET THE CONTAINER SCROLL BACK TO THE TOP
 			document.getElementById(options.parentID).scrollTop = 0;
@@ -595,8 +594,10 @@ function grabURLParameter() {
 			//HIDE AND SHOW THE CLEAR SEARCH BUTTON
 			if (enteredText.length == 0) {
 				$(input).next().removeClass("active"); //Hide the clear button
+				$(`#` + options.parentID).removeClass("activeSearch");
 			} else {
 				$(input).next().addClass("active"); //Show the clear button
+				$(`#` + options.parentID).addClass("activeSearch");
 			}
 			
 			//FILTER THE LIST BASED ON THE SEARCH INPUT
@@ -605,8 +606,12 @@ function grabURLParameter() {
 				txtValue = a.textContent || a.innerText;
 				if (txtValue.toUpperCase().indexOf(enteredText) > -1) {
 					items[i].style.display = "";
+					$(items[i]).addClass("itemDisplayed");
+					$(items[i]).removeClass("itemHidden");
 				} else {
 					items[i].style.display = "none";
+					$(items[i]).addClass("itemHidden");
+					$(items[i]).removeClass("itemDisplayed");
 				}
 			}
 		});
@@ -631,9 +636,10 @@ function grabURLParameter() {
 	}
 	
 	function searchClear(options) {
-		$(options.searchScope).attr("style", ""); //Unhide all items
+		$(options.searchScope).attr("style", "").removeClass("itemDisplayed").removeClass("itemHidden"); //Unhide all items and remove the display classes
 		$(options.clearButton).removeClass("active"); //Hide the clear button
 		$(options.inputID).val(""); //Empty the search input
+		$(`#` + options.parentID).removeClass("activeSearch"); //Remove the active search class from the parent container of the items
 	}
 	
 //SELECTION GRIDS

@@ -956,6 +956,13 @@ const views = {
 				<div class="pinRight"></div>
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
+				<h2 class="h4">1.2.2</h2>
+				<p class="subtext">29 May 2022</p>
+				<ul class="spacerTriple">
+					<li>Fixed the size of sorting carets on tables</li>
+					<li>Added more targeted styling hooks for the Search function</li>
+				</ul>
+			
 				<h2 class="h4">1.2.1</h2>
 				<p class="subtext">19 March 2022</p>
 				<ul class="spacerTriple">
@@ -1374,10 +1381,7 @@ const views = {
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
 				<p>These requirements are based on needing to support <code>min()</code>, <code>max()</code>, <code>minmax()</code>, <code>clamp()</code>, <code>env()</code>, and <code>aspect-ratio</code>. For this reason (among many others) no version of Internet Explorer is supported. The minimum requirements for any Rebar app are:</p>
-				<h2>1.2.1</h2>
-				<p class="spacerDouble">No changes</p>
-				
-				<h2>1.2</h2>
+				<h2>1.2 - 1.2.2</h2>
 				<p class="spacerDouble">No changes</p>
 				
 				<h2>1.1</h2>
@@ -2838,8 +2842,10 @@ function search(options) {
         //HIDE AND SHOW THE CLEAR SEARCH BUTTON
         if (enteredText.length == 0) {
             $(input).next().removeClass("active");
+			$("#" + options.parentID).removeClass("activeSearch");
         } else {
             $(input).next().addClass("active");
+			$("#" + options.parentID).addClass("activeSearch");
         }
         
         //FILTER THE LIST BASED ON THE SEARCH INPUT
@@ -2848,8 +2854,12 @@ function search(options) {
             txtValue = a.textContent || a.innerText;
             if (txtValue.toUpperCase().indexOf(enteredText) > -1) {
                 items[i].style.display = "";
+                $(items[i]).addClass("itemDisplayed");
+                $(items[i]).removeClass("itemHidden");
             } else {
                 items[i].style.display = "none";
+                $(items[i]).addClass("itemHidden");
+                $(items[i]).removeClass("itemDisplayed");
             }
         }
     });
@@ -2870,15 +2880,16 @@ search({
 
 $(document).on('click', '.buttonClearSearch', function() {
     searchClear({
-        inputID: "#pokemonSearch",
-        searchScope: "#pokemon div",
-        clearButton: this
+        inputID: "",
+        searchScope: "",
+        clearButton: this,
+        parentID: "",
     })
 });
 </pre>
 				
 				<h3>CSS</h3>
-				<p>There are no styling classes for Search Bars.</p>
+				<p>The search function gives you a few styling hooks incase you need to modify the list while a search is active. The <code>.activeSearch</code> class will get added to the <code>parentID</code> container as a general styling hook. Visible items will get the <code>.itemDisplayed</code> class and hidden items will get the <code>.itemHidden</code> class which can be used for more specific styling hooks.</p>
 			</div>
 		`,
 	},
@@ -5474,6 +5485,7 @@ searchTable({
 					<li><code>action</code> takes a value of a string of text. This only applies to Sheets and Alerts. On Sheets it allows you to set the label of the dismiss button (for sheets if no value is provided it will default to "Done") and on Alerts it allows you to set the label of the action button.</li>
 					<li><code>actionID</code> takes a value of a strong of text. This only applies to Alerts and allows you to set the ID of the action button.</li>
 					<li><code>buttonStyle</code> takes a value of <code>button</code> style class. This only applies to Alerts and allows you to set the style of the action button.</li>
+					<li><code>containerID</code> takes a value of a string of text without the # of the ID name. This allows you to name the content container of the panel.</li>
 				</ul>
 <pre class="spacerTriple">
 //SUMMON PANEL
