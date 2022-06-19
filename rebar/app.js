@@ -42,6 +42,12 @@ $(document).ready(function(){
 					Visuals
 				</div>
 			</button>
+			<button class="sidebar" data-value="charts">
+				<div class="labelSidebar">
+					${iconCharts.barUp}
+					Charts
+				</div>
+			</button>
 			<button class="sidebar" data-value="helpers">
 				<div class="labelSidebar">
 					${iconObjects.cogStroke}
@@ -770,6 +776,160 @@ $(document).ready(function(){
 						height: 50
 					});
 					
+					break;
+					
+				case 'chartPie':
+					generateChartPie({
+						target: 'containerFruit',
+						title: 'Fruits',
+						donutSize: 250,
+						legend: true,
+						includeCount: true,
+						countLabel: `qty`,
+						data: [
+							['Watermelon', 35],
+							['Mandarin', 32],
+							['Lemon', 24],
+							['Lime', 18],
+							['Cucumber', 12],
+							['Blueberry', 8],
+							['Blackberry', 2]
+						]
+					})
+					generateChartPie({
+						target: 'containerVotes',
+						title: 'Votes',
+						donutSize: 50,
+						legend: true,
+						includeCount: false,
+						data: [
+							['For', 32],
+							['Against', 18],
+						]
+					})
+					break;
+				case 'chartGantt':
+					generateChartGantt({
+						target: 'exampleChartGantt',
+						primaryLabel: 'Fruits',
+						images: true,
+						direction: 'ascending',
+						columnTitles: [
+							{
+								label: 'JAN',
+								value: 1,
+							},
+							{
+								label: 'FEB',
+								value: 2,
+							},
+							{
+								label: 'MAR',
+								value: 3,
+							},
+							{
+								label: 'APR',
+								value: 4,
+							},
+							{
+								label: 'MAY',
+								value: 5,
+							},
+							{
+								label: 'JUN',
+								value: 6,
+							},
+							{
+								label: 'JUL',
+								value: 7,
+							},
+							{
+								label: 'AUG',
+								value: 8,
+							},
+							{
+								label: 'SEP',
+								value: 9,
+							},
+							{
+								label: 'OCT',
+								value: 10,
+							},
+							{
+								label: 'NOV',
+								value: 11,
+							},
+							{
+								label: 'DEC',
+								value: 12,
+							},
+						],
+						data: [
+							{
+								name:'Watermelon',
+								key: 'watermelon',
+								image: 'images/fruits/watermelon.png',
+								start: 1,
+								end: 3,
+							},
+							{
+								name:'Mandarin',
+								key: 'mandarin',
+								image: 'images/fruits/mandarin.png',
+								start: 2,
+								end: 6,
+							},
+							{
+								name:'Lemon',
+								key: 'lemon',
+								image: 'images/fruits/lemon.png',
+								start: 7,
+								end: 9,
+							},
+							{
+								name:'Kiwi',
+								key: 'kiwi',
+								image: 'images/fruits/kiwi.png',
+								start: 3,
+								end: 3,
+							},
+							{
+								name:'Cucumber',
+								key: 'cucumber',
+								image: 'images/fruits/cucumber.png',
+								start: 10,
+								end: 12,
+							},
+							{
+								name:'Pineapple',
+								key: 'pineapple',
+								image: 'images/fruits/pineapple.png',
+								start: 5,
+								end: 11,
+							},
+							{
+								name:'Grapes',
+								key: 'grapes',
+								image: 'images/fruits/grapes.png',
+								start: 4,
+								end: 8,
+							}
+						]
+					})
+					break;
+				case 'chartStats':
+					generateChartStats({
+						target: 'exampleChartStats',
+						max: 256,
+						data: [
+							['HP', 140],
+							['ATK', 85],
+							['DEF', 95],
+							['SP ATK', 145],
+							['SP DEF', 95],
+							['SPD', 130]
+						]
+					})
 					break;
 			}
 		}
