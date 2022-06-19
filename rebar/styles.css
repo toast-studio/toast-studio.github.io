@@ -345,3 +345,29 @@
 [data-setting="examplePopover"] .contextContainerMenu {
 	width: 400px !important;
 }
+
+@media (min-width: 1200px) {
+	#exampleChartPie #containerFruit,
+	#exampleChartPie #containerVotes {
+		display: grid;
+		grid-template-columns: 250px 1fr;
+		gap: calc(var(--base-gap-size) * 2);
+	}
+}
+
+#containerFruit tr {
+	grid-template-columns: 3fr 1fr 1fr;
+}
+
+#containerVotes tr {
+	grid-template-columns: 3fr 1fr;
+}
+
+.definitions tr {
+	grid-template-columns: 200px 1fr;
+}
+
+#exampleChartGantt {
+	overflow: auto;
+	border: 1px solid rgb(var(--divider));
+}

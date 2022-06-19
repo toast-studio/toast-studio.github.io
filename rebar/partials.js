@@ -320,6 +320,12 @@ const views = {
 								<span>iframes</span>
 							</div>
 						</button>
+						<button class="itemList rounded fixedIconSize" data-value="banners">
+							${iconInterfaceElements.exclamationTriangleStroke}
+							<div class="label">
+								<span>Banners</span>
+							</div>
+						</button>
 					</section>
 				</div>
 			</div>
@@ -549,6 +555,54 @@ const views = {
 			</div>
 		`,
 	},
+	charts: {
+		properties: {
+			originContainer: null,
+			parentContainer: "primaryNav",
+			parentRoute: null,
+			targetContainer: "secondaryNav",
+			clearContainer: "primaryContent",
+			columnLevel: 1,
+			removePicked: "primaryNav",
+			query: "category"
+		},
+		content: `
+			<header class="containerToolbar">
+				<div class="pinLeft">
+					<button class="back slim toolbarItem" data-removeactive="secondaryNav" data-removeslide="primaryNav" data-clear="primaryContent" title="Navigate Back">
+						${iconShapes.chevronBackwardsStroke}
+						Rebar
+					</button>
+				</div>
+				<h1 class="headerToolbar">Charts</h1>
+				<div class="pinRight"></div>
+			</header>
+			<div class="scrollview cropToolbar">
+				<div class="containerItemList inset">
+					<section class="containerSection excludePadding">
+						<button class="itemList rounded fixedIconSize" data-value="chartPie">
+							${iconCharts.pie60Stroke}
+							<div class="label">
+								<span>Pie and Donut</span>
+							</div>
+						</button>
+						<button class="itemList rounded fixedIconSize" data-value="chartGantt">
+							${iconCharts.gantt}
+							<div class="label">
+								<span>Gantt</span>
+							</div>
+						</button>
+						<button class="itemList rounded fixedIconSize" data-value="chartStats">
+							${iconCharts.barRight}
+							<div class="label">
+								<span>Stats</span>
+							</div>
+						</button>
+					</section>
+				</div>
+			</div>
+		`,
+	},
 	helpers: {
 		properties: {
 			originContainer: null,
@@ -677,7 +731,7 @@ const views = {
 							</div>
 						</button>
 						<button class="itemList rounded fixedIconSize" data-value="galleryCharts">
-							${iconCharts.barRight}
+							${iconCharts.barUp}
 							<div class="label">
 								<span>Charts</span>
 							</div>
@@ -729,7 +783,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="gettingStarted" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Getting&hellip;
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -790,7 +844,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-removeslide="secondaryNav" data-query="category" data-target="gettingStarted" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Getting&hellip;
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -856,7 +910,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-removeslide="secondaryNav" data-query="category" data-target="gettingStarted" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Getting&hellip;
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -899,7 +953,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-removeslide="secondaryNav" data-query="category" data-target="gettingStarted" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Getting&hellip;
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -946,7 +1000,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-removeslide="secondaryNav" data-query="category" data-target="gettingStarted" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Getting&hellip;
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -956,11 +1010,15 @@ const views = {
 				<div class="pinRight"></div>
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
-				<h2 class="h4">1.2.2</h2>
-				<p class="subtext">29 May 2022</p>
+				<h2 class="h4">1.3</h2>
+				<p class="subtext">15 June 2022</p>
 				<ul class="spacerTriple">
+					<li>Added Pie Charts, Donut Charts, Gantt, and Stats Charts</li>
+					<li>Added Banners</li>
 					<li>Fixed the size of sorting carets on tables</li>
 					<li>Added more targeted styling hooks for the Search function</li>
+					<li>Added Exclamation Triangle, Info Circle Multi, Stage Manager, Reference Monitor, Checkmark Circle Multi, Times Circle Multi, Shrink Square, Steering Wheel, Fuel Pump icons</li>
+					<li>Fixed the zoomSquareDuo icon so it gets properly tinted</li>
 				</ul>
 			
 				<h2 class="h4">1.2.1</h2>
@@ -1370,7 +1428,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-removeslide="secondaryNav" data-query="category" data-target="gettingStarted" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Getting&hellip;
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -1381,7 +1439,7 @@ const views = {
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
 				<p>These requirements are based on needing to support <code>min()</code>, <code>max()</code>, <code>minmax()</code>, <code>clamp()</code>, <code>env()</code>, and <code>aspect-ratio</code>. For this reason (among many others) no version of Internet Explorer is supported. The minimum requirements for any Rebar app are:</p>
-				<h2>1.2 - 1.2.2</h2>
+				<h2>1.2 - 1.3</h2>
 				<p class="spacerDouble">No changes</p>
 				
 				<h2>1.1</h2>
@@ -1423,7 +1481,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -1597,7 +1655,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -1674,7 +1732,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -1799,7 +1857,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -1838,7 +1896,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -1891,7 +1949,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -1926,7 +1984,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -1976,7 +2034,7 @@ const views = {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -2107,7 +2165,7 @@ $(document).on('click', 'button.back', function() {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -2372,7 +2430,7 @@ $(document).on('click', '.contextActive', function() {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -2424,7 +2482,7 @@ $(document).on('click', '.contextActive', function() {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -2546,7 +2604,7 @@ function clickSegment(dataValue) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -2649,7 +2707,7 @@ function clickSwitch(dataValue) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -2775,7 +2833,7 @@ function clickSwitch(dataValue) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -2909,7 +2967,7 @@ $(document).on('click', '.buttonClearSearch', function() {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -3053,7 +3111,7 @@ function selectionGrid(dataValue) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -3121,7 +3179,7 @@ function selectionGrid(dataValue) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="controls" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Controls
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -3184,7 +3242,7 @@ navigator.share({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Layout
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -3310,7 +3368,7 @@ columnLevel: 0
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Layout
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -3367,7 +3425,7 @@ columnLevel: 0
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Layout
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -3403,7 +3461,7 @@ columnLevel: 0
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Layout
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -3596,7 +3654,7 @@ columnLevel: 0
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Layout
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -4191,7 +4249,7 @@ columnLevel: 0
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Layout
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -4531,7 +4589,7 @@ var toolbarVisibility = function(options) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Layout
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -4652,7 +4710,7 @@ var toolbarVisibility = function(options) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Layout
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -5110,7 +5168,7 @@ var toolbarVisibility = function(options) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Layout
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -5173,7 +5231,7 @@ var toolbarVisibility = function(options) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Layout
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -5269,7 +5327,7 @@ $(document).on('click', '.headerAccordion', function() {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Layout
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -5305,7 +5363,7 @@ $(document).on('click', '.headerAccordion', function() {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Layout
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -5436,6 +5494,58 @@ searchTable({
 			</div>
 		`,
 	},
+	banners: {
+		properties: {
+			originContainer: "primaryNav",
+			parentContainer: "secondaryNav",
+			parentRoute: "layout",
+			targetContainer: "primaryContent",
+			clearContainer: null,
+			columnLevel: 2,
+			removePicked: "secondaryNav",
+			query: "detail"
+		},
+		content: `
+			<header class="containerToolbar alwaysLeft">
+				<div class="pinLeft">
+					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="layout" title="Navigate Back">
+						${iconShapes.chevronBackwardsStroke}
+						Layout
+					</button>
+					<button class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
+				<h1 class="headerToolbar">Banners</h1>
+				<div class="pinRight"></div>
+			</header>
+			<div class="scrollview cropToolbar paddingContent">
+				<h2>Examples</h2>
+				${insertBanner({type: 'warning', content: 'This is a warning banner'})}
+				${insertBanner({type: 'info', content: 'This is an info banner'})}
+				${insertBanner({type: 'success', content: 'This is a success banner'})}
+				${insertBanner({type: 'error', content: 'This is an error banner'})}
+				${insertBanner({type: 'accent', content: 'This is an accent banner', icon: iconHuman.fingerprint})}
+				
+				<h2>Documentation</h2>
+				<h3>HTML</h3>
+				<p class="spacerTriple">Effectively Banners are just Sections with styling classes applied to them. You should not write out the HTML manually, instead use the <code>insertBanner</code> function.</p>
+				
+				<h3>Functions</h3>
+				<p>Banner creation is handled by the <code>insertBanner()</code>. It is intended that this function is used inline as part of an append and is a convenience instead of manually writing out the Banner HTML. The <code>icon</code> property is only required for the <code>accent</code> Banner type.</p>
+<pre class="spacerTriple">
+insertBanner({
+    type: 'accent',
+    content: 'The headline goes here',
+    icon: iconCharts.pie60Stroke
+})
+</pre>
+				
+				<h3>CSS</h3>
+				<p class="spacerTriple">No styling is required, the banners will handle everything for you. Currently there is no way to override the default <code>margin</code> that Sections come with. The icon of the Banner type must always be displayed.</p>
+			</div>
+		`,
+	},
 	
 	//MODALS
 	panels: {
@@ -5454,7 +5564,7 @@ searchTable({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="modals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Modals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -5520,7 +5630,7 @@ function dismissPanel() {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="modals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Modals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -5601,7 +5711,7 @@ function dismissPanel() {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="modals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Modals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -5652,7 +5762,7 @@ function dismissPanel() {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="modals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Modals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -5711,7 +5821,7 @@ function dismissPanel() {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="modals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Modals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -5771,7 +5881,7 @@ function dismissPanel() {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="modals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Modals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -5874,7 +5984,7 @@ $(document).keyup(function(e) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="modals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Modals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -5929,7 +6039,7 @@ $(document).keyup(function(e) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="modals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Modals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -5982,7 +6092,7 @@ $(document).keyup(function(e) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -6088,7 +6198,7 @@ $(document).keyup(function(e) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -6155,7 +6265,7 @@ $(document).keyup(function(e) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -6198,7 +6308,7 @@ $(document).keyup(function(e) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -6234,7 +6344,7 @@ $(document).keyup(function(e) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -6295,7 +6405,7 @@ generateDisplayOptions({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -6741,7 +6851,7 @@ modifyPreference({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -6969,7 +7079,7 @@ modifyPreference({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -7004,7 +7114,7 @@ modifyPreference({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -7061,7 +7171,7 @@ generateBlankState({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -7143,7 +7253,7 @@ generateBlankState({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -7194,7 +7304,7 @@ generateBlankState({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -7230,7 +7340,7 @@ generateBlankState({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -7298,7 +7408,7 @@ generateBlankState({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -7339,7 +7449,7 @@ generateSpinner({
 					<div class="pinLeft">
 						<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 							${iconShapes.chevronBackwardsStroke}
-							Rebar
+							Visuals
 						</button>
 						<button class="toolbarItem collapseAside">
 							${iconInterfaceElements.sidebarLeftStroke}
@@ -7372,7 +7482,7 @@ generateSpinner({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -7409,7 +7519,7 @@ function setMetaTheme() {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Visuals
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -7455,6 +7565,213 @@ function setMetaTheme() {
 		`,
 	},
 	
+	//CHARTS
+	chartPie: {
+		properties: {
+			originContainer: "primaryNav",
+			parentContainer: "secondaryNav",
+			parentRoute: "charts",
+			targetContainer: "primaryContent",
+			clearContainer: null,
+			columnLevel: 2,
+			removePicked: "secondaryNav",
+			query: "detail"
+		},
+		content: `
+			<header class="containerToolbar alwaysLeft">
+				<div class="pinLeft">
+					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
+						${iconShapes.chevronBackwardsStroke}
+						Charts
+					</button>
+					<button class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
+				<h1 class="headerToolbar">Pie and Donut Charts</h1>
+				<div class="pinRight"></div>
+			</header>
+			<div class="scrollview cropToolbar paddingContent">
+				<h2>Examples</h2>
+				<div class="spacerTriple" id="exampleChartPie">
+					<div class="containerSection" id="containerFruit"></div>
+					<div class="containerSection" id="containerVotes"></div>
+				</div>
+				
+				<h2>Documentation</h2>
+				<h3>HTML</h3>
+				<p class="spacerTriple">The only HTML necessary is a container with an ID tag. <code>generateChartPie()</code> will do the rest for you.</p>
+				
+				<h3>generateChartPie()</h3>
+				<table class="definitions spacerTriple">
+					<tbody>
+						<tr>
+							<td><code>target</code></td>
+							<td>The ID of the container you want the chart and legend to fill in to. In your HTML this must be an container with an id attribute.</td>
+						<tr>
+						<tr>
+							<td><code>title</code></td>
+							<td>The name of the chart which will feature in the legend. A value of false will hide the title.</td>
+						<tr>
+						<tr>
+							<td><code>donutSize</code></td>
+							<td>A numerical value for turning a pie chart in to a donut chart. This value must be included.</td>
+						<tr>
+						<tr>
+							<td><code>legend</code></td>
+							<td>Accepts a true or false value. If set to true it will render a legend table.</td>
+						<tr>
+						<tr>
+							<td><code>includeCount</code></td>
+							<td>Accepts a true or false value. If set to true the raw value for each item will be displayed in the legend table.</td>
+						<tr>
+						<tr>
+							<td><code>countLabel</code></td>
+							<td>Appends a label to the raw value in the legend table. A value of false will hide this.</td>
+						<tr>
+						<tr>
+							<td><code>data</code></td>
+							<td>The data that will create the chart. It must be supplied in the format of [['label', value], ['label', value], ['label', value]] where value is a number. This function provides no sorting capabilities which means the data must be sorted before being used here.</td>
+						<tr>
+					</tbody>
+				</table>
+				
+				<h3>CSS</h3>
+				<p>Most styles are already predefined for you. Rebar gives you 15 segment colours by default (using the <code>[data-segment="seg*"]</code> target). You can add more as you need and the colours can be overriden with your own CSS.</p>
+				<p class="spacerTriple">The size of the donut hole is set via the function but can be overriden with CSS and must be set like this <code>--b: 10px !important;</code> on the chart container to override the inline specificity.</p>
+			</div>
+		`,
+	},
+	chartGantt: {
+		properties: {
+			originContainer: "primaryNav",
+			parentContainer: "secondaryNav",
+			parentRoute: "charts",
+			targetContainer: "primaryContent",
+			clearContainer: null,
+			columnLevel: 2,
+			removePicked: "secondaryNav",
+			query: "detail"
+		},
+		content: `
+			<header class="containerToolbar alwaysLeft">
+				<div class="pinLeft">
+					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
+						${iconShapes.chevronBackwardsStroke}
+						Charts
+					</button>
+					<button class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
+				<h1 class="headerToolbar">Gantt Chart</h1>
+				<div class="pinRight">
+					<button id="miniThemePicker" class="toolbarItem">${iconObjects.paintbrushStroke}</button>
+				</div>
+			</header>
+			<div class="scrollview cropToolbar paddingContent">
+				<h2>Examples</h2>
+				<div class="spacerTriple" id="exampleChartGantt"></div>
+				
+				<h2>Documentation</h2>
+				<h3>HTML</h3>
+				<p class="spacerTriple">The only HTML necessary is a container with an ID tag. <code>generateChartGantt()</code> will do the rest for you.</p>
+				
+				<h3>generateChartGantt()</h3>
+				<table class="definitions spacerTriple">
+					<tbody>
+						<tr>
+							<td><code>target</code></td>
+							<td>The ID of the container you want the chart to fill in to. In your HTML this must be an container with an id attribute.</td>
+						<tr>
+						<tr>
+							<td><code>primaryLabel</code></td>
+							<td>This string will be used to label the initial column.</td>
+						<tr>
+						<tr>
+							<td><code>images</code></td>
+							<td>A true or false toggle for display images in the initial column.</td>
+						<tr>
+						<tr>
+							<td><code>direction</code></td>
+							<td>Takes a value of ascending or descending. This determines which direction the values are in and helps with rendering the bars correctly.</td>
+						<tr>
+						<tr>
+							<td><code>columnTitles</code></td>
+							<td>An array of objects where each object contains a title and a value. The title will be inserted in to the table header cells and the value will be used to match the chart bars to the columns.</td>
+						<tr>
+						<tr>
+							<td><code>data</code></td>
+							<td>An array of objects where each object contains a name string, a key string, a start value, and an end value. A string for an image URL can also be included. The name, key, and image will be used in the initial cell of the row. The start and end values will be used to generate the bar for the row.</td>
+						<tr>
+					</tbody>
+				</table>
+				
+				<h3>CSS</h3>
+				<p class="spacerTriple">There are no specific styling requirements for Gantt Charts but there are enough hooks to override styles if needed. By default the bars in the Gantt Chart will use the currently selected <code>--accent</code>.</p>
+			</div>
+		`,
+	},
+	chartStats: {
+		properties: {
+			originContainer: "primaryNav",
+			parentContainer: "secondaryNav",
+			parentRoute: "charts",
+			targetContainer: "primaryContent",
+			clearContainer: null,
+			columnLevel: 2,
+			removePicked: "secondaryNav",
+			query: "detail"
+		},
+		content: `
+			<header class="containerToolbar alwaysLeft">
+				<div class="pinLeft">
+					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="visuals" title="Navigate Back">
+						${iconShapes.chevronBackwardsStroke}
+						Charts
+					</button>
+					<button class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
+				<h1 class="headerToolbar">Stats Chart</h1>
+				<div class="pinRight">
+					<button id="miniThemePicker" class="toolbarItem">${iconObjects.paintbrushStroke}</button>
+				</div>
+			</header>
+			<div class="scrollview cropToolbar paddingContent">
+				<h2>Examples</h2>
+				<div class="spacerTriple" id="exampleChartStats"></div>
+				
+				<h2>Documentation</h2>
+				<h3>HTML</h3>
+				<p class="spacerTriple">The only HTML necessary is a container with an ID tag. <code>generateChartStats()</code> will do the rest for you.</p>
+				
+				<h3>generateChartStats()</h3>
+				<table class="definitions spacerTriple">
+					<tbody>
+						<tr>
+							<td><code>target</code></td>
+							<td>
+							The ID of the container you want the chart to fill in to. In your HTML this must be an container with an id attribute.</td>
+						<tr>
+						<tr>
+							<td><code>max</code></td>
+							<td>The max number value for your bars.</td>
+						<tr>
+						<tr>
+							<td><code>data</code></td>
+							<td>The data that will create the chart. It must be supplied in the format of [['label', value], ['label', value], ['label', value]] where value is a number. This function provides no sorting capabilities which means the data must be sorted before being used here.</td>
+						<tr>
+					</tbody>
+				</table>
+				
+				<h3>CSS</h3>
+				<p class="spacerTriple">There are no specific styling requirements for Stats Charts but there are enough hooks to override styles if needed. By default the bars in the Stats Chart will use the currently selected <code>--accent</code>.</p>
+			</div>
+		`,
+	},
+	
 	//HELPERS
 	preferencesSystem: {
 		properties: {
@@ -7472,7 +7789,7 @@ function setMetaTheme() {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="helpers" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Helpers
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -7553,7 +7870,7 @@ modifyPreference({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="helpers" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Helpers
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -7602,7 +7919,7 @@ generateTipJar({
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="helpers" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Helpers
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -7637,7 +7954,7 @@ function capitalize(word) {
 				<div class="pinLeft">
 					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="helpers" title="Navigate Back">
 						${iconShapes.chevronBackwardsStroke}
-						Rebar
+						Helpers
 					</button>
 					<button class="toolbarItem collapseAside">
 						${iconInterfaceElements.sidebarLeftStroke}
@@ -7690,7 +8007,7 @@ function copyToClipboard(text) {
 					<div class="pinLeft">
 						<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="helpers" title="Navigate Back">
 							${iconShapes.chevronBackwardsStroke}
-							Rebar
+							Helpers
 						</button>
 						<button class="toolbarItem collapseAside">
 							${iconInterfaceElements.sidebarLeftStroke}
@@ -7736,7 +8053,7 @@ function setTimeLength() {
 					<div class="pinLeft">
 						<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="helpers" title="Navigate Back">
 							${iconShapes.chevronBackwardsStroke}
-							Rebar
+							Helpers
 						</button>
 						<button class="toolbarItem collapseAside">
 							${iconInterfaceElements.sidebarLeftStroke}
@@ -7761,42 +8078,42 @@ function grabURLParameter() {
 				</div>
 			`,
 		},
-		scrollToTop: {
-					properties: {
-						originContainer: "primaryNav",
-						parentContainer: "secondaryNav",
-						parentRoute: "helpers",
-						targetContainer: "primaryContent",
-						clearContainer: null,
-						columnLevel: 2,
-						removePicked: "secondaryNav",
-						query: "detail"
-					},
-					content: `
-						<header class="containerToolbar alwaysLeft">
-							<div class="pinLeft">
-								<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="helpers" title="Navigate Back">
-									${iconShapes.chevronBackwardsStroke}
-									Rebar
-								</button>
-								<button class="toolbarItem collapseAside">
-									${iconInterfaceElements.sidebarLeftStroke}
-								</button>
-							</div>
-							<h1 class="headerToolbar">Scroll to Top</h1>
-							<div class="pinRight"></div>
-						</header>
-						<div class="scrollview cropToolbar paddingContent">
-							<p><code>scrollToTop()</code> is a function to scroll an element to the top of a list. It takes an ID as the single parameter (it must be an ID as other elements did not work well).</p>
+	scrollToTop: {
+		properties: {
+			originContainer: "primaryNav",
+			parentContainer: "secondaryNav",
+			parentRoute: "helpers",
+			targetContainer: "primaryContent",
+			clearContainer: null,
+			columnLevel: 2,
+			removePicked: "secondaryNav",
+			query: "detail"
+		},
+		content: `
+			<header class="containerToolbar alwaysLeft">
+				<div class="pinLeft">
+					<button class="back slim toolbarItem" data-parent="primaryContent" data-removeactive="primaryContent" data-removeslide="secondaryNav" data-query="category" data-target="helpers" title="Navigate Back">
+						${iconShapes.chevronBackwardsStroke}
+						Helpers
+					</button>
+					<button class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
+				<h1 class="headerToolbar">Scroll to Top</h1>
+				<div class="pinRight"></div>
+			</header>
+			<div class="scrollview cropToolbar paddingContent">
+				<p><code>scrollToTop()</code> is a function to scroll an element to the top of a list. It takes an ID as the single parameter (it must be an ID as other elements did not work well).</p>
 <pre>
 function scrollToTop(value) {
     var elmnt = document.getElementById(value);
     elmnt.scrollIntoView();
 }
 </pre>
-						</div>
-					`,
-				},
+			</div>
+		`,
+	},
 	
 	//ICONS
 	galleryInterfaceElements: {

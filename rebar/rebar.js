@@ -1,4 +1,4 @@
-//REBAR 1.2.2
+//REBAR 1.3
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -1253,4 +1253,222 @@ function grabURLParameter() {
 		
 		//UPDATE THE PREFERENCE GROUP IN LOCAL STORAGE
 		localStorage.setItem(options.group, JSON.stringify(prefs));
+	}
+	
+//COMPONENTS
+	//BANNERS
+	function insertBanner(options) {
+		switch (options.type) {
+			case 'info':
+				return `
+					<section class="containerSection withIcon info">
+						${iconInterfaceElements.infoCircleMulti}
+						<p class="excludeMargin">${options.content}</p>
+					</section>
+				`
+				break;
+			case 'warning':
+				return `
+					<section class="containerSection withIcon warning">
+						${iconInterfaceElements.exclamationTriangleMulti}
+						<p class="excludeMargin">${options.content}</p>
+					</section>
+				`
+				break;
+			case 'error':
+				return `
+					<section class="containerSection withIcon error">
+						${iconShapes.timesCircleMulti}
+						<p class="excludeMargin">${options.content}</p>
+					</section>
+				`
+				break;
+			case 'success':
+				return `
+					<section class="containerSection withIcon success">
+						${iconShapes.checkmarkCircleMulti}
+						<p class="excludeMargin">${options.content}</p>
+					</section>
+				`
+				break;
+			case 'accent':
+				return `
+					<section class="containerSection withIcon accent">
+						${options.icon}
+						<p class="excludeMargin">${options.content}</p>
+					</section>
+				`
+				break;
+		}
+	}
+	
+//CHARTS
+	function generateChartPie(options) {
+		//INSERT PIE CHART CONTAINER
+			$(`#${options.target}`).append(`<div class="containerPie"></div>`);
+		
+		//APPEND THE PIE CHART PIECES
+			//CALCULATE THE TOTAL VALUE
+				let totalCount = 0
+				$.each(options.data, function(key,val) {
+					totalCount = totalCount + val[1]
+				});
+			
+			//GENERATE PIE PIECES
+				let previousPiece = 0;
+				let countPie = 1;
+				
+				$.each( options.data, function( key, val ) {
+					$(`#${options.target} .containerPie`).prepend(`
+						<div class="pie" style="--p:${Math.round((val[1] + previousPiece) / totalCount * 100)}; --b:${options.donutSize}px;"  data-segment="seg${countPie}"></div>
+					`);
+					
+					previousPiece = val[1] + previousPiece //To calculate the correct gradient the value needs to be incremented
+					countPie++ //This number is to help with applying the sequential styling
+				});
+				
+		//GENERATE TABLE
+			if (options.legend == true) {
+				//CREATE TABLE SKELETON
+				$(`#${options.target}`).append(`
+					<div class="containerChartLegend">
+						${options.title ? `<h4>${options.title}</h4>` : ``}
+						<table>
+							<tbody></tbody>
+						</table>
+					</div>
+				`)
+				
+				//APPEND ROWS
+				let countColorKey = 1;
+				$.each(options.data, function(key,val) {
+					$(`#${options.target} tbody`).append(`
+						<tr>
+							<td class="containerColorKey"><div class="colorKey" data-segment="seg${countColorKey}"></div> <span>${val[0]}</span></td>
+							<td>${Math.round(val[1] / totalCount * 100)} %</td>
+							${options.includeCount ? `<td>${val[1]} ${options.countLabel}</td>` : ``}
+						</tr>
+					`)
+					
+					countColorKey++
+				});
+			}
+	}
+	
+	function generateChartGantt(options) {
+		//CREATE TABLE SKELETON
+			$(`#${options.target}`).append(`
+				<table class="chartGantt">
+					<thead>
+						<tr style="grid-template-columns: 280px repeat(${options.columnTitles.length}, 100px);">
+							<th>${options.primaryLabel}</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			`)
+		
+		//CREATE DATA COLUMN TITLES
+			$.each( options.columnTitles, function( key, val ) {
+				$(`#${options.target} thead tr`).append(`<th>${val.label}</th>`);
+			});
+			
+		//CREATE ROWS
+			$.each( options.data, function( key, val ) {
+				let currentData = val
+				let currentID = key
+				
+				//APPEND ROW
+					$(`#${options.target} tbody`).append(`
+						<tr class="row" data-row="${currentID}" style="grid-template-columns: 280px repeat(${options.columnTitles.length}, 100px);">
+							<td data-id="${currentData.key}">${options.images ? `<img src="${currentData.image}" width="50" /> ` : ``}${currentData.name}</td>
+						</tr>
+					`);
+				
+				//APPEND CELLS
+					if (options.direction == 'ascending') {
+						$.each( options.columnTitles, function( key, val ) {
+							if (val.value == currentData.start && val.value == currentData.end) {
+								$(`[data-row="${currentID}"]`).append(`
+									<td class="single cellSupport" data-cell="${val.value}">
+										<div class="bar"></div>
+									</td>	
+								`)
+							} else if (val.value == currentData.start) {
+								$(`[data-row="${currentID}"]`).append(`
+									<td class="start cellSupport" data-cell="${val.value}">
+										<div class="bar"></div>
+									</td>	
+								`)
+							} else if (val.value == currentData.end) {
+								$(`[data-row="${currentID}"]`).append(`
+									<td class="end cellSupport" data-cell="${val.value}">
+										<div class="bar"></div>
+									</td>	
+								`)
+							} else if (val.value > currentData.start && val.value < currentData.end) {
+								$(`[data-row="${currentID}"]`).append(`
+									<td class="middle cellSupport" data-cell="${val.value}">
+										<div class="bar"></div>
+									</td>	
+								`)
+							} else {
+								$(`[data-row="${currentID}"]`).append(`
+									<td class="cellSupport" data-cell="${val.value}"></td>	
+								`)
+							}
+						});
+					}
+					
+					if (options.direction == 'descending') {
+						$.each( options.columnTitles, function( key, val ) {
+							if (val.value == currentData.end && val.value == currentData.start) {
+								$(`[data-row="${currentID}"]`).append(`
+									<td class="single cellSupport" data-cell="${val.value}">
+										<div class="bar"></div>
+									</td>	
+								`)
+							} else if (val.value == currentData.end) {
+								$(`[data-row="${currentID}"]`).append(`
+									<td class="start cellSupport" data-cell="${val.value}">
+										<div class="bar"></div>
+									</td>	
+								`)
+							} else if (val.value == currentData.start) {
+								$(`[data-row="${currentID}"]`).append(`
+									<td class="end cellSupport" data-cell="${val.value}">
+										<div class="bar"></div>
+									</td>	
+								`)
+							} else if (val.value < currentData.end && val.value > currentData.start) {
+								$(`[data-row="${currentID}"]`).append(`
+									<td class="middle cellSupport" data-cell="${val.value}">
+										<div class="bar"></div>
+									</td>	
+								`)
+							} else {
+								$(`[data-row="${currentID}"]`).append(`
+									<td class="cellSupport" data-cell="${val.value}"></td>	
+								`)
+							}
+						});
+					}
+				
+			});
+	}
+	
+	function generateChartStats(options) {
+		//CREATE CHART CONTAINER
+			$(`#${options.target}`).append(`<div class="chartStats"></div>`)
+		
+		
+		//APPEND THE BARS
+			$.each(options.data, function(key,val) {
+				$(`#${options.target} .chartStats`).append(`
+					<span>
+						<label for="${val[0]}"><div class="textBold">${val[0]}:</div> ${val[1]}</label>
+						<progress id="${val[0]}" value="${val[1]}" max="${options.max}"></progress>
+					</span>
+				`)
+			});
 	}
