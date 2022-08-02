@@ -1,4 +1,4 @@
-/* REBAR 1.3 */
+/* REBAR 1.3.1 */
 /* COPYRIGHT TOAST STUDIO */
 
 /* SETUP */
@@ -1594,7 +1594,7 @@
 		
 		.containerInlineAccessory .containerAccessoryBar {
 			width: 300px;
-			height: var(--toolbar-height);
+			height: calc(var(--toolbar-height) + env(safe-area-inset-top));
 			border-block-end: 1px solid var(--divider);
 			position: absolute;
 			top: 0px;
@@ -1602,14 +1602,14 @@
 			pointer-events: all;
 			display: flex;
 			align-items: center;
-			padding: 0px calc(var(--base-gap-size) / 2) 0px 0px;
+			padding: env(safe-area-inset-top) calc(var(--base-gap-size) / 2) 0px 0px;
 			border-block-end: 1px solid rgb(var(--divider));
 		}
 		
 		.containerInlineAccessory .scrollview {
 			overflow: auto;
 			pointer-events: all;
-			top: var(--toolbar-height);
+			top: calc(var(--toolbar-height) + env(safe-area-inset-top));
 			height: calc(100% - var(--toolbar-height) - env(safe-area-inset-top));
 		}
 	}

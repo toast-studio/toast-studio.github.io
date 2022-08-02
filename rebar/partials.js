@@ -1010,6 +1010,12 @@ const views = {
 				<div class="pinRight"></div>
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
+				<h2 class="h4">1.3.1</h2>
+				<p class="subtext">2 August 2022</p>
+				<ul class="spacerTriple">
+					<li>Fixed an issue with the inline search bar positioning when saved to the iPad Home Screen</li>
+				</ul>
+			
 				<h2 class="h4">1.3</h2>
 				<p class="subtext">15 June 2022</p>
 				<ul class="spacerTriple">
@@ -1439,7 +1445,7 @@ const views = {
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
 				<p>These requirements are based on needing to support <code>min()</code>, <code>max()</code>, <code>minmax()</code>, <code>clamp()</code>, <code>env()</code>, and <code>aspect-ratio</code>. For this reason (among many others) no version of Internet Explorer is supported. The minimum requirements for any Rebar app are:</p>
-				<h2>1.2 - 1.3</h2>
+				<h2>1.2 - 1.3.1</h2>
 				<p class="spacerDouble">No changes</p>
 				
 				<h2>1.1</h2>
