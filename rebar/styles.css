@@ -363,8 +363,15 @@
 	grid-template-columns: 3fr 1fr;
 }
 
-.definitions tr {
-	grid-template-columns: 200px 1fr;
+@media (min-width: 800px) {
+	.definitions tr {
+		grid-template-columns: 200px 1fr;
+	}
+
+}
+
+.definitions td {
+	display: block;
 }
 
 #exampleChartGantt {

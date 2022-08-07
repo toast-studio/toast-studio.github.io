@@ -2578,7 +2578,9 @@
 	.containerContextButton {
 		width: auto;
 		position: relative;
-		display: inline-block;
+		/* display: inline-block; */
+		display: inline-flex;
+		justify-content: center;
 	}
 	
 	.buttonContext {
@@ -2650,6 +2652,10 @@
 	[data-position="right"] {
 		right: 0px;
 		transform-origin: top right;
+	}
+	
+	[data-position="center"] {
+		transform-origin: top center;
 	}
 	
 	.contextContainerMenu:not([data-type="popover"]) button {

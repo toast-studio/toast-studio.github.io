@@ -1014,6 +1014,7 @@ const views = {
 				<p class="subtext">2 August 2022</p>
 				<ul class="spacerTriple">
 					<li>Fixed an issue with the inline search bar positioning when saved to the iPad Home Screen</li>
+					<li>Added support for displaying context menus in a center position</li>
 				</ul>
 			
 				<h2 class="h4">1.3</h2>
@@ -2182,167 +2183,268 @@ $(document).on('click', 'button.back', function() {
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
 				<h2>Examples</h2>
-				
-				<h3 class="h6">Standard Menus</h3>
-				<section class="containerSection">
-					<div class="containerContextButton" data-setting="context1">
-						<button class="buttonContext">
-							<span class="contextLabel">Primary</span>
-							<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
-						</button>
-						<div class="contextContainerMenu" data-position="left">
-							<button data-value="first">First</button>
-							<button data-value="second">Second</button>
-							<button data-value="third">Third</button>
-							<button data-value="fourth">Fourth</button>
-							<button data-value="fifth">Fifth</button>
-						</div>
-					</div>
-					<div class="containerContextButton" data-setting="context2">
-						<button class="buttonContext transparent">
-							<span class="contextLabel">Transparent</span>
-							<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
-						</button>
-						<div class="contextContainerMenu" data-position="left">
-							<button data-value="first">First</button>
-							<button data-value="second">Second</button>
-							<button data-value="third">Third</button>
-							<button data-value="fourth">Fourth</button>
-							<button data-value="fifth">Fifth</button>
-						</div>
-					</div>
-					<div class="containerContextButton" data-setting="context3">
-						<button class="buttonContext secondary">
-							<div class="contextContainerLabel">
-								<span class="contextLabel">Secondary</span>
-								<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
-							</div>
-						</button>
-						<div class="contextContainerMenu" data-position="left">
-							<button data-value="first">First</button>
-							<button data-value="second">Second</button>
-							<button data-value="third">Third</button>
-							<button data-value="fourth">Fourth</button>
-							<button data-value="fifth">Fifth</button>
-						</div>
-					</div>
-					<div class="containerContextButton" data-setting="context4">
-						<button class="buttonContext" title="Example with icon and no label">
-							<span class="contextLabel">
-								${iconShapes.triangleRightCircleStroke}
-							</span>
-							<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
-						</button>
-						<div class="contextContainerMenu" data-position="left">
-							<button data-value="first">First</button>
-							<button data-value="second">Second</button>
-							<button data-value="third">Third</button>
-							<button data-value="fourth">Fourth</button>
-							<button data-value="fifth">Fifth</button>
-						</div>
-					</div>
-					<div class="containerContextButton" data-setting="context5">
-						<button class="buttonContext transparent" title="Example with icon and no label">
-							<span class="contextLabel">
-								${iconShapes.triangleRightCircleStroke}
-							</span>
-							<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
-						</button>
-						<div class="contextContainerMenu" data-position="left">
-							<button data-value="first">First</button>
-							<button data-value="second">Second</button>
-							<button data-value="third">Third</button>
-							<button data-value="fourth">Fourth</button>
-							<button data-value="fifth">Fifth</button>
-						</div>
-					</div>
-					<div class="containerContextButton" data-setting="context6">
-						<button class="buttonContext">
-							<div class="contextContainerLabel">
-								<span class="contextLabel">Right Menu</span>
-								<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
-							</div>
-						</button>
-						<div class="contextContainerMenu" data-position="right">
-							<button data-value="first">First</button>
-							<button data-value="second">Second</button>
-							<button data-value="third">Third</button>
-							<button data-value="fourth">Fourth</button>
-							<button data-value="fifth">Fifth</button>
-						</div>
-					</div>
-					<div class="containerContextButton" data-setting="context7">
-						<button class="buttonContext">
-							<div class="contextContainerLabel">
-								<span class="contextLabel">With Icons</span>
-								<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
-							</div>
-						</button>
-						<div class="contextContainerMenu" data-type="icons" data-position="left">
-							<button data-value="love">
-								<span>Save to Playlist&hellip;</span>
-								${iconShapes.plusCircleStroke}
-							</button>
-							<button data-value="second">
-								<span>Love</span>
-								${iconShapes.heartStroke}
-							</button>
-							<button data-value="third">
-								<span>Profile</span>
-								<img src="images/ui/sidebar1.png" />
-							</button>
-							<div class="divider"></div>
-							<button data-value="fourth" class="destructive">
-								<span>Delete</span>
-								${iconObjects.trashStroke}
-							</button>
-						</div>
-					</div>
-					<div class="containerContextButton" data-setting="context8">
-						<img class="buttonContext" src="images/ui/sidebar1.png" width="32"  title="Example with image" />
-						<div class="contextContainerMenu" data-position="right">
-							<button data-value="first">First</button>
-							<button data-value="second">Second</button>
-							<button data-value="third">Third</button>
-							<button data-value="fourth">Fourth</button>
-							<button data-value="fifth">Fifth</button>
-						</div>
-					</div>
-					<div class="containerContextButton" data-setting="context9">
-						<button class="buttonContext">
-							<div class="contextContainerLabel">
-								<span class="contextLabel">Specific Width</span>
-								<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
-							</div>
-						</button>
-						<div class="contextContainerMenu" data-position="left">
-							<button data-value="first">First</button>
-							<button data-value="second">Second</button>
-							<button data-value="third">Third</button>
-							<button data-value="fourth">Fourth</button>
-							<button data-value="fifth">Fifth</button>
-						</div>
-					</div>
-				</section>
-				
-				<h3 class="h6">Picker Menus</h3>
-				<section class="containerSection spacerTriple">
-					<div class="containerContextButton" data-setting="picker1">
-						<button class="buttonContext">
-							<div class="contextContainerLabel">
-								<span class="contextLabel"></span>
-								<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
-							</div>
-						</button>
-						<div class="contextContainerMenu" data-position="left" data-type="picker">
-							<button data-value="first" data-label="First">First</button>
-							<button data-value="second" data-label="Second">Second</button>
-							<button data-value="third" data-label="Third">Third</button>
-							<button data-value="fourth" data-label="Fourth">Fourth</button>
-							<button data-value="fifth" data-label="Fifth">Fifth</button>
-						</div>
-					</div>
-				</section>
+				<table class="definitions spacerTriple">
+					<tbody>
+						<tr>
+							<td>Primary Button Style</td>
+							<td>
+								<div class="containerContextButton" data-setting="context1">
+									<button class="buttonContext">
+										<span class="contextLabel">Label</span>
+										<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
+									</button>
+									<div class="contextContainerMenu" data-position="left">
+										<button data-value="first">First</button>
+										<button data-value="second">Second</button>
+										<button data-value="third">Third</button>
+										<button data-value="fourth">Fourth</button>
+										<button data-value="fifth">Fifth</button>
+									</div>
+								</div>
+							</td>
+						<tr>
+						<tr>
+							<td>Transparent Button Style</td>
+							<td>
+								<div class="containerContextButton" data-setting="context2">
+									<button class="buttonContext transparent">
+										<span class="contextLabel">Label</span>
+										<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
+									</button>
+									<div class="contextContainerMenu" data-position="left">
+										<button data-value="first">First</button>
+										<button data-value="second">Second</button>
+										<button data-value="third">Third</button>
+										<button data-value="fourth">Fourth</button>
+										<button data-value="fifth">Fifth</button>
+									</div>
+								</div>
+							</td>
+						<tr>
+						<tr>
+							<td>Secondary Button Style</td>
+							<td>
+								<div class="containerContextButton" data-setting="context3">
+									<button class="buttonContext secondary">
+										<div class="contextContainerLabel">
+											<span class="contextLabel">Label</span>
+											<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
+										</div>
+									</button>
+									<div class="contextContainerMenu" data-position="left">
+										<button data-value="first">First</button>
+										<button data-value="second">Second</button>
+										<button data-value="third">Third</button>
+										<button data-value="fourth">Fourth</button>
+										<button data-value="fifth">Fifth</button>
+									</div>
+								</div>
+							</td>
+						<tr>
+						<tr>
+							<td>Primary Icon Button</td>
+							<td>
+								<div class="containerContextButton" data-setting="context4">
+									<button class="buttonContext" title="Example with icon and no label">
+										<span class="contextLabel">
+											${iconShapes.triangleRightCircleStroke}
+										</span>
+										<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
+									</button>
+									<div class="contextContainerMenu" data-position="left">
+										<button data-value="first">First</button>
+										<button data-value="second">Second</button>
+										<button data-value="third">Third</button>
+										<button data-value="fourth">Fourth</button>
+										<button data-value="fifth">Fifth</button>
+									</div>
+								</div>
+							</td>
+						<tr>
+						<tr>
+							<td>Transparent Icon Button</td>
+							<td>
+								<div class="containerContextButton" data-setting="context5">
+									<button class="buttonContext transparent" title="Example with icon and no label">
+										<span class="contextLabel">
+											${iconShapes.triangleRightCircleStroke}
+										</span>
+										<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
+									</button>
+									<div class="contextContainerMenu" data-position="left">
+										<button data-value="first">First</button>
+										<button data-value="second">Second</button>
+										<button data-value="third">Third</button>
+										<button data-value="fourth">Fourth</button>
+										<button data-value="fifth">Fifth</button>
+									</div>
+								</div>
+							</td>
+						<tr>
+						<tr>
+							<td>Left Menu</td>
+							<td>
+								<div class="containerContextButton" data-setting="context6">
+									<button class="buttonContext">
+										<div class="contextContainerLabel">
+											<span class="contextLabel">Label</span>
+											<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
+										</div>
+									</button>
+									<div class="contextContainerMenu" data-position="left">
+										<button data-value="first">First</button>
+										<button data-value="second">Second</button>
+										<button data-value="third">Third</button>
+										<button data-value="fourth">Fourth</button>
+										<button data-value="fifth">Fifth</button>
+									</div>
+								</div>
+							</td>
+						<tr>
+						<tr>
+							<td>Center Menu</td>
+							<td>
+								<div class="containerContextButton" data-setting="context6">
+									<button class="buttonContext">
+										<div class="contextContainerLabel">
+											<span class="contextLabel">Label</span>
+											<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
+										</div>
+									</button>
+									<div class="contextContainerMenu" data-position="center">
+										<button data-value="first">First</button>
+										<button data-value="second">Second</button>
+										<button data-value="third">Third</button>
+										<button data-value="fourth">Fourth</button>
+										<button data-value="fifth">Fifth</button>
+									</div>
+								</div>
+							</td>
+						<tr>
+						<tr>
+							<td>Right Menu</td>
+							<td>
+								<div class="containerContextButton" data-setting="context6">
+									<button class="buttonContext">
+										<div class="contextContainerLabel">
+											<span class="contextLabel">Label</span>
+											<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
+										</div>
+									</button>
+									<div class="contextContainerMenu" data-position="right">
+										<button data-value="first">First</button>
+										<button data-value="second">Second</button>
+										<button data-value="third">Third</button>
+										<button data-value="fourth">Fourth</button>
+										<button data-value="fifth">Fifth</button>
+									</div>
+								</div>
+							</td>
+						<tr>
+						<tr>
+							<td>With Icons</td>
+							<td>
+								<div class="containerContextButton" data-setting="context7">
+									<button class="buttonContext">
+										<div class="contextContainerLabel">
+											<span class="contextLabel">Label</span>
+											<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
+										</div>
+									</button>
+									<div class="contextContainerMenu" data-type="icons" data-position="left">
+										<button data-value="love">
+											<span>Save to Playlist&hellip;</span>
+											${iconShapes.plusCircleStroke}
+										</button>
+										<button data-value="second">
+											<span>Love</span>
+											${iconShapes.heartStroke}
+										</button>
+										<button data-value="third">
+											<span>Profile</span>
+											<img src="images/ui/sidebar1.png" />
+										</button>
+										<div class="divider"></div>
+										<button data-value="fourth" class="destructive">
+											<span>Delete</span>
+											${iconObjects.trashStroke}
+										</button>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>Non-Button</td>
+							<td>
+								<div class="containerContextButton" data-setting="context8">
+									<img class="buttonContext" src="images/ui/sidebar1.png" width="32"  title="Example with image" />
+									<div class="contextContainerMenu" data-position="center">
+										<button data-value="first">First</button>
+										<button data-value="second">Second</button>
+										<button data-value="third">Third</button>
+										<button data-value="fourth">Fourth</button>
+										<button data-value="fifth">Fifth</button>
+									</div>
+								</div>
+							</td>
+						<tr>
+						<tr>
+							<td>Specific Width Button</td>
+							<td>
+								<div class="containerContextButton" data-setting="context9">
+									<button class="buttonContext">
+										<div class="contextContainerLabel">
+											<span class="contextLabel">Label</span>
+											<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
+										</div>
+									</button>
+									<div class="contextContainerMenu" data-position="left">
+										<button data-value="first">First</button>
+										<button data-value="second">Second</button>
+										<button data-value="third">Third</button>
+										<button data-value="fourth">Fourth</button>
+										<button data-value="fifth">Fifth</button>
+									</div>
+								</div>
+							</td>
+						<tr>
+						<tr>
+							<td>Picker</td>
+							<td>
+								<div class="containerContextButton" data-setting="picker1">
+									<button class="buttonContext">
+										<div class="contextContainerLabel">
+											<span class="contextLabel"></span>
+											<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
+										</div>
+									</button>
+									<div class="contextContainerMenu" data-position="left" data-type="picker">
+										<button data-value="first" data-label="First">First</button>
+										<button data-value="second" data-label="Second">Second</button>
+										<button data-value="third" data-label="Third">Third</button>
+										<button data-value="fourth" data-label="Fourth">Fourth</button>
+										<button data-value="fifth" data-label="Fifth">Fifth</button>
+									</div>
+								</div>
+							</td>
+						<tr>
+						<tr>
+							<td>Popover</td>
+							<td>
+								<div class="containerContextButton" data-setting="examplePopover">
+									<button class="buttonContext">
+										<span class="contextLabel">Label</span>
+									</button>
+									<div class="contextContainerMenu" data-position="center" data-type="popover">
+										<div class="containerPopoverContent">
+											<h1 class="textAlignCenter excludePadding">This is an example Popover</h1>
+										</div>
+									</div>
+								</div>
+							</td>
+						<tr>
+					</tbody>
+				</table>
 				
 				<h2>Documentation</h2>
 				<h3>HTML</h3>
@@ -2350,13 +2452,30 @@ $(document).on('click', 'button.back', function() {
 				<p>They also come in two varities, a Standard Menu and a Picker Menu. Both will display a list of options when clicked but only the Picker Menu will update the label of the button. Picker Menus will also save their selected value to local storage while Standard Menus will not.</p>
 				<p>When setting up a Context Menu it is important to add the appropriate data attributes. These will help with styling and functionality.</p>
 				<h4 class="h6">Data Attributes</h4>
-				<ul>
-					<li><code>data-setting</code> is used on <code>.containerContextButton</code> and acts as the ID for the Context Menu.</li>
-					<li><code>data-position</code> accepts a value of <code>left</code> or <code>right</code> and determines which way the menu will open.</li>
-					<li><code>data-type</code> accepts a value of <code>picker</code> (which sets your Context Menu as a Picker Menu and displays the checkmark of the picked item) or <code>icons</code> (allows you to set icons to the right of each item).</li>
-					<li><code>data-value</code> is the value of the selected item.</li>
-					<li><code>data-label</code> is the label of the selected item (this is here so you can set labels for the button with whatever case you want).</li>
-				</ul>
+				<table class="definitions spacerTriple">
+					<tbody>
+						<tr>
+							<td><code>data-setting</code></td>
+							<td>Used on <code>.containerContextButton</code> and acts as the ID for the Context Menu.</td>
+						<tr>
+						<tr>
+							<td><code>data-position</code></td>
+							<td>Accepts a value of <code>left</code>, <code>center</code>, or <code>right</code> and determines which way the menu will open.</td>
+						<tr>
+						<tr>
+							<td><code>data-type</code></td>
+							<td>Accepts a value of <code>picker</code> (which sets your Context Menu as a Picker Menu and displays the checkmark of the picked item) or <code>icons</code> (allows you to set icons to the right of each item).</td>
+						<tr>
+						<tr>
+							<td><code>data-value</code></td>
+							<td>The value of the selected item.</td>
+						<tr>
+						<tr>
+							<td><code>data-label</code></td>
+							<td>The label of the selected item (this is here so you can set labels for the button with whatever case you want.</td>
+						<tr>
+					</tbody>
+				</table>
 				<h4 class="h6">Template</h4>
 <pre class="spacerTriple">
 &lt;div class="containerContextButton" data-setting=""&gt;
