@@ -1,4 +1,4 @@
-//REBAR 1.3.1
+//REBAR 1.4
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -174,9 +174,6 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 				});
 				generateTipJar({
 					target: "sheetTips",
-					linkSmall: "https://buy.stripe.com/4gwaI6cKwaMCaQ0aEH",
-					linkMedium: "https://buy.stripe.com/14kbMa8ug1c2cY88wC",
-					linkLarge: "https://buy.stripe.com/bIYaI639W7Aqgak007"
 				});
 			}
 		}
@@ -1139,17 +1136,17 @@ function grabURLParameter() {
 				<span class="alwaysAccent spacerDouble">${iconLogos.thanksEN}</span>
 				<p class="textAlignCenter h5 spacerDouble">${appName} is developed by just two people. If you'd like to show your support you can leave us a tip. It's much appreciated!</p>
 				<div id="containerTips" class="spacerDouble">
-					<a href="${options.linkSmall}" target="_blank">
+					<a href="${tipsLinks.small}" target="_blank">
 						<span class="emoji">🧁</span>
 						<span class="name">Small</span>
 						<span class="value">$1.00</span>
 					</a>
-					<a href="${options.linkMedium}" target="_blank">
+					<a href="${tipsLinks.medium}" target="_blank">
 						<span class="emoji">☕️</span>
 						<span class="name">Medium</span>
 						<span class="value">$5.00</span>
 					</a>
-					<a href="${options.linkLarge}" target="_blank">
+					<a href="${tipsLinks.large}" target="_blank">
 						<span class="emoji">🍔</span>
 						<span class="name">Large</span>
 						<span class="value">$10.00</span>
@@ -1380,8 +1377,8 @@ function grabURLParameter() {
 				
 				//APPEND ROW
 					$(`#${options.target} tbody`).append(`
-						<tr class="row" data-row="${currentID}" style="grid-template-columns: 280px repeat(${options.columnTitles.length}, 100px);">
-							<td data-id="${currentData.key}">${options.images ? `<img src="${currentData.image}" width="50" /> ` : ``}${currentData.name}</td>
+						<tr class="row" data-row="${currentID}" data-rowid="${currentData.key}" style="grid-template-columns: 280px repeat(${options.columnTitles.length}, 100px);">
+							<td data-id="${currentData.key}">${options.images ? `<img src="${currentData.image}" width="50" height="50" /> ` : ``}${currentData.name}</td>
 						</tr>
 					`);
 				

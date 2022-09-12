@@ -1,4 +1,4 @@
-const appVersion = "1.3.1";
+const appVersion = "1.4";
 const appName = "Rebar";
 const appDomain = "https://toast-studio.com/";
 const appPrivacyPolicy = "https://toast-studio.com/";
@@ -61,7 +61,12 @@ const dynamicTypeSizes = {
 	medium: "16px",
 	large: "24px",
 };
-const promptForTips = true;
+const promptForTips = false;
+const tipsLinks = {
+	small: "https://buy.stripe.com/fZe3fE6m8f2S2judQQ",
+	medium: "https://buy.stripe.com/dR65nMcKw3ka0bm4gh",
+	large: "https://buy.stripe.com/eVa9E239W8Eu7DO5km"
+};
 const shortcutKeys = {
 	"groupa": {
 		"label": "Group A",

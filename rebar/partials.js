@@ -1010,6 +1010,17 @@ const views = {
 				<div class="pinRight"></div>
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
+				<h2 class="h4">1.4</h2>
+				<p class="subtext">12 September 2022</p>
+				<ul class="spacerTriple">
+					<li>The Tips Jar links are now included in the app metadata</li>
+					<li>The Tips prompt that generates on load is no longer hardcoded to the TypeDex tips links</li>
+					<li>Images in the Gantt Chart now have a fixed height value</li>
+					<li>Added rowid key to Gantt chart rows for targeting purposes</li>
+					<li>Updated the Apple Watch icons to be focused solely on the display shape</li>
+					<li>Added icons for the iPhone 14 series</li>
+				</ul>
+			
 				<h2 class="h4">1.3.1</h2>
 				<p class="subtext">2 August 2022</p>
 				<ul class="spacerTriple">
@@ -1446,7 +1457,7 @@ const views = {
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
 				<p>These requirements are based on needing to support <code>min()</code>, <code>max()</code>, <code>minmax()</code>, <code>clamp()</code>, <code>env()</code>, and <code>aspect-ratio</code>. For this reason (among many others) no version of Internet Explorer is supported. The minimum requirements for any Rebar app are:</p>
-				<h2>1.2 - 1.3.1</h2>
+				<h2>1.2 - 1.4</h2>
 				<p class="spacerDouble">No changes</p>
 				
 				<h2>1.1</h2>
@@ -2202,7 +2213,7 @@ $(document).on('click', 'button.back', function() {
 									</div>
 								</div>
 							</td>
-						<tr>
+						</tr>
 						<tr>
 							<td>Transparent Button Style</td>
 							<td>
@@ -2220,7 +2231,7 @@ $(document).on('click', 'button.back', function() {
 									</div>
 								</div>
 							</td>
-						<tr>
+						</tr>
 						<tr>
 							<td>Secondary Button Style</td>
 							<td>
@@ -2240,7 +2251,7 @@ $(document).on('click', 'button.back', function() {
 									</div>
 								</div>
 							</td>
-						<tr>
+						</tr>
 						<tr>
 							<td>Primary Icon Button</td>
 							<td>
@@ -2260,7 +2271,7 @@ $(document).on('click', 'button.back', function() {
 									</div>
 								</div>
 							</td>
-						<tr>
+						</tr>
 						<tr>
 							<td>Transparent Icon Button</td>
 							<td>
@@ -2280,7 +2291,7 @@ $(document).on('click', 'button.back', function() {
 									</div>
 								</div>
 							</td>
-						<tr>
+						</tr>
 						<tr>
 							<td>Left Menu</td>
 							<td>
@@ -2300,7 +2311,7 @@ $(document).on('click', 'button.back', function() {
 									</div>
 								</div>
 							</td>
-						<tr>
+						</tr>
 						<tr>
 							<td>Center Menu</td>
 							<td>
@@ -2320,7 +2331,7 @@ $(document).on('click', 'button.back', function() {
 									</div>
 								</div>
 							</td>
-						<tr>
+						</tr>
 						<tr>
 							<td>Right Menu</td>
 							<td>
@@ -2340,7 +2351,7 @@ $(document).on('click', 'button.back', function() {
 									</div>
 								</div>
 							</td>
-						<tr>
+						</tr>
 						<tr>
 							<td>With Icons</td>
 							<td>
@@ -2387,7 +2398,7 @@ $(document).on('click', 'button.back', function() {
 									</div>
 								</div>
 							</td>
-						<tr>
+						</tr>
 						<tr>
 							<td>Specific Width Button</td>
 							<td>
@@ -2407,7 +2418,7 @@ $(document).on('click', 'button.back', function() {
 									</div>
 								</div>
 							</td>
-						<tr>
+						</tr>
 						<tr>
 							<td>Picker</td>
 							<td>
@@ -2427,7 +2438,7 @@ $(document).on('click', 'button.back', function() {
 									</div>
 								</div>
 							</td>
-						<tr>
+						</tr>
 						<tr>
 							<td>Popover</td>
 							<td>
@@ -2442,7 +2453,7 @@ $(document).on('click', 'button.back', function() {
 									</div>
 								</div>
 							</td>
-						<tr>
+						</tr>
 					</tbody>
 				</table>
 				
