@@ -4335,7 +4335,7 @@ const iconHardware = {
 			</g>
 		</svg>
 	`,
-	iphoneFaceIDDynamicIslandAlwaysOnPortraitDuo: `
+	iphoneFaceIDDynamicIslandAlwaysOnPortraitMulti: `
 		<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 				<path class="alwaysAccent" d="M34,2 L34,46 L14,46 L14,2 L34,2 Z" fill="#FF00DB"></path>
