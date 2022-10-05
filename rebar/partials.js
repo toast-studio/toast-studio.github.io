@@ -1011,6 +1011,21 @@ const views = {
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
 				<h2 class="h4">1.4</h2>
+				<p class="subtext">4 October 2022</p>
+				<ul class="spacerTriple">
+					<li>The <code>.hidden</code> class now has extra specificity applied to it</li>
+					<li>Added <code>.noDecoration</code> utility class</li>
+					<li>Added non-Always On version of the Dynamic Island iPhone icons</li>
+					<li>Added Display Radius, Blueprint, and CarPlay icons</li>
+					<li><code>.alwaysBackgroundColor</code> and <code>.alwaysForegroundColor</code> can now apply to SVG fills</li>
+					<li>Added a new <code>append</code> mode to the Preferences system which will leave existing preferences alone but add a new one if it isn't present in local storage</li>
+					<li>Switches now have a smaller appearance when using a mouse</li>
+					<li>Added a narrow content padding class called <code>.paddingContentTight</code></li>
+					<li>Fixed an issue where the toolbar border in the sidebar would disappear on an <code>expandSecondary</code> state</li>
+					<li>Added new Tertiary style for buttons which has a reduced look but retains the accent colour</li>
+				</ul>
+			
+				<h2 class="h4">1.4</h2>
 				<p class="subtext">12 September 2022</p>
 				<ul class="spacerTriple">
 					<li>The Tips Jar links are now included in the app metadata</li>
@@ -1457,7 +1472,7 @@ const views = {
 			</header>
 			<div class="scrollview cropToolbar paddingContent">
 				<p>These requirements are based on needing to support <code>min()</code>, <code>max()</code>, <code>minmax()</code>, <code>clamp()</code>, <code>env()</code>, and <code>aspect-ratio</code>. For this reason (among many others) no version of Internet Explorer is supported. The minimum requirements for any Rebar app are:</p>
-				<h2>1.2 - 1.4</h2>
+				<h2>1.2 - 1.5</h2>
 				<p class="spacerDouble">No changes</p>
 				
 				<h2>1.1</h2>
@@ -1558,6 +1573,31 @@ const views = {
 						${iconShapes.starFivePointFill}
 					</button>
 					<button class="secondary large">Large</button>
+				</section>
+				
+				<h3 class="h6">Tertiary</h3>
+				<section class="containerSection">
+					<button class="tertiary">Standard</button>
+					<button class="tertiary confirm">Confirm</button>
+					<button class="tertiary transparent">Transparent</button>
+					<button class="tertiary transparent confirm">Confirm</button>
+					<button class="tertiary disabled">Disabled</button>
+					<button class="tertiary">
+						${iconShapes.plusCircleStroke}
+					</button>
+					<button class="tertiary useInitialFill">
+						${iconInterfaceElements.exclamationCircleMulti}
+					</button>
+					<button class="tertiary transparent">
+						${iconShapes.plusCircleStroke}
+					</button>
+					<button class="tertiary transparent useInitialFill">
+						${iconInterfaceElements.exclamationCircleMulti}
+					</button>
+					<button class="tertiary circular">
+						${iconShapes.starFivePointFill}
+					</button>
+					<button class="tertiary large">Large</button>
 				</section>
 	
 				<h3 class="h6">Outline</h3>
@@ -2824,6 +2864,7 @@ function clickSwitch(dataValue) {
 				
 				<h3>CSS</h3>
 				<p>All sizes use <code>--base-font-size</code> so will scale accordingly when using a Dynamic Type setting. The colour of the <code>knob</code> is set to always be white but this can be overwritten via appearance themes.</p>
+				<p>When using a mouse as the pointing device the Switches will take on a smaller appearance.</p>
 			</div>
 		`,
 	},
@@ -7408,18 +7449,19 @@ generateBlankState({
 					<li><code>spacerTriple</code>: Adds margin that's set to triple the <code>--base-gap-size</code></li>
 					<li><code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>, and <code>h6</code>: Sets the font size to match the respective heading size</li>
 					<li><code>subtext</code>: Sets text to a small size and half opacity.</li>
-					<li><code>textAlignLeft</code>, <code>textAlignCenter</code>, and <code>textAlignRight</code>: Sets the alignment of text.</li>
+					<li><code>textAlignLeft</code>, <code>textAlignCenter</code>, and <code>textAlignRight</code>: Sets the alignment of text</li>
 					<li><code>textBold</code>: Sets the <code>font-weight</code> to <code>bold</code>
-					<li><code>alwaysAccent</code>: Sets the text and fill colours to the <code>--accent</code> colour.</li>
-					<li><code>alwaysMain</code>: Overrides any text and fill colours to the <code>--main</code> colour.</li>
-					<li><code>alwaysBackgroundColor</code>: Sets a container to always use <code>--background</code> for it's <code>background-color</code>.</li>
-					<li><code>alwaysForegroundColor</code>: Sets a container to always use <code>--foreground</code> for it's <code>background-color</code>.</li>
+					<li><code>alwaysAccent</code>: Sets the text and fill colours to the <code>--accent</code> colour</li>
+					<li><code>alwaysMain</code>: Overrides any text and fill colours to the <code>--main</code> colour</li>
+					<li><code>alwaysBackgroundColor</code>: Sets a container to always use <code>--background</code> for it's <code>background-color</code></li>
+					<li><code>alwaysForegroundColor</code>: Sets a container to always use <code>--foreground</code> for it's <code>background-color</code></li>
 					<li><code>noBackgroundColor</code>: Removes the <code>background-color</code> of a container.</li>
-					<li><code>paddingContent</code>: Sets up the padding for a main content container.</li>
-					<li><code>shapeCircle</code>: Sets a <code>border-radius</code> that will make a square element in to a circle.</li>
-					<li><code>keepInitialWidth</code>: Resets the width of an element back to <code>auto</code>.</li>
-					<li><code>disablePointer</code>: Removes pointer events from an element.</li>
-					<li><code>useInitialFill</code>: Stops fill and color being applied to an element.</li>
+					<li><code>paddingContent</code>: Sets up the padding for a main content container</li>
+					<li><code>shapeCircle</code>: Sets a <code>border-radius</code> that will make a square element in to a circle</li>
+					<li><code>keepInitialWidth</code>: Resets the width of an element back to <code>auto</code></li>
+					<li><code>disablePointer</code>: Removes pointer events from an element</li>
+					<li><code>useInitialFill</code>: Stops fill and color being applied to an element</li>
+					<li><code>noDecoration</code>: Sets the element to <code>text-decoration: none;</code></li>
 				</ul>
 			</div>
 		`,
@@ -7744,31 +7786,31 @@ function setMetaTheme() {
 						<tr>
 							<td><code>target</code></td>
 							<td>The ID of the container you want the chart and legend to fill in to. In your HTML this must be an container with an id attribute.</td>
-						<tr>
+						</tr>
 						<tr>
 							<td><code>title</code></td>
 							<td>The name of the chart which will feature in the legend. A value of false will hide the title.</td>
-						<tr>
+						</tr>
 						<tr>
 							<td><code>donutSize</code></td>
 							<td>A numerical value for turning a pie chart in to a donut chart. This value must be included.</td>
-						<tr>
+						</tr>
 						<tr>
 							<td><code>legend</code></td>
 							<td>Accepts a true or false value. If set to true it will render a legend table.</td>
-						<tr>
+						</tr>
 						<tr>
 							<td><code>includeCount</code></td>
 							<td>Accepts a true or false value. If set to true the raw value for each item will be displayed in the legend table.</td>
-						<tr>
+						</tr>
 						<tr>
 							<td><code>countLabel</code></td>
 							<td>Appends a label to the raw value in the legend table. A value of false will hide this.</td>
-						<tr>
+						</tr>
 						<tr>
 							<td><code>data</code></td>
 							<td>The data that will create the chart. It must be supplied in the format of [['label', value], ['label', value], ['label', value]] where value is a number. This function provides no sorting capabilities which means the data must be sorted before being used here.</td>
-						<tr>
+						</tr>
 					</tbody>
 				</table>
 				
@@ -7819,27 +7861,27 @@ function setMetaTheme() {
 						<tr>
 							<td><code>target</code></td>
 							<td>The ID of the container you want the chart to fill in to. In your HTML this must be an container with an id attribute.</td>
-						<tr>
+						</tr>
 						<tr>
 							<td><code>primaryLabel</code></td>
 							<td>This string will be used to label the initial column.</td>
-						<tr>
+						</tr>
 						<tr>
 							<td><code>images</code></td>
 							<td>A true or false toggle for display images in the initial column.</td>
-						<tr>
+						</tr>
 						<tr>
 							<td><code>direction</code></td>
 							<td>Takes a value of ascending or descending. This determines which direction the values are in and helps with rendering the bars correctly.</td>
-						<tr>
+						</tr>
 						<tr>
 							<td><code>columnTitles</code></td>
 							<td>An array of objects where each object contains a title and a value. The title will be inserted in to the table header cells and the value will be used to match the chart bars to the columns.</td>
-						<tr>
+						</tr>
 						<tr>
 							<td><code>data</code></td>
 							<td>An array of objects where each object contains a name string, a key string, a start value, and an end value. A string for an image URL can also be included. The name, key, and image will be used in the initial cell of the row. The start and end values will be used to generate the bar for the row.</td>
-						<tr>
+						</tr>
 					</tbody>
 				</table>
 				
@@ -7890,15 +7932,15 @@ function setMetaTheme() {
 							<td><code>target</code></td>
 							<td>
 							The ID of the container you want the chart to fill in to. In your HTML this must be an container with an id attribute.</td>
-						<tr>
+						</tr>
 						<tr>
 							<td><code>max</code></td>
 							<td>The max number value for your bars.</td>
-						<tr>
+						</tr>
 						<tr>
 							<td><code>data</code></td>
 							<td>The data that will create the chart. It must be supplied in the format of [['label', value], ['label', value], ['label', value]] where value is a number. This function provides no sorting capabilities which means the data must be sorted before being used here.</td>
-						<tr>
+						</tr>
 					</tbody>
 				</table>
 				
@@ -7966,6 +8008,12 @@ const appPreferencesDefault = {
 				
 				<h2>Working with the Preferences System</h2>
 				<p>The Preference System has two functions you will be working with <code>getPreferenceGroup()</code> for retrieval from local storage and <code>modifyPreference()</code> for changing values within local storage. There is a third function related to the Preferences System, <code>parsePreferenceGroup()</code> but this is used internally and not required for you to call.</p>
+				<p>When using <code>modifyPreference()</code> there are three modes:</p>
+				<ul>
+					<li><code>update</code> will change the value of nominated preference from local storage (if no value nominated it will save all default preferences from <code>metadata.js</code> to local storage)</li>
+					<li><code>delete</code> will remove the nominated preference from local storage</li>
+					<li><code>append</code> will take what is in <code>metadata.js</code> and compare it to what is in local storage. It will them append any values that are not present in local storage while leaving any existing values along (if nothing is found in local storage it will save all default values to local storage)</li>
+				</ul>
 				<p class="excludeMargin">To retrieve preferences:</p>
 <pre>
 getPreferenceGroup("preference group name").valueName
@@ -7985,6 +8033,13 @@ modifyPreference({
     group: "",
     mode: "delete",
     preference: "",
+})
+</pre>
+				<p class="excludeMargin">To append preferences:</p>
+<pre>
+modifyPreference({
+	group: "",
+	mode: "append",
 })
 </pre>
 			</div>

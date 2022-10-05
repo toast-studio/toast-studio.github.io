@@ -1,4 +1,4 @@
-//REBAR 1.4
+//REBAR 1.5
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -1236,7 +1236,7 @@ function grabURLParameter() {
 		//options.value = the content to save in to the selected preference
 		
 		//RETRIEVE THE PREFERENCE GROUP FROM LOCAL STORAGE
-		const prefs = getPreferenceGroup(options.group)
+		let prefs = getPreferenceGroup(options.group)
 		
 		//UPDATE THE IN MEMORY PREFERENCE GROUP
 		switch (options.mode) {
@@ -1246,6 +1246,21 @@ function grabURLParameter() {
 			case 'delete':
 				delete prefs[options.preference]
 				break
+			case 'append':
+				let storedSettings = prefs
+				let metadataSettings = appPreferencesDefault[options.group]
+				let mergedSettings = {}
+				
+				$.each( metadataSettings, function( key, val ) {
+					if (key in storedSettings == true) {
+						Object.assign(mergedSettings, {[key]: storedSettings[key]}) //Takes the key/value pair stored in localstorage and pushes it to the new merged object
+					} else {
+						Object.assign(mergedSettings, {[key]: metadataSettings[key]}) //Takes the key/value pair stored in metadata.js and pushes it to the new merged object
+					}
+				});
+				
+				prefs = mergedSettings
+				break;
 		}
 		
 		//UPDATE THE PREFERENCE GROUP IN LOCAL STORAGE
