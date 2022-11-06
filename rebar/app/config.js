@@ -1,4 +1,4 @@
-const appVersion = "1.5";
+const appVersion = "2";
 const appName = "Rebar";
 const appDomain = "https://toast-studio.com/";
 const appPrivacyPolicy = "https://toast-studio.com/";
@@ -7,10 +7,26 @@ const appReleaseNotes = [
 	`See Version History for the full changelog`,
 ];
 const appThemes = {
-	system: "Match Device Appearance",
-	light: "Always Light",
-	dark: "Always Dark",
-	custom: "Custom Theme",
+	system: {
+		name: "Device",
+		iconGroup: "iconInterfaceElements",
+		iconName: "appearance",
+	},
+	light: {
+		name: "Light",
+		iconGroup: "iconNature",
+		iconName: "sunFill",
+	},
+	dark: {
+		name: "Dark",
+		iconGroup: "iconNature",
+		iconName: "moonRightFill",
+	},
+	custom: {
+		name: "Custom Theme",
+		iconGroup: "iconNature",
+		iconName: "sparkleFill",
+	},
 };
 const appAccents = {
 	default: "Rebar",
@@ -55,13 +71,14 @@ const appPreferencesDefault = {
 		clickedDonationLink: false,
 	},
 }
+const topLevelRoute = "routesidebar";
 const baseTimeLength = "0.3s";
 const dynamicTypeSizes = {
 	small: "12px",
 	medium: "16px",
 	large: "24px",
 };
-const promptForTips = false;
+const promptForTips = true;
 const tipsLinks = {
 	small: "https://buy.stripe.com/fZe3fE6m8f2S2judQQ",
 	medium: "https://buy.stripe.com/dR65nMcKw3ka0bm4gh",

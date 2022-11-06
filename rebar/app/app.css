@@ -1,0 +1,451 @@
+@layer app {
+	/* DEFAULT AND CUSTOM ACCENTS */
+	[data-accent="default"] { --accent: 250 192 0; }
+	[data-accent="custom"] { --accent: 124 14 226; }
+	
+	@media (prefers-color-scheme: dark) {
+		[data-theme="light"][data-accent="default"] { --accent: 250 192 0; }
+		[data-accent="default"] { --accent: 250 154 0; }
+		[data-accent="custom"] { --accent: 152 94 206; }
+	}
+	
+	[data-theme="dark"][data-accent="default"] { --accent: 250 154 0; }
+	
+	/* CUSTOM THEME */
+	[data-theme="custom"] {
+		--main: 73 66 54;
+		--destructive: 206 27 45;
+		--positive: 19 180 138;
+		--background: 230 225 215;
+		--foreground: 225 218 205;
+		--divider: 203 198 190;
+		--systempanel: 255 255 255;
+	}
+	
+	[data-theme="custom"] [data-accent="default"] {
+		--accent: 223 52 0;
+	}
+	
+	[data-theme="custom"][data-accent="default"] {
+		--accent: 223 52 0;
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		[data-theme="custom"] {
+			--main: 118 139 155;
+			--background: 28 38 52;
+			--foreground: 23 28 40;
+			--divider: 55 62 76;
+			--systempanel: 77 77 77;
+		}
+		
+		[data-theme="custom"] [data-accent="default"] {
+			--accent: 0 233 255;
+		}
+		
+		[data-theme="custom"][data-accent="default"] {
+			--accent: 0 233 255;
+		}
+	}
+	
+	#containerWelcome {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	
+	#explainer {
+		padding: var(--base-gap-size);
+		width: 100%;
+		height: calc(100% - var(--toolbar-height));
+		top: var(--toolbar-height);
+		overflow: auto;
+		position: absolute;
+	}
+	
+	@media (min-width: 1200px) {
+		#explainer {
+			padding: calc(var(--base-gap-size) * 2) calc(var(--base-gap-size) * 3);
+		}
+	}
+	
+	@media (min-width: 1800px) {
+		#explainer {
+			padding: calc(var(--base-gap-size) * 2) calc(var(--base-gap-size) * 15);
+		}
+	}
+	
+	#exampleSidebar1, #exampleSidebar2, #exampleItemList1, #exampleTabBar1, #exampleTabBar2, #accent1, #accent2, #appearance1, #appearance2, #appearance3, #appearance4, #exampleToolbar2, #exampleToolbar3, #exampleToolbar4, #exampleColumns1, #exampleTableview1, #scrollview1, #exampleBlankState {
+		height: 500px;
+		position: relative;
+		overflow: hidden;
+	}
+	
+	#exampleTableview1, #exampleTableview2, #exampleTableview1 {
+		overflow: auto;
+	}
+	
+	#exampleToolbar1 {
+		height: 200px;
+		position: relative;
+		overflow: hidden;
+	}
+	
+	#accentContent1, #accentContent2, #appearance1, #appearance2, #appearance3, #appearance4  {
+		padding: var(--base-gap-size);
+	}
+	
+	#accent2 {
+		--accent: 43,182,220;
+	}
+	
+	.appearanceContent {
+		width: 100%;
+		height: calc(100% - var(--toolbar-height) - var(--tabbar-height));
+		top: var(--toolbar-height);
+		position: absolute;
+		padding: var(--base-gap-size);
+	}
+	
+	#headerContent2, #headerContent3 {
+		width: 100%;
+		height: calc(100% - var(--toolbar-height));
+		top: var(--toolbar-height);
+		left: 0px;
+		position: absolute;
+		overflow: auto;
+	}
+	
+	.headerContent4 {
+		width: 100%;
+		height: calc(100% - var(--toolbar-height));
+		left: 0px;
+		position: absolute;
+		overflow: auto;
+		border: 1px solid red;
+	}
+	
+	.groupText {
+		padding: var(--base-gap-size);
+	}
+	
+	@media (max-width: 1199px) {
+		#explainer .columnSecondary button.back {
+			display: inline-flex;
+		}
+	}
+	
+	#exampleToolbar1 button.back {
+		display: inline-flex;
+	}
+	
+	#exampleNoToolbarSheet .spacerSingle {
+		width: 100%;
+		height: 40%;
+		background: url(images/ui/image.jpg);
+		background-size: cover;
+		background-position: center;
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-end;
+		padding: var(--base-gap-size);
+		flex-direction: column;
+		gap: calc(var(--base-gap-size) / 2);
+		position: relative;
+	}
+	
+	#exampleNoToolbarSheet h1 {
+		margin: 0px;
+		padding: 0px;
+		color: white;
+		text-shadow: 2px 5px 10px rgb(0 0 0 / .3);
+	}
+	
+	#exampleNoToolbarSheet p {
+		padding: 0px var(--base-gap-size);
+	}
+	
+	#scrollview1 .groupText {
+		padding: var(--base-gap-size);
+	}
+	
+	#disappearingScrollview h1 {
+		margin-top: calc(var(--base-gap-size) * 1);
+	}
+	
+	#exampleIcons {
+		display: flex;
+		justify-content: space-around;
+	}
+	
+	#exampleIcons span {
+		display: flex;
+		gap: calc(var(--base-gap-size) / 2);
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		color: rgb(var(--main));
+		font-family: var(--font-regular);
+		font-size: var(--base-font-size);
+		text-align: center;
+	}
+	
+	#exampleIcons span:not(.useInitialFill) path {
+		fill: rgb(var(--main));
+	}
+	
+	[data-setting="context9"] button {
+		width: 250px;
+	}
+	
+	#iconGallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+		grid-template-rows: repeat(auto-fill,minmax(120px,1fr));
+		gap: var(--base-gap-size);
+		align-items: flex-start;
+	}
+	
+	#iconGallery div {
+		display: flex;
+		flex-direction: column;
+		justify-content: left;
+		align-items: center;
+		gap: calc(var(--base-gap-size) / 2);
+		margin-block-end: calc(var(--base-gap-size) / 2);
+		color: rgb(var(--main));
+		font-family: var(--font-regular);
+		font-size: var(--base-font-size);
+		background: rgb(var(--foreground));
+		border-radius: var(--base-radius-size);
+		padding: var(--base-gap-size) calc(var(--base-gap-size) / 2);
+		height: 120px;
+	}
+	
+	#iconGallery div:hover {
+		background: rgb(var(--main) / .1);
+		cursor: pointer;
+	}
+	
+	#iconGallery div span {
+		text-overflow: ellipsis;
+		overflow: hidden;
+		width: 100%;
+		text-align: center;
+	}
+	
+	#iconGallery .iconPlatter {
+		border-radius: var(--base-radius-size);
+		width: calc(var(--base-font-size) * 3);
+		height: calc(var(--base-font-size) * 3);
+		min-width: calc(var(--base-font-size) * 3);
+		min-height: calc(var(--base-font-size) * 3);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+		
+	#iconGallery .iconPlatter svg {
+		width: calc(var(--base-font-size) * 2);
+		height: calc(var(--base-font-size) * 2);
+	}
+	
+	#iconGallery .iconPlatter:not(.useInitialFill) path {
+		fill: rgb(var(--main));
+	}
+	
+	#toastCrafted {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	
+	#toastCrafted svg {
+		width: 150px;
+		height: 70px;
+	}
+	
+	#toastCrafted svg path {
+		fill: rgb(var(--main) / .2)
+	}
+	
+	#gridWelcome {
+		display: grid;
+		gap: var(--base-gap-size);
+		margin-block-end: calc(var(--base-gap-size) * 4);
+	}
+	
+	@media (min-width: 1100px) {
+		#gridWelcome {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	
+	#exampleAccordion2 {
+		overflow: hidden;
+	}
+	
+	#exampleSpinner {
+		width: 100px;
+		height: 100px;
+		position: relative;
+		border-radius: var(--base-radius-size);
+		border: 1px solid rgb(var(--divider));
+	}
+	
+	#gridColours {
+		display: grid;
+		grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+		gap: var(--base-gap-size);
+	}
+	
+	#gridColours .tile {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: calc(var(--base-gap-size) / 2);
+		text-align: center;
+		background: rgb(var(--foreground));
+		padding: var(--base-gap-size);
+		border-radius: var(--base-radius-size);
+	}
+	
+	#gridColours .label {
+		font-family: var(--font-regular);
+		font-size: var(--base-font-size);
+		color: rgb(var(--main));
+		text-align: center;
+	}
+	
+	#exampleTextRounded {
+		font-family: var(--font-rounded);
+	}
+	
+	#exampleTextMonospace {
+		font-family: var(--font-monospace);
+	}
+	
+	#exampleTextSerif {
+		font-family: var(--font-serif);
+	}
+	
+	#exampleTextDyslexic {
+		font-family: var(--font-dyslexic);
+	}
+	
+	.tableGuideIcons tr {
+		grid-template-columns: 1fr calc(var(--base-font-size) * 12);
+	}
+	
+	[data-setting="examplePopover"] .containerPopoverContent {
+		padding: var(--base-gap-size);
+	}
+	
+	[data-setting="examplePopover"] .contextContainerMenu {
+		min-width: 300px;
+	}
+	
+	@media (min-width: 1200px) {
+		#exampleChartPie #containerFruit,
+		#exampleChartPie #containerVotes {
+			display: grid;
+			grid-template-columns: 250px 1fr;
+			gap: calc(var(--base-gap-size) * 2);
+		}
+	}
+	
+	#containerFruit tr {
+		grid-template-columns: 3fr 1fr 1fr;
+	}
+	
+	#containerVotes tr {
+		grid-template-columns: 3fr 1fr;
+	}
+	
+	.definitions td:first-child {
+		display: flex !important;
+		flex-direction: column;
+	}
+	
+	#icons.definitions svg {
+		width: calc(var(--base-font-size) * 2);
+		height: calc(var(--base-font-size) * 2);
+	}
+	
+	@media (min-width: 800px) {
+		.definitions tr {
+			grid-template-columns: 200px 1fr;
+		}
+		
+		#config.definitions tr {
+			grid-template-columns: 250px 1fr;
+		}
+		
+		#effects.definitions tr {
+			grid-template-columns: 300px 1fr;
+		}
+		
+		#breakpoints.definitions tr {
+			grid-template-columns: 120px 1fr;
+		}
+		
+		#buttons.definitions tr {
+			grid-template-columns: 200px 1fr 1fr 1fr 1fr 1fr;
+		}
+		
+		#icons.definitions tr {
+			grid-template-columns: calc(var(--base-font-size) * 2) 150px 1fr;
+			gap: var(--base-gap-size);
+		}
+	}
+	
+	.examples tr {
+		grid-template-columns: 1fr auto;
+		align-items: center;
+	}
+	
+	.definitions td {
+		display: block;
+	}
+	
+	#exampleChartGantt {
+		overflow: auto;
+		border: 1px solid rgb(var(--divider));
+	}
+	
+	#filestructure {
+		padding: 0px;
+	}
+	
+	#filestructure svg {
+		width: var(--base-font-size);
+		height: var(--base-font-size);
+		margin-inline-end: calc(var(--base-gap-size) / 3);
+	}
+	
+	#filestructure path {
+		fill: rgb(var(--accent));
+	}
+	
+	#filestructure li {
+		padding-block: calc(var(--base-gap-size) / 2);
+		display: flex;
+		align-items: center;
+		border-block-end: 1px solid rgb(var(--divider));
+	}
+	
+	#logo {
+		height: 208px;
+		width: 208px;
+	}
+	
+	#logo svg {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.columnPrimary .containerToolbar {
+		border: none;
+	}
+}

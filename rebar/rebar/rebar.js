@@ -1,4 +1,4 @@
-//REBAR 1.5
+//REBAR 2
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -8,80 +8,76 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 //FIRST RUN
 	//SHEETS
 	function summonInstallBanner() {
-		summonPanel({ 
-			type: 'toast', 
-			backing: 'gradient', 
-			title: `Tap to install ${appName}`,
+		summonToast({
+			backing: "gradient",
+			id: "buttonInstallApp",
 			icon: `<img src="icon.png" />`,
-			containerID: "buttonInstallApp"
-		});
+			message: `Tap to install ${appName}`,
+			closeButton: true,
+		})
 	}
 	
 	function summonHowToInstallSheet() {
-		summonPanel({ 
-			type: 'sheet', 
-			size: 'full',
-			backing: 'dark', 
-			title: `How to Install`,
-			toolbar: "hidden",
-			width: "slim",
-			containerID: "sheetInstall"
-		});
-		
-		$(".containerSheetContents").append(`
-			<p class="excludeMargin textAlignCenter"><img src="icon.png" width="120" /></p>
-			<p class="textAlignCenter">${appName} can be installed to your Home Screen. It will launch like any other app and work offline.</p>
-			<div class="containerItemList inset inline spacerSingle alwaysBackgroundColor">
-				<h3 class="headerList">How to Install</h3>
-				<section class="containerSection excludePadding excludeMargin">
-					<div class="itemList fixedIconSize">
-						<span class="alwaysMain">${iconIndices.oneCircleStroke}</span>
-						<div class="label">
-							<span id="installStepOne">
-								Tap the <span class="alwaysMain" id="installShareIcon">${iconInterfaceElements.shareSquareUpStroke}</span> button
-							</span>
-						</div>
+		summonSheet({
+			type: "smallsheet",
+			backing: "dark",
+			theme: false,
+			id: "sheetInstall",
+			content: `
+				<button class="translucent xclose" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
+				<div class="scrollview">
+					<p class="excludeMargin textAlignCenter"><img src="icon.png" width="120" /></p>
+					<p class="textAlignCenter">${appName} can be installed to your Home Screen. It will launch like any other app and work offline.</p>
+					<div class="containerItemList inset inline spacerSingle alwaysBackgroundColor">
+						<h3 class="headerList">How to Install</h3>
+						<section class="containerSection excludePadding excludeMargin">
+							<div class="itemList fixedIconSize">
+								<span class="alwaysMain">${iconIndices.oneCircleStroke}</span>
+								<div class="label">
+									<span id="installStepOne">
+										Tap the <span class="alwaysMain" id="installShareIcon">${iconInterfaceElements.shareSquareUpStroke}</span> button
+									</span>
+								</div>
+							</div>
+							<div class="itemList fixedIconSize">
+								<span class="alwaysMain">${iconIndices.twoCircleStroke}</span>
+								<div class="label">
+									<span>Tap <span class="textBold">Add to Home Screen</span></span>
+								</div>
+							</div>
+							<div class="itemList fixedIconSize">
+								<span class="alwaysMain">${iconIndices.threeCircleStroke}</span>
+								<div class="label">
+									<span>Set a name and tap <span class="textBold">Add</span></span>
+								</div>
+							</div>
+						</section>
 					</div>
-					<div class="itemList fixedIconSize">
-						<span class="alwaysMain">${iconIndices.twoCircleStroke}</span>
-						<div class="label">
-							<span>Tap <span class="textBold">Add to Home Screen</span></span>
-						</div>
-					</div>
-					<div class="itemList fixedIconSize">
-						<span class="alwaysMain">${iconIndices.threeCircleStroke}</span>
-						<div class="label">
-							<span>Set a name and tap <span class="textBold">Add</span></span>
-						</div>
-					</div>
-				</section>
-			</div>
-			<p class="subtext">The option to Save to Home Screen is only available in Safari on iPhone and iPad. It is not available through in-app browsers or 3rd party browser apps. If you have any issues please contact <a href="mailto:${appEmail}?subject=Help%20with%20installing%20${appName}">Support</a>.</p>
-		`);
+					<p class="subtext">The option to Save to Home Screen is only available in Safari on iPhone and iPad. It is not available through in-app browsers or other browser apps. If you have any issues please contact <a href="mailto:${appEmail}?subject=Help%20with%20installing%20${appName}">Support</a>.</p>
+				</div>
+			`,
+		})
 	}
 	
 	function summonWhatsNewSheet() {
-		summonPanel({ 
-			type: 'sheet', 
-			size: 'full',
-			backing: 'dark', 
-			toolbar: 'include',
-			title: `What's New in ${appVersion}`,
-			width: 'slim',
-			containerID: "sheetWhatsNew",
-			toolbar: "hidden",
-			innerPadding: 'exclude',
-		});
-		
-		$(".containerSheetContents").append(`
-			<div class="headerWhatsNew">
-				<div class="version">
-					<h1 class="excludePadding">${appVersion}</h1>
+		summonSheet({
+			type: "smallsheet",
+			backing: "dark",
+			theme: false,
+			id: "sheetWhatsNew",
+			content: `
+				<button class="translucent xclose" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
+				<div class="scrollview excludePadding">
+					<div class="headerWhatsNew">
+						<div class="version">
+							<h1 class="excludePadding">${appVersion}</h1>
+						</div>
+						<h2 class="excludePadding">What's New</h2>
+					</div>
+					<ul id="releaseNotes" class="excludePadding"></ul>
 				</div>
-				<h2 class="excludePadding">What's New</h2>
-			</div>
-			<ul id="releaseNotes" class="excludePadding"></ul>
-		`);
+			`,
+		})
 		
 		$.each( appReleaseNotes, function( key, val ) {
 			$("#releaseNotes").append(`
@@ -164,14 +160,17 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			
 			//DISPLAY TIPS PROMPT
 			if (countOpenings == 4 || countOpenings == 8  || countOpenings == 14 ) {
-				summonPanel({ 
-					type: 'sheet', 
-					size: 'full',
-					backing: 'dark', 
-					toolbar: "hidden",
-					width: "slim",
-					containerID: "sheetTips"
-				});
+				summonSheet({
+					type: "smallsheet",
+					backing: "dark",
+					theme: false,
+					id: false,
+					content: `
+						<button class="translucent xclose" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
+						<div id="sheetTips"></div>
+					`,
+				})
+				
 				generateTipJar({
 					target: "sheetTips",
 				});
@@ -180,20 +179,25 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	});
 	
 //SET TIME LENGTH
-function setTimeLength() {
-	if (queryReducedMotion == true) {
-		document.documentElement.style.setProperty('--base-time-length', '0s');
-	} else {
-		switch (getPreferenceGroup("rebar.appSettings").reduceMotion) {
-			case 'on':
-				document.documentElement.style.setProperty('--base-time-length', '0s');
-				break;
-			case 'off':
-				document.documentElement.style.setProperty('--base-time-length', baseTimeLength);
-				break;
+	function setTimeLength() {
+		if (queryReducedMotion == true) {
+			document.documentElement.style.setProperty('--base-time-length', '0s');
+		} else {
+			switch (getPreferenceGroup("rebar.appSettings").reduceMotion) {
+				case 'on':
+					document.documentElement.style.setProperty('--base-time-length', '0s');
+					break;
+				case 'off':
+					document.documentElement.style.setProperty('--base-time-length', baseTimeLength);
+					break;
+			}
 		}
 	}
-}
+	
+	function tempAnimationStop() {
+		document.documentElement.style.setProperty('--base-time-length', '0s');
+		setTimeout(function(){ setTimeLength(); }, 100);
+	}
 
 //GRAB URL PARAMETER
 function grabURLParameter() {
@@ -206,9 +210,14 @@ function grabURLParameter() {
 	}
 }
 
+//GRAB FUNCTION NAME
+function grabFunctionName() {
+	return grabFunctionName.caller.name
+}
+
 //SUMMON HOW TO INSTALL SHEET
 	$(document).on('click', '#buttonInstallApp', function() {
-		dismissPanel();
+		dismissDialog();
 		setTimeout(function(){ summonHowToInstallSheet(); }, 500);
 	});
 	
@@ -224,18 +233,6 @@ function grabURLParameter() {
 		setTimeLength();
 	}
 
-//SEGMENTED CONTROLS
-	function clickSegment(dataValue) {
-		//GET VALUE
-		let value = $(dataValue).data("value"); //The value to be used for local storage
-		
-		//SET STATE
-		$(dataValue).siblings().removeClass("picked"); //Removes the picked class from all siblings of the clicked item
-		$(dataValue).addClass("picked"); //Adds the picked class to the clicked item
-		
-		return value;
-	}
-
 //CONTEXT MENUS
 	//BUTTON CLICK
 	$(document).on('click', '.buttonContext', function() {
@@ -249,13 +246,22 @@ function grabURLParameter() {
 		let setting = $(dataValue).parent().parent().data("setting");
 		let value = $(dataValue).data("value")
 		let label = $(dataValue).data("label")
+		let iconGroup = $(dataValue).data("icongroup")
+		let iconName = $(dataValue).data("iconname")
 		
 		//HANDLE PICKERS
-		if ($(dataValue).parent().data("type") == "picker") {
+		if ($(dataValue).parent().parent().data("type") == "picker") {
 			//SET STATE
 			$(dataValue).siblings().removeClass("picked"); //Removes the picked class from all siblings of the clicked item
 			$(dataValue).addClass("picked"); //Adds the picked class to the clicked item
 			$(`[data-setting="${setting}"] .contextLabel`).empty().append(label); //Clears the label of the parent button and appends the clicked item value
+		}
+		
+		if ($(dataValue).parent().parent().data("type") == "pickericons") {
+			//SET STATE
+			$(dataValue).siblings().removeClass("picked"); //Removes the picked class from all siblings of the clicked item
+			$(dataValue).addClass("picked"); //Adds the picked class to the clicked item
+			$(`[data-setting="${setting}"] .contextLabel`).empty().append(window[iconGroup][iconName]).append(label); //Clears the label of the parent button and appends the clicked item value
 		}
 		
 		return {value, label};
@@ -286,58 +292,146 @@ function grabURLParameter() {
 		}
 	}
 	
-//SOURCE LISTS
-	function changeView(dataValue) {
-		//HANDLE DEEP LINKS
-		if (dataValue.type == "deeplink") {
-			//CLEAR COLUMN STATES
-			$(`#${dataValue.properties.clearContainer}`).removeClass("active");
-			$(`#${dataValue.properties.targetContainer}`).removeClass("slightSlide");
-			$(`#${dataValue.properties.parentContainer}`).removeClass("slightSlide");
-			
-			//CLEAR BUTTON STATES
-			$(`#${dataValue.properties.parentContainer} *`).removeClass("picked subdued");
-			$(`#${dataValue.properties.targetContainer} *`).removeClass("picked subdued");
-			$(`#${dataValue.properties.originContainer} *`).removeClass("picked subdued");
-			
-			//TEMPORARILY DISABLE ALL ANIMATIONS
-			document.documentElement.style.setProperty('--base-time-length', '0s');
-			setTimeout(function(){ setTimeLength(); }, 100);
-			
-			//GENERATE CONTENT
-			if (dataValue.properties.columnLevel == 2) {
-				$(`[data-value="${dataValue.properties.parentRoute}"]`).addClass("picked subdued"); //Set the picked sidebar item
-				$(`#${dataValue.properties.originContainer}`).addClass("slightSlide"); //Set the first column in to the correct state so it can display an animation when a view transition happens
+//NAVIGATION
+	function controllerRoute(options) {
+		//TEMPORARILY STOP COLUMN TRANSITIONS
+		//This stops the views from transitioning on larger screens
+			if (window.matchMedia("(min-width: 1100px)").matches || options.type == "deeplink") {
+				tempAnimationStop();
 			}
-		}
-		
-		//SET STATE
-		if (dataValue.source != "defaultView") {
-			$(`#${dataValue.properties.removePicked} *`).removeClass("picked subdued"); //Removes the picked state in the target container
-			$(`[data-value="${dataValue.source}"]`).addClass("picked"); //Adds the picked state to the selected list item
-			if ($(`[data-value="${dataValue.source}"]`).hasClass("itemList") == true) {
-				$(`[data-value="${dataValue.properties.parentRoute}"]`).addClass("subdued"); //Adds a subdued class to the current list item that has a picked class (this is used when selecting an item in the secondary column to set the look of the primary column in 3 column layouts)
-				$(`[data-value="${dataValue.modifier}"]`).addClass("subdued");
+	
+		//SETUP APP CONTAINER
+		//This switches the layout between two and three columns
+			switch (options.columns) {
+				case 2:
+					$(".containerApp").removeClass("columnsThree");
+					$(".containerAside").addClass("single").removeClass("double");
+					$(".columnSecondary").empty();
+					break;
+				case 3:
+					$(".containerApp").addClass("columnsThree");
+					$(".containerAside").addClass("double").removeClass("single");
+					break;
 			}
-			$(`#${dataValue.properties.parentContainer}`).addClass("slightSlide"); //Adds the slightSlide class to the true parent container of the clicked item to have the container slightly slide while the next active container is sliding in
-			$(`#${dataValue.properties.targetContainer}`).empty().addClass("active").removeClass("slightSlide"); //Clears out the target container and adds an active class to it
-			$(`#${dataValue.properties.clearContainer}`).empty().removeClass("active"); //Clears out a secondary container (this is used when switching between sidebar sources in 3 column layouts)
-			if (dataValue.properties.expandSecondaryColumn == true) {
-				$(`.containerApp`).addClass(`expandSecondaryColumn`); //Adds a class to the App Container so that a two column layout can be shown in a three column setup
+			
+		//SETUP COLUMN STATES
+		//This moves columns in to place and empties columns when they are no longer needed
+			switch (options.level) {
+				case "primary":
+					//SET PICKED LIST ITEM
+						$(".columnPrimary *").removeClass("picked").removeClass("subdued")
+				
+					//SET COLUMNS
+						$(`.columnPrimary`).removeClass("slightSlide");
+						$(`.columnSecondary`).removeClass("active").removeClass("slightSlide");
+						$(".columnTertiary").removeClass("active");
+					
+					//EMPTY COLUMNS
+						if (options.type == "backwards") {
+							if (window.matchMedia("(max-width: 1099px)").matches) {
+								setTimeout(function(){ $(`.columnSecondary`).empty(); }, 500);
+							} else {
+								$(".columnSecondary").empty();
+							}
+							
+							if (window.matchMedia("(max-width: 639px)").matches) {
+								setTimeout(function(){ $(`.columnTertiary`).empty(); }, 500);
+							} else {
+								$(".columnTertiary").empty();
+							}
+						}
+					break;
+				case "secondary":
+					//SET PICKED LIST ITEM
+						$(".columnPrimary *").removeClass("picked").removeClass("subdued")
+						$(".columnSecondary *").removeClass("picked")
+						
+					//SET COLUMNS
+						$(`.columnPrimary`).addClass("slightSlide");
+						$(`.columnSecondary`).addClass("active").removeClass("slightSlide");
+						$(".columnTertiary").removeClass("active");
+					
+					//EMPTY COLUMNS
+						if (options.type == "backwards") {
+							if (window.matchMedia("(max-width: 639px)").matches) {
+								setTimeout(function(){ $(`.columnTertiary`).empty(); }, 500);
+							} else {
+								$(".columnTertiary").empty();
+							}
+						}
+						
+						if (options.type == "forwards") {
+							$(".columnSecondary").empty();
+							$(".columnTertiary").empty();
+						}
+					break;
+				case "secondaryExpanded":
+					//SET PICKED LIST ITEM
+						$(".columnPrimary *").removeClass("picked").removeClass("subdued")
+						
+					//SET COLUMNS
+						$(`.columnPrimary`).addClass("slightSlide");
+						$(`.columnSecondary`).removeClass("slightSlide").removeClass("active");
+						$(".columnTertiary").addClass("active");
+					
+					//EMPTY COLUMNS
+						if (options.type == "forwards") {
+							$(".columnTertiary").empty();
+						}
+					break;
+				case "tertiary":
+					//SET PICKED LIST ITEM
+						$(".columnPrimary .picked").addClass("subdued");
+						$(".columnSecondary *").removeClass("picked")
+					
+					//SET COLUMNS
+						$(`.columnSecondary`).addClass("slightSlide");
+						$(".columnTertiary").addClass("active");
+					
+					//EMPTY COLUMNS
+						if (options.type == "forwards" || options.type == "deeplink") {
+							$(".columnTertiary").empty();
+						}
+					break;
+			}
+			
+		//SET PICKED ITEM
+		//Applies the .picked class to the newly selected item
+			$(`[data-name="${options.route}"], [data-name="${options.modifier}"]`).addClass("picked");
+			
+		//UPDATE URL
+		//Updates the URL and pushes it to the browser history
+			if (options.type == "forwards" || options.type == "backwards") {
+				window.history.pushState(null, null, `?${options.route ? options.route : ``}${options.modifier ? `=${options.modifier}` : ``}`);
+			}
+	}
+	
+	//BROWSER BACK BUTTON
+		window.addEventListener('popstate', function(e) {
+			let url = grabURLParameter()
+			if (url.query.length == 0 || url.query.length == 1) {
+				window[topLevelRoute]({modifier: false, navtype: "deeplink"})
 			} else {
-				$(`.containerApp`).removeClass(`expandSecondaryColumn`);
+				window["route" + url.query]({modifier: url.source, navtype: "deeplink"})
 			}
-		}
+		});
+		
+//TABS
+	function controllerTab(options) {	
+		let parent = $(`[data-name="${options.modifier}"]`).parent()
+			
+		//SETUP VIEW CONTAINER
+			$(parent).next().empty();
+		
+		//SETUP TAB STATES
+			$(`[data-name="${options.modifier}"]`).siblings().removeClass("picked");
+			$(`[data-name="${options.modifier}"]`).addClass("picked");
 		
 		//UPDATE URL
-		//"navigation" is chosen here so that the browser history doesn't populate with the same entry over and over
-		if (dataValue.type == "navigation") {
-			if (dataValue.source == undefined) {
-				window.history.pushState(null, null, `?${dataValue.properties.query}=index`);
-			} else {
-				window.history.pushState(null, null, `?${dataValue.properties.query}=${dataValue.source}`);
+			if (options.updateURL == true) {
+				// let url = grabURLParameter().query
+				window.history.pushState(null, null, `?${options.route}=${options.modifier}`);
 			}
-		}
 	}
 
 //TOOLBARS
@@ -362,178 +456,157 @@ function grabURLParameter() {
 			}
 		});
 	}
-	
-//BACK BUTTONS
-	$(document).on('click', 'button.back', function() {
-		//GET VALUES
-		let removeActive = $(this).data("removeactive");
-		let removeSlide = $(this).data("removeslide");
-		let clearContent = $(this).data("clear");
-		let query = $(this).data("query");
-		let target = $(this).data("target");
 		
-		//REMOVE PARENT ACTIVE STATE
-		$("#" + removeActive).removeClass("active").removeClass("slightSlide");
-		
-		//RESET STATE OF PREVIOUS COLUMN
-		$("#" + removeSlide + " :not(.containerTabBar) button").removeClass("picked").removeClass("subdued");
-		$("#" + removeSlide).removeClass("slightSlide");
-		
-		//EMPTY THE MAIN COLUMN
-		setTimeout(function(){ $("#" + clearContent).empty().removeClass("active"); }, 500);
-		
-		//UPDATE URL
-		if (target == undefined) {
-			window.history.pushState(null, null, "?");
-		} else {
-			window.history.pushState(null, null, `?${query}=${target}`);
-		}
-	});
-	
 //COLLAPSE ASIDE BUTTONS
 	$(document).on('click', 'button.collapseAside', function() {
 		$(".containerApp").toggleClass("fullWidth");
 	});
-	
-//PANELS
-	//SUMMON PANEL
-	function summonPanel(options) {
-		//REMOVE ANY EXISTING PANELS
-		$(".containerPanel").remove();
 		
-		//SETUP PANEL SKELETON
-		$("body").prepend(`
-			<div class="containerPanel ${options.size} ${options.outerPadding}Padding">
-				<div class="backingPanel ${options.backing}" title="Dismiss"></div>
-			</div>
-		`);
+//DIALOGS
+	//OPEN
+		function showDialog(type) {
+			$('dialog')[0].addEventListener('cancel', (event) => {
+				event.preventDefault();
+			});
+			if (type == "fullsheet" || type == "smallsheet") {
+				$(".containerApp").addClass("recede");
+			}
+			$('dialog')[0].showModal();
+		}
 		
-		//FILL IN PANEL SKELETON
-		switch (options.type) {
-			case 'sheet':
-				if (options.action == undefined) {
-					options.action = "Done";
-				}
-				
-				$(".containerPanel").append(`
-					<div class="containerSheet"  data-theme="${options.theme}">
-						<div class="containerSheetContents ${options.innerPadding}Padding" id="${options.containerID}"></div>
-					</div>
+		//SHEET
+			function summonSheet(options) {
+				$("body").prepend(`
+					<dialog data-type="${options.type}" data-backing="${options.backing}" ${options.theme ? `data-theme="${options.theme}"` : `` } id="${options.id}">
+						${options.content}
+					</dialog>
 				`);
-				
-				if (options.size == "full") {
-					$(".containerApp").addClass("recede");
-				}
-				
-				if (options.width == "slim") {
-					$(".containerSheet").addClass("slim");
-				}
-				
-				if (options.toolbar == "include") {
-					$(".containerSheet").prepend(`
-						<header class="containerToolbar">
-							<div class="pinLeft"></div>
-							<h1 class="headerToolbar">${options.title}</h1>
-							<div class="pinRight">
-								<button class="transparent confirm" id="buttonSheetDismiss">${options.action}</button>
-							</div>
-						</header>
-					`);
-				}
-				
-				if (options.toolbar == "hidden") {
-					$(".containerSheetContents").addClass("toolbarHidden");
-					$(".containerSheet").prepend(`
-						<button class="secondary xclose" id="buttonSheetDismiss" title="Dismiss">${iconShapes.timesFill}</button>
-					`);
-				}
-				
-				break;
-			case 'alert':
-				$(".containerPanel").addClass("alwaysCenter");
-				$(".containerPanel").prepend(`
-					<div class="containerAlert">
-						<div class="containerAlertContents" id="${options.containerID}">
+				showDialog(options.type);
+			}
+		
+		//LIGHTBOX
+			function summonLightbox(options) {
+				$("body").prepend(`
+					<dialog data-type="lightbox" data-backing="${options.backing}" id="${options.id}">
+						<button class="translucent xclose" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
+						${options.content}
+					</dialog>
+				`);
+				showDialog("lightbox");
+			}
+			
+		//ALERT
+			function summonAlert(options) {
+				if (options.customContent == false) {
+					$("body").prepend(`
+						<dialog data-type="alert" data-backing="${options.backing}" id="${options.id}">
 							<div class="description">
-								<h1 class="h5">${options.title}</h1>
+								${options.icon ? `<span class="${options.iconType}">${options.icon}</span>` : ``}
+								${options.title ? `<h5 class="textAlignCenter excludePadding">${options.title}</h5>` : ``}
+								${options.message ? `<p class="excludeMargin textAlignCenter">${options.message}</p>` : ``}
 							</div>
 							<div class="buttons">
-								<button class="${options.buttonStyle}" id="${options.actionID}">${options.action}</button>
-								<button class="transparent" id="buttonAlertDismiss">Cancel</button>
+								${options.buttonPrimary}
+								${options.buttonSecondary ? options.buttonSecondary : ``}
+								${options.buttonTertiary ? options.buttonTertiary : ``}
 							</div>
-						</div>
-					</div>
-				`);
-				
-				if (options.message != undefined) {
-					$(".containerAlertContents .description").append(`<p class="excludeMargin">${options.message}</p>`);
+						</dialog>
+					`);
+					showDialog("alert");
+				} else {
+					$("body").prepend(`
+						<dialog data-type="alert" data-backing="${options.backing}" id="${options.id}">
+							<div class="description">
+								${options.icon ? `<span class="${options.iconType}">${options.icon}</span>` : ``}
+								${options.title ? `<h5 class="textAlignCenter excludePadding">${options.title}</h5>` : ``}
+								${options.customContent}
+							</div>
+							<div class="buttons ${options.inlineButtons ? "inline" : ``}">
+								${options.buttonPrimary}
+								${options.buttonSecondary ? options.buttonSecondary : ``}
+								${options.buttonTertiary ? options.buttonTertiary : ``}
+							</div>
+						</dialog>
+					`);
+					showDialog("alert");
 				}
 				
-				break;
-			case 'toast':
-				$(".containerPanel").addClass("alwaysTop");
-				$(".containerPanel").prepend(`
-					<div class="containerToast">
-						<div class="containerToastContents" id="${options.containerID}">
-							<p>${options.title}</p>
+				
+			}
+		
+		//TOAST
+			function summonToast(options) {
+				$("body").prepend(`
+					<dialog data-type="toast" data-backing="${options.backing}">
+						<div class="containerToastContents" id="${options.id}">
+							${options.icon ? options.icon : ``}
+							<p>${options.message}</p>
 						</div>
-						<span class="buttonToastDismiss" title="Dismiss">${iconShapes.timesCircleDuo}</span>
-					</div>
+						${options.closeButton ? `<button class="buttonToastDismiss excludePadding" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesCircleDuo}</button>` : ``}
+					</dialog>
 				`);
+				showDialog("toast");
+			}
+	
+	//CLOSE
+		function dismissDialog() {
+			$('dialog:first-child').addClass('hide'); //Add reversal animation
+			
+			if ($('dialog').length == 1) {
+				$(".containerApp").removeClass("recede");
+			}
+			
+			setTimeout(function(){
+				$('dialog:first-child')[0].close(); //Close out the dialog
+				$('dialog:first-child').remove(); //Remove dialog from DOM
+			}, 300)
+		};
+		
+		//CLOSE BUTTON
+		$(document).on('click', '[data-function="closedialog"]', function() {
+			dismissDialog()
+		});
+		
+		$(document).on('click', 'dialog[data-type="lightbox"]', function() {
+			dismissDialog()
+		});
+		
+		//BACKDROP
+		$(document).on('click', 'dialog', function() {
+			if ($(this).attr("data-type") != "alert") {
+				let dialog = $(this)[0]
 				
-				if (options.icon != undefined) {
-					$(".containerToastContents").prepend(`${options.icon}`);
+				var rect = dialog.getBoundingClientRect();
+				var isInDialog=(rect.top <= event.clientY && event.clientY <= rect.top + rect.height && rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+				if (!isInDialog) {
+					dismissDialog()
 				}
-					
-				break;
-			case 'lightbox':
-				$(".backingPanel").prepend(`
-					<div class="containerLightbox" id="${options.containerID}"></div>
-				`);
-				
-				$(".backingPanel").prepend(`
-					<button class="secondary xclose" title="Dismiss">${iconShapes.timesFill}</button>
-				`);
-				
-				break;
-		}
-	}
-	
-	//DISMISS PANELS
-	function dismissPanel() {
-		$(".containerPanel").addClass("inactive");
-		$(".containerApp").removeClass("recede");
-		setTimeout(function(){ $(".containerPanel").remove(); }, 500);
-	}
-	
-	$(document).on('click', '#buttonSheetDismiss, .backingPanel, .buttonToastDismiss, #buttonAlertDismiss', function() {
-		dismissPanel();
-	});
-	
-	$(document).keyup(function(e) {
-		switch (e.key) {
-			case 'Escape':
-				dismissPanel();
-				break;
-		}
-	});
+			}
+		});
 	
 //SHORTCUTS PANEL
 	function summonShortcutsPanel() {
-		summonPanel({ 
-			type: 'sheet', 
-			backing: 'dark', 
-			size: 'half', 
-			outerPadding: 'include', 
-			title: "Shortcut Keys",
-			toolbar: "include",
-			containerID: "sheetShortcuts"
-		});
-		$(".containerSheetContents").append(`
-			<div class="containerItemList inset noBackgroundColor"></div>
-		`);
+		summonSheet({
+			type: "halfsheet",
+			backing: "dark",
+			theme: false,
+			id: "sheetShortcuts",
+			content: `
+				<header class="containerToolbar">
+					<div class="pinLeft"></div>
+					<h1 class="headerToolbar">Shortcut Keys</h1>
+					<div class="pinRight">
+						<button class="transparent confirm" id="buttonSheetDismiss" data-function="closedialog" autofocus>Done</button>
+					</div>
+				</header>
+				<div class="scrollview cropToolbar">
+					<div class="containerItemList inset noBackgroundColor"></div>
+				</div>
+			`,
+		})
+		
 		$.each( shortcutKeys, function( key, val ) {
-			$(".containerSheetContents .containerItemList").append(`
+			$("#sheetShortcuts .containerItemList").append(`
 				<h2 class="headerList">${val.label}</h2>
 				<section class="containerSection excludePadding" id="${key}"></section>	
 			`);
@@ -560,11 +633,11 @@ function grabURLParameter() {
 					if ($('.containerPanel').length == 0) {
 						summonShortcutsPanel();
 					} else {
-						dismissPanel();
+						dismissDialog();
 					}
 					break;
 				case 'Escape':
-					dismissPanel();
+					dismissDialog();
 					break;
 			}
 		}
@@ -710,13 +783,13 @@ function grabURLParameter() {
 		if (options.actionFirst != undefined) {
 			$(".blankStateContents").append(`
 				<div class="containerActions">
-					<button class="primary transparent" id="${options.actionIDFirst}">${options.actionFirst}</button>
+					<button class="primary" id="${options.actionIDFirst}">${options.actionFirst}</button>
 				</div>
 			`);
 		}
 		
 		if (options.actionSecond != undefined) {
-			$(".blankStateContents .containerActions").append(`<button class="secondary transparent" id="${options.actionIDSecond}">${options.actionSecond}</button>`)
+			$(".blankStateContents .containerActions").append(`<button class="secondary" id="${options.actionIDSecond}">${options.actionSecond}</button>`)
 		}
 	}
 	
@@ -778,40 +851,61 @@ function grabURLParameter() {
 			if (options.themeOptions == true) {
 				//SET UP THE CONTAINER
 				$(`#containerVisuals`).append(`
-					<div class="itemList fixedIconSize" style="border: none; padding-block-end: 0px;">
-						${iconInterfaceElements.appearance}
+					<div class="itemList fixedIconSize">
+						${iconObjects.paintbrushStroke}
 						<div class="label" id="increaseContrastLabel">
 							<span>Theme</span>
 						</div>
-						<p class="subtext textAlignRight excludeMargin" id="selectedAppearance"></p>
+						<div class="containerContextButton" data-setting="appearance" data-position="right" data-type="pickericons">
+							<button class="buttonContext transparent excludePadding">
+								<div class="contextContainerLabel">
+									<span class="contextLabel"></span>
+									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
+								</div>
+							</button>
+							<div class="contextContainerMenu"></div>
+						</div>
 					</div>
-					<div class="containerAccents itemList fixedIconSize" id="pickerAppearance" data-max="1" data-setting="appearance"></div>
 				`);
 				
 				//GENERATE THE TOKENS
 				$.each( appThemes, function( key, val ) {
-					$(`#pickerAppearance`).append(`
-						<div class="accentChip selectionRing" data-value="${key}" style="background: url(images/themes/${key}.svg);" title="${val}"></div>
+					$(`[data-setting="appearance"] .contextContainerMenu`).append(`
+						<button data-value="${key}" data-label="${val.name}" data-icongroup='${val.iconGroup}' data-iconname='${val.iconName}'>
+							${val.name}
+							${window[val.iconGroup][val.iconName]}
+						</button>
 					`);
 				});
 				
-				//SET THE PICKED TOKEN
-				$(`#pickerAppearance [data-value="${getPreferenceGroup("rebar.appSettings").appearance}"]`).addClass("picked");
-				$(`#selectedAppearance`).empty().append(appThemes[getPreferenceGroup("rebar.appSettings").appearance]);
+				//SET THEME DROPDOWN
+				$(`[data-setting="appearance"] button[data-value='${getPreferenceGroup("rebar.appSettings").appearance}']`).addClass("picked");
+				$(`[data-setting="appearance"] .contextLabel`).append(window[appThemes[getPreferenceGroup("rebar.appSettings").appearance].iconGroup][appThemes[getPreferenceGroup("rebar.appSettings").appearance].iconName]);
+				$(`[data-setting="appearance"] .contextLabel`).append(appThemes[getPreferenceGroup("rebar.appSettings").appearance].name);
 			}
 			
 			//ACCENTS
 			if (options.accentOptions == true) {
 				//SET UP THE CONTAINER
 				$(`#containerVisuals`).append(`
-					<div class="itemList fixedIconSize" style="border: none; padding-block-end: 0px;">
+					<div class="itemList fixedIconSize">
 						${iconObjects.swatchBookRight}
 						<div class="label" id="increaseContrastLabel">
 							<span>Accent</span>
 						</div>
-						<p class="subtext textAlignRight excludeMargin" id="selectedAccent"></p>
+						<div class="containerContextButton" data-setting="accent" data-position="right" data-type="popover">
+							<button class="buttonContext transparent excludePadding">
+								<div class="contextContainerLabel">
+									<span class="contextLabel" style="text-transform: none"><span class="colorChip" data-accent="${getPreferenceGroup("rebar.appSettings").accent}"></span> ${appAccents[getPreferenceGroup("rebar.appSettings").accent]}</span>
+									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
+								</div>
+							</button>
+							<div class="contextContainerMenu">
+								<div class="containerAccents itemList fixedIconSize" id="pickerAccent" data-max="1" data-setting="accent"></div>
+							</div>
+						</div>
 					</div>
-					<div class="containerAccents itemList fixedIconSize" id="pickerAccent" data-max="1" data-setting="accent"></div>
+					
 				`);
 				
 				//GENERATE THE TOKENS
@@ -905,14 +999,14 @@ function grabURLParameter() {
 						<div class="label">
 							<span>Text Size</span>
 						</div>
-						<div class="containerContextButton" data-setting="dynamicTypeSize">
+						<div class="containerContextButton" data-setting="dynamicTypeSize" data-position="right" data-type="picker">
 							<button class="buttonContext transparent excludePadding">
 								<div class="contextContainerLabel">
 									<span class="contextLabel"></span>
-									<span class="contextGripper">${iconShapes.chevronSingleDownFill}</span>
+									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
 								</div>
 							</button>
-							<div class="contextContainerMenu" data-position="right" data-type="picker"></div>
+							<div class="contextContainerMenu"></div>
 						</div>
 					</div>
 				`);
@@ -978,18 +1072,16 @@ function grabURLParameter() {
 	}
 	
 	//MAKE THE THEME PICKER CLICKABLE
-	$(document).on('click', '#pickerAppearance div', function() {
-		selectionGrid(this);
-		let selectedAppearance = getSelectionGridGroups(["appearance"])
+	$(document).on('click', '[data-setting="appearance"] .contextContainerMenu button', function() {
+		let selectedValue = clickContextMenuItem(this);
 		modifyPreference({
 			group: "rebar.appSettings",
 			mode: "update",
 			preference: "appearance",
-			value: selectedAppearance.appearance,
+			value: selectedValue.value,
 		})
-		$("body").attr("data-theme", selectedAppearance.appearance);
+		$("body").attr("data-theme", selectedValue.value);
 		setMetaTheme();
-		$(`#selectedAppearance`).empty().append(appThemes[getPreferenceGroup("rebar.appSettings").appearance]);
 	});
 	
 	//MAKE THE ACCENT PICKER CLICKABLE
@@ -1003,7 +1095,7 @@ function grabURLParameter() {
 			value: selectedAccent.accent,
 		})
 		$("body").attr("data-accent", selectedAccent.accent);
-		$(`#selectedAccent`).empty().append(appAccents[getPreferenceGroup("rebar.appSettings").accent]);
+		$(`[data-setting="accent"] .contextLabel`).empty().append(`<span class="colorChip" data-accent="appAccents[getPreferenceGroup("rebar.appSettings").accent]"></span> ${appAccents[getPreferenceGroup("rebar.appSettings").accent]}`);
 	});
 	
 	//MAKE THE TEXT SIZE PICKER CLICKABLE
@@ -1174,23 +1266,23 @@ function grabURLParameter() {
 //COPT TO CLIPBOARD
 	function copyToClipboard(text) {
 		//COPY CONTENT
-		var $temp = $("<input>");
-		$("body").append($temp);
-		$temp.val(text).select();
-		document.execCommand("copy");
-		$temp.remove();
+			var $temp = $("<input>");
+			$("body").append($temp);
+			$temp.val(text).select();
+			document.execCommand("copy");
+			$temp.remove();
 		
 		//DISPLAY TOAST
-		summonPanel({
-			type: 'toast', 
-			backing: 'none', 
-			title: `Copied to Clipboard`,
-			icon: `${iconShapes.checkmarkCircleStroke}`,
-			containerID: "buttonUpdateApp"
-		})
+			summonToast({
+				backing: "gradient",
+				id: false,
+				icon: iconShapes.checkmarkCircleMulti,
+				message: `Copied to Clipboard`,
+				closeButton: false,
+			})
 		
 		//DESTROY TOAST
-		setTimeout(function(){ dismissPanel(); }, 1800);
+			setTimeout(function(){ dismissDialog(); }, 1800);
 	}
 	
 //SCROLL ITEM TO TOP
@@ -1273,7 +1365,7 @@ function grabURLParameter() {
 		switch (options.type) {
 			case 'info':
 				return `
-					<section class="containerSection withIcon info">
+					<section class="containerSection banner withIcon info ${options.size}">
 						${iconInterfaceElements.infoCircleMulti}
 						<p class="excludeMargin">${options.content}</p>
 					</section>
@@ -1281,7 +1373,7 @@ function grabURLParameter() {
 				break;
 			case 'warning':
 				return `
-					<section class="containerSection withIcon warning">
+					<section class="containerSection banner withIcon warning ${options.size}">
 						${iconInterfaceElements.exclamationTriangleMulti}
 						<p class="excludeMargin">${options.content}</p>
 					</section>
@@ -1289,7 +1381,7 @@ function grabURLParameter() {
 				break;
 			case 'error':
 				return `
-					<section class="containerSection withIcon error">
+					<section class="containerSection banner withIcon error ${options.size}">
 						${iconShapes.timesCircleMulti}
 						<p class="excludeMargin">${options.content}</p>
 					</section>
@@ -1297,7 +1389,7 @@ function grabURLParameter() {
 				break;
 			case 'success':
 				return `
-					<section class="containerSection withIcon success">
+					<section class="containerSection banner withIcon success ${options.size}">
 						${iconShapes.checkmarkCircleMulti}
 						<p class="excludeMargin">${options.content}</p>
 					</section>
@@ -1305,7 +1397,7 @@ function grabURLParameter() {
 				break;
 			case 'accent':
 				return `
-					<section class="containerSection withIcon accent">
+					<section class="containerSection banner withIcon accent ${options.size}">
 						${options.icon}
 						<p class="excludeMargin">${options.content}</p>
 					</section>
