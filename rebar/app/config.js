@@ -72,6 +72,7 @@ const appPreferencesDefault = {
 	},
 }
 const topLevelRoute = "routesidebar";
+const topLevelModifier = false;
 const baseTimeLength = "0.3s";
 const dynamicTypeSizes = {
 	small: "12px",
@@ -80,9 +81,8 @@ const dynamicTypeSizes = {
 };
 const promptForTips = true;
 const tipsLinks = {
-	small: "https://buy.stripe.com/fZe3fE6m8f2S2judQQ",
-	medium: "https://buy.stripe.com/dR65nMcKw3ka0bm4gh",
-	large: "https://buy.stripe.com/eVa9E239W8Eu7DO5km"
+	default: "https://buy.stripe.com/fZe3fE6m8f2S2judQQ",
+	custom: "https://buy.stripe.com/dR65nMcKw3ka0bm4gh",
 };
 const shortcutKeys = {
 	"groupa": {

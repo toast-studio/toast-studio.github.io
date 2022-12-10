@@ -5,6 +5,7 @@
   "orientation":"any",
   "lang": "en",
   "start_url": "/",
+  "id":"/",
   "scope": "/",
   "display": "standalone",
   "theme_color": "#FAC000",
@@ -20,6 +21,12 @@
       "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "maskable"
+    },
+    {
+       "src":"icon-monochrome.png",
+       "sizes":"1024x1024",
+       "type":"image/png",
+       "purpose":"monochrome"
     }
   ],
   "categories": [

@@ -340,6 +340,10 @@ function grabFunctionName() {
 								$(".columnTertiary").empty();
 							}
 						}
+						
+						if (options.type == "forwards" || options.type == "deeplink") {
+							$(".columnTertiary").empty();
+						}
 					break;
 				case "secondary":
 					//SET PICKED LIST ITEM
@@ -410,7 +414,7 @@ function grabFunctionName() {
 		window.addEventListener('popstate', function(e) {
 			let url = grabURLParameter()
 			if (url.query.length == 0 || url.query.length == 1) {
-				window[topLevelRoute]({modifier: false, navtype: "deeplink"})
+				window[topLevelRoute]({modifier: topLevelModifier, navtype: "deeplink"})
 			} else {
 				window["route" + url.query]({modifier: url.source, navtype: "deeplink"})
 			}
@@ -929,9 +933,7 @@ function grabFunctionName() {
 						<div class="label" id="increaseContrastLabel">
 							<span>Increase Contrast</span>
 						</div>
-						<button class="switch positive" data-setting="increaseContrast">
-							<div class="knob"></div>
-						</button>
+						<button class="switch positive" data-setting="increaseContrast"></button>
 					</div>
 				`);
 				
@@ -959,9 +961,7 @@ function grabFunctionName() {
 						<div class="label" id="reducedMotionLabel">
 							<span>Reduce Motion</span>
 						</div>
-						<button class="switch positive" data-setting="reduceMotion">
-							<div class="knob"></div>
-						</button>
+						<button class="switch positive" data-setting="reduceMotion"></button>
 					</div>
 				`);
 				
@@ -1032,9 +1032,7 @@ function grabFunctionName() {
 						<div class="label">
 							<span>Bold Text</span>
 						</div>
-						<button class="switch positive" data-setting="boldText">
-							<div class="knob"></div>
-						</button>
+						<button class="switch positive" data-setting="boldText"></button>
 					</div>
 				`);
 				
@@ -1055,9 +1053,7 @@ function grabFunctionName() {
 						<div class="label">
 							<span>Use OpenDyslexic Font</span>
 						</div>
-						<button class="switch positive" data-setting="dyslexiaText">
-							<div class="knob"></div>
-						</button>
+						<button class="switch positive" data-setting="dyslexiaText"></button>
 					</div>
 				`);
 				
@@ -1225,23 +1221,14 @@ function grabFunctionName() {
 	function generateTipJar(options) {
 		$(`#${options.target}`).append(`
 			<div class="containerTipJar">
-				<span class="alwaysAccent spacerDouble">${iconLogos.thanksEN}</span>
-				<p class="textAlignCenter h5 spacerDouble">${appName} is developed by just two people. If you'd like to show your support you can leave us a tip. It's much appreciated!</p>
-				<div id="containerTips" class="spacerDouble">
-					<a href="${tipsLinks.small}" target="_blank">
-						<span class="emoji">🧁</span>
-						<span class="name">Small</span>
-						<span class="value">$1.00</span>
+				<img class="spacerSingle" src="rebar/images/tips.png" srcset="rebar/images/tips@2x.png 2x" width="400" alt="" />
+				<p class="textAlignCenter h5 spacerDouble">${appName} is developed by <a href="https://christophermuller.net" target="_blank">Chris</a> and <a href="https://twitter.com/trevormkay" target="_blank">Trevor</a>. If you'd like to show your support you can leave us a tip. It's much appreciated!</p>
+				<div class="containerButtons spacerSingle">
+					<a href="${tipsLinks.default}" target="_blank" class="noDecoration">
+						<button class="large" onclick="stopTipsPrompts()">Donate $2</button>
 					</a>
-					<a href="${tipsLinks.medium}" target="_blank">
-						<span class="emoji">☕️</span>
-						<span class="name">Medium</span>
-						<span class="value">$5.00</span>
-					</a>
-					<a href="${tipsLinks.large}" target="_blank">
-						<span class="emoji">🍔</span>
-						<span class="name">Large</span>
-						<span class="value">$10.00</span>
+					<a href="${tipsLinks.custom}" target="_blank" class="noDecoration">
+						<button class="transparent" onclick="stopTipsPrompts()">Custom Amount</button>
 					</a>
 				</div>
 				<p class="textAlignCenter subtext">Prices are set in USD and payment is handled by Stripe. ${appName} does not require payment to use. If you have any issues, please contact <a href="mailto:${appEmail}?subject=Help%20with%20${appName}%20tip%20jar">Support</a>. For more information on how your data is handled please refer to the <a href="${appPrivacyPolicy}" target="_blank">Toast Studio Privacy Policy</a> and the <a href="https://stripe.com/privacy" target="_blank">Stripe Privacy Policy</a>.</p>
@@ -1249,14 +1236,14 @@ function grabFunctionName() {
 		`);
 	}
 	
-	$(document).on('click', '#containerTips a', function() {
+	function stopTipsPrompts() {
 		modifyPreference({
 			group: "rebar.appSettings",
 			mode: "update",
 			preference: "clickedDonationLink",
 			value: "true",
 		})
-	});
+	}
 	
 //CAPITALIZE WORD
 	function capitalize(word) {

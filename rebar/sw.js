@@ -30,6 +30,8 @@ const precacheFiles = [
 	'./rebar/images/arrow-forward-light.svg',
 	'./rebar/images/tick-dark.svg',
 	'./rebar/images/tick-light.svg',
+	'./rebar/images/tips.png',
+	'./rebar/images/tips@2x.png',
 ];
 
 self.addEventListener("install", function (event) {

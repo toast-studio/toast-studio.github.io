@@ -226,3 +226,20 @@ function showSelectionResults() {
 $(document).on('click', '[data-setting="picker1"] .contextContainerMenu button', function() {
 	let selectedValue = clickContextMenuItem(this);
 });
+
+function exampleTipsPrompt() {
+	summonSheet({
+		type: "smallsheet",
+		backing: "dark",
+		theme: false,
+		id: false,
+		content: `
+			<button class="translucent xclose" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
+			<div id="sheetTips"></div>
+		`,
+	})
+	
+	generateTipJar({
+		target: "sheetTips",
+	});
+}

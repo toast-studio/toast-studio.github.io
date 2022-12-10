@@ -118,6 +118,7 @@ const gettingstarted = {
 				<li>${iconObjects.photoLandscapeStroke} favicon.ico</li>
 				<li>${iconObjects.photoLandscapeStroke} favicon.svg</li>
 				<li>${iconObjects.photoLandscapeStroke} icon-maskable.png</li>
+				<li>${iconObjects.photoLandscapeStroke} icon-monochrome.png</li>
 				<li>${iconObjects.photoLandscapeStroke} icon.png</li>
 				<li>${iconObjects.fileFill} index.html</li>
 				<li>${iconObjects.fileFill} main.css</li>
@@ -234,6 +235,10 @@ const gettingstarted = {
 						<td>The name of the unique route you'll be using for the top level of the navigation stack.</td>
 					</tr>
 					<tr>
+						<td><code>topLevelModifier</code></td>
+						<td>If your Top Level Route needs a modifier you can set it here, otherwise set this to <code>false</code></td>
+					</tr>
+					<tr>
 						<td><code>baseTimeLength</code></td>
 						<td>The global CSS transition timing value.</td>
 					</tr>
@@ -247,7 +252,7 @@ const gettingstarted = {
 					</tr>
 					<tr>
 						<td><code>tipsLinks</code></td>
-						<td>The URLS used in the Tips Prompt providing the <code>small</code>, <code>medium</code>, and <code>large</code> links.</td>
+						<td>The URLS used in the Tips Prompt providing the <code>default</code>, and <code>custom</code> links.</td>
 					</tr>
 					<tr>
 						<td><code>shortcutKeys</code></td>
@@ -321,6 +326,8 @@ const gettingstarted = {
 							<li><code>rebar.css</code> and <code>app.css</code> are now an <code>import</code> inside of <code>main.css</code> to work with CSS Layers</li>
 							<li>The icons file has been broken apart in to separate files to be more managable</li>
 							<li>Restructured the way Context Menus are tagged so center menus can be positioned correctly</li>
+							<li>Items inside a Context Menu can now be grouped with a container so menus can be dynamically generated</li>
+							<li>Context Menus now have overflow scrolling</li>
 							<li>Context Menus now have specific styling when using a mouse</li>
 							<li>Context Menus, Alerts, and Toasts now use a translucent background for the menu panel</li>
 							<li>Popovers now have a larger corner radius to differentiate them from Menus</li>
@@ -328,7 +335,11 @@ const gettingstarted = {
 							<li><code>metadata.js</code> has been renamed to <code>config.js</code> for clarity</li>
 							<li>The Theme and Accent Pickers have been redesigned to have a more compact appearance</li>
 							<li>Buttons have a more compact appearance when using a mouse</li>
+							<li>Large Buttons are now more differentiated in size compared to standard size Buttons</li>
 							<li>Updated the styling of the buttons in Blank States</li>
+							<li>Switches no longer need the <code>.knob</code> DOM element, it has been replaced with a <code>::before</code> on the <code>.switch</code> class</li>
+							<li>Refined the sizing of Switches on touchscreen devices</li>
+							<li>The Tips panel has been redesigned</li>
 							<li>In the CSS <code>rgba(*, *, *, *)</code> has been replaced with <code>rgb(* * * / *)</code></li>
 							<li>Updated the Inwards and Outwards Chevron icons</li>
 						</ul>
@@ -1013,11 +1024,11 @@ const controls = {
 					</tr>
 					<tr>
 						<td>Large</td>
-						<td><button class="large">Large</button></td>
-						<td><button class="secondary large">Large</button></td>
-						<td><button class="translucent large">Large</button></td>
-						<td><button class="positive large">Large</button></td>
-						<td><button class="destructive large">Large</button></td>
+						<td><button class="large">Label</button></td>
+						<td><button class="secondary large">Label</button></td>
+						<td><button class="translucent large">Label</button></td>
+						<td><button class="positive large">Label</button></td>
+						<td><button class="destructive large">Label</button></td>
 					</tr>
 					<tr>
 						<td>Disabled</td>
@@ -2014,6 +2025,7 @@ const controls = {
 			}
 			<p>Most of the styling is handled for you. If you use a standard Button all of the Button styling classes will apply. On top of this you don't have to use a Button, any element with the <code>buttonContext</code> class will make the element clickable.</p>
 			<p>Menu items must be Buttons. They will infer styling from the <code>.contextContainerMenu</code> class. You can add the <code>destructive</code> class to a menu item Button to change the text and icon to red.</p>
+			<p>Menu items can be grouped in a container with the <code>.group</code> class to help with dynamic menu generation</p>
 		</div>
 	`,
 	popovers: `
@@ -2162,25 +2174,19 @@ const controls = {
 					<tr>
 						<td>Default Off</td>
 						<td>
-							<button class="switch positive off" data-setting="switch1" title="Off" onclick="exampleSwitches(this)">
-								<div class="knob"></div>
-							</button>
+							<button class="switch positive off" data-setting="switch1" title="Off" onclick="exampleSwitches(this)"></button>
 						</td>
 					</tr>
 					<tr>
 						<td>Default On</td>
 						<td>
-							<button class="switch positive" data-setting="switch2" title="On" onclick="exampleSwitches(this)">
-								<div class="knob"></div>
-							</button>
+							<button class="switch positive" data-setting="switch2" title="On" onclick="exampleSwitches(this)"></button>
 						</td>
 					</tr>
 					<tr>
 						<td>Styled</td>
 						<td>
-							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)">
-								<div class="knob"></div>
-							</button>
+							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
 						</td>
 					</tr>
 				</tbody>
@@ -2192,9 +2198,7 @@ const controls = {
 			<p><code>data-setting</code> is used as the selector for the <code>clickSwitch()</code> function.</p>
 			<h4 class="h6">Code</h4>
 <pre class="spacerTriple">
-&lt;button class="switch positive" data-setting=""&gt;
-	&lt;div class="knob"&gt;&lt;/div&gt;
-&lt;/button&gt;
+&lt;button class="switch positive" data-setting=""&gt;&lt;/button&gt;
 </pre>
 			<h3>Functions</h3>
 			<p>This click function runs the function to toggle the Switch and can include any other functionality you need. No value is saved to local storage by default. Instead use the Preferences system with the returned value.</p>
@@ -3620,8 +3624,8 @@ if (url.query == "") {
 					</div>
 					<h1 class="headerToolbar">Native Items</h1>
 					<div class="pinRight">
-						<button class="transparent">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button class="transparent">${iconObjects.trashStroke}</button>
+						<button class="toolbarItem">${iconShapes.rectangleOverlapHorizontalStroke}</button>
+						<button class="toolbarItem">${iconObjects.trashStroke}</button>
 						</button>
 					</div>
 				</header>
@@ -3630,7 +3634,7 @@ if (url.query == "") {
 			<div class="containerGeneric excludePadding" id="exampleToolbar1">
 				<header class="containerToolbar alwaysLeft">
 					<div class="pinLeft">
-						<button class="back slim toolbarItem">
+						<button class="back slim transparent">
 							${iconShapes.chevronBackwardsStroke}
 							Gallery
 						</button>
@@ -5446,6 +5450,7 @@ const visuals = {
 			<img src="rebar/images/arrow-back-light.svg" />
 			<img src="rebar/images/arrow-forward-dark.svg" />
 			<img src="rebar/images/arrow-forward-light.svg" />
+			<img src="rebar/images/tips.png" srcset="rebar/images/tips@2x.png 2x" />
 		</div>
 	`,
 	displayoptions: `
@@ -6952,6 +6957,7 @@ modifyPreference({
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<h2>Generate Tip Jar</h2>
+			<button class="spacerSingle" onclick="exampleTipsPrompt()">Show Modal</button>
 			<p><code>generateTipJar()</code> is a function for creating a standard Tip Jar which can be displayed in whatever view you need. The messaging is standard but will pick up <code>appName</code>, <code>appEmail</code>, <code>appPrivacyPolicy</code>, and <code>tipsLinks</code> from your config file to customise it.</p>
 			<p>When generating the Tip Jar you will need to provide a <code>target</code> ID.</p>
 <pre>
