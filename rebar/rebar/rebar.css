@@ -2930,9 +2930,17 @@
 			border: none !important;
 		}
 		
+		[data-os="android"] .switch {
+			box-shadow: none;
+		}
+		
 		.switch.off {
 			background: rgb(var(--main) / .1);
 			transition: var(--base-time-length) background ease;
+		}
+		
+		[data-os="android"] .switch.off {
+			background: rgb(var(--main) / .4);
 		}
 		
 		[data-contrast="more"] .switch.off {
@@ -2956,6 +2964,20 @@
 			top: 0px;
 			left: calc(var(--base-font-size) * 1.25);
 			transition: var(--base-time-length) left ease;
+		}
+		
+		[data-os="android"] .switch.off::before {
+			background: rgb(255 255 255 / .8);
+			box-shadow: none;
+			backdrop-filter: saturate(5);
+			-webkit-backdrop-filter: saturate(5);
+		}
+		
+		[data-os="android"] .switch::before {
+			background: rgb(255 255 255 / .8);
+			box-shadow: none;
+			backdrop-filter: saturate(5);
+			-webkit-backdrop-filter: saturate(5);
 		}
 		
 		.switch.off::before {

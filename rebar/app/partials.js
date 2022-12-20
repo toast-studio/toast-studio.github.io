@@ -2191,6 +2191,12 @@ const controls = {
 							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
 						</td>
 					</tr>
+					<tr>
+						<td>Android</td>
+						<td data-os="android">
+							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 			
