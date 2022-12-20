@@ -127,6 +127,9 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			$("body").attr("data-contrast", getPreferenceGroup("rebar.appSettings").increaseContrast);
 		}
 		
+		//SET OS
+		$("body").attr("data-os", grabOS());
+		
 		//SET REDUCED MOTION
 		setTimeLength();
 		
@@ -208,6 +211,30 @@ function grabURLParameter() {
 		query: Object.keys(params).join(),
 		source: Object.values(params).join(),
 	}
+}
+
+//GRAB OS
+function grabOS() {
+	var userAgent = window.navigator.userAgent,
+	platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
+	macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+	windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+	iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+	os = null;
+
+	if (macosPlatforms.indexOf(platform) !== -1) {
+		os = 'macos';
+	} else if (iosPlatforms.indexOf(platform) !== -1) {
+		os = 'ios';
+	} else if (windowsPlatforms.indexOf(platform) !== -1) {
+		os = 'windows';
+	} else if (/Android/.test(userAgent)) {
+		os = 'android';
+	} else if (/Linux/.test(platform)) {
+		os = 'linux';
+	}
+
+	return os;
 }
 
 //GRAB FUNCTION NAME
@@ -399,9 +426,13 @@ function grabFunctionName() {
 					break;
 			}
 			
+		//CLEAR CLASSES
+		//Remove any classes that might have been active from the previous view
+			$(`body`).removeClass(`contextActive`);
+			
 		//SET PICKED ITEM
 		//Applies the .picked class to the newly selected item
-			$(`[data-name="${options.route}"], [data-name="${options.modifier}"]`).addClass("picked");
+			$(`[data-name="${options[options.highlight]}"]`).addClass("picked");
 			
 		//UPDATE URL
 		//Updates the URL and pushes it to the browser history
@@ -830,12 +861,28 @@ function grabFunctionName() {
 	});
 	
 	function insertShareButton(options) {
+		let icon
+		
+		switch (grabOS()) {
+			case 'windows':
+				icon = iconInterfaceElements.shareWindows
+				break;
+			case 'android':
+				icon = iconInterfaceElements.shareAndroidStroke
+				break;
+			default:
+				icon = iconInterfaceElements.shareAppleUpStroke
+				break
+		}
+		
 		if (navigator.share) {
-			$(options.location).append(`
+			return `
 				<button class="share ${options.style}" title="${options.title}">
-					${iconInterfaceElements.shareSquareUpStroke}
-				</button>	
-			`);
+					${icon}
+				</button>
+			`
+		} else {
+			return ``
 		}
 	}
 	

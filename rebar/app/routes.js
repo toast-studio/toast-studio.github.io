@@ -5,7 +5,8 @@ function routesidebar(options) {
 		level: "primary",
 		route: false,
 		modifier: options.modifier,
-		type: options.navtype
+		type: options.navtype,
+		highlight: false,
 	})
 	
 	if ( $(".columnPrimary").children().length == 0 ) {
@@ -87,7 +88,8 @@ function routegettingstarted(options) {
 			level: "secondary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "route",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -159,7 +161,8 @@ function routegettingstarted(options) {
 			level: "tertiary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "modifier",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -180,7 +183,8 @@ function routecontrols(options) {
 			level: "secondary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "route",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -242,7 +246,7 @@ function routecontrols(options) {
 								</div>
 							</button>
 							<button class="itemList rounded fixedIconSize" data-name="sharebutton" onclick='routecontrols({modifier: "sharebutton", navtype: "forwards"})'>
-								${iconInterfaceElements.shareSquareUpStroke}
+								${iconInterfaceElements.shareAppleUpStroke}
 								<div class="label">
 									<span>Share Button</span>
 								</div>
@@ -322,7 +326,8 @@ function routecontrols(options) {
 			level: "tertiary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "modifier",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -417,7 +422,8 @@ function routelayout(options) {
 			level: "secondary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "route",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -532,7 +538,8 @@ function routelayout(options) {
 			level: "tertiary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "modifier",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -607,7 +614,8 @@ function routemodals(options) {
 			level: "secondary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "route",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -698,7 +706,8 @@ function routemodals(options) {
 			level: "tertiary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "modifier",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -719,7 +728,8 @@ function routevisuals(options) {
 			level: "secondary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "route",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -864,7 +874,8 @@ function routevisuals(options) {
 			level: "tertiary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "modifier",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -973,7 +984,8 @@ function routecharts(options) {
 			level: "secondary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "route",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -1027,7 +1039,8 @@ function routecharts(options) {
 			level: "tertiary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "modifier",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -1205,7 +1218,8 @@ function routehelpers(options) {
 			level: "secondary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "route",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -1265,6 +1279,12 @@ function routehelpers(options) {
 									<span>Grab URL Parameters</span>
 								</div>
 							</button>
+							<button class="itemList rounded fixedIconSize" data-name="grabos" onclick='routehelpers({modifier: "grabos", navtype: "forwards"})'>
+								${iconHardware.monitorStroke}
+								<div class="label">
+									<span>Grab OS</span>
+								</div>
+							</button>
 							<button class="itemList rounded fixedIconSize" data-name="scrolltotop" onclick='routehelpers({modifier: "scrolltotop", navtype: "forwards"})'>
 								${iconShapes.chevronSingleCircleUpStroke}
 								<div class="label">
@@ -1289,7 +1309,8 @@ function routehelpers(options) {
 			level: "tertiary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "modifier",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -1310,7 +1331,8 @@ function routeicons(options) {
 			level: "secondary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "route",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
@@ -1406,7 +1428,8 @@ function routeicons(options) {
 			level: "tertiary",
 			route: grabFunctionName().replace('route',''),
 			modifier: options.modifier,
-			type: options.navtype
+			type: options.navtype,
+			highlight: "modifier",
 		})
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {

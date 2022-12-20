@@ -308,7 +308,8 @@ const gettingstarted = {
 							<li>Alerts can now include a leading icon</li>
 							<li>Context Menus can now include leading icons and colour chips in the button label</li>
 							<li>Picker Menus can now have icons</li>
-							<li>Added Clock Pause and Filled File icons</li>
+							<li>Added <code>grabOS()</code> helper which will tell you what OS Rebar is being run on (which is also inserted in to the <code>body</code> tag as a <code>data-os</code> attribute for styling purposes)</li>
+							<li>Added Clock Pause, Filled File, Android Share, and Windows Share icons</li>
 						</ul>
 						
 						<h4>Changes</h4>
@@ -340,6 +341,7 @@ const gettingstarted = {
 							<li>Switches no longer need the <code>.knob</code> DOM element, it has been replaced with a <code>::before</code> on the <code>.switch</code> class</li>
 							<li>Refined the sizing of Switches on touchscreen devices</li>
 							<li>The Tips panel has been redesigned</li>
+							<li><code>insertShareButton()</code> is now an inline function and changes icon based on the OS</li>
 							<li>In the CSS <code>rgba(*, *, *, *)</code> has been replaced with <code>rgb(* * * / *)</code></li>
 							<li>Updated the Inwards and Outwards Chevron icons</li>
 						</ul>
@@ -2631,16 +2633,31 @@ $(document).on('click', '.buttonClearSearch', function() {
 			<p class="subtext">Note: If you are using a browser that do not support <code>navigator.share</code> then a non-functional button will be displayed for illustrative purposes.</p>
 			<section class="containerSection spacerTriple">
 				<button class="transparent" id="dummyShareButton" title="Share Content">
-					${iconInterfaceElements.shareSquareUpStroke}
+					${iconInterfaceElements.shareAppleUpStroke}
+				</button>
+				<button class="transparent" id="dummyShareButton" title="Share Content">
+					${iconInterfaceElements.shareAndroidStroke}
+				</button>
+				<button class="transparent" id="dummyShareButton" title="Share Content">
+					${iconInterfaceElements.shareWindows}
 				</button>
 			</section>
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
-			<p class="spacerTriple">You may construct a Share Button in any fashion you want, adding the <code>share</code> class on it to automatically invoke the click function for sharing. If you wish to trigger sharing in another function you can use the <code>shareURL()</code> function.</p>
+			${
+				insertBanner({
+					type: 'info',
+					content: 'The Share Button will use a different icon based on the OS being used',
+					icon: false,
+					size: 'small',
+				})
+			}
+			<p class="spacerTriple">There is no HTML, the <code>insertShareButton()</code> function will handle it for you.</p>
 			
 			<h3>Function</h3>
-			<p class="spacerTriple">The <code>shareURL()</code> function is designed to only share the URL of the current page (if you wish to do share other content a different function will need to be written). At this time the title of the share will default to the <code>appName</code> constant.</p>
+			<p>The <code>insertShareButton()</code> function is designed to only share the URL of the current page (if you wish to do share other content a different function will need to be written). At this time the title of the share will default to the <code>appName</code> constant.</p>
+			<p class="spacerTriple">This is designed to work inline so it must be include in an <code>append()</code>. You must provide <code>style</code> (a button class name) and a <code>title</code> for the hover text.</p>
 			
 			<h3>CSS</h3>
 			<p>The <code>share</code> class has no styles of it's own. You may apply it to anything you wish to use as a Share Button.</p>
@@ -2692,7 +2709,7 @@ const layout = {
 					</tr>
 					<tr>
 						<td><code>level</code></td>
-						<td>Lets the controller know what level this view will be. Takes a value of <code>primary</code>, <code>secondary</code>, or <code>tertiary</code>.</td>
+						<td>Lets the controller know what level this view will be. Takes a value of <code>primary</code>, <code>secondary</code>, <code>secondaryExpanded</code>, or <code>tertiary</code>.</td>
 					</tr>
 					<tr>
 						<td><code>route</code></td>
@@ -2705,6 +2722,10 @@ const layout = {
 					<tr>
 						<td><code>type</code></td>
 						<td>Passed in from the unique route function that called <code>controllerRoute()</code>. Takes a value of <code>forwards</code>, <code>backwards</code>, <code>deeplink</code>, or <code>stack</code>. This tells which mode the view should be loaded in.</td>
+					</tr>
+					<tr>
+						<td><code>highlight</code></td>
+						<td>Lets the controller know what value to use to highlight list items. Takes a value of <code>route</code> or <code>modifier</code>.</td>
 					</tr>
 				</tbody>
 			</table>
@@ -7124,6 +7145,28 @@ function grabURLParameter() {
 	}
 }
 </pre>
+		</div>
+	`,
+	grabos: `
+		<header class="containerToolbar alwaysLeft">
+			<div class="pinLeft">
+				<button class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${iconShapes.chevronBackwardsStroke}
+					Helpers
+				</button>
+				<button class="toolbarItem collapseAside">
+					${iconInterfaceElements.sidebarLeftStroke}
+				</button>
+			</div>
+			<h1 class="headerToolbar">Grab OS</h1>
+			<div class="pinRight">
+				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			</div>
+		</header>
+		<div class="scrollview cropToolbar paddingContent">
+			<p><code>grabOS()</code> is a function to retrieve the OS Rebar is currently loaded in for you. It will return a string of text with the OS name.</p>
+			<p>For styling purposes Rebar automatically inserts the OS as a data attribute on the <code>body</code> tag.</p>
+			<p>Example: The current OS is <code>${grabOS()}</code></p>
 		</div>
 	`,
 	scrolltotop: `

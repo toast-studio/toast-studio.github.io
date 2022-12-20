@@ -2773,7 +2773,7 @@
 			transform-origin: top right;
 		}
 		
-		.contextContainerMenu:not([data-type="popover"]) button {
+		.contextContainerMenu:not([data-type="popover"]) button:not(.segment) {
 			text-align: left;
 			border-radius: 0px;
 			background: none;
@@ -2784,49 +2784,49 @@
 		}
 		
 		@media (pointer: fine) {
-			.contextContainerMenu:not([data-type="popover"]) button {
+			.contextContainerMenu:not([data-type="popover"]) button:not(.segment) {
 				border: none;
 				border-radius: calc(var(--base-radius-size) / 2);
 				padding-inline: calc(var(--base-gap-size) / 2);
 			}
 			
-			.contextContainerMenu:not([data-type="popover"]) button:hover {
+			.contextContainerMenu:not([data-type="popover"]) button:not(.segment):hover {
 				background: rgb(var(--accent));
 				color: white;
 			}
 			
-			.contextContainerMenu:not([data-type="popover"]) button:hover svg path {
+			.contextContainerMenu:not([data-type="popover"]) button:not(.segment):hover svg path {
 				fill: white !important;
 			}
 		}
 		
-		[data-type="icons"] .contextContainerMenu button, 
-		[data-type="pickericons"] .contextContainerMenu button {
+		[data-type="icons"] .contextContainerMenu button:not(.segment), 
+		[data-type="pickericons"] .contextContainerMenu button:not(.segment) {
 			display: flex;
 			justify-content: space-between !important;
 			align-items: center;
 		}
 		
 		@media (pointer: fine) {
-			[data-type="icons"] .contextContainerMenu button, 
-			[data-type="pickericons"] .contextContainerMenu button {
+			[data-type="icons"] .contextContainerMenu button:not(.segment), 
+			[data-type="pickericons"] .contextContainerMenu button:not(.segment) {
 				justify-content: start !important;
 				flex-direction: row-reverse;
 			}
 		}
 		
 		@media (pointer: coarse) {
-			.contextContainerMenu button {
+			.contextContainerMenu button:not(.segment) {
 				padding-block: calc(var(--base-gap-size) / 1.5)
 			}
 		}
 		
-		.contextContainerMenu button:hover {
+		.contextContainerMenu button:not(.segment):hover {
 			background: rgb(var(--main) / .05);
 		}
 		
-		.contextContainerMenu button svg, 
-		.contextContainerMenu button img {
+		.contextContainerMenu button:not(.segment) svg, 
+		.contextContainerMenu button:not(.segment) img {
 			min-width: var(--base-font-size);
 			min-height: var(--base-font-size);
 			margin-inline-start: calc(var(--base-gap-size) * 2);
@@ -2835,42 +2835,42 @@
 		}
 		
 		@media (pointer: fine) {
-			.contextContainerMenu button svg, 
-			.contextContainerMenu button img {
+			.contextContainerMenu button:not(.segment) svg, 
+			.contextContainerMenu button:not(.segment) img {
 				margin-inline-start: 0px;
 				margin-inline-end: calc(var(--base-gap-size) / 4);
 			}
 		}
 		
-		.contextContainerMenu button svg path {
+		.contextContainerMenu button:not(.segment) svg path {
 			fill: rgb(var(--main)) !important;
 		}
 		
-		.contextContainerMenu button.destructive {
+		.contextContainerMenu button:not(.segment).destructive {
 			color: rgb(var(--destructive));
 		}
 		
-		.contextContainerMenu button.destructive svg path {
+		.contextContainerMenu button:not(.segment).destructive svg path {
 			fill: rgb(var(--destructive)) !important;
 		}
 		
-		[data-type="picker"] .contextContainerMenu button, 
-		[data-type="pickericons"] .contextContainerMenu button {
+		[data-type="picker"] .contextContainerMenu button:not(.segment), 
+		[data-type="pickericons"] .contextContainerMenu button:not(.segment) {
 			padding-inline-start: calc(var(--base-font-size) * 2.7) !important;
 		}
 		
 		@media (pointer: fine) {
-			[data-type="picker"] .contextContainerMenu button, 
-			[data-type="pickericons"] .contextContainerMenu button {
+			[data-type="picker"] .contextContainerMenu button:not(.segment), 
+			[data-type="pickericons"] .contextContainerMenu button:not(.segment) {
 				padding-inline-start: calc(var(--base-font-size) * 2) !important;
 			}
 		}
 		
-		.contextContainerMenu:not([data-type="popover"]) button:last-child {
+		.contextContainerMenu:not([data-type="popover"]) button:not(.segment):last-child {
 			border: none;
 		}
 		
-		.contextContainerMenu:not([data-type="popover"]) button.picked {
+		.contextContainerMenu:not([data-type="popover"]) button:not(.segment).picked {
 			background-image: var(--image-tick);
 			background-repeat: no-repeat;
 			background-position: left var(--base-font-size) center;
@@ -2878,11 +2878,11 @@
 		}
 		
 		@media (pointer: fine) {
-			.contextContainerMenu:not([data-type="popover"]) button.picked {
+			.contextContainerMenu:not([data-type="popover"]) button:not(.segment).picked {
 				background-position: left calc(var(--base-font-size) / 2) center;
 			}
 			
-			.contextContainerMenu:not([data-type="popover"]) button.picked:hover {
+			.contextContainerMenu:not([data-type="popover"]) button:not(.segment).picked:hover {
 				background-image: url("images/tick-dark.svg") !important;
 				background-repeat: no-repeat !important;
 				background-position: left var(--base-font-size) center !important;
