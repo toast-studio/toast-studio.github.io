@@ -980,7 +980,7 @@ function grabFunctionName() {
 						<div class="label" id="increaseContrastLabel">
 							<span>Increase Contrast</span>
 						</div>
-						<button class="switch positive" data-setting="increaseContrast"></button>
+						<button class="switch" data-setting="increaseContrast"></button>
 					</div>
 				`);
 				
@@ -1008,7 +1008,7 @@ function grabFunctionName() {
 						<div class="label" id="reducedMotionLabel">
 							<span>Reduce Motion</span>
 						</div>
-						<button class="switch positive" data-setting="reduceMotion"></button>
+						<button class="switch" data-setting="reduceMotion"></button>
 					</div>
 				`);
 				
@@ -1079,7 +1079,7 @@ function grabFunctionName() {
 						<div class="label">
 							<span>Bold Text</span>
 						</div>
-						<button class="switch positive" data-setting="boldText"></button>
+						<button class="switch" data-setting="boldText"></button>
 					</div>
 				`);
 				
@@ -1100,7 +1100,7 @@ function grabFunctionName() {
 						<div class="label">
 							<span>Use OpenDyslexic Font</span>
 						</div>
-						<button class="switch positive" data-setting="dyslexiaText"></button>
+						<button class="switch" data-setting="dyslexiaText"></button>
 					</div>
 				`);
 				

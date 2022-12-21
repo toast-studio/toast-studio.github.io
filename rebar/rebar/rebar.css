@@ -1389,7 +1389,8 @@
 			border-block-end: 1px solid rgb(var(--divider));
 		}
 		
-		.containerItemList button.rounded.picked:last-child, .containerItemList button.rounded:hover:last-child {
+		.containerItemList button.rounded.picked:last-child, 
+		.containerItemList button.rounded:hover:last-child {
 			border-block-end: 1px solid transparent;
 		}
 	}
@@ -2482,7 +2483,8 @@
 				}
 			}
 			
-			button.itemList.rounded:hover + button, button.itemList.rounded.picked + button, button.itemList.rounded:hover + div, button.itemList.rounded.picked + div {
+			button.itemList.rounded:hover + button, button.itemList.rounded.picked + button, 
+			button.itemList.rounded:hover + div, button.itemList.rounded.picked + div {
 				border-block-start: 1px solid transparent;
 			}
 			
@@ -2930,7 +2932,16 @@
 			border: none !important;
 		}
 		
+		[data-os="ios"] .switch {
+			--accent: var(--positive);
+			box-shadow: none;
+		}
+		
 		[data-os="android"] .switch {
+			box-shadow: none;
+		}
+		
+		[data-os="windows"] .switch {
 			box-shadow: none;
 		}
 		
@@ -2941,6 +2952,11 @@
 		
 		[data-os="android"] .switch.off {
 			background: rgb(var(--main) / .4);
+		}
+		
+		[data-os="windows"] .switch.off {
+			box-shadow: inset 0px 0px 0px 1px rgb(var(--main) / .2);
+			background: none;
 		}
 		
 		[data-contrast="more"] .switch.off {
@@ -2978,6 +2994,15 @@
 			box-shadow: none;
 			backdrop-filter: saturate(5);
 			-webkit-backdrop-filter: saturate(5);
+		}
+		
+		[data-os="windows"] .switch::before {
+			background: rgb(var(--foreground));
+			box-shadow: none;
+		}
+		
+		[data-os="windows"] .switch.off::before {
+			background: rgb(var(--main) / .5);
 		}
 		
 		.switch.off::before {
@@ -3142,12 +3167,24 @@
 		margin-block-start: calc(var(--base-gap-size) / 4);
 	}
 	
+	[data-os="android"] input[type="search"] {
+		background: rgb(var(--accent) / .2);
+		border-radius: calc(var(--base-radius-size) * 5);
+		padding-inline-start: var(--base-gap-size);
+	}
+	
 	[data-contrast="more"] input[type="search"] {
 		border: 1px solid rgb(var(--divider))
 	}
 	
-	input[type="search"]:focus, input[type="search"]:hover {
+	input[type="search"]:focus, 
+	input[type="search"]:hover {
 		background: rgb(var(--main) / .1);
+	}
+	
+	[data-os="android"] input[type="search"]:focus, 
+	[data-os="android"] input[type="search"]:hover {
+		background: rgb(var(--accent) / .3);
 	}
 	
 	input[type="search"]::-webkit-search-decoration,

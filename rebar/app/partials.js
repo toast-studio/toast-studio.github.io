@@ -339,6 +339,7 @@ const gettingstarted = {
 							<li>Large Buttons are now more differentiated in size compared to standard size Buttons</li>
 							<li>Updated the styling of the buttons in Blank States</li>
 							<li>Switches no longer need the <code>.knob</code> DOM element, it has been replaced with a <code>::before</code> on the <code>.switch</code> class</li>
+							<li>Switches and Search Bars now have OS specific styling</li>
 							<li>Refined the sizing of Switches on touchscreen devices</li>
 							<li>The Tips panel has been redesigned</li>
 							<li><code>insertShareButton()</code> is now an inline function and changes icon based on the OS</li>
@@ -2166,7 +2167,7 @@ const controls = {
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<h2>Examples</h2>
-			<table class="definitions spacerTriple">
+			<table class="definitions spacerSingle">
 				<thead>
 					<tr>
 						<th>Types</th>
@@ -2182,19 +2183,51 @@ const controls = {
 					<tr>
 						<td>Default On</td>
 						<td>
-							<button class="switch positive" data-setting="switch2" title="On" onclick="exampleSwitches(this)"></button>
+							<button class="switch" data-setting="switch2" title="On" onclick="exampleSwitches(this)"></button>
 						</td>
 					</tr>
 					<tr>
 						<td>Styled</td>
 						<td>
-							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
+							<button class="switch destructive" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<table class="definitions spacerTriple">
+				<thead>
+					<tr>
+						<th>OS Specific</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Default</td>
+						<td>
+							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button><br>
+							<button class="switch off" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
+						</td>
+					</tr>
+					<tr>
+						<td>iOS</td>
+						<td data-os="ios">
+							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button><br>
+							<button class="switch off" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
 						</td>
 					</tr>
 					<tr>
 						<td>Android</td>
 						<td data-os="android">
-							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
+							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button><br>
+							<button class="switch off" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
+						</td>
+					</tr>
+					<tr>
+						<td>Windows</td>
+						<td data-os="windows">
+							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button><br>
+							<button class="switch off" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
 						</td>
 					</tr>
 				</tbody>
@@ -2220,7 +2253,7 @@ $(document).on('click', '.switch[data-setting=""]', function() {
 			${
 				insertBanner({
 					type: 'info',
-					content: 'Switches have different styling based on the <code>pointer</code> used',
+					content: 'Switches have different styling based on the <code>pointer</code> and OS being used',
 					icon: false,
 					size: 'small',
 				})
@@ -2447,6 +2480,14 @@ $(document).on('click', '.buttonClearSearch', function() {
 </pre>
 			
 			<h3>CSS</h3>
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Search Bars have different styling based on the OS being used',
+					icon: false,
+					size: 'small',
+				})
+			}
 			<p>The search function gives you a few styling hooks incase you need to modify the list while a search is active. The <code>.activeSearch</code> class will get added to the <code>parentID</code> container as a general styling hook. Visible items will get the <code>.itemDisplayed</code> class and hidden items will get the <code>.itemHidden</code> class which can be used for more specific styling hooks.</p>
 		</div>
 	`,
