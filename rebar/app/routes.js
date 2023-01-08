@@ -30,13 +30,13 @@ function routesidebar(options) {
 				</button>
 				<button class="sidebar" data-name="controls" onclick='routecontrols({modifier: false, navtype: "forwards"})'>
 					<div class="labelSidebar">
-						${iconInterfaceElements.sliderHorizontalStroke}
+						${iconInterfaceElements.switchDoubleTopOnFill}
 						Controls
 					</div>
 				</button>
 				<button class="sidebar" data-name="layout" onclick='routelayout({modifier: false, navtype: "forwards"})'>
 					<div class="labelSidebar">
-						${iconInterfaceElements.windowSplitMiddleStroke}
+						${iconObjects.blueprintStroke}
 						Layout
 					</div>
 				</button>
@@ -96,10 +96,9 @@ function routegettingstarted(options) {
 			$(".columnSecondary").append(`
 				<header class="containerToolbar">
 					<div class="pinLeft">
-						<button class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-						${iconShapes.chevronBackwardsStroke}
-						Rebar
-					</button>
+						<button class="back toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
+							${insertBackButton("Rebar")}
+						</button>
 					</div>
 					<h1 class="headerToolbar">Getting Started</h1>
 					<div class="pinRight"></div>
@@ -191,9 +190,8 @@ function routecontrols(options) {
 			$(".columnSecondary").append(`
 				<header class="containerToolbar">
 					<div class="pinLeft">
-						<button class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${iconShapes.chevronBackwardsStroke}
-							Rebar
+						<button class="back toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
+							${insertBackButton("Rebar")}
 						</button>
 					</div>
 					<h1 class="headerToolbar">Controls</h1>
@@ -240,7 +238,7 @@ function routecontrols(options) {
 								</div>
 							</button>
 							<button class="itemList rounded fixedIconSize" data-name="backbutton" onclick='routecontrols({modifier: "backbutton", navtype: "forwards"})'>
-								${iconShapes.chevronSingleLeftStroke}
+								${iconShapes.arrowSingleLeft}
 								<div class="label">
 									<span>Back Button</span>
 								</div>
@@ -430,9 +428,8 @@ function routelayout(options) {
 			$(".columnSecondary").append(`
 				<header class="containerToolbar">
 					<div class="pinLeft">
-						<button class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${iconShapes.chevronBackwardsStroke}
-							Rebar
+						<button class="back toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
+							${insertBackButton("Rebar")}
 						</button>
 					</div>
 					<h1 class="headerToolbar">Layout</h1>
@@ -469,6 +466,12 @@ function routelayout(options) {
 									<span>Item Lists</span>
 								</div>
 							</button>
+							<button class="itemList rounded fixedIconSize" data-name="tables" onclick='routelayout({modifier: "tables", navtype: "forwards"})'>
+								${iconInterfaceElements.tableFill}
+								<div class="label">
+									<span>Tables</span>
+								</div>
+							</button>
 							<button class="itemList rounded fixedIconSize" data-name="toolbars" onclick='routelayout({modifier: "toolbars", navtype: "forwards"})'>
 								${iconInterfaceElements.windowBarTopFill}
 								<div class="label">
@@ -496,28 +499,22 @@ function routelayout(options) {
 									<span>Sections</span>
 								</div>
 							</button>
-							<button class="itemList rounded fixedIconSize" data-name="tables" onclick='routelayout({modifier: "tables", navtype: "forwards"})'>
-								${iconInterfaceElements.tableFill}
-								<div class="label">
-									<span>Tables</span>
-								</div>
-							</button>
 							<button class="itemList rounded fixedIconSize" data-name="accordions" onclick='routelayout({modifier: "accordions", navtype: "forwards"})'>
 								${iconShapes.chevronSingleCircleDownStroke}
 								<div class="label">
 									<span>Accordions</span>
 								</div>
 							</button>
-							<button class="itemList rounded fixedIconSize" data-name="iframes" onclick='routelayout({modifier: "iframes", navtype: "forwards"})'>
-								${iconObjects.compassStroke}
-								<div class="label">
-									<span>iframes</span>
-								</div>
-							</button>
 							<button class="itemList rounded fixedIconSize" data-name="banners" onclick='routelayout({modifier: "banners", navtype: "forwards"})'>
 								${iconInterfaceElements.exclamationTriangleFill}
 								<div class="label">
 									<span>Banners</span>
+								</div>
+							</button>
+							<button class="itemList rounded fixedIconSize" data-name="iframes" onclick='routelayout({modifier: "iframes", navtype: "forwards"})'>
+								${iconObjects.compassStroke}
+								<div class="label">
+									<span>iframes</span>
 								</div>
 							</button>
 						</section>
@@ -622,9 +619,8 @@ function routemodals(options) {
 			$(".columnSecondary").append(`
 				<header class="containerToolbar">
 					<div class="pinLeft">
-						<button class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${iconShapes.chevronBackwardsStroke}
-							Rebar
+						<button class="back toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
+							${insertBackButton("Rebar")}
 						</button>
 					</div>
 					<h1 class="headerToolbar">Modals</h1>
@@ -736,9 +732,8 @@ function routevisuals(options) {
 			$(".columnSecondary").append(`
 				<header class="containerToolbar">
 					<div class="pinLeft">
-						<button class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${iconShapes.chevronBackwardsStroke}
-							Rebar
+						<button class="back toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
+							${insertBackButton("Rebar")}
 						</button>
 					</div>
 					<h1 class="headerToolbar">Visuals</h1>
@@ -992,9 +987,8 @@ function routecharts(options) {
 			$(".columnSecondary").append(`
 				<header class="containerToolbar">
 					<div class="pinLeft">
-						<button class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${iconShapes.chevronBackwardsStroke}
-							Rebar
+						<button class="back toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
+							${insertBackButton("Rebar")}
 						</button>
 					</div>
 					<h1 class="headerToolbar">Charts</h1>
@@ -1226,9 +1220,8 @@ function routehelpers(options) {
 			$(".columnSecondary").append(`
 				<header class="containerToolbar">
 					<div class="pinLeft">
-						<button class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${iconShapes.chevronBackwardsStroke}
-							Rebar
+						<button class="back toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
+							${insertBackButton("Rebar")}
 						</button>
 					</div>
 					<h1 class="headerToolbar">Helpers</h1>
@@ -1236,6 +1229,11 @@ function routehelpers(options) {
 				</header>
 				<div class="scrollview cropToolbar">
 					<div class="containerItemList inset">
+						${
+							generateTipJar({
+								mini: true,
+							})
+						}
 						<section class="containerSection excludePadding">
 							<button class="itemList rounded fixedIconSize" data-name="preferences" onclick='routehelpers({modifier: "preferences", navtype: "forwards"})'>
 								${iconObjects.gear}
@@ -1339,9 +1337,8 @@ function routeicons(options) {
 			$(".columnSecondary").append(`
 				<header class="containerToolbar">
 					<div class="pinLeft">
-						<button class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${iconShapes.chevronBackwardsStroke}
-							Rebar
+						<button class="back toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
+							${insertBackButton("Rebar")}
 						</button>
 					</div>
 					<h1 class="headerToolbar">Icons</h1>
@@ -1512,7 +1509,8 @@ function routeicons(options) {
 						<div class="containerAccessoryBar">
 							<div class="containerSearch">
 								<input type="search" placeholder="Search Icons" id="iconSearch" />
-								<div class="buttonClearSearch">${iconShapes.timesFill}</div>
+								<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+								<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
 							</div>
 						</div>
 						<div class="scrollview paddingContent " id="iconGallery"></div>

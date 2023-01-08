@@ -1,4 +1,4 @@
-//REBAR 2
+//REBAR 2.0.1
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -28,14 +28,14 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 				<div class="scrollview">
 					<p class="excludeMargin textAlignCenter"><img src="icon.png" width="120" /></p>
 					<p class="textAlignCenter">${appName} can be installed to your Home Screen. It will launch like any other app and work offline.</p>
-					<div class="containerItemList inset inline spacerSingle alwaysBackgroundColor">
+					<div class="containerItemList inset inline spacerSingle">
 						<h3 class="headerList">How to Install</h3>
 						<section class="containerSection excludePadding excludeMargin">
 							<div class="itemList fixedIconSize">
 								<span class="alwaysMain">${iconIndices.oneCircleStroke}</span>
 								<div class="label">
 									<span id="installStepOne">
-										Tap the <span class="alwaysMain" id="installShareIcon">${iconInterfaceElements.shareSquareUpStroke}</span> button
+										Tap the <span class="alwaysMain" id="installShareIcon">${iconInterfaceElements.shareAppleUpStroke}</span> button
 									</span>
 								</div>
 							</div>
@@ -128,7 +128,15 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		}
 		
 		//SET OS
-		$("body").attr("data-os", grabOS());
+		if (getPreferenceGroup("rebar.appSettings").os == undefined) {
+			$("body").attr("data-os", grabOS());
+		} else {
+			if (getPreferenceGroup("rebar.appSettings").os != "default") {
+				$(`body`).attr("data-os", getPreferenceGroup("rebar.appSettings").os)
+			} else {
+				$("body").attr("data-os", grabOS());
+			}
+		}
 		
 		//SET REDUCED MOTION
 		setTimeLength();
@@ -170,13 +178,15 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 					id: false,
 					content: `
 						<button class="translucent xclose" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
-						<div id="sheetTips"></div>
+						<div id="sheetTips">
+							${
+								generateTipJar({
+									mini: false,
+								})
+							}
+						</div>
 					`,
 				})
-				
-				generateTipJar({
-					target: "sheetTips",
-				});
 			}
 		}
 	});
@@ -203,44 +213,44 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	}
 
 //GRAB URL PARAMETER
-function grabURLParameter() {
-	const urlSearchParams = new URLSearchParams(window.location.search);
-	const params = Object.fromEntries(urlSearchParams.entries());
-	return {
-		type: "deeplink",
-		query: Object.keys(params).join(),
-		source: Object.values(params).join(),
+	function grabURLParameter() {
+		const urlSearchParams = new URLSearchParams(window.location.search);
+		const params = Object.fromEntries(urlSearchParams.entries());
+		return {
+			type: "deeplink",
+			query: Object.keys(params).join(),
+			source: Object.values(params).join(),
+		}
 	}
-}
 
 //GRAB OS
-function grabOS() {
-	var userAgent = window.navigator.userAgent,
-	platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
-	macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
-	windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-	iosPlatforms = ['iPhone', 'iPad', 'iPod'],
-	os = null;
-
-	if (macosPlatforms.indexOf(platform) !== -1) {
-		os = 'macos';
-	} else if (iosPlatforms.indexOf(platform) !== -1) {
-		os = 'ios';
-	} else if (windowsPlatforms.indexOf(platform) !== -1) {
-		os = 'windows';
-	} else if (/Android/.test(userAgent)) {
-		os = 'android';
-	} else if (/Linux/.test(platform)) {
-		os = 'linux';
+	function grabOS() {
+		var userAgent = window.navigator.userAgent,
+		platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
+		macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+		windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+		iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+		os = null;
+	
+		if (macosPlatforms.indexOf(platform) !== -1) {
+			os = 'macos';
+		} else if (iosPlatforms.indexOf(platform) !== -1) {
+			os = 'ios';
+		} else if (windowsPlatforms.indexOf(platform) !== -1) {
+			os = 'windows';
+		} else if (/Android/.test(userAgent)) {
+			os = 'android';
+		} else if (/Linux/.test(platform)) {
+			os = 'linux';
+		}
+	
+		return os;
 	}
 
-	return os;
-}
-
 //GRAB FUNCTION NAME
-function grabFunctionName() {
-	return grabFunctionName.caller.name
-}
+	function grabFunctionName() {
+		return grabFunctionName.caller.name
+	}
 
 //SUMMON HOW TO INSTALL SHEET
 	$(document).on('click', '#buttonInstallApp', function() {
@@ -886,9 +896,82 @@ function grabFunctionName() {
 		}
 	}
 	
+//BACK BUTTON
+	function insertBackButton(label) {
+		switch (grabOS()) {
+			case 'macos':
+				return `${iconShapes.chevronBackwardsStroke}`
+				break
+			case 'android':
+				return `${iconShapes.arrowSingleLeft}`
+				break;
+			case 'windows':
+				return `${iconShapes.arrowSingleLeft}`
+				break;
+			default:
+				return `${iconShapes.chevronBackwardsStroke} ${label}`
+				break
+		}
+	}
+	
 //THEME PICKER
 	//GENERATE THE THEME PICKER
 	function generateDisplayOptions(options) {
+		//DEBUG
+			if (getPreferenceGroup("rebar.appSettings").debug == true) {
+				$(`#${options.target}`).append(`
+					<h2 class="headerList">Debug</h2>
+					<div class="containerItemList inset inline spacerDouble alwaysBackgroundColor">
+						<section class="containerSection excludePadding excludeMargin">
+							<div class="itemList fixedIconSize">
+								${iconHardware.monitorStroke}
+								<div class="label" id="increaseContrastLabel">
+									<span>OS Theme</span>
+								</div>
+								<div class="containerContextButton" data-setting="os" data-position="right" data-type="picker">
+									<button class="buttonContext transparent excludePadding">
+										<div class="contextContainerLabel">
+											<span class="contextLabel" style="text-transform: none"></span>
+											<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
+										</div>
+									</button>
+									<div class="contextContainerMenu">
+										<button data-name="default" onclick="overrideOS('default')">Default</button>
+										<button data-name="ios" onclick="overrideOS('ios')">iOS</button>
+										<button data-name="macos" onclick="overrideOS('macos')">macOS</button>
+										<button data-name="android" onclick="overrideOS('android')">Android</button>
+										<button data-name="windows" onclick="overrideOS('windows')">Windows</button>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				`);
+			}
+			
+			switch (getPreferenceGroup("rebar.appSettings").os) {
+				case 'default':
+					$(`[data-setting="os"] .contextLabel`).append(`Default`);
+					$(`[data-name="default"]`).addClass(`picked`);
+					break;
+				case 'ios':
+					$(`[data-setting="os"] .contextLabel`).append(`iOS`);
+					$(`[data-name="ios"]`).addClass(`picked`);
+					break;
+				case 'macos':
+					$(`[data-setting="os"] .contextLabel`).append(`macOS`);
+					$(`[data-name="macos"]`).addClass(`picked`);
+					break;
+				case 'android':
+					$(`[data-setting="os"] .contextLabel`).append(`Android`);
+					$(`[data-name="android"]`).addClass(`picked`);
+					break;
+				case 'windows':
+					$(`[data-setting="os"] .contextLabel`).append(`Windows`);
+					$(`[data-name="windows"]`).addClass(`picked`);
+					break;
+			}
+		
 		if (options.themeOptions == true || options.accentOptions == true || options.contrastOptions == true || options.motionOptions == true) {
 			//SET UP THE CONTAINER
 			$(`#${options.target}`).append(`
@@ -1248,6 +1331,43 @@ function grabFunctionName() {
 			})
 		}
 	});
+	
+	//OS THEME OVERRIDE
+	function overrideOS(selection) {
+		$(`body`).attr("data-os", selection);
+		
+		modifyPreference({
+			group: "rebar.appSettings",
+			mode: "update",
+			preference: "os",
+			value: selection,
+		})
+		
+		$(`[data-setting="os"] button`).removeClass(`picked`)
+		
+		switch (selection) {
+			case 'default':
+				$(`[data-setting="os"] .contextLabel`).empty().append(`Default`);
+				$(`[data-name="default"]`).addClass(`picked`);
+				break;
+			case 'ios':
+				$(`[data-setting="os"] .contextLabel`).empty().append(`iOS`);
+				$(`[data-name="ios"]`).addClass(`picked`);
+				break;
+			case 'macos':
+				$(`[data-setting="os"] .contextLabel`).empty().append(`macOS`);
+				$(`[data-name="macos"]`).addClass(`picked`);
+				break;
+			case 'android':
+				$(`[data-setting="os"] .contextLabel`).empty().append(`Android`);
+				$(`[data-name="android"]`).addClass(`picked`);
+				break;
+			case 'windows':
+				$(`[data-setting="os"] .contextLabel`).empty().append(`Windows`);
+				$(`[data-name="windows"]`).addClass(`picked`);
+				break;
+		}
+	}
 
 //UPDATE BANNER
 	$(document).on('click', '#buttonUpdateApp', function() {
@@ -1266,21 +1386,47 @@ function grabFunctionName() {
 	
 //TIP JAR
 	function generateTipJar(options) {
-		$(`#${options.target}`).append(`
-			<div class="containerTipJar">
-				<img class="spacerSingle" src="rebar/images/tips.png" srcset="rebar/images/tips@2x.png 2x" width="400" alt="" />
-				<p class="textAlignCenter h5 spacerDouble">${appName} is developed by <a href="https://christophermuller.net" target="_blank">Chris</a> and <a href="https://twitter.com/trevormkay" target="_blank">Trevor</a>. If you'd like to show your support you can leave us a tip. It's much appreciated!</p>
-				<div class="containerButtons spacerSingle">
-					<a href="${tipsLinks.default}" target="_blank" class="noDecoration">
-						<button class="large" onclick="stopTipsPrompts()">Donate $2</button>
-					</a>
-					<a href="${tipsLinks.custom}" target="_blank" class="noDecoration">
-						<button class="transparent" onclick="stopTipsPrompts()">Custom Amount</button>
-					</a>
+		if (options.mini == true) {
+			if (getPreferenceGroup("rebar.appSettings").clickedDonationLink == false) {
+				return `
+					<div id="miniTipJar">
+						<button class="transparent secondary excludePadding" id="dismiss" title="Dismiss Tips Panel" onclick="stopTipsPrompts()">${iconShapes.timesCircleDuo}</button>
+						<div class="containerTipJar mini">
+							<img class="spacerSingle" src="rebar/images/tips.png" srcset="rebar/images/tips@2x.png 2x" width="400" alt="" />
+							<p class="textAlignCenter">Support ${appName} by leaving <a href="https://twitter.com/trevormkay" target="_blank">Trevor</a> and <a href="https://christophermuller.net" target="_blank">Chris</a> a tip. It's appreciated!</p>
+							<div class="containerButtons">
+								<a href="${tipsLinks.default}" target="_blank" class="noDecoration">
+									<button onclick="stopTipsPrompts()">Donate $2</button>
+								</a>
+								<a href="${tipsLinks.custom}" target="_blank" class="noDecoration">
+									<button class="secondary" onclick="stopTipsPrompts()">Any Amount</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				`
+			} else {
+				return ``
+			}
+		} else {
+			return `
+				<div class="containerTipJar">
+					<img class="spacerSingle" src="rebar/images/tips.png" srcset="rebar/images/tips@2x.png 2x" width="400" alt="" />
+					<p class="textAlignCenter h5 spacerDouble">${appName} is developed by <a href="https://twitter.com/trevormkay" target="_blank">Trevor</a> and <a href="https://christophermuller.net" target="_blank">Chris</a>. If you'd like to show your support you can leave us a tip. It's much appreciated!</p>
+					<div class="containerButtons spacerSingle">
+						<a href="${tipsLinks.default}" target="_blank" class="noDecoration">
+							<button onclick="stopTipsPrompts()">Donate $2</button>
+						</a>
+						<a href="${tipsLinks.custom}" target="_blank" class="noDecoration">
+							<button class="secondary" onclick="stopTipsPrompts()">Any Amount</button>
+						</a>
+					</div>
+					<p class="textAlignCenter subtext">Prices are set in USD and payment is handled by Stripe. ${appName} does not require payment to use. If you have any issues, please contact <a href="mailto:${appEmail}?subject=Help%20with%20${appName}%20tip%20jar">Support</a>. For more information on how your data is handled please refer to the <a href="${appPrivacyPolicy}" target="_blank">Toast Studio Privacy Policy</a> and the <a href="https://stripe.com/privacy" target="_blank">Stripe Privacy Policy</a>.</p>
 				</div>
-				<p class="textAlignCenter subtext">Prices are set in USD and payment is handled by Stripe. ${appName} does not require payment to use. If you have any issues, please contact <a href="mailto:${appEmail}?subject=Help%20with%20${appName}%20tip%20jar">Support</a>. For more information on how your data is handled please refer to the <a href="${appPrivacyPolicy}" target="_blank">Toast Studio Privacy Policy</a> and the <a href="https://stripe.com/privacy" target="_blank">Stripe Privacy Policy</a>.</p>
-			</div>
-		`);
+			`
+		}
+		
+		
 	}
 	
 	function stopTipsPrompts() {
@@ -1290,6 +1436,8 @@ function grabFunctionName() {
 			preference: "clickedDonationLink",
 			value: "true",
 		})
+		
+		$(`#miniTipJar`).remove()
 	}
 	
 //CAPITALIZE WORD
@@ -1610,3 +1758,32 @@ function grabFunctionName() {
 				`)
 			});
 	}
+	
+//SHORTCUT KEYS
+	$(document).keyup(function(e) {
+		let checkFocus = (document.activeElement === document.getElementsByTagName('input')[0])
+		
+		if (checkFocus == false) {
+			switch (e.key) {
+				case 'D':
+					if (getPreferenceGroup("rebar.appSettings").debug == false) {
+						modifyPreference({
+							group: "rebar.appSettings",
+							mode: "update",
+							preference: "debug",
+							value: true,
+						})
+					} else {
+						modifyPreference({
+							group: "rebar.appSettings",
+							mode: "update",
+							preference: "debug",
+							value: false,
+						})
+					}
+					
+					location.reload()
+					break;
+			}
+		}
+	});

@@ -2,9 +2,8 @@ const gettingstarted = {
 	welcome: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Getting&hellip;
+				<button class="back toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Getting&hellip;")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -55,9 +54,8 @@ const gettingstarted = {
 	filestructure: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Getting&hellip;
+				<button class="back toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Getting&hellip;")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -87,6 +85,8 @@ const gettingstarted = {
 					<ul class="excludeMargin">
 						<li>${iconInterfaceElements.textCapital} OpenDyslexic3-bold.ttf</li>
 						<li>${iconInterfaceElements.textCapital} OpenDyslexic3-Regular.ttf</li>
+						<li>${iconInterfaceElements.textCapital} product-sans-bold.ttf</li>
+						<li>${iconInterfaceElements.textCapital} product-sans-Regular.ttf</li>
 					</ul>
 					<li>${iconObjects.folderHorizontalFill} icons</li>
 					<ul class="excludeMargin">
@@ -109,6 +109,8 @@ const gettingstarted = {
 						<li>${iconObjects.photoLandscapeStroke} arrow-forward-light.svg</li>
 						<li>${iconObjects.photoLandscapeStroke} tick-dark.svg</li>
 						<li>${iconObjects.photoLandscapeStroke} tick-light.svg</li>
+						<li>${iconObjects.photoLandscapeStroke} tips.png</li>
+						<li>${iconObjects.photoLandscapeStroke} tips@2x.png</li>
 					</ul>
 					<li>${iconObjects.fileFill} jquery.tablesorter.js</li>
 					<li>${iconObjects.fileFill} rebar.css</li>
@@ -131,9 +133,8 @@ const gettingstarted = {
 	appstructure: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Getting&hellip;
+				<button class="back toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Getting&hellip;")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -164,9 +165,8 @@ const gettingstarted = {
 	config: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Getting&hellip;
+				<button class="back toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Getting&hellip;")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -265,9 +265,8 @@ const gettingstarted = {
 	versionhistory: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Getting&hellip;
+				<button class="back toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Getting&hellip;")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -279,6 +278,44 @@ const gettingstarted = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			<div class="containerAccordion hideOverflow spacerSingle">
+				<div class="headerAccordion headerSection">
+					<span>
+						<h3>2.0.1</h3>
+						<p class="subtext excludeMargin">8 January 2023</p>
+					</span>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<section class="containerSection">
+							${
+								insertBanner({
+									type: 'warning',
+									content: 'This version includes breaking changes for Accordions, Tip Jar, and Service Worker cache',
+									icon: false,
+									size: "large",
+								})
+							}
+						
+							<ul class="excludeMargin">
+								<li>Back Buttons now have a function to insert an arrow icon that matches the OS being used</li>
+								<li>Many components have styling that makes them match Material 3 and Fluent for Windows 11</li>
+								<li>The Product Sans font is bundled in to Rebar for Android</li>
+								<li>Search Bars now include a magnifying glass icon that requires updated HTML</li>
+								<li>Removed <code>background-color</code> from Item List Containers</li>
+								<li>Added a debug mode which can be toggled on/off by pressing <code>Shift + D</code>. Currently this will enable OS Theme override in Display Options. This also requires updating the config.js with a new <code>debug</code> value in <code>rebar.appSettings</code>.</li>
+								<li>Tokens have been updated with a more rounded style</li>
+								<li>Accordions have been updated to use animatable <code>grid</code> instead of <code>min-height</code>. This requires an update to HTML structure for Accordions</li>
+								<li>Updated the Tip Jar generator to be a function that returns HTML instead of appending it</li>
+								<li>Added a new Mini Tip Jar that can be displayed inline in Item Lists</li>
+								<li>Added the Product Sans font. This requires an update to the Service Worker cache</li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</div>
+		
 			<div class="containerAccordion hideOverflow large spacerSingle">
 				<div class="headerAccordion headerSection">
 					<span>
@@ -288,79 +325,81 @@ const gettingstarted = {
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
-					<section class="containerSection">
-						${
-							insertBanner({
-								type: 'warning',
-								content: 'This version includes breaking changes for Routing, Tabs, Dialogs, Context Menus, Vanishing Toolbars, File Structure, Themes, Accents, Config, and CSS colour definitions',
-								icon: false,
-								size: "large",
-							})
-						}
-						
-						<h4>Added</h4>
-						<ul>
-							<li>You can now have more than one modal on-screen at the same time</li>
-							<li>Added support for CSS Layers</li>
-							<li>Added <code>tempAnimationStop()</code> function</li>
-							<li>Added Small style for Banners</li>
-							<li>Added Display style for Segmented Controls</li>
-							<li>Alerts can now include a leading icon</li>
-							<li>Context Menus can now include leading icons and colour chips in the button label</li>
-							<li>Picker Menus can now have icons</li>
-							<li>Added <code>grabOS()</code> helper which will tell you what OS Rebar is being run on (which is also inserted in to the <code>body</code> tag as a <code>data-os</code> attribute for styling purposes)</li>
-							<li>Added Clock Pause, Filled File, Android Share, and Windows Share icons</li>
-						</ul>
-						
-						<h4>Changes</h4>
-						<ul>
-							<li>The Routing system has been completely redesigned retiring <code>routes()</code> and replacing it with <code>controllerRoute()</code></li>
-							<li>Tabs now use their own routing controller called <code>controllerTab()</code></li>
-							<li>The <code>summonPanel()</code> function has been completely replaced with a new <code>showDialog()</code> function that uses the native HTML <code>dialog</code> element</li>
-							<li>Slim Sheets have been renamed to Small Sheets</li>
-							<li>When using a mouse the Buttons on Alerts will use an inline layout</li>
-							<li>Animations on Dialogs and Context Menus are now more springy</li>
-							<li>The <code>.secondary</code> Button class has been remaned to <code>.translucent</code> to be more semantic</li>
-							<li>The <code>.tertiary</code> Button class has been remaned to <code>.secondary</code> to be more semantic and has been restyled</li>
-							<li>Updated the styling of Form Elements to be less loud</li>
-							<li><code>styles.css</code> has been renamed to <code>app.css</code> for consistency</li>
-							<li><code>rebar.css</code> and <code>app.css</code> are now an <code>import</code> inside of <code>main.css</code> to work with CSS Layers</li>
-							<li>The icons file has been broken apart in to separate files to be more managable</li>
-							<li>Restructured the way Context Menus are tagged so center menus can be positioned correctly</li>
-							<li>Items inside a Context Menu can now be grouped with a container so menus can be dynamically generated</li>
-							<li>Context Menus now have overflow scrolling</li>
-							<li>Context Menus now have specific styling when using a mouse</li>
-							<li>Context Menus, Alerts, and Toasts now use a translucent background for the menu panel</li>
-							<li>Popovers now have a larger corner radius to differentiate them from Menus</li>
-							<li><code>.paddingContent</code> now has <code>scrollbar-gutter</code> applied to it to accomodate accordions</li>
-							<li><code>metadata.js</code> has been renamed to <code>config.js</code> for clarity</li>
-							<li>The Theme and Accent Pickers have been redesigned to have a more compact appearance</li>
-							<li>Buttons have a more compact appearance when using a mouse</li>
-							<li>Large Buttons are now more differentiated in size compared to standard size Buttons</li>
-							<li>Updated the styling of the buttons in Blank States</li>
-							<li>Switches no longer need the <code>.knob</code> DOM element, it has been replaced with a <code>::before</code> on the <code>.switch</code> class</li>
-							<li>Switches and Search Bars now have OS specific styling</li>
-							<li>Refined the sizing of Switches on touchscreen devices</li>
-							<li>The Tips panel has been redesigned</li>
-							<li><code>insertShareButton()</code> is now an inline function and changes icon based on the OS</li>
-							<li>In the CSS <code>rgba(*, *, *, *)</code> has been replaced with <code>rgb(* * * / *)</code></li>
-							<li>Updated the Inwards and Outwards Chevron icons</li>
-						</ul>
-						
-						<h4>Fixes</h4>
-						<ul>
-							<li>Added new <code>.vanishing</code> class to stop Toolbars from having a transition when they don't need it</li>
-							<li>Added <code>.hideOverflow</code> and <code>.large</code> classes to Accordions to handle different Accordion types</li>
-							<li>Banners inserted inside Accordions no longer have incorrect styling applied</li>
-						</ul>
-						
-						<h4>Removed</h4>
-						<ul>
-							<li>The <code>clickSegment()</code> function has been retired in favour of <code>controllerTab()</code></li>
-							<li>Some margin options for Half Sheets have been retired and now Half Sheets will always be inset from the viewport</li>
-							<li>The Outline Button style has been retired</li>
-						</ul>
-					</section>
+					<div class="wrapper">
+						<section class="containerSection">
+							${
+								insertBanner({
+									type: 'warning',
+									content: 'This version includes breaking changes for Routing, Tabs, Dialogs, Context Menus, Vanishing Toolbars, File Structure, Themes, Accents, Config, CSS colour definitions, and Service Worker cache',
+									icon: false,
+									size: "large",
+								})
+							}
+							
+							<h4>Added</h4>
+							<ul>
+								<li>You can now have more than one modal on-screen at the same time</li>
+								<li>Added support for CSS Layers</li>
+								<li>Added <code>tempAnimationStop()</code> function</li>
+								<li>Added Small style for Banners</li>
+								<li>Added Display style for Segmented Controls</li>
+								<li>Alerts can now include a leading icon</li>
+								<li>Context Menus can now include leading icons and colour chips in the button label</li>
+								<li>Picker Menus can now have icons</li>
+								<li>Added <code>grabOS()</code> helper which will tell you what OS Rebar is being run on (which is also inserted in to the <code>body</code> tag as a <code>data-os</code> attribute for styling purposes)</li>
+								<li>Added Clock Pause, Filled File, Android Share, and Windows Share icons</li>
+							</ul>
+							
+							<h4>Changes</h4>
+							<ul>
+								<li>The Routing system has been completely redesigned retiring <code>routes()</code> and replacing it with <code>controllerRoute()</code></li>
+								<li>Tabs now use their own routing controller called <code>controllerTab()</code></li>
+								<li>The <code>summonPanel()</code> function has been completely replaced with a new <code>showDialog()</code> function that uses the native HTML <code>dialog</code> element</li>
+								<li>Slim Sheets have been renamed to Small Sheets</li>
+								<li>When using a mouse the Buttons on Alerts will use an inline layout</li>
+								<li>Animations on Dialogs and Context Menus are now more springy</li>
+								<li>The <code>.secondary</code> Button class has been remaned to <code>.translucent</code> to be more semantic</li>
+								<li>The <code>.tertiary</code> Button class has been remaned to <code>.secondary</code> to be more semantic and has been restyled</li>
+								<li>Updated the styling of Form Elements to be less loud</li>
+								<li><code>styles.css</code> has been renamed to <code>app.css</code> for consistency</li>
+								<li><code>rebar.css</code> and <code>app.css</code> are now an <code>import</code> inside of <code>main.css</code> to work with CSS Layers</li>
+								<li>The icons file has been broken apart in to separate files to be more managable</li>
+								<li>Restructured the way Context Menus are tagged so center menus can be positioned correctly</li>
+								<li>Items inside a Context Menu can now be grouped with a container so menus can be dynamically generated</li>
+								<li>Context Menus now have overflow scrolling</li>
+								<li>Context Menus now have specific styling when using a mouse</li>
+								<li>Context Menus, Alerts, and Toasts now use a translucent background for the menu panel</li>
+								<li>Popovers now have a larger corner radius to differentiate them from Menus</li>
+								<li><code>.paddingContent</code> now has <code>scrollbar-gutter</code> applied to it to accomodate accordions</li>
+								<li><code>metadata.js</code> has been renamed to <code>config.js</code> for clarity</li>
+								<li>The Theme and Accent Pickers have been redesigned to have a more compact appearance</li>
+								<li>Buttons have a more compact appearance when using a mouse</li>
+								<li>Large Buttons are now more differentiated in size compared to standard size Buttons</li>
+								<li>Updated the styling of the buttons in Blank States</li>
+								<li>Switches no longer need the <code>.knob</code> DOM element, it has been replaced with a <code>::before</code> on the <code>.switch</code> class</li>
+								<li>Switches and Search Bars now have OS specific styling</li>
+								<li>Refined the sizing of Switches on touchscreen devices</li>
+								<li>The Tips panel has been redesigned</li>
+								<li><code>insertShareButton()</code> is now an inline function and changes icon based on the OS</li>
+								<li>In the CSS <code>rgba(*, *, *, *)</code> has been replaced with <code>rgb(* * * / *)</code></li>
+								<li>Updated the Inwards and Outwards Chevron icons</li>
+							</ul>
+							
+							<h4>Fixes</h4>
+							<ul>
+								<li>Added new <code>.vanishing</code> class to stop Toolbars from having a transition when they don't need it</li>
+								<li>Added <code>.hideOverflow</code> and <code>.large</code> classes to Accordions to handle different Accordion types</li>
+								<li>Banners inserted inside Accordions no longer have incorrect styling applied</li>
+							</ul>
+							
+							<h4>Removed</h4>
+							<ul>
+								<li>The <code>clickSegment()</code> function has been retired in favour of <code>controllerTab()</code></li>
+								<li>Some margin options for Half Sheets have been retired and now Half Sheets will always be inset from the viewport</li>
+								<li>The Outline Button style has been retired</li>
+							</ul>
+						</section>
+					</div>
 				</section>
 			</div>
 			
@@ -373,20 +412,22 @@ const gettingstarted = {
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
-					<section class="containerSection">
-						<ul class="excludeMargin">
-							<li>The <code>.hidden</code> class now has extra specificity applied to it</li>
-							<li>Added <code>.noDecoration</code> utility class</li>
-							<li>Added non-Always On version of the Dynamic Island iPhone icons</li>
-							<li>Added Display Radius, Blueprint, and CarPlay icons</li>
-							<li><code>.alwaysBackgroundColor</code> and <code>.alwaysForegroundColor</code> can now apply to SVG fills</li>
-							<li>Added a new <code>append</code> mode to the Preferences system which will leave existing preferences alone but add a new one if it isn't present in local storage</li>
-							<li>Switches now have a smaller appearance when using a mouse</li>
-							<li>Added a narrow content padding class called <code>.paddingContentTight</code></li>
-							<li>Fixed an issue where the toolbar border in the sidebar would disappear on an <code>expandSecondary</code> state</li>
-							<li>Added new Tertiary style for buttons which has a reduced look but retains the accent colour</li>
-						</ul>
-					</section>
+					<div class="wrapper">
+						<section class="containerSection">
+							<ul class="excludeMargin">
+								<li>The <code>.hidden</code> class now has extra specificity applied to it</li>
+								<li>Added <code>.noDecoration</code> utility class</li>
+								<li>Added non-Always On version of the Dynamic Island iPhone icons</li>
+								<li>Added Display Radius, Blueprint, and CarPlay icons</li>
+								<li><code>.alwaysBackgroundColor</code> and <code>.alwaysForegroundColor</code> can now apply to SVG fills</li>
+								<li>Added a new <code>append</code> mode to the Preferences system which will leave existing preferences alone but add a new one if it isn't present in local storage</li>
+								<li>Switches now have a smaller appearance when using a mouse</li>
+								<li>Added a narrow content padding class called <code>.paddingContentTight</code></li>
+								<li>Fixed an issue where the toolbar border in the sidebar would disappear on an <code>expandSecondary</code> state</li>
+								<li>Added new Tertiary style for buttons which has a reduced look but retains the accent colour</li>
+							</ul>
+						</section>
+					</div>
 				</section>
 			</div>
 			
@@ -399,25 +440,27 @@ const gettingstarted = {
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
-					<section class="containerSection">
-						${
-							insertBanner({
-								type: 'warning',
-								content: 'This version includes breaking changes for the Tips Jar',
-								icon: false,
-								size: "large",
-							})
-						}
-					
-						<ul class="excludeMargin">
-							<li>The Tips Jar links are now included in the app metadata</li>
-							<li>The Tips prompt that generates on load is no longer hardcoded to the TypeDex tips links</li>
-							<li>Images in the Gantt Chart now have a fixed height value</li>
-							<li>Added rowid key to Gantt chart rows for targeting purposes</li>
-							<li>Updated the Apple Watch icons to be focused solely on the display shape</li>
-							<li>Added icons for the iPhone 14 series</li>
-						</ul>
-					</section>
+					<div class="wrapper">
+						<section class="containerSection">
+							${
+								insertBanner({
+									type: 'warning',
+									content: 'This version includes breaking changes for the Tips Jar',
+									icon: false,
+									size: "large",
+								})
+							}
+						
+							<ul class="excludeMargin">
+								<li>The Tips Jar links are now included in the app metadata</li>
+								<li>The Tips prompt that generates on load is no longer hardcoded to the TypeDex tips links</li>
+								<li>Images in the Gantt Chart now have a fixed height value</li>
+								<li>Added rowid key to Gantt chart rows for targeting purposes</li>
+								<li>Updated the Apple Watch icons to be focused solely on the display shape</li>
+								<li>Added icons for the iPhone 14 series</li>
+							</ul>
+						</section>
+					</div>
 				</section>
 			</div>
 			
@@ -430,12 +473,14 @@ const gettingstarted = {
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
-					<section class="containerSection">
-						<ul class="excludeMargin">
-							<li>Fixed an issue with the inline search bar positioning when saved to the iPad Home Screen</li>
-							<li>Added support for displaying context menus in a center position</li>
-						</ul>
-					</section>
+					<div class="wrapper">
+						<section class="containerSection">
+							<ul class="excludeMargin">
+								<li>Fixed an issue with the inline search bar positioning when saved to the iPad Home Screen</li>
+								<li>Added support for displaying context menus in a center position</li>
+							</ul>
+						</section>
+					</div>
 				</section>
 			</div>
 			
@@ -448,16 +493,18 @@ const gettingstarted = {
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
-					<section class="containerSection">
-						<ul class="excludeMargin">
-							<li>Added Pie Charts, Donut Charts, Gantt, and Stats Charts</li>
-							<li>Added Banners</li>
-							<li>Fixed the size of sorting carets on tables</li>
-							<li>Added more targeted styling hooks for the Search function</li>
-							<li>Added Exclamation Triangle, Info Circle Multi, Stage Manager, Reference Monitor, Checkmark Circle Multi, Times Circle Multi, Shrink Square, Steering Wheel, Fuel Pump icons</li>
-							<li>Fixed the zoomSquareDuo icon so it gets properly tinted</li>
-						</ul>
-					</section>
+					<div class="wrapper">
+						<section class="containerSection">
+							<ul class="excludeMargin">
+								<li>Added Pie Charts, Donut Charts, Gantt, and Stats Charts</li>
+								<li>Added Banners</li>
+								<li>Fixed the size of sorting carets on tables</li>
+								<li>Added more targeted styling hooks for the Search function</li>
+								<li>Added Exclamation Triangle, Info Circle Multi, Stage Manager, Reference Monitor, Checkmark Circle Multi, Times Circle Multi, Shrink Square, Steering Wheel, Fuel Pump icons</li>
+								<li>Fixed the zoomSquareDuo icon so it gets properly tinted</li>
+							</ul>
+						</section>
+					</div>
 				</section>
 			</div>
 			
@@ -470,13 +517,15 @@ const gettingstarted = {
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
-					<section class="containerSection">
-						<ul class="excludeMargin">
-							<li>Set the prompt for tips counter to activate at 4, 8, and 14 openings</li>
-							<li>Added Brightness icon</li>
-							<li>Fixed the layout of Context Menu Buttons with trailing icons</li>
-						</ul>
-					</section>
+					<div class="wrapper">
+						<section class="containerSection">
+							<ul class="excludeMargin">
+								<li>Set the prompt for tips counter to activate at 4, 8, and 14 openings</li>
+								<li>Added Brightness icon</li>
+								<li>Fixed the layout of Context Menu Buttons with trailing icons</li>
+							</ul>
+						</section>
+					</div>
 				</section>
 			</div>
 			
@@ -489,144 +538,146 @@ const gettingstarted = {
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
-					<section class="containerSection">
-						<h3>Framework</h3>
-						<h4>Added</h4>
-						<ul>
-							<li>You can now apply <code>.cropAccessoryBar</code> to a <code>.containerItemList</code> to have the Item List avoid an Accessory Bar</li>
-							<li>Tables</li>
-							<li><code>.hidden</code> helper class</li>
-							<li><code>scrollToTop()</code> function</li>
-							<li>In three column layouts you can now have routes that only use two columns</li>
-							<li>Popovers</li>
-							<li><code>--systempanel-lift</code> colour variable</li>
-							<li>Teal as a default accent colour</li>
-							<li><code>searchTable()</code> function specifically for searching tables</li>
-							<li><code>insertShareButton()</code> function to handle insert Share buttons only when the browser supports Share functionality</li>
-						</ul>
-						
-						<h4>Changes</h4>
-						<ul>
-							<li>The icon size on Content Menu Item buttons now matches the base font size</li>
-							<li><code>changeView()</code> can now take a modifier value which can be used to set the subdued state of sidebar items in cases that are using Route Categories</li>
-							<li>Sidebar icons can now use their initial fill</li>
-							<li>Buttons now have a default gap applied to allow for spacing when an icon is included</li>
-							<li><code>setMetaTheme()</code> now uses the <code>foreground</code> colour variable</li>
-							<li>Made the Dyslexic Font display setting more clearly labelled</li>
-							<li>Increased the background opacity of the Segmented Control track</li>
-							<li>Set <code>.containerApp</code> to <code>position: fixed</code> in an attempt to stop Mobile Safari from positioning it incorrectly</li>
-						</ul>
-						
-						<h4>Fixes</h4>
-						<ul>
-							<li><code>.pinLeft</code> and <code>.pinRight</code> now vertically centre their child items</li>
-							<li>The grippers for Context Menu buttons now use the correct colour when set to <code>.toolbarItem</code></li>
-							<li>The height of Accessory Bars are now sized to fix components when Open Dyslexic is used</li>
-							<li>Toolbar layouts respect the notch better</li>
-							<li>Open Dyslexic is now part of the default Service Worker cache</li>
-						</ul>
-						
-						<h3>Icons</h3>
-						<h4>Added</h4>
-						<ul>
-							<li>iPhone Touch ID</li>
-							<li>iPhone Wide Face ID</li>
-							<li>iPhone Narrow Face ID</li>
-							<li>iPhone Liquid Retina</li>
-							<li>iPhone Face View</li>
-							<li>iPad Original</li>
-							<li>iPad Home Button</li>
-							<li>iPad Touch ID</li>
-							<li>iPad Liquid Retina</li>
-							<li>iPad Face View</li>
-							<li>iPod touch Original</li>
-							<li>iPod touch Retina</li>
-							<li>iPod touch Face View</li>
-							<li>Apple Watch Original</li>
-							<li>Apple Watch Series 4</li>
-							<li>Apple Watch Series 5</li>
-							<li>Apple Watch Series 7</li>
-							<li>Apple Watch Side View</li>
-							<li>AppleTV</li>
-							<li>SD Badge</li>
-							<li>HD Badge</li>
-							<li>2K Badge</li>
-							<li>4K Badge</li>
-							<li>8K Badge</li>
-							<li>16K Badge</li>
-							<li>Camera</li>
-							<li>Screenshot</li>
-							<li>Icon Grid</li>
-							<li>Complication</li>
-							<li>Car</li>
-							<li>Group List</li>
-							<li>Calendar</li>
-							<li>Small Pixels</li>
-							<li>Large Pixels</li>
-							<li>Single Arrow Up</li>
-							<li>Single Arrow Right</li>
-							<li>Single Arrow Down</li>
-							<li>Single Arrow Left</li>
-							<li>Double Arrow Vertical</li>
-							<li>Double Arrow Horizontal</li>
-							<li>Double Arrow Diagonal Leading</li>
-							<li>Double Arrow Diagonal Trailing</li>
-							<li>Sun with Haze</li>
-							<li>Watchface</li>
-							<li>Closed Lock</li>
-							<li>Open Lock</li>
-							<li>Target</li>
-							<li>Circle in Circle</li>
-							<li>Pointing Hand</li>
-							<li>Pressing Pointer Hand</li>
-							<li>Horizontal Ruler</li>
-							<li>Vertical Ruler</li>
-							<li>Viewfinder</li>
-							<li>Figma</li>
-							<li>Sketch</li>
-							<li>Zoom Square</li>
-							<li>Face ID</li>
-							<li>Touch ID</li>
-							<li>Fingerprint</li>
-							<li>LiDAR</li>
-							<li>ProMotion</li>
-							<li>iMac</li>
-							<li>Tablet and Phone</li>
-							<li>Chat Bubble</li>
-							<li>EV Charging Plug</li>
-							<li>Parking Sign</li>
-							<li>Single Music Note</li>
-							<li>Double Music Note</li>
-							<li>Handset Leading</li>
-							<li>Handset Trailing</li>
-							<li>Handset Down</li>
-							<li>Fork</li>
-							<li>Knife</li>
-							<li>Fork and Knife</li>
-							<li>NFC</li>
-							<li>Table</li>
-							<li>Thumbs Up</li>
-							<li>Thumbs Down</li>
-							<li>Rounded Square</li>
-							<li>Squircle</li>
-							<li>Teardrop</li>
-						</ul>
-						
-						<h4>Updated</h4>
-						<ul>
-							<li>Shortcuts</li>
-							<li>TV</li>
-							<li>Monitor</li>
-							<li>Compare Rectangles</li>
-							<li>Screen Sizes Stroke</li>
-							<li>Screen Sizes Fill</li>
-						</ul>
-						
-						<h4>Removed</h4>
-						<ul class="excludeMargin">
-							<li>Screen Sizes Duo</li>
-						</ul>
-					</section>
+					<div class="wrapper">
+						<section class="containerSection">
+							<h3>Framework</h3>
+							<h4>Added</h4>
+							<ul>
+								<li>You can now apply <code>.cropAccessoryBar</code> to a <code>.containerItemList</code> to have the Item List avoid an Accessory Bar</li>
+								<li>Tables</li>
+								<li><code>.hidden</code> helper class</li>
+								<li><code>scrollToTop()</code> function</li>
+								<li>In three column layouts you can now have routes that only use two columns</li>
+								<li>Popovers</li>
+								<li><code>--systempanel-lift</code> colour variable</li>
+								<li>Teal as a default accent colour</li>
+								<li><code>searchTable()</code> function specifically for searching tables</li>
+								<li><code>insertShareButton()</code> function to handle insert Share buttons only when the browser supports Share functionality</li>
+							</ul>
+							
+							<h4>Changes</h4>
+							<ul>
+								<li>The icon size on Content Menu Item buttons now matches the base font size</li>
+								<li><code>changeView()</code> can now take a modifier value which can be used to set the subdued state of sidebar items in cases that are using Route Categories</li>
+								<li>Sidebar icons can now use their initial fill</li>
+								<li>Buttons now have a default gap applied to allow for spacing when an icon is included</li>
+								<li><code>setMetaTheme()</code> now uses the <code>foreground</code> colour variable</li>
+								<li>Made the Dyslexic Font display setting more clearly labelled</li>
+								<li>Increased the background opacity of the Segmented Control track</li>
+								<li>Set <code>.containerApp</code> to <code>position: fixed</code> in an attempt to stop Mobile Safari from positioning it incorrectly</li>
+							</ul>
+							
+							<h4>Fixes</h4>
+							<ul>
+								<li><code>.pinLeft</code> and <code>.pinRight</code> now vertically centre their child items</li>
+								<li>The grippers for Context Menu buttons now use the correct colour when set to <code>.toolbarItem</code></li>
+								<li>The height of Accessory Bars are now sized to fix components when Open Dyslexic is used</li>
+								<li>Toolbar layouts respect the notch better</li>
+								<li>Open Dyslexic is now part of the default Service Worker cache</li>
+							</ul>
+							
+							<h3>Icons</h3>
+							<h4>Added</h4>
+							<ul>
+								<li>iPhone Touch ID</li>
+								<li>iPhone Wide Face ID</li>
+								<li>iPhone Narrow Face ID</li>
+								<li>iPhone Liquid Retina</li>
+								<li>iPhone Face View</li>
+								<li>iPad Original</li>
+								<li>iPad Home Button</li>
+								<li>iPad Touch ID</li>
+								<li>iPad Liquid Retina</li>
+								<li>iPad Face View</li>
+								<li>iPod touch Original</li>
+								<li>iPod touch Retina</li>
+								<li>iPod touch Face View</li>
+								<li>Apple Watch Original</li>
+								<li>Apple Watch Series 4</li>
+								<li>Apple Watch Series 5</li>
+								<li>Apple Watch Series 7</li>
+								<li>Apple Watch Side View</li>
+								<li>AppleTV</li>
+								<li>SD Badge</li>
+								<li>HD Badge</li>
+								<li>2K Badge</li>
+								<li>4K Badge</li>
+								<li>8K Badge</li>
+								<li>16K Badge</li>
+								<li>Camera</li>
+								<li>Screenshot</li>
+								<li>Icon Grid</li>
+								<li>Complication</li>
+								<li>Car</li>
+								<li>Group List</li>
+								<li>Calendar</li>
+								<li>Small Pixels</li>
+								<li>Large Pixels</li>
+								<li>Single Arrow Up</li>
+								<li>Single Arrow Right</li>
+								<li>Single Arrow Down</li>
+								<li>Single Arrow Left</li>
+								<li>Double Arrow Vertical</li>
+								<li>Double Arrow Horizontal</li>
+								<li>Double Arrow Diagonal Leading</li>
+								<li>Double Arrow Diagonal Trailing</li>
+								<li>Sun with Haze</li>
+								<li>Watchface</li>
+								<li>Closed Lock</li>
+								<li>Open Lock</li>
+								<li>Target</li>
+								<li>Circle in Circle</li>
+								<li>Pointing Hand</li>
+								<li>Pressing Pointer Hand</li>
+								<li>Horizontal Ruler</li>
+								<li>Vertical Ruler</li>
+								<li>Viewfinder</li>
+								<li>Figma</li>
+								<li>Sketch</li>
+								<li>Zoom Square</li>
+								<li>Face ID</li>
+								<li>Touch ID</li>
+								<li>Fingerprint</li>
+								<li>LiDAR</li>
+								<li>ProMotion</li>
+								<li>iMac</li>
+								<li>Tablet and Phone</li>
+								<li>Chat Bubble</li>
+								<li>EV Charging Plug</li>
+								<li>Parking Sign</li>
+								<li>Single Music Note</li>
+								<li>Double Music Note</li>
+								<li>Handset Leading</li>
+								<li>Handset Trailing</li>
+								<li>Handset Down</li>
+								<li>Fork</li>
+								<li>Knife</li>
+								<li>Fork and Knife</li>
+								<li>NFC</li>
+								<li>Table</li>
+								<li>Thumbs Up</li>
+								<li>Thumbs Down</li>
+								<li>Rounded Square</li>
+								<li>Squircle</li>
+								<li>Teardrop</li>
+							</ul>
+							
+							<h4>Updated</h4>
+							<ul>
+								<li>Shortcuts</li>
+								<li>TV</li>
+								<li>Monitor</li>
+								<li>Compare Rectangles</li>
+								<li>Screen Sizes Stroke</li>
+								<li>Screen Sizes Fill</li>
+							</ul>
+							
+							<h4>Removed</h4>
+							<ul class="excludeMargin">
+								<li>Screen Sizes Duo</li>
+							</ul>
+						</section>
+					</div>
 				</section>
 			</div>
 			
@@ -639,248 +690,250 @@ const gettingstarted = {
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
-					<section class="containerSection">
-						${
-							insertBanner({
-								type: 'warning',
-								content: 'This version includes breaking changes',
-								icon: false,
-								size: "large",
-							})
-						}
-					
-						<h4>Added</h4>
-						<ul>
-							<li><code>shapeCircle</code> class to set elements to always be circle</li>
-							<li>New Charts, Human, Hardware, Transport, and Logos categories in the Icon Set</li>
-							<li>Progress Bars</li>
-							<li>New gradient backing for Panels</li>
-							<li>Spinners</li>
-							<li><code>spacerHalf</code> class</li>
-							<li>Buttons can now have the <code>excludePadding</code> class applied to them which will cause them so have no background and a 50% opacity hover style</li>
-							<li>Variables</li>
-							<li>Tip Jar</li>
-							<li>Privacy Policy link global constant</li>
-							<li><code>shareURL()</code> function</li>
-							<li>Tooltips to Rebar components</li>
-							<li>An event listener for when the System Appearance changes so the Theme Colour Meta Tag can be updated</li>
-							<li>You can now prompt users for a donation after 20, 100, and 500 refreshes (The promptForTips constant has been added to the Metadata file to control this)</li>
-							<li>Capitalise Word function</li>
-							<li>Preference management system</li>
-							<li><code>keepInitialWidth</code> class to exempt elements from having widths applied to them by their parent containers</li>
-							<li><code>disablePointer</code> class that disables pointer-events</li>
-							<li>New multicoloured icon style for icons that need to carry semantic meaning with colours</li>
-							<li>Added a styling hook for Dynamic Type Size</li>
-							<li>Added support for an Increased Contrast mode which also supports the device settings</li>
-							<li>Added <code>--warning</code>, <code>--info</code>, <code>--font-serif</code>, and <code>--font-dyslexic</code> CSS variables</li>
-							<li>Added <code>.alwaysPositive</code>, <code>.alwaysDestructive</code>, <code>.alwaysWarning</code>, and <code>.alwaysInfo</code></li>
-						</ul>
-						<h4>Changes</h4>
-						<ul>
-							<li>Tab Bars have a new <code>.alwaysVertical</code> class to keep Tab Items from using a horizontal layout on larger screens</li>
-							<li>The search function has been rewritten using vanilla JS to make it more efficient for larger lists</li>
-							<li>The crop classes now apply to iframes</li>
-							<li>The back button now has a slight delay on clearing out the previous content container</li>
-							<li><code>routes()</code> now supports Route Categories so that you can load the same view with different data</li>
-							<li>Partials now have a new <code>query</code> property that's used with Route Categories</li>
-							<li>The Back and Share buttons have been updated to work with Route Categories</li>
-							<li>The <code>urlParam</code> constant has been removed</li>
-							<li>Section Headers can now contain a leading icon which will be appropriately sized</li>
-							<li>It's preferred to now use the gradient backing for Toasts</li>
-							<li>The Accordion click function has been modified so it can activate <code>.containerAccordionContents</code> without being right next to a <code>.headerAccordion</code></li>
-							<li>Display Options can now generate the setting for Reduced Motion</li>
-							<li>Icons have been added to the rows in the Display Options view</li>
-							<li>It's now preferred to use <code>chevronSingleDownFill</code> for the gripper in Context Menus</li>
-							<li>Selection Rings can have their parent gain the <code>.picked</code> class and have the picked style cascade down to them now</li>
-							<li>The default style for tokens has been updated to make it more clear the difference between the default and picked states</li>
-							<li>Tokens now toggle instead of setting an immutable picked state</li>
-							<li><code>Auto-Fit</code> is now used for the Tokens Container</li>
-							<li>The Back button won't remove the <code>picked</code> state from Tab Bar items if a Tab Bar is contained within the target view to navigate back to</li>
-							<li>The Selection Grid function has been completely reworked to separate selection and retrieving picked items</li>
-							<li>Some slight styling changes to the Blank States</li>
-							<li>There is a new <code>removePicked</code> property on routes which allows <code>changeView()</code> to be much more targeted with where it removed the picked state</li>
-							<li>The Escape key shortcut is now reserved for dismissing Panels</li>
-							<li>The Theme Colour Meta Tag is now set to the <code>background</code> colour instead of the accent colour (Accent was way too distracting on Mobile Safari and Background was chosen because Foreground is often white and Safari ignores that)</li>
-							<li>The Accent Picker will no longer set the Theme Colour Meta Tag, that's now the responsibility of the Theme Picker</li>
-							<li>Adjusted the metrics of the <code>paddingContent</code> class</li>
-							<li>Removed launch images since they are really flakey on different versions of iOS and aren't worth the effort to support</li>
-							<li>Context Menus return an object instead of an array</li>
-							<li>Removed <code>overflow: hidden;</code> on Accordion Containers because it was cropping icons</li>
-							<li>Moved Dynamic Type, Appearance, Reduced Motion, App Version, First Run state, and Openings count to the new preferences system</li>
-							<li>Switches, Segmented Controls, and Picker Menus no longer automatically store values in local storage due to needing more fine grain control with the new preferences system</li>
-							<li>Renamed the styling hook for Dynamic Type Weight</li>
-							<li>Theme and Accent names are now explicitly stated inside the Metadata file</li>
-							<li>The Text Weight option has been changed to a Bold Text option which by default which means Rebar doesn't present a picker for multiple text weight options (if you want this you can still roll your own)</li>
-							<li>The Theme and Accent Pickers will now display the name of what is picked</li>
-							<li>Changed <code>.highlight</code> to <code>.alwaysAccent</code></li>
-						</ul>
-						<h4>Fixes</h4>
-						<ul>
-							<li>The App Glyph is now correctly positioned for two column layouts</li>
-							<li>Picked List Items no longer have a hover state so it's clear that an item has been picked when you click on it</li>
-							<li>The App Container and Panel Container now have the appropriate heights for Mobile Safari so that they don't get cropped by the navigation bars</li>
-							<li>Hovering on Item List DIVs no longer causes their borders to disappear</li>
-							<li>Picked Item List buttons that sit above a DIV will now cause the DIV to lose it's border</li>
-							<li>A scrollbar no longer appears when invoking a Sheet</li>
-							<li>Made the Appearance and Accent pickers use a more consistent and appropriate size</li>
-							<li>The correct light/dark versions of accents should be used now</li>
-							<li>Item Lists no longer set a size on the SVGs inside buttons inserted in to Item list Rows</li>
-							<li>Context Menus with icons should accept long names again</li>
-							<li>Context Menus inside List Items no longer have a border that shouldn't have been there on Chrome</li>
-							<li>The shortcut key for bringing up the Shortcuts Panel will now do an input check so it doesn't activate while textfields are active</li>
-							<li>Removed scrollbars that shouldn't be there on the Alert message text</li>
-						</ul>
-						<h4>Removed</h4>
-						<ul>
-							<li>Browser zoom is no longer blocked, it interfered with normal browser operations</li>
-							<li>The <code>appTextWeights</code> and <code>urlParam</code> properties from the Metadata file</li>
-						</ul>
-						<h3>Icons</h3>
-						<h4>Added</h4>
-						<h5 class="h6">Interface Elements</h5>
-						<ul>
-							<li>Ellipses</li>
-							<li>Ellipses in Circle</li>
-							<li>Question in Circle</li>
-							<li>Exclamation in Circle</li>
-							<li>Info in Circle</li>
-							<li>Spinner</li>
-							<li>Text Size</li>
-							<li>Text Weight</li>
-							<li>Text Edit</li>
-							<li>Text Capital</li>
-							<li>Text Dyslexia</li>
-							<li>Filter</li>
-							<li>Filter in Circle</li>
-							<li>Location Arrow</li>
-							<li>Low Signal</li>
-							<li>Medium Signal</li>
-							<li>High Signal</li>
-							<li>Horizontal Bars</li>
-							<li>Vertical Bars</li>
-							<li>Compare Rectangle</li>
-							<li>Tableview</li>
-							<li>Segmented Control</li>
-							<li>Window with Top Bar</li>
-							<li>Window with Bottom Bar</li>
-							<li>Switches</li>
-							<li>Menu</li>
-							<li>Scrollview</li>
-							<li>Command Key</li>
-							<li>Split Shapes</li>
-						</ul>
-						<h5 class="h6">Shapes</h5>
-						<ul>
-							<li>6 Pointed Star</li>
-							<li>8 Pointed Star</li>
-							<li>Plus in Rounded Square</li>
-							<li>Circle Stack</li>
-							<li>Checkmark in Circle</li>
-							<li>Plus</li>
-							<li>Slim Ellipses</li>
-							<li>Circle</li>
-							<li>Circle Half</li>
-							<li>Single Rectangle</li>
-							<li>Double Rectanlge</li>
-							<li>Rounded Rectangle</li>
-							<li>Rectangle Stack</li>
-							<li>Curly Brackets</li>
-							<li>Venn Diagram</li>
-						</ul>
-						<h5 class="h6">Objects</h5>
-						<ul>
-							<li>Gear</li>
-							<li>Map Marker</li>
-							<li>Map Marker with Hole</li>
-							<li>Sword</li>
-							<li>Shield</li>
-							<li>Half Shield</li>
-							<li>Off Dial</li>
-							<li>On Dial</li>
-							<li>Credit Card</li>
-							<li>ID Card</li>
-							<li>Clock</li>
-							<li>Shopping Bag</li>
-							<li>Highlighter</li>
-							<li>Pencil</li>
-							<li>Pen</li>
-							<li>Trash</li>
-							<li>Lego</li>
-							<li>Folder</li>
-							<li>Bell</li>
-							<li>Loupe</li>
-							<li>Swatch</li>
-							<li>Swatch Book</li>
-							<li>Clipboard</li>
-							<li>Briefcase</li>
-							<li>Cube</li>
-							<li>Box</li>
-						</ul>
-						<h5 class="h6">Charts</h5>
-						<ul>
-							<li>Bar</li>
-							<li>Pie</li>
-						</ul>
-						<h5 class="h6">Human</h5>
-						<ul>
-							<li>Male Gender</li>
-							<li>Female Gender</li>
-							<li>Mixed Gender</li>
-							<li>Left Raised Hand</li>
-							<li>Left Hand Wave</li>
-							<li>Right Raised Hand</li>
-							<li>Right Hand Wave</li>
-							<li>User</li>
-							<li>User in Circle</li>
-							<li>Open Eye</li>
-							<li>Closed Eye</li>
-							
-						</ul>
-						<h5 class="h6">Nature</h5>
-						<ul>
-							<li>Sparkle</li>
-						</ul>
-						<h5 class="h6">Transport</h5>
-						<ul>
-							<li>Rocket</li>
-						</ul>
-						<h5 class="h6">Logos</h5>
-						<ul>
-							<li>Toast Logo in Circle</li>
-							<li>Thank You in English, German, Spanish, French, Italian, Japanese, Korean, Dutch, Russian, Chinese Simplified, and Chinese Traditional</li>
-							<li>Rebar</li>
-							<li>Shortcuts</li>
-							<li>Podcast</li>
-							<li>RSS</li>
-							<li>TypeDex</li>
-							<li>CritterDex</li>
-							<li>Screen Sizes</li>
-							<li>YouTube</li>
-							<li>Twitter</li>
-							<li>Facebook</li>
-							<li>Facebook Messenger</li>
-							<li>Instagram</li>
-							<li>App Store</li>
-						</ul>
-						<h4>Updated</h4>
-						<ul>
-							<li>starFivePointFill</li>
-						</ul>
-						<h4>Renamed</h4>
-						<ul class="spacerTriple">
-							<li>starStroke &rarr; starFivePointStroke</li>
-							<li>starFill &rarr; starFivePointFill</li>
-							<li>starHalfStroke &rarr; starFivePointHalfStroke</li>
-							<li>starHalfFill &rarr; starFivePointHalfFill</li>
-							<li>starHalfDuo &rarr; starFivePointHalfDuo</li>
-							<li>starRoundedSquareStroke &rarr; starFivePointRoundedSquareStroke</li>
-							<li>starRoundedSquareFill &rarr; starFivePointRoundedSquareFill</li>
-							<li>starRoundedSquareDuo &rarr; starFivePointRoundedSquareDuo</li>
-							<li>moonStroke &rarr; moonRightStroke</li>
-							<li>moonFill &rarr; moonRightFill</li>
-							<li>logoToast and logoToastCrafted have been moved to the new Logos category</li>
-						</ul>
-					</section>
+					<div class="wrapper">
+						<section class="containerSection">
+							${
+								insertBanner({
+									type: 'warning',
+									content: 'This version includes breaking changes',
+									icon: false,
+									size: "large",
+								})
+							}
+						
+							<h4>Added</h4>
+							<ul>
+								<li><code>shapeCircle</code> class to set elements to always be circle</li>
+								<li>New Charts, Human, Hardware, Transport, and Logos categories in the Icon Set</li>
+								<li>Progress Bars</li>
+								<li>New gradient backing for Panels</li>
+								<li>Spinners</li>
+								<li><code>spacerHalf</code> class</li>
+								<li>Buttons can now have the <code>excludePadding</code> class applied to them which will cause them so have no background and a 50% opacity hover style</li>
+								<li>Variables</li>
+								<li>Tip Jar</li>
+								<li>Privacy Policy link global constant</li>
+								<li><code>shareURL()</code> function</li>
+								<li>Tooltips to Rebar components</li>
+								<li>An event listener for when the System Appearance changes so the Theme Colour Meta Tag can be updated</li>
+								<li>You can now prompt users for a donation after 20, 100, and 500 refreshes (The promptForTips constant has been added to the Metadata file to control this)</li>
+								<li>Capitalise Word function</li>
+								<li>Preference management system</li>
+								<li><code>keepInitialWidth</code> class to exempt elements from having widths applied to them by their parent containers</li>
+								<li><code>disablePointer</code> class that disables pointer-events</li>
+								<li>New multicoloured icon style for icons that need to carry semantic meaning with colours</li>
+								<li>Added a styling hook for Dynamic Type Size</li>
+								<li>Added support for an Increased Contrast mode which also supports the device settings</li>
+								<li>Added <code>--warning</code>, <code>--info</code>, <code>--font-serif</code>, and <code>--font-dyslexic</code> CSS variables</li>
+								<li>Added <code>.alwaysPositive</code>, <code>.alwaysDestructive</code>, <code>.alwaysWarning</code>, and <code>.alwaysInfo</code></li>
+							</ul>
+							<h4>Changes</h4>
+							<ul>
+								<li>Tab Bars have a new <code>.alwaysVertical</code> class to keep Tab Items from using a horizontal layout on larger screens</li>
+								<li>The search function has been rewritten using vanilla JS to make it more efficient for larger lists</li>
+								<li>The crop classes now apply to iframes</li>
+								<li>The back button now has a slight delay on clearing out the previous content container</li>
+								<li><code>routes()</code> now supports Route Categories so that you can load the same view with different data</li>
+								<li>Partials now have a new <code>query</code> property that's used with Route Categories</li>
+								<li>The Back and Share buttons have been updated to work with Route Categories</li>
+								<li>The <code>urlParam</code> constant has been removed</li>
+								<li>Section Headers can now contain a leading icon which will be appropriately sized</li>
+								<li>It's preferred to now use the gradient backing for Toasts</li>
+								<li>The Accordion click function has been modified so it can activate <code>.containerAccordionContents</code> without being right next to a <code>.headerAccordion</code></li>
+								<li>Display Options can now generate the setting for Reduced Motion</li>
+								<li>Icons have been added to the rows in the Display Options view</li>
+								<li>It's now preferred to use <code>chevronSingleDownFill</code> for the gripper in Context Menus</li>
+								<li>Selection Rings can have their parent gain the <code>.picked</code> class and have the picked style cascade down to them now</li>
+								<li>The default style for tokens has been updated to make it more clear the difference between the default and picked states</li>
+								<li>Tokens now toggle instead of setting an immutable picked state</li>
+								<li><code>Auto-Fit</code> is now used for the Tokens Container</li>
+								<li>The Back button won't remove the <code>picked</code> state from Tab Bar items if a Tab Bar is contained within the target view to navigate back to</li>
+								<li>The Selection Grid function has been completely reworked to separate selection and retrieving picked items</li>
+								<li>Some slight styling changes to the Blank States</li>
+								<li>There is a new <code>removePicked</code> property on routes which allows <code>changeView()</code> to be much more targeted with where it removed the picked state</li>
+								<li>The Escape key shortcut is now reserved for dismissing Panels</li>
+								<li>The Theme Colour Meta Tag is now set to the <code>background</code> colour instead of the accent colour (Accent was way too distracting on Mobile Safari and Background was chosen because Foreground is often white and Safari ignores that)</li>
+								<li>The Accent Picker will no longer set the Theme Colour Meta Tag, that's now the responsibility of the Theme Picker</li>
+								<li>Adjusted the metrics of the <code>paddingContent</code> class</li>
+								<li>Removed launch images since they are really flakey on different versions of iOS and aren't worth the effort to support</li>
+								<li>Context Menus return an object instead of an array</li>
+								<li>Removed <code>overflow: hidden;</code> on Accordion Containers because it was cropping icons</li>
+								<li>Moved Dynamic Type, Appearance, Reduced Motion, App Version, First Run state, and Openings count to the new preferences system</li>
+								<li>Switches, Segmented Controls, and Picker Menus no longer automatically store values in local storage due to needing more fine grain control with the new preferences system</li>
+								<li>Renamed the styling hook for Dynamic Type Weight</li>
+								<li>Theme and Accent names are now explicitly stated inside the Metadata file</li>
+								<li>The Text Weight option has been changed to a Bold Text option which by default which means Rebar doesn't present a picker for multiple text weight options (if you want this you can still roll your own)</li>
+								<li>The Theme and Accent Pickers will now display the name of what is picked</li>
+								<li>Changed <code>.highlight</code> to <code>.alwaysAccent</code></li>
+							</ul>
+							<h4>Fixes</h4>
+							<ul>
+								<li>The App Glyph is now correctly positioned for two column layouts</li>
+								<li>Picked List Items no longer have a hover state so it's clear that an item has been picked when you click on it</li>
+								<li>The App Container and Panel Container now have the appropriate heights for Mobile Safari so that they don't get cropped by the navigation bars</li>
+								<li>Hovering on Item List DIVs no longer causes their borders to disappear</li>
+								<li>Picked Item List buttons that sit above a DIV will now cause the DIV to lose it's border</li>
+								<li>A scrollbar no longer appears when invoking a Sheet</li>
+								<li>Made the Appearance and Accent pickers use a more consistent and appropriate size</li>
+								<li>The correct light/dark versions of accents should be used now</li>
+								<li>Item Lists no longer set a size on the SVGs inside buttons inserted in to Item list Rows</li>
+								<li>Context Menus with icons should accept long names again</li>
+								<li>Context Menus inside List Items no longer have a border that shouldn't have been there on Chrome</li>
+								<li>The shortcut key for bringing up the Shortcuts Panel will now do an input check so it doesn't activate while textfields are active</li>
+								<li>Removed scrollbars that shouldn't be there on the Alert message text</li>
+							</ul>
+							<h4>Removed</h4>
+							<ul>
+								<li>Browser zoom is no longer blocked, it interfered with normal browser operations</li>
+								<li>The <code>appTextWeights</code> and <code>urlParam</code> properties from the Metadata file</li>
+							</ul>
+							<h3>Icons</h3>
+							<h4>Added</h4>
+							<h5 class="h6">Interface Elements</h5>
+							<ul>
+								<li>Ellipses</li>
+								<li>Ellipses in Circle</li>
+								<li>Question in Circle</li>
+								<li>Exclamation in Circle</li>
+								<li>Info in Circle</li>
+								<li>Spinner</li>
+								<li>Text Size</li>
+								<li>Text Weight</li>
+								<li>Text Edit</li>
+								<li>Text Capital</li>
+								<li>Text Dyslexia</li>
+								<li>Filter</li>
+								<li>Filter in Circle</li>
+								<li>Location Arrow</li>
+								<li>Low Signal</li>
+								<li>Medium Signal</li>
+								<li>High Signal</li>
+								<li>Horizontal Bars</li>
+								<li>Vertical Bars</li>
+								<li>Compare Rectangle</li>
+								<li>Tableview</li>
+								<li>Segmented Control</li>
+								<li>Window with Top Bar</li>
+								<li>Window with Bottom Bar</li>
+								<li>Switches</li>
+								<li>Menu</li>
+								<li>Scrollview</li>
+								<li>Command Key</li>
+								<li>Split Shapes</li>
+							</ul>
+							<h5 class="h6">Shapes</h5>
+							<ul>
+								<li>6 Pointed Star</li>
+								<li>8 Pointed Star</li>
+								<li>Plus in Rounded Square</li>
+								<li>Circle Stack</li>
+								<li>Checkmark in Circle</li>
+								<li>Plus</li>
+								<li>Slim Ellipses</li>
+								<li>Circle</li>
+								<li>Circle Half</li>
+								<li>Single Rectangle</li>
+								<li>Double Rectanlge</li>
+								<li>Rounded Rectangle</li>
+								<li>Rectangle Stack</li>
+								<li>Curly Brackets</li>
+								<li>Venn Diagram</li>
+							</ul>
+							<h5 class="h6">Objects</h5>
+							<ul>
+								<li>Gear</li>
+								<li>Map Marker</li>
+								<li>Map Marker with Hole</li>
+								<li>Sword</li>
+								<li>Shield</li>
+								<li>Half Shield</li>
+								<li>Off Dial</li>
+								<li>On Dial</li>
+								<li>Credit Card</li>
+								<li>ID Card</li>
+								<li>Clock</li>
+								<li>Shopping Bag</li>
+								<li>Highlighter</li>
+								<li>Pencil</li>
+								<li>Pen</li>
+								<li>Trash</li>
+								<li>Lego</li>
+								<li>Folder</li>
+								<li>Bell</li>
+								<li>Loupe</li>
+								<li>Swatch</li>
+								<li>Swatch Book</li>
+								<li>Clipboard</li>
+								<li>Briefcase</li>
+								<li>Cube</li>
+								<li>Box</li>
+							</ul>
+							<h5 class="h6">Charts</h5>
+							<ul>
+								<li>Bar</li>
+								<li>Pie</li>
+							</ul>
+							<h5 class="h6">Human</h5>
+							<ul>
+								<li>Male Gender</li>
+								<li>Female Gender</li>
+								<li>Mixed Gender</li>
+								<li>Left Raised Hand</li>
+								<li>Left Hand Wave</li>
+								<li>Right Raised Hand</li>
+								<li>Right Hand Wave</li>
+								<li>User</li>
+								<li>User in Circle</li>
+								<li>Open Eye</li>
+								<li>Closed Eye</li>
+								
+							</ul>
+							<h5 class="h6">Nature</h5>
+							<ul>
+								<li>Sparkle</li>
+							</ul>
+							<h5 class="h6">Transport</h5>
+							<ul>
+								<li>Rocket</li>
+							</ul>
+							<h5 class="h6">Logos</h5>
+							<ul>
+								<li>Toast Logo in Circle</li>
+								<li>Thank You in English, German, Spanish, French, Italian, Japanese, Korean, Dutch, Russian, Chinese Simplified, and Chinese Traditional</li>
+								<li>Rebar</li>
+								<li>Shortcuts</li>
+								<li>Podcast</li>
+								<li>RSS</li>
+								<li>TypeDex</li>
+								<li>CritterDex</li>
+								<li>Screen Sizes</li>
+								<li>YouTube</li>
+								<li>Twitter</li>
+								<li>Facebook</li>
+								<li>Facebook Messenger</li>
+								<li>Instagram</li>
+								<li>App Store</li>
+							</ul>
+							<h4>Updated</h4>
+							<ul>
+								<li>starFivePointFill</li>
+							</ul>
+							<h4>Renamed</h4>
+							<ul class="spacerTriple">
+								<li>starStroke &rarr; starFivePointStroke</li>
+								<li>starFill &rarr; starFivePointFill</li>
+								<li>starHalfStroke &rarr; starFivePointHalfStroke</li>
+								<li>starHalfFill &rarr; starFivePointHalfFill</li>
+								<li>starHalfDuo &rarr; starFivePointHalfDuo</li>
+								<li>starRoundedSquareStroke &rarr; starFivePointRoundedSquareStroke</li>
+								<li>starRoundedSquareFill &rarr; starFivePointRoundedSquareFill</li>
+								<li>starRoundedSquareDuo &rarr; starFivePointRoundedSquareDuo</li>
+								<li>moonStroke &rarr; moonRightStroke</li>
+								<li>moonFill &rarr; moonRightFill</li>
+								<li>logoToast and logoToastCrafted have been moved to the new Logos category</li>
+							</ul>
+						</section>
+					</div>
 				</section>
 			</div>
 		
@@ -893,12 +946,14 @@ const gettingstarted = {
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
-					<section class="containerSection">
-						<ul class="excludeMargin">
-							<li>Initial release of Rebar</li>
-							<li>Initial release of the Rebar Icon Set</li>
-						</ul>
-					</section>
+					<div class="wrapper">
+						<section class="containerSection">
+							<ul class="excludeMargin">
+								<li>Initial release of Rebar</li>
+								<li>Initial release of the Rebar Icon Set</li>
+							</ul>
+						</section>
+					</div>
 				</section>
 			</div>
 		</div>
@@ -906,9 +961,8 @@ const gettingstarted = {
 	requirements: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Getting&hellip;
+				<button class="back toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Getting&hellip;")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -923,40 +977,65 @@ const gettingstarted = {
 			<p>These requirements are based on needing to support <code>min()</code>, <code>max()</code>, <code>minmax()</code>, <code>clamp()</code>, <code>env()</code>, <code>aspect-ratio</code>, <code>dialog</code>, <code>@layer</code>, and <code>scrollbar-gutter</code>.</p>
 			<p>For this reason (among many others) no version of Internet Explorer is supported. The minimum requirements for any Rebar app are:</p>
 			
-			<h2>2.0</h2>
-			<p class="subtext">Increased because of <code>dialog</code>, <code>@layer</code>, and <code>scrollbar-gutter</code>.</p>
-			<ul class="spacerDouble">
-				<li>jQuery 3.6.1</li>
-				<li>Edge 99</li>
-				<li>Firefox 98</li>
-				<li>Chrome 99</li>
-				<li>Safari 15.4</li>
-				<li>Opera 86</li>
-			</ul>
-			
-			<h2>1.2 - 1.5</h2>
-			<p class="spacerDouble">No changes</p>
-			
-			<h2>1.1</h2>
-			<p class="subtext">Increased because of <code>aspect-ratio</code>.</p>
-			<ul class="spacerDouble">
-				<li>jQuery 3.6.0</li>
-				<li>Edge 88</li>
-				<li>Firefox 89</li>
-				<li>Chrome 88</li>
-				<li>Safari 15</li>
-				<li>Opera 74</li>
-			</ul>
-			
-			<h2>1.0</h2>
-			<ul>
-				<li>jQuery 3.6.0</li>
-				<li>Edge 79</li>
-				<li>Firefox 75</li>
-				<li>Chrome 79</li>
-				<li>Safari 13</li>
-				<li>Opera 66</li>
-			</ul>
+			<table class="definitions">
+				<thead>
+					<tr>
+						<th>Version</th>
+						<th>Requirements</th>
+					</tr>
+				</thead>
+					<tr>
+						<td class="textBold">2.0.1</td>
+						<td>No changes</td>
+					</tr>
+					<tr>
+						<td class="textBold">2.0</td>
+						<td>
+							<p class="subtext">Increased because of <code>dialog</code>, <code>@layer</code>, and <code>scrollbar-gutter</code>.</p>
+							<ul class="excludeMargin">
+								<li>jQuery 3.6.1</li>
+								<li>Edge 99</li>
+								<li>Firefox 98</li>
+								<li>Chrome 99</li>
+								<li>Safari 15.4</li>
+								<li>Opera 86</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td class="textBold">1.2 - 1.5</td>
+						<td>No changes</td>
+					</tr>
+					<tr>
+						<td class="textBold">1.1</td>
+						<td>
+							<p class="subtext">Increased because of <code>aspect-ratio</code>.</p>
+							<ul class="excludeMargin">
+								<li>jQuery 3.6.0</li>
+								<li>Edge 88</li>
+								<li>Firefox 89</li>
+								<li>Chrome 88</li>
+								<li>Safari 15</li>
+								<li>Opera 74</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td class="textBold">1.0</td>
+						<td>
+							<ul class="excludeMargin">
+								<li>jQuery 3.6.0</li>
+								<li>Edge 79</li>
+								<li>Firefox 75</li>
+								<li>Chrome 79</li>
+								<li>Safari 13</li>
+								<li>Opera 66</li>
+							</ul>
+						</td>
+					</tr>
+				<tbody>
+				</tbody>
+			</table>
 		</div>
 	`,
 }
@@ -965,9 +1044,8 @@ const controls = {
 	buttons: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -979,6 +1057,15 @@ const controls = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Buttons have different styling based on the <code>pointer</code> used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			
 			<table class="definitions spacerTriple" id="buttons">
@@ -1092,14 +1179,6 @@ const controls = {
 			<p class="spacerTriple">Buttons have no functions in of themselves but can have many other functions applied to them since most clickable components will be based off of Buttons.</p>
 			
 			<h3>CSS</h3>
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Buttons have different styling based on the <code>pointer</code> used',
-					icon: false,
-					size: 'small',
-				})
-			}
 			<p>Buttons have many base styling classes that can be mixed with modified classes.</p>
 			<table class="definitions spacerSingle">
 				<thead>
@@ -1171,9 +1250,8 @@ const controls = {
 	sidebaritems: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -1185,6 +1263,14 @@ const controls = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Sidebar Items have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
 			<h2>Examples</h2>
 			<section class="containerSection">
 				<button class="sidebar">
@@ -1238,9 +1324,8 @@ const controls = {
 	listitems: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -1252,6 +1337,14 @@ const controls = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'List Items have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
 			<h2>Examples</h2>
 			<h3 class="h6">Default Any Size</h3>
 			<section class="containerSection">
@@ -1353,9 +1446,8 @@ const controls = {
 	badges: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -1382,9 +1474,8 @@ const controls = {
 	segmenteditems: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -1396,6 +1487,15 @@ const controls = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Segmented Items have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+			
 			<h2>Examples</h2>
 			<h3 class="h6">Default Style</h3>
 			<section class="containerSection">
@@ -1434,9 +1534,8 @@ const controls = {
 	toolbaritems: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -1448,28 +1547,27 @@ const controls = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
-			<h2>Examples</h2>
-			<section class="containerSection">
-				<button class="toolbarItem" title="Example Button">${iconShapes.plusCircleStroke}</button>
-			</section>
-			<h2>Documentation</h2>
 			${
 				insertBanner({
 					type: 'info',
 					content: 'Toolbar Items have different styling based on the <code>pointer</code> used',
 					icon: false,
-					size: 'small',
+					size: 'large',
 				})
 			}
+			<h2>Examples</h2>
+			<section class="containerSection">
+				<button class="toolbarItem" title="Example Button">${iconShapes.plusCircleStroke}</button>
+			</section>
+			<h2>Documentation</h2>
 			<p>This button style is intended to give a more native look to toolbar buttons when viewed on a device using a mouse by using the <code>toolbarItem</code> class. If this isn't required please use the other transparent button styles.</p>
 		</div>
 	`,
 	tabbaritems: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -1481,14 +1579,26 @@ const controls = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Tab Bars Items have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
 			<h2>Examples</h2>
 			<section class="containerSection">
 				<button class="tab">
-					${iconNature.sunStroke}
+					<div class="wrapper">
+						${iconNature.sunFill}
+					</div>
 					Standard
 				</button>
 				<button class="tab picked">
-					${iconNature.sunStroke}
+					<div class="wrapper">
+						${iconNature.sunFill}
+					</div>
 					Picked
 				</button>
 			</section>
@@ -1507,9 +1617,8 @@ const controls = {
 	backbutton: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -1521,6 +1630,15 @@ const controls = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'The Back Button will use a different icon based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			
 			<table class="definitions spacerTriple">
@@ -1531,36 +1649,19 @@ const controls = {
 				</thead>
 				<tbody>
 					<tr>
-						<td>Slim with Label</td>
+						<td>Default</td>
 						<td>
-							<button class="back slim transparent" style="display: inline-flex;" title="Navigate Back">
+							<button class="back transparent" style="display: inline-flex;" title="Navigate Back">
 								${iconShapes.chevronBackwardsStroke}
 								Label
 							</button>
 						</td>
 					</tr>
 					<tr>
-						<td>Circular with Label</td>
+						<td>Android or Windows</td>
 						<td>
 							<button class="back transparent" style="display: inline-flex;" title="Navigate Back">
-								${iconShapes.chevronSingleCircleLeftFill}
-								Label
-							</button>
-						</td>
-					</tr>
-					<tr>
-						<td>Slim without Label</td>
-						<td>
-							<button class="back slim transparent" style="display: inline-flex;" title="Navigate Back">
-								${iconShapes.chevronBackwardsStroke}
-							</button>
-						</td>
-					</tr>
-					<tr>
-						<td>Circular without Label</td>
-						<td>
-							<button class="back transparent" style="display: inline-flex;" title="Navigate Back">
-								${iconShapes.chevronSingleCircleLeftFill}
+								${iconShapes.arrowSingleLeft}
 							</button>
 						</td>
 					</tr>
@@ -1572,21 +1673,14 @@ const controls = {
 			<p>The Back button is the single way in Rebar to navigate backwards between views. It should always be included in Secondary and Main columns. Including a label is recommended but not mandatory</p>
 			<h4 class="h6">Template</h4>
 <pre class="spacerTriple">
-//DEFAULT
 &lt;button class="back slim transparent" onclick='routename({modifier: false, navtype: "backwards"})' title="Navigate Back"&gt;
-	&#36;{iconShapes.chevronBackwardsStroke}
-	Label
-&lt;/button&gt;
-
-//ROUNDED CHEVRON
-&lt;button class="back transparent" onclick='routename({modifier: false, navtype: "backwards"})' title="Navigate Back"&gt;
-	&#36;{iconShapes.chevronBackwardsStroke}
-	Label
+	&#36;{insertBackButton("label")}
 &lt;/button&gt;
 </pre>
 			
 			<h3>Functions</h3>
-			<p class="spacerTriple">Back Buttons make use of the <code>controllerRoute()</code> function (View Routing for more details). The click function should always be the route this button will navigate to. It should usuall have a <code>modifier</code> of <code>false</code> and always a <code>navtype</code> of <code>backwards</code>.</p>
+			<p>Back Buttons make use of the <code>controllerRoute()</code> function (View Routing for more details). The click function should always be the route this button will navigate to. It should usuall have a <code>modifier</code> of <code>false</code> and always a <code>navtype</code> of <code>backwards</code>.</p>
+			<p class="spacerTriple">For rendering the contents you should use the <code>insertBackButton()</code> function which will handle displaying the correct arrow for you based on the OS.</p>
 			
 			<h3>CSS</h3>
 			<p>On larger screens the Back Button will hide itself as it's not necessary since all columns are always visible (The examples on this page are being forced to be always visible so they can be seen). At it's core the Back Button is a standard Button which means it can inherit all the styling classes as needed. While not mandatory, it's strongly recommended to include the <code>transparent</code> class.</p>
@@ -1597,9 +1691,8 @@ const controls = {
 	contextmenus: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -1611,6 +1704,14 @@ const controls = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Context Menus have different styling based on the <code>pointer</code> and OS used',
+					icon: false,
+					size: 'large',
+				})
+			}
 			<h2>Examples</h2>
 			<table class="definitions spacerTriple">
 				<tbody>
@@ -2018,14 +2119,6 @@ const controls = {
 			<p class="spacerTriple">No value is saved to local storage by default. Instead use the Preferences system with the returned value and label.</p>
 			
 			<h3>CSS</h3>
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Context Menus have different styling based on the <code>pointer</code> used',
-					icon: false,
-					size: 'small',
-				})
-			}
 			<p>Most of the styling is handled for you. If you use a standard Button all of the Button styling classes will apply. On top of this you don't have to use a Button, any element with the <code>buttonContext</code> class will make the element clickable.</p>
 			<p>Menu items must be Buttons. They will infer styling from the <code>.contextContainerMenu</code> class. You can add the <code>destructive</code> class to a menu item Button to change the text and icon to red.</p>
 			<p>Menu items can be grouped in a container with the <code>.group</code> class to help with dynamic menu generation</p>
@@ -2034,9 +2127,8 @@ const controls = {
 	popovers: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -2048,8 +2140,16 @@ const controls = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Popovers have different styling based on the <code>pointer</code> and OS used',
+					icon: false,
+					size: 'large',
+				})
+			}
 			<h2>Examples</h2>
-			<div class="containerContextButton spacerTriple" data-setting="examplePopover" data-position="center" data-type="popover">
+			<div class="containerContextButton spacerTriple" data-setting="examplePopover" data-position="left" data-type="popover">
 				<button class="buttonContext">
 					<span class="contextLabel">Show</span>
 				</button>
@@ -2068,14 +2168,6 @@ const controls = {
 			<p class="spacerTriple">Popovers have no functions of their own. All functionality is inherited from Context Menus.</p>
 			
 			<h3>CSS</h3>
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Popovers have different styling based on the <code>pointer</code> used',
-					icon: false,
-					size: 'small',
-				})
-			}
 			<p>It is important to note that <code>contextContainerMenu</code> can not have any padding added to it because Chrome will display this when the menu is collapsed. Instead add a container inside and add the padding to that.</p>
 			<p>You will need to manually set the <code>min-width</code>, <code>max-width</code>, <code>min-height</code>, and <code>max-height</code> for <code>.contextContainerMenu</code>. Rebar does not want to make any assumptions about how you want to size each Popover.</p>
 			<p>All other styling considerations are inherited from Context Menus.</code>
@@ -2084,9 +2176,8 @@ const controls = {
 	segmentedcontrols: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -2098,6 +2189,15 @@ const controls = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Segmented Controls have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			<h3 class="h6">Default</h3>
 			<section class="containerSection">
@@ -2152,9 +2252,8 @@ const controls = {
 	switches: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -2166,6 +2265,15 @@ const controls = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Switches have different styling based on the <code>pointer</code> and OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			<table class="definitions spacerSingle">
 				<thead>
@@ -2250,23 +2358,14 @@ $(document).on('click', '.switch[data-setting=""]', function() {
 </pre>
 			
 			<h3>CSS</h3>
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Switches have different styling based on the <code>pointer</code> and OS being used',
-					icon: false,
-					size: 'small',
-				})
-			}
 			<p>All sizes use <code>--base-font-size</code> so will scale accordingly when using a Dynamic Type setting. The colour of the <code>knob</code> is set to always be white but this can be overwritten via appearance themes.</p>
 		</div>
 	`,
 	forminputs: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -2278,6 +2377,14 @@ $(document).on('click', '.switch[data-setting=""]', function() {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Form Inputs have different styling based on the OS used',
+					icon: false,
+					size: 'large',
+				})
+			}
 			<h2>Examples</h2>
 			<h3 class="h6">Radio Buttons</h3>
 			<section class="containerSection">
@@ -2380,9 +2487,8 @@ $(document).on('click', '.switch[data-setting=""]', function() {
 	searchbars: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -2394,6 +2500,15 @@ $(document).on('click', '.switch[data-setting=""]', function() {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Search Bars have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			<div class="containerGeneric excludePadding spacerTriple" id="scrollview1">
 				<header class="containerToolbar singleItem withAccessory">
@@ -2402,9 +2517,8 @@ $(document).on('click', '.switch[data-setting=""]', function() {
 				<div class="containerAccessoryBar">
 					<div class="containerSearch">
 						<input type="search" placeholder="Search Pok&eacute;mon" id="pokemonSearch" />
-						<div class="buttonClearSearch" title="Clear Search">
-							${iconShapes.timesFill}
-						</div>
+						<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+						<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
 					</div>
 				</div>
 				<div class="scrollview cropToolbar cropAccessoryBar alwaysForegroundColor">
@@ -2421,7 +2535,8 @@ $(document).on('click', '.switch[data-setting=""]', function() {
 <pre class="spacerTriple">
 &lt;div class="containerSearch"&gt;
 	&lt;input type="search" placeholder="" id="" /&gt;
-	&lt;div class="buttonClearSearch"&gt;&#36;{iconShapes.timesFill}&lt;/div&gt;
+	&lt;div class="buttonClearSearch"&gt;&#36;{iconShapes.timesCircleFill}&lt;/div&gt;
+	&lt;div class="iconSearch"&gt;&#36;{iconInterfaceElements.searchStroke}&lt;/div&gt;
 &lt;/div&gt;
 </pre>
 			
@@ -2480,23 +2595,14 @@ $(document).on('click', '.buttonClearSearch', function() {
 </pre>
 			
 			<h3>CSS</h3>
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Search Bars have different styling based on the OS being used',
-					icon: false,
-					size: 'small',
-				})
-			}
 			<p>The search function gives you a few styling hooks incase you need to modify the list while a search is active. The <code>.activeSearch</code> class will get added to the <code>parentID</code> container as a general styling hook. Visible items will get the <code>.itemDisplayed</code> class and hidden items will get the <code>.itemHidden</code> class which can be used for more specific styling hooks.</p>
 		</div>
 	`,
 	selectiongrids: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -2538,7 +2644,7 @@ $(document).on('click', '.buttonClearSearch', function() {
 				<div class="token" data-value="fairy" onclick="selectionGrid(this)">Fairy</div>
 			</div>
 			
-			<button id="displaySelections" class="spacerTriple" onclick="showSelectionResults()">Display Selected Values in the Console</button>
+			<button id="displaySelections" class="spacerTriple" onclick="showSelectionResults()">Display Selected Values</button>
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
@@ -2605,9 +2711,8 @@ $(document).on('click', '.buttonClearSearch', function() {
 	tokens: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -2619,6 +2724,14 @@ $(document).on('click', '.buttonClearSearch', function() {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Tokens have different styling based on the OS used',
+					icon: false,
+					size: 'large',
+				})
+			}
 			<h2>Examples</h2>
 			<div class="spacerTriple containerTokens" id="exampleTokenField" data-max="2" data-setting="type">
 				<div class="token" data-value="normal">Normal</div>
@@ -2662,9 +2775,8 @@ $(document).on('click', '.buttonClearSearch', function() {
 	sharebutton: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Controls
+				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Controls")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -2676,30 +2788,54 @@ $(document).on('click', '.buttonClearSearch', function() {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
-			<h2>Examples</h2>
-			<p class="subtext">Note: If you are using a browser that do not support <code>navigator.share</code> then a non-functional button will be displayed for illustrative purposes.</p>
-			<section class="containerSection spacerTriple">
-				<button class="transparent" id="dummyShareButton" title="Share Content">
-					${iconInterfaceElements.shareAppleUpStroke}
-				</button>
-				<button class="transparent" id="dummyShareButton" title="Share Content">
-					${iconInterfaceElements.shareAndroidStroke}
-				</button>
-				<button class="transparent" id="dummyShareButton" title="Share Content">
-					${iconInterfaceElements.shareWindows}
-				</button>
-			</section>
-			
-			<h2>Documentation</h2>
-			<h3>HTML</h3>
 			${
 				insertBanner({
 					type: 'info',
 					content: 'The Share Button will use a different icon based on the OS being used',
 					icon: false,
-					size: 'small',
+					size: 'large',
 				})
 			}
+		
+			<h2>Examples</h2>
+			<p class="subtext">Note: If you are using a browser that do not support <code>navigator.share</code> then a non-functional button will be displayed for illustrative purposes.</p>
+			
+			<table class="definitions spacerSingle">
+				<thead>
+					<tr>
+						<th>Types</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Default</td>
+						<td>
+							<button class="transparent" id="dummyShareButton" title="Share Content">
+								${iconInterfaceElements.shareAppleUpStroke}
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Android</td>
+						<td>
+							<button class="transparent" id="dummyShareButton" title="Share Content">
+								${iconInterfaceElements.shareAndroidStroke}
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Windows</td>
+						<td>
+							<button class="transparent" id="dummyShareButton" title="Share Content">
+								${iconInterfaceElements.shareWindows}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<h2>Documentation</h2>
+			<h3>HTML</h3>
 			<p class="spacerTriple">There is no HTML, the <code>insertShareButton()</code> function will handle it for you.</p>
 			
 			<h3>Function</h3>
@@ -2716,9 +2852,8 @@ const layout = {
 	routing: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Layout
+				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Layout")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -2897,9 +3032,8 @@ if (url.query == "") {
 	columns: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Layout
+				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Layout")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -2973,9 +3107,8 @@ if (url.query == "") {
 	sidebars: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Layout
+				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Layout")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -2987,6 +3120,15 @@ if (url.query == "") {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Sidebars have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			<p class="subtext">Note: Examples provided here are for illustrative purposes only and are non-functional. To view functional examples the Sample app itself uses Sidebars and the Columns section also has working examples.</p>
 			<h4 class="h6">Standard layout</h4>
@@ -2994,7 +3136,11 @@ if (url.query == "") {
 				<aside class="containerAside single">
 					<div class="containerSidebar" id="sidebarWithHeader" data-target="contentArea1">
 						<h1>Header</h1>
-						<input type="search" placeholder="Search content">
+						<div class="containerSearch">
+							<input type="search" placeholder="Search Pok&eacute;mon" id="pokemonSearch" />
+							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
+						</div>
 						<section>
 							<button class="sidebar" data-value="pickedItem">
 								<div class="labelSidebar">
@@ -3016,24 +3162,26 @@ if (url.query == "") {
 							<div class="containerChevron">${iconShapes.chevronSingleRightFill}</div>
 						</div>
 						<section class="containerAccordionContents active">
-							<button class="sidebar" data-value="svg1">
-								<div class="labelSidebar">
-									${iconIndices.oneCircleStroke}
-									SVG Item 1
-								</div>
-							</button>
-							<button class="sidebar" data-value="svg2">
-								<div class="labelSidebar">
-									${iconIndices.twoCircleStroke}
-									SVG Item 2
-								</div>
-							</button>
-							<button class="sidebar" data-value="svg3">
-								<div class="labelSidebar">
-									${iconIndices.threeCircleStroke}
-									SVG Item 3
-								</div>
-							</button>
+							<div class="wrapper">
+								<button class="sidebar" data-value="svg1">
+									<div class="labelSidebar">
+										${iconIndices.oneCircleStroke}
+										SVG Item 1
+									</div>
+								</button>
+								<button class="sidebar" data-value="svg2">
+									<div class="labelSidebar">
+										${iconIndices.twoCircleStroke}
+										SVG Item 2
+									</div>
+								</button>
+								<button class="sidebar" data-value="svg3">
+									<div class="labelSidebar">
+										${iconIndices.threeCircleStroke}
+										SVG Item 3
+									</div>
+								</button>
+							</div>
 						</section>
 						<h2 class="headerList">Images</h2>
 						<section>
@@ -3066,7 +3214,11 @@ if (url.query == "") {
 				<aside class="containerAside single">
 					<div class="containerSidebar grid" id="sidebarWithoutHeader" data-target="contentArea2">
 						<h1>Header</h1>
-						<input type="search" placeholder="Search content">
+						<div class="containerSearch">
+							<input type="search" placeholder="Search Pok&eacute;mon" id="pokemonSearch" />
+							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
+						</div>
 						<section>
 							<button class="sidebar" data-value="pickedItem">
 								<div class="labelSidebar">
@@ -3088,24 +3240,26 @@ if (url.query == "") {
 							<div class="containerChevron">${iconShapes.chevronSingleRightFill}</div>
 						</div>
 						<section class="containerAccordionContents active">
-							<button class="sidebar" data-value="svg1">
-								<div class="labelSidebar">
-									${iconIndices.oneCircleStroke}
-									SVG Item 1
-								</div>
-							</button>
-							<button class="sidebar" data-value="svg2">
-								<div class="labelSidebar">
-									${iconIndices.twoCircleStroke}
-									SVG Item 2
-								</div>
-							</button>
-							<button class="sidebar" data-value="svg3">
-								<div class="labelSidebar">
-									${iconIndices.threeCircleStroke}
-									SVG Item 3
-								</div>
-							</button>
+							<div class="wrapper">
+								<button class="sidebar" data-value="svg1">
+									<div class="labelSidebar">
+										${iconIndices.oneCircleStroke}
+										SVG Item 1
+									</div>
+								</button>
+								<button class="sidebar" data-value="svg2">
+									<div class="labelSidebar">
+										${iconIndices.twoCircleStroke}
+										SVG Item 2
+									</div>
+								</button>
+								<button class="sidebar" data-value="svg3">
+									<div class="labelSidebar">
+										${iconIndices.threeCircleStroke}
+										SVG Item 3
+									</div>
+								</button>
+							</div>
 						</section>
 						<h2 class="headerList">Images</h2>
 						<section>
@@ -3155,9 +3309,8 @@ if (url.query == "") {
 	itemlists: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Layout
+				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Layout")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -3169,8 +3322,16 @@ if (url.query == "") {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Item Lists have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h3>
-			<p class="subtext">Note: Examples provided here are for illustrative purposes only and are non-functional. To view functional examples the Sample app itself uses Item Lists and the Columns section also has working examples.</p>
 			<h3 class="h6">Standard buttons with inset</h3>
 			<div class="containerGeneric excludePadding spacerTriple" id="exampleTableview1">
 				<div class="containerItemList inset alwaysBackgroundColor" id="tableview1" data-target="testTarget" data-parent="testParent">
@@ -3655,9 +3816,8 @@ if (url.query == "") {
 	toolbars: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Layout
+				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Layout")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -3669,13 +3829,22 @@ if (url.query == "") {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Toolbars Items have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			
 			<h3 class="h6">Toolbar Layouts</h3>
 			<div class="containerGeneric excludePadding" id="exampleToolbar1">
 				<header class="containerToolbar">
 					<div class="pinLeft">
-						<button class="transparent">${iconInterfaceElements.shareSquareUpStroke}</button>
+						<button class="transparent">${iconInterfaceElements.filterCircleStroke}</button>
 					</div>
 					<h1 class="headerToolbar">Standard Items</h1>
 					<div class="pinRight">
@@ -3688,7 +3857,7 @@ if (url.query == "") {
 			<div class="containerGeneric excludePadding" id="exampleToolbar1">
 				<header class="containerToolbar">
 					<div class="pinLeft">
-						<button class="toolbarItem">${iconInterfaceElements.shareSquareUpStroke}</button>
+						<button class="toolbarItem">${iconInterfaceElements.filterCircleStroke}</button>
 					</div>
 					<h1 class="headerToolbar">Native Items</h1>
 					<div class="pinRight">
@@ -3702,9 +3871,8 @@ if (url.query == "") {
 			<div class="containerGeneric excludePadding" id="exampleToolbar1">
 				<header class="containerToolbar alwaysLeft">
 					<div class="pinLeft">
-						<button class="back slim transparent">
-							${iconShapes.chevronBackwardsStroke}
-							Gallery
+						<button class="transparent">
+							${iconInterfaceElements.filterCircleStroke}
 						</button>
 					</div>
 					<h1 class="headerToolbar">Keep Left</h1>
@@ -3717,7 +3885,11 @@ if (url.query == "") {
 			
 			<div class="containerGeneric excludePadding spacerDouble" id="exampleToolbar1">
 				<header class="containerToolbar singleItem">
-					<input type="search" placeholder="Single Item" />
+					<div class="containerSearch">
+						<input type="search" placeholder="Single item" id="pokemonSearch" />
+						<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+						<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
+					</div>
 				</header>
 			</div>
 			
@@ -3725,7 +3897,7 @@ if (url.query == "") {
 			<div class="containerGeneric excludePadding spacerDouble" id="exampleToolbar2">
 				<header class="containerToolbar withAccessory" id="accessoryParent1">
 					<div class="pinLeft">
-						<button class="transparent">${iconInterfaceElements.shareSquareUpStroke}</button>
+						<button class="transparent">${iconInterfaceElements.filterCircleStroke}</button>
 					</div>
 					<h1 class="headerToolbar">Header</h1>
 					<div class="pinRight">
@@ -3735,7 +3907,11 @@ if (url.query == "") {
 				</header>
 				<div class="scrollview" id="headerContent2">
 					<div class="containerAccessoryBar">
-						<input type="search" placeholder="Search text">
+						<div class="containerSearch">
+							<input type="search" placeholder="Search text" id="pokemonSearch" />
+							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
+						</div>
 					</div>
 					<div class="groupText">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
@@ -3756,7 +3932,7 @@ if (url.query == "") {
 			<div class="containerGeneric excludePadding spacerDouble" id="exampleToolbar4">
 				<header class="containerToolbar withAccessory withInlineAccessory" id="accessoryParent3">
 					<div class="pinLeft">
-						<button class="transparent">${iconInterfaceElements.shareSquareUpStroke}</button>
+						<button class="transparent">${iconInterfaceElements.filterCircleStroke}</button>
 					</div>
 					<h1 class="headerToolbar">Header</h1>
 					<div class="pinRight">
@@ -3766,7 +3942,11 @@ if (url.query == "") {
 				</header>
 				<div class="containerInlineAccessory" id="headerContent4Parent">
 					<div class="containerAccessoryBar">
-						<input type="search" placeholder="Search text">
+						<div class="containerSearch">
+							<input type="search" placeholder="Search text" id="pokemonSearch" />
+							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
+						</div>
 					</div>
 					<div class="scrollview">
 						<div class="groupText">
@@ -3787,7 +3967,9 @@ if (url.query == "") {
 			<h3 class="h6">Vanishing Toolbar</h3>
 			<div class="containerGeneric excludePadding spacerTriple" id="exampleToolbar2">
 				<header class="containerToolbar vanishing noBackground" id="disappearingToolbar">
-					<div class="pinLeft"></div>
+					<div class="pinLeft">
+						<button class="transparent">${iconInterfaceElements.filterCircleStroke}</button>
+					</div>
 					<h1 class="headerToolbar">Header</h1>
 					<div class="pinRight">
 						<button class="transparent">${iconShapes.rectangleOverlapHorizontalStroke}</button>
@@ -3969,9 +4151,8 @@ toolbarVisibility({
 	tabbars: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Layout
+				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Layout")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -3983,28 +4164,86 @@ toolbarVisibility({
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Tab Bars have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			<h3 class="h6">Standard</h3>
 			<div class="containerGeneric excludePadding" id="exampleTabBar1">
 				<footer class="containerTabBar" id="tabBar1">
 					<button class="tab" data-name="tabfirst" onclick="routetabs('tabfirst')">
-						${iconObjects.handsetLeadingFill}
+						<div class="wrapper">
+							${iconObjects.handsetLeadingFill}
+						</div>
 						First
 					</button>
 					<button class="tab" data-name="tabsecond" onclick="routetabs('tabsecond')">
-						${iconHuman.userCircleFill}
+						<div class="wrapper">
+							${iconHuman.userCircleFill}
+						</div>
 						Second
 					</button>
 					<button class="tab" data-name="tabthird" onclick="routetabs('tabthird')">
-						${iconObjects.bagFill}
+						<div class="wrapper">
+							${iconObjects.bagFill}
+						</div>
 						Third
 					</button>
 					<button class="tab" data-name="tabfourth" onclick="routetabs('tabfourth')">
-						${iconObjects.loupeFill}
+						<div class="wrapper">
+							${iconObjects.loupeFill}
+						</div>
 						Fourth
 					</button>
 					<button class="tab" data-name="tabfifth" onclick="routetabs('tabfifth')">
-						<img src="app/images/ui/sidebar1.png" />
+						<div class="wrapper">
+							<img src="app/images/ui/sidebar1.png" />
+						</div>
+						Fifth
+					</button>
+				</footer>
+				<div class="paddingContentTight" id="contentAreaTabs1">
+					
+				</div>
+			</div>
+			
+			<h3 class="h6">Always Vertical</h3>
+			<div class="containerGeneric excludePadding" id="exampleTabBar1">
+				<footer class="containerTabBar alwaysVertical" id="tabBar1">
+					<button class="tab" data-name="tabfirst" onclick="routetabs('tabfirst')">
+						<div class="wrapper">
+							${iconObjects.handsetLeadingFill}
+						</div>
+						First
+					</button>
+					<button class="tab" data-name="tabsecond" onclick="routetabs('tabsecond')">
+						<div class="wrapper">
+							${iconHuman.userCircleFill}
+						</div>
+						Second
+					</button>
+					<button class="tab" data-name="tabthird" onclick="routetabs('tabthird')">
+						<div class="wrapper">
+							${iconObjects.bagFill}
+						</div>
+						Third
+					</button>
+					<button class="tab" data-name="tabfourth" onclick="routetabs('tabfourth')">
+						<div class="wrapper">
+							${iconObjects.loupeFill}
+						</div>
+						Fourth
+					</button>
+					<button class="tab" data-name="tabfifth" onclick="routetabs('tabfifth')">
+						<div class="wrapper">
+							<img src="app/images/ui/sidebar1.png" />
+						</div>
 						Fifth
 					</button>
 				</footer>
@@ -4041,18 +4280,24 @@ toolbarVisibility({
 <pre class="spacerTriple">
 &lt;footer class="containerTabBar" id=""&gt;
 	&lt;button class="tab" data-name="" onclick="routename('modifier')"&gt;
-		&lt;svg&gt;&lt;/svg&gt;
+		&lt;div class="wrapper"&gt;
+			&lt;svg&gt;&lt;/svg&gt;
+		&lt;/div&gt;
 		Label
 	&lt;/button&gt;
 	&lt;button class="tab" data-name="" onclick="routename('modifier')"&gt;
-		&lt;svg&gt;&lt;/svg&gt;
+		&lt;div class="wrapper"&gt;
+			&lt;svg&gt;&lt;/svg&gt;
+		&lt;/div&gt;
 		Label
 	&lt;/button&gt;
 	&lt;button class="tab" data-name="" onclick="routename('modifier')"&gt;
-		&lt;svg&gt;&lt;/svg&gt;
+		&lt;div class="wrapper"&gt;
+			&lt;svg&gt;&lt;/svg&gt;
+		&lt;/div&gt;
 		Label
 	&lt;/button&gt;
-&lt;/footer>
+&lt;/footer&gt;
 </pre>
 			
 			<h3>Functions</h3>
@@ -4066,9 +4311,8 @@ toolbarVisibility({
 	scrollviews: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Layout
+				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Layout")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -4436,9 +4680,8 @@ toolbarVisibility({
 	sections: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Layout
+				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Layout")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -4450,6 +4693,15 @@ toolbarVisibility({
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Sections have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			<section class="containerSection">
 				<p class="excludeMargin">This is a standard section.</p>
@@ -4489,9 +4741,8 @@ toolbarVisibility({
 	accordions: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Layout
+				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Layout")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -4504,15 +4755,17 @@ toolbarVisibility({
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<h2>Examples</h2>
-			<div class="containerAccordion spacerSingle">
+			<div class="containerAccordion spacerSingle noBorder">
 				<div class="headerAccordion">
 					<h3>Header</h3>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
-					<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
-					<p class="excludeMargin">Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+					<div class="wrapper">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p class="excludeMargin">Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+					</div>
 				</section>
 			</div>
 			<div class="containerAccordion spacerTriple" id="exampleAccordion2">
@@ -4521,11 +4774,13 @@ toolbarVisibility({
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
-					<section class="containerSection">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
-						<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
-						<p class="excludeMargin">Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
-					</section>
+					<div class="wrapper">
+						<div class="containerSection">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+							<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+							<p class="excludeMargin">Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						</div>
+					</div>
 				</section>
 			</div>
 			
@@ -4541,7 +4796,9 @@ toolbarVisibility({
 		&lt;h3&gt;&lt;/h3&gt;
 		&lt;div class="containerChevron"&gt;&#36;{iconShapes.chevronSingleRightStroke}&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;section class="containerAccordionContents"&gt;&lt;/section&gt;
+	&lt;section class="containerAccordionContents"&gt;
+		&lt;div class="wrapper"&gt;&lt;/div&gt;
+	&lt;/section&gt;
 &lt;/div>
 
 //REPLICATING A SECTION CONTAINER
@@ -4551,7 +4808,9 @@ toolbarVisibility({
 		&lt;div class="containerChevron"&gt;&#36;{iconShapes.chevronSingleRightStroke}&lt;/div&gt;
 	&lt;/div&gt;
 	&lt;section class="containerAccordionContents"&gt;
-		&lt;section class="containerSection"&gt;&lt;/section&gt;
+		&lt;div class="wrapper"&gt;
+			&lt;div class="containerSection"&gt;&lt;/div&gt;
+		&lt;/div&gt;
 	&lt;/section&gt;
 &lt;/div&gt;
 </pre>
@@ -4570,9 +4829,8 @@ toolbarVisibility({
 	iframes: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Layout
+				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Layout")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -4596,9 +4854,8 @@ toolbarVisibility({
 	tables: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Layout
+				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Layout")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -4610,6 +4867,15 @@ toolbarVisibility({
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Tables have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			<h3 class="h6">Information Table</h3>
 			<table class="spacerDouble tableGuideIcons">
@@ -4749,9 +5015,8 @@ searchTable({
 	banners: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Layout
+				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Layout")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -4881,9 +5146,8 @@ const modals = {
 	dialogs: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Modals
+				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Modals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -4908,9 +5172,8 @@ const modals = {
 	sheets: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Modals
+				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Modals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -4922,6 +5185,15 @@ const modals = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Sheets will have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			<table class="examples spacerTriple">
 				<thead>
@@ -5001,9 +5273,8 @@ summonSheet({
 	lightboxes: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Modals
+				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Modals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -5039,9 +5310,8 @@ summonLightbox({
 	alerts: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Modals
+				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Modals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -5053,6 +5323,15 @@ summonLightbox({
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Alerts will have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			<table class="examples spacerTriple">
 				<thead>
@@ -5105,7 +5384,7 @@ summonAlert({
 					type: 'info',
 					content: 'The Buttons inside Alerts have a different layout based on the <code>pointer</code> used',
 					icon: false,
-					size: 'small',
+					size: 'large',
 				})
 			}
 			
@@ -5115,9 +5394,8 @@ summonAlert({
 	toasts: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Modals
+				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Modals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -5175,9 +5453,8 @@ summonToast({
 	shortcutspanel: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Modals
+				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Modals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -5229,9 +5506,8 @@ let shortcutKeys = {
 	installbanner: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Modals
+				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Modals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -5275,9 +5551,8 @@ let shortcutKeys = {
 	whatsnewpanel: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Modals
+				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Modals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -5320,9 +5595,8 @@ const visuals = {
 	iconsguide: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -5407,9 +5681,8 @@ const visuals = {
 	typography: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -5464,9 +5737,8 @@ const visuals = {
 	dynamictype: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -5497,9 +5769,8 @@ const visuals = {
 	images: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -5524,9 +5795,8 @@ const visuals = {
 	displayoptions: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -5597,9 +5867,8 @@ generateDisplayOptions({
 	appearance: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -5613,254 +5882,6 @@ generateDisplayOptions({
 		<div class="scrollview cropToolbar paddingContent">
 			<h2>Examples</h2>
 			<div id="pickerTheme"></div>
-			<div class="containerGeneric excludePadding spacerDouble" data-theme="system" id="appearance1">
-				<header class="containerToolbar alwaysLeft">
-					<div class="pinLeft">
-						<button class="transparent">${iconInterfaceElements.shareSquareUpStroke}</button>
-					</div>
-					<h1 class="headerToolbar">System Theme</h1>
-					<div class="pinRight">
-						<button class="transparent">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button class="transparent">${iconObjects.trashStroke}</button>
-					</div>
-				</header>
-				<footer class="containerTabBar">
-					<button class="tab picked">
-						${iconShapes.starFivePointFill}
-						First
-					</button>
-					<button class="tab">
-						${iconHuman.userCircleFill}
-						Second
-					</button>
-					<button class="tab">
-						${iconObjects.bagFill}
-						Third
-					</button>
-					<button class="tab">
-						${iconObjects.loupeFill}
-						Fourth
-					</button>
-					<button class="tab">
-						${iconTransport.rocketFill}
-						Fifth
-					</button>
-				</footer>
-				<div class="appearanceContent">
-					<p>This theme is included with Rebar and responds to the device Light and Dark Modes.</p>
-					<form>
-					<div class="containerInput">
-						<label for="checkbox1">
-							<input type="checkbox" id="checkbox1" name="checkboxes" value="checkbox1" checked>
-							<div class="fakeCheckbox"></div>
-							<span class="inputLabel">First</span>
-						</label>
-					</div>
-					<div class="containerInput">
-						<label for="checkbox2">
-							<input type="checkbox" id="checkbox2" name="checkboxes" value="checkbox2" checked>
-							<div class="fakeCheckbox"></div>
-							<span class="inputLabel">Second</span>
-						</label>
-					</div>
-					<div class="containerInput">
-						<label for="checkbox3">
-							<input type="checkbox" id="checkbox3" name="checkboxes" value="checkbox3">
-							<div class="fakeCheckbox"></div>
-							<span class="inputLabel">Third</span>
-						</label>
-					</div>
-				</form>
-					<button>This is a button</button>
-				</div>
-			</div>
-			
-			<div class="containerGeneric excludePadding spacerDouble" data-theme="light" id="appearance1">
-			<header class="containerToolbar alwaysLeft">
-				<div class="pinLeft">
-					<button class="transparent">${iconInterfaceElements.shareSquareUpStroke}</button>
-				</div>
-				<h1 class="headerToolbar">System Theme</h1>
-				<div class="pinRight">
-					<button class="transparent">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-					<button class="transparent">${iconObjects.trashStroke}</button>
-				</div>
-			</header>
-			<footer class="containerTabBar">
-				<button class="tab picked">
-					${iconShapes.starFivePointFill}
-					First
-				</button>
-				<button class="tab">
-					${iconHuman.userCircleFill}
-					Second
-				</button>
-				<button class="tab">
-					${iconObjects.bagFill}
-					Third
-				</button>
-				<button class="tab">
-					${iconObjects.loupeFill}
-					Fourth
-				</button>
-				<button class="tab">
-					${iconTransport.rocketFill}
-					Fifth
-				</button>
-			</footer>
-			<div class="appearanceContent">
-				<p>This theme is included with Rebar and will always appear light.</p>
-				<form>
-				<div class="containerInput">
-					<label for="checkbox1">
-						<input type="checkbox" id="checkbox1" name="checkboxes" value="checkbox1" checked>
-						<div class="fakeCheckbox"></div>
-						<span class="inputLabel">First</span>
-					</label>
-				</div>
-				<div class="containerInput">
-					<label for="checkbox2">
-						<input type="checkbox" id="checkbox2" name="checkboxes" value="checkbox2" checked>
-						<div class="fakeCheckbox"></div>
-						<span class="inputLabel">Second</span>
-					</label>
-				</div>
-				<div class="containerInput">
-					<label for="checkbox3">
-						<input type="checkbox" id="checkbox3" name="checkboxes" value="checkbox3">
-						<div class="fakeCheckbox"></div>
-						<span class="inputLabel">Third</span>
-					</label>
-				</div>
-			</form>
-				<button>This is a button</button>
-			</div>
-			</div>
-			
-			<div class="containerGeneric excludePadding spacerDouble" data-theme="dark" id="appearance1">
-			<header class="containerToolbar alwaysLeft">
-				<div class="pinLeft">
-					<button class="transparent">${iconInterfaceElements.shareSquareUpStroke}</button>
-				</div>
-				<h1 class="headerToolbar">System Theme</h1>
-				<div class="pinRight">
-					<button class="transparent">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-					<button class="transparent">${iconObjects.trashStroke}</button>
-				</div>
-			</header>
-			<footer class="containerTabBar">
-				<button class="tab picked">
-					${iconShapes.starFivePointFill}
-					First
-				</button>
-				<button class="tab">
-					${iconHuman.userCircleFill}
-					Second
-				</button>
-				<button class="tab">
-					${iconObjects.bagFill}
-					Third
-				</button>
-				<button class="tab">
-					${iconObjects.loupeFill}
-					Fourth
-				</button>
-				<button class="tab">
-					${iconTransport.rocketFill}
-					Fifth
-				</button>
-			</footer>
-			<div class="appearanceContent">
-				<p>This theme is included with Rebar and will always appear dark.</p>
-				<form>
-				<div class="containerInput">
-					<label for="checkbox1">
-						<input type="checkbox" id="checkbox1" name="checkboxes" value="checkbox1" checked>
-						<div class="fakeCheckbox"></div>
-						<span class="inputLabel">First</span>
-					</label>
-				</div>
-				<div class="containerInput">
-					<label for="checkbox2">
-						<input type="checkbox" id="checkbox2" name="checkboxes" value="checkbox2" checked>
-						<div class="fakeCheckbox"></div>
-						<span class="inputLabel">Second</span>
-					</label>
-				</div>
-				<div class="containerInput">
-					<label for="checkbox3">
-						<input type="checkbox" id="checkbox3" name="checkboxes" value="checkbox3">
-						<div class="fakeCheckbox"></div>
-						<span class="inputLabel">Third</span>
-					</label>
-				</div>
-			</form>
-				<button>This is a button</button>
-			</div>
-			</div>
-			
-	<div class="containerGeneric excludePadding spacerDouble" data-theme="custom" id="appearance1">
-	<header class="containerToolbar alwaysLeft">
-		<div class="pinLeft">
-			<button class="transparent">${iconInterfaceElements.shareSquareUpStroke}</button>
-		</div>
-		<h1 class="headerToolbar">System Theme</h1>
-		<div class="pinRight">
-			<button class="transparent">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-			<button class="transparent">${iconObjects.trashStroke}</button>
-		</div>
-	</header>
-	<footer class="containerTabBar">
-		<button class="tab picked">
-			${iconShapes.starFivePointFill}
-			First
-		</button>
-		<button class="tab">
-			${iconHuman.userCircleFill}
-			Second
-		</button>
-		<button class="tab">
-			${iconObjects.bagFill}
-			Third
-		</button>
-		<button class="tab">
-			${iconObjects.loupeFill}
-			Fourth
-		</button>
-		<button class="tab">
-			${iconTransport.rocketFill}
-			Fifth
-		</button>
-	</footer>
-	<div class="appearanceContent">
-		<p>This theme is not included with Rebar. It's an example of what you can do with the Appearance theming engine. This theme will respond to the device Light and Dark modes.</p>
-		<form>
-		<div class="containerInput">
-			<label for="checkbox1">
-				<input type="checkbox" id="checkbox1" name="checkboxes" value="checkbox1" checked>
-				<div class="fakeCheckbox"></div>
-				<span class="inputLabel">First</span>
-			</label>
-		</div>
-		<div class="containerInput">
-			<label for="checkbox2">
-				<input type="checkbox" id="checkbox2" name="checkboxes" value="checkbox2" checked>
-				<div class="fakeCheckbox"></div>
-				<span class="inputLabel">Second</span>
-			</label>
-		</div>
-		<div class="containerInput">
-			<label for="checkbox3">
-				<input type="checkbox" id="checkbox3" name="checkboxes" value="checkbox3">
-				<div class="fakeCheckbox"></div>
-				<span class="inputLabel">Third</span>
-			</label>
-		</div>
-	</form>
-		<button>This is a button</button>
-	</div>
-	</div>
-			
 			<h2>Documentation</h2>
 			<p>Appearance is the theming engine of Rebar. By default Rebar has three themes: <code>system</code>, <code>light</code>, and <code>dark</code>. System will respond to the device Light and Dark modes but you can override this to stay locked to the Light or Dark theme.</p>
 			<p>This system can be extended to offer other themes. A theme can be applied at the <code>body</code> level or targeted to any child container.</p>
@@ -5881,9 +5902,8 @@ modifyPreference({
 	accent: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -5897,114 +5917,7 @@ modifyPreference({
 		<div class="scrollview cropToolbar paddingContent">
 			<h2>Examples</h2>
 			<div id="exampleAccents"></div>
-			<h3 class="h6">Default Accent</h3>
-			<div class="containerGeneric excludePadding spacerDouble" id="accent1">
-				<footer class="containerTabBar">
-					<button class="tab picked">
-						${iconShapes.starFivePointFill}
-						First
-					</button>
-					<button class="tab">
-						${iconHuman.userCircleFill}
-						Second
-					</button>
-					<button class="tab">
-						${iconObjects.bagFill}
-						Third
-					</button>
-					<button class="tab">
-						${iconObjects.loupeFill}
-						Fourth
-					</button>
-					<button class="tab">
-						${iconTransport.rocketFill}
-						Fifth
-					</button>
-				</footer>
-				<div id="accentContent1">
-					<h1>Header</h1>
-					<p>Lorem ipsum dolor sit amet, <a href="">consectetur</a> adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante.</p>
-					<form>
-					<div class="containerInput">
-						<label for="checkbox1">
-							<input type="checkbox" id="checkbox1" name="checkboxes" value="checkbox1" checked>
-							<div class="fakeCheckbox"></div>
-							<span class="inputLabel">First</span>
-						</label>
-					</div>
-					<div class="containerInput">
-						<label for="checkbox2">
-							<input type="checkbox" id="checkbox2" name="checkboxes" value="checkbox2" checked>
-							<div class="fakeCheckbox"></div>
-							<span class="inputLabel">Second</span>
-						</label>
-					</div>
-					<div class="containerInput">
-						<label for="checkbox3">
-							<input type="checkbox" id="checkbox3" name="checkboxes" value="checkbox3">
-							<div class="fakeCheckbox"></div>
-							<span class="inputLabel">Third</span>
-						</label>
-					</div>
-				</form>
-					<button>This is a button</button>
-				</div>
-			</div>
-	
-			<h3 class="h6">Custom Accent</h3>
-			<div class="containerGeneric excludePadding spacerTriple" id="accent2">
-				<footer class="containerTabBar">
-					<button class="tab picked">
-						${iconShapes.starFivePointFill}
-						First
-					</button>
-					<button class="tab">
-						${iconHuman.userCircleFill}
-						Second
-					</button>
-					<button class="tab">
-						${iconObjects.bagFill}
-						Third
-					</button>
-					<button class="tab">
-						${iconObjects.loupeFill}
-						Fourth
-					</button>
-					<button class="tab">
-						${iconTransport.rocketFill}
-						Fifth
-					</button>
-				</footer>
-				<div id="accentContent2">
-					<h1>Header</h1>
-					<p>Lorem ipsum dolor sit amet, <a href="">consectetur</a> adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante.</p>
-					<form>
-					<div class="containerInput">
-						<label for="checkbox1">
-							<input type="checkbox" id="checkbox1" name="checkboxes" value="checkbox1" checked>
-							<div class="fakeCheckbox"></div>
-							<span class="inputLabel">First</span>
-						</label>
-					</div>
-					<div class="containerInput">
-						<label for="checkbox2">
-							<input type="checkbox" id="checkbox2" name="checkboxes" value="checkbox2" checked>
-							<div class="fakeCheckbox"></div>
-							<span class="inputLabel">Second</span>
-						</label>
-					</div>
-					<div class="containerInput">
-						<label for="checkbox3">
-							<input type="checkbox" id="checkbox3" name="checkboxes" value="checkbox3">
-							<div class="fakeCheckbox"></div>
-							<span class="inputLabel">Third</span>
-						</label>
-					</div>
-				</form>
-					<button>This is a button</button>
-				</div>
-			</div>
-			
+
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
 			<p style="spacerTriple">Accent acts as the primary tint colour of Rebar. Rebar comes with 15 accents built-in, your own custom accent is called <code>default</code> and the 14 macOS accent colours (this is to help your app feel at home as much as possible on that platform). It is not required to expose all accent colours in your app.</p>
@@ -6059,9 +5972,8 @@ modifyPreference({
 	reducemotion: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -6084,9 +5996,8 @@ modifyPreference({
 	blankstates: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -6163,9 +6074,8 @@ generateBlankState({
 	cssvariables: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -6247,6 +6157,10 @@ generateBlankState({
 					<tr>
 						<td><code>--font-regular</code></td>
 						<td>Sans-Serif font stack.</td>
+					</tr>
+					<tr>
+						<td><code>--font-regular-bold</code></td>
+						<td>Sans-Serif font stack specifically for Android.</td>
 					</tr>
 					<tr>
 						<td><code>--font-rounded</code></td>
@@ -6369,9 +6283,8 @@ generateBlankState({
 	utilityclasses: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -6475,6 +6388,10 @@ generateBlankState({
 						<td><code>noDecoration</code></td>
 						<td>Sets the element to <code>text-decoration: none;</code></td>
 					</tr>
+					<tr>
+						<td><code>noBorder</code></td>
+						<td>Sets the element to <code>border: none;</code></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -6482,9 +6399,8 @@ generateBlankState({
 	breakpoints: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -6531,9 +6447,8 @@ generateBlankState({
 	increasedcontrast: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -6589,9 +6504,8 @@ generateBlankState({
 	spinners: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -6620,9 +6534,8 @@ generateSpinner({
 	appglyph: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -6643,9 +6556,8 @@ generateSpinner({
 	thememetatag: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -6659,20 +6571,13 @@ generateSpinner({
 		<div class="scrollview cropToolbar paddingContent">
 			<p><code>setMetaTheme()</code> is a function that is used to update the value in the <code>theme</code> meta tag. This is done to make sure the UI of Safari 15 and Android Chrome blends in with your app. It will set the theme value to your <code>--foreground</code> CSS variable's current value.</p>
 			<p>Rebar is already set up to invoke this function when needed. So only call this when changing the current app theme in a custom way.</p>
-<pre>
-function setMetaTheme() {
-	var style = getComputedStyle(document.body)
-	document.querySelector('meta[name="theme-color"]').setAttribute('content', "rgb(&#36;{style.getPropertyValue('--background')})")
-}
-</pre>
 		</div>
 	`,
 	colours: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Visuals
+				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Visuals")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -6722,9 +6627,8 @@ const charts = {
 	pie: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Charts
+				<button class="back toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Charts")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -6793,9 +6697,8 @@ const charts = {
 	gantt: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Charts
+				<button class="back toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Charts")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -6807,6 +6710,15 @@ const charts = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Gantt Charts have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			<div class="spacerTriple" id="exampleChartGantt"></div>
 			
@@ -6856,9 +6768,8 @@ const charts = {
 	stats: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Charts
+				<button class="back toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Charts")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -6911,9 +6822,8 @@ const helpers = {
 	preferences: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Helpers
+				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Helpers")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -7010,9 +6920,8 @@ modifyPreference({
 	tipjar: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Helpers
+				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Helpers")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -7025,26 +6934,32 @@ modifyPreference({
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<h2>Generate Tip Jar</h2>
-			<button class="spacerSingle" onclick="exampleTipsPrompt()">Show Modal</button>
-			<p><code>generateTipJar()</code> is a function for creating a standard Tip Jar which can be displayed in whatever view you need. The messaging is standard but will pick up <code>appName</code>, <code>appEmail</code>, <code>appPrivacyPolicy</code>, and <code>tipsLinks</code> from your config file to customise it.</p>
-			<p>When generating the Tip Jar you will need to provide a <code>target</code> ID.</p>
+			<p><code>generateTipJar()</code> is a function for creating a standard Tip Jar which can be displayed in whatever view you need. It is intended to be used inline and returns the HTML. The messaging is standard but will pick up <code>appName</code>, <code>appEmail</code>, <code>appPrivacyPolicy</code>, and <code>tipsLinks</code> from your config file to customise it.</p>
 <pre>
 generateTipJar({
-	target: "",
+	mini: true OR false,
 });
 </pre>
 		
 			<h2>Prompt for Tips</h2>
+			<button class="spacerSingle" onclick="exampleTipsPrompt()">Show Modal</button>
 			<p>You also have the option to automatically prompt users for tips. Whether the prompt appears is determined by <code>promptForTips</code> being set to <code>true</code> in the Config file. When set to <code>true</code> Rebar will keep track of how many times the app has been loaded and when the counter hits <code>4</code>, <code>8</code>, and <code>14</code> the prompt will be shown.</p>
 			<p>If a user clicks on one of the links in the prompt this will cause the prompt to not be shown again (this is a way to not bother users who have already donated).</p>
+		
+			<h2>Mini Tip Jar</h2>
+			${
+				generateTipJar({
+					mini: true,
+				})
+			}
+			<p>The Mini Tip Jar is intended to be inserted inline in Item Lists. It is reduced in size to take up less vertical space. The Mini Tip Jar will be hidden if the user has clicked the Donate buttons or the X button.</p>
 		</div>
 	`,
 	capitalizeword: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Helpers
+				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Helpers")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -7057,19 +6972,13 @@ generateTipJar({
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<p><code>capitalize()</code> is a function to help you capitalize a single word that you might automatically get as lowercase from some JSON. To make it work you need to pass text in to the function. It currently only supports single words. It will return the capitalized word.</p>
-<pre>
-function capitalize(word) {
-	return word[0].toUpperCase() + word.slice(1).toLowerCase();
-}
-</pre>
 		</div>
 	`,
 	copytoclipboard: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Helpers
+				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Helpers")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -7083,36 +6992,13 @@ function capitalize(word) {
 		<div class="scrollview cropToolbar paddingContent">
 			<p><code>copyToClipboard()</code> is a function to help you copy provided text to the clipboard. To make it work you need to pass text in to the function. It currently only supports text and will not copy images or other content to the clipboard.</p>
 			<p>The function will also generate a Toast notifying users that the copy was successful (which will auto-dismiss after a short period of time).</p>
-<pre>
-function copyToClipboard(text) {
-	//COPY CONTENT
-	var $temp = $("< input >");
-	$("body").append($temp);
-	$temp.val(text).select();
-	document.execCommand("copy");
-	$temp.remove();
-	
-	//DISPLAY TOAST
-	summonPanel({
-		type: 'toast', 
-		backing: 'none', 
-		title: 'Copied to Clipboard',
-		icon: '&#36;{iconShapes.checkmarkCircleStroke}',
-		containerID: "buttonUpdateApp"
-	})
-	
-	//DESTROY TOAST
-	setTimeout(function(){ dismissPanel(); }, 1800);
-}
-</pre>
 		</div>
 	`,
 	settimelength:  `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Helpers
+				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Helpers")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -7125,30 +7011,13 @@ function copyToClipboard(text) {
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<p><code>setTimeLength()</code> is a function that is used to set the <code>--base-time-length</code> variable. It will look to both the device and app settings to determine which is the appropriate value to set. When not setting the variable to 0 it will use the value in the <code>baseTimeLength</code> constant.</p>
-<pre>
-function setTimeLength() {
-	if (queryReducedMotion == true) {
-		document.documentElement.style.setProperty('--base-time-length', '0s');
-	} else {
-		switch (getPreferenceGroup("rebar.appSettings").reduceMotion) {
-			case 'on':
-				document.documentElement.style.setProperty('--base-time-length', '0s');
-				break;
-			case 'off':
-				document.documentElement.style.setProperty('--base-time-length', baseTimeLength);
-				break;
-		}
-	}
-}
-</pre>
 		</div>
 	`,
 	temporaryanimationpause:  `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Helpers
+				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Helpers")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -7166,9 +7035,8 @@ function setTimeLength() {
 	graburlparameters: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Helpers
+				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Helpers")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -7181,25 +7049,13 @@ function setTimeLength() {
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<p><code>grabURLParameter()</code> is a function to retrieve the current URL query string for you. If the URL is set up as <code>?leading=trailing</code> it will return both <code>leading</code> and <code>trailing</code>. It will also return a <code>type</code> of </code>deeplink</code> which is used for the routing system.</p>
-<pre>
-function grabURLParameter() {
-	const urlSearchParams = new URLSearchParams(window.location.search);
-	const params = Object.fromEntries(urlSearchParams.entries());
-	return {
-		type: "deeplink",
-		query: Object.keys(params).join(),
-		source: Object.values(params).join(),
-	}
-}
-</pre>
 		</div>
 	`,
 	grabos: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Helpers
+				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Helpers")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -7219,9 +7075,8 @@ function grabURLParameter() {
 	scrolltotop: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${iconShapes.chevronBackwardsStroke}
-					Helpers
+				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Helpers")}
 				</button>
 				<button class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
@@ -7234,12 +7089,6 @@ function grabURLParameter() {
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<p><code>scrollToTop()</code> is a function to scroll an element to the top of a list. It takes an ID as the single parameter (it must be an ID as other elements did not work well).</p>
-<pre>
-function scrollToTop(value) {
-	var elmnt = document.getElementById(value);
-	elmnt.scrollIntoView();
-}
-</pre>
 		</div>
 	`,
 }

@@ -235,11 +235,13 @@ function exampleTipsPrompt() {
 		id: false,
 		content: `
 			<button class="translucent xclose" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
-			<div id="sheetTips"></div>
+			<div id="sheetTips">
+				${
+					generateTipJar({
+						mini: false,
+					})
+				}
+			</div>
 		`,
 	})
-	
-	generateTipJar({
-		target: "sheetTips",
-	});
 }

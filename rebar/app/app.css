@@ -1,14 +1,14 @@
 /* DEFAULT AND CUSTOM ACCENTS */
-[data-accent="default"] { --accent: 250 192 0; }
+[data-accent="default"] { --accent: 250 157 0; }
 [data-accent="custom"] { --accent: 124 14 226; }
 
 @media (prefers-color-scheme: dark) {
 	[data-theme="light"][data-accent="default"] { --accent: 250 192 0; }
-	[data-accent="default"] { --accent: 250 154 0; }
+	[data-accent="default"] { --accent: 250 192 0; }
 	[data-accent="custom"] { --accent: 152 94 206; }
 }
 
-[data-theme="dark"][data-accent="default"] { --accent: 250 154 0; }
+[data-theme="dark"][data-accent="default"] { --accent: 250 192 0; }
 
 /* CUSTOM THEME */
 [data-theme="custom"] {
@@ -222,9 +222,27 @@
 	height: 120px;
 }
 
+[data-os="macos"] #iconGallery div {
+	background: rgb(var(--main) / .01);
+	border: 1px solid rgb(var(--main) / .1);
+}
+
+[data-os="android"] #iconGallery div {
+	background: rgb(var(--accent) / .1);
+}
+
+[data-os="windows"] #iconGallery div {
+	background: rgb(var(--systempanel) / .1);
+	box-shadow: 0px 0px 0px 1px rgb(var(--main) / .1);
+}
+
 #iconGallery div:hover {
 	background: rgb(var(--main) / .1);
 	cursor: pointer;
+}
+
+[data-os="android"] #iconGallery div:hover {
+	background: rgb(var(--accent) / .4);
 }
 
 #iconGallery div span {
@@ -308,6 +326,20 @@
 	background: rgb(var(--foreground));
 	padding: var(--base-gap-size);
 	border-radius: var(--base-radius-size);
+}
+
+[data-os="macos"] #gridColours .tile {
+	background: rgb(var(--main) / .01);
+	border: 1px solid rgb(var(--main) / .1);
+}
+
+[data-os="android"] #gridColours .tile {
+	background: rgb(var(--accent) / .1);
+}
+
+[data-os="windows"] #gridColours .tile {
+	background: rgb(var(--systempanel) / .1);
+	box-shadow: 0px 0px 0px 1px rgb(var(--main) / .1);
 }
 
 #gridColours .label {

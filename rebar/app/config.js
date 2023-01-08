@@ -1,4 +1,4 @@
-const appVersion = "2";
+const appVersion = "2.0.1";
 const appName = "Rebar";
 const appDomain = "https://toast-studio.com/";
 const appPrivacyPolicy = "https://toast-studio.com/";
@@ -56,6 +56,7 @@ const appPreferencesVersion = 1;
 const appPreferencesDefault = {
 	"rebar.appSettings": {
 		version: 1,
+		debug: false,
 		openings: 0,
 		firstRun: null,
 		accent: ["default"],
@@ -69,6 +70,7 @@ const appPreferencesDefault = {
 		increaseContrast: "less",
 		reduceMotion: "off",
 		clickedDonationLink: false,
+		os: "default",
 	},
 }
 const topLevelRoute = "routesidebar";

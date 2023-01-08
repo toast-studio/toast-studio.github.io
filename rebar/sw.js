@@ -14,6 +14,8 @@ const precacheFiles = [
 	'./rebar/rebar.js',
 	'./rebar/fonts/OpenDyslexic3-Bold.ttf',
 	'./rebar/fonts/OpenDyslexic3-Regular.ttf',
+	'./rebar/fonts/product-sans-bold.ttf',
+	'./rebar/fonts/product-sans-regular.ttf',
 	'./rebar/icons/charts.js',
 	'./rebar/icons/hardware.js',
 	'./rebar/icons/human.js',
