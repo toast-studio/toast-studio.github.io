@@ -1000,6 +1000,10 @@
 		background: rgb(var(--accent) / .1);
 	}
 	
+	[data-os="android"] .containerItemList .containerSection {
+		border-radius: 0px;
+	}
+	
 	[data-os="windows"] .containerSection:not(.banner) {
 		background: rgb(var(--systempanel));
 		border: 1px solid rgb(var(--main) / .1);
@@ -1626,6 +1630,12 @@
 		border-radius: 0px 0px var(--base-radius-size) var(--base-radius-size);
 	}
 	
+	@media (max-width: 639px) {
+		[data-os="android"] .containerItemList.inset .containerSection > :last-child:not(.rounded) {
+			border-radius: 0px;
+		}
+	}
+	
 	.containerItemList.inset .containerSection > :not(div):first-child:last-child:hover, 
 	.containerItemList.inset .containerSection > .picked:first-child:last-child {
 		border-radius: var(--base-radius-size);
@@ -1656,10 +1666,10 @@
 			border-radius: 0px 0px var(--base-radius-size) var(--base-radius-size);
 		}
 		
-		[data-os="android"] .containerItemList.inset .containerSection > :first-child, 
+		/* [data-os="android"] .containerItemList.inset .containerSection > :first-child, 
 		[data-os="android"] .containerItemList.inset .containerSection > :last-child {
 			border-radius: 100px;
-		}
+		} */
 	}
 	
 	.containerItemList:not(.inset) .containerSection {

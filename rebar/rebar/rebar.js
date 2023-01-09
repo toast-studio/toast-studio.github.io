@@ -227,7 +227,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	function grabOS() {
 		var userAgent = window.navigator.userAgent,
 		platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
-		macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+		macosPlatforms = ['macOS', 'Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
 		windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
 		iosPlatforms = ['iPhone', 'iPad', 'iPod'],
 		os = null;
