@@ -1,4 +1,4 @@
-//REBAR 2.0.1
+//REBAR 2.0.2
 //COPYRIGHT TOAST STUDIO
 
 var iconIndices = {

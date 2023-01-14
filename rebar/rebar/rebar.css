@@ -1,4 +1,4 @@
-/* REBAR 2.0.1 */
+/* REBAR 2.0.2 */
 /* COPYRIGHT TOAST STUDIO */
 
 /* SETUP */
@@ -773,7 +773,7 @@
 	}
 	
 	[data-os="windows"] .headerSection {
-		background: rgb(var(--systempanel) / .5);
+		background: rgb(var(--systempanel));
 		border: 1px solid rgb(var(--main) / .1);
 		border-block-end: none;
 	}
@@ -1007,7 +1007,12 @@
 	[data-os="windows"] .containerSection:not(.banner) {
 		background: rgb(var(--systempanel));
 		border: 1px solid rgb(var(--main) / .1);
-		border-radius: var(--base-radius-size)
+		border-radius: var(--base-radius-size);
+	}
+	
+	[data-os="windows"] .headerSection + .containerSection:not(.banner) {
+		border-radius: 0px 0px var(--base-radius-size) var(--base-radius-size);
+		background: none;
 	}
 	
 	.containerSection.warning {
