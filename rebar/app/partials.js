@@ -282,7 +282,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.0.2</h3>
-						<p class="subtext excludeMargin">14 January 2023</p>
+						<p class="subtext excludeMargin">26 January 2023</p>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -290,6 +290,7 @@ const gettingstarted = {
 					<div class="wrapper">
 						<section class="containerSection">
 							<ul class="excludeMargin">
+								<li>Added Open and Closed Book icons</li>
 								<li>Fixed the borders of sections with headers on Windows</li>
 							</ul>
 						</section>
