@@ -45,7 +45,7 @@ function miniThemePicker() {
 		textWeightOptions: true,
 		contrastOptions: true,
 		motionOptions: true,
-		textDyslexicOptions: true,
+		textFontOptions: true,
 	});
 }
 

@@ -12,6 +12,8 @@ const precacheFiles = [
 	'./rebar/jquery.tablesorter.js',
 	'./rebar/rebar.css',
 	'./rebar/rebar.js',
+	'./rebar/fonts/atkinson-bold.ttf',
+	'./rebar/fonts/atkinson-regular.ttf',
 	'./rebar/fonts/OpenDyslexic3-Bold.ttf',
 	'./rebar/fonts/OpenDyslexic3-Regular.ttf',
 	'./rebar/fonts/product-sans-bold.ttf',

@@ -1,4 +1,4 @@
-//REBAR 2.0.2
+//REBAR 2.0.3
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -88,6 +88,13 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		
 	//ACTIVATE FUNCTIONS
 	$(document).ready(function(){
+		//ADD ANY NEW REBAR SETTINGS FOR AN ALREADY INSTALLED APP
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "append",
+			})
+		
+		//FIRST RUN
 		if (getPreferenceGroup("rebar.appSettings").firstRun != "complete") {
 			//GENERATE REBAR SETTINGS
 			modifyPreference({
@@ -117,8 +124,8 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		//SET FONT WEIGHT
 		$("body").attr("data-textweight", getPreferenceGroup("rebar.appSettings").textWeight);
 		
-		//SET DYSLEXIC FONT
-		$("body").attr("data-textdyslexia", getPreferenceGroup("rebar.appSettings").textDyslexia);
+		//SET FONT
+		$("body").attr("data-font", getPreferenceGroup("rebar.appSettings").textFont);
 		
 		//SET INCREASED CONTRAST
 		if (queryIncreasedContrast == true) {
@@ -1111,7 +1118,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			}
 		}
 		
-		if (options.textSizeOptions == true || options.textWeightOptions == true || options.textDyslexicOptions == true) {
+		if (options.textSizeOptions == true || options.textWeightOptions == true || options.textFontOptions == true) {
 			//SET UP THE CONTAINER
 			$(`#${options.target}`).append(`
 				<h2 class="headerList">Text</h2>
@@ -1119,6 +1126,51 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 					<section class="containerSection excludePadding excludeMargin" id="containerText"></section>
 				</div>
 			`);
+			
+			//GENERATE FONT OPTIONS
+			if (options.textFontOptions == true) {
+				//GENERATE MENU
+				$(`#containerText`).append(`
+					<div class="itemList fixedIconSize">
+						${iconInterfaceElements.textDyslexia}
+						<div class="label">Font</div>
+						<div class="containerContextButton" data-setting="font" data-position="right" data-type="picker">
+							<button class="buttonContext transparent excludePadding">
+								<div class="contextContainerLabel">
+									<span class="contextLabel"></span>
+									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
+								</div>
+							</button>
+							<div class="contextContainerMenu">
+								<button data-value="system" data-label="System">
+									<span>System<br /><span class="subtext">The default font for your device</span></span>
+								</button>
+								<button data-value="opendyslexic" data-label="OpenDyslexic">
+									<span>OpenDyslexic<br /><span class="subtext">For people with Dyslexia</span></span>
+								</button>
+								<button data-value="atkinson" data-label="Atkinson Hyperlegible">
+									<span>Atkinson Hyperlegible<br /><span class="subtext">For people with low vision</span></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				`);
+				
+				switch (getPreferenceGroup("rebar.appSettings").textFont) {
+					case 'system':
+						$(`[data-setting="font"] .contextLabel`).append(`System`);
+						$(`[data-value="system"]`).addClass(`picked`);
+						break;
+					case 'opendyslexic':
+						$(`[data-setting="font"] .contextLabel`).append(`OpenDyslexic`);
+						$(`[data-value="opendyslexic"]`).addClass(`picked`);
+						break;
+					case 'atkinson':
+						$(`[data-setting="font"] .contextLabel`).append(`Atkinson Hyperlegible`);
+						$(`[data-value="atkinson"]`).addClass(`picked`);
+						break;
+				}
+			}
 			
 			//GENERATE TEXT SIZE OPTIONS
 			if (options.textSizeOptions == true) {
@@ -1171,27 +1223,6 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 					$('[data-setting="boldText"]').attr("title", "Off")
 				} else {
 					$('[data-setting="boldText"]').attr("title", "On")
-				}
-			}
-			
-			//GENERATE DYSLEXIC TEXT OPTIONS
-			if (options.textDyslexicOptions == true) {
-				//GENERATE MENU
-				$(`#containerText`).append(`
-					<div class="itemList fixedIconSize">
-						${iconInterfaceElements.textDyslexia}
-						<div class="label">
-							<span>Use OpenDyslexic Font</span>
-						</div>
-						<button class="switch" data-setting="dyslexiaText"></button>
-					</div>
-				`);
-				
-				if (getPreferenceGroup("rebar.appSettings").textDyslexia == "off") {
-					$('[data-setting="dyslexiaText"]').addClass("off");
-					$('[data-setting="dyslexiaText"]').attr("title", "Off")
-				} else {
-					$('[data-setting="dyslexiaText"]').attr("title", "On")
 				}
 			}
 		}
@@ -1263,7 +1294,19 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		}
 	});
 	
-	//SET DYSLEXIC TEXT
+	//SET FONT TEXT
+	$(document).on('click', '[data-setting="font"] .contextContainerMenu button', function() {
+		let selectedValue = clickContextMenuItem(this);
+		$("body").attr("data-font", selectedValue.value);
+		modifyPreference({
+			group: "rebar.appSettings",
+			mode: "update",
+			preference: "textFont",
+			value: selectedValue.value,
+		})
+	});
+	
+	
 	$(document).on('click', '.switch[data-setting="dyslexiaText"]', function() {
 		let state = clickSwitch(this);
 		if (state == "on") {

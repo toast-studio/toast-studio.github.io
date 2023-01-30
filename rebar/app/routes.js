@@ -884,7 +884,7 @@ function routevisuals(options) {
 						accentOptions: false,
 						textSizeOptions: true,
 						textWeightOptions: true,
-						textDyslexicOptions: true,
+						textFontOptions: true,
 					});
 					
 					break;
@@ -898,7 +898,7 @@ function routevisuals(options) {
 						textWeightOptions: true,
 						contrastOptions: true,
 						motionOptions: true,
-						textDyslexicOptions: true,
+						textFontOptions: true,
 					});
 					
 					break;

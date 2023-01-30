@@ -1,10 +1,25 @@
-/* REBAR 2.0.2 */
+/* REBAR 2.0.3 */
 /* COPYRIGHT TOAST STUDIO */
 
 /* SETUP */
 	@font-face {
 		font-family: "Open Dyslexic Regular";
 		src: url("fonts/OpenDyslexic3-Regular.ttf");
+	}
+	
+	@font-face {
+		font-family: "Open Dyslexic Bold";
+		src: url("fonts/OpenDyslexic3-Bold.ttf");
+	}
+	
+	@font-face {
+		font-family: "Atkinson Regular";
+		src: url("fonts/atkinson-regular.ttf");
+	}
+	
+	@font-face {
+		font-family: "Atkinson Bold";
+		src: url("fonts/atkinson-bold.ttf");
 	}
 	
 	@font-face {
@@ -29,6 +44,9 @@
 		--font-monospace: ui-monospace, Consolas, Monaco, monospace;
 		--font-serif: ui-serif, "Times New Roman", serif;
 		--font-dyslexic: "Open Dyslexic Regular", serif;
+		--font-dyslexic-bold: "Open Dyslexic Bold", serif;
+		--font-atkinson: "Atkinson Regular", serif;
+		--font-atkinson-bold: "Atkinson Bold", serif;
 		--base-font-size: 16px;
 		
 		/* EFFECTS */
@@ -488,8 +506,25 @@
 	}
 
 /* TEXT */
-	[data-textdyslexia="on"] * {
+	[data-textweight="bold"][data-os="android"] * {
+		font-family: var(--font-regular-bold);
+		font-weight: normal;
+	}
+
+	[data-font="opendyslexic"] * {
 		font-family: var(--font-dyslexic) !important;
+	}
+	
+	[data-textweight="bold"][data-font="opendyslexic"] * {
+		font-family: var(--font-dyslexic-bold) !important;
+	}
+	
+	[data-font="atkinson"] * {
+		font-family: var(--font-atkinson) !important;
+	}
+	
+	[data-textweight="bold"][data-font="atkinson"] * {
+		font-family: var(--font-atkinson-bold) !important;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -501,6 +536,16 @@
 	
 	[data-os="android"] :is(h1, h2, h3, h4, h5, h6) {
 		font-family: var(--font-regular-bold);
+		font-weight: normal;
+	}
+	
+	[data-font="atkinson"] :is(h1, h2, h3, h4, h5, h6) {
+		font-family: var(--font-atkinson-bold) !important;
+		font-weight: normal;
+	}
+	
+	[data-font="opendyslexic"] :is(h1, h2, h3, h4, h5, h6) {
+		font-family: var(--font-dyslexic-bold) !important;
 		font-weight: normal;
 	}
 	
@@ -5959,3 +6004,9 @@
 		.chartStats .textBold {
 			margin-inline-end: calc(var(--base-gap-size) / 4);
 		}
+		
+/* DISPLAY OPTIONS */
+	#pickerFonts {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr)
+	}

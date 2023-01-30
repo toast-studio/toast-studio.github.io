@@ -281,6 +281,38 @@ const gettingstarted = {
 			<div class="containerAccordion hideOverflow spacerSingle">
 				<div class="headerAccordion headerSection">
 					<span>
+						<h3>2.0.3</h3>
+						<p class="subtext excludeMargin">30 January 2023</p>
+					</span>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<section class="containerSection">
+							${
+								insertBanner({
+									type: 'warning',
+									content: 'This version includes breaking changes for Display Options Picker, Config, File Structure, and Service Worker cache',
+									icon: false,
+									size: "large",
+								})
+							}
+							
+							<ul class="excludeMargin">
+								<li>Rebar settings are now appended at first run which allows for the addition of new settings post install</li>
+								<li>Added support for the <a href="https://brailleinstitute.org/freefont" target="_blank">Atkinson Hyperlegible</a> font</li>
+								<li>The <code>textDyslexicOptions</code> preference has been replaced with <code>textFont</code></li>
+								<li>Added <code>--font-dyslexic-bold</code>, <code>--font-atkinson</code>, and <code>--font-atkinson-bold</code> CSS variables</li>
+								<li>A fix for Android font rendering when Bold Text is turned on</li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</div>
+		
+			<div class="containerAccordion hideOverflow spacerSingle">
+				<div class="headerAccordion headerSection">
+					<span>
 						<h3>2.0.2</h3>
 						<p class="subtext excludeMargin">26 January 2023</p>
 					</span>
@@ -6199,6 +6231,18 @@ generateBlankState({
 						<td>A font stack for Dyslexic users.</td>
 					</tr>
 					<tr>
+						<td><code>--font-dyslexic-bold</code></td>
+						<td>A bold font stack for Dyslexic users.</td>
+					</tr>
+					<tr>
+						<td><code>--font-atkinson</code></td>
+						<td>A font stack for users with low visibility.</td>
+					</tr>
+					<tr>
+						<td><code>--font-atkinson-bold</code></td>
+						<td>A bold font stack for users with low visibility.</td>
+					</tr>
+					<tr>
 						<td><code>--base-font-size</code></td>
 						<td>Used for fonts as well as anything that should scale with the size of text, to enable Dynamic Type like text scaling.</td>
 					</tr>
@@ -6867,6 +6911,9 @@ const appPreferencesVersion = 1;
 const appPreferencesDefault = {
 	"rebar.appSettings": {
 		version: 1,
+		debug: false,
+		openings: 0,
+		firstRun: null,
 		accent: ["default"],
 		appearance: ["system"],
 		dynamicTypeSize: {
@@ -6874,11 +6921,11 @@ const appPreferencesDefault = {
 			label: "Medium",
 		},
 		textWeight: "regular",
-		textDyslexia: "off",
+		textFont: "system",
 		increaseContrast: "less",
 		reduceMotion: "off",
-		firstRun: null,
-		openings: 1,
+		clickedDonationLink: false,
+		os: "default",
 	},
 }
 </pre>
@@ -6903,7 +6950,7 @@ const appPreferencesDefault = {
 				</tr>
 				<tr>
 					<td><code>append</code></td>
-					<td>Takes what is in <code>config.js</code> and compare it to what is in local storage. It will them append any values that are not present in local storage while leaving any existing values along (if nothing is found in local storage it will save all default values to local storage).</td>
+					<td>Takes what is in <code>config.js</code> and compare it to what is in local storage. It will them append any values that are not present in local storage while leaving any existing values alone (if nothing is found in local storage it will save all default values to local storage).</td>
 				</tr>
 			</tbody>
 		</table>
