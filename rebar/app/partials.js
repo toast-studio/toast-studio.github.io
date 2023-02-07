@@ -83,7 +83,9 @@ const gettingstarted = {
 				<ul class="excludeMargin">
 					<li>${iconObjects.folderHorizontalFill} fonts</li>
 					<ul class="excludeMargin">
-						<li>${iconInterfaceElements.textCapital} OpenDyslexic3-bold.ttf</li>
+						<li>${iconInterfaceElements.textCapital} atkinson-bold.ttf</li>
+						<li>${iconInterfaceElements.textCapital} atkinson-regular.ttf</li>
+						<li>${iconInterfaceElements.textCapital} OpenDyslexic3-Bold.ttf</li>
 						<li>${iconInterfaceElements.textCapital} OpenDyslexic3-Regular.ttf</li>
 						<li>${iconInterfaceElements.textCapital} product-sans-bold.ttf</li>
 						<li>${iconInterfaceElements.textCapital} product-sans-Regular.ttf</li>
@@ -1037,7 +1039,7 @@ const gettingstarted = {
 					</tr>
 				</thead>
 					<tr>
-						<td class="textBold">2.0.1</td>
+						<td class="textBold">2.0.1 - 2.0.3</td>
 						<td>No changes</td>
 					</tr>
 					<tr>
@@ -5802,6 +5804,15 @@ const visuals = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Fonts have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			<div id="pickerText"></div>
 			<h2>Documentation</h2>
@@ -5814,8 +5825,17 @@ const visuals = {
 			<p>The <code>font-weight</code> of all components can be overriden with Dynamic Type as well. There are 2 included font weights and these are not changable: Regular and Bold (Extra options for Light and Extra Bold exist in the Rebar CSS but are not presented in the Display Options component but can be used in a custom picker if you need). Each options corresponds to the same values for the <code>font-weight</code> CSS property.</p>
 			<p class="spacerTriple">Rebar comes with a Bold Text Picker in the form of Display Options. You can set up your own custom picker but it is not recommended.</p>
 
-			<h3>Open Dyslexic Font</h3>
-			<p>Rebar comes with Open Dyslexic 3, a font specifically designed to make it easier for Dyslexic users to read. A picker for this font is included in the Display Options and when set it will override ALL fonts of every component. You can set up your own custom picker but it is not recommended.</p>
+			<h3>Fonts</h3>
+			<p>Rebar comes with different fonts for Accessibility. Included are:</p>
+			<ul>
+				<li>System: The default font for the device</li>
+				<li>Open Dyslexic 3: For users with Dyslexia</li>
+				<li>Atkinson Hyperlegible: For users with low vision</li>
+			</ul>
+			<p class="spacerTriple">A picker for this font is included in the Display Options and when set it will override ALL fonts of every component. You can set up your own custom picker but it is not recommended.</p>
+		
+			<h3>OS Specific fonts</h3>
+			<p>By default when not using an accessible font Rebar will render text using <code>system-ui</code> which works well for every browser except Android. Chrome on Android will use Roboto for <code>system-ui</code> but this doesn't match Material You. To that end Rebar includes a copy of Product Sans and will use that when Android is set for <code>data-os</code>.</p>
 		</div>
 	`,
 	images: `
