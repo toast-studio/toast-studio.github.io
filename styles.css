@@ -1442,6 +1442,42 @@ footer .toast:hover {
     }
 }
 
+/* START PAGE REDIRECT */
+.startpageredirect-page {
+    background-repeat: no-repeat;
+    background-size: contain;
+    --background: #FFFFFF;
+    --main: #000000;
+    --tint: #4372FD;
+}
+
+@media (prefers-color-scheme: dark) {
+    .startpageredirect-page {
+        --background: #000000;
+        --main: #FFFFFF;
+    }
+}
+
+@media (min-width: 1200px) {
+    .startpageredirect-page .featuregrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.startpageredirect-page footer .toast {
+    background: url(/screen-sizes/images/toast.svg);
+}
+
+.startpageredirect-page footer .toast:hover {
+    background: url(/screen-sizes/images/toast-active.svg);
+}
+
+@media (prefers-color-scheme: dark) {
+    .startpageredirect-page footer .toast:hover {
+        background: url(/screen-sizes/images/toast-active-dark.svg);
+    }
+}
+
 .privacy-page {
     background-image: none;
 }
