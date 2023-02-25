@@ -534,6 +534,7 @@ footer .toast:hover {
                             "typedex"
                             "critterdex"
                             "clearread"
+                            "startpageredirect"
                             "linkbadges"
                             "empty";
 }
@@ -613,9 +614,9 @@ footer .toast:hover {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 460px 460px 460px 460px;
         grid-template-areas:    "screensizes simplescales"
-                                "lifecast clearread" 
+                                "lifecast linkbadges" 
                                 "typedex critterdex" 
-                                "linkbadges empty";
+                                "clearread startpageredirect";
     }
 
     .toast-page main aside {
@@ -1026,6 +1027,59 @@ footer .toast:hover {
     }
 
     .toast-page #clearread .promo {
+        width: 637px;
+        top: 60px;
+    }
+}
+
+.toast-page #startpageredirect {
+    grid-area: startpageredirect;
+}
+
+@media (min-width: 768px) {
+    .toast-page #startpageredirect h2 {
+        font-size: 40px;
+    }
+
+    .toast-page #startpageredirect h3 {
+        font-size: 18px;
+    }
+
+    .toast-page #startpageredirect div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .toast-page #startpageredirect aside {
+        position: absolute;
+        bottom: 20px;
+        width: 380px;
+        max-width: 90%;
+    }
+
+    .toast-page #startpageredirect .promo {
+        align-self: center;
+        position: absolute;
+        top: 6%;
+        max-width: 100%;
+        left: 0px;
+    }
+}
+
+@media (min-width: 1340px) {
+    .toast-page #startpageredirect h2 {
+        font-size: 50px;
+    }
+
+    .toast-page #startpageredirect h3 {
+        font-size: 24px;
+    }
+
+    .toast-page #startpageredirect aside {
+        bottom: 40px;
+    }
+
+    .toast-page #startpageredirect .promo {
         width: 637px;
         top: 60px;
     }
