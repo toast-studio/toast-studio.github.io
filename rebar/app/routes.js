@@ -202,7 +202,7 @@ function routecontrols(options) {
 						<h2 class="headerList">Buttons</h2>
 						<section class="containerSection excludePadding">
 							<button class="itemList rounded fixedIconSize" data-name="buttons" onclick='routecontrols({modifier: "buttons", navtype: "forwards"})'>
-								${iconShapes.rectangeHorizontalDoubleStroke}
+								${iconShapes.rectangleHorizontalDoubleStroke}
 								<div class="label">
 									<span>Buttons</span>
 								</div>
@@ -1076,6 +1076,8 @@ function routecharts(options) {
 						target: 'exampleChartGantt',
 						primaryLabel: 'Fruits',
 						images: true,
+						subtext: true,
+						badge: true,
 						direction: 'ascending',
 						columnTitles: [
 							{
@@ -1132,6 +1134,8 @@ function routecharts(options) {
 								name:'Watermelon',
 								key: 'watermelon',
 								image: 'app/images/fruits/watermelon.png',
+								subtext: 'Summer',
+								badge: '',
 								start: 1,
 								end: 3,
 							},
@@ -1139,6 +1143,8 @@ function routecharts(options) {
 								name:'Mandarin',
 								key: 'mandarin',
 								image: 'app/images/fruits/mandarin.png',
+								subtext: 'Autumn',
+								badge: '',
 								start: 2,
 								end: 6,
 							},
@@ -1146,6 +1152,8 @@ function routecharts(options) {
 								name:'Lemon',
 								key: 'lemon',
 								image: 'app/images/fruits/lemon.png',
+								subtext: 'Winter',
+								badge: '',
 								start: 7,
 								end: 9,
 							},
@@ -1153,6 +1161,8 @@ function routecharts(options) {
 								name:'Kiwi',
 								key: 'kiwi',
 								image: 'app/images/fruits/kiwi.png',
+								subtext: '',
+								badge: '<p class="containerBadge mini excludeMargin" data-type="warning">Harvest</p>',
 								start: 3,
 								end: 3,
 							},
@@ -1161,12 +1171,16 @@ function routecharts(options) {
 								key: 'cucumber',
 								image: 'app/images/fruits/cucumber.png',
 								start: 10,
+								subtext: '',
+								badge: '',
 								end: 12,
 							},
 							{
 								name:'Pineapple',
 								key: 'pineapple',
 								image: 'app/images/fruits/pineapple.png',
+								subtext: '',
+								badge: '<p class="containerBadge mini excludeMargin" data-type="positive">Plant</p>',
 								start: 5,
 								end: 11,
 							},
@@ -1174,6 +1188,8 @@ function routecharts(options) {
 								name:'Grapes',
 								key: 'grapes',
 								image: 'app/images/fruits/grapes.png',
+								subtext: '',
+								badge: '',
 								start: 4,
 								end: 8,
 							}
@@ -1572,27 +1588,27 @@ function routetabs(modifier) {
 	
 	switch (modifier) {
 		case "tabfirst":
-			$(`#contentAreaTabs1`).append(`
+			$(`#contentAreaTabs1`).empty().append(`
 				<h1 class="alwaysMain">${iconObjects.handsetLeadingFill}</h1>
 			`)
 			break;
 		case "tabsecond":
-			$(`#contentAreaTabs1`).append(`
+			$(`#contentAreaTabs1`).empty().append(`
 				<h1 class="alwaysMain">${iconHuman.userCircleFill}</h1>
 			`)
 			break;
 		case "tabthird":
-			$(`#contentAreaTabs1`).append(`
+			$(`#contentAreaTabs1`).empty().append(`
 				<h1 class="alwaysMain">${iconObjects.bagFill}</h1>
 			`)
 			break;
 		case "tabfourth":
-			$(`#contentAreaTabs1`).append(`
+			$(`#contentAreaTabs1`).empty().append(`
 				<h1 class="alwaysMain">${iconObjects.loupeFill}</h1>
 			`)
 			break;
 		case "tabfifth":
-			$(`#contentAreaTabs1`).append(`
+			$(`#contentAreaTabs1`).empty().append(`
 				<h1 class="alwaysMain"><img src="app/images/ui/sidebar1.png" /></h1>
 			`)
 			break;

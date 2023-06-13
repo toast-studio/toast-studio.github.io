@@ -1,4 +1,4 @@
-/* REBAR 2.0.3 */
+/* REBAR 2.1 */
 /* COPYRIGHT TOAST STUDIO */
 
 /* SETUP */
@@ -74,11 +74,6 @@
 	}
 	
 	@media (min-width: 640px) {
-		:root {
-			/* LAYOUT */
-			--tabbar-height: 55px;
-		}
-		
 		.alwaysVertical, 
 		[data-os="android"] .containerTabBar {
 			--tabbar-height: 80px;
@@ -655,6 +650,7 @@
 		margin-block-start: 0px;
 		overflow: auto;
 		font-size: var(--base-font-size);
+		tab-size: 4;
 	}
 	
 	[data-os="android"] pre {
@@ -1155,27 +1151,11 @@
 	}
 	
 	[data-os="windows"] .containerAside {
-		background: rgb(var(--background));
+		background: color-mix(in srgb, rgb(var(--accent)) 3%, rgb(var(--background)) );
 	}
 	
-	[data-os="android"] .containerAside::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--accent) / .05);
-		top: 0px;
-		left: 0px;
-	}
-	
-	[data-os="windows"] .containerAside::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--accent) / .03);
-		top: 0px;
-		left: 0px;
+	[data-os="android"] .containerAside {
+		background: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--foreground)) );
 	}
 	
 	.containerAside .containerToolbar  {
@@ -1211,28 +1191,16 @@
 		background: rgb(var(--background));
 	}
 	
-	body:is([data-os="macos"], [data-os="android"], [data-os="windows"]) .columnSecondary {
+	[data-os="macos"] .columnSecondary {
 		background: rgb(var(--foreground));
 	}
 	
-	[data-os="android"] .columnSecondary::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--accent) / .05);
-		top: 0px;
-		left: 0px;
+	[data-os="android"] .columnSecondary {
+		background: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--foreground)) );
 	}
 	
-	[data-os="windows"] .columnSecondary::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--accent) / .02);
-		top: 0px;
-		left: 0px;
+	[data-os="windows"] .columnSecondary {
+		background: color-mix(in srgb, rgb(var(--accent)) 2%, rgb(var(--foreground)) );
 	}
 	
 	.columnSecondary.active {
@@ -1263,24 +1231,12 @@
 		background: rgb(var(--foreground));
 	}
 	
-	[data-os="android"] main::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--accent) / .05);
-		top: 0px;
-		left: 0px;
+	[data-os="android"] main {
+		background: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--background)) );
 	}
 	
-	[data-os="windows"] main::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--accent) / .02);
-		top: 0px;
-		left: 0px;
+	[data-os="windows"] main {
+		background: color-mix(in srgb, rgb(var(--accent)) 2%, rgb(var(--foreground)) ) !important;
 	}
 	
 	main.active {
@@ -1816,6 +1772,14 @@
 	}
 	
 	/* TAB BARS */
+	.wrapperTabBar {
+		container-type: inline-size;
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		width: 100%;
+	}
+	
 	.containerTabBar {
 		border-block-start: 1px solid rgb(var(--divider));
 		position: absolute;
@@ -1828,6 +1792,12 @@
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
+	}
+	
+	@container (min-width: 640px) {
+		.containerTabBar {
+			--tabbar-height: 55px;
+		}
 	}
 	
 	[data-os="android"] .containerTabBar {
@@ -1853,24 +1823,16 @@
 		background: rgb(var(--background));
 	}
 	
-	[data-os="macos"] .containerTabBar::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--main) / .02);
+	[data-os="macos"] .containerTabBar {
+		background: color-mix(in srgb, rgb(var(--main)) 0.2%, rgb(var(--foreground)) );
 	}
 	
-	[data-os="macos"] .columnPrimary .containerTabBar::before {
+	[data-os="macos"] .columnPrimary .containerTabBar {
 		background: none;
 	}
 	
-	[data-os="android"] .containerTabBar::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--accent) / .1);
+	[data-os="android"] .containerTabBar {
+		background: color-mix(in srgb, rgb(var(--accent)) 10%, rgb(var(--foreground)) );
 	}
 	
 	[data-os="windows"] .columnPrimary .containerTabBar {
@@ -1903,19 +1865,15 @@
 		grid-template-columns: minmax(88px, auto) 1fr minmax(88px, auto);
 	}
 		
-	[data-os="macos"] .containerToolbar:not(.noBackground)::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--main) / .02);
-		z-index: -1;
-		left: 0px;
+	[data-os="macos"] .containerToolbar:not(.noBackground) {
+		background: color-mix(in srgb, rgb(var(--main)) 2%, rgb(var(--foreground)) );
 	}
 	
-	[data-os="macos"] .columnPrimary .containerToolbar:not(.noBackground)::before {
+	/*
+	[data-os="macos"] .columnPrimary .containerToolbar:not(.noBackground) {
 		background: none;
 	}
+	*/
 	
 	[data-os="android"] main .containerToolbar:not(.noBackground), 
 	[data-os="android"] main .containerAccessoryBar,
@@ -1934,14 +1892,12 @@
 		}
 	}
 	
-	[data-os="android"] .containerToolbar:not(.noBackground)::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--accent) / .05);
-		z-index: -1;
-		left: 0px;
+	[data-os="android"] .containerToolbar:not(.noBackground) {
+		background: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--background)) ) !important;
+	}
+	
+	[data-os="android"] .columnSecondary .containerToolbar:not(.noBackground) {
+		background: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--foreground)) ) !important;
 	}
 	
 	[data-os="windows"] .containerToolbar {
@@ -1956,21 +1912,15 @@
 		background: rgb(var(--systempanel));
 	}
 	
-	[data-os="windows"] .containerToolbar:not(.noBackground)::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--accent) / .02);
-		z-index: -1;
-		left: 0px;
+	[data-os="windows"] .containerToolbar:not(.noBackground) {
+		background: color-mix(in srgb, rgb(var(--accent)) 2%, rgb(var(--foreground)) );
 	}
 	
-	[data-os="windows"] .columnPrimary .containerToolbar::before {
+	[data-os="windows"] .columnPrimary .containerToolbar {
 		background: none;
 	}
 	
-	[data-os="windows"] dialog .containerToolbar::before {
+	[data-os="windows"] dialog .containerToolbar {
 		background: none !important;
 	}
 	
@@ -2120,45 +2070,31 @@
 		background: rgb(var(--background));
 	}
 	
-	[data-os="macos"] .containerAccessoryBar::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--main) / .02) !important;
-		z-index: 1;
-		left: 0px;
+	[data-os="macos"] .containerAccessoryBar {
+		background: color-mix(in srgb, rgb(var(--main)) 2%, rgb(var(--foreground)) );
 	}
 	
-	[data-os="macos"] .columnPrimary .containerAccessoryBar::before {
+	[data-os="macos"] .columnPrimary .containerAccessoryBar {
 		background: none !important;
 	}
 	
-	[data-os="android"] .containerAccessoryBar::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--accent) / .05) !important;
-		z-index: 1;
-		left: 0px;
+	[data-os="android"] .containerAccessoryBar {
+		background: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--background)) ) !important;
+	}
+	
+	[data-os="android"] .columnSecondary .containerAccessoryBar {
+		background: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--foreground)) ) !important;
 	}
 	
 	[data-os="windows"] .columnPrimary .containerAccessoryBar {
 		background: none;
 	}
 	
-	[data-os="windows"] .containerAccessoryBar::before {
-		content: '';
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		background: rgb(var(--accent) / .02) !important;
-		z-index: 1;
-		left: 0px;
+	[data-os="windows"] .containerAccessoryBar {
+		background: color-mix(in srgb, rgb(var(--accent)) 2%, rgb(var(--foreground)) );
 	}
 	
-	[data-os="windows"] .columnPrimary .containerAccessoryBar::before {
+	[data-os="windows"] .columnPrimary .containerAccessoryBar {
 		background: none !important;
 	}
 	
@@ -2503,6 +2439,7 @@
 			align-items: center;
 			width: 100%;
 			max-width: 700px;
+			container-type: inline-size;
 		}
 		
 		.containerTipJar img {
@@ -2522,13 +2459,23 @@
 			width: 100%;
 		}
 		
-		.containerTipJar.mini .containerButtons {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr)
+		.containerTipJar .containerButtons {
+			display: flex;
+			flex-direction: column;
+			
 		}
 		
-		.containerTipJar button {
-			min-width: 100%;
+		@container (min-width: 240px) {
+			.containerTipJar .containerButtons {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+		
+		.containerTipJar button, 
+		.containerTipJar a {
+			min-width: 100% !important;
+			width: 100%;
 			border: none !important;
 		}
 		
@@ -3284,8 +3231,8 @@
 				fill: white !important;
 			}
 			
-			@media (min-width: 640px) {
-				body:not([data-os="android"]) .containerTabBar:not(.alwaysVertical) button.tab {
+			@container (min-width: 640px) {
+				body:not([data-os="android"]) .containerTabBar button.tab {
 					flex-direction: row;
 					gap: calc(var(--base-gap-size) / 2);
 					align-items: center;
@@ -3293,8 +3240,8 @@
 					width: auto;
 				}
 				
-				.containerTabBar:not(.alwaysVertical) button.tab svg, 
-				.containerTabBar:not(.alwaysVertical) button.tab img {
+				.containerTabBar button.tab svg, 
+				.containerTabBar button.tab img {
 					margin-block-end: 0px;
 				}
 			}
@@ -3762,33 +3709,86 @@
 		
 	/* BADGES */
 		.containerBadge {
-			background: rgb(var(--main) / .1);
+			background: rgb(var(--accent));
 			border-radius: calc(var(--base-radius-size) * 20);
 			font-family: var(--font-rounded);
 			font-weight: bold;
 			font-size: calc(var(--base-font-size) * 0.8);
-			color: rgb(var(--main) / .5);
+			height: calc(var(--base-font-size) * 1.5);
+			padding-inline: calc(var(--base-font-size) / 1.3);
+			display: inline-block;
+			text-transform: uppercase;
+			color: white;
+		}
+		
+		.containerBadge.mini {
+			font-size: calc(var(--base-font-size) * 0.5);
+			height: calc(var(--base-font-size) * 1);
 			display: inline-flex;
 			justify-content: center;
 			align-items: center;
-			width: calc(var(--base-font-size) * 3);
-			height: calc(var(--base-font-size) * 1.5);
+			padding-inline: calc(var(--base-font-size) / 2);
 		}
 		
-		[data-contrast="more"] .containerBadge {
+		.containerBadge[data-type="destructive"] {
+			background: rgb(var(--destructive));
+			color: white;
+		}
+		
+		.containerBadge[data-type="warning"] {
+			background: rgb(var(--warning));
+			color: black;
+		}
+		
+		.containerBadge[data-type="positive"] {
+			background: rgb(var(--positive));
+			color: white;
+		}
+		
+		@media (prefers-color-scheme: dark) {
+			.containerBadge[data-type="positive"] {
+				color: black;
+			}
+			
+			[data-theme="light"] .containerBadge[data-type="positive"] {
+				color: white;
+			}
+		}
+		
+		[data-theme="dark"] .containerBadge[data-type="positive"] {
+			color: black;
+		}
+		
+		.containerBadge[data-type="info"] {
+			background: rgb(var(--info));
+			color: white;
+		}
+		
+		.containerBadge[data-type="grey"] {
+			background: rgb(var(--main) / .1);
+			color: rgb(var(--main) / .5);
+		}
+		
+		.containerBadge[data-type="sidebar"] {
+			width: calc(var(--base-font-size) * 3);
+			padding-inline: 0px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			color: rgb(var(--main) / .5);
+			background: rgb(var(--main) / .1);
+		}
+		
+		[data-contrast="more"] .containerBadge[data-type="sidebar"] {
 			background: rgb(var(--main));
 			color: rgb(var(--background));
 		}
 		
-		.picked .containerBadge {
+		.picked .containerBadge[data-type="sidebar"], 
+		.itemList.picked .containerBadge {
 			background: white;
 			color: rgb(var(--accent));
 		}
-		
-		.itemList.picked .containerBadge {
-			color: white;
-			background: rgb(var(--accent));
-	}
 	
 	/* SEGMENTED CONTROLS */
 		.controlSegmented {
@@ -3894,19 +3894,8 @@
 		
 		[data-os="android"] .contextContainerMenu {
 			border-radius: calc(var(--base-radius-size)  / 4);
-			background: rgb(var(--systempanel));
 			box-shadow: var(--shadow-tight);
-		}
-		
-		[data-os="android"] .contextContainerMenu::before {
-			content: '';
-			width: 100%;
-			height: 120%;
-			position: absolute;
-			background: rgb(var(--accent) / .1);
-			top: 0px;
-			left: 0px;
-			z-index: -1;
+			background: color-mix(in srgb, rgb(var(--accent)) 10%, rgb(var(--systempanel)) );
 		}
 		
 		.contextContainerMenu .group {
@@ -4880,27 +4869,11 @@
 	}
 	
 	[data-os="android"] table.data thead {
-		background: rgb(var(--background));
+		background: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--background)) );
 	}
 	
-	[data-os="android"] table.data thead::before {
-		content: '';
-		width: 100%;
-		height: calc(var(--base-font-size) * 2.4);
-		position: absolute;
-		background: rgb(var(--accent) / .05);
-		z-index: -1;
-		left: 0px;
-	}
-	
-	[data-os="windows"] table.data thead::before {
-		content: '';
-		width: 100%;
-		height: calc(var(--base-font-size) * 2.3);
-		position: absolute;
-		background: rgb(var(--accent) / .03);
-		z-index: -1;
-		left: 0px;
+	[data-os="windows"] table.data thead {
+		background: color-mix(in srgb, rgb(var(--accent)) 3%, rgb(var(--foreground)) );
 	}
 	
 	td, th {
@@ -5162,6 +5135,13 @@
 			padding-block-end: max(var(--base-gap-size), env(safe-area-inset-bottom));
 			padding-inline-start: max(var(--base-gap-size), env(safe-area-inset-left));
 			padding-inline-end: max(var(--base-gap-size), env(safe-area-inset-right));
+			-webkit-backdrop-filter: saturate(0);
+			backdrop-filter: saturate(0);
+		}
+		
+		dialog[open][data-type="toast"]::backdrop {
+			-webkit-backdrop-filter: saturate(1);
+			backdrop-filter: saturate(1);
 		}
 		
 		dialog[open].hide::backdrop {
@@ -5249,15 +5229,8 @@
 			position: revert;
 		}
 		
-		[data-os="android"] dialog[data-type="fullsheet"]::before {
-			content: '';
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			background: rgb(var(--accent) / .05);
-			top: 0px;
-			left: 0px;
-			z-index: -1;
+		[data-os="android"] dialog[data-type="fullsheet"] {
+			background: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--background)) );
 		}
 		
 		[data-os="macos"] dialog[data-type="fullsheet"] {
@@ -5331,15 +5304,8 @@
 			background: rgb(var(--foreground));
 		}
 		
-		[data-os="android"] dialog[data-type="halfsheet"]::before {
-			content: '';
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			background: rgb(var(--accent) / .05);
-			top: 0px;
-			left: 0px;
-			z-index: -1;
+		[data-os="android"] dialog[data-type="halfsheet"] {
+			background: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--background)) );
 		}
 		
 		[data-os="windows"] dialog[data-type="halfsheet"] {
@@ -5384,15 +5350,8 @@
 			background: rgb(var(--foreground));
 		}
 		
-		[data-os="android"] dialog[data-type="smallsheet"]::before {
-			content: '';
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			background: rgb(var(--accent) / .05);
-			top: 0px;
-			left: 0px;
-			z-index: -1;
+		[data-os="android"] dialog[data-type="smallsheet"] {
+			background: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--background)) );
 		}
 		
 		[data-os="windows"] dialog[data-type="smallsheet"] {
@@ -5444,15 +5403,8 @@
 			background: rgb(var(--systempanel));
 		}
 		
-		[data-os="android"] dialog[data-type="alert"]::before {
-			content: '';
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			background: rgb(var(--accent) / .05);
-			top: 0px;
-			left: 0px;
-			z-index: -1;
+		[data-os="android"] dialog[data-type="alert"] {
+			background: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--background)) );
 		}
 		
 		[data-os="windows"] dialog[data-type="alert"] {
@@ -5844,35 +5796,13 @@
 		[data-os="android"] .chartGantt tr th:nth-child(1) {
 			border-inline-end: 1px solid rgb(var(--main) / .1);
 			position: sticky;
-		}
-		
-		[data-os="android"] .chartGantt tr td:nth-child(1)::before, 
-		[data-os="android"] .chartGantt tr th:nth-child(1)::before {
-			content: '';
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			background: rgb(var(--accent) / .1);
-			top: 0px;
-			left: 0px;
-			z-index: 1;
+			background: color-mix(in srgb, rgb(var(--accent)) 10%, rgb(var(--background)) );
 		}
 		
 		[data-os="windows"] .chartGantt tr td:nth-child(1), 
 		[data-os="windows"] .chartGantt tr th:nth-child(1) {
 			position: sticky;
-		}
-		
-		[data-os="windows"] .chartGantt tr td:nth-child(1)::before, 
-		[data-os="windows"] .chartGantt tr th:nth-child(1)::before {
-			content: '';
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			background: rgb(var(--accent) / .03);
-			top: 0px;
-			left: 0px;
-			z-index: 1;
+			background: color-mix(in srgb, rgb(var(--accent)) 3%, rgb(var(--background)) );
 		}
 		
 		.fullWidth .chartGantt tr td:nth-child(1),

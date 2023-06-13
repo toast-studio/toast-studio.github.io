@@ -283,6 +283,48 @@ const gettingstarted = {
 			<div class="containerAccordion hideOverflow spacerSingle">
 				<div class="headerAccordion headerSection">
 					<span>
+						<h3>2.1</h3>
+						<p class="subtext excludeMargin">13 June 2023</p>
+					</span>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<section class="containerSection">
+							${
+								insertBanner({
+									type: 'warning',
+									content: 'This version includes breaking changes for Tab Bars and the Inital Route Loader',
+									icon: false,
+									size: "large",
+								})
+							}
+							
+							<ul class="excludeMargin">
+								<li>Tab Bars now use Container Queries to define their responsive layout</li>
+								<li>Tab Bars must now be wrapped in a <code>.wrapperTabBar</code> div</li>
+								<li>The <code>.alwaysVertical</code> class has been deprecated</li>
+								<li>The backdrop on modals now desaturates the background</li>
+								<li>The buttons on the Tip Jar no longer break on small screens</li>
+								<li>Updated the How to Install Sheet with the changes in iOS and iPadOS 16.4</li>
+								<li>Fixed the Inital Route Loader so it wont break when it encounters a URL with no matching function</li>
+								<li><code>pre</code> tags now have a more appropriate size for <code>tab</code> characters</li>
+								<li>Larger iPads now use the correct styles</li>
+								<li>Updated the Android and Windows styles to use <code>color-mix()</code>
+								<li>Expanded the styles for Badges so they can be used in more places</li>
+								<li>Updated Gantt charts so the primary column can include subtext and badges</li>
+								<li>Added Large Horizontal Rectangle, Clock with Notification Badge, Corner Complication, Widget, L/M/S/XL Square Indicies, and Apple Vision Pro icons</li>
+								<li>Corrected a spelling error with the rectangle icons</li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</div>
+		
+		
+			<div class="containerAccordion hideOverflow spacerSingle">
+				<div class="headerAccordion headerSection">
+					<span>
 						<h3>2.0.3</h3>
 						<p class="subtext excludeMargin">30 January 2023</p>
 					</span>
@@ -1028,7 +1070,7 @@ const gettingstarted = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
-			<p>These requirements are based on needing to support <code>min()</code>, <code>max()</code>, <code>minmax()</code>, <code>clamp()</code>, <code>env()</code>, <code>aspect-ratio</code>, <code>dialog</code>, <code>@layer</code>, and <code>scrollbar-gutter</code>.</p>
+			<p>These requirements are based on needing to support <code>min()</code>, <code>max()</code>, <code>minmax()</code>, <code>clamp()</code>, <code>env()</code>, <code>aspect-ratio</code>, <code>dialog</code>, <code>@layer</code>, <code>scrollbar-gutter</code>, <code>@container</code>, and <code>color-mix()</code>.</p>
 			<p>For this reason (among many others) no version of Internet Explorer is supported. The minimum requirements for any Rebar app are:</p>
 			
 			<table class="definitions">
@@ -1039,6 +1081,20 @@ const gettingstarted = {
 					</tr>
 				</thead>
 					<tr>
+						<td class="textBold">2.1</td>
+						<td>
+							<p class="subtext">Increased because of <code>@container</code> and <code>color-mix()</code></p>
+							<ul class="excludeMargin">
+								<li>jQuery 3.6.4</li>
+								<li>Chrome 106</li>
+								<li>Edge 106</li>
+								<li>Firefox 113</li>
+								<li>Safari 16</li>
+								<li>Opera 94</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
 						<td class="textBold">2.0.1 - 2.0.3</td>
 						<td>No changes</td>
 					</tr>
@@ -1048,9 +1104,9 @@ const gettingstarted = {
 							<p class="subtext">Increased because of <code>dialog</code>, <code>@layer</code>, and <code>scrollbar-gutter</code>.</p>
 							<ul class="excludeMargin">
 								<li>jQuery 3.6.1</li>
+								<li>Chrome 99</li>
 								<li>Edge 99</li>
 								<li>Firefox 98</li>
-								<li>Chrome 99</li>
 								<li>Safari 15.4</li>
 								<li>Opera 86</li>
 							</ul>
@@ -1066,9 +1122,9 @@ const gettingstarted = {
 							<p class="subtext">Increased because of <code>aspect-ratio</code>.</p>
 							<ul class="excludeMargin">
 								<li>jQuery 3.6.0</li>
+								<li>Chrome 88</li>
 								<li>Edge 88</li>
 								<li>Firefox 89</li>
-								<li>Chrome 88</li>
 								<li>Safari 15</li>
 								<li>Opera 74</li>
 							</ul>
@@ -1079,9 +1135,9 @@ const gettingstarted = {
 						<td>
 							<ul class="excludeMargin">
 								<li>jQuery 3.6.0</li>
+								<li>Chrome 79</li>
 								<li>Edge 79</li>
 								<li>Firefox 75</li>
-								<li>Chrome 79</li>
 								<li>Safari 13</li>
 								<li>Opera 66</li>
 							</ul>
@@ -1332,7 +1388,7 @@ const controls = {
 						${iconNature.sunStroke}
 						Standard
 					</div>
-					<div class="containerBadge">14</div>
+					<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
 				</button>
 				<br><br>
 				<button class="sidebar picked">
@@ -1340,7 +1396,7 @@ const controls = {
 						${iconNature.sunStroke}
 						Picked
 					</div>
-					<div class="containerBadge">14</div>
+					<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
 				</button>
 				<br><br>
 				<button class="sidebar useInitialFill">
@@ -1348,7 +1404,7 @@ const controls = {
 						${iconObjects.compassMulti}
 						Use Initial Fill
 					</div>
-					<div class="containerBadge">14</div>
+					<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
 				</button>
 				<br><br>
 				<button class="sidebar picked useInitialFill">
@@ -1356,7 +1412,7 @@ const controls = {
 						${iconObjects.compassMulti}
 						Use Initial Fill
 					</div>
-					<div class="containerBadge">14</div>
+					<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
 				</button>
 			</section>
 			
@@ -1370,7 +1426,7 @@ const controls = {
 		&#36;{icon}
 		Standard
 	&lt;/div&gt;
-	&lt;div class="containerBadge"&gt;&lt;/div&gt;
+	&lt;p class="containerBadge excludeMargin" data-type="sidebar"&gt;XXX&lt;/p&gt;
 &lt;/button&gt;
 </pre>
 		</div>
@@ -1514,15 +1570,66 @@ const controls = {
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<h2>Examples</h2>
-			<section class="containerSection">
-				<div class="containerBadge">14</div>
-				<br><br>
-				<div class="picked">
-					<div class="containerBadge">14</div>
-				</div>
-			</section>
+			<table class="definitions spacerTriple">
+			<tbody>
+				<tr>
+					<td>Accent</td>
+					<td>
+						<p class="containerBadge excludeMargin">Large</p>
+						<p class="containerBadge excludeMargin mini">Mini</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Positive</td>
+					<td>
+						<p class="containerBadge excludeMargin" data-type="positive">Large</p>
+						<p class="containerBadge excludeMargin mini" data-type="positive">Mini</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Destructive</td>
+					<td>
+						<p class="containerBadge excludeMargin" data-type="destructive">Large</p>
+						<p class="containerBadge excludeMargin mini" data-type="destructive">Mini</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Warning</td>
+					<td>
+						<p class="containerBadge excludeMargin" data-type="warning">Large</p>
+						<p class="containerBadge excludeMargin mini" data-type="warning">Mini</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Info</td>
+					<td>
+						<p class="containerBadge excludeMargin" data-type="info">Large</p>
+						<p class="containerBadge excludeMargin mini" data-type="info">Mini</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Grey</td>
+					<td>
+						<p class="containerBadge excludeMargin" data-type="grey">Large</p>
+						<p class="containerBadge excludeMargin mini" data-type="grey">Mini</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Sidebar</td>
+					<td>
+						<p class="containerBadge excludeMargin" data-type="sidebar">24</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Sidebar Picked</td>
+					<td class="picked">
+						<p class="containerBadge excludeMargin" data-type="sidebar">24</p>
+					</td>
+				</tr>
+			</table>
+			
 			<h2>Documentation</h2>
-			<p>Badges are used with Sidebar Items and List Items to denote a numerical value for that item. While you could include text, it's not recommended.</p>
+			<p>Badges are used to denote the status of an element or with Sidebar Items and List Items to denote a numerical value for that item. It's not recommended to include text when badges are used in Sidebars or Lists.</p>
 		</div>
 	`,
 	segmenteditems: `
@@ -3052,20 +3159,24 @@ function routetop(options) {
 			<h4 class="h6">controllerRoute()</h4>
 <pre class="spacerDouble">
 let url = grabURLParameter()
+const routeFunction = window["route" + url.query];
 	
-if (url.query == "") {
+if (typeof routeFunction === "function") {
+	//LOAD ROUTE IN URL
+	routeFunction({modifier: url.source, navtype: "deeplink"});
+} else {
+	//LOAD DEFAULT ROUTES
 	//SMALL SCREENS
 	if (window.matchMedia("(max-width: 1099px)").matches) {
+		//LEVEL 1
 		routesidebar({modifier: false, navtype: "deeplink"})
 	}
 	
 	//LARGE SCREENS
 	if (window.matchMedia("(min-width: 1100px)").matches) {
-		routepreferred({modifier: "name", navtype: "deeplink"})
+		//LEVEL 3
+		routegettingstarted({modifier: "welcome", navtype: "deeplink"})
 	}
-} else {
-	//LOAD ROUTE FROM URL
-	window["route" + url.query]({modifier: url.source, navtype: "deeplink"})
 }
 </pre>	
 		
@@ -3201,14 +3312,14 @@ if (url.query == "") {
 									${iconNature.sunStroke}
 									Picked Item
 								</div>
-								<div class="containerBadge">120</div>
+								<p class="containerBadge excludeMargin" data-type="sidebar">120</p>
 							</button>
 							<button class="sidebar" data-value="unpickedItem">
 								<div class="labelSidebar">
 									${iconNature.moonLeftStroke}
 									Unpicked Item
 								</div>
-								<div class="containerBadge">14</div>
+								<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
 							</button>
 						</section>
 						<div class="headerAccordion active">
@@ -3279,14 +3390,14 @@ if (url.query == "") {
 									${iconNature.sunStroke}
 									Picked Item
 								</div>
-								<div class="containerBadge">120</div>
+								<p class="containerBadge excludeMargin" data-type="sidebar">120</p>
 							</button>
 							<button class="sidebar" data-value="unpickedItem">
 								<div class="labelSidebar">
 									${iconNature.moonLeftStroke}
 									Unpicked Item
 								</div>
-								<div class="containerBadge">14</div>
+								<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
 							</button>
 						</section>
 						<div class="headerAccordion active">
@@ -4228,85 +4339,48 @@ toolbarVisibility({
 			}
 		
 			<h2>Examples</h2>
-			<h3 class="h6">Standard</h3>
+			<h3 class="h6">Tab Bar</h3>
 			<div class="containerGeneric excludePadding" id="exampleTabBar1">
-				<footer class="containerTabBar" id="tabBar1">
-					<button class="tab" data-name="tabfirst" onclick="routetabs('tabfirst')">
-						<div class="wrapper">
-							${iconObjects.handsetLeadingFill}
-						</div>
-						First
-					</button>
-					<button class="tab" data-name="tabsecond" onclick="routetabs('tabsecond')">
-						<div class="wrapper">
-							${iconHuman.userCircleFill}
-						</div>
-						Second
-					</button>
-					<button class="tab" data-name="tabthird" onclick="routetabs('tabthird')">
-						<div class="wrapper">
-							${iconObjects.bagFill}
-						</div>
-						Third
-					</button>
-					<button class="tab" data-name="tabfourth" onclick="routetabs('tabfourth')">
-						<div class="wrapper">
-							${iconObjects.loupeFill}
-						</div>
-						Fourth
-					</button>
-					<button class="tab" data-name="tabfifth" onclick="routetabs('tabfifth')">
-						<div class="wrapper">
-							<img src="app/images/ui/sidebar1.png" />
-						</div>
-						Fifth
-					</button>
-				</footer>
-				<div class="paddingContentTight" id="contentAreaTabs1">
-					
+				<div class="wrapperTabBar">
+					<footer class="containerTabBar" id="tabBar1">
+						<button class="tab" data-name="tabfirst" onclick="routetabs('tabfirst')">
+							<div class="wrapper">
+								${iconObjects.handsetLeadingFill}
+							</div>
+							First
+						</button>
+						<button class="tab" data-name="tabsecond" onclick="routetabs('tabsecond')">
+							<div class="wrapper">
+								${iconHuman.userCircleFill}
+							</div>
+							Second
+						</button>
+						<button class="tab" data-name="tabthird" onclick="routetabs('tabthird')">
+							<div class="wrapper">
+								${iconObjects.bagFill}
+							</div>
+							Third
+						</button>
+						<button class="tab" data-name="tabfourth" onclick="routetabs('tabfourth')">
+							<div class="wrapper">
+								${iconObjects.loupeFill}
+							</div>
+							Fourth
+						</button>
+						<button class="tab" data-name="tabfifth" onclick="routetabs('tabfifth')">
+							<div class="wrapper">
+								<img src="app/images/ui/sidebar1.png" />
+							</div>
+							Fifth
+						</button>
+					</footer>
 				</div>
-			</div>
-			
-			<h3 class="h6">Always Vertical</h3>
-			<div class="containerGeneric excludePadding" id="exampleTabBar1">
-				<footer class="containerTabBar alwaysVertical" id="tabBar1">
-					<button class="tab" data-name="tabfirst" onclick="routetabs('tabfirst')">
-						<div class="wrapper">
-							${iconObjects.handsetLeadingFill}
-						</div>
-						First
-					</button>
-					<button class="tab" data-name="tabsecond" onclick="routetabs('tabsecond')">
-						<div class="wrapper">
-							${iconHuman.userCircleFill}
-						</div>
-						Second
-					</button>
-					<button class="tab" data-name="tabthird" onclick="routetabs('tabthird')">
-						<div class="wrapper">
-							${iconObjects.bagFill}
-						</div>
-						Third
-					</button>
-					<button class="tab" data-name="tabfourth" onclick="routetabs('tabfourth')">
-						<div class="wrapper">
-							${iconObjects.loupeFill}
-						</div>
-						Fourth
-					</button>
-					<button class="tab" data-name="tabfifth" onclick="routetabs('tabfifth')">
-						<div class="wrapper">
-							<img src="app/images/ui/sidebar1.png" />
-						</div>
-						Fifth
-					</button>
-				</footer>
 				<div class="paddingContentTight" id="contentAreaTabs1">
 					
 				</div>
 			</div>
 
-			<h3 class="h6">Using Segmented Control</h3>
+			<h3 class="h6">Segmented Control</h3>
 			<div class="containerGeneric" id="exampleTabBar2">
 				<div class="controlSegmented display" id="tabBar2">
 					<button class="segment" data-name="segmentfirst" onclick="routesegment('segmentfirst')">First</button>
@@ -4332,26 +4406,28 @@ toolbarVisibility({
 			
 			<h4 class="h6">Template</h4>
 <pre class="spacerTriple">
-&lt;footer class="containerTabBar" id=""&gt;
-	&lt;button class="tab" data-name="" onclick="routename('modifier')"&gt;
-		&lt;div class="wrapper"&gt;
-			&lt;svg&gt;&lt;/svg&gt;
-		&lt;/div&gt;
-		Label
-	&lt;/button&gt;
-	&lt;button class="tab" data-name="" onclick="routename('modifier')"&gt;
-		&lt;div class="wrapper"&gt;
-			&lt;svg&gt;&lt;/svg&gt;
-		&lt;/div&gt;
-		Label
-	&lt;/button&gt;
-	&lt;button class="tab" data-name="" onclick="routename('modifier')"&gt;
-		&lt;div class="wrapper"&gt;
-			&lt;svg&gt;&lt;/svg&gt;
-		&lt;/div&gt;
-		Label
-	&lt;/button&gt;
-&lt;/footer&gt;
+&lt;div class="wrapperTabBar"&gt;
+	&lt;footer class="containerTabBar" id=""&gt;
+		&lt;button class="tab" data-name="" onclick="routename('modifier')"&gt;
+			&lt;div class="wrapper"&gt;
+				&lt;svg&gt;&lt;/svg&gt;
+			&lt;/div&gt;
+			Label
+		&lt;/button&gt;
+		&lt;button class="tab" data-name="" onclick="routename('modifier')"&gt;
+			&lt;div class="wrapper"&gt;
+				&lt;svg&gt;&lt;/svg&gt;
+			&lt;/div&gt;
+			Label
+		&lt;/button&gt;
+		&lt;button class="tab" data-name="" onclick="routename('modifier')"&gt;
+			&lt;div class="wrapper"&gt;
+				&lt;svg&gt;&lt;/svg&gt;
+			&lt;/div&gt;
+			Label
+		&lt;/button&gt;
+	&lt;/footer&gt;
+&lt;/div&gt;
 </pre>
 			
 			<h3>Functions</h3>
@@ -4359,7 +4435,6 @@ toolbarVisibility({
 			
 			<h3>CSS</h3>
 			<p>Tab Bars can use the <code>translucent</code> class to make the background of the bar translucent if required. The other styling class available to you is the <code>picked</code> class which sets the style of the picked tab.</p>
-			<p>If you need for the layout of the Tab Bar Items to stay vertical on larger screens you can add the <code>alwaysVertical</code> class to the <code>containerTabBar</code> container.</p>
 		</div>
 	`,
 	scrollviews: `
@@ -6824,11 +6899,19 @@ const charts = {
 					</tr>
 					<tr>
 						<td><code>primaryLabel</code></td>
-						<td>This string will be used to label the initial column.</td>
+						<td>This string will be used to label the primary column.</td>
 					</tr>
 					<tr>
 						<td><code>images</code></td>
-						<td>A true or false toggle for display images in the initial column.</td>
+						<td>A <code>true</code> or <code>false</code> toggle for display images in the primary column.</td>
+					</tr>
+					<tr>
+						<td><code>subtext</code></td>
+						<td>A <code>true</code> or <code>false</code> toggle for displaying subtext in the primary column.</td>
+					</tr>
+					<tr>
+						<td><code>badge</code></td>
+						<td>A <code>true</code> or <code>false</code> toggle for display a badge in the primary column.</td>
 					</tr>
 					<tr>
 						<td><code>direction</code></td>
@@ -6840,7 +6923,7 @@ const charts = {
 					</tr>
 					<tr>
 						<td><code>data</code></td>
-						<td>An array of objects where each object contains a name string, a key string, a start value, and an end value. A string for an image URL can also be included. The name, key, and image will be used in the initial cell of the row. The start and end values will be used to generate the bar for the row.</td>
+						<td>An array of objects where each object contains a name string, a key string, a start value, and an end value. A string for an image URL can also be included. The name, key, and image will be used in the primary cell of the row. The start and end values will be used to generate the bar for the row.</td>
 					</tr>
 				</tbody>
 			</table>

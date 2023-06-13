@@ -1,21 +1,23 @@
 $(document).ready(function(){
 	let url = grabURLParameter()
-		
-	if (url.query == "") {
+	const routeFunction = window["route" + url.query];
+	
+	if (typeof routeFunction === "function") {
+		//LOAD ROUTE IN URL
+		routeFunction({modifier: url.source, navtype: "deeplink"});
+	} else {
+		//LOAD DEFAULT ROUTES
 		//SMALL SCREENS
 		if (window.matchMedia("(max-width: 1099px)").matches) {
-			//LOAD LEVEL 1
+			//LEVEL 1
 			routesidebar({modifier: false, navtype: "deeplink"})
 		}
 		
 		//LARGE SCREENS
 		if (window.matchMedia("(min-width: 1100px)").matches) {
-			//LOAD LEVEL 3
+			//LEVEL 3
 			routegettingstarted({modifier: "welcome", navtype: "deeplink"})
 		}
-	} else {
-		//LOAD ROUTE FROM URL
-		window["route" + url.query]({modifier: url.source, navtype: "deeplink"})
 	}
 });
 

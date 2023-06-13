@@ -1,4 +1,4 @@
-//REBAR 2.0.3
+//REBAR 2.1
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -53,7 +53,8 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 							</div>
 						</section>
 					</div>
-					<p class="subtext">The option to Save to Home Screen is only available in Safari on iPhone and iPad. It is not available through in-app browsers or other browser apps. If you have any issues please contact <a href="mailto:${appEmail}?subject=Help%20with%20installing%20${appName}">Support</a>.</p>
+					<p class="subtext">The option to Save to Home Screen is available in Safari (any version) and other 3rd party browsers (iOS and iPadOS 16.4 onwards). It is not available through in-app browsers and 3rd party browser availability may vary.</p>
+					<p class="subtext">If you have any issues please contact <a href="mailto:${appEmail}?subject=Help%20with%20installing%20${appName}">Support</a>.</p>
 				</div>
 			`,
 		})
@@ -240,7 +241,12 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		os = null;
 	
 		if (macosPlatforms.indexOf(platform) !== -1) {
-			os = 'macos';
+			let isRunningOnMobileSafari = CSS.supports("-webkit-touch-callout", "inherit");
+			if (isRunningOnMobileSafari == true) {
+				os = 'ios';
+			} else {
+				os = 'macos';
+			}
 		} else if (iosPlatforms.indexOf(platform) !== -1) {
 			os = 'ios';
 		} else if (windowsPlatforms.indexOf(platform) !== -1) {
@@ -1710,7 +1716,14 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 				//APPEND ROW
 					$(`#${options.target} tbody`).append(`
 						<tr class="row" data-row="${currentID}" data-rowid="${currentData.key}" style="grid-template-columns: 280px repeat(${options.columnTitles.length}, 100px);">
-							<td data-id="${currentData.key}">${options.images ? `<img src="${currentData.image}" width="50" height="50" /> ` : ``}${currentData.name}</td>
+							<td data-id="${currentData.key}">
+								${options.images ? `<img src="${currentData.image}" width="50" height="50" /> ` : ``}
+								<div>
+									${currentData.name} 
+									${options.subtext ? `<p class="subtext excludeMargin">${currentData.subtext}</p>` : ``} 
+									${options.badge ? `${currentData.badge}` : ``}
+								</div>
+							</td>
 						</tr>
 					`);
 				
