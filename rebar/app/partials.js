@@ -111,8 +111,20 @@ const gettingstarted = {
 						<li>${iconObjects.photoLandscapeStroke} arrow-forward-light.svg</li>
 						<li>${iconObjects.photoLandscapeStroke} tick-dark.svg</li>
 						<li>${iconObjects.photoLandscapeStroke} tick-light.svg</li>
-						<li>${iconObjects.photoLandscapeStroke} tips.png</li>
-						<li>${iconObjects.photoLandscapeStroke} tips@2x.png</li>
+						<li>${iconObjects.photoLandscapeStroke} browser-brave.webp</li>
+						<li>${iconObjects.photoLandscapeStroke} browser-brave@2x.webp</li>
+						<li>${iconObjects.photoLandscapeStroke} browser-chrome.webp</li>
+						<li>${iconObjects.photoLandscapeStroke} browser-chrome@2x.webp</li>
+						<li>${iconObjects.photoLandscapeStroke} browser-edge.webp</li>
+						<li>${iconObjects.photoLandscapeStroke} browser-edge@2x.webp</li>
+						<li>${iconObjects.photoLandscapeStroke} browser-firefox.webp</li>
+						<li>${iconObjects.photoLandscapeStroke} browser-firefox@2x.webp</li>
+						<li>${iconObjects.photoLandscapeStroke} browser-safari.webp</li>
+						<li>${iconObjects.photoLandscapeStroke} browser-safari@2x.webp</li>
+						<li>${iconObjects.photoLandscapeStroke} browser-samsunginternet.webp</li>
+						<li>${iconObjects.photoLandscapeStroke} browser-samsunginternet@2x.webp</li>
+						<li>${iconObjects.photoLandscapeStroke} tips.webp</li>
+						<li>${iconObjects.photoLandscapeStroke} tips@2x.webp</li>
 					</ul>
 					<li>${iconObjects.fileFill} jquery.tablesorter.js</li>
 					<li>${iconObjects.fileFill} rebar.css</li>
@@ -284,7 +296,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.1</h3>
-						<p class="subtext excludeMargin">13 June 2023</p>
+						<p class="subtext excludeMargin">19 June 2023</p>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -294,7 +306,7 @@ const gettingstarted = {
 							${
 								insertBanner({
 									type: 'warning',
-									content: 'This version includes breaking changes for Tab Bars and the Inital Route Loader',
+									content: 'This version includes breaking changes for Tab Bars, the Inital Route Loader, Service Worker Cache list, and the Search function',
 									icon: false,
 									size: "large",
 								})
@@ -313,8 +325,11 @@ const gettingstarted = {
 								<li>Updated the Android and Windows styles to use <code>color-mix()</code>
 								<li>Expanded the styles for Badges so they can be used in more places</li>
 								<li>Updated Gantt charts so the primary column can include subtext and badges</li>
-								<li>Added Large Horizontal Rectangle, Clock with Notification Badge, Corner Complication, Widget, L/M/S/XL Square Indicies, and Apple Vision Pro icons</li>
+								<li>Added Large Horizontal Rectangle, Clock with Notification Badge, Corner Complication, Widget, L/M/S/XL Square Indicies, Apple Vision Pro, Chrome Desktop Install, Chrome Mobile Install, Edge Mobile Install, Firefox Mobile Install, Brave Mobile Install, Single Down Arrow Fill, and Horizontal Rounded Rectangle Ellipses icons</li>
 								<li>Corrected a spelling error with the rectangle icons</li>
+								<li>Updated the Tips image to WebP (this requires updating the default Service Worker cache list)</li>
+								<li>The toast for installing a Rebar app is no longer constricted to Mobile Safari and will run on all browsers</li>
+								<li>Search now displays a blank state when no results are found</li>
 							</ul>
 						</section>
 					</div>
@@ -2734,6 +2749,14 @@ $(document).on('click', '.switch[data-setting=""]', function() {
 						<td><code>clearButton</td>
 						<td>This is for the Clear Search button and should only ever be set to <code>this</code>.</td>
 					</tr>
+					<tr>
+						<td><code>emptyIcon</td>
+						<td>The icon to display in the Blank State when no results are found. It should be a Rebar icon.</td>
+					</tr>
+					<tr>
+						<td><code>emptyMessage</td>
+						<td>The text to display in the Blank State when no results are found.</td>
+					</tr>
 				</tbody>
 			</table>
 			
@@ -2742,7 +2765,9 @@ search({
 	inputID: "",
 	parentID: "",
 	itemClass: "",
-	valueClass: ""
+	valueClass: "",
+	emptyIcon: ,
+	emptyMessage: "",
 })
 
 $(document).on('click', '.buttonClearSearch', function() {
@@ -5649,23 +5674,9 @@ let shortcutKeys = {
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<h2>Examples</h2>
-			<table class="examples spacerTriple">
-				<thead>
-					<tr>
-						<th>Types</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Show Install Banner</td>
-						<td><button onclick="summonInstallBanner()">View</button></td>
-					</tr>
-					<tr>
-						<td>Reset Local Storage</td>
-						<td><button class="secondary" onclick="resetInstallBanner()">Reset</button></td>
-					</tr>
-				</tbody>
-			</table>
+			${generateInstallPanel()}
+			
+			<button class="secondary spacerTriple" onclick="resetInstallBanner()">Reset Local Storage</button>
 			
 			<h2>Documentation</h2>
 			<p>The Install Banner is a Toast that will automatically show on first run in Mobile Safari while not running in <code>Standalone</code> mode. When tapped it will bring up a Half Sheet explaining how to install your app. The reason the Install Banner only shows in this narrow context is Mobile Safari has the capability to install PWAs but does not offer any UI to prompt the user to install whereas other browsers do.</p>
@@ -5936,7 +5947,13 @@ const visuals = {
 			<img src="rebar/images/arrow-back-light.svg" />
 			<img src="rebar/images/arrow-forward-dark.svg" />
 			<img src="rebar/images/arrow-forward-light.svg" />
-			<img src="rebar/images/tips.png" srcset="rebar/images/tips@2x.png 2x" />
+			<img src="rebar/images/tips.webp" srcset="rebar/images/tips@2x.webp 2x" />
+			<img src="rebar/images/browser-brave.webp" srcset="rebar/images/browser-brave@2x.webp 2x" />
+			<img src="rebar/images/browser-chrome.webp" srcset="rebar/images/browser-chrome@2x.webp 2x" />
+			<img src="rebar/images/browser-edge.webp" srcset="rebar/images/browser-edge@2x.webp 2x" />
+			<img src="rebar/images/browser-firefox.webp" srcset="rebar/images/browser-firefox@2x.webp 2x" />
+			<img src="rebar/images/browser-safari.webp" srcset="rebar/images/browser-safari@2x.webp 2x" />
+			<img src="rebar/images/browser-samsunginternet.webp" srcset="rebar/images/browser-samsunginternet@2x.webp 2x" />
 		</div>
 	`,
 	displayoptions: `

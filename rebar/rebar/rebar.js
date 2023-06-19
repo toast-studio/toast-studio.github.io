@@ -19,45 +19,504 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	
 	function summonHowToInstallSheet() {
 		summonSheet({
-			type: "smallsheet",
+			type: "fullsheet",
 			backing: "dark",
 			theme: false,
 			id: "sheetInstall",
 			content: `
 				<button class="translucent xclose" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
-				<div class="scrollview">
-					<p class="excludeMargin textAlignCenter"><img src="icon.png" width="120" /></p>
-					<p class="textAlignCenter">${appName} can be installed to your Home Screen. It will launch like any other app and work offline.</p>
-					<div class="containerItemList inset inline spacerSingle">
-						<h3 class="headerList">How to Install</h3>
-						<section class="containerSection excludePadding excludeMargin">
-							<div class="itemList fixedIconSize">
-								<span class="alwaysMain">${iconIndices.oneCircleStroke}</span>
-								<div class="label">
-									<span id="installStepOne">
-										Tap the <span class="alwaysMain" id="installShareIcon">${iconInterfaceElements.shareAppleUpStroke}</span> button
-									</span>
-								</div>
-							</div>
-							<div class="itemList fixedIconSize">
-								<span class="alwaysMain">${iconIndices.twoCircleStroke}</span>
-								<div class="label">
-									<span>Tap <span class="textBold">Add to Home Screen</span></span>
-								</div>
-							</div>
-							<div class="itemList fixedIconSize">
-								<span class="alwaysMain">${iconIndices.threeCircleStroke}</span>
-								<div class="label">
-									<span>Set a name and tap <span class="textBold">Add</span></span>
+			`,
+		})
+		
+		contentInstallSheet("default")
+	}
+	
+	function contentInstallSheet(type) {
+		$(`#sheetInstallContent`).remove();
+		$(`#sheetInstall`).append(`<div class="scrollview" id="sheetInstallContent"></div>`)
+		
+		switch (type) {
+			case 'default':
+				$(`#sheetInstallContent`).append(`
+					<div id="containerIntroText">
+						<div id="containerIcon">
+							<img src="icon.png" width="120" alt="">
+							<div class="icon">${iconShapes.arrowSingleDownFill}</div>
+						</div>
+					
+						<h2 class="textAlignCenter">Install ${appName} with these browsers</h2>
+						<p class="textAlignCenter">${appName} can be installed to your Dock, Taskbar, and Home Screen. It will launch like any other app and work offline.</p>
+					</div>
+					<div id="containerBrowsersList" class="spacerDouble">
+						<div onclick="contentInstallSheet('brave')">
+							<img src="rebar/images/browser-brave.webp" srcset="rebar/images/browser-brave@2x.webp 2x" alt="" />
+							<p class="excludeMargin textAlignCenter">Brave</p>
+						</div>
+						<div onclick="contentInstallSheet('chrome')">
+							<img src="rebar/images/browser-chrome.webp" srcset="rebar/images/browser-chrome@2x.webp 2x" alt="" />
+							<p class="excludeMargin textAlignCenter">Chrome</p>
+						</div>
+						<div onclick="contentInstallSheet('edge')">
+							<img src="rebar/images/browser-edge.webp" srcset="rebar/images/browser-edge@2x.webp 2x" alt="" />
+							<p class="excludeMargin textAlignCenter">Edge</p>
+						</div>
+						<div onclick="contentInstallSheet('firefox')">
+							<img src="rebar/images/browser-firefox.webp" srcset="rebar/images/browser-firefox@2x.webp 2x" alt="" />
+							<p class="excludeMargin textAlignCenter">Firefox</p>
+						</div>
+						<div onclick="contentInstallSheet('safari')">
+							<img src="rebar/images/browser-safari.webp" srcset="rebar/images/browser-safari@2x.webp 2x" alt="" />
+							<p class="excludeMargin textAlignCenter">Safari</p>
+						</div>
+						<div onclick="contentInstallSheet('samsunginternet')">
+							<img src="rebar/images/browser-samsunginternet.webp" srcset="rebar/images/browser-samsunginternet@2x.webp 2x" alt="" />
+							<p class="excludeMargin textAlignCenter">Samsung Internet</p>
+						</div>
+					</div>
+					<p class="subtext textAlignCenter">If you have any issues please contact <a href="mailto:${appEmail}?subject=Help%20with%20installing%20${appName}">Support</a>.</p>
+				`)
+				break;
+			case 'brave':
+				$(`#sheetInstallContent`).append(`
+					<button class="transparent" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
+				
+					<div id="containerIntroText">
+						<img src="rebar/images/browser-brave.webp" srcset="rebar/images/browser-brave@2x.webp 2x" alt="" width="128" />
+						<h3 class="excludeMargin textAlignCenter">Brave</h3>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>Android</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Tap the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.ellipsesVerticalSlim}</span> button</li>
+										<li>Tap <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installBraveMobileStroke}</span> <span class="textBold alwaysAccent">Add to Home screen</span></li>
+										<li>Tap <span class="textBold alwaysAccent">Install</span></li>
+									</ol>
 								</div>
 							</div>
 						</section>
 					</div>
-					<p class="subtext">The option to Save to Home Screen is available in Safari (any version) and other 3rd party browsers (iOS and iPadOS 16.4 onwards). It is not available through in-app browsers and 3rd party browser availability may vary.</p>
-					<p class="subtext">If you have any issues please contact <a href="mailto:${appEmail}?subject=Help%20with%20installing%20${appName}">Support</a>.</p>
-				</div>
-			`,
-		})
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>macOS</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Click the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installChromeDesktopStroke}</span> button</li>
+										<li>Click <span class="textBold alwaysAccent">Install</span></li>
+									</ol>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>Windows</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Click the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installChromeDesktopStroke}</span> button</li>
+										<li>Click <span class="textBold alwaysAccent">Install</span></li>
+									</ol>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					${
+						insertBanner({
+							type: 'warning',
+							content: 'Installation is not available in iOS and iPadOS',
+							icon: false,
+							size: "large",
+						})
+					}
+				`)
+				break;
+			case 'chrome':
+				$(`#sheetInstallContent`).append(`
+					<button class="transparent" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
+				
+					<div id="containerIntroText">
+						<img src="rebar/images/browser-chrome.webp" srcset="rebar/images/browser-chrome@2x.webp 2x" alt="" width="128" />
+						<h3 class="excludeMargin textAlignCenter">Chrome</h3>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>iOS</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Tap the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.shareAppleUpStroke}</span> button</li>
+										<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
+										<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
+									</ol>
+									<p class="subtext">iOS 16.4 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>iPadOS</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Tap the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.shareAppleUpStroke}</span> button</li>
+										<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
+										<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
+									</ol>
+									<p class="subtext">iPadOS 16.4 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>Android</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Tap the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.ellipsesVerticalSlim}</span> button</li>
+										<li>Tap <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installChromeMobileStroke}</span> <span class="textBold alwaysAccent">Install app</span></li>
+										<li>Tap <span class="textBold alwaysAccent">Install</span></li>
+									</ol>
+									<p class="subtext">iPadOS 16.4 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>macOS</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Click the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installChromeDesktopStroke}</span> button</li>
+										<li>Click <span class="textBold alwaysAccent">Install</span></li>
+									</ol>
+									<p class="subtext">Chrome 39 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>Windows</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Click the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installChromeDesktopStroke}</span> button</li>
+										<li>Click <span class="textBold alwaysAccent">Install</span></li>
+									</ol>
+									<p class="subtext">Chrome 39 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+				`)
+				break;
+			case 'edge':
+				$(`#sheetInstallContent`).append(`
+					<button class="transparent" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
+				
+					<div id="containerIntroText">
+						<img src="rebar/images/browser-edge.webp" srcset="rebar/images/browser-edge@2x.webp 2x" alt="" width="128" />
+						<h3 class="excludeMargin textAlignCenter">Edge</h3>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>iOS</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Tap the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.shareAppleUpStroke}</span> button</li>
+										<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
+										<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
+									</ol>
+									<p class="subtext">iOS 16.4 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>iPadOS</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Tap the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.shareAppleUpStroke}</span> button</li>
+										<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
+										<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
+									</ol>
+									<p class="subtext">iPadOS 16.4 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>Android</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Tap the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.ellipsesHorizontalRoundedRectangleStroke}</span> button</li>
+										<li>Tap <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installEdgeMobileStroke}</span> <span class="textBold alwaysAccent">Add to phone</span></li>
+										<li>Tap <span class="textBold alwaysAccent">Add</span></li>
+									</ol>
+									<p class="subtext">Edge 79 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>macOS</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Click the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installEdgeDesktopStroke}</span> button</li>
+										<li>Click <span class="textBold alwaysAccent">Install</span></li>
+									</ol>
+									<p class="subtext">Edge 79 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>Windows</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Click the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installEdgeDesktopStroke}</span> button</li>
+										<li>Click <span class="textBold alwaysAccent">Install</span></li>
+									</ol>
+									<p class="subtext">Edge 79 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+				`)
+				break;
+			case 'firefox':
+				$(`#sheetInstallContent`).append(`
+					<button class="transparent" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
+				
+					<div id="containerIntroText">
+						<img src="rebar/images/browser-firefox.webp" srcset="rebar/images/browser-firefox@2x.webp 2x" alt="" width="128" />
+						<h3 class="excludeMargin textAlignCenter">Firefox</h3>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>iOS</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Tap the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.barsHorizontalStroke}</span> button</li>
+										<li>Tap <span class="installShareIcon alwaysAccent">${iconInterfaceElements.shareAppleUpStroke}</span> <span class="textBold alwaysAccent">Share</span></li>
+										<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
+										<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
+									</ol>
+									<p class="subtext">iOS 16.4 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>iPadOS</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Tap the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.barsHorizontalStroke}</span> button</li>
+										<li>Tap <span class="installShareIcon alwaysAccent">${iconInterfaceElements.shareAppleUpStroke}</span> <span class="textBold alwaysAccent">Share</span></li>
+										<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
+										<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
+									</ol>
+									<p class="subtext">iPadOS 16.4 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>Android</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Tap the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.ellipsesVerticalSlim}</span> button</li>
+										<li>Tap <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installFirefoxMobileStroke}</span> <span class="textBold alwaysAccent">Install</span></li>
+										<li>Tap <span class="textBold alwaysAccent">Add to home screen</span></li>
+									</ol>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					${
+						insertBanner({
+							type: 'warning',
+							content: 'Installation is not available in macOS and Windows',
+							icon: false,
+							size: "large",
+						})
+					}
+				`)
+				break;
+			case 'safari':
+				$(`#sheetInstallContent`).append(`
+					<button class="transparent" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
+				
+					<div id="containerIntroText">
+						<img src="rebar/images/browser-safari.webp" srcset="rebar/images/browser-safari@2x.webp 2x" alt="" width="128" />
+						<h3 class="excludeMargin textAlignCenter">Safari</h3>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>iOS</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Tap the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.shareAppleUpStroke}</span> button</li>
+										<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
+										<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
+									</ol>
+									<p class="subtext">iOS 1.1.3 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>iPadOS</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Tap the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.shareAppleUpStroke}</span> button</li>
+										<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
+										<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
+									</ol>
+									<p class="subtext">iPadOS 4 onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+					
+					<div class="containerAccordion spacerSingle">
+						<div class="headerAccordion headerSection">
+							<h3>macOS</h3>
+							<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<div class="containerSection">
+									<ol>
+										<li>Click the <span class="textBold alwaysAccent">File</span> menu</li>
+										<li>Click <span class="textBold alwaysAccent">Add to Dock&hellip;</span></li>
+										<li>Set a name and click <span class="textBold alwaysAccent">Add</span></li>
+									</ol>
+									<p class="subtext">macOS 14 Sonoma onwards</p>
+								</div>
+							</div>
+						</section>
+					</div>
+				`)
+				break;
+			case 'samsunginternet':
+				$(`#sheetInstallContent`).append(`
+					<button class="transparent" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
+				
+					<div id="containerIntroText">
+						<img src="rebar/images/browser-samsunginternet.webp" srcset="rebar/images/browser-samsunginternet@2x.webp 2x" alt="" width="128" />
+						<h3 class="excludeMargin textAlignCenter">Samsung Internet</h3>
+					</div>
+					
+					<div class="containerSection">
+						<ol>
+							<li>Tap the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.barsHorizontalStroke}</span> button</li>
+							<li>Tap <span class="installShareIcon alwaysAccent">${iconShapes.plusStroke}</span> <span class="textBold alwaysAccent">Add page to</span></li>
+							<li>Tap <span class="textBold alwaysAccent">Home screen</span></li>
+							<li>Tap <span class="textBold alwaysAccent">Add to home screen</span></li>
+						</ol>
+					</div>
+				`)
+				break;
+		}
 	}
 	
 	function summonWhatsNewSheet() {
@@ -106,10 +565,11 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			})
 			
 			//SUMMON INSTALL TOAST
-			let isRunningOnMobileSafari = CSS.supports("-webkit-touch-callout", "inherit");
-			if ((isRunningOnMobileSafari == true) && (window.matchMedia("(display-mode: browser)").matches)) {
-				summonInstallBanner();
-			}
+			summonInstallBanner();
+			// let isRunningOnMobileSafari = CSS.supports("-webkit-touch-callout", "inherit");
+			// if ((isRunningOnMobileSafari == true) && (window.matchMedia("(display-mode: browser)").matches)) {
+			// 	summonInstallBanner();
+			// }
 		}
 		
 		//SET APPEARANCE
@@ -741,6 +1201,22 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 					$(items[i]).addClass("itemHidden");
 					$(items[i]).removeClass("itemDisplayed");
 				}
+			}
+			
+			//DISPLAY BLANK STATE WHEN THERE ARE NO MATCHES
+			if ($('.itemDisplayed').length > 0) {
+				//MATCHES FOUND
+				$(`.containerBlankState`).remove();
+				$(`#` + options.parentID).parent().removeClass(`noResults`);
+			} else {
+				//NO MATCHES
+				$(`.containerBlankState`).remove();
+				$(`#` + options.parentID).parent().addClass(`noResults`);
+				generateBlankState({
+					target: options.parentID,
+					icon: options.emptyIcon, 
+					title: options.emptyMessage,
+				});
 			}
 		});
 	}
@@ -1441,7 +1917,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 					<div id="miniTipJar">
 						<button class="transparent secondary excludePadding" id="dismiss" title="Dismiss Tips Panel" onclick="stopTipsPrompts()">${iconShapes.timesCircleDuo}</button>
 						<div class="containerTipJar mini">
-							<img class="spacerSingle" src="rebar/images/tips.png" srcset="rebar/images/tips@2x.png 2x" width="400" alt="" />
+							<img class="spacerSingle" src="rebar/images/tips.webp" srcset="rebar/images/tips@2x.webp 2x" width="400" alt="" />
 							<p class="textAlignCenter">Support ${appName} by leaving <a href="https://twitter.com/trevormkay" target="_blank">Trevor</a> and <a href="https://christophermuller.net" target="_blank">Chris</a> a tip. It's appreciated!</p>
 							<div class="containerButtons">
 								<a href="${tipsLinks.default}" target="_blank" class="noDecoration">
@@ -1460,7 +1936,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		} else {
 			return `
 				<div class="containerTipJar">
-					<img class="spacerSingle" src="rebar/images/tips.png" srcset="rebar/images/tips@2x.png 2x" width="400" alt="" />
+					<img class="spacerSingle" src="rebar/images/tips.webp" srcset="rebar/images/tips@2x.webp 2x" width="400" alt="" />
 					<p class="textAlignCenter h5 spacerDouble">${appName} is developed by <a href="https://twitter.com/trevormkay" target="_blank">Trevor</a> and <a href="https://christophermuller.net" target="_blank">Chris</a>. If you'd like to show your support you can leave us a tip. It's much appreciated!</p>
 					<div class="containerButtons spacerSingle">
 						<a href="${tipsLinks.default}" target="_blank" class="noDecoration">
@@ -1487,6 +1963,21 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		})
 		
 		$(`#miniTipJar`).remove()
+	}
+	
+//HOW TO INSTALL SHEET
+	function generateInstallPanel() {
+		return `
+			<div class="containerInstallPanel" onclick="summonHowToInstallSheet()">
+				<div id="containerIcon">
+					<img src="icon.png" width="120" alt="">
+					<div class="icon">${iconShapes.arrowSingleDownFill}</div>
+				</div>
+				<div>
+					<p class="excludeMargin">Learn how to install ${appName}</p>
+				</div>
+			</div>
+		`
 	}
 	
 //CAPITALIZE WORD

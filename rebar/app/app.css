@@ -206,6 +206,13 @@
 	align-items: flex-start;
 }
 
+.noResults #iconGallery div {
+	background: none !important;
+	border: none !important;
+	height: 100% !important;
+	justify-content: center;
+}
+
 #iconGallery div {
 	display: flex;
 	flex-direction: column;

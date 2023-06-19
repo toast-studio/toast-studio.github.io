@@ -1597,6 +1597,10 @@
 		left: 0px;
 	}
 	
+	.noResults .containerItemList {
+		height: 100%;
+	}
+	
 	.containerItemList.cropAccessoryBar {
 		top: var(--accessorybar-height);
 	}
@@ -2173,6 +2177,7 @@
 	/* ACCORDIONS */
 	.containerAccordion {
 		border-radius: var(--base-radius-size);
+		overflow: hidden;
 	}
 	
 	:is([data-os="macos"], [data-os="windows"]) .containerAccordion {
@@ -5616,19 +5621,213 @@
 		}
 	
 	/* HOW TO INSTALL SHEET */
-		#installStepOne {
+		#containerIntroText {
+			margin-inline: calc(var(--base-gap-size) * 2);
+			margin-block-start: calc(var(--base-gap-size) * 3);
+			margin-block-end: var(--base-gap-size);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		@media (min-width: 600px) {
+			#containerIntroText {
+				margin-inline: calc(var(--base-gap-size) * 3);
+			}
+		}
+		
+		#containerIntroText svg {
+			width: calc(var(--base-font-size) * 7);
+			height: calc(var(--base-font-size) * 7);
+		}
+		
+		#containerBrowsersList {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: var(--base-gap-size);
+		}
+		
+		@media (min-width: 600px) {
+			#containerBrowsersList {
+				padding-inline: calc(var(--base-gap-size) * 2);
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+		
+		#containerBrowsersList img {
+			width: 80%;
+			margin-inline: auto;
+			display: block;
+			transition: var(--base-time-length) scale ease;
+		}
+		
+		#containerBrowsersList div:hover {
+			cursor: pointer;
+		}
+		
+		#containerBrowsersList div:hover img {
+			scale: 1.1;
+			transition: var(--base-time-length) scale ease;
+		}
+		
+		.leadingText {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: calc(var(--base-gap-size) / 2)
+		}
+		
+		.leadingIcon {
+			width: calc(var(--base-font-size) * 2) !important;
+			height: calc(var(--base-font-size) * 2) !important;
+		}
+		
+		.leadingIcon svg {
+			width: calc(var(--base-font-size) * 2);
+			height: calc(var(--base-font-size) * 2);
+		}
+		
+		.leadingIcon path {
+			fill: rgb(var(--accent)) !important;
+		}
+		
+		.installShareIcon {
+			width: calc(var(--base-font-size) * 1.5);
+			height: calc(var(--base-font-size) * 1.5);
+		}
+		
+		.installShareIcon svg  {
+			width: calc(var(--base-font-size) * 1.5);
+			height: calc(var(--base-font-size) * 1.5);
+		}
+		
+		#buttonOtherBrowsers {
+			position: absolute;
+			top: calc(var(--base-gap-size) / 1.5);
+			left: calc(var(--base-gap-size) / 2);
+		}
+		
+		#sheetInstallContent li {
+			margin-block: var(--base-gap-size);
+		}
+		
+		#sheetInstallContent li:first-child {
+			margin-block-start: 0px;
+		}
+		
+		#sheetInstallContent li:last-child {
+			margin-block-end: 0px;
+		}
+		
+		.containerInstallPanel {
+			border: 1px solid rgb(var(--divider));
+			border-radius: var(--base-radius-size);
+			padding: calc(var(--base-gap-size) / 2);
+			margin-block-end: var(--base-gap-size);
+			position: relative;
 			display: flex;
 			align-items: center;
-			gap: calc(var(--base-gap-size) / 4);
+			gap: var(--base-gap-size);
+			background: rgb(var(--foreground));
 		}
 		
-		#installShareIcon svg {
-			width: calc(var(--base-font-size) * 1.1);
-			height: calc(var(--base-font-size) * 1.1);
+		.containerInstallPanel:hover {
+			opacity: 0.5;
+			cursor: pointer;
 		}
 		
-		#sheetInstall path {
-			fill: rgb(var(--main)) !important;
+		[data-os="android"] .containerInstallPanel {
+			background: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--foreground)) );
+		}
+		
+		@media (display-mode: standalone) {
+			.containerInstallPanel {
+				display: none;
+			}
+		}
+		
+		#containerIcon {
+			position: relative;
+			width: 80px;
+			height: 80px;
+		}
+		
+		#sheetInstall #containerIcon {
+			width: 160px;
+			height: 160px;
+			margin-block-end: var(--base-gap-size);
+		}
+		
+		#containerIcon img {
+			width: 80px;
+			height: 80px;
+		}
+		
+		#sheetInstall #containerIcon img {
+			width: 160px;
+			height: 160px;
+		}
+		
+		#containerIcon .icon {
+			background: rgb(var(--positive));
+			border-radius: 50%;
+			width: 24px;
+			height: 24px;
+			box-shadow: 0px 0px 0px 3px rgb(var(--foreground));
+			position: absolute;
+			bottom: 5px;
+			right: 0px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		#sheetInstall #containerIcon .icon {
+			width: 48px;
+			height: 48px;
+			box-shadow: 0px 0px 0px 4px rgb(var(--foreground));
+		}
+		
+		[data-os="ios"] #sheetInstall #containerIcon .icon {
+			box-shadow: 0px 0px 0px 4px rgb(var(--background));
+		}
+		
+		[data-os="android"] #containerIcon .icon {
+			box-shadow: 0px 0px 0px 3px color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--foreground)) );
+		}
+		
+		[data-os="android"] #sheetInstall #containerIcon .icon {
+			box-shadow: 0px 0px 0px 4px color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--background)) );
+		}
+		
+		[data-os="windows"] #sheetInstall #containerIcon .icon {
+			box-shadow: 0px 0px 0px 4px rgb(var(--systempanel));
+		}
+		
+		#containerIcon svg {
+			width: 18px;
+			height: 18px;
+		}
+		
+		#sheetInstall #containerIcon svg {
+			width: 28px;
+			height: 28px;
+		}
+		
+		#containerIcon svg path {
+			fill: rgb(var(--foreground));
+		}
+		
+		[data-os="ios"] #containerIcon svg path {
+			fill: rgb(var(--background));
+		}
+		
+		[data-os="android"] #containerIcon svg path {
+			fill: color-mix(in srgb, rgb(var(--accent)) 5%, rgb(var(--background)) );
+		}
+		
+		[data-os="windows"] #sheetInstall #containerIcon svg path {
+			fill: rgb(var(--systempanel));
 		}
 		
 		/* 	DISPLAY OPTIONS */

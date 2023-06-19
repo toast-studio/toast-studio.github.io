@@ -380,7 +380,9 @@ function routecontrols(options) {
 						inputID: "pokemonSearch",
 						parentID: "pokemon",
 						itemClass: "itemList",
-						valueClass: "itemLabel"
+						valueClass: "itemLabel",
+						emptyIcon: iconNature.sparkleDuo,
+						emptyMessage: "No Pok&eacute;mon Found",
 					})
 					
 					$(document).on('click', '.buttonClearSearch', function() {
@@ -628,6 +630,8 @@ function routemodals(options) {
 				</header>
 				<div class="scrollview cropToolbar">
 					<div class="containerItemList inset">
+						${generateInstallPanel()}
+					
 						<h2 class="headerList">Functions</h2>
 						<section class="containerSection excludePadding">
 							<button class="itemList rounded fixedIconSize" data-name="dialogs" onclick='routemodals({modifier: "dialogs", navtype: "forwards"})'>
@@ -1450,57 +1454,68 @@ function routeicons(options) {
 				let iconGroup
 				let iconCodeGroup
 				let groupName
+				let iconImage
 				
 				switch (options.modifier) {
 					case 'interfaceicons':
 						iconGroup = iconInterfaceElements
 						iconCodeGroup = "iconInterfaceElements"
 						groupName = "Interface Elements"
+						iconImage = iconInterfaceElements.sliderVerticalStroke
 						break;
 					case 'shapesicons':
 						iconGroup = iconShapes
 						iconCodeGroup = "iconShapes"
 						groupName = "Shapes"
+						iconImage = iconShapes.plusCircleStroke
 						break;
 					case 'objectsicons':
 						iconGroup = iconObjects
 						iconCodeGroup = "iconObjects"
 						groupName = "Objects"
+						iconImage = iconObjects.legoStroke
 						break;
 					case 'indiciesicons':
 						iconGroup = iconIndices
 						iconCodeGroup = "iconIndices"
 						groupName = "Indicies"
+						iconImage = iconIndices.oneCircleStroke
 						break;
 					case 'natureicons':
 						iconGroup = iconNature
 						iconCodeGroup = "iconNature"
 						groupName = "Nature"
+						iconImage = iconNature.sunStroke
 						break;
 					case 'chartsicons':
 						iconGroup = iconCharts
 						iconCodeGroup = "iconCharts"
 						groupName = "Charts"
+						iconImage = iconCharts.barUp
 						break;
 					case 'humanicons':
 						iconGroup = iconHuman
 						iconCodeGroup = "iconHuman"
 						groupName = "Human"
+						iconImage = iconHuman.userStroke
 						break;
 					case 'hardwareicons':
 						iconGroup = iconHardware
 						iconCodeGroup = "iconHardware"
 						groupName = "Hardware"
+						iconImage = iconHardware.keyboardStroke
 						break;
 					case 'transporticons':
 						iconGroup = iconTransport
 						iconCodeGroup = "iconTransport"
 						groupName = "Transport"
+						iconImage = iconTransport.rocketStroke
 						break;
 					case 'logosicons':
 						iconGroup = iconLogos
 						iconCodeGroup = "iconLogos"
 						groupName = "Logos"
+						iconImage = iconLogos.rebarThinStroke
 						break;
 				}
 			
@@ -1557,7 +1572,9 @@ function routeicons(options) {
 					inputID: "iconSearch",
 					parentID: "iconGallery",
 					itemClass: "containerIcon",
-					valueClass: "iconName"
+					valueClass: "iconName",
+					emptyIcon: iconImage,
+					emptyMessage: `No ${groupName} Icons Found`,
 				})
 				
 				$(document).on('click', '.buttonClearSearch', function() {
