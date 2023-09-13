@@ -295,6 +295,34 @@ const gettingstarted = {
 			<div class="containerAccordion hideOverflow spacerSingle">
 				<div class="headerAccordion headerSection">
 					<span>
+						<h3>2.2</h3>
+						<p class="subtext excludeMargin">13 September 2023</p>
+					</span>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<section class="containerSection">
+							<ul class="excludeMargin">
+								<li>The main Rebar CSS file now uses CSS Nesting</li>
+								<li>Scrollbars will now be dark in Dark Mode</li>
+								<li>The chevrons for Accordions on Android and Windows now match their respective directions</li>
+								<li>Accordions on Android no longer crop content</li>
+								<li>Updated Processor Duo, Lock Open, and Lock Closed icons</li>
+								<li>Added Badge, User Badge, Standby Mode, Action Button, Double Arrows with Divider, Split Rectangle, Video, Sun with Moon, and Hand Pinch icons</li>
+								<li>Renamed the iPhone icons to match the Apple Watch naming for more clarity</li>
+								<li>The grid style for Sidebars now applies per section for mixed section styling</li>
+								<li>The Tokens container will now display the Tokens with the correct width if there aren't enough to fill a row</li>
+								<li>Added utility classes for the font families</li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</div>
+		
+			<div class="containerAccordion hideOverflow spacerSingle">
+				<div class="headerAccordion headerSection">
+					<span>
 						<h3>2.1</h3>
 						<p class="subtext excludeMargin">19 June 2023</p>
 					</span>
@@ -330,6 +358,8 @@ const gettingstarted = {
 								<li>Updated the Tips image to WebP (this requires updating the default Service Worker cache list)</li>
 								<li>The toast for installing a Rebar app is no longer constricted to Mobile Safari and will run on all browsers</li>
 								<li>Search now displays a blank state when no results are found</li>
+								<li>Blank States are now scoped so multiple can be on the one page without affecting each other</li>
+								<li>Corrected the colour of toolbars in the primary column on Android</li>
 							</ul>
 						</section>
 					</div>
@@ -1085,8 +1115,7 @@ const gettingstarted = {
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
-			<p>These requirements are based on needing to support <code>min()</code>, <code>max()</code>, <code>minmax()</code>, <code>clamp()</code>, <code>env()</code>, <code>aspect-ratio</code>, <code>dialog</code>, <code>@layer</code>, <code>scrollbar-gutter</code>, <code>@container</code>, and <code>color-mix()</code>.</p>
-			<p>For this reason (among many others) no version of Internet Explorer is supported. The minimum requirements for any Rebar app are:</p>
+			<p>These requirements are based on needing to support modern CSS features. For this reason (among many others) no version of Internet Explorer is supported. The minimum requirements for any Rebar app are:</p>
 			
 			<table class="definitions">
 				<thead>
@@ -1096,9 +1125,23 @@ const gettingstarted = {
 					</tr>
 				</thead>
 					<tr>
+						<td class="textBold">2.2</td>
+						<td>
+							<p class="subtext">Added CSS Nesting</p>
+							<ul class="excludeMargin">
+								<li>jQuery 3.6.4</li>
+								<li>Chrome 112</li>
+								<li>Edge 112</li>
+								<li>Firefox 117</li>
+								<li>Safari 16.5</li>
+								<li>Opera 98</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
 						<td class="textBold">2.1</td>
 						<td>
-							<p class="subtext">Increased because of <code>@container</code> and <code>color-mix()</code></p>
+							<p class="subtext">Added <code>@container</code> and <code>color-mix()</code></p>
 							<ul class="excludeMargin">
 								<li>jQuery 3.6.4</li>
 								<li>Chrome 106</li>
@@ -1116,7 +1159,7 @@ const gettingstarted = {
 					<tr>
 						<td class="textBold">2.0</td>
 						<td>
-							<p class="subtext">Increased because of <code>dialog</code>, <code>@layer</code>, and <code>scrollbar-gutter</code>.</p>
+							<p class="subtext">Added <code>dialog</code>, <code>@layer</code>, and <code>scrollbar-gutter</code>.</p>
 							<ul class="excludeMargin">
 								<li>jQuery 3.6.1</li>
 								<li>Chrome 99</li>
@@ -1134,7 +1177,7 @@ const gettingstarted = {
 					<tr>
 						<td class="textBold">1.1</td>
 						<td>
-							<p class="subtext">Increased because of <code>aspect-ratio</code>.</p>
+							<p class="subtext">Added <code>aspect-ratio</code>.</p>
 							<ul class="excludeMargin">
 								<li>jQuery 3.6.0</li>
 								<li>Chrome 88</li>
@@ -1292,6 +1335,11 @@ const controls = {
 						<td><button class="translucent circular">${iconShapes.starFivePointFill}</button></td>
 						<td><button class="positive circular">${iconShapes.starFivePointFill}</button></td>
 						<td><button class="destructive circular">${iconShapes.starFivePointFill}</button></td>
+					</tr>
+					
+					<tr>
+						<td>Close</td>
+						<td><button class="translucent xclose" style="position: relative; top: 0px; right: 0px;">${iconShapes.timesFill}</button></td>
 					</tr>
 				</tbody>
 			</table>
@@ -3402,14 +3450,14 @@ if (url.query == "") {
 			<h3 class="h6">Grid Layout</h3>
 			<div class="containerGeneric excludePadding spacerTriple" id="exampleSidebar2">
 				<aside class="containerAside single">
-					<div class="containerSidebar grid" id="sidebarWithoutHeader" data-target="contentArea2">
+					<div class="containerSidebar" id="sidebarWithoutHeader" data-target="contentArea2">
 						<h1>Header</h1>
 						<div class="containerSearch">
 							<input type="search" placeholder="Search Pok&eacute;mon" id="pokemonSearch" />
 							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
 							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
 						</div>
-						<section>
+						<section class="grid">
 							<button class="sidebar" data-value="pickedItem">
 								<div class="labelSidebar">
 									${iconNature.sunStroke}
@@ -3430,7 +3478,7 @@ if (url.query == "") {
 							<div class="containerChevron">${iconShapes.chevronSingleRightFill}</div>
 						</div>
 						<section class="containerAccordionContents active">
-							<div class="wrapper">
+							<div class="wrapper grid">
 								<button class="sidebar" data-value="svg1">
 									<div class="labelSidebar">
 										${iconIndices.oneCircleStroke}
@@ -3452,7 +3500,7 @@ if (url.query == "") {
 							</div>
 						</section>
 						<h2 class="headerList">Images</h2>
-						<section>
+						<section class="grid">
 							<button class="sidebar" data-value="image1">
 								<div class="labelSidebar">
 									<img src="app/images/ui/sidebar1.png" alt="" />
@@ -4908,6 +4956,15 @@ toolbarVisibility({
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+			${
+				insertBanner({
+					type: 'info',
+					content: 'Accordions have different styling based on the OS being used',
+					icon: false,
+					size: 'large',
+				})
+			}
+		
 			<h2>Examples</h2>
 			<div class="containerAccordion spacerSingle noBorder">
 				<div class="headerAccordion">
@@ -4940,9 +4997,9 @@ toolbarVisibility({
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
-			<p>Accordions are designed to hide content by default leaving only a header to click on to show that content. Accordions is Rebar are comprised on two pieces, <code>.headerAccordion</code> and <code>.containerAccordionContents</code> containers. You can wrap these two containers in a <code>.containerAccordion</code> container but that isn't necessary for the function for the Accordion (it can help you with spacing).</p>
+			<p>Accordions are designed to hide content by default leaving only a header to click on to show that content. Accordions in Rebar are comprised of two pieces, <code>.headerAccordion</code> and <code>.containerAccordionContents</code> containers. You can wrap these two containers in a <code>.containerAccordion</code> container but that isn't necessary for the function for the Accordion (it can help you with spacing).</p>
 			<p>For Accordions that are supposed to look like a <code>.containerSection</code> with a <code>.headerSection</code> this requires a little more setup.</p>
-			<p>It is not required to include the chevron SVG but it's recommended so that users can identify that this is an Accordion. You can include any style of chevron you want as long as it's wrapped in a <code>.containerChevron</code> container. By default Rebar determines the closed state of the chevron should be pointing right and the open state should be pointing down, this was chosen for clarity between states but you are free to change to rotation to whatever you need it to be.</p>
+			<p>It is not required to include the chevron SVG but it's recommended so that users can identify that this is an Accordion. You can include any style of chevron you want as long as it's wrapped in a <code>.containerChevron</code> container. By default Rebar points chevrons in the direction the respective OSes expect them to be in.</p>
 <pre class="spacerTriple">
 //STANDARD
 &lt;div class="containerAccordion"&gt;
@@ -5151,6 +5208,14 @@ toolbarVisibility({
 						<td><code>inputID</code></td>
 						<td>The ID of the search field</td>
 					</tr>
+					<tr>
+						<td><code>emptyIcon</td>
+						<td>The icon to display in the Blank State when no results are found. It should be a Rebar icon.</td>
+					</tr>
+					<tr>
+						<td><code>emptyMessage</td>
+						<td>The text to display in the Blank State when no results are found.</td>
+					</tr>
 				</tbody>
 			</table>
 <pre class="spacerTriple">
@@ -5158,6 +5223,8 @@ searchTable({
 	enteredText: this,
 	parentID: "containerCompareTable",
 	inputID: "searchCompare",
+	emptyIcon: ,
+	emptyMessage: "",
 })
 </pre>
 			
@@ -5679,6 +5746,7 @@ let shortcutKeys = {
 			<button class="secondary spacerTriple" onclick="resetInstallBanner()">Reset Local Storage</button>
 			
 			<h2>Documentation</h2>
+			<h3>Banner and Sheet</h3>
 			<p>The Install Banner is a Toast that will automatically show on first run in Mobile Safari while not running in <code>Standalone</code> mode. When tapped it will bring up a Half Sheet explaining how to install your app. The reason the Install Banner only shows in this narrow context is Mobile Safari has the capability to install PWAs but does not offer any UI to prompt the user to install whereas other browsers do.</p>
 			<p>You do not need to do anything to invoke the Install Banner, it will automatically show as part of including Rebar. You do however need to provide it some info:</p>
 			<ul>
@@ -5686,6 +5754,10 @@ let shortcutKeys = {
 				<li>You need to supply an <code>icon.png</code> file in the root directory of your app.</li>
 			</ul>
 			<p>It's important to note the Install Banner is designed to only show once as to not frustrate users. If you wish to show the Install Banner or it's How to Install Sheet again you can invoke them with the <code>summonInstallBanner()</code> and <code>summonHowToInstallSheet()</code> functions respectively.</p>
+			
+			<h3>Panel</h3>
+			<p>You can display an inline panel which will invoke the Install Sheet by including <code>generateInstallPanel()</code> inline in a view.</p>
+		
 		</div>
 	`,
 	whatsnewpanel: `
@@ -5849,6 +5921,7 @@ const visuals = {
 			<section class="containerSection">
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
 				<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+				<p class="textBold">This is bold text</p>
 				<ul>
 					<li>First</li>
 					<li>Second</li>
@@ -5866,11 +5939,12 @@ const visuals = {
 			
 			<h2 class="headerSection">Fonts</h2>
 			<section class="containerSection">
-				<h2>This is some --font-regular text.</h2>
-				<h2 id="exampleTextRounded">This is some --font-rounded text.</h2>
-				<h2 id="exampleTextMonospace">This is some --font-monospace text.</h2>
-				<h2 id="exampleTextSerif">This is some --font-serif text.</h2>
-				<h2 id="exampleTextDyslexic">This is some --font-dyslexic text.</h2>
+				<p>This is some --font-regular text.</p>
+				<p class="textRounded">This is some --font-rounded text.</p>
+				<p class="textMonospace">This is some --font-monospace text.</p>
+				<p class="textSerif">This is some --font-serif text.</p>
+				<p class="textDyslexic">This is some --font-dyslexic text.</p>
+				<p class="textAtkinson">This is some --font-atkinson text.</p>
 			</section>
 		</div>
 	`,
@@ -6511,6 +6585,10 @@ generateBlankState({
 					<tr>
 						<td><span><code>textAlignLeft</code>, <code>textAlignCenter</code>, and <code>textAlignRight</code></span></td>
 						<td>Sets the alignment of text.</td>
+					</tr>
+					<tr>
+						<td><span><code>textRegular</code>, <code>textRounded</code>, <code>textMonospace</code>, <code>textSerif</code>, <code>textDyslexic</code>, and <code>textAtkinson</code></span></td>
+						<td>Sets the font-family of text.</td>
 					</tr>
 					<tr>
 						<td><code>textBold</code></td>

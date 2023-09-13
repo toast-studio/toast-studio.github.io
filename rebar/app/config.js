@@ -1,10 +1,14 @@
-const appVersion = "2.1";
+const appVersion = "2.2";
 const appName = "Rebar";
 const appDomain = "https://toast-studio.com/";
 const appPrivacyPolicy = "https://toast-studio.com/";
 const appEmail = "toaststudioinbox@gmail.com";
 const appReleaseNotes = [
 	`See Version History for the full changelog`,
+	`Item 2`,
+	`Item 3`,
+	`Item 4`,
+	`Item 5`,
 ];
 const appThemes = {
 	system: {

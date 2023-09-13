@@ -1,4 +1,4 @@
-//REBAR 2.1
+//REBAR 2.2
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -1143,6 +1143,8 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	}
 	
 	$(document).keyup(function(e) {
+		console.log(e.key)
+		
 		let checkFocus = (document.activeElement === document.getElementsByTagName('input')[0])
 		
 		if (checkFocus == false) {
@@ -1206,11 +1208,11 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			//DISPLAY BLANK STATE WHEN THERE ARE NO MATCHES
 			if ($('.itemDisplayed').length > 0) {
 				//MATCHES FOUND
-				$(`.containerBlankState`).remove();
+				$(`.noResults .containerBlankState`).remove();
 				$(`#` + options.parentID).parent().removeClass(`noResults`);
 			} else {
 				//NO MATCHES
-				$(`.containerBlankState`).remove();
+				$(`.noResults .containerBlankState`).remove();
 				$(`#` + options.parentID).parent().addClass(`noResults`);
 				generateBlankState({
 					target: options.parentID,
@@ -1223,9 +1225,17 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	
 	function searchTable(options) {
 		let input = document.getElementById(options.inputID);
-		var value = $(options.enteredText).val().toLowerCase();
+		let value = $(options.enteredText).val().toLowerCase();
 		$("table :not(thead) tr").filter(function() {
-			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+			let isVisible = $(this).text().toLowerCase().indexOf(value) > -1;
+			$(this).toggle(isVisible);
+			if (!isVisible) {
+				$(this).addClass("itemHidden");
+				$(this).removeClass("itemDisplayed");
+			} else {
+				$(this).removeClass("itemHidden");
+				$(this).addClass("itemDisplayed");
+			}
 		});
 		
 		//SET THE CONTAINER SCROLL BACK TO THE TOP
@@ -1237,6 +1247,22 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		} else {
 			$(input).next().addClass("active"); //Show the clear button
 		}
+		
+		//DISPLAY BLANK STATE WHEN THERE ARE NO MATCHES
+		if ($('.itemDisplayed').length > 0) {
+			//MATCHES FOUND
+			$(`.noResults .containerBlankState`).remove();
+			$(`#` + options.parentID).parent().removeClass(`noResults`);
+		} else {
+			//NO MATCHES
+			$(`.noResults .containerBlankState`).remove();
+			$(`#` + options.parentID).parent().addClass(`noResults`);
+			generateBlankState({
+				target: options.parentID,
+				icon: options.emptyIcon, 
+				title: options.emptyMessage,
+			});
+		}
 	}
 	
 	function searchClear(options) {
@@ -1244,6 +1270,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		$(options.clearButton).removeClass("active"); //Hide the clear button
 		$(options.inputID).val(""); //Empty the search input
 		$(`#` + options.parentID).removeClass("activeSearch"); //Remove the active search class from the parent container of the items
+		$(`.noResults .containerBlankState`).remove();
 	}
 	
 //SELECTION GRIDS
@@ -1307,15 +1334,15 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		`);
 		
 		if (options.icon != undefined) {
-			$(".blankStateContents").prepend(`${options.icon}`);
+			$(`#${options.target} .blankStateContents`).prepend(`${options.icon}`);
 		}
 		
 		if (options.message != undefined) {
-			$(".blankStateContents").append(`<p>${options.message}</p>`);
+			$(`#${options.target} .blankStateContents`).append(`<p>${options.message}</p>`);
 		}
 		
 		if (options.actionFirst != undefined) {
-			$(".blankStateContents").append(`
+			$(`#${options.target} .blankStateContents`).append(`
 				<div class="containerActions">
 					<button class="primary" id="${options.actionIDFirst}">${options.actionFirst}</button>
 				</div>
@@ -1323,7 +1350,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		}
 		
 		if (options.actionSecond != undefined) {
-			$(".blankStateContents .containerActions").append(`<button class="secondary" id="${options.actionIDSecond}">${options.actionSecond}</button>`)
+			$(`#${options.target} .blankStateContents .containerActions`).append(`<button class="secondary" id="${options.actionIDSecond}">${options.actionSecond}</button>`)
 		}
 	}
 	

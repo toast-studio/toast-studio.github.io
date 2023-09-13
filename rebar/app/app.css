@@ -356,22 +356,6 @@
 	text-align: center;
 }
 
-#exampleTextRounded {
-	font-family: var(--font-rounded);
-}
-
-#exampleTextMonospace {
-	font-family: var(--font-monospace);
-}
-
-#exampleTextSerif {
-	font-family: var(--font-serif);
-}
-
-#exampleTextDyslexic {
-	font-family: var(--font-dyslexic);
-}
-
 .tableGuideIcons tr {
 	grid-template-columns: 1fr calc(var(--base-font-size) * 12);
 }
