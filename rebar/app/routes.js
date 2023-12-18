@@ -1202,7 +1202,22 @@ function routecharts(options) {
 					break;
 				case 'stats':
 					generateChartStats({
-						target: 'exampleChartStats',
+						target: 'exampleChartStatsLandscape',
+						orientation: 'landscape',
+						max: 256,
+						data: [
+							['HP', 140],
+							['ATK', 85],
+							['DEF', 95],
+							['SP ATK', 145],
+							['SP DEF', 95],
+							['SPD', 130]
+						]
+					})
+					
+					generateChartStats({
+						target: 'exampleChartStatsPortrait',
+						orientation: 'portrait',
 						max: 256,
 						data: [
 							['HP', 140],

@@ -1,4 +1,4 @@
-/* REBAR 2.2 */
+ /* REBAR 2.2.1 */
 /* COPYRIGHT TOAST STUDIO */
 
 /* SETUP */
@@ -112,6 +112,7 @@
 	[data-theme="system"] {
 		/* COLOURS */
 		--main: 0 0 0;
+		--mainInvert: 255 255 255;
 		--accent: 250 192 0;
 		--destructive: 206 27 45;
 		--positive: 19 180 138;
@@ -140,6 +141,7 @@
 		[data-theme="system"] {
 			/* COLOURS */
 			--main: 255 255 255;
+			--mainInvert: 0 0 0;
 			--accent: 250 154 0;
 			--destructive: 239 75 91;
 			--positive: 48 219 174;
@@ -169,6 +171,7 @@
 	[data-theme="light"] {
 		/* COLOURS */
 		--main: 0 0 0;
+		--mainInvert: 255 255 255;
 		--accent: 250 192 0;
 		--destructive: 206 27 45;
 		--positive: 19 180 138;
@@ -205,6 +208,7 @@
 	[data-theme="dark"] {
 		/* COLOURS */
 		--main: 255 255 255;
+		--mainInvert: 0 0 0;
 		--accent: 250 154 0;
 		--destructive: 239 75 91;
 		--positive: 48 219 174;
@@ -828,6 +832,12 @@
 		.alwaysMain path {
 			color: rgb(var(--main));
 			fill: rgb(var(--main)) !important;
+		}
+		
+		.alwaysMainInvert, 
+		.alwaysMainInvert path {
+			color: rgb(var(--mainInvert));
+			fill: rgb(var(--mainInvert)) !important;
 		}
 
 
@@ -3078,7 +3088,8 @@
 						}
 					}
 					
-					.display & {
+					.display &,
+					.display &:hover {
 						color: black;
 						box-shadow: var(--shadow-wide);
 						border: 1px solid transparent;
@@ -6104,14 +6115,76 @@
 			flex-direction: column;
 			gap: calc(var(--base-gap-size) / 2);
 			
+			&[data-orientation="portrait"] {
+				flex-direction: row;
+				
+				& label {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+			
 			& span {
 				display: grid;
 				grid-template-columns: calc(var(--base-font-size) * 7) 1fr;
 				align-items: center;
+				
+				[data-orientation="portrait"] & {
+					width: 100%;
+					display: flex;
+					flex-direction: column-reverse;
+				}
 			}
 			
 			& .textBold {
 				margin-inline-end: calc(var(--base-gap-size) / 4);
+				
+				[data-orientation="landscape"] &::after {
+					content: ':';
+				}
+				
+				[data-orientation="portrait"] & {
+					margin-inline-end: 0px;
+				}
+			}
+			
+			& .track {
+				background: rgb(var(--main) / .05);
+				border-radius: calc(var(--base-radius-size) * 20);
+				width: 100%;
+				height: calc(var(--base-font-size) * 0.8);
+				overflow: hidden;
+				position: relative;
+				
+				[data-os="android"] & {
+					background: rgb(var(--accent) / .2);
+				}
+				
+				[data-contrast="more"] & {
+					box-shadow: inset 0px 0px 0px 1px rgb(var(--divider));
+				}
+				
+				[data-orientation="portrait"] & {
+					height: 90px;
+					width: 40px;
+					border-radius: 4px;
+				}
+			}
+			
+			& .bar {
+				background: rgb(var(--accent));
+				height: 100%;
+				width: var(--stat-bar-length);
+				border-radius: calc(var(--base-radius-size) * 20);
+				
+				[data-orientation="portrait"] & {
+					height: var(--stat-bar-length);
+					width: 100%;
+					border-radius: 0px;
+					bottom: 0px;
+					position: absolute;
+				}
 			}
 		}
 	

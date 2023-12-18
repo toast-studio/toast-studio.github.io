@@ -1,4 +1,4 @@
-//REBAR 2.2
+//REBAR 2.2.1
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -1143,8 +1143,6 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	}
 	
 	$(document).keyup(function(e) {
-		console.log(e.key)
-		
 		let checkFocus = (document.activeElement === document.getElementsByTagName('input')[0])
 		
 		if (checkFocus == false) {
@@ -2319,15 +2317,19 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	
 	function generateChartStats(options) {
 		//CREATE CHART CONTAINER
-			$(`#${options.target}`).append(`<div class="chartStats"></div>`)
+			$(`#${options.target}`).append(`<div class="chartStats" data-orientation="${options.orientation}"></div>`)
 		
 		
 		//APPEND THE BARS
 			$.each(options.data, function(key,val) {
+				let percentageValue = Math.round((val[1] / options.max) * 100)
+				
 				$(`#${options.target} .chartStats`).append(`
-					<span>
-						<label for="${val[0]}"><div class="textBold">${val[0]}:</div> ${val[1]}</label>
-						<progress id="${val[0]}" value="${val[1]}" max="${options.max}"></progress>
+					<span data-value="${val[0]}">
+						<label for="${val[0]}"><div class="textBold">${val[0]}</div>${val[1]}</label>
+						<div class="track">
+							<div class="bar" id="${val[0]}" style="--stat-bar-length: ${percentageValue}%;">
+						</div>
 					</span>
 				`)
 			});

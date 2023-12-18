@@ -295,6 +295,29 @@ const gettingstarted = {
 			<div class="containerAccordion hideOverflow spacerSingle">
 				<div class="headerAccordion headerSection">
 					<span>
+						<h3>2.2.1</h3>
+						<p class="subtext excludeMargin">18 December 2023</p>
+					</span>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<section class="containerSection">
+							<ul class="excludeMargin">
+								<li>Added a Inverted Main colour variable</li>
+								<li>Updated the Stats Chart to use a <code>div</code> element instead of a <code>progress</code> element due to rendering issues in Safari 17</li>
+								<li>Added portrait orientation to Stats Chart</li>
+								<li>Updated Tip Jar image</li>
+								<li>Removed logging from the shortcut keys function</li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</div>
+		
+			<div class="containerAccordion hideOverflow spacerSingle">
+				<div class="headerAccordion headerSection">
+					<span>
 						<h3>2.2</h3>
 						<p class="subtext excludeMargin">13 September 2023</p>
 					</span>
@@ -6850,6 +6873,10 @@ generateSpinner({
 					<span class="label">Main</span>
 				</div>
 				<div class="tile">
+					<div class="alwaysMainInvert">${iconShapes.circleFill}</div>
+					<span class="label">Main Inverted</span>
+				</div>
+				<div class="tile">
 					<div class="alwaysAccent">${iconShapes.circleFill}</div>
 					<span class="label">Accent</span>
 				</div>
@@ -7044,7 +7071,11 @@ const charts = {
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<h2>Examples</h2>
-			<div class="spacerTriple" id="exampleChartStats"></div>
+			<h3>Landscape</h3>
+			<div class="spacerTriple" id="exampleChartStatsLandscape"></div>
+			
+			<h3>Portrait</h3>
+			<div class="spacerTriple" id="exampleChartStatsPortrait"></div>
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
@@ -7060,8 +7091,11 @@ const charts = {
 				<tbody>
 					<tr>
 						<td><code>target</code></td>
-						<td>
-						The ID of the container you want the chart to fill in to. In your HTML this must be an container with an id attribute.</td>
+						<td>The ID of the container you want the chart to fill in to. In your HTML this must be an container with an id attribute.</td>
+					</tr>
+					<tr>
+						<td><code>orientation</code></td>
+						<td>Set to <code>landscape</code> or <code>portrait</code>.</td>
 					</tr>
 					<tr>
 						<td><code>max</code></td>
