@@ -1,4 +1,4 @@
-//REBAR 2.2.1
+//REBAR 2.2.2
 //COPYRIGHT TOAST STUDIO
 
 var iconShapes = {

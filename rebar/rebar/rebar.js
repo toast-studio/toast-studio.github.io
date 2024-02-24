@@ -1,4 +1,4 @@
-//REBAR 2.2.1
+//REBAR 2.2.2
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -169,7 +169,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 										<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
 										<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
 									</ol>
-									<p class="subtext">iOS 16.4 onwards</p>
+									<p class="subtext">iOS 16.4 onwards. Functionality is not available in the European Union from iOS 17.4 onwards.</p>
 								</div>
 							</div>
 						</section>
@@ -272,7 +272,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 										<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
 										<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
 									</ol>
-									<p class="subtext">iOS 16.4 onwards</p>
+									<p class="subtext">iOS 16.4 onwards. Functionality is not available in the European Union from iOS 17.4 onwards.</p>
 								</div>
 							</div>
 						</section>
@@ -376,7 +376,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 										<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
 										<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
 									</ol>
-									<p class="subtext">iOS 16.4 onwards</p>
+									<p class="subtext">iOS 16.4 onwards. Functionality is not available in the European Union from iOS 17.4 onwards.</p>
 								</div>
 							</div>
 						</section>
@@ -452,7 +452,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 										<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
 										<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
 									</ol>
-									<p class="subtext">iOS 1.1.3 onwards</p>
+									<p class="subtext">iOS 1.1.3 onwards. Functionality is not available in the European Union from iOS 17.4 onwards.</p>
 								</div>
 							</div>
 						</section>
@@ -495,6 +495,15 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 							</div>
 						</section>
 					</div>
+					
+					${
+						insertBanner({
+							type: 'warning',
+							content: 'Installation is not available in visionOS',
+							icon: false,
+							size: "large",
+						})
+					}
 				`)
 				break;
 			case 'samsunginternet':
