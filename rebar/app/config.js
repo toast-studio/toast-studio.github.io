@@ -1,4 +1,4 @@
-const appVersion = "2.2.2";
+const appVersion = "2.2.3";
 const appName = "Rebar";
 const appDomain = "https://toast-studio.com/";
 const appPrivacyPolicy = "https://toast-studio.com/";

@@ -295,6 +295,25 @@ const gettingstarted = {
 			<div class="containerAccordion hideOverflow spacerSingle">
 				<div class="headerAccordion headerSection">
 					<span>
+						<h3>2.2.3</h3>
+						<p class="subtext excludeMargin">2 March 2024</p>
+					</span>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<section class="containerSection">
+							<ul class="excludeMargin">
+								<li>Reverted How to Install content to remove message about web apps not able to be installed on iOS 17.4 in the EU</li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</div>
+		
+			<div class="containerAccordion hideOverflow spacerSingle">
+				<div class="headerAccordion headerSection">
+					<span>
 						<h3>2.2.2</h3>
 						<p class="subtext excludeMargin">24 February 2024</p>
 					</span>
