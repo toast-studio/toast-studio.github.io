@@ -530,7 +530,6 @@ footer .toast:hover {
     grid-template-rows: repeat(8, 140px);
     grid-template-areas:    "screensizes"
                             "simplescales"
-                            "lifecast"
                             "typedex"
                             "critterdex"
                             "clearread"
@@ -614,9 +613,9 @@ footer .toast:hover {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 460px 460px 460px 460px;
         grid-template-areas:    "screensizes simplescales"
-                                "lifecast linkbadges" 
                                 "typedex critterdex" 
-                                "clearread startpageredirect";
+                                "clearread startpageredirect"
+                                "linkbadges lifecast";
     }
 
     .toast-page main aside {
