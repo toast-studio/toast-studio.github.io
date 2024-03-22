@@ -4,3 +4,16 @@ _site
 *.gem
 .nova/Configuration.json
 .nova/Artwork
+.DS_Store
+clear-read/.DS_Store
+clear-read/images/.DS_Store
+rebar/.DS_Store
+rebar/app/.DS_Store
+rebar/app/images/.DS_Store
+rebar/app/images/ui/.DS_Store
+rebar/rebar/.DS_Store
+rebar/rebar/images/.DS_Store
+start-page-redirect/.DS_Store
+start-page-redirect/images/.DS_Store
+toast/.DS_Store
+typedex/.DS_Store
