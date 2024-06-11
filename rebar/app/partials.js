@@ -295,6 +295,25 @@ const gettingstarted = {
 			<div class="containerAccordion hideOverflow spacerSingle">
 				<div class="headerAccordion headerSection">
 					<span>
+						<h3>2.2.4</h3>
+						<p class="subtext excludeMargin">11 June 2024</p>
+					</span>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<section class="containerSection">
+							<ul class="excludeMargin">
+								<li>Added Apple Intelligence icon</li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</div>
+		
+			<div class="containerAccordion hideOverflow spacerSingle">
+				<div class="headerAccordion headerSection">
+					<span>
 						<h3>2.2.3</h3>
 						<p class="subtext excludeMargin">2 March 2024</p>
 					</span>
