@@ -296,7 +296,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.2.5</h3>
-						<p class="subtext excludeMargin">10 September 2024</p>
+						<p class="subtext excludeMargin">19 October 2024</p>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -306,6 +306,7 @@ const gettingstarted = {
 							<ul class="excludeMargin">
 								<li>Added Camera Control icon</li>
 								<li>Updated Action Button icon</li>
+								<li>Stopped the Shortcut Keys panel from being generated more than once</li>
 							</ul>
 						</section>
 					</div>

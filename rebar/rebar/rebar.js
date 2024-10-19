@@ -1157,7 +1157,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		if (checkFocus == false) {
 			switch (e.key) {
 				case 'Control':
-					if ($('.containerPanel').length == 0) {
+					if ($(`#sheetShortcuts`).length == 0) {
 						summonShortcutsPanel();
 					} else {
 						dismissDialog();
