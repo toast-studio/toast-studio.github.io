@@ -260,6 +260,11 @@
 		[data-os="macos"] {
 			--shadow-tight: 0px 2px 3px oklch(0 0 0 / .05), 
 							0px 0px 0px 1px oklch(0 0 0 / .05);
+			--backgroundPrime: light-dark(
+				oklch(97% 0 0), 
+				oklch(23.5% 0 0)
+			);
+			--background: var(--backgroundPrime);
 		}
 		
 		[data-os="android"] {
