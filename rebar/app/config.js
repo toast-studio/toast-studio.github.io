@@ -1,4 +1,4 @@
-const appVersion = "2.2.4";
+const appVersion = "2.3";
 const appName = "Rebar";
 const appDomain = "https://toast-studio.com/";
 const appPrivacyPolicy = "https://toast-studio.com/";
@@ -27,7 +27,7 @@ const appThemes = {
 		iconName: "moonRightFill",
 	},
 	custom: {
-		name: "Custom Theme",
+		name: "Custom",
 		iconGroup: "iconNature",
 		iconName: "sparkleFill",
 	},
@@ -35,21 +35,6 @@ const appThemes = {
 const appAccents = {
 	default: "Rebar",
 	custom: "Custom",
-	red: "Red",
-	orange: "Orange",
-	yellow: "Yellow",
-	green: "Green",
-	teal: "Teal",
-	blue: "Blue",
-	purple: "Purple",
-	pink: "Pink",
-	graphite: "Graphite",
-	ired: "iMac Red",
-	iorange: "iMac Orange",
-	iyellow: "iMac Yellow",
-	igreen: "iMac Green",
-	iblue: "iMac Blue",
-	ipurple: "iMac Purple",
 };
 const appTextSizes = {
 	small: "Small",
@@ -61,6 +46,7 @@ const appPreferencesDefault = {
 	"rebar.appSettings": {
 		version: 1,
 		debug: false,
+		os: "default",
 		openings: 0,
 		firstRun: null,
 		accent: ["default"],
@@ -74,7 +60,7 @@ const appPreferencesDefault = {
 		increaseContrast: "less",
 		reduceMotion: "off",
 		clickedDonationLink: false,
-		os: "default",
+		
 	},
 }
 const topLevelRoute = "routesidebar";

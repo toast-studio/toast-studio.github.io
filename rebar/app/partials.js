@@ -2,16 +2,16 @@ const gettingstarted = {
 	welcome: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Getting&hellip;")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar"></h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -54,16 +54,16 @@ const gettingstarted = {
 	filestructure: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Getting&hellip;")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">File Structure</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -89,6 +89,7 @@ const gettingstarted = {
 						<li>${iconInterfaceElements.textCapital} OpenDyslexic3-Regular.ttf</li>
 						<li>${iconInterfaceElements.textCapital} product-sans-bold.ttf</li>
 						<li>${iconInterfaceElements.textCapital} product-sans-Regular.ttf</li>
+						<li>${iconInterfaceElements.textCapital} SegoeUI-VF.ttf</li>
 					</ul>
 					<li>${iconObjects.folderHorizontalFill} icons</li>
 					<ul class="excludeMargin">
@@ -147,16 +148,16 @@ const gettingstarted = {
 	appstructure: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Getting&hellip;")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">App Structure</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -179,16 +180,16 @@ const gettingstarted = {
 	config: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Getting&hellip;")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Config</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -279,19 +280,86 @@ const gettingstarted = {
 	versionhistory: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Getting&hellip;")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Version</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+		
+			<div class="containerAccordion hideOverflow spacerSingle">
+				<div class="headerAccordion headerSection">
+					<span>
+						<h3>2.3</h3>
+						<p class="subtext excludeMargin">11 Feb 2025</p>
+					</span>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<section class="containerSection">
+							${
+								insertBanner({
+									type: 'warning',
+									content: 'This version includes breaking changes for Service Worker Cache list, Config, colour variables, Buttons, Switches, Tokens, and iMacMulti icon',
+									icon: false,
+									size: "large",
+								})
+							}
+							
+							<h5>Added</h5>
+							<ul>
+								<li>Added <code>text-wrap: balance;</code> to headings</li>
+								<li>New <code>--accentPrime</code>, <code>--backgroundPrime</code>, <code>--foregroundPrime</code>, and <code>--systempanelPrime</code> variables to support the removal of excess <code>color-mix()</code> for Android and Windows</li>
+								<li>Display Tile button for use in Display Options</li>
+								<li>Android, Windows, Small Text, Medium Text, and Large Text icons</li>
+								<li>Shantell Sans, System Mono, Segoe UI, and SF Pro as a font options</li>
+								<li>iMac 2024, Android, and Windows accents</li>
+								<li><code>storedOS()</code> function to grab the users' selected OS</li>
+								<li>A new <code>data-device</code> attribute is added to the <code>body</code> onload</li>
+								<li><code>iconStyle()</code> and <code>gripperIcon()</code> functions for rendering icons based on the selected theme</li>
+							</ul>
+							
+							<h5>Updated</h5>
+							<ul>
+								<li>Colour variables now use OKLCH in Display P3 and <code>light-dark()</code></li>
+								<li>Improved the visibility of Banners on Android</li>
+								<li>Made improvements when increase contrast is active</li>
+								<li>Reworked the styling of Buttons to make them more clearer to work with</li>
+								<li>Buttons are now called Action Buttons</li>
+								<li>There is now a <code>primary</code> style for Action Buttons</li>
+								<li>Switches are now checkboxes instead of buttons</li>
+								<li>Updated styling of components to match iOS 18, iPadOS 18, and Android 15</li>
+								<li>Tokens now require the <code>button</code> element</li>
+								<li>Updated the styling of Display Options to be a more visual experience</li>
+								<li>Renamed "iMacMulti" to "imacMulti" for consistency</li>
+								<li>You only now need to list the custom accents in the Config file</li>
+								<li>Media queries now use Range Syntax</li>
+							</ul>
+							
+							<h5>Fixed</h5>
+							<ul>
+								<li>Stopped Sheets overflowing on Android</li>
+								<li>Stopped Segments jumping width on Android when hovering</li>
+							</ul>
+							
+							<h5>Removed</h5>
+							<ul class="excludeMargin">
+								<li><code>--systemBlue</code> variable</li>
+								<li><code>positive</code> Action Button style</li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</div>
+		
 			<div class="containerAccordion hideOverflow spacerSingle">
 				<div class="headerAccordion headerSection">
 					<span>
@@ -382,7 +450,7 @@ const gettingstarted = {
 					<div class="wrapper">
 						<section class="containerSection">
 							<ul class="excludeMargin">
-								<li>Added a Inverted Main colour variable</li>
+								<li>Added <code>--mainInvert</code> colour variable</li>
 								<li>Updated the Stats Chart to use a <code>div</code> element instead of a <code>progress</code> element due to rendering issues in Safari 17</li>
 								<li>Added portrait orientation to Stats Chart</li>
 								<li>Updated Tip Jar image</li>
@@ -404,6 +472,15 @@ const gettingstarted = {
 				<section class="containerAccordionContents">
 					<div class="wrapper">
 						<section class="containerSection">
+							${
+								insertBanner({
+									type: 'warning',
+									content: 'This version includes breaking changes for Rebar Icons',
+									icon: false,
+									size: "large",
+								})
+							}
+						
 							<ul class="excludeMargin">
 								<li>The main Rebar CSS file now uses CSS Nesting</li>
 								<li>Scrollbars will now be dark in Dark Mode</li>
@@ -1203,16 +1280,16 @@ const gettingstarted = {
 	requirements: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Getting&hellip;")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Requirements</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -1225,6 +1302,24 @@ const gettingstarted = {
 						<th>Requirements</th>
 					</tr>
 				</thead>
+					<tr>
+						<td class="textBold">2.3</td>
+						<td>
+							<p class="subtext">Added <code>oklch()</code>, <code>light-dark()</code>, Relative Color Syntax, <code>text-wrap: balance</code>, and Range Syntax</p>
+							<ul class="excludeMargin">
+								<li>jQuery 3.6.4</li>
+								<li>Chrome 123</li>
+								<li>Edge 123</li>
+								<li>Firefox 128</li>
+								<li>Safari 18</li>
+								<li>Opera 109</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td class="textBold">2.2.1 - 2.2.5</td>
+						<td>No changes</td>
+					</tr>
 					<tr>
 						<td class="textBold">2.2</td>
 						<td>
@@ -1313,23 +1408,23 @@ const controls = {
 	buttons: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
-			<h1 class="headerToolbar">Buttons</h1>
+			<h1 class="headerToolbar">Action Buttons</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			${
 				insertBanner({
 					type: 'info',
-					content: 'Buttons have different styling based on the <code>pointer</code> used',
+					content: 'Buttons have different styling based on the <code>pointer</code> and OS being used',
 					icon: false,
 					size: 'large',
 				})
@@ -1340,114 +1435,130 @@ const controls = {
 			<table class="definitions spacerTriple" id="buttons">
 				<thead>
 					<tr>
-						<th></th>
+						<th>Fill</th>
 						<th>Primary</th>
 						<th>Secondary</th>
 						<th>Translucent</th>
-						<th>Positive</th>
 						<th>Destructive</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>Standard</td>
-						<td><button>Label</button></td>
-						<td><button class="secondary">Label</button></td>
-						<td><button class="translucent">Label</button></td>
-						<td><button class="positive">Label</button></td>
-						<td><button class="destructive">Label</button></td>
+						<td>Default</td>
+						<td><button data-button="action-fill" class="primary">Label</button></td>
+						<td><button data-button="action-fill" class="secondary">Label</button></td>
+						<td><button data-button="action-fill" class="translucent">Label</button></td>
+						<td><button data-button="action-fill" class="destructive">Label</button></td>
 					</tr>
 					<tr>
 						<td>Confirm</td>
-						<td><button class="confirm">Label</button></td>
-						<td><button class="secondary confirm">Label</button></td>
-						<td><button class="translucent confirm">Label</button></td>
-						<td><button class="positive confirm">Label</button></td>
-						<td><button class="destructive confirm">Label</button></td>
-					</tr>
-					<tr>
-						<td>Transparent</td>
-						<td><button class="transparent">Label</button></td>
-						<td><button class="secondary transparent">Label</button></td>
-						<td><button class="translucent transparent">Label</button></td>
-						<td><button class="positive transparent">Label</button></td>
-						<td><button class="destructive transparent">Label</button></td>
-					</tr>
-					<tr>
-						<td>Transparent Confirm</td>
-						<td><button class="transparent confirm">Label</button></td>
-						<td><button class="secondary transparent confirm">Label</button></td>
-						<td><button class="translucent transparent confirm">Label</button></td>
-						<td><button class="positive transparent confirm">Label</button></td>
-						<td><button class="destructive transparent confirm">Label</button></td>
-					</tr>
-					<tr>
-						<td>Large</td>
-						<td><button class="large">Label</button></td>
-						<td><button class="secondary large">Label</button></td>
-						<td><button class="translucent large">Label</button></td>
-						<td><button class="positive large">Label</button></td>
-						<td><button class="destructive large">Label</button></td>
+						<td><button data-button="action-fill" class="primary confirm">Label</button></td>
+						<td><button data-button="action-fill" class="secondary confirm">Label</button></td>
+						<td><button data-button="action-fill" class="translucent confirm">Label</button></td>
+						<td><button data-button="action-fill" class="destructive confirm">Label</button></td>
 					</tr>
 					<tr>
 						<td>Disabled</td>
-						<td><button class="disabled">Label</button></td>
-						<td><button class="secondary disabled">Label</button></td>
-						<td><button class="translucent disabled">Label</button></td>
-						<td><button class="positive disabled">Label</button></td>
-						<td><button class="destructive disabled">Label</button></td>
+						<td><button data-button="action-fill" class="primary disabled">Label</button></td>
+						<td><button data-button="action-fill" class="secondary disabled">Label</button></td>
+						<td><button data-button="action-fill" class="translucent disabled">Label</button></td>
+						<td><button data-button="action-fill" class="destructive disabled">Label</button></td>
 					</tr>
 					<tr>
-						<td>Standard Icon</td>
-						<td><button>${iconShapes.starFivePointFill}</button></td>
-						<td><button class="secondary">${iconShapes.starFivePointFill}</button></td>
-						<td><button class="translucent">${iconShapes.starFivePointFill}</button></td>
-						<td><button class="positive">${iconShapes.starFivePointFill}</button></td>
-						<td><button class="destructive">${iconShapes.starFivePointFill}</button></td>
+						<td>Icon</td>
+						<td><button data-button="action-fill" class="primary">${iconShapes.starFivePointFill}</button></td>
+						<td><button data-button="action-fill" class="secondary">${iconShapes.starFivePointFill}</button></td>
+						<td><button data-button="action-fill" class="translucent">${iconShapes.starFivePointFill}</button></td>
+						<td><button data-button="action-fill" class="destructive">${iconShapes.starFivePointFill}</button></td>
 					</tr>
 					<tr>
 						<td>Multi Icon</td>
-						<td><button class="useInitialFill">${iconObjects.compassMulti}</button></td>
-						<td><button class="secondary useInitialFill">${iconObjects.compassMulti}</button></td>
-						<td><button class="translucent useInitialFill">${iconObjects.compassMulti}</button></td>
-						<td><button class="positive useInitialFill">${iconObjects.compassMulti}</button></td>
-						<td><button class="destructive useInitialFill">${iconObjects.compassMulti}</button></td>
+						<td><button data-button="action-fill" class="primary useInitialFill">${iconObjects.compassMulti}</button></td>
+						<td><button data-button="action-fill" class="secondary useInitialFill">${iconObjects.compassMulti}</button></td>
+						<td><button data-button="action-fill" class="translucent useInitialFill">${iconObjects.compassMulti}</button></td>
+						<td><button data-button="action-fill" class="destructive useInitialFill">${iconObjects.compassMulti}</button></td>
 					</tr>
-					<tr>
-						<td>Transparent Icon</td>
-						<td><button class="transparent">${iconShapes.starFivePointFill}</button></td>
-						<td><button class="secondary transparent">${iconShapes.starFivePointFill}</button></td>
-						<td><button class="translucent transparent">${iconShapes.starFivePointFill}</button></td>
-						<td><button class="positive transparent">${iconShapes.starFivePointFill}</button></td>
-						<td><button class="destructive transparent">${iconShapes.starFivePointFill}</button></td>
-					</tr>
-					<tr>
-						<td>Transparent Multi Icon</td>
-						<td><button class="transparent useInitialFill">${iconObjects.compassMulti}</button></td>
-						<td><button class="secondary transparent useInitialFill">${iconObjects.compassMulti}</button></td>
-						<td><button class="translucent transparent useInitialFill">${iconObjects.compassMulti}</button></td>
-						<td><button class="positive transparent useInitialFill">${iconObjects.compassMulti}</button></td>
-						<td><button class="destructive transparent useInitialFill">${iconObjects.compassMulti}</button></td>
-					</tr>
-					<tr>
-						<td>Circular</td>
-						<td><button class="circular">${iconShapes.starFivePointFill}</button></td>
-						<td><button class="secondary circular">${iconShapes.starFivePointFill}</button></td>
-						<td><button class="translucent circular">${iconShapes.starFivePointFill}</button></td>
-						<td><button class="positive circular">${iconShapes.starFivePointFill}</button></td>
-						<td><button class="destructive circular">${iconShapes.starFivePointFill}</button></td>
-					</tr>
-					
 					<tr>
 						<td>Close</td>
-						<td><button class="translucent xclose" style="position: relative; top: 0px; right: 0px;">${iconShapes.timesFill}</button></td>
+						<td><button data-button="close" class="translucent" style="position: relative; top: 0px; right: 0px;">${iconShapes.timesFill}</button></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<table class="definitions spacerTriple" id="buttons">
+				<thead>
+					<tr>
+						<th>Transparent</th>
+						<th>Primary</th>
+						<th>Secondary</th>
+						<th>Translucent</th>
+						<th>Destructive</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Default</td>
+						<td><button data-button="action-transparent" class="primary transparent">Label</button></td>
+						<td><button data-button="action-transparent" class="secondary transparent">Label</button></td>
+						<td><button data-button="action-transparent" class="translucent transparent">Label</button></td>
+						<td><button data-button="action-transparent" class="destructive transparent">Label</button></td>
+					</tr>
+					<tr>
+						<td>Confirm</td>
+						<td><button data-button="action-transparent" class="primary transparent confirm">Label</button></td>
+						<td><button data-button="action-transparent" class="secondary transparent confirm">Label</button></td>
+						<td><button data-button="action-transparent" class="translucent transparent confirm">Label</button></td>
+						<td><button data-button="action-transparent" class="destructive transparent confirm">Label</button></td>
+					</tr>
+					<tr>
+						<td>Disabled</td>
+						<td><button data-button="action-transparent" class="primary disabled">Label</button></td>
+						<td><button data-button="action-transparent" class="secondary disabled">Label</button></td>
+						<td><button data-button="action-transparent" class="translucent disabled">Label</button></td>
+						<td><button data-button="action-transparent" class="destructive disabled">Label</button></td>
+					</tr>
+					<tr>
+						<td>Icon</td>
+						<td><button data-button="action-transparent" class="primary transparent">${iconShapes.starFivePointFill}</button></td>
+						<td><button data-button="action-transparent" class="secondary transparent">${iconShapes.starFivePointFill}</button></td>
+						<td><button data-button="action-transparent" class="translucent transparent">${iconShapes.starFivePointFill}</button></td>
+						<td><button data-button="action-transparent" class="destructive transparent">${iconShapes.starFivePointFill}</button></td>
+					</tr>
+					<tr>
+						<td>Multi Icon</td>
+						<td><button data-button="action-transparent" class="primary transparent useInitialFill">${iconObjects.compassMulti}</button></td>
+						<td><button data-button="action-transparent" class="secondary transparent useInitialFill">${iconObjects.compassMulti}</button></td>
+						<td><button data-button="action-transparent" class="translucent transparent useInitialFill">${iconObjects.compassMulti}</button></td>
+						<td><button data-button="action-transparent" class="destructive transparent useInitialFill">${iconObjects.compassMulti}</button></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<table class="definitions spacerTriple" id="buttons">
+				<thead>
+					<tr>
+						<th>Circular</th>
+						<th>Primary</th>
+						<th>Secondary</th>
+						<th>Translucent</th>
+						<th>Destructive</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Default</td>
+						<td><button data-button="action-circular" class="primary">${iconShapes.starFivePointFill}</button></td>
+						<td><button data-button="action-circular" class="secondary">${iconShapes.starFivePointFill}</button></td>
+						<td><button data-button="action-circular" class="translucent">${iconShapes.starFivePointFill}</button></td>
+						<td><button data-button="action-circular" class="destructive">${iconShapes.starFivePointFill}</button></td>
 					</tr>
 				</tbody>
 			</table>
 				
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
-			<p class="spacerTriple">Buttons are the backbone of many components in Rebar. They are the base layer that enables a lot of styles to be applied. A Button can contain text, SVGs, and images.</p>
+			<p>Buttons are the backbone of many components in Rebar. They are the base layer that enables a lot of styles to be applied. A Button can contain text, SVGs, and images.</p>
+			<p class="spacerTriple">Buttons need a <code>[data-button]</code> attribute to denote their styling. For Action Buttons that is <code>action-fill</code>, <code>action-transparent</code>, or <code>action-circular</code>.</p>
 			
 			<h3>Functions</h3>
 			<p class="spacerTriple">Buttons have no functions in of themselves but can have many other functions applied to them since most clickable components will be based off of Buttons.</p>
@@ -1462,8 +1573,8 @@ const controls = {
 				</thead>
 				<tbody>
 					<tr>
-						<td>Primary</td>
-						<td>There is no class for the Primary style, just including a <code>button</code> element will have it look like the Primary style.</td>
+						<td><code>primary</code></td>
+						<td>Sets the backing to the accent.</td>
 					</tr>
 					<tr>
 						<td><code>secondary</code></td>
@@ -1477,10 +1588,6 @@ const controls = {
 						<td><code>destructive</code></td>
 						<td>Sets the backing to a red colour.</td>
 					</tr>
-					<tr>
-						<td><code>positive</code></td>
-						<td>Sets the backing to a green colour.</td>
-					</tr>
 				</tbody>
 			</table>
 			
@@ -1492,24 +1599,12 @@ const controls = {
 				</thead>
 				<tbody>
 					<tr>
-						<td><code>transparent</code></td>
-						<td>Removes the backing and sets the label to the colour of the base class.</td>
-					</tr>
-					<tr>
 						<td><code>confirm</code></td>
 						<td>Sets the label to bold text.</td>
 					</tr>
 					<tr>
 						<td><code>disabled</code></td>
 						<td>Reduces the opacity and disables pointer events.</td>
-					</tr>
-					<tr>
-						<td><code>large</code></td>
-						<td>Increases the font size of the label.</td>
-					</tr>
-					<tr>
-						<td><code>circular</code></td>
-						<td>Sets the button to a fixed <code>width</code>, fixed <code>height</code>, and increases the <code>border-radius</code>. It's recommended to only use this style with an icon.</td>
 					</tr>
 					<tr>
 						<td><code>useInitialFill</code></td>
@@ -1524,16 +1619,16 @@ const controls = {
 	sidebaritems: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Sidebar Items</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -1547,7 +1642,7 @@ const controls = {
 			}
 			<h2>Examples</h2>
 			<section class="containerSection">
-				<button class="sidebar">
+				<button data-button="sidebar">
 					<div class="labelSidebar">
 						${iconNature.sunStroke}
 						Standard
@@ -1555,7 +1650,7 @@ const controls = {
 					<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
 				</button>
 				<br><br>
-				<button class="sidebar picked">
+				<button data-button="sidebar" class="picked">
 					<div class="labelSidebar">
 						${iconNature.sunStroke}
 						Picked
@@ -1563,7 +1658,15 @@ const controls = {
 					<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
 				</button>
 				<br><br>
-				<button class="sidebar useInitialFill">
+				<button data-button="sidebar" class="picked subdued">
+					<div class="labelSidebar">
+						${iconNature.sunStroke}
+						Subdued
+					</div>
+					<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
+				</button>
+				<br><br>
+				<button data-button="sidebar" class="useInitialFill">
 					<div class="labelSidebar">
 						${iconObjects.compassMulti}
 						Use Initial Fill
@@ -1571,10 +1674,18 @@ const controls = {
 					<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
 				</button>
 				<br><br>
-				<button class="sidebar picked useInitialFill">
+				<button data-button="sidebar" class="picked useInitialFill">
 					<div class="labelSidebar">
 						${iconObjects.compassMulti}
-						Use Initial Fill
+						Use Initial Fill (Picked)
+					</div>
+					<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
+				</button>
+				<br><br>
+				<button data-button="sidebar" class="picked subdued useInitialFill">
+					<div class="labelSidebar">
+						${iconObjects.compassMulti}
+						Use Initial Fill (Subdued)
 					</div>
 					<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
 				</button>
@@ -1585,7 +1696,7 @@ const controls = {
 			<p>The <code>.useInitialFill</code> class will allow an SVG used as the icon to keep the <code>fill</code> colours that are baked in to it's code.</p>
 			<h3 class="h6">Template</h3>
 <pre>
-&lt;button class="sidebar"&gt;
+&lt;button data-button="sidebar"&gt;
 	&lt;div class="labelSidebar"&gt;
 		&#36;{icon}
 		Standard
@@ -1598,19 +1709,19 @@ const controls = {
 	listitems: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">List Items</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview cropToolbar paddingContent" id="containerListItems">
 			${
 				insertBanner({
 					type: 'info',
@@ -1622,84 +1733,282 @@ const controls = {
 			<h2>Examples</h2>
 			<h3 class="h6">Default Any Size</h3>
 			<section class="containerSection">
-				<button class="itemList">
-					${iconNature.sunStroke}
+				<button data-button="item-flat" data-icon-size="auto">
+					${iconHuman.userCircleStroke}
 					<div class="label">
-						<span>Primary Label</span>
+						<span>Button</span>
 						<span class="subtext">Sub Label</span>
 					</div>
 				</button>
-				<br><br>
-				<button class="itemList picked">
-					${iconNature.sunStroke}
+				<button data-button="item-flat" data-icon-size="auto">
+					${iconTransport.rocketStroke}
 					<div class="label">
-						<span>Primary Label</span>
+						<span>Button</span>
 						<span class="subtext">Sub Label</span>
 					</div>
 				</button>
+				<button data-button="item-flat" data-icon-size="auto">
+					${iconObjects.paintbrushStroke}
+					<div class="label">
+						<span>Button</span>
+						<span class="subtext">Sub Label</span>
+					</div>
+				</button>
+				<button data-button="item-flat" data-icon-size="auto" class="picked">
+					${iconShapes.rectangleStackHorizontalStroke}
+					<div class="label">
+						<span>Button</span>
+						<span class="subtext">Sub Label</span>
+					</div>
+				</button>
+				<button data-button="item-flat" data-icon-size="auto">
+					${iconInterfaceElements.locationStroke}
+					<div class="label">
+						<span>Button</span>
+						<span class="subtext">Sub Label</span>
+					</div>
+				</button>
+				<div data-button="item-flat" data-icon-size="auto">
+					<div class="containerLeading">
+						${iconHardware.applewatchSideStroke}
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</div>
+				<div data-button="item-flat" data-icon-size="auto">
+					<div class="containerLeading">
+						${iconShapes.starSixPointStroke}
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+					<button data-button="action-fill" class="primary">Test with a Long Label</button>
+				</div>
+				<div data-button="item-flat" data-icon-size="auto">
+					<div class="containerLeading">
+						${iconInterfaceElements.screenshotStroke}
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+					<button data-button="switch" class="off" data-setting="switch1" title="Off" onclick="exampleSwitches(this)"></button>
+				</div>
 			</section>
 			<h3 class="h6">Default Fixed Size</h3>
 			<section class="containerSection">
-				<button class="itemList fixedIconSize">
-					${iconNature.sunStroke}
+				<button data-button="item-flat" data-icon-size="fixed">
+					${iconHuman.userCircleStroke}
 					<div class="label">
-						<span>Primary Label</span>
+						<span>Button</span>
 						<span class="subtext">Sub Label</span>
 					</div>
 				</button>
-				<br><br>
-				<button class="itemList fixedIconSize picked">
-					${iconNature.sunStroke}
+				<button data-button="item-flat" data-icon-size="fixed">
+					${iconTransport.rocketStroke}
 					<div class="label">
-						<span>Primary Label</span>
+						<span>Button</span>
 						<span class="subtext">Sub Label</span>
 					</div>
 				</button>
+				<button data-button="item-flat" data-icon-size="fixed">
+					${iconObjects.paintbrushStroke}
+					<div class="label">
+						<span>Button</span>
+						<span class="subtext">Sub Label</span>
+					</div>
+				</button>
+				<button data-button="item-flat" data-icon-size="fixed" class="picked">
+					${iconShapes.rectangleStackHorizontalStroke}
+					<div class="label">
+						<span>Button</span>
+						<span class="subtext">Sub Label</span>
+					</div>
+				</button>
+				<button data-button="item-flat" data-icon-size="fixed">
+					${iconInterfaceElements.locationStroke}
+					<div class="label">
+						<span>Button</span>
+						<span class="subtext">Sub Label</span>
+					</div>
+				</button>
+				<div data-button="item-flat" data-icon-size="fixed">
+					<div class="containerLeading">
+						${iconHardware.applewatchSideStroke}
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</div>
+				<div data-button="item-flat" data-icon-size="fixed">
+					<div class="containerLeading">
+						${iconShapes.starSixPointStroke}
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+					<button data-button="action-fill" class="primary">Hello</button>
+				</div>
+				<div data-button="item-flat" data-icon-size="fixed">
+					<div class="containerLeading">
+						${iconInterfaceElements.screenshotStroke}
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+					<button data-button="switch" class="off" data-setting="switch1" title="Off" onclick="exampleSwitches(this)"></button>
+				</div>
 			</section>
 			<h3 class="h6">Rounded Any Size</h3>
 			<section class="containerSection">
-				<button class="itemList rounded">
-					${iconNature.sunStroke}
+				<button data-button="item-rounded" data-icon-size="auto">
+					${iconHuman.userCircleStroke}
 					<div class="label">
-						<span>Primary Label</span>
+						<span>Button</span>
 						<span class="subtext">Sub Label</span>
 					</div>
 				</button>
-				<br><br>
-				<button class="itemList rounded picked">
-					${iconNature.sunStroke}
+				<button data-button="item-rounded" data-icon-size="auto">
+					${iconTransport.rocketStroke}
 					<div class="label">
-						<span>Primary Label</span>
+						<span>Button</span>
 						<span class="subtext">Sub Label</span>
 					</div>
 				</button>
+				<button data-button="item-rounded" data-icon-size="auto">
+					${iconObjects.paintbrushStroke}
+					<div class="label">
+						<span>Button</span>
+						<span class="subtext">Sub Label</span>
+					</div>
+				</button>
+				<button data-button="item-rounded" data-icon-size="auto" class="picked">
+					${iconShapes.rectangleStackHorizontalStroke}
+					<div class="label">
+						<span>Button</span>
+						<span class="subtext">Sub Label</span>
+					</div>
+				</button>
+				<button data-button="item-rounded" data-icon-size="auto">
+					${iconInterfaceElements.locationStroke}
+					<div class="label">
+						<span>Button</span>
+						<span class="subtext">Sub Label</span>
+					</div>
+				</button>
+				<div data-button="item-rounded" data-icon-size="auto">
+					<div class="containerLeading">
+						${iconHardware.applewatchSideStroke}
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</div>
+				<div data-button="item-rounded" data-icon-size="auto">
+					<div class="containerLeading">
+						${iconShapes.starSixPointStroke}
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+					<button data-button="action-fill" class="primary">Hello</button>
+				</div>
+				<div data-button="item-rounded" data-icon-size="auto">
+					<div class="containerLeading">
+						${iconInterfaceElements.screenshotStroke}
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+					<button data-button="switch" class="off" data-setting="switch1" title="Off" onclick="exampleSwitches(this)"></button>
+				</div>
 			</section>
 			<h3 class="h6">Rounded Fixed Size</h3>
 			<section class="containerSection">
-				<button class="itemList rounded fixedIconSize" >
-					${iconNature.sunStroke}
+				<button data-button="item-rounded" data-icon-size="fixed">
+					<span class="containerIcon" style="--icon-container: red;">${iconHuman.userCircleFill}</span>
 					<div class="label">
-						<span>Primary Label</span>
+						<span>Button</span>
 						<span class="subtext">Sub Label</span>
 					</div>
 				</button>
-				<br><br>
-				<button class="itemList rounded fixedIconSize picked" >
-					${iconNature.sunStroke}
+				<button data-button="item-rounded" data-icon-size="fixed">
+					<span class="containerIcon" style="--icon-container: orange;">${iconTransport.rocketFill}</span>
 					<div class="label">
-						<span>Primary Label</span>
+						<span>Button</span>
 						<span class="subtext">Sub Label</span>
 					</div>
 				</button>
+				<button data-button="item-rounded" data-icon-size="fixed">
+					<span class="containerIcon" style="--icon-container: gold;">${iconObjects.paintbrushFill}</span>
+					<div class="label">
+						<span>Button</span>
+						<span class="subtext">Sub Label</span>
+					</div>
+				</button>
+				<button data-button="item-rounded" data-icon-size="fixed" class="picked">
+					<span class="containerIcon" style="--icon-container: limegreen;">${iconShapes.rectangleStackHorizontalFill}</span>
+					<div class="label">
+						<span>Button</span>
+						<span class="subtext">Sub Label</span>
+					</div>
+				</button>
+				<button data-button="item-rounded" data-icon-size="fixed">
+					<span class="containerIcon" style="--icon-container: deepskyblue;">${iconInterfaceElements.locationFill}</span>
+					<div class="label">
+						<span>Button</span>
+						<span class="subtext">Sub Label</span>
+					</div>
+				</button>
+				<div data-button="item-rounded" data-icon-size="fixed">
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: darkblue;">${iconHardware.applewatchSideStroke}</span>
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</div>
+				<div data-button="item-rounded" data-icon-size="fixed">
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: darkorchid;">${iconShapes.starSixPointFill}</span>
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+					<button data-button="action-fill" class="primary">Hello</button>
+				</div>
+				<div data-button="item-rounded" data-icon-size="fixed">
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: hotpink;">${iconInterfaceElements.screenshotStroke}</span>
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+					<button data-button="switch" class="off" data-setting="switch1" title="Off" onclick="exampleSwitches(this)"></button>
+				</div>
 			</section>
 			
 			<h2>Documentation</h2>
-			<p>List Items are buttons with the <code>itemList</code> class. They come with default and <code>picked</code> states. An icon is not mandatory, if you do include one it can be any size but you can fix it to a Rebar defined size of 24px with the <code>fixedIconSize</code> class. If you need to include a sublabel that's possible with the <code>subtext</code> class.</p>
+			<p>List Items are buttons with the <code>data-button="flat"</code> or <code>data-button="rounded"</code> attributes. They come with default and <code>picked</code> states. An icon is not mandatory, if you do include one it can be any size but you can fix it to a Rebar defined size with the <code>data-icon-size="fixed"</code> attribute. If you don't wish to set a size for the icons you can use the <code>data-button="auto"</code> attribute. If you need to include a sublabel that's possible with the <code>subtext</code> class.</p>
+			<p>The icons can be wrapped in a span with the <code>containerIcon</code> class which will give them the correct appearance on iOS and macOS. It is required to include <code>style="--icon-container: color;"</code> to fill in the background.</p>
+			<p>For DIVs that contain a control on the trailing size you will need to wrap the leading contents in a div with the <code>containerLeading</code> class.</p>
 			<h3 class="h6">Template</h3>
 <pre>
-//DEFAULT
-&lt;button class="itemList"&gt;
-	&#36;{icon}
+//FLAT
+&lt;button data-button="item-flat" data-icon-size="fixed"&gt;
+	&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{icon}&lt;/span&gt;
 	&lt;div class="label"&gt;
 		&lt;span>&lt;/span&gt;
 		&lt;span class="subtext"&gt;&lt;/span&gt;
@@ -1707,29 +2016,32 @@ const controls = {
 &lt;/button&gt;
 
 //ROUNDED
-&lt;button class="itemList rounded"&gt;
-	&#36;{icon}
+&lt;button data-button="item-rounded" data-icon-size="fixed"&gt;
+	&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{icon}&lt;/span&gt;
 	&lt;div class="label"&gt;
 		&lt;span>&lt;/span&gt;
 		&lt;span class="subtext"&gt;&lt;/span&gt;
 	&lt;/div&gt;
 &lt;/button&gt;
 </pre>
+
+			<h3>CSS</h3>
+			<p>The <code>fixed</code> icon size is customisable from the default by setting the <code>--icon-size</code> variable.</p>
 		</div>
 	`,
 	badges: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Badges</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -1799,16 +2111,16 @@ const controls = {
 	segmenteditems: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Segmented Items</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -1824,27 +2136,27 @@ const controls = {
 			<h2>Examples</h2>
 			<h3 class="h6">Default Style</h3>
 			<section class="containerSection">
-				<button class="segment">Standard</button>
-				<button class="segment">Standard</button>
-				<button class="segment picked">Picked</button>
-				<button class="segment">Standard</button>
-				<button class="segment">Standard</button>
+				<button data-button="segment">Standard</button>
+				<button data-button="segment">Standard</button>
+				<button data-button="segment" class="picked">Picked</button>
+				<button data-button="segment">Standard</button>
+				<button data-button="segment">Standard</button>
 			</section>
 			<h3 class="h6">Split Style</h3>
 			<section class="containerSection split">
-				<button class="segment">Standard</button>
-				<button class="segment">Standard</button>
-				<button class="segment picked">Picked</button>
-				<button class="segment">Standard</button>
-				<button class="segment">Standard</button>
+				<button data-button="segment">Standard</button>
+				<button data-button="segment">Standard</button>
+				<button data-button="segment" class="picked">Picked</button>
+				<button data-button="segment">Standard</button>
+				<button data-button="segment">Standard</button>
 			</section>
 			<h3 class="h6">Display Style</h3>
 			<section class="containerSection display">
-				<button class="segment">Standard</button>
-				<button class="segment">Standard</button>
-				<button class="segment picked">Picked</button>
-				<button class="segment">Standard</button>
-				<button class="segment">Standard</button>
+				<button data-button="segment">Standard</button>
+				<button data-button="segment">Standard</button>
+				<button data-button="segment" class="picked">Picked</button>
+				<button data-button="segment">Standard</button>
+				<button data-button="segment">Standard</button>
 			</section>
 			
 			<h2>Documentation</h2>
@@ -1852,55 +2164,55 @@ const controls = {
 			<p>By default the picked segment will have a raised look. If you add the <code>split</code> class to the parent container the picked style will be a more flat look which is good for toolbars. Alternatively the <code>display</code> class is well suited for image backgrounds.</p>
 			<h3 class="h6">Template</h3>
 <pre>
-&lt;button class="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
+&lt;button data-button="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
 </pre>
 		</div>
 	`,
 	toolbaritems: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Toolbar Items</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			${
 				insertBanner({
 					type: 'info',
-					content: 'Toolbar Items have different styling based on the <code>pointer</code> used',
+					content: 'Toolbar Items have different styling based on the OS being used',
 					icon: false,
 					size: 'large',
 				})
 			}
 			<h2>Examples</h2>
 			<section class="containerSection">
-				<button class="toolbarItem" title="Example Button">${iconShapes.plusCircleStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" title="Example Button">${iconShapes.plusCircleStroke}</button>
 			</section>
 			<h2>Documentation</h2>
-			<p>This button style is intended to give a more native look to toolbar buttons when viewed on a device using a mouse by using the <code>toolbarItem</code> class. If this isn't required please use the other transparent button styles.</p>
+			<p>This button style is intended to give a more native look to toolbar buttons when viewed on different devices by the <code>toolbarItem</code> class with the <code>data-button="transparent"</code> attribute. If this isn't required please use the other transparent button styles.</p>
 		</div>
 	`,
 	tabbaritems: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Tab Bar Items</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -1914,13 +2226,13 @@ const controls = {
 			}
 			<h2>Examples</h2>
 			<section class="containerSection">
-				<button class="tab">
+				<button data-button="tab">
 					<div class="wrapper">
 						${iconNature.sunFill}
 					</div>
 					Standard
 				</button>
-				<button class="tab picked">
+				<button data-button="tab" class="picked">
 					<div class="wrapper">
 						${iconNature.sunFill}
 					</div>
@@ -1932,7 +2244,7 @@ const controls = {
 			<p>Tab Bar Items are buttons with the <code>tab</code> class. They come with default and <code>picked</code> styles. Tab Bar Items should always include both an icon and a label.</p>
 			<h3 class="h6">Template</h3>
 <pre>
-&lt;button class="tab picked" data-name="" onclick="routename('modifier')"&gt;
+&lt;button data-button="tab" class="picked" data-name="" onclick="routename('modifier')"&gt;
 	&#36;{icon}
 	Label
 &lt;/button&gt;
@@ -1942,16 +2254,16 @@ const controls = {
 	backbutton: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Back Button</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -1976,7 +2288,7 @@ const controls = {
 					<tr>
 						<td>Default</td>
 						<td>
-							<button class="back transparent" style="display: inline-flex;" title="Navigate Back">
+							<button data-button="action-transparent" class="back slim toolbarItem" style="display: inline-flex;" title="Navigate Back">
 								${iconShapes.chevronBackwardsStroke}
 								Label
 							</button>
@@ -1985,20 +2297,24 @@ const controls = {
 					<tr>
 						<td>Android or Windows</td>
 						<td>
-							<button class="back transparent" style="display: inline-flex;" title="Navigate Back">
+							<button data-button="action-transparent" class="back toolbarItem" style="display: inline-flex;" title="Navigate Back">
 								${iconShapes.arrowSingleLeft}
 							</button>
 						</td>
 					</tr>
 				</tbody>
-			</table>			
+			</table>	
+			
+			<button data-button="action-fill" class="primary">
+				${insertBackButton("label")}
+			</button>
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
 			<p>The Back button is the single way in Rebar to navigate backwards between views. It should always be included in Secondary and Main columns. Including a label is recommended but not mandatory</p>
 			<h4 class="h6">Template</h4>
 <pre class="spacerTriple">
-&lt;button class="back slim transparent" onclick='routename({modifier: false, navtype: "backwards"})' title="Navigate Back"&gt;
+&lt;button data-button="action-transparent" class="back slim" onclick='routename({modifier: false, navtype: "backwards"})' title="Navigate Back"&gt;
 	&#36;{insertBackButton("label")}
 &lt;/button&gt;
 </pre>
@@ -2008,24 +2324,23 @@ const controls = {
 			<p class="spacerTriple">For rendering the contents you should use the <code>insertBackButton()</code> function which will handle displaying the correct arrow for you based on the OS.</p>
 			
 			<h3>CSS</h3>
-			<p>On larger screens the Back Button will hide itself as it's not necessary since all columns are always visible (The examples on this page are being forced to be always visible so they can be seen). At it's core the Back Button is a standard Button which means it can inherit all the styling classes as needed. While not mandatory, it's strongly recommended to include the <code>transparent</code> class.</p>
+			<p>On larger screens the Back Button will hide itself as it's not necessary since all columns are always visible (The examples on this page are being forced to be always visible so they can be seen). At it's core the Back Button is a standard Button which means it can inherit all the styling classes as needed. You should use the <code>data-button="action-transparent"</code> attribute.</p>
 			<p>For Back Buttons with the chevron not in a circle you need to add the <code>slim</code> class to the button to adjust the size of the SVG to avoid excess whitespace.</p>
-			<p>The back button lacks a background when <code>:hover</code>. This was done to pull in the padding to give as much space as possible for text within the bounds of the <code>.pinLeft</code> width.</p>
 		</div>
 	`,
 	contextmenus: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Context Menus</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -2044,16 +2359,16 @@ const controls = {
 						<td>Primary Button Style</td>
 						<td>
 							<div class="containerContextButton" data-setting="context1" data-position="left">
-								<button class="buttonContext">
+								<button data-button="action-fill" class="buttonContext primary">
 									<span class="contextLabel">Label</span>
-									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
+									<span class="gripper">${gripperIcon()}</span>
 								</button>
 								<div class="contextContainerMenu">
-									<button data-value="first">First</button>
-									<button data-value="second">Second</button>
-									<button data-value="third">Third</button>
-									<button data-value="fourth">Fourth</button>
-									<button data-value="fifth">Fifth</button>
+									<button data-button="menu-item" data-value="first">First</button>
+									<button data-button="menu-item" data-value="second">Second</button>
+									<button data-button="menu-item" data-value="third">Third</button>
+									<button data-button="menu-item" data-value="fourth">Fourth</button>
+									<button data-button="menu-item" data-value="fifth">Fifth</button>
 								</div>
 							</div>
 						</td>
@@ -2062,16 +2377,16 @@ const controls = {
 						<td>Transparent Button Style</td>
 						<td>
 							<div class="containerContextButton" data-setting="context2" data-position="left">
-								<button class="buttonContext transparent">
-									<span class="contextLabel">${iconObjects.trashStroke} Label</span>
-									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
+								<button data-button="action-transparent" class="buttonContext primary">
+									<span class="contextLabel">Label</span>
+									<span class="gripper">${gripperIcon()}</span>
 								</button>
 								<div class="contextContainerMenu">
-									<button data-value="first">First</button>
-									<button data-value="second">Second</button>
-									<button data-value="third">Third</button>
-									<button data-value="fourth">Fourth</button>
-									<button data-value="fifth">Fifth</button>
+									<button data-button="menu-item" data-value="first">First</button>
+									<button data-button="menu-item" data-value="second">Second</button>
+									<button data-button="menu-item" data-value="third">Third</button>
+									<button data-button="menu-item" data-value="fourth">Fourth</button>
+									<button data-button="menu-item" data-value="fifth">Fifth</button>
 								</div>
 							</div>
 						</td>
@@ -2080,18 +2395,16 @@ const controls = {
 						<td>Secondary Button Style</td>
 						<td>
 							<div class="containerContextButton" data-setting="context3" data-position="left">
-								<button class="buttonContext secondary">
-									<div class="contextContainerLabel">
-										<span class="contextLabel">Label</span>
-										<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
-									</div>
+								<button data-button="action-fill" class="buttonContext secondary">
+									<span class="contextLabel">Label</span>
+									<span class="gripper">${gripperIcon()}</span>
 								</button>
 								<div class="contextContainerMenu">
-									<button data-value="first">First</button>
-									<button data-value="second">Second</button>
-									<button data-value="third">Third</button>
-									<button data-value="fourth">Fourth</button>
-									<button data-value="fifth">Fifth</button>
+									<button data-button="menu-item" data-value="first">First</button>
+									<button data-button="menu-item" data-value="second">Second</button>
+									<button data-button="menu-item" data-value="third">Third</button>
+									<button data-button="menu-item" data-value="fourth">Fourth</button>
+									<button data-button="menu-item" data-value="fifth">Fifth</button>
 								</div>
 							</div>
 						</td>
@@ -2100,18 +2413,16 @@ const controls = {
 						<td>Primary Icon Button</td>
 						<td>
 							<div class="containerContextButton" data-setting="context4" data-position="left">
-								<button class="buttonContext" title="Example with icon and no label">
-									<span class="contextLabel">
-										${iconShapes.triangleRightCircleStroke}
-									</span>
-									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
+								<button data-button="action-fill" class="buttonContext primary" title="Example with icon and no label">
+									${iconShapes.triangleRightCircleStroke}
+									<span class="gripper">${gripperIcon()}</span>
 								</button>
 								<div class="contextContainerMenu">
-									<button data-value="first">First</button>
-									<button data-value="second">Second</button>
-									<button data-value="third">Third</button>
-									<button data-value="fourth">Fourth</button>
-									<button data-value="fifth">Fifth</button>
+									<button data-button="menu-item" data-value="first">First</button>
+									<button data-button="menu-item" data-value="second">Second</button>
+									<button data-button="menu-item" data-value="third">Third</button>
+									<button data-button="menu-item" data-value="fourth">Fourth</button>
+									<button data-button="menu-item" data-value="fifth">Fifth</button>
 								</div>
 							</div>
 						</td>
@@ -2120,18 +2431,16 @@ const controls = {
 						<td>Transparent Icon Button</td>
 						<td>
 							<div class="containerContextButton" data-setting="context5" data-position="left">
-								<button class="buttonContext transparent" title="Example with icon and no label">
-									<span class="contextLabel">
-										${iconShapes.triangleRightCircleStroke}
-									</span>
-									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
+								<button data-button="action-transparent" class="buttonContext primary" title="Example with icon and no label">
+									${iconShapes.triangleRightCircleStroke}
+									<span class="gripper">${gripperIcon()}</span>
 								</button>
 								<div class="contextContainerMenu">
-									<button data-value="first">First</button>
-									<button data-value="second">Second</button>
-									<button data-value="third">Third</button>
-									<button data-value="fourth">Fourth</button>
-									<button data-value="fifth">Fifth</button>
+									<button data-button="menu-item" data-value="first">First</button>
+									<button data-button="menu-item" data-value="second">Second</button>
+									<button data-button="menu-item" data-value="third">Third</button>
+									<button data-button="menu-item" data-value="fourth">Fourth</button>
+									<button data-button="menu-item" data-value="fifth">Fifth</button>
 								</div>
 							</div>
 						</td>
@@ -2140,18 +2449,16 @@ const controls = {
 						<td>Left Menu</td>
 						<td>
 							<div class="containerContextButton" data-setting="context6" data-position="left">
-								<button class="buttonContext">
-									<div class="contextContainerLabel">
-										<span class="contextLabel">Label</span>
-										<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
-									</div>
+								<button data-button="action-fill" class="buttonContext primary">
+									<span class="contextLabel">Label</span>
+									<span class="gripper">${gripperIcon()}</span>
 								</button>
 								<div class="contextContainerMenu">
-									<button data-value="first">First</button>
-									<button data-value="second">Second</button>
-									<button data-value="third">Third</button>
-									<button data-value="fourth">Fourth</button>
-									<button data-value="fifth">Fifth</button>
+									<button data-button="menu-item" data-value="first">First</button>
+									<button data-button="menu-item" data-value="second">Second</button>
+									<button data-button="menu-item" data-value="third">Third</button>
+									<button data-button="menu-item" data-value="fourth">Fourth</button>
+									<button data-button="menu-item" data-value="fifth">Fifth</button>
 								</div>
 							</div>
 						</td>
@@ -2160,18 +2467,16 @@ const controls = {
 						<td>Center Menu</td>
 						<td>
 							<div class="containerContextButton" data-setting="context6" data-position="center">
-								<button class="buttonContext">
-									<div class="contextContainerLabel">
-										<span class="contextLabel">Label</span>
-										<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
-									</div>
+								<button data-button="action-fill" class="buttonContext primary">
+									<span class="contextLabel">Label</span>
+									<span class="gripper">${gripperIcon()}</span>
 								</button>
 								<div class="contextContainerMenu">
-									<button data-value="first">First</button>
-									<button data-value="second">Second</button>
-									<button data-value="third">Third</button>
-									<button data-value="fourth">Fourth</button>
-									<button data-value="fifth">Fifth</button>
+									<button data-button="menu-item" data-value="first">First</button>
+									<button data-button="menu-item" data-value="second">Second</button>
+									<button data-button="menu-item" data-value="third">Third</button>
+									<button data-button="menu-item" data-value="fourth">Fourth</button>
+									<button data-button="menu-item" data-value="fifth">Fifth</button>
 								</div>
 							</div>
 						</td>
@@ -2180,18 +2485,16 @@ const controls = {
 						<td>Right Menu</td>
 						<td>
 							<div class="containerContextButton" data-setting="context6" data-position="right">
-								<button class="buttonContext">
-									<div class="contextContainerLabel">
-										<span class="contextLabel">Label</span>
-										<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
-									</div>
+								<button data-button="action-fill" class="buttonContext primary">
+									<span class="contextLabel">Label</span>
+									<span class="gripper">${gripperIcon()}</span>
 								</button>
 								<div class="contextContainerMenu">
-									<button data-value="first">First</button>
-									<button data-value="second">Second</button>
-									<button data-value="third">Third</button>
-									<button data-value="fourth">Fourth</button>
-									<button data-value="fifth">Fifth</button>
+									<button data-button="menu-item" data-value="first">First</button>
+									<button data-button="menu-item" data-value="second">Second</button>
+									<button data-button="menu-item" data-value="third">Third</button>
+									<button data-button="menu-item" data-value="fourth">Fourth</button>
+									<button data-button="menu-item" data-value="fifth">Fifth</button>
 								</div>
 							</div>
 						</td>
@@ -2200,37 +2503,35 @@ const controls = {
 						<td>With Icons</td>
 						<td>
 							<div class="containerContextButton" data-setting="context7" data-type="icons" data-position="left">
-								<button class="buttonContext">
-									<div class="contextContainerLabel">
-										<span class="contextLabel">${iconObjects.trashStroke} Label</span>
-										<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
-									</div>
+								<button data-button="action-fill" class="buttonContext primary">
+									<span class="contextLabel">${iconObjects.trashStroke} Label</span>
+									<span class="gripper">${gripperIcon()}</span>
 								</button>
 								<div class="contextContainerMenu">
-									<button data-value="love">
-										<span>Save to Playlist&hellip;</span>
+									<button data-button="menu-item" data-value="love">
+										<span class="label">Save to Playlist&hellip;</span>
 										${iconShapes.plusCircleStroke}
 									</button>
-									<button data-value="second">
-										<span>Love</span>
+									<button data-button="menu-item" data-value="second">
+										<span class="label">Love</span>
 										${iconShapes.heartStroke}
 									</button>
-									<button data-value="second">
-										<span>View Album</span>
+									<button data-button="menu-item" data-value="second">
+										<span class="label">View Album</span>
 										${iconShapes.musicnoteDouble}
 									</button>
-									<button data-value="second">
-										<span>Add to Up Next&hellip;</span>
+									<button data-button="menu-item" data-value="second">
+										<span class="label">Add to Up Next&hellip;</span>
 										${iconInterfaceElements.listStroke}
 									</button>
 									<div class="divider"></div>
-									<button data-value="third">
-										<span>Profile</span>
+									<button data-button="menu-item" data-value="third">
+										<span class="label">Profile</span>
 										<img src="app/images/ui/sidebar1.png" />
 									</button>
 									<div class="divider"></div>
-									<button data-value="fourth" class="destructive">
-										<span>Delete</span>
+									<button data-button="menu-item" data-value="fourth" class="destructive">
+										<span class="label">Delete</span>
 										${iconObjects.trashStroke}
 									</button>
 								</div>
@@ -2243,11 +2544,11 @@ const controls = {
 							<div class="containerContextButton" data-setting="context8" data-position="center">
 								<img class="buttonContext" src="app/images/ui/sidebar1.png" width="32"  title="Example with image" />
 								<div class="contextContainerMenu">
-									<button data-value="first">First</button>
-									<button data-value="second">Second</button>
-									<button data-value="third">Third</button>
-									<button data-value="fourth">Fourth</button>
-									<button data-value="fifth">Fifth</button>
+									<button data-button="menu-item" data-value="first">First</button>
+									<button data-button="menu-item" data-value="second">Second</button>
+									<button data-button="menu-item" data-value="third">Third</button>
+									<button data-button="menu-item" data-value="fourth">Fourth</button>
+									<button data-button="menu-item" data-value="fifth">Fifth</button>
 								</div>
 							</div>
 						</td>
@@ -2256,18 +2557,16 @@ const controls = {
 						<td>Specific Width Button</td>
 						<td>
 							<div class="containerContextButton" data-setting="context9" data-position="left">
-								<button class="buttonContext">
-									<div class="contextContainerLabel">
-										<span class="contextLabel">Label</span>
-										<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
-									</div>
+								<button data-button="action-fill" class="buttonContext primary">
+									<span class="contextLabel">Label</span>
+									<span class="gripper">${gripperIcon()}</span>
 								</button>
 								<div class="contextContainerMenu">
-									<button data-value="first">First</button>
-									<button data-value="second">Second</button>
-									<button data-value="third">Third</button>
-									<button data-value="fourth">Fourth</button>
-									<button data-value="fifth">Fifth</button>
+									<button data-button="menu-item" data-value="first">First</button>
+									<button data-button="menu-item" data-value="second">Second</button>
+									<button data-button="menu-item" data-value="third">Third</button>
+									<button data-button="menu-item" data-value="fourth">Fourth</button>
+									<button data-button="menu-item" data-value="fifth">Fifth</button>
 								</div>
 							</div>
 						</td>
@@ -2276,31 +2575,29 @@ const controls = {
 						<td>Colour Chips</td>
 						<td>
 							<div class="containerContextButton" data-setting="context" data-type="pickericons" data-position="left" data-accent="red">
-								<button class="buttonContext transparent excludePadding">
-									<div class="contextContainerLabel">
-										<span class="contextLabel"><div class="colorChip" data-accent="red"></div> Red</span>
-										<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
-									</div>
+								<button data-button="action-transparent" class="buttonContext primary">
+									<span class="contextLabel"><div class="colorChip" data-accent="red"></div> Red</span>
+									<span class="gripper">${gripperIcon()}</span>
 								</button>
 								<div class="contextContainerMenu">
-									<button class="picked" data-value="first">
-										Red
+									<button data-button="menu-item" class="picked" data-value="first">
+										<span class="label">Red</span>
 										<div class="colorChip" data-accent="red"></div>
 									</button>
-									<button data-value="second">
-										Blue
+									<button data-button="menu-item" data-value="second">
+										<span class="label">Blue</span>
 										<div class="colorChip" data-accent="blue"></div>
 									</button>
-									<button data-value="third">
-										Green
+									<button data-button="menu-item" data-value="third">
+										<span class="label">Green</span>
 										<div class="colorChip" data-accent="green"></div>
 									</button>
-									<button data-value="fourth">
-										Yellow
+									<button data-button="menu-item" data-value="fourth">
+										<span class="label">Yellow</span>
 										<div class="colorChip" data-accent="yellow"></div>
 									</button>
-									<button data-value="fifth">
-										Purple
+									<button data-button="menu-item" data-value="fifth">
+										<span class="label">Purple</span>
 										<div class="colorChip" data-accent="purple"></div>
 									</button>
 								</div>
@@ -2311,18 +2608,16 @@ const controls = {
 						<td>Picker</td>
 						<td>
 							<div class="containerContextButton" data-setting="picker1" data-position="left" data-type="picker">
-								<button class="buttonContext">
-									<div class="contextContainerLabel">
-										<span class="contextLabel"></span>
-										<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
-									</div>
+								<button data-button="action-fill" class="buttonContext primary">
+									<span class="contextLabel"></span>
+									<span class="gripper">${gripperIcon()}</span>
 								</button>
 								<div class="contextContainerMenu">
-									<button data-value="first" data-label="First">First</button>
-									<button data-value="second" data-label="Second">Second</button>
-									<button data-value="third" data-label="Third">Third</button>
-									<button data-value="fourth" data-label="Fourth">Fourth</button>
-									<button data-value="fifth" data-label="Fifth">Fifth</button>
+									<button data-button="menu-item" data-value="first" data-label="First">First</button>
+									<button data-button="menu-item" data-value="second" data-label="Second">Second</button>
+									<button data-button="menu-item" data-value="third" data-label="Third">Third</button>
+									<button data-button="menu-item" data-value="fourth" data-label="Fourth">Fourth</button>
+									<button data-button="menu-item" data-value="fifth" data-label="Fifth">Fifth</button>
 								</div>
 							</div>
 						</td>
@@ -2331,27 +2626,25 @@ const controls = {
 						<td>Picker with Icons</td>
 						<td>
 							<div class="containerContextButton" data-setting="picker1" data-position="left" data-type="pickericons">
-								<button class="buttonContext">
-									<div class="contextContainerLabel">
-										<span class="contextLabel"></span>
-										<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
-									</div>
+								<button data-button="action-fill" class="buttonContext primary">
+									<span class="contextLabel"></span>
+									<span class="gripper">${gripperIcon()}</span>
 								</button>
 								<div class="contextContainerMenu">
-									<button data-value="first" data-label="First">
-										<span>Paintbrush</span>
+									<button data-button="menu-item" data-value="first" data-label="First">
+										<span class="label">Paintbrush</span>
 										${iconObjects.paintbrushFill}
 									</button>
-									<button data-value="second" data-label="Second">
-										<span>Highlighter</span>
+									<button data-button="menu-item" data-value="second" data-label="Second">
+										<span class="label">Highlighter</span>
 										${iconObjects.highlighterFill}
 									</button>
-									<button data-value="third" data-label="Third">
-										<span>Pencil</span>
+									<button data-button="menu-item" data-value="third" data-label="Third">
+										<span class="label">Pencil</span>
 										${iconObjects.pencilFill}
 									</button>
-									<button data-value="fourth" data-label="Fourth">
-										<span>Pen</span>
+									<button data-button="menu-item" data-value="fourth" data-label="Fourth">
+										<span class="label">Pen</span>
 										${iconObjects.penFill}
 									</button>
 								</div>
@@ -2362,9 +2655,7 @@ const controls = {
 						<td>Popover</td>
 						<td>
 							<div class="containerContextButton" data-setting="examplePopover" data-position="center" data-type="popover">
-								<button class="buttonContext">
-									<span class="contextLabel">Label</span>
-								</button>
+								<button data-button="action-fill" class="buttonContext primary">Label</button>
 								<div class="contextContainerMenu">
 									<div class="containerPopoverContent">
 										<h1 class="textAlignCenter excludePadding">This is an example Popover</h1>
@@ -2421,11 +2712,9 @@ const controls = {
 			<h4 class="h6">Template</h4>
 <pre class="spacerTriple">
 &lt;div class="containerContextButton" data-setting="" data-position="" data-type="" data-icongroup="" data-iconname=""&gt;
-	&lt;button class="buttonContext"&gt;
-		&lt;div class="contextContainerLabel"&gt;
-			&lt;span class="contextLabel"&gt;&lt;/span&gt;
-			&lt;span class="contextGripper"&gt;&#36;{iconShapes.chevronOutwardsVerticalFill}&lt;/span&gt;
-		&lt;/div&gt;
+	&lt;button data-button="action-fill" class="buttonContext primary"&gt;
+		&lt;span class="contextLabel"&gt;&lt;/span&gt;
+		&lt;span class="gripper"&gt;&#36;{gripperIcon()}&lt;/span&gt;
 	&lt;/button&gt;
 	&lt;div class="contextContainerMenu"&gt;
 		&lt;button data-value="" data-label=""&gt;&lt;/button&gt;
@@ -2441,7 +2730,9 @@ const controls = {
 				<li><code>clickContextMenuItem()</code> which handles picking the item and returning values. You will need to set this manually for every Context Menu you include.</li>
 				<li>A click function that will allow you to click outside the menu to dismiss it (when you click on a Context Menu Button to open the menu a class is added to the <code>body</code> which this click function will remove).</li>
 			</ol>
-			<p class="spacerTriple">No value is saved to local storage by default. Instead use the Preferences system with the returned value and label.</p>
+			<p>No value is saved to local storage by default. Instead use the Preferences system with the returned value and label.</p>
+			
+			<p class="spacerTriple"><code>gripperIcon()</code> is also associated with Context Menus as it will render the correct chevron based on the OS theme.</p>
 			
 			<h3>CSS</h3>
 			<p>Most of the styling is handled for you. If you use a standard Button all of the Button styling classes will apply. On top of this you don't have to use a Button, any element with the <code>buttonContext</code> class will make the element clickable.</p>
@@ -2452,16 +2743,16 @@ const controls = {
 	popovers: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Popovers</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -2475,9 +2766,7 @@ const controls = {
 			}
 			<h2>Examples</h2>
 			<div class="containerContextButton spacerTriple" data-setting="examplePopover" data-position="left" data-type="popover">
-				<button class="buttonContext">
-					<span class="contextLabel">Show</span>
-				</button>
+				<button data-button="action-fill" class="buttonContext primary">Show</button>
 				<div class="contextContainerMenu">
 					<div class="containerPopoverContent">
 						<h1 class="textAlignCenter excludePadding">This is an example Popover</h1>
@@ -2501,16 +2790,16 @@ const controls = {
 	segmentedcontrols: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Segmented Controls</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -2527,27 +2816,27 @@ const controls = {
 			<h3 class="h6">Default</h3>
 			<section class="containerSection">
 				<div class="controlSegmented" data-setting="segment1">
-					<button class="segment" data-name="defaultsegment1" onclick="routesegmentexampledefault('defaultsegment1')">Watch Now</button>
-					<button class="segment picked" data-name="defaultsegment2" onclick="routesegmentexampledefault('defaultsegment2')">${iconTransport.rocketStroke}</button>
-					<button class="segment" data-name="defaultsegment3" onclick="routesegmentexampledefault('defaultsegment3')"><img src="app/images/ui/sidebar1.png" /></button>
+					<button data-button="segment" data-name="defaultsegment1" onclick="routesegmentexampledefault('defaultsegment1')">Watch Now</button>
+					<button data-button="segment" class="picked" data-name="defaultsegment2" onclick="routesegmentexampledefault('defaultsegment2')">${iconTransport.rocketStroke}</button>
+					<button data-button="segment" data-name="defaultsegment3" onclick="routesegmentexampledefault('defaultsegment3')"><img src="app/images/ui/sidebar1.png" /></button>
 				</div>
 			</section>
 			
 			<h3 class="h6">Split</h3>
 			<section class="containerSection">
 				<div class="controlSegmented split" data-setting="segment2">
-					<button class="segment" data-name="splitsegment1" onclick="routesegmentexamplesplit('splitsegment1')">Watch Now</button>
-					<button class="segment picked" data-name="splitsegment2" onclick="routesegmentexamplesplit('splitsegment2')">${iconTransport.rocketStroke}</button>
-					<button class="segment" data-name="splitsegment3" onclick="routesegmentexamplesplit('splitsegment3')"><img src="app/images/ui/sidebar1.png" /></button>
+					<button data-button="segment" data-name="splitsegment1" onclick="routesegmentexamplesplit('splitsegment1')">Watch Now</button>
+					<button data-button="segment" class="picked" data-name="splitsegment2" onclick="routesegmentexamplesplit('splitsegment2')">${iconTransport.rocketStroke}</button>
+					<button data-button="segment" data-name="splitsegment3" onclick="routesegmentexamplesplit('splitsegment3')"><img src="app/images/ui/sidebar1.png" /></button>
 				</div>
 			</section>
 			
 			<h3 class="h6">Display</h3>
 			<section class="containerSection">
 				<div class="controlSegmented display" data-setting="segment4">
-					<button class="segment" data-name="displaysegment1" onclick="routesegmentexampledisplay('displaysegment1')">Watch Now</button>
-					<button class="segment picked" data-name="displaysegment2" onclick="routesegmentexampledisplay('displaysegment2')">${iconTransport.rocketStroke}</button>
-					<button class="segment" data-name="displaysegment3" onclick="routesegmentexampledisplay('displaysegment3')"><img src="app/images/ui/sidebar1.png" /></button>
+					<button data-button="segment" data-name="displaysegment1" onclick="routesegmentexampledisplay('displaysegment1')">Watch Now</button>
+					<button data-button="segment" class="picked" data-name="displaysegment2" onclick="routesegmentexampledisplay('displaysegment2')">${iconTransport.rocketStroke}</button>
+					<button data-button="segment" data-name="displaysegment3" onclick="routesegmentexampledisplay('displaysegment3')"><img src="app/images/ui/sidebar1.png" /></button>
 				</div>
 			</section>
 			
@@ -2557,11 +2846,11 @@ const controls = {
 			<h4 class="h6">Template</h4>
 <pre class="spacerTriple">
 &lt;div class="controlSegmented" data-setting="">
-	&lt;button class="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
-	&lt;button class="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
-	&lt;button class="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
-	&lt;button class="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
-	&lt;button class="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
+	&lt;button data-button="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
+	&lt;button data-button="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
+	&lt;button data-button="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
+	&lt;button data-button="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
+	&lt;button data-button="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
 &lt;/div>
 </pre>
 			
@@ -2577,16 +2866,16 @@ const controls = {
 	switches: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Switches</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -2601,104 +2890,67 @@ const controls = {
 		
 			<h2>Examples</h2>
 			<table class="definitions spacerSingle">
-				<thead>
-					<tr>
-						<th>Types</th>
-					</tr>
-				</thead>
 				<tbody>
 					<tr>
 						<td>Default Off</td>
 						<td>
-							<button class="switch positive off" data-setting="switch1" title="Off" onclick="exampleSwitches(this)"></button>
+							<label for="switch1">
+								<input type="checkbox" switch id="switch1" name="switch1" value="" onclick="exampleSwitches(this)">
+								<div class="fakeCheckbox"></div>
+							</label>
 						</td>
 					</tr>
 					<tr>
 						<td>Default On</td>
 						<td>
-							<button class="switch" data-setting="switch2" title="On" onclick="exampleSwitches(this)"></button>
+							<label for="switch2">
+								<input type="checkbox" switch checked id="switch2" name="switch2" value="" onclick="exampleSwitches(this)">
+								<div class="fakeCheckbox"></div>
+							</label>
 						</td>
 					</tr>
 					<tr>
 						<td>Styled</td>
 						<td>
-							<button class="switch destructive" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
+							<label for="switch3">
+								<input type="checkbox" switch checked id="switch3" name="switch3" value="" onclick="exampleSwitches(this)">
+								<div class="fakeCheckbox"></div>
+							</label>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			
-			<table class="definitions spacerTriple">
-				<thead>
-					<tr>
-						<th>OS Specific</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Default</td>
-						<td>
-							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button><br>
-							<button class="switch off" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
-						</td>
-					</tr>
-					<tr>
-						<td>iOS</td>
-						<td data-os="ios">
-							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button><br>
-							<button class="switch off" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
-						</td>
-					</tr>
-					<tr>
-						<td>Android</td>
-						<td data-os="android">
-							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button><br>
-							<button class="switch off" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
-						</td>
-					</tr>
-					<tr>
-						<td>Windows</td>
-						<td data-os="windows">
-							<button class="switch" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button><br>
-							<button class="switch off" data-setting="switch3" title="On" onclick="exampleSwitches(this)"></button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
-			<p>Switches are buttons that have the <code>switch</code> class added to them. Being buttons they can inherit any of the standard button styling classes to change the colour of the track. Adding an <code>off</code> class will set the Switch to the Off state.</p>
-			<p><code>data-setting</code> is used as the selector for the <code>clickSwitch()</code> function.</p>
-			<h4 class="h6">Code</h4>
-<pre class="spacerTriple">
-&lt;button class="switch positive" data-setting=""&gt;&lt;/button&gt;
-</pre>
+			<p>Switches are checkboxes that have the <code>switch</code> attribute added to them. Currently they use the fake checkbox code but in the future will be updated to remove this when there is wider support for the Switch element.</p>
 			<h3>Functions</h3>
-			<p>This click function runs the function to toggle the Switch and can include any other functionality you need. No value is saved to local storage by default. Instead use the Preferences system with the returned value.</p>
+			<p>The <code>clickSwitch()</code> function checks what state the Switch has changed to when you click it. No value is saved to local storage by default. Instead use the Preferences system with the returned value.</p>
 <pre class="spacerTriple">
-$(document).on('click', '.switch[data-setting=""]', function() {
+$(document).on('click', '#switch', function() {
 	let state = clickSwitch(this);
 });
 </pre>
 			
 			<h3>CSS</h3>
-			<p>All sizes use <code>--base-font-size</code> so will scale accordingly when using a Dynamic Type setting. The colour of the <code>knob</code> is set to always be white but this can be overwritten via appearance themes.</p>
+			<p>All sizes use <code>--base-font-size</code> so will scale accordingly when using a Dynamic Type setting.</p>
+			<p>To set the ON colour of a Switch to something other than default you can override this with <code>--switch-background</code>.</p>
 		</div>
 	`,
 	forminputs: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Form Inputs</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -2812,16 +3064,16 @@ $(document).on('click', '.switch[data-setting=""]', function() {
 	searchbars: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Search Bars</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -2936,50 +3188,50 @@ $(document).on('click', '.buttonClearSearch', function() {
 	selectiongrids: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Selection Grids</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<h2>Examples</h2>
 			<h3 class="h6">Single Selection</h3>
 			<div class="spacerDouble containerTokens" id="exampleTokenField" data-max="1" data-setting="critters">
-				<div class="token" data-value="all" onclick="selectionGrid(this)">All</div>
-				<div class="token" data-value="fish" onclick="selectionGrid(this)">Fish</div>
-				<div class="token" data-value="insects" onclick="selectionGrid(this)">Insects</div>
-				<div class="token" data-value="seacreatures" onclick="selectionGrid(this)">Sea Creatures</div>
+				<button data-button="token" data-value="all" onclick="selectionGrid(this)">All</button>
+				<button data-button="token" data-value="fish" onclick="selectionGrid(this)">Fish</button>
+				<button data-button="token" data-value="insects" onclick="selectionGrid(this)">Insects</button>
+				<button data-button="token" data-value="seacreatures" onclick="selectionGrid(this)">Sea Creatures</button>
 			</div>
 			<h3 class="h6">Multiple Selection</h3>
 			<div class="spacerTriple containerTokens" id="exampleTokenField" data-max="2" data-setting="type">
-				<div class="token" data-value="normal" onclick="selectionGrid(this)">Normal</div>
-				<div class="token" data-value="fighting" onclick="selectionGrid(this)">Fighting</div>
-				<div class="token" data-value="flying" onclick="selectionGrid(this)">Flying</div>
-				<div class="token" data-value="poison" onclick="selectionGrid(this)">Poison</div>
-				<div class="token" data-value="ground" onclick="selectionGrid(this)">Ground</div>
-				<div class="token" data-value="rock" onclick="selectionGrid(this)">Rock</div>
-				<div class="token" data-value="bug" onclick="selectionGrid(this)">Bug</div>
-				<div class="token" data-value="ghost" onclick="selectionGrid(this)">Ghost</div>
-				<div class="token" data-value="steel" onclick="selectionGrid(this)">Steel</div>
-				<div class="token" data-value="fire" onclick="selectionGrid(this)">Fire</div>
-				<div class="token" data-value="grass" onclick="selectionGrid(this)">Grass</div>
-				<div class="token" data-value="water" onclick="selectionGrid(this)">Water</div>
-				<div class="token" data-value="electric" onclick="selectionGrid(this)">Electric</div>
-				<div class="token" data-value="psychic" onclick="selectionGrid(this)">Psychic</div>
-				<div class="token" data-value="ice" onclick="selectionGrid(this)">Ice</div>
-				<div class="token" data-value="dragon" onclick="selectionGrid(this)">Dragon</div>
-				<div class="token" data-value="dark" onclick="selectionGrid(this)">Dark</div>
-				<div class="token" data-value="fairy" onclick="selectionGrid(this)">Fairy</div>
+				<button data-button="token" data-value="normal" onclick="selectionGrid(this)">Normal</button>
+				<button data-button="token" data-value="fighting" onclick="selectionGrid(this)">Fighting</button>
+				<button data-button="token" data-value="flying" onclick="selectionGrid(this)">Flying</button>
+				<button data-button="token" data-value="poison" onclick="selectionGrid(this)">Poison</button>
+				<button data-button="token" data-value="ground" onclick="selectionGrid(this)">Ground</button>
+				<button data-button="token" data-value="rock" onclick="selectionGrid(this)">Rock</button>
+				<button data-button="token" data-value="bug" onclick="selectionGrid(this)">Bug</button>
+				<button data-button="token" data-value="ghost" onclick="selectionGrid(this)">Ghost</button>
+				<button data-button="token" data-value="steel" onclick="selectionGrid(this)">Steel</button>
+				<button data-button="token" data-value="fire" onclick="selectionGrid(this)">Fire</button>
+				<button data-button="token" data-value="grass" onclick="selectionGrid(this)">Grass</button>
+				<button data-button="token" data-value="water" onclick="selectionGrid(this)">Water</button>
+				<button data-button="token" data-value="electric" onclick="selectionGrid(this)">Electric</button>
+				<button data-button="token" data-value="psychic" onclick="selectionGrid(this)">Psychic</button>
+				<button data-button="token" data-value="ice" onclick="selectionGrid(this)">Ice</button>
+				<button data-button="token" data-value="dragon" onclick="selectionGrid(this)">Dragon</button>
+				<button data-button="token" data-value="dark" onclick="selectionGrid(this)">Dark</button>
+				<button data-button="token" data-value="fairy" onclick="selectionGrid(this)">Fairy</button>
 			</div>
 			
-			<button id="displaySelections" class="spacerTriple" onclick="showSelectionResults()">Display Selected Values</button>
+			<button id="displaySelections" data-button="action-fill" class="primary spacerTriple" onclick="showSelectionResults()">Display Selected Values</button>
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
@@ -3009,10 +3261,10 @@ $(document).on('click', '.buttonClearSearch', function() {
 			<h4 class="h6">Template</h4>
 <pre class="spacerTriple">
 &lt;div id="" data-max="" data-setting=""&gt;
-	&lt;div data-value=""&gt;&lt;/div&gt;
-	&lt;div data-value=""&gt;&lt;/div&gt;
-	&lt;div data-value=""&gt;&lt;/div&gt;
-	&lt;div data-value=""&gt;&lt;/div&gt;
+	&lt;button data-value=""&gt;&lt;/button&gt;
+	&lt;button data-value=""&gt;&lt;/button&gt;
+	&lt;button data-value=""&gt;&lt;/button&gt;
+	&lt;button data-value=""&gt;&lt;/button&gt;
 &lt;/div&gt;
 </pre>
 			
@@ -3046,16 +3298,16 @@ $(document).on('click', '.buttonClearSearch', function() {
 	tokens: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Tokens</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -3069,35 +3321,35 @@ $(document).on('click', '.buttonClearSearch', function() {
 			}
 			<h2>Examples</h2>
 			<div class="spacerTriple containerTokens" id="exampleTokenField" data-max="2" data-setting="type">
-				<div class="token" data-value="normal">Normal</div>
-				<div class="token" data-value="fighting">Fighting</div>
-				<div class="token picked" data-value="flying">Flying</div>
-				<div class="token" data-value="poison">Poison</div>
-				<div class="token" data-value="ground">Ground</div>
-				<div class="token" data-value="rock">Rock</div>
-				<div class="token" data-value="bug">Bug</div>
-				<div class="token" data-value="ghost">Ghost</div>
-				<div class="token picked" data-value="steel">Steel</div>
-				<div class="token" data-value="fire">Fire</div>
-				<div class="token" data-value="grass">Grass</div>
-				<div class="token" data-value="water">Water</div>
-				<div class="token" data-value="electric">Electric</div>
-				<div class="token" data-value="psychic">Psychic</div>
-				<div class="token" data-value="ice">Ice</div>
-				<div class="token" data-value="dragon">Dragon</div>
-				<div class="token" data-value="dark">Dark</div>
-				<div class="token" data-value="fairy">Fairy</div>
+				<button data-button="token" data-value="normal">Normal</button>
+				<button data-button="token" data-value="fighting">Fighting</button>
+				<button data-button="token" class="picked" data-value="flying">Flying</button>
+				<button data-button="token" data-value="poison">Poison</button>
+				<button data-button="token" data-value="ground">Ground</button>
+				<button data-button="token" data-value="rock">Rock</button>
+				<button data-button="token" data-value="bug">Bug</button>
+				<button data-button="token" data-value="ghost">Ghost</button>
+				<button data-button="token"picked" data-value="steel">Steel</button>
+				<button data-button="token" data-value="fire">Fire</button>
+				<button data-button="token" data-value="grass">Grass</button>
+				<button data-button="token" data-value="water">Water</button>
+				<button data-button="token" data-value="electric">Electric</button>
+				<button data-button="token" data-value="psychic">Psychic</button>
+				<button data-button="token" data-value="ice">Ice</button>
+				<button data-button="token" data-value="dragon">Dragon</button>
+				<button data-button="token" data-value="dark">Dark</button>
+				<button data-button="token" data-value="fairy">Fairy</button>
 			</div>
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
-			<p>Tokens are divs with the <code>.token</code> class applied to them. Tokens should always be a div and not a button. To align them to a grid they should be in a container with the  <code>containerTokens</code> class.</p>
+			<p>Tokens are buttons with the <code>data-button="token"</code> attribute applied to them. To align them to a grid they should be in a container with the  <code>containerTokens</code> class.</p>
 <pre class="spacerTriple">
 &lt;div class="containerTokens" id="" data-max="" data-setting=""&gt;
-	&lt;div class="token" data-value=""&gt;&lt;/div&gt;
-	&lt;div class="token" data-value=""&gt;&lt;/div&gt;
-	&lt;div class="token" data-value=""&gt;&lt;/div&gt;
-	&lt;div class="token" data-value=""&gt;&lt;/div&gt;
+	&lt;button data-button="token" data-value=""&gt;&lt;/button&gt;
+	&lt;button data-button="token" data-value=""&gt;&lt;/button&gt;
+	&lt;button data-button="token" data-value=""&gt;&lt;/button&gt;
+	&lt;button data-button="token" data-value=""&gt;&lt;/button&gt;
 &lt;/div&gt;
 </pre>
 			<h3>Function</h3>
@@ -3110,16 +3362,16 @@ $(document).on('click', '.buttonClearSearch', function() {
 	sharebutton: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Controls")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Share Button</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -3145,7 +3397,7 @@ $(document).on('click', '.buttonClearSearch', function() {
 					<tr>
 						<td>Default</td>
 						<td>
-							<button class="transparent" id="dummyShareButton" title="Share Content">
+							<button data-button="action-transparent" class="primary" id="dummyShareButton" title="Share Content">
 								${iconInterfaceElements.shareAppleUpStroke}
 							</button>
 						</td>
@@ -3153,7 +3405,7 @@ $(document).on('click', '.buttonClearSearch', function() {
 					<tr>
 						<td>Android</td>
 						<td>
-							<button class="transparent" id="dummyShareButton" title="Share Content">
+							<button data-button="action-transparent" class="primary" id="dummyShareButton" title="Share Content">
 								${iconInterfaceElements.shareAndroidStroke}
 							</button>
 						</td>
@@ -3161,13 +3413,20 @@ $(document).on('click', '.buttonClearSearch', function() {
 					<tr>
 						<td>Windows</td>
 						<td>
-							<button class="transparent" id="dummyShareButton" title="Share Content">
+							<button data-button="action-transparent" class="primary" id="dummyShareButton" title="Share Content">
 								${iconInterfaceElements.shareWindows}
 							</button>
 						</td>
 					</tr>
 				</tbody>
 			</table>
+			
+			${
+				insertShareButton({
+					style: 'toolbarItem',
+					title: `Test Button`,
+				})
+			}
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
@@ -3187,16 +3446,16 @@ const layout = {
 	routing: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Layout")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Routing</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -3371,16 +3630,16 @@ if (url.query == "") {
 	columns: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Layout")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Columns</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -3446,16 +3705,16 @@ if (url.query == "") {
 	sidebars: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Layout")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Sidebars</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -3481,14 +3740,14 @@ if (url.query == "") {
 							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
 						</div>
 						<section>
-							<button class="sidebar" data-value="pickedItem">
+							<button data-button="sidebar" data-value="pickedItem">
 								<div class="labelSidebar">
 									${iconNature.sunStroke}
 									Picked Item
 								</div>
 								<p class="containerBadge excludeMargin" data-type="sidebar">120</p>
 							</button>
-							<button class="sidebar" data-value="unpickedItem">
+							<button data-button="sidebar" data-value="unpickedItem">
 								<div class="labelSidebar">
 									${iconNature.moonLeftStroke}
 									Unpicked Item
@@ -3502,19 +3761,19 @@ if (url.query == "") {
 						</div>
 						<section class="containerAccordionContents active">
 							<div class="wrapper">
-								<button class="sidebar" data-value="svg1">
+								<button data-button="sidebar" data-value="svg1">
 									<div class="labelSidebar">
 										${iconIndices.oneCircleStroke}
 										SVG Item 1
 									</div>
 								</button>
-								<button class="sidebar" data-value="svg2">
+								<button data-button="sidebar" data-value="svg2">
 									<div class="labelSidebar">
 										${iconIndices.twoCircleStroke}
 										SVG Item 2
 									</div>
 								</button>
-								<button class="sidebar" data-value="svg3">
+								<button data-button="sidebar" data-value="svg3">
 									<div class="labelSidebar">
 										${iconIndices.threeCircleStroke}
 										SVG Item 3
@@ -3524,19 +3783,19 @@ if (url.query == "") {
 						</section>
 						<h2 class="headerList">Images</h2>
 						<section>
-							<button class="sidebar" data-value="image1">
+							<button data-button="sidebar" data-value="image1">
 								<div class="labelSidebar">
 									<img src="app/images/ui/sidebar1.png" alt="" />
 									Image Item 1
 								</div>
 							</button>
-							<button class="sidebar" data-value="image2">
+							<button data-button="sidebar" data-value="image2">
 								<div class="labelSidebar">
 									<img src="app/images/ui/sidebar2.png" alt="" />
 									Image Item 2
 								</div>
 							</button>
-							<button class="sidebar" data-value="image3">
+							<button data-button="sidebar" data-value="image3">
 								<div class="labelSidebar">
 									<img src="app/images/ui/sidebar3.png" alt="" />
 									Image Item 3
@@ -3559,14 +3818,14 @@ if (url.query == "") {
 							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
 						</div>
 						<section class="grid">
-							<button class="sidebar" data-value="pickedItem">
+							<button data-button="sidebar" data-value="pickedItem">
 								<div class="labelSidebar">
 									${iconNature.sunStroke}
 									Picked Item
 								</div>
 								<p class="containerBadge excludeMargin" data-type="sidebar">120</p>
 							</button>
-							<button class="sidebar" data-value="unpickedItem">
+							<button data-button="sidebar" data-value="unpickedItem">
 								<div class="labelSidebar">
 									${iconNature.moonLeftStroke}
 									Unpicked Item
@@ -3580,19 +3839,19 @@ if (url.query == "") {
 						</div>
 						<section class="containerAccordionContents active">
 							<div class="wrapper grid">
-								<button class="sidebar" data-value="svg1">
+								<button data-button="sidebar" data-value="svg1">
 									<div class="labelSidebar">
 										${iconIndices.oneCircleStroke}
 										SVG Item 1
 									</div>
 								</button>
-								<button class="sidebar" data-value="svg2">
+								<button data-button="sidebar" data-value="svg2">
 									<div class="labelSidebar">
 										${iconIndices.twoCircleStroke}
 										SVG Item 2
 									</div>
 								</button>
-								<button class="sidebar" data-value="svg3">
+								<button data-button="sidebar" data-value="svg3">
 									<div class="labelSidebar">
 										${iconIndices.threeCircleStroke}
 										SVG Item 3
@@ -3602,19 +3861,19 @@ if (url.query == "") {
 						</section>
 						<h2 class="headerList">Images</h2>
 						<section class="grid">
-							<button class="sidebar" data-value="image1">
+							<button data-button="sidebar" data-value="image1">
 								<div class="labelSidebar">
 									<img src="app/images/ui/sidebar1.png" alt="" />
 									Image Item 1
 								</div>
 							</button>
-							<button class="sidebar" data-value="image2">
+							<button data-button="sidebar" data-value="image2">
 								<div class="labelSidebar">
 									<img src="app/images/ui/sidebar2.png" alt="" />
 									Image Item 2
 								</div>
 							</button>
-							<button class="sidebar" data-value="image3">
+							<button data-button="sidebar" data-value="image3">
 								<div class="labelSidebar">
 									<img src="app/images/ui/sidebar3.png" alt="" />
 									Image Item 3
@@ -3648,16 +3907,16 @@ if (url.query == "") {
 	itemlists: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Layout")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Item Lists</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -3676,24 +3935,23 @@ if (url.query == "") {
 				<div class="containerItemList inset alwaysBackgroundColor" id="tableview1" data-target="testTarget" data-parent="testParent">
 					<h2 class="headerList">Text Only</h2>
 					<section class="containerSection excludePadding">
-						<button class="itemList">
+						<button data-button="item-flat">
 							<div class="label">
 								<span>Item 1</span>
 								<span class="subtext">Sub-Label</span>
 							</div>
-							<div class="containerBadge">14</div>
 						</button>
-						<button class="itemList">
+						<button data-button="item-flat">
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</button>
-						<button class="itemList">
+						<button data-button="item-flat">
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</button>
-						<button class="itemList">
+						<button data-button="item-flat">
 							<div class="label">
 								<span>Item 4</span>
 							</div>
@@ -3702,26 +3960,27 @@ if (url.query == "") {
 					
 					<h2 class="headerList">DIVS instead of Buttons</h2>
 					<section class="containerSection excludePadding">
-						<div class="itemList fixedIconSize">
-							${iconShapes.heartStroke}
-							<div class="label">
-								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+						<div data-button="item-flat">
+							<div class="containerLeading">
+								${iconShapes.heartStroke}
+								<div class="label">
+									<span>Item 1</span>
+									<span class="subtext">Sub-Label</span>
+								</div>
 							</div>
-							<button>Test with a long label</button>
+							<button data-button="action-fill" class="primary">Test with a long label</button>
 						</div>
-						<div class="itemList">
+						<div data-button="item-flat">
 							<div class="label">
 								<span>Item 2</span>
 							</div>
-							<div class="containerBadge">14</div>
 						</div>
-						<div class="itemList">
+						<div data-button="item-flat">
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</div>
-						<div class="itemList">
+						<div data-button="item-flat">
 							<div class="label">
 								<span>Item 4</span>
 							</div>
@@ -3730,26 +3989,26 @@ if (url.query == "") {
 					
 					<h2 class="headerList">SVG Icons</h2>
 					<section class="containerSection excludePadding">
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							${iconShapes.heartStroke}
 							<div class="label">
 								<span>Item 1</span>
 								<span class="subtext">Sub-Label</span>
 							</div>
 						</button>
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							${iconShapes.plusSquareRoundedStroke}
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</button>
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							${iconInterfaceElements.questionCircleStroke}
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</button>
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							${iconHuman.handRaisedRightStroke}
 							<div class="label">
 								<span>Item 4</span>
@@ -3759,26 +4018,26 @@ if (url.query == "") {
 					
 					<h2 class="headerList">Image Icons</h2>
 					<section class="containerSection excludePadding">
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							<img src="app/images/ui/sidebar1.png" width="30" />
 							<div class="label">
 								<span>Item 1</span>
 								<span class="subtext">Sub-Label</span>
 							</div>
 						</button>
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							<img src="app/images/ui/sidebar2.png" width="30" />
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</button>
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							<img src="app/images/ui/sidebar3.png" width="30" />
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</button>
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							<img src="app/images/ui/sidebar4.png" width="30" />
 							<div class="label">
 								<span>Item 4</span>
@@ -3788,26 +4047,26 @@ if (url.query == "") {
 					
 					<h2 class="headerList">Icons of any size</h2>
 					<section class="containerSection excludePadding">
-						<button class="itemList">
+						<button data-button="item-flat" data-icon-size="auto">
 							${iconTransport.rocketStroke}
 							<div class="label">
 								<span>Item 1</span>
 								<span class="subtext">Sub-Label</span>
 							</div>
 						</button>
-						<button class="itemList">
+						<button data-button="item-flat" data-icon-size="auto">
 							${iconTransport.rocketStroke}
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</button>
-						<button class="itemList">
+						<button data-button="item-flat" data-icon-size="auto">
 							${iconTransport.rocketStroke}
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</button>
-						<button class="itemList">
+						<button data-button="item-flat" data-icon-size="auto">
 							${iconTransport.rocketStroke}
 							<div class="label">
 								<span>Item 4</span>
@@ -3822,23 +4081,23 @@ if (url.query == "") {
 				<div class="containerItemList alwaysBackgroundColor" id="tableview1" data-target="testTarget" data-parent="testParent">
 					<h2 class="headerList">Text Only</h2>
 					<section class="containerSection excludePadding">
-						<button class="itemList">
+						<button data-button="item-flat">
 							<div class="label">
 								<span>Item 1</span>
 								<span class="subtext">Sub-Label</span>
 							</div>
 						</button>
-						<button class="itemList">
+						<button data-button="item-flat">
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</button>
-						<button class="itemList">
+						<button data-button="item-flat">
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</button>
-						<button class="itemList">
+						<button data-button="item-flat">
 							<div class="label">
 								<span>Item 4</span>
 							</div>
@@ -3847,25 +4106,27 @@ if (url.query == "") {
 					
 					<h2 class="headerList">DIVS instead of Buttons</h2>
 					<section class="containerSection excludePadding">
-						<div class="itemList fixedIconSize">
-							${iconShapes.heartStroke}
-							<div class="label">
-								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+						<div data-button="item-flat">
+							<div class="containerLeading">
+								${iconShapes.heartStroke}
+								<div class="label">
+									<span>Item 1</span>
+									<span class="subtext">Sub-Label</span>
+								</div>
 							</div>
-							<button>Test with a long label</button>
+							<button data-button="action-fill" class="primary">Test with a long label</button>
 						</div>
-						<div class="itemList">
+						<div data-button="item-flat">
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</div>
-						<div class="itemList">
+						<div data-button="item-flat">
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</div>
-						<div class="itemList">
+						<div data-button="item-flat">
 							<div class="label">
 								<span>Item 4</span>
 							</div>
@@ -3874,26 +4135,26 @@ if (url.query == "") {
 					
 					<h2 class="headerList">SVG Icons</h2>
 					<section class="containerSection excludePadding">
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							${iconShapes.heartStroke}
 							<div class="label">
 								<span>Item 1</span>
 								<span class="subtext">Sub-Label</span>
 							</div>
 						</button>
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							${iconShapes.plusSquareRoundedStroke}
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</button>
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							${iconInterfaceElements.questionCircleStroke}
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</button>
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							${iconHuman.handRaisedRightStroke}
 							<div class="label">
 								<span>Item 4</span>
@@ -3903,26 +4164,26 @@ if (url.query == "") {
 					
 					<h2 class="headerList">Image Icons</h2>
 					<section class="containerSection excludePadding">
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							<img src="app/images/ui/sidebar1.png" width="30" />
 							<div class="label">
 								<span>Item 1</span>
 								<span class="subtext">Sub-Label</span>
 							</div>
 						</button>
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							<img src="app/images/ui/sidebar2.png" width="30" />
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</button>
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							<img src="app/images/ui/sidebar3.png" width="30" />
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</button>
-						<button class="itemList fixedIconSize">
+						<button data-button="item-flat" data-icon-size="fixed">
 							<img src="app/images/ui/sidebar4.png" width="30" />
 							<div class="label">
 								<span>Item 4</span>
@@ -3932,26 +4193,26 @@ if (url.query == "") {
 					
 					<h2 class="headerList">Icons of any size</h2>
 					<section class="containerSection excludePadding">
-						<button class="itemList">
+						<button data-button="item-flat" data-icon-size="auto">
 							${iconTransport.rocketStroke}
 							<div class="label">
 								<span>Item 1</span>
 								<span class="subtext">Sub-Label</span>
 							</div>
 						</button>
-						<button class="itemList">
+						<button data-button="item-flat" data-icon-size="auto">
 							${iconTransport.rocketStroke}
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</button>
-						<button class="itemList">
+						<button data-button="item-flat" data-icon-size="auto">
 							${iconTransport.rocketStroke}
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</button>
-						<button class="itemList">
+						<button data-button="item-flat" data-icon-size="auto">
 							${iconTransport.rocketStroke}
 							<div class="label">
 								<span>Item 4</span>
@@ -3966,23 +4227,23 @@ if (url.query == "") {
 				<div class="containerItemList inset alwaysBackgroundColor" id="tableview1" data-target="testTarget" data-parent="testParent">
 					<h2 class="headerList">Text Only</h2>
 					<section class="spacerDouble">
-						<button class="itemList rounded">
+						<button data-button="item-rounded">
 							<div class="label">
 								<span>Item 1</span>
 								<span class="subtext">Sub-Label</span>
 							</div>
 						</button>
-						<button class="itemList rounded">
+						<button data-button="item-rounded">
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</button>
-						<button class="itemList rounded">
+						<button data-button="item-rounded">
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</button>
-						<button class="itemList rounded">
+						<button data-button="item-rounded">
 							<div class="label">
 								<span>Item 4</span>
 							</div>
@@ -3991,25 +4252,27 @@ if (url.query == "") {
 					
 					<h2 class="headerList">DIVS instead of Buttons</h2>
 					<section class="spacerDouble">
-						<div class="itemList rounded fixedIconSize">
-							${iconShapes.heartStroke}
-							<div class="label">
-								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+						<div data-button="item-rounded">
+							<div class="containerLeading">
+								${iconShapes.heartStroke}
+								<div class="label">
+									<span>Item 1</span>
+									<span class="subtext">Sub-Label</span>
+								</div>
 							</div>
-							<button>Test with a long label</button>
+							<button data-button="action-fill" class="primary">Test with a long label</button>
 						</div>
-						<div class="itemList rounded">
+						<div data-button="item-rounded">
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</div>
-						<div class="itemList rounded">
+						<div data-button="item-rounded">
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</div>
-						<div class="itemList rounded">
+						<div data-button="item-rounded">
 							<div class="label">
 								<span>Item 4</span>
 							</div>
@@ -4018,27 +4281,27 @@ if (url.query == "") {
 					
 					<h2 class="headerList">SVG Icons</h2>
 					<section class="spacerDouble">
-						<button class="itemList rounded fixedIconSize">
-							${iconShapes.heartStroke}
+						<button data-button="item-rounded" data-icon-size="fixed">
+							<span class="containerIcon" style="--icon-container: tomato;">${iconShapes.heartStroke}</span>
 							<div class="label">
 								<span>Item 1</span>
 								<span class="subtext">Sub-Label</span>
 							</div>
 						</button>
-						<button class="itemList rounded fixedIconSize">
-							${iconShapes.plusSquareRoundedStroke}
+						<button data-button="item-rounded" data-icon-size="fixed">
+							<span class="containerIcon" style="--icon-container: limegreen;">${iconShapes.plusSquareRoundedStroke}</span>
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</button>
-						<button class="itemList rounded fixedIconSize">
-							${iconInterfaceElements.questionCircleStroke}
+						<button data-button="item-rounded" data-icon-size="fixed">
+							<span class="containerIcon" style="--icon-container: skyblue;">${iconInterfaceElements.questionCircleStroke}</span>
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</button>
-						<button class="itemList rounded fixedIconSize">
-							${iconHuman.handRaisedRightStroke}
+						<button data-button="item-rounded" data-icon-size="fixed">
+							<span class="containerIcon" style="--icon-container: purple;">${iconHuman.handRaisedRightStroke}</span>
 							<div class="label">
 								<span>Item 4</span>
 							</div>
@@ -4047,27 +4310,27 @@ if (url.query == "") {
 					
 					<h2 class="headerList">Image Icons</h2>
 					<section class="spacerDouble">
-						<button class="itemList rounded fixedIconSize">
-							<img src="app/images/ui/sidebar1.png" width="30" />
+						<button data-button="item-rounded" data-icon-size="fixed">
+							<span class="containerIcon" style="--icon-container: white;"><img src="app/images/ui/sidebar1.png" /></span>
 							<div class="label">
 								<span>Item 1</span>
 								<span class="subtext">Sub-Label</span>
 							</div>
 						</button>
-						<button class="itemList rounded fixedIconSize">
-							<img src="app/images/ui/sidebar2.png" width="30" />
+						<button data-button="item-rounded" data-icon-size="fixed">
+							<span class="containerIcon" style="--icon-container: white;"><img src="app/images/ui/sidebar2.png" /></span>
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</button>
-						<button class="itemList rounded fixedIconSize">
-							<img src="app/images/ui/sidebar3.png" width="30" />
+						<button data-button="item-rounded" data-icon-size="fixed">
+							<span class="containerIcon" style="--icon-container: white;"><img src="app/images/ui/sidebar3.png" /></span>
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</button>
-						<button class="itemList rounded fixedIconSize">
-							<img src="app/images/ui/sidebar4.png" width="30" />
+						<button data-button="item-rounded" data-icon-size="fixed">
+							<span class="containerIcon" style="--icon-container: white;"><img src="app/images/ui/sidebar4.png" /></span>
 							<div class="label">
 								<span>Item 4</span>
 							</div>
@@ -4076,27 +4339,27 @@ if (url.query == "") {
 					
 					<h2 class="headerList">Icons of any size</h2>
 					<section class="spacerDouble">
-						<button class="itemList rounded">
-							${iconTransport.rocketStroke}
+						<button data-button="item-rounded" data-icon-size="auto">
+							<span class="containerIcon" style="--icon-container: orange;">${iconTransport.rocketStroke}</span>
 							<div class="label">
 								<span>Item 1</span>
 								<span class="subtext">Sub-Label</span>
 							</div>
 						</button>
-						<button class="itemList rounded">
-							${iconTransport.rocketStroke}
+						<button data-button="item-rounded" data-icon-size="auto">
+							<span class="containerIcon" style="--icon-container: orange;">${iconTransport.rocketStroke}</span>
 							<div class="label">
 								<span>Item 2</span>
 							</div>
 						</button>
-						<button class="itemList rounded">
-							${iconTransport.rocketStroke}
+						<button data-button="item-rounded" data-icon-size="auto">
+							<span class="containerIcon" style="--icon-container: orange;">${iconTransport.rocketStroke}</span>
 							<div class="label">
 								<span>Item 3</span>
 							</div>
 						</button>
-						<button class="itemList rounded">
-							${iconTransport.rocketStroke}
+						<button data-button="item-rounded" data-icon-size="auto">
+							<span class="containerIcon" style="--icon-container: orange;">${iconTransport.rocketStroke}</span>
 							<div class="label">
 								<span>Item 4</span>
 							</div>
@@ -4108,7 +4371,7 @@ if (url.query == "") {
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
 			<p>Item Lists are the core component for making lists of things within Rebar. They offer a flexible set of styles to fit all types of lists. The basis of an Item List is a container with the <code>.containerItemList</code> class. By default an Item List will take up 100% of it's parent container's width and height.</p>
-			<p>Any row that is solely clickable needs to be a <code>button</code> with the <code>.itemList</code> class. If the row itself is to not be clickable, maybe because it contains controls within itself, then it should be set as a <code>div</code> instead of a button.</p>
+			<p>Any row that is solely clickable needs to be a <code>button</code> with the <code>data-button="item-*"</code> attribute. If the row itself is to not be clickable, maybe because it contains controls within itself, then it should be set as a <code>div</code> instead of a button.</p>
 			<h4 class="h6">Template</h4>
 <pre class="spacerTriple">
 &lt;div class="containerItemList" id=""&gt;&lt/div&gt;
@@ -4142,10 +4405,6 @@ if (url.query == "") {
 						<td><code>rounded</code></td>
 						<td>While not a property of the container itself, it's important to note the third style is the Rounded List and this requires setting the <code>rounded</code> class on the buttons.</td>
 					</tr>
-					<tr>
-						<td><code>fixedIconSize</code></td>
-						<td>The icon you add to the left of each button can be any size you want but if you want to set it to a Rebar defined size of 24px you can add the <code>fixedIconSize</code> class on the buttons.</td>
-					</tr>
 				</tbody>
 			</table>
 			
@@ -4155,16 +4414,16 @@ if (url.query == "") {
 	toolbars: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Layout")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Toolbars</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -4183,12 +4442,12 @@ if (url.query == "") {
 			<div class="containerGeneric excludePadding" id="exampleToolbar1">
 				<header class="containerToolbar">
 					<div class="pinLeft">
-						<button class="transparent">${iconInterfaceElements.filterCircleStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconInterfaceElements.filterCircleStroke}</button>
 					</div>
 					<h1 class="headerToolbar">Standard Items</h1>
 					<div class="pinRight">
-						<button class="transparent">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button class="transparent">${iconObjects.trashStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconShapes.rectangleOverlapHorizontalStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconObjects.trashStroke}</button>
 					</div>
 				</header>
 			</div>
@@ -4196,12 +4455,12 @@ if (url.query == "") {
 			<div class="containerGeneric excludePadding" id="exampleToolbar1">
 				<header class="containerToolbar">
 					<div class="pinLeft">
-						<button class="toolbarItem">${iconInterfaceElements.filterCircleStroke}</button>
+						<button data-button="action-transparent" class="toolbarItem">${iconInterfaceElements.filterCircleStroke}</button>
 					</div>
 					<h1 class="headerToolbar">Native Items</h1>
 					<div class="pinRight">
-						<button class="toolbarItem">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button class="toolbarItem">${iconObjects.trashStroke}</button>
+						<button data-button="action-transparent" class="toolbarItem">${iconShapes.rectangleOverlapHorizontalStroke}</button>
+						<button data-button="action-transparent" class="toolbarItem">${iconObjects.trashStroke}</button>
 						</button>
 					</div>
 				</header>
@@ -4210,14 +4469,14 @@ if (url.query == "") {
 			<div class="containerGeneric excludePadding" id="exampleToolbar1">
 				<header class="containerToolbar alwaysLeft">
 					<div class="pinLeft">
-						<button class="transparent">
+						<button data-button="action-transparent" class="primary">
 							${iconInterfaceElements.filterCircleStroke}
 						</button>
 					</div>
 					<h1 class="headerToolbar">Keep Left</h1>
 					<div class="pinRight">
-						<button class="transparent">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button class="transparent">${iconObjects.trashStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconShapes.rectangleOverlapHorizontalStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconObjects.trashStroke}</button>
 					</div>
 				</header>
 			</div>
@@ -4236,12 +4495,12 @@ if (url.query == "") {
 			<div class="containerGeneric excludePadding spacerDouble" id="exampleToolbar2">
 				<header class="containerToolbar withAccessory" id="accessoryParent1">
 					<div class="pinLeft">
-						<button class="transparent">${iconInterfaceElements.filterCircleStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconInterfaceElements.filterCircleStroke}</button>
 					</div>
 					<h1 class="headerToolbar">Header</h1>
 					<div class="pinRight">
-						<button class="transparent">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button class="transparent">${iconObjects.trashStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconShapes.rectangleOverlapHorizontalStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconObjects.trashStroke}</button>
 					</div>
 				</header>
 				<div class="scrollview" id="headerContent2">
@@ -4271,12 +4530,12 @@ if (url.query == "") {
 			<div class="containerGeneric excludePadding spacerDouble" id="exampleToolbar4">
 				<header class="containerToolbar withAccessory withInlineAccessory" id="accessoryParent3">
 					<div class="pinLeft">
-						<button class="transparent">${iconInterfaceElements.filterCircleStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconInterfaceElements.filterCircleStroke}</button>
 					</div>
 					<h1 class="headerToolbar">Header</h1>
 					<div class="pinRight">
-						<button class="transparent">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button class="transparent">${iconObjects.trashStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconShapes.rectangleOverlapHorizontalStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconObjects.trashStroke}</button>
 					</div>
 				</header>
 				<div class="containerInlineAccessory" id="headerContent4Parent">
@@ -4307,12 +4566,12 @@ if (url.query == "") {
 			<div class="containerGeneric excludePadding spacerTriple" id="exampleToolbar2">
 				<header class="containerToolbar vanishing noBackground" id="disappearingToolbar">
 					<div class="pinLeft">
-						<button class="transparent">${iconInterfaceElements.filterCircleStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconInterfaceElements.filterCircleStroke}</button>
 					</div>
 					<h1 class="headerToolbar">Header</h1>
 					<div class="pinRight">
-						<button class="transparent">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button class="transparent">${iconObjects.trashStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconShapes.rectangleOverlapHorizontalStroke}</button>
+						<button data-button="action-transparent" class="primary">${iconObjects.trashStroke}</button>
 					</div>
 				</header>
 				<div class="scrollview" id="disappearingScrollview">
@@ -4490,16 +4749,16 @@ toolbarVisibility({
 	tabbars: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Layout")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Tab Bars</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -4517,31 +4776,31 @@ toolbarVisibility({
 			<div class="containerGeneric excludePadding" id="exampleTabBar1">
 				<div class="wrapperTabBar">
 					<footer class="containerTabBar" id="tabBar1">
-						<button class="tab" data-name="tabfirst" onclick="routetabs('tabfirst')">
+						<button data-button="tab" data-name="tabfirst" onclick="routetabs('tabfirst')">
 							<div class="wrapper">
 								${iconObjects.handsetLeadingFill}
 							</div>
 							First
 						</button>
-						<button class="tab" data-name="tabsecond" onclick="routetabs('tabsecond')">
+						<button data-button="tab" data-name="tabsecond" onclick="routetabs('tabsecond')">
 							<div class="wrapper">
 								${iconHuman.userCircleFill}
 							</div>
 							Second
 						</button>
-						<button class="tab" data-name="tabthird" onclick="routetabs('tabthird')">
+						<button data-button="tab" data-name="tabthird" onclick="routetabs('tabthird')">
 							<div class="wrapper">
 								${iconObjects.bagFill}
 							</div>
 							Third
 						</button>
-						<button class="tab" data-name="tabfourth" onclick="routetabs('tabfourth')">
+						<button data-button="tab" data-name="tabfourth" onclick="routetabs('tabfourth')">
 							<div class="wrapper">
 								${iconObjects.loupeFill}
 							</div>
 							Fourth
 						</button>
-						<button class="tab" data-name="tabfifth" onclick="routetabs('tabfifth')">
+						<button data-button="tab" data-name="tabfifth" onclick="routetabs('tabfifth')">
 							<div class="wrapper">
 								<img src="app/images/ui/sidebar1.png" />
 							</div>
@@ -4557,11 +4816,11 @@ toolbarVisibility({
 			<h3 class="h6">Segmented Control</h3>
 			<div class="containerGeneric" id="exampleTabBar2">
 				<div class="controlSegmented display" id="tabBar2">
-					<button class="segment" data-name="segmentfirst" onclick="routesegment('segmentfirst')">First</button>
-					<button class="segment" data-name="segmentsecond" onclick="routesegment('segmentsecond')">Second</button>
-					<button class="segment" data-name="segmentthird" onclick="routesegment('segmentthird')">Third</button>
-					<button class="segment" data-name="segmentfourth" onclick="routesegment('segmentfourth')">Fourth</button>
-					<button class="segment" data-name="segmentfifth" onclick="routesegment('segmentfifth')">Fifth</button>
+					<button data-button="segment" data-name="segmentfirst" onclick="routesegment('segmentfirst')">First</button>
+					<button data-button="segment" data-name="segmentsecond" onclick="routesegment('segmentsecond')">Second</button>
+					<button data-button="segment" data-name="segmentthird" onclick="routesegment('segmentthird')">Third</button>
+					<button data-button="segment" data-name="segmentfourth" onclick="routesegment('segmentfourth')">Fourth</button>
+					<button data-button="segment" data-name="segmentfifth" onclick="routesegment('segmentfifth')">Fifth</button>
 				</div>
 				<div id="contentAreaTabs2"></div>
 			</div>
@@ -4614,16 +4873,16 @@ toolbarVisibility({
 	scrollviews: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Layout")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Scrollviews</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -4983,16 +5242,16 @@ toolbarVisibility({
 	sections: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Layout")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Sections</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -5044,16 +5303,16 @@ toolbarVisibility({
 	accordions: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Layout")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Accordions</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -5141,16 +5400,16 @@ toolbarVisibility({
 	iframes: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Layout")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">iframes</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -5166,16 +5425,16 @@ toolbarVisibility({
 	tables: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Layout")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Tables</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -5337,16 +5596,16 @@ searchTable({
 	banners: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Layout")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Banners</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -5468,16 +5727,16 @@ const modals = {
 	dialogs: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Modals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Dialogs</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -5494,16 +5753,16 @@ const modals = {
 	sheets: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Modals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Sheets</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -5526,23 +5785,23 @@ const modals = {
 				<tbody>
 					<tr>
 						<td>Full Sheet</td>
-						<td><button onclick="exampleSheetFull()">View</button></td>
+						<td><button data-button="action-fill" class="primary" onclick="exampleSheetFull()">View</button></td>
 					</tr>
 					<tr>
 						<td>Half Sheet</td>
-						<td><button onclick="exampleSheetHalf()">View</button></td>
+						<td><button data-button="action-fill" class="primary" onclick="exampleSheetHalf()">View</button></td>
 					</tr>
 					<tr>
 						<td>Small Sheet</td>
-						<td><button onclick="exampleSheetSmall()">View</button></td>
+						<td><button data-button="action-fill" class="primary" onclick="exampleSheetSmall()">View</button></td>
 					</tr>
 					<tr>
 						<td>Themed Sheet</td>
-						<td><button onclick="exampleSheetThemed()">View</button></td>
+						<td><button data-button="action-fill" class="primary" onclick="exampleSheetThemed()">View</button></td>
 					</tr>
 					<tr>
 						<td>Toolbar Hidden Sheet</td>
-						<td><button onclick="exampleSheetNoToolbar()">View</button></td>
+						<td><button data-button="action-fill" class="primary" onclick="exampleSheetNoToolbar()">View</button></td>
 					</tr>
 				</tbody>
 			</table>
@@ -5595,21 +5854,21 @@ summonSheet({
 	lightboxes: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Modals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Lightboxes</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<h2>Examples</h2>
-			<button class="spacerDouble" onclick="exampleLightbox()">Show Lightbox</button>
+			<button data-button="action-fill" class="primary spacerDouble" onclick="exampleLightbox()">Show Lightbox</button>
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
@@ -5632,16 +5891,16 @@ summonLightbox({
 	alerts: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Modals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Alerts</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -5664,15 +5923,15 @@ summonLightbox({
 				<tbody>
 					<tr>
 						<td>Standard Action</td>
-						<td><button onclick="exampleAlertStandard()">View</button></td>
+						<td><button data-button="action-fill" class="primary" onclick="exampleAlertStandard()">View</button></td>
 					</tr>
 					<tr>
 						<td>Destructive Action</td>
-						<td><button onclick="exampleAlertDestructive()">View</button></td>
+						<td><button data-button="action-fill" class="primary" onclick="exampleAlertDestructive()">View</button></td>
 					</tr>
 					<tr>
 						<td>Custom Content</td>
-						<td><button onclick="exampleAlertCustom()">View</button></td>
+						<td><button data-button="action-fill" class="primary" onclick="exampleAlertCustom()">View</button></td>
 					</tr>
 				</tbody>
 			</table>
@@ -5716,16 +5975,16 @@ summonAlert({
 	toasts: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Modals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Toasts</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -5739,15 +5998,15 @@ summonAlert({
 				<tbody>
 					<tr>
 						<td>Standard</td>
-						<td><button onclick="exampleToast1()">View</button></td>
+						<td><button data-button="action-fill" class="primary" onclick="exampleToast1()">View</button></td>
 					</tr>
 					<tr>
 						<td>Rebar Icon</td>
-						<td><button onclick="exampleToast2()">View</button></td>
+						<td><button data-button="action-fill" class="primary" onclick="exampleToast2()">View</button></td>
 					</tr>
 					<tr>
 						<td>Image</td>
-						<td><button onclick="exampleToast3()">View</button></td>
+						<td><button data-button="action-fill" class="primary" onclick="exampleToast3()">View</button></td>
 					</tr>
 				</tbody>
 			</table>
@@ -5775,16 +6034,16 @@ summonToast({
 	shortcutspanel: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Modals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Shortcuts Panel</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -5828,23 +6087,23 @@ let shortcutKeys = {
 	installbanner: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Modals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Install Banner</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<h2>Examples</h2>
 			${generateInstallPanel()}
 			
-			<button class="secondary spacerTriple" onclick="resetInstallBanner()">Reset Local Storage</button>
+			<button data-button="action-fill" class="secondary spacerTriple" onclick="resetInstallBanner()">Reset Local Storage</button>
 			
 			<h2>Documentation</h2>
 			<h3>Banner and Sheet</h3>
@@ -5864,16 +6123,16 @@ let shortcutKeys = {
 	whatsnewpanel: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Modals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">What's New Panel</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -5887,11 +6146,11 @@ let shortcutKeys = {
 				<tbody>
 					<tr>
 						<td>Show Panel</td>
-						<td><button onclick="summonWhatsNewSheet()">View</button></td>
+						<td><button data-button="action-fill" class="primary" onclick="summonWhatsNewSheet()">View</button></td>
 					</tr>
 					<tr>
 						<td>Reset Local Storage</td>
-						<td><button class="secondary" onclick="resetWhatsNew()">Reset</button></td>
+						<td><button data-button="action-fill" class="secondary" onclick="resetWhatsNew()">Reset</button></td>
 					</tr>
 				</tbody>
 			</table>
@@ -5908,16 +6167,16 @@ const visuals = {
 	iconsguide: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Icons</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -5994,16 +6253,16 @@ const visuals = {
 	typography: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Typography</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6015,7 +6274,13 @@ const visuals = {
 				<h3>This is an H3</h3>
 				<h4>This is an H4</h4>
 				<h5>This is an H5</h5>
-				<h6>This is an H6</h6>
+				<h6 class="spacerDouble">This is an H6</h6>
+				
+				<p class="subtext excludeMargin">Headings have <code>text-wrap: balance;</code> applied to them resulting in a more pleasing look across multiple lines. An example with it applied:</p>
+				<h3 class="spacerDouble textAlignCenter">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum neque a odio mattis suscipit. In tempor velit orci, ut ultrices orci pretium in. Nunc vitae elit ultricies, aliquet risus vitae, varius eros.</h3>
+				
+				<p class="subtext excludeMargin">And an example without it applied:</p>
+				<h3 class="textAlignCenter" style="text-wrap: wrap;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum neque a odio mattis suscipit. In tempor velit orci, ut ultrices orci pretium in. Nunc vitae elit ultricies, aliquet risus vitae, varius eros.</h3>
 			</section>
 			
 			<h2 class="headerSection">Body</h2>
@@ -6036,6 +6301,9 @@ const visuals = {
 				<p><a href="https://toast-studio.com/">This is a link</a></p>
 				<p class="subtext">This is subtext with a <a href="https://toast-studio.com/">link</a></p>
 				<code>Text wrapped in a code tag</code>
+				<br /><br />
+				<pre>Text wrapped in a pre tag</pre>
+				<kbd>Text wrapped in a kbd tag</kbd>
 			</section>
 			
 			<h2 class="headerSection">Fonts</h2>
@@ -6052,16 +6320,16 @@ const visuals = {
 	dynamictype: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Dynamic Type</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6102,16 +6370,16 @@ const visuals = {
 	images: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Images</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6134,16 +6402,16 @@ const visuals = {
 	displayoptions: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Display Options</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6206,16 +6474,16 @@ generateDisplayOptions({
 	appearance: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Appearance</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6241,16 +6509,16 @@ modifyPreference({
 	accent: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Accent</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6311,16 +6579,16 @@ modifyPreference({
 	reducemotion: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Reduce Motion</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6335,16 +6603,16 @@ modifyPreference({
 	blankstates: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Blank States</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6413,16 +6681,16 @@ generateBlankState({
 	cssvariables: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">CSS Variables</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6459,32 +6727,46 @@ generateBlankState({
 						<td>Informational messages.</td>
 					</tr>
 					<tr>
-						<td><code>--background</code></td>
+						<td><code>--backgroundPrime</code></td>
 						<td>The base background colour.</td>
 					</tr>
 					<tr>
-						<td><code>--foreground</code></td>
+						<td><code>--background</code></td>
+						<td>Based on the <code>--backgroundPrime</code> variable and has <code>color-mix()</code> applied for Android and Windows.</td>
+					</tr>
+					<tr>
+						<td><code>--foregroundPrime</code></td>
 						<td>A colour that contrasts against <code>--background</code>.</td>
+					</tr>
+					<tr>
+						<td><code>--foreground</code></td>
+						<td>Based on the <code>--foregroundPrime</code> variable and has <code>color-mix()</code> applied for Android and Windows.</td>
 					</tr>
 					<tr>
 						<td><code>--divider</code></td>
 						<td>Dividers and borders.</td>
 					</tr>
 					<tr>
-						<td><code>--systempanel</code></td>
+						<td><code>--systempanelPrime</code></td>
 						<td>Elements that overlay the app.</td>
+					</tr>
+					<tr>
+						<td><code>--systempanel</code></td>
+						<td>Based on the <code>--systempanelPrime</code> variable and has <code>color-mix()</code> applied for Android and Windows.</td>
 					</tr>
 					<tr>
 						<td><code>--systempanel-lift</code></td>
 						<td>Elements that sit on top of a <code>--systempanel</code> background.</td>
 					</tr>
-					<tr>
-						<td><code>--systemBlue</code></td>
-						<td>Represents objects that come from the system itself.</td>
-					</tr>
 				</tbody>
 			</table>
-			<p class="subtext spacerTriple">Colours are stored as raw RGB values so that they can be wrapped in rgb() or rgba() for independantly setting alpha values.</p>
+			${
+				insertBanner({
+					type: 'warning',
+					content: 'Only use the <code>--Prime</code> variables if necessary',
+					size: 'small',
+				})
+			}
 			
 			<table class="definitions spacerTriple">
 				<thead>
@@ -6528,6 +6810,10 @@ generateBlankState({
 					<tr>
 						<td><code>--font-atkinson-bold</code></td>
 						<td>A bold font stack for users with low visibility.</td>
+					</tr>
+					<tr>
+						<td><code>--font-shantell</code></td>
+						<td>A font stack with a handwritten appearance.</td>
 					</tr>
 					<tr>
 						<td><code>--base-font-size</code></td>
@@ -6634,16 +6920,16 @@ generateBlankState({
 	utilityclasses: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Utility Classes</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6754,21 +7040,21 @@ generateBlankState({
 	breakpoints: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Breakpoints</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<p>Rebar follows these standard breakpoints (you can use any that you require):</p>
-			<table class="definitions spacerTriple" id="breakpoints">
+			<table class="definitions spacerSingle" id="breakpoints">
 				<thead>
 					<tr>
 						<th>Sizes</th>
@@ -6797,21 +7083,22 @@ generateBlankState({
 					</tr>
 				</tbody>
 			</table>
+			<p>It is prefered to use Range Syntax <code>@media (width >= 640px)</code> compared to classic syntax <code>@media (min-width: 640px)</code>. This results in cleaner queries that don't overlap when needing to do max-width breakpoints.</p>
 		</div>
 	`,
 	increasedcontrast: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Increased Contrast</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6859,16 +7146,16 @@ generateBlankState({
 	spinners: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Spinners</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6889,16 +7176,16 @@ generateSpinner({
 	appglyph: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">App Glyph</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6911,16 +7198,16 @@ generateSpinner({
 	thememetatag: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Theme Meta Tag</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6931,16 +7218,16 @@ generateSpinner({
 	colours: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Visuals")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Semantic Colours</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -6974,6 +7261,18 @@ generateSpinner({
 					<div class="alwaysInfo">${iconShapes.circleFill}</div>
 					<span class="label">Info</span>
 				</div>
+				<div class="tile">
+					<div class="alwaysAccent" style="--accent: var(--divider);">${iconShapes.circleFill}</div>
+					<span class="label">Divider</span>
+				</div>
+				<div class="tile">
+					<div class="alwaysAccent" style="--accent: var(--systempanel);">${iconShapes.circleFill}</div>
+					<span class="label">System Panel</span>
+				</div>
+				<div class="tile">
+					<div class="alwaysAccent" style="--accent: var(--systempanel-lift);">${iconShapes.circleFill}</div>
+					<span class="label">System Panel Lift</span>
+				</div>
 			</div>
 			
 			<h2>Documentation</h2>
@@ -6986,16 +7285,16 @@ const charts = {
 	pie: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Charts")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Pie and Donut Charts</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -7056,16 +7355,16 @@ const charts = {
 	gantt: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Charts")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Gantt Chart</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -7135,16 +7434,16 @@ const charts = {
 	stats: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Charts")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Stats Chart</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -7196,16 +7495,16 @@ const helpers = {
 	preferences: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Helpers")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Preferences System</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -7297,16 +7596,16 @@ modifyPreference({
 	tipjar: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Helpers")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Tip jar</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -7319,7 +7618,7 @@ generateTipJar({
 </pre>
 		
 			<h2>Prompt for Tips</h2>
-			<button class="spacerSingle" onclick="exampleTipsPrompt()">Show Modal</button>
+			<button data-button="action-fill" class="primary spacerSingle" onclick="exampleTipsPrompt()">Show Modal</button>
 			<p>You also have the option to automatically prompt users for tips. Whether the prompt appears is determined by <code>promptForTips</code> being set to <code>true</code> in the Config file. When set to <code>true</code> Rebar will keep track of how many times the app has been loaded and when the counter hits <code>4</code>, <code>8</code>, and <code>14</code> the prompt will be shown.</p>
 			<p>If a user clicks on one of the links in the prompt this will cause the prompt to not be shown again (this is a way to not bother users who have already donated).</p>
 		
@@ -7335,16 +7634,16 @@ generateTipJar({
 	capitalizeword: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Helpers")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Capitalize Word</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -7354,16 +7653,16 @@ generateTipJar({
 	copytoclipboard: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Helpers")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Copy to Clipboard</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -7374,16 +7673,16 @@ generateTipJar({
 	settimelength:  `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Helpers")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Set Time Length</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -7393,16 +7692,16 @@ generateTipJar({
 	temporaryanimationpause:  `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Helpers")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Temporary Animation pause</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -7412,16 +7711,16 @@ generateTipJar({
 	graburlparameters: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Helpers")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Grab URL Parameters</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
@@ -7431,41 +7730,66 @@ generateTipJar({
 	grabos: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Helpers")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Grab OS</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
-			<p><code>grabOS()</code> is a function to retrieve the OS Rebar is currently loaded in for you. It will return a string of text with the OS name.</p>
-			<p>For styling purposes Rebar automatically inserts the OS as a data attribute on the <code>body</code> tag.</p>
-			<p>Example: The current OS is <code>${grabOS()}</code></p>
+			<p><code>grabOS()</code> is a function to retrieve the OS of the device Rebar is currently loaded in for you. It will return a string of text with the OS name.</p>
+			<p>Meanwhile <code>storedOS()</code> is a function to retrieve the OS the user has set in localstorage.<p>
+			<p>For styling purposes Rebar automatically inserts two data attributes on the <code>body</code> tag. <code>data-os</code> is the OS theme stored in preferences and <code>data-device</code> is device's actual OS.</p>
+			<ul>
+				<li>Example: The device OS is <code>${grabOS()}</code></li>
+				<li>Example: The stored OS is <code>${storedOS()}</code></li>
+			</ul>
 		</div>
 	`,
 	scrolltotop: `
 		<header class="containerToolbar alwaysLeft">
 			<div class="pinLeft">
-				<button class="back toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
 					${insertBackButton("Helpers")}
 				</button>
-				<button class="toolbarItem collapseAside">
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
 			<h1 class="headerToolbar">Scroll to Top</h1>
 			<div class="pinRight">
-				<button class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
 			<p><code>scrollToTop()</code> is a function to scroll an element to the top of a list. It takes an ID as the single parameter (it must be an ID as other elements did not work well).</p>
+		</div>
+	`,
+	iconstyle: `
+		<header class="containerToolbar alwaysLeft">
+			<div class="pinLeft">
+				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
+					${insertBackButton("Helpers")}
+				</button>
+				<button data-button="action-transparent" class="toolbarItem collapseAside">
+					${iconInterfaceElements.sidebarLeftStroke}
+				</button>
+			</div>
+			<h1 class="headerToolbar">Icon Style</h1>
+			<div class="pinRight">
+				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			</div>
+		</header>
+		<div class="scrollview cropToolbar paddingContent">
+			<p><code>iconStyle()</code> is a function to allow you to insert different styles of icons based on the OS. It should be inserted as <code>iconStyle(fillStyle, strokeStyle)</code>. iOS, macOS, and Android will take the fill style, Windows will take the stroke style.</p>
+			<h4>Example</h4>
+			${iconStyle(iconObjects.bookClosedFill, iconObjects.bookClosedStroke)}
 		</div>
 	`,
 }
@@ -7477,11 +7801,11 @@ const sheetExamples = {
 			<div class="pinLeft"></div>
 			<h1 class="headerToolbar">Full Sheet</h1>
 			<div class="pinRight">
-				<button class="transparent confirm" data-function="closedialog" autofocus>Done</button>
+				<button data-button="action-transparent" class="toolbarItem confirm" data-function="closedialog" autofocus>Done</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar">
-			<button class="spacerSingle" onclick="exampleSheetHalf()">View Half Sheet</button>
+			<button data-button="action-fill" class="primary spacerSingle" onclick="exampleSheetHalf()">View Half Sheet</button>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
 			<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
 			<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
@@ -7494,11 +7818,11 @@ const sheetExamples = {
 			<div class="pinLeft"></div>
 			<h1 class="headerToolbar">Half Sheet</h1>
 			<div class="pinRight">
-				<button class="transparent confirm" data-function="closedialog" autofocus>Done</button>
+				<button data-button="action-transparent" class="toolbarItem confirm" data-function="closedialog" autofocus>Done</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar">
-			<button class="spacerSingle" onclick="exampleSheetSmall()">View Small Sheet</button>
+			<button data-button="action-fill" class="primary spacerSingle" onclick="exampleSheetSmall()">View Small Sheet</button>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
 			<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
 			<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
@@ -7511,11 +7835,11 @@ const sheetExamples = {
 			<div class="pinLeft"></div>
 			<h1 class="headerToolbar">Small Sheet</h1>
 			<div class="pinRight">
-				<button class="transparent confirm" data-function="closedialog" autofocus>Done</button>
+				<button data-button="action-transparent" class="toolbarItem confirm" data-function="closedialog" autofocus>Done</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar">
-			<button class="spacerSingle" onclick="exampleToast2()">View Toast</button>
+			<button data-button="action-fill" class="primary spacerSingle" onclick="exampleToast2()">View Toast</button>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
 			<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
 			<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
@@ -7528,7 +7852,7 @@ const sheetExamples = {
 			<div class="pinLeft"></div>
 			<h1 class="headerToolbar">Themed Sheet</h1>
 			<div class="pinRight">
-				<button class="transparent confirm" data-function="closedialog" autofocus>Done</button>
+				<button data-button="action-transparent" class="toolbarItem confirm" data-function="closedialog" autofocus>Done</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar">
@@ -7540,11 +7864,11 @@ const sheetExamples = {
 		</div>
 	`,
 	notoolbar: `
-		<button class="translucent xclose" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
+		<button data-button="close" class="translucent" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
 		<div class="scrollview excludePadding">
 			<div class="spacerSingle">
 				<h1>Sheet Title</h1>
-				<button class="translucent">Add to Guides</button>
+				<button data-button="action-fill" class="translucent">Add to Guides</button>
 			</div>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
 			<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>

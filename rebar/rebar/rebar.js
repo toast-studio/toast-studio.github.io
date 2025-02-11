@@ -1,4 +1,4 @@
-//REBAR 2.2.5
+//REBAR 2.3
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -24,7 +24,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			theme: false,
 			id: "sheetInstall",
 			content: `
-				<button class="translucent xclose" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
+				<button data-button="close" class="translucent" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
 			`,
 		})
 		
@@ -78,7 +78,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 				break;
 			case 'brave':
 				$(`#sheetInstallContent`).append(`
-					<button class="transparent" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
+					<button data-button="action-transparent" class="toolbarItem" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
 				
 					<div id="containerIntroText">
 						<img src="rebar/images/browser-brave.webp" srcset="rebar/images/browser-brave@2x.webp 2x" alt="" width="128" />
@@ -149,7 +149,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 				break;
 			case 'chrome':
 				$(`#sheetInstallContent`).append(`
-					<button class="transparent" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
+					<button data-button="action-transparent" class="toolbarItem" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
 				
 					<div id="containerIntroText">
 						<img src="rebar/images/browser-chrome.webp" srcset="rebar/images/browser-chrome@2x.webp 2x" alt="" width="128" />
@@ -252,7 +252,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 				break;
 			case 'edge':
 				$(`#sheetInstallContent`).append(`
-					<button class="transparent" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
+					<button data-button="action-transparent" class="toolbarItem" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
 				
 					<div id="containerIntroText">
 						<img src="rebar/images/browser-edge.webp" srcset="rebar/images/browser-edge@2x.webp 2x" alt="" width="128" />
@@ -355,7 +355,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 				break;
 			case 'firefox':
 				$(`#sheetInstallContent`).append(`
-					<button class="transparent" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
+					<button data-button="action-transparent" class="toolbarItem" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
 				
 					<div id="containerIntroText">
 						<img src="rebar/images/browser-firefox.webp" srcset="rebar/images/browser-firefox@2x.webp 2x" alt="" width="128" />
@@ -432,7 +432,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 				break;
 			case 'safari':
 				$(`#sheetInstallContent`).append(`
-					<button class="transparent" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
+					<button data-button="action-transparent" class="toolbarItem" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
 				
 					<div id="containerIntroText">
 						<img src="rebar/images/browser-safari.webp" srcset="rebar/images/browser-safari@2x.webp 2x" alt="" width="128" />
@@ -508,7 +508,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 				break;
 			case 'samsunginternet':
 				$(`#sheetInstallContent`).append(`
-					<button class="transparent" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
+					<button data-button="action-transparent" class="toolbarItem" id="buttonOtherBrowsers" onclick="contentInstallSheet('default')">Other Browers</button>
 				
 					<div id="containerIntroText">
 						<img src="rebar/images/browser-samsunginternet.webp" srcset="rebar/images/browser-samsunginternet@2x.webp 2x" alt="" width="128" />
@@ -535,7 +535,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			theme: false,
 			id: "sheetWhatsNew",
 			content: `
-				<button class="translucent xclose" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
+				<button data-button="close" class="translucent" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
 				<div class="scrollview excludePadding">
 					<div class="headerWhatsNew">
 						<div class="version">
@@ -581,6 +581,16 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			// }
 		}
 		
+		//OVERWRITE DEFAULT OS WITH ACUTAL OS
+		if (getPreferenceGroup("rebar.appSettings").os == "default") {
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "os",
+				value: grabOS(),
+			})
+		}
+		
 		//SET APPEARANCE
 		$("body").attr("data-theme", getPreferenceGroup("rebar.appSettings").appearance);
 		
@@ -606,13 +616,9 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		
 		//SET OS
 		if (getPreferenceGroup("rebar.appSettings").os == undefined) {
-			$("body").attr("data-os", grabOS());
+			$("body").attr("data-os", grabOS()).attr("data-device", grabOS());
 		} else {
-			if (getPreferenceGroup("rebar.appSettings").os != "default") {
-				$(`body`).attr("data-os", getPreferenceGroup("rebar.appSettings").os)
-			} else {
-				$("body").attr("data-os", grabOS());
-			}
+			$(`body`).attr("data-os", getPreferenceGroup("rebar.appSettings").os).attr("data-device", grabOS())
 		}
 		
 		//SET REDUCED MOTION
@@ -654,7 +660,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 					theme: false,
 					id: false,
 					content: `
-						<button class="translucent xclose" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
+						<button data-button="close" class="translucent" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
 						<div id="sheetTips">
 							${
 								generateTipJar({
@@ -728,6 +734,10 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	
 		return os;
 	}
+	
+	function storedOS() {
+		return getPreferenceGroup("rebar.appSettings").os
+	}
 
 //GRAB FUNCTION NAME
 	function grabFunctionName() {
@@ -794,22 +804,10 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	
 //SWITCHES
 	function clickSwitch(dataValue) {
-		//GET VALUES
-		let setting = $(dataValue).data("setting")
-		let isOn = $(dataValue).attr("class").includes("off");
-		
-		//SET STATE
-		$(dataValue).toggleClass("off");
-		
-		//SET LOCAL STORAGE AND RETURN
-		if (isOn ==  true) {
-			$(dataValue).attr("title", "On")
-			return "on";
-		} else {
-			$(dataValue).attr("title", "Off")
-			return "off";
-		}
+	  let isOn = $(dataValue).prop("checked");
+	  return isOn ? "on" : "off";
 	}
+
 	
 //NAVIGATION
 	function controllerRoute(options) {
@@ -1015,7 +1013,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			function summonLightbox(options) {
 				$("body").prepend(`
 					<dialog data-type="lightbox" data-backing="${options.backing}" id="${options.id}">
-						<button class="translucent xclose" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
+						<button data-button="close" class="translucent" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
 						${options.content}
 					</dialog>
 				`);
@@ -1123,7 +1121,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 					<div class="pinLeft"></div>
 					<h1 class="headerToolbar">Shortcut Keys</h1>
 					<div class="pinRight">
-						<button class="transparent confirm" id="buttonSheetDismiss" data-function="closedialog" autofocus>Done</button>
+						<button data-button="action-transparent" class="toolbarItem confirm" id="buttonSheetDismiss" data-function="closedialog" autofocus>Done</button>
 					</div>
 				</header>
 				<div class="scrollview cropToolbar">
@@ -1140,7 +1138,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			
 			$.each( val.shortcutItems, function( index, value) {
 				$(`#${key}`).append(`
-					<div class="itemList">
+					<div data-button="item-flat">
 						<div class="label">
 							<span>${value.name}</span>
 						</div>
@@ -1351,13 +1349,13 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		if (options.actionFirst != undefined) {
 			$(`#${options.target} .blankStateContents`).append(`
 				<div class="containerActions">
-					<button class="primary" id="${options.actionIDFirst}">${options.actionFirst}</button>
+					<button data-button="action-fill" class="primary" id="${options.actionIDFirst}">${options.actionFirst}</button>
 				</div>
 			`);
 		}
 		
 		if (options.actionSecond != undefined) {
-			$(`#${options.target} .blankStateContents .containerActions`).append(`<button class="secondary" id="${options.actionIDSecond}">${options.actionSecond}</button>`)
+			$(`#${options.target} .blankStateContents .containerActions`).append(`<button data-button="action-fill" class="secondary" id="${options.actionIDSecond}">${options.actionSecond}</button>`)
 		}
 	}
 	
@@ -1396,7 +1394,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	function insertShareButton(options) {
 		let icon
 		
-		switch (grabOS()) {
+		switch (storedOS()) {
 			case 'windows':
 				icon = iconInterfaceElements.shareWindows
 				break;
@@ -1410,7 +1408,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 		
 		if (navigator.share) {
 			return `
-				<button class="share ${options.style}" title="${options.title}">
+				<button data-button="action-transparent" class="share ${options.style}" title="${options.title}">
 					${icon}
 				</button>
 			`
@@ -1421,7 +1419,10 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	
 //BACK BUTTON
 	function insertBackButton(label) {
-		switch (grabOS()) {
+		switch (storedOS()) {
+			case 'ios':
+				return `${iconShapes.chevronBackwardsStroke} ${label}`
+				break
 			case 'macos':
 				return `${iconShapes.chevronBackwardsStroke}`
 				break
@@ -1431,502 +1432,558 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			case 'windows':
 				return `${iconShapes.arrowSingleLeft}`
 				break;
-			default:
-				return `${iconShapes.chevronBackwardsStroke} ${label}`
-				break
 		}
 	}
 	
 //THEME PICKER
 	//GENERATE THE THEME PICKER
 	function generateDisplayOptions(options) {
-		//DEBUG
-			if (getPreferenceGroup("rebar.appSettings").debug == true) {
-				$(`#${options.target}`).append(`
-					<h2 class="headerList">Debug</h2>
-					<div class="containerItemList inset inline spacerDouble alwaysBackgroundColor">
-						<section class="containerSection excludePadding excludeMargin">
-							<div class="itemList fixedIconSize">
-								${iconHardware.monitorStroke}
-								<div class="label" id="increaseContrastLabel">
-									<span>OS Theme</span>
-								</div>
-								<div class="containerContextButton" data-setting="os" data-position="right" data-type="picker">
-									<button class="buttonContext transparent excludePadding">
-										<div class="contextContainerLabel">
-											<span class="contextLabel" style="text-transform: none"></span>
-											<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
-										</div>
-									</button>
-									<div class="contextContainerMenu">
-										<button data-name="default" onclick="overrideOS('default')">Default</button>
-										<button data-name="ios" onclick="overrideOS('ios')">iOS</button>
-										<button data-name="macos" onclick="overrideOS('macos')">macOS</button>
-										<button data-name="android" onclick="overrideOS('android')">Android</button>
-										<button data-name="windows" onclick="overrideOS('windows')">Windows</button>
-									</div>
-								</div>
-							</div>
-						</section>
-					</div>
-				`);
-			}
-			
-			switch (getPreferenceGroup("rebar.appSettings").os) {
-				case 'default':
-					$(`[data-setting="os"] .contextLabel`).append(`Default`);
-					$(`[data-name="default"]`).addClass(`picked`);
-					break;
-				case 'ios':
-					$(`[data-setting="os"] .contextLabel`).append(`iOS`);
-					$(`[data-name="ios"]`).addClass(`picked`);
-					break;
-				case 'macos':
-					$(`[data-setting="os"] .contextLabel`).append(`macOS`);
-					$(`[data-name="macos"]`).addClass(`picked`);
-					break;
-				case 'android':
-					$(`[data-setting="os"] .contextLabel`).append(`Android`);
-					$(`[data-name="android"]`).addClass(`picked`);
-					break;
-				case 'windows':
-					$(`[data-setting="os"] .contextLabel`).append(`Windows`);
-					$(`[data-name="windows"]`).addClass(`picked`);
-					break;
-			}
-		
 		if (options.themeOptions == true || options.accentOptions == true || options.contrastOptions == true || options.motionOptions == true) {
 			//SET UP THE CONTAINER
-			$(`#${options.target}`).append(`
-				<h2 class="headerList">Visuals</h2>
-				<div class="containerItemList inset inline spacerDouble alwaysBackgroundColor">
-					<section class="containerSection excludePadding excludeMargin" id="containerVisuals"></section>
-				</div>
-			`);
-			
-			//THEMES
-			if (options.themeOptions == true) {
-				//SET UP THE CONTAINER
+				$(`#${options.target}`).append(`
+					<h2 class="h4">Visuals</h2>
+					<section class="spacerDouble" id="containerVisuals"></section>
+				`);
+				
+			//THEME
 				$(`#containerVisuals`).append(`
-					<div class="itemList fixedIconSize">
-						${iconObjects.paintbrushStroke}
-						<div class="label" id="increaseContrastLabel">
-							<span>Theme</span>
+					<div class="containerDisplayRow containerSection" id="displayTheme">
+						<div>
+							<h3 class="h5 excludePadding">Theme</h3>
+							<p class="excludeMargin">Style ${appName} with one of the OS themes</p>
 						</div>
-						<div class="containerContextButton" data-setting="appearance" data-position="right" data-type="pickericons">
-							<button class="buttonContext transparent excludePadding">
-								<div class="contextContainerLabel">
-									<span class="contextLabel"></span>
-									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
-								</div>
+						<div class="options">
+							<button data-button="display-tile" class="primary" data-name="ios" onclick="overrideOS('ios')">
+								${iconHardware.iphoneFaceStroke}
+								iOS
 							</button>
-							<div class="contextContainerMenu"></div>
+							<button data-button="display-tile" class="primary" data-name="macos" onclick="overrideOS('macos')">
+								${iconHardware.imacStroke}
+								macOS
+							</button>
+							<button data-button="display-tile" class="primary" data-name="android" onclick="overrideOS('android')">
+								${iconLogos.android}
+								Android
+							</button>
+							<button data-button="display-tile" class="primary" data-name="windows" onclick="overrideOS('windows')">
+								${iconLogos.windows}
+								Windows
+							</button>
 						</div>
 					</div>
 				`);
 				
-				//GENERATE THE TOKENS
-				$.each( appThemes, function( key, val ) {
-					$(`[data-setting="appearance"] .contextContainerMenu`).append(`
-						<button data-value="${key}" data-label="${val.name}" data-icongroup='${val.iconGroup}' data-iconname='${val.iconName}'>
-							${val.name}
-							${window[val.iconGroup][val.iconName]}
-						</button>
-					`);
-				});
-				
-				//SET THEME DROPDOWN
-				$(`[data-setting="appearance"] button[data-value='${getPreferenceGroup("rebar.appSettings").appearance}']`).addClass("picked");
-				$(`[data-setting="appearance"] .contextLabel`).append(window[appThemes[getPreferenceGroup("rebar.appSettings").appearance].iconGroup][appThemes[getPreferenceGroup("rebar.appSettings").appearance].iconName]);
-				$(`[data-setting="appearance"] .contextLabel`).append(appThemes[getPreferenceGroup("rebar.appSettings").appearance].name);
-			}
+				switch (getPreferenceGroup("rebar.appSettings").os) {
+					case 'ios':
+						$(`[data-setting="os"] .contextLabel`).append(`iOS`);
+						$(`[data-name="ios"]`).addClass(`picked`);
+						break;
+					case 'macos':
+						$(`[data-setting="os"] .contextLabel`).append(`macOS`);
+						$(`[data-name="macos"]`).addClass(`picked`);
+						break;
+					case 'android':
+						$(`[data-setting="os"] .contextLabel`).append(`Android`);
+						$(`[data-name="android"]`).addClass(`picked`);
+						break;
+					case 'windows':
+						$(`[data-setting="os"] .contextLabel`).append(`Windows`);
+						$(`[data-name="windows"]`).addClass(`picked`);
+						break;
+				}
 			
-			//ACCENTS
-			if (options.accentOptions == true) {
-				//SET UP THE CONTAINER
-				$(`#containerVisuals`).append(`
-					<div class="itemList fixedIconSize">
-						${iconObjects.swatchBookRight}
-						<div class="label" id="increaseContrastLabel">
-							<span>Accent</span>
-						</div>
-						<div class="containerContextButton" data-setting="accent" data-position="right" data-type="popover">
-							<button class="buttonContext transparent excludePadding">
-								<div class="contextContainerLabel">
-									<span class="contextLabel" style="text-transform: none"><span class="colorChip" data-accent="${getPreferenceGroup("rebar.appSettings").accent}"></span> ${appAccents[getPreferenceGroup("rebar.appSettings").accent]}</span>
-									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
+			//GENERATE APPEARANCE OPTIONS
+				if (options.themeOptions == true) {
+					//SET UP THE CONTAINER
+						$(`#containerVisuals`).append(`
+							<div class="containerDisplayRow containerSection" id="displayAppearance">
+								<div>
+									<h3 class="h5 excludePadding">Appearance</h3>
+									<p class="excludeMargin">Set ${appName} to light or dark mode</p>
 								</div>
-							</button>
-							<div class="contextContainerMenu">
-								<div class="containerAccents itemList fixedIconSize" id="pickerAccent" data-max="1" data-setting="accent"></div>
+								<div class="options"></div>
+							</div>
+						`);
+					
+					//GENERATE BUTTONS
+						$.each( appThemes, function( key, val ) {
+							$(`#displayAppearance .options`).append(`
+								<button data-button="display-tile" class="primary" data-value="${key}" data-label="${val.name}" data-icongroup='${val.iconGroup}' data-iconname='${val.iconName}'>
+									${window[val.iconGroup][val.iconName]}
+									${val.name}
+								</button>
+							`);
+						});
+					
+					//SET SELECTED APPEARANCE ON LOAD
+						$(`#displayAppearance [data-value='${getPreferenceGroup("rebar.appSettings").appearance}']`).addClass("picked");
+				}
+			
+			//GENERATE ACCENT OPTIONS
+				if (options.accentOptions == true) {
+					//SET UP THE CONTAINER
+					$(`#containerVisuals`).append(`
+						<div class="containerDisplayRow containerSection" id="displayAccent">
+							<div>
+								<h3 class="h5 excludePadding">Accent</h3>
+								<p class="excludeMargin">Set the colour of ${appName}</p>
+							</div>
+							<div class="options">
+								<div class="spacerSingle" id="appAccents">
+									<h4 class="h6">App</h4>
+								</div>
+								
+								<div class="spacerSingle">
+									<h4 class="h6">iOS and macOS</h4>
+									<button data-button="action-circular" class="primary" data-value="blue" data-accent="blue" title="Blue">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="teal" data-accent="teal" title="Teal">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="purple" data-accent="purple" title="Purple">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="pink" data-accent="pink" title="Pink">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="red" data-accent="red" title="Red">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="orange" data-accent="orange" title="Orange">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="yellow" data-accent="yellow" title="Yellow">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="green" data-accent="green" title="Green">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="graphite" data-accent="graphite" title="Graphite">${iconShapes.circleFill}</button>
+								</div>
+								
+								<div class="spacerSingle">
+									<h4 class="h6">iMac</h4>
+									<button data-button="action-circular" class="primary" data-value="iyellow" data-accent="iyellow" title="Yellow iMac 2021">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="iyellow24" data-accent="iyellow24" title="Yellow iMac 2024">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="igreen" data-accent="igreen" title="Green iMac 2021">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="igreen24" data-accent="igreen24" title="Green iMac 2024">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="iblue" data-accent="iblue" title="Blue iMac 2021">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="iblue24" data-accent="iblue24" title="Blue iMac 2024">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="ired" data-accent="ired" title="Pink iMac 2021">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="ired24" data-accent="ired24" title="Pink iMac 2024">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="ipurple" data-accent="ipurple" title="Purple iMac 2021">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="ipurple24" data-accent="ipurple24" title="Purple iMac 2024">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="iorange" data-accent="iorange" title="Orange iMac 2021">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="iorange24" data-accent="iorange24" title="Orange iMac 2024">${iconShapes.circleFill}</button>
+								</div>
+								
+								<div class="spacerSingle">
+									<h4 class="h6">Android</h4>
+									<button data-button="action-circular" class="primary" data-value="android-red" data-accent="android-red" title="Red">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="android-orange" data-accent="android-orange" title="Orange">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="android-sun" data-accent="android-sun" title="Sun">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="android-yellow" data-accent="android-yellow" title="Yellow">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="android-green" data-accent="android-green" title="Green">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="android-carbon" data-accent="android-carbon" title="Carbon">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="android-blue" data-accent="android-blue" title="Blue">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="android-classic" data-accent="android-classic" title="Classic">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="android-indigo" data-accent="android-indigo" title="Indigo">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="android-paper" data-accent="android-paper" title="Paper">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="android-violet" data-accent="android-violet" title="Violet">${iconShapes.circleFill}</button>
+								</div>
+								
+								<div>
+									<h4 class="h6">Windows</h4>
+									<button data-button="action-circular" class="primary" data-value="windows-yellow-gold" data-accent="windows-yellow-gold" title="Yellow Gold">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-gold" data-accent="windows-gold" title="Gold">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-orange-bright" data-accent="windows-orange-bright" title="Orange Bright">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-orange-dark" data-accent="windows-orange-dark" title="Orange Dark">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-rust" data-accent="windows-rust" title="Rust">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-pale-rust" data-accent="windows-pale-rust" title="Pale Rust">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-brick-red" data-accent="windows-brick-red" title="Brick Red">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-mod-red" data-accent="windows-mod-red" title="Mod Red">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-pale-red" data-accent="windows-pale-red" title="Pale Red">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-red" data-accent="windows-red" title="Red">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-rose-bright" data-accent="windows-rose-bright" title="Rose Bright">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-rose" data-accent="windows-rose" title="Rose">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-plum-light" data-accent="windows-plum-light" title="Plum Light">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-plum" data-accent="windows-plum" title="Plum">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-orchid-light" data-accent="windows-orchid-light" title="Orchid Light">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-orchid" data-accent="windows-orchid" title="Orchid">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-blue" data-accent="windows-blue" title="Blue">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-navy-blue" data-accent="windows-navy-blue" title="Navy Blue">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-purple-shadow" data-accent="windows-purple-shadow" title="Purple Shadow">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-purple-shadow-dark" data-accent="windows-purple-shadow-dark" title="Purple Shadow Dark">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-iris-pastel" data-accent="windows-iris-pastel" title="Iris Pastel">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-iris-spring" data-accent="windows-iris-spring" title="Iris Spring">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-violet-red-light" data-accent="windows-violet-red-light" title="Violet Red Light">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-violet-red" data-accent="windows-violet-red" title="Violet Red">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-cool-blue-bright" data-accent="windows-cool-blue-bright" title="Cool Blue Bright">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-cool-blue" data-accent="windows-cool-blue" title="Cool Blue">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-seafoam" data-accent="windows-seafoam" title="Seafoam">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-seafoam-teal" data-accent="windows-seafoam-teal" title="Seafoam Teal">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-mint-light" data-accent="windows-mint-light" title="Mint Light">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-mint-dark" data-accent="windows-mint-dark" title="Mint Dark">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-turf-green" data-accent="windows-turf-green" title="Turf Green">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-sport-green" data-accent="windows-sport-green" title="Sport Green">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-gray" data-accent="windows-gray" title="Gray">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-gray-brown" data-accent="windows-gray-brown" title="Gray Brown">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-steel-blue" data-accent="windows-steel-blue" title="Steel Blue">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-metal-blue" data-accent="windows-metal-blue" title="Metal Blue">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-pale-moss" data-accent="windows-pale-moss" title="Pale Moss">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-moss" data-accent="windows-moss" title="Moss">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-meadow-green" data-accent="windows-meadow-green" title="Meadow Green">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-green" data-accent="windows-green" title="Green">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-overcast" data-accent="windows-overcast" title="Overcast">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-storm" data-accent="windows-storm" title="Storm">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-blue-gray" data-accent="windows-blue-gray" title="Blue Gray">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-gray-dark" data-accent="windows-gray-dark" title="Gray Dark">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-liddy-green" data-accent="windows-liddy-green" title="Liddy Green">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-sage" data-accent="windows-sage" title="Sage">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-camouflage-desert" data-accent="windows-camouflage-desert" title="Camouflage Desert">${iconShapes.circleFill}</button>
+									<button data-button="action-circular" class="primary" data-value="windows-camouflage" data-accent="windows-camouflage" title="Camouflage">${iconShapes.circleFill}</button>
+									
+									
+									
+									
+								</div>
 							</div>
 						</div>
-					</div>
-					
-				`);
-				
-				//GENERATE THE TOKENS
-				$.each( appAccents, function( key, val ) {
-					$(`#pickerAccent`).append(`
-						<div class="accentChip selectionRing" data-value="${key}" data-accent="${key}" title="${val}"></div>
 					`);
-				});
-				
-				//SET THE PICKED TOKEN
-				$(`#pickerAccent [data-value="${getPreferenceGroup("rebar.appSettings").accent}"]`).addClass("picked");
-				$(`#selectedAccent`).empty().append(appAccents[getPreferenceGroup("rebar.appSettings").accent]);
-			}
+					
+					//GENERATE THE TOKENS
+						$.each( appAccents, function( key, val ) {
+							$(`#appAccents`).append(`
+								<button data-button="action-circular" class="primary" data-value="${key}" data-accent="${key}" title="${val}">${iconShapes.circleFill}</button>
+							`);
+						});
+					
+					//SET THE PICKED TOKEN
+						$(`#displayAccent [data-value="${getPreferenceGroup("rebar.appSettings").accent}"]`).addClass("picked");
+				}
 			
 			//GENERATE INCREASED CONTRAST OPTIONS
-			if (options.contrastOptions == true) {
-				//GENERATE MENU
-				$(`#containerVisuals`).append(`
-					<div class="itemList fixedIconSize">
-						${iconShapes.circleHalfVerticalRightFill}
-						<div class="label" id="increaseContrastLabel">
-							<span>Increase Contrast</span>
-						</div>
-						<button class="switch" data-setting="increaseContrast"></button>
-					</div>
-				`);
-				
-				//SET SWITCH STATE
-				if (getPreferenceGroup("rebar.appSettings").increaseContrast == "less") {
-					$('[data-setting="increaseContrast"]').addClass("off");
-					$('[data-setting="increaseContrast"]').attr("title", "Off")
-				} else {
-					$('[data-setting="increaseContrast"]').attr("title", "On")
+				if (options.contrastOptions == true) {
+					//GENERATE MENU
+						$(`#containerVisuals`).append(`
+							<div class="containerDisplayRow containerSection" id="displayContrast" style="--layout: grid; align-items: center;">
+								<div>
+									<h3 class="h5 excludePadding">Increase Contrast</h3>
+									<p class="excludeMargin">Makes elements more distinct</p>
+								</div>
+								<label for="increaseContrast">
+									<input type="checkbox" switch id="increaseContrast" name="increaseContrast" value="">
+									<div class="fakeCheckbox"></div>
+								</label>
+							</div>
+						`);
+					
+					//SET SWITCH STATE
+						if (getPreferenceGroup("rebar.appSettings").increaseContrast == "more") {
+							$('#increaseContrast').prop('checked', true);
+						}
+						
+						if (queryIncreasedContrast == true) {
+							$('#increaseContrast').prop('checked', true).addClass("disabled");
+							$("#displayContrast div:first-child").append(`<p class="subtext">Using device settings</p>`)
+						}
 				}
-				
-				if (queryIncreasedContrast == true) {
-					$('[data-setting="increaseContrast"]').addClass("disabled").removeClass("off");
-					$("#increaseContrastLabel").append(`<span class="subtext">Using device settings</span>`)
-					$('[data-setting="increaseContrast"]').attr("title", "On")
-				}
-			}
 			
 			//GENERATE REDUCED MOTION OPTIONS
-			if (options.motionOptions == true) {
-				//GENERATE MENU
-				$(`#containerVisuals`).append(`
-					<div class="itemList fixedIconSize">
-						${iconObjects.dialOffStroke}
-						<div class="label" id="reducedMotionLabel">
-							<span>Reduce Motion</span>
+				if (options.motionOptions == true) {
+					//GENERATE MENU
+					$(`#containerVisuals`).append(`
+						<div class="containerDisplayRow containerSection" id="displayMotion" style="--layout: grid; align-items: center;">
+							<div>
+								<h3 class="h5 excludePadding">Reduce Motion</h3>
+								<p class="excludeMargin">Disables animations across ${appName}</p>
+							</div>
+							<label for="reduceMotion">
+								<input type="checkbox" switch id="reduceMotion" name="reduceMotion" value="">
+								<div class="fakeCheckbox"></div>
+							</label>
 						</div>
-						<button class="switch" data-setting="reduceMotion"></button>
-					</div>
-				`);
-				
-				//SET SWITCH STATE
-				if (getPreferenceGroup("rebar.appSettings").reduceMotion == "off") {
-					$('[data-setting="reduceMotion"]').addClass("off");
-					$('[data-setting="reduceMotion"]').attr("title", "Off")
-				} else {
-					$('[data-setting="reduceMotion"]').attr("title", "On")
+					`);
+					
+					//SET SWITCH STATE
+					if (getPreferenceGroup("rebar.appSettings").reduceMotion == "on") {
+						$('#reduceMotion').prop('checked', true);
+					}
+					
+					if (queryReducedMotion == true) {
+						$('#reduceMotion').prop('checked', true).addClass("disabled");
+						$("#displayMotion div:first-child").append(`<p class="subtext">Using device settings</p>`)
+					}
 				}
-				
-				if (queryReducedMotion == true) {
-					$('[data-setting="reduceMotion"]').addClass("disabled").removeClass("off");
-					$("#reducedMotionLabel").append(`<span class="subtext">Using device settings</span>`)
-					$('[data-setting="reduceMotion"]').attr("title", "On")
-				}
-			}
 		}
 		
 		if (options.textSizeOptions == true || options.textWeightOptions == true || options.textFontOptions == true) {
 			//SET UP THE CONTAINER
-			$(`#${options.target}`).append(`
-				<h2 class="headerList">Text</h2>
-				<div class="containerItemList inset inline spacerDouble alwaysBackgroundColor">
-					<section class="containerSection excludePadding excludeMargin" id="containerText"></section>
-				</div>
-			`);
-			
-			//GENERATE FONT OPTIONS
-			if (options.textFontOptions == true) {
-				//GENERATE MENU
-				$(`#containerText`).append(`
-					<div class="itemList fixedIconSize">
-						${iconInterfaceElements.textDyslexia}
-						<div class="label">Font</div>
-						<div class="containerContextButton" data-setting="font" data-position="right" data-type="picker">
-							<button class="buttonContext transparent excludePadding">
-								<div class="contextContainerLabel">
-									<span class="contextLabel"></span>
-									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
-								</div>
-							</button>
-							<div class="contextContainerMenu">
-								<button data-value="system" data-label="System">
-									<span>System<br /><span class="subtext">The default font for your device</span></span>
-								</button>
-								<button data-value="opendyslexic" data-label="OpenDyslexic">
-									<span>OpenDyslexic<br /><span class="subtext">For people with Dyslexia</span></span>
-								</button>
-								<button data-value="atkinson" data-label="Atkinson Hyperlegible">
-									<span>Atkinson Hyperlegible<br /><span class="subtext">For people with low vision</span></span>
-								</button>
-							</div>
-						</div>
-					</div>
+				$(`#${options.target}`).append(`
+					<h2 class="h4">Text</h2>
+					<section id="containerText"></section>
 				`);
 				
-				switch (getPreferenceGroup("rebar.appSettings").textFont) {
-					case 'system':
-						$(`[data-setting="font"] .contextLabel`).append(`System`);
-						$(`[data-value="system"]`).addClass(`picked`);
-						break;
-					case 'opendyslexic':
-						$(`[data-setting="font"] .contextLabel`).append(`OpenDyslexic`);
-						$(`[data-value="opendyslexic"]`).addClass(`picked`);
-						break;
-					case 'atkinson':
-						$(`[data-setting="font"] .contextLabel`).append(`Atkinson Hyperlegible`);
-						$(`[data-value="atkinson"]`).addClass(`picked`);
-						break;
-				}
-			}
-			
 			//GENERATE TEXT SIZE OPTIONS
-			if (options.textSizeOptions == true) {
-				//GENERATE MENU
-				$(`#containerText`).append(`
-					<div class="itemList fixedIconSize">
-						${iconInterfaceElements.textSize}
-						<div class="label">
-							<span>Text Size</span>
-						</div>
-						<div class="containerContextButton" data-setting="dynamicTypeSize" data-position="right" data-type="picker">
-							<button class="buttonContext transparent excludePadding">
-								<div class="contextContainerLabel">
-									<span class="contextLabel"></span>
-									<span class="contextGripper">${iconShapes.chevronOutwardsVerticalFill}</span>
+				if (options.textSizeOptions == true) {
+					//GENERATE MENU
+						$(`#containerText`).append(`
+							<div class="containerDisplayRow containerSection" id="displayTextSize">
+								<div>
+									<h3 class="h5 excludePadding">Text Size</h3>
+									<p class="excludeMargin">Set ${appName} to a comfortable reading size</p>
 								</div>
-							</button>
-							<div class="contextContainerMenu"></div>
-						</div>
-					</div>
-				`);
-				
-				//GENERATE MENU ITEMS
-				$.each( appTextSizes, function( key, val ) {
-					$(`[data-setting="dynamicTypeSize"] .contextContainerMenu`).append(`
-						<button data-value="${key}" data-label="${val}">${val}</button>
-					`)
-				});
-				
-				//SET TEXT SIZE DROPDOWN
-				$(`[data-setting='dynamicTypeSize'] button[data-value='${getPreferenceGroup("rebar.appSettings").dynamicTypeSize.value}']`).addClass("picked");
-				$("[data-setting='dynamicTypeSize'] .contextLabel").append(getPreferenceGroup("rebar.appSettings").dynamicTypeSize.label);
-			}
+								<div class="options">
+									<button data-button="display-tile" class="primary" data-value="small" data-label="small">
+										${iconInterfaceElements.textSmall}
+										Small
+									</button>
+									<button data-button="display-tile" class="primary" data-value="medium" data-label="medium">
+										${iconInterfaceElements.textMedium}
+										Medium
+									</button>
+									<button data-button="display-tile" class="primary" data-value="large" data-label="large">
+										${iconInterfaceElements.textLarge}
+										Large
+									</button>
+								</div>
+							</div>
+						`);
+					
+					
+					//SET TEXT SIZE DROPDOWN
+						$(`#displayTextSize [data-value='${getPreferenceGroup("rebar.appSettings").dynamicTypeSize.value}']`).addClass("picked");
+				}
 			
 			//GENERATE BOLD TEXT OPTIONS
-			if (options.textWeightOptions == true) {
-				//GENERATE MENU
-				$(`#containerText`).append(`
-					<div class="itemList fixedIconSize">
-						${iconInterfaceElements.textWeight}
-						<div class="label">
-							<span>Bold Text</span>
+				if (options.textWeightOptions == true) {
+					//GENERATE MENU
+					$(`#containerText`).append(`
+						<div class="containerDisplayRow containerSection" id="displayBoldText" style="--layout: grid; align-items: center;">
+							<div>
+								<h3 class="h5 excludePadding">Bold Text</h3>
+								<p class="excludeMargin">Increase the weight of text for a stronger appearance</p>
+							</div>
+							<label for="boldText">
+								<input type="checkbox" switch id="boldText" name="boldText" value="">
+								<div class="fakeCheckbox"></div>
+							</label>
 						</div>
-						<button class="switch" data-setting="boldText"></button>
-					</div>
-				`);
-				
-				if (getPreferenceGroup("rebar.appSettings").textWeight == "regular") {
-					$('[data-setting="boldText"]').addClass("off");
-					$('[data-setting="boldText"]').attr("title", "Off")
-				} else {
-					$('[data-setting="boldText"]').attr("title", "On")
+					`);
+					
+					if (getPreferenceGroup("rebar.appSettings").textWeight == "bold") {
+						$('#boldText').prop('checked', true);
+					}
 				}
-			}
+				
+			//GENERATE FONT OPTIONS
+				if (options.textFontOptions == true) {
+					//GENERATE MENU
+						$(`#containerText`).append(`
+							<div class="containerDisplayRow containerSection" id="displayFont">
+								<div>
+									<h3 class="h5 excludePadding">Font</h3>
+									<p class="excludeMargin">Select from a variety of fonts to help with readability</p>
+								</div>
+								<div class="options-row" id="pickerFonts">
+									<h4 class="h6 excludePadding">System</h4>
+									<button data-button="display-row" class="primary ignoreFontOverride" data-value="system" data-label="System Sans Serif">
+										<span>Sans Serif</span>
+										<span class="ignoreFontOverride">iIl1 oO0 Gg</span>
+									</button>
+									<button data-button="display-row" class="primary ignoreFontOverride" data-value="serif" data-label="System Serif">
+										<span>Serif</span>
+										<span class="ignoreFontOverride" style="font-family: var(--font-serif);">iIl1 oO0 Gg</span>
+									</button>
+									<button data-button="display-row" class="primary ignoreFontOverride spacerSingle" data-value="mono" data-label="System Mono">
+										<span>Monospace</span>
+										<span class="ignoreFontOverride" style="font-family: var(--font-monospace);">iIl1 oO0 Gg</span>
+									</button>
+									
+									<h4 class="h6 excludePadding">OS Fonts</h4>
+									<button data-button="display-row" class="primary ignoreFontOverride" data-value="sfpro" data-label="SF Pro">
+										<span>SF Pro</span>
+										<span class="ignoreFontOverride" style="font-family: var(--font-sfpro);">iIl1 oO0 Gg</span>
+									</button>
+									<button data-button="display-row" class="primary ignoreFontOverride" data-value="productsans" data-label="Product Sans">
+										<span>Product Sans</span>
+										<span class="ignoreFontOverride" style="font-family: var(--font-productsans);">iIl1 oO0 Gg</span>
+									</button>
+									<button data-button="display-row" class="primary ignoreFontOverride spacerSingle" data-value="segoeui" data-label="Segoe UI">
+										<span>Segoe UI</span>
+										<span class="ignoreFontOverride" style="font-family: var(--font-segoeui);">iIl1 oO0 Gg</span>
+									</button>
+									
+									<h4 class="h6 excludePadding">Accessible</h4>
+									<button data-button="display-row" class="primary ignoreFontOverride" data-value="opendyslexic" data-label="OpenDyslexic">
+										<span>OpenDyslexic</span>
+										<span class="ignoreFontOverride" style="font-family: var(--font-dyslexic);">iIl1 oO0 Gg</span>
+									</button>
+									<button data-button="display-row" class="primary ignoreFontOverride" data-value="atkinson" data-label="Atkinson Hyperlegible">
+										<span>Atkinson Hyperlegible</span>
+										<span class="ignoreFontOverride" style="font-family: var(--font-atkinson);">iIl1 oO0 Gg</span>
+									</button>
+									<button data-button="display-row" class="primary ignoreFontOverride" data-value="shantell" data-label="Shantell Sans">
+										<span>Shantell Sans</span>
+										<span class="ignoreFontOverride" style="font-family: var(--font-shantell);">iIl1 oO0 Gg</span>
+									</button>
+									
+								</div>
+							</div>
+						`);
+						
+						$(`#displayFont [data-value="${getPreferenceGroup("rebar.appSettings").textFont}"]`).addClass(`picked`);
+				}
 		}
 	}
 	
-	//MAKE THE THEME PICKER CLICKABLE
-	$(document).on('click', '[data-setting="appearance"] .contextContainerMenu button', function() {
-		let selectedValue = clickContextMenuItem(this);
-		modifyPreference({
-			group: "rebar.appSettings",
-			mode: "update",
-			preference: "appearance",
-			value: selectedValue.value,
-		})
-		$("body").attr("data-theme", selectedValue.value);
-		setMetaTheme();
-	});
-	
-	//MAKE THE ACCENT PICKER CLICKABLE
-	$(document).on('click', '#pickerAccent div', function() {
-		selectionGrid(this);
-		let selectedAccent = getSelectionGridGroups(["accent"])
-		modifyPreference({
-			group: "rebar.appSettings",
-			mode: "update",
-			preference: "accent",
-			value: selectedAccent.accent,
-		})
-		$("body").attr("data-accent", selectedAccent.accent);
-		$(`[data-setting="accent"] .contextLabel`).empty().append(`<span class="colorChip" data-accent="appAccents[getPreferenceGroup("rebar.appSettings").accent]"></span> ${appAccents[getPreferenceGroup("rebar.appSettings").accent]}`);
-	});
-	
-	//MAKE THE TEXT SIZE PICKER CLICKABLE
-	$(document).on('click', '[data-setting="dynamicTypeSize"] .contextContainerMenu button', function() {
-		let selectedValue = clickContextMenuItem(this);
-		$("body").attr("data-textsize", selectedValue.value);
-		document.documentElement.style.setProperty('--base-font-size', dynamicTypeSizes[selectedValue.value]);
-		modifyPreference({
-			group: "rebar.appSettings",
-			mode: "update",
-			preference: "dynamicTypeSize",
-			value: {
+	//SET APPEARANCE
+		$(document).on('click', '#displayAppearance button', function() {
+			let selectedValue = clickContextMenuItem(this);
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "appearance",
 				value: selectedValue.value,
-				label: selectedValue.label
-			},
-		})
-	});
+			})
+			$("body").attr("data-theme", selectedValue.value);
+			setMetaTheme();
+			$(`#displayAppearance button`).removeClass(`picked`)
+			$(this).addClass(`picked`)
+		});
+	
+	//SET ACCENT
+		$(document).on('click', '#displayAccent button', function() {
+			let selectedValue = clickContextMenuItem(this);
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "accent",
+				value: selectedValue.value,
+			})
+			$("body").attr("data-accent", selectedValue.value);
+			$(`#displayAccent button`).removeClass(`picked`)
+			$(`#displayAccent [data-value="${selectedValue.value}"]`).addClass("picked");
+		});
+	
+	//SET TEXT SIZE
+		$(document).on('click', '#displayTextSize button', function() {
+			let selectedValue = clickContextMenuItem(this);
+			$("body").attr("data-textsize", selectedValue.value);
+			document.documentElement.style.setProperty('--base-font-size', dynamicTypeSizes[selectedValue.value]);
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "dynamicTypeSize",
+				value: {
+					value: selectedValue.value,
+					label: selectedValue.label
+				},
+			})
+			$(`#displayTextSize button`).removeClass(`picked`);
+			$(`[data-value="${selectedValue.value}"]`).addClass(`picked`);
+		});
 		
 	//SET BOLD TEXT
-	$(document).on('click', '.switch[data-setting="boldText"]', function() {
-		let state = clickSwitch(this);
-		if (state == "on") {
-			$("body").attr("data-textweight", "bold");
-			modifyPreference({
-				group: "rebar.appSettings",
-				mode: "update",
-				preference: "textWeight",
-				value: "bold",
-			})
-		}
-		if (state == "off") {
-			$("body").attr("data-textweight", "regular");
-			modifyPreference({
-				group: "rebar.appSettings",
-				mode: "update",
-				preference: "textWeight",
-				value: "regular",
-			})
-		}
-	});
+		$(document).on('click', '#boldText', function() {
+			let state = clickSwitch(this);
+			if (state == "on") {
+				$("body").attr("data-textweight", "bold");
+				modifyPreference({
+					group: "rebar.appSettings",
+					mode: "update",
+					preference: "textWeight",
+					value: "bold",
+				})
+			}
+			if (state == "off") {
+				$("body").attr("data-textweight", "regular");
+				modifyPreference({
+					group: "rebar.appSettings",
+					mode: "update",
+					preference: "textWeight",
+					value: "regular",
+				})
+			}
+		});
 	
-	//SET FONT TEXT
-	$(document).on('click', '[data-setting="font"] .contextContainerMenu button', function() {
-		let selectedValue = clickContextMenuItem(this);
-		$("body").attr("data-font", selectedValue.value);
-		modifyPreference({
-			group: "rebar.appSettings",
-			mode: "update",
-			preference: "textFont",
-			value: selectedValue.value,
-		})
-	});
-	
-	
-	$(document).on('click', '.switch[data-setting="dyslexiaText"]', function() {
-		let state = clickSwitch(this);
-		if (state == "on") {
-			$("body").attr("data-textdyslexia", "on");
+	//SET FONT
+		$(document).on('click', '#displayFont button', function() {
+			let selectedValue = clickContextMenuItem(this);
+			$("body").attr("data-font", selectedValue.value);
 			modifyPreference({
 				group: "rebar.appSettings",
 				mode: "update",
-				preference: "textDyslexia",
-				value: "on",
+				preference: "textFont",
+				value: selectedValue.value,
 			})
-		}
-		if (state == "off") {
-			$("body").attr("data-textdyslexia", "off");
-			modifyPreference({
-				group: "rebar.appSettings",
-				mode: "update",
-				preference: "textDyslexia",
-				value: "off",
-			})
-		}
-	});
+			$(`#displayFont button`).removeClass(`picked`)
+			
+			$(`#displayFont [data-value="${selectedValue.value}"]`).addClass(`picked`);
+		});
 	
 	//SET INCREASED CONTRAST
-	$(document).on('click', '.switch[data-setting="increaseContrast"]', function() {
-		let state = clickSwitch(this);
-		if (state == "on") {
-			$("body").attr("data-contrast", "more");
-			modifyPreference({
-				group: "rebar.appSettings",
-				mode: "update",
-				preference: "increaseContrast",
-				value: "more",
-			})
-		}
-		if (state == "off") {
-			$("body").attr("data-contrast", "less");
-			modifyPreference({
-				group: "rebar.appSettings",
-				mode: "update",
-				preference: "increaseContrast",
-				value: "less",
-			})
-		}
-	});
+		$(document).on('click', '#increaseContrast', function() {
+			let state = clickSwitch(this);
+			if (state == "on") {
+				$("body").attr("data-contrast", "more");
+				modifyPreference({
+					group: "rebar.appSettings",
+					mode: "update",
+					preference: "increaseContrast",
+					value: "more",
+				})
+			}
+			if (state == "off") {
+				$("body").attr("data-contrast", "less");
+				modifyPreference({
+					group: "rebar.appSettings",
+					mode: "update",
+					preference: "increaseContrast",
+					value: "less",
+				})
+			}
+		});
 		
 	//SET REDUCED MOTION
-	$(document).on('click', '.switch[data-setting="reduceMotion"]', function() {
-		let state = clickSwitch(this);
-		if (state == "on") {
-			document.documentElement.style.setProperty('--base-time-length', '0s');
-			modifyPreference({
-				group: "rebar.appSettings",
-				mode: "update",
-				preference: "reduceMotion",
-				value: "on",
-			})
-		}
-		if (state == "off") {
-			document.documentElement.style.setProperty('--base-time-length', baseTimeLength);
-			modifyPreference({
-				group: "rebar.appSettings",
-				mode: "update",
-				preference: "reduceMotion",
-				value: "off",
-			})
-		}
-	});
+		$(document).on('click', '#reduceMotion', function() {
+			let state = clickSwitch(this);
+			if (state == "on") {
+				document.documentElement.style.setProperty('--base-time-length', '0s');
+				modifyPreference({
+					group: "rebar.appSettings",
+					mode: "update",
+					preference: "reduceMotion",
+					value: "on",
+				})
+			}
+			if (state == "off") {
+				document.documentElement.style.setProperty('--base-time-length', baseTimeLength);
+				modifyPreference({
+					group: "rebar.appSettings",
+					mode: "update",
+					preference: "reduceMotion",
+					value: "off",
+				})
+			}
+		});
 	
-	//OS THEME OVERRIDE
-	function overrideOS(selection) {
-		$(`body`).attr("data-os", selection);
-		
-		modifyPreference({
-			group: "rebar.appSettings",
-			mode: "update",
-			preference: "os",
-			value: selection,
-		})
-		
-		$(`[data-setting="os"] button`).removeClass(`picked`)
-		
-		switch (selection) {
-			case 'default':
-				$(`[data-setting="os"] .contextLabel`).empty().append(`Default`);
-				$(`[data-name="default"]`).addClass(`picked`);
-				break;
-			case 'ios':
-				$(`[data-setting="os"] .contextLabel`).empty().append(`iOS`);
-				$(`[data-name="ios"]`).addClass(`picked`);
-				break;
-			case 'macos':
-				$(`[data-setting="os"] .contextLabel`).empty().append(`macOS`);
-				$(`[data-name="macos"]`).addClass(`picked`);
-				break;
-			case 'android':
-				$(`[data-setting="os"] .contextLabel`).empty().append(`Android`);
-				$(`[data-name="android"]`).addClass(`picked`);
-				break;
-			case 'windows':
-				$(`[data-setting="os"] .contextLabel`).empty().append(`Windows`);
-				$(`[data-name="windows"]`).addClass(`picked`);
-				break;
+	//SET THEME
+		function overrideOS(selection) {
+			$(`body`).attr("data-os", selection);
+			
+			modifyPreference({
+				group: "rebar.appSettings",
+				mode: "update",
+				preference: "os",
+				value: selection,
+			})
+			
+			$(`#displayTheme button`).removeClass(`picked`)
+			
+			switch (selection) {
+				case 'default':
+					$(`[data-name="default"]`).addClass(`picked`);
+					break;
+				case 'ios':
+					$(`[data-name="ios"]`).addClass(`picked`);
+					break;
+				case 'macos':
+					$(`[data-name="macos"]`).addClass(`picked`);
+					break;
+				case 'android':
+					$(`[data-name="android"]`).addClass(`picked`);
+					break;
+				case 'windows':
+					$(`[data-name="windows"]`).addClass(`picked`);
+					break;
+			}
 		}
-	}
 
 //UPDATE BANNER
 	$(document).on('click', '#buttonUpdateApp', function() {
@@ -1949,16 +2006,16 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			if (getPreferenceGroup("rebar.appSettings").clickedDonationLink == false) {
 				return `
 					<div id="miniTipJar">
-						<button class="transparent secondary excludePadding" id="dismiss" title="Dismiss Tips Panel" onclick="stopTipsPrompts()">${iconShapes.timesCircleDuo}</button>
+						<button data-button="close" class="translucent" id="dismiss" title="Dismiss Tips Panel" onclick="stopTipsPrompts()">${iconShapes.timesFill}</button>
 						<div class="containerTipJar mini">
 							<img class="spacerSingle" src="rebar/images/tips.webp" srcset="rebar/images/tips@2x.webp 2x" width="400" alt="" />
 							<p class="textAlignCenter">Support ${appName} by leaving <a href="https://twitter.com/trevormkay" target="_blank">Trevor</a> and <a href="https://christophermuller.net" target="_blank">Chris</a> a tip. It's appreciated!</p>
 							<div class="containerButtons">
 								<a href="${tipsLinks.default}" target="_blank" class="noDecoration">
-									<button onclick="stopTipsPrompts()">Donate $2</button>
+									<button data-button="action-fill" class="primary" onclick="stopTipsPrompts()">Donate $2</button>
 								</a>
 								<a href="${tipsLinks.custom}" target="_blank" class="noDecoration">
-									<button class="secondary" onclick="stopTipsPrompts()">Any Amount</button>
+									<button data-button="action-fill" class="secondary" onclick="stopTipsPrompts()">Any Amount</button>
 								</a>
 							</div>
 						</div>
@@ -1974,18 +2031,16 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 					<p class="textAlignCenter h5 spacerDouble">${appName} is developed by <a href="https://twitter.com/trevormkay" target="_blank">Trevor</a> and <a href="https://christophermuller.net" target="_blank">Chris</a>. If you'd like to show your support you can leave us a tip. It's much appreciated!</p>
 					<div class="containerButtons spacerSingle">
 						<a href="${tipsLinks.default}" target="_blank" class="noDecoration">
-							<button onclick="stopTipsPrompts()">Donate $2</button>
+							<button data-button="action-fill" class="primary" onclick="stopTipsPrompts()">Donate $2</button>
 						</a>
 						<a href="${tipsLinks.custom}" target="_blank" class="noDecoration">
-							<button class="secondary" onclick="stopTipsPrompts()">Any Amount</button>
+							<button data-button="action-fill" class="secondary" onclick="stopTipsPrompts()">Any Amount</button>
 						</a>
 					</div>
 					<p class="textAlignCenter subtext">Prices are set in USD and payment is handled by Stripe. ${appName} does not require payment to use. If you have any issues, please contact <a href="mailto:${appEmail}?subject=Help%20with%20${appName}%20tip%20jar">Support</a>. For more information on how your data is handled please refer to the <a href="${appPrivacyPolicy}" target="_blank">Toast Studio Privacy Policy</a> and the <a href="https://stripe.com/privacy" target="_blank">Stripe Privacy Policy</a>.</p>
 				</div>
 			`
 		}
-		
-		
 	}
 	
 	function stopTipsPrompts() {
@@ -2045,6 +2100,31 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	function scrollToTop(value) {
 		var elmnt = document.getElementById(value);
 		elmnt.scrollIntoView();
+	}
+	
+//ICON STYLE
+	function iconStyle(fill, stroke) {
+		if (storedOS() == "ios" || storedOS() == "macos" || storedOS() == "android") {
+			return fill
+		}
+		
+		if (storedOS() == "windows") {
+			return stroke
+		}
+	}
+	
+	function gripperIcon() {
+		if (storedOS() == "ios" || storedOS() == "macos") {
+			return iconShapes.chevronOutwardsVerticalFill
+		}
+		
+		if (storedOS() == "android") {
+			return iconShapes.chevronSingleDownFill
+		}
+		
+		if (storedOS() == "windows") {
+			return iconShapes.chevronSingleDownStroke
+		}
 	}
 	
 //PREFERENCE MANAGEMENT

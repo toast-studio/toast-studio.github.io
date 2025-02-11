@@ -1,4 +1,4 @@
-const CACHE = '2021-10-09';
+const CACHE = '2024-12-21';
 const precacheFiles = [
 	'./',
 	'./icon.png',
@@ -18,6 +18,9 @@ const precacheFiles = [
 	'./rebar/fonts/OpenDyslexic3-Regular.ttf',
 	'./rebar/fonts/product-sans-bold.ttf',
 	'./rebar/fonts/product-sans-regular.ttf',
+	'./rebar/fonts/SegoeUI-VF.ttf',
+	'./rebar/fonts/SF-Pro.ttf',
+	'./rebar/fonts/ShantellSans.ttf',
 	'./rebar/icons/charts.js',
 	'./rebar/icons/hardware.js',
 	'./rebar/icons/human.js',

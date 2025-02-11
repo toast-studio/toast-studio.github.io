@@ -32,7 +32,7 @@ function miniThemePicker() {
 				<div class="pinLeft"></div>
 				<h1 class="headerToolbar">Display Options</h1>
 				<div class="pinRight">
-					<button class="transparent confirm" data-function="closedialog" autofocus>Done</button>
+					<button data-button="action-transparent" class="toolbarItem confirm" data-function="closedialog" autofocus>Done</button>
 				</div>
 			</header>
 			<div class="scrollview cropToolbar" id="sheetDisplayOptions"></div>
@@ -164,8 +164,8 @@ function exampleAlertStandard() {
 		title: "Standard Action",
 		message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin rutrum suscipit. Quisque erat lectus, varius vel venenatis quis, volutpat ac tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin rutrum suscipit. Quisque erat lectus, varius vel venenatis quis, volutpat ac tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin rutrum suscipit. Quisque erat lectus, varius vel venenatis quis, volutpat ac tortor.",
 		customContent: false,
-		buttonPrimary: `<button data-function="closedialog" class="confirm" id="alertTest" autofocus>Save File</button>`,
-		buttonSecondary: `<button class="secondary" data-function="closedialog" id="buttonAlertDismiss">Cancel</button>`,
+		buttonPrimary: `<button data-button="action-fill" class="primary" data-function="closedialog" class="confirm" id="alertTest" autofocus>Save File</button>`,
+		buttonSecondary: `<button data-button="action-fill" class="secondary" data-function="closedialog" id="buttonAlertDismiss">Cancel</button>`,
 		buttonTertiary: false,
 	})
 }
@@ -179,8 +179,8 @@ function exampleAlertDestructive() {
 		title: "Destructive Action",
 		message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
 		customContent: false,
-		buttonPrimary: `<button data-function="closedialog" class="destructive confirm" id="alertTest" autofocus>Delete Files</button>`,
-		buttonSecondary: `<button class="secondary" data-function="closedialog" id="buttonAlertDismiss">Cancel</button>`,
+		buttonPrimary: `<button data-button="action-fill" data-function="closedialog" class="destructive confirm" id="alertTest" autofocus>Delete Files</button>`,
+		buttonSecondary: `<button data-button="action-fill" class="secondary" data-function="closedialog" id="buttonAlertDismiss">Cancel</button>`,
 		buttonTertiary: false,
 	})
 }
@@ -197,8 +197,8 @@ function exampleAlertCustom() {
 			<input type="text" class="excludeMargin" id="filterNameTextfield">
 			<p class="subtext textAlignCenter excludeMargin">Saving a new filter with an existing name will overwrite the existing filter</p>
 		`,
-		buttonPrimary: `<button data-function="closedialog" class="confirm" id="alertTest" autofocus>OK</button>`,
-		buttonSecondary: `<button class="secondary" data-function="closedialog" id="buttonAlertDismiss">Cancel</button>`,
+		buttonPrimary: `<button data-button="action-fill" class="primary" data-function="closedialog" class="confirm" id="alertTest" autofocus>OK</button>`,
+		buttonSecondary: `<button data-button="action-fill" class="secondary" data-function="closedialog" id="buttonAlertDismiss">Cancel</button>`,
 		buttonTertiary: false,
 	})
 }
@@ -210,7 +210,13 @@ function copyIconName(self) {
 
 function exampleSwitches(self) {
 	let state = clickSwitch(self);
-	console.log(`This switch is now ${state}`)
+	summonToast({
+		backing: "gradient",
+		id: "",
+		icon: "",
+		message: `This switch is now ${state}`,
+		closeButton: true,
+	})
 }
 
 let selectedTokens = []
@@ -236,7 +242,7 @@ function exampleTipsPrompt() {
 		theme: false,
 		id: false,
 		content: `
-			<button class="translucent xclose" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
+			<button data-button="close" class="translucent" data-function="closedialog" title="Dismiss" autofocus>${iconShapes.timesFill}</button>
 			<div id="sheetTips">
 				${
 					generateTipJar({

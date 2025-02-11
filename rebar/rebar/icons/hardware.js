@@ -1,4 +1,4 @@
-//REBAR 2.2.5
+//REBAR 2.3
 //COPYRIGHT TOAST STUDIO
 
 var iconHardware = {
@@ -183,7 +183,7 @@ var iconHardware = {
 			</g>
 		</svg>
 	`,
-	iMacMulti: `
+	imacMulti: `
 		<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 				<path class="alwaysAccent" d="M46,6 L46,28 L2,28 L2,6 L46,6 Z" fill="#FF00DB"></path>
