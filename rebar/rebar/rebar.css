@@ -78,8 +78,8 @@
 							oklch(70% 0.186 242.2)
 						);
 				--backgroundPrime: light-dark(
-									red, 
-									blue
+									oklch(97% 0 0), 
+									oklch(23.5% 0 0)
 								);
 				--background: var(--backgroundPrime);
 				--foregroundPrime: light-dark(
@@ -243,6 +243,13 @@
 		
 		[data-os="ios"]:not([data-device="ios"], [data-device="macos"]) {
 			--font-regular: "SF Pro", system-ui, ui-sans-serif, Roboto, Helvetica, sans-serif;
+		}
+		
+		[data-os="ios"] {
+			--background: light-dark(
+				blue, 
+				red
+			);
 		}
 		
 		[data-os="macos"]:not([data-device="ios"], [data-device="macos"]) {
@@ -6402,10 +6409,6 @@
 			box-shadow: var(--shadow-wide);
 			overflow: hidden;
 			position: revert;
-			
-			[data-os="ios"] & {
-				background: var(--background);
-			}
 			
 			[data-os="macos"] & {
 				background: var(--foreground);
