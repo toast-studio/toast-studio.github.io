@@ -246,10 +246,11 @@
 		}
 		
 		[data-os="ios"] {
-			--background: light-dark(
-				blue, 
-				red
+			--backgroundPrime: light-dark(
+				oklch(97% 0 0), 
+				oklch(23.5% 0 0)
 			);
+			--background: var(--backgroundPrime);
 		}
 		
 		[data-os="macos"]:not([data-device="ios"], [data-device="macos"]) {
