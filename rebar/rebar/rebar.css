@@ -78,8 +78,8 @@
 							oklch(70% 0.186 242.2)
 						);
 				--backgroundPrime: light-dark(
-									oklch(97% 0 0), 
-									oklch(23.5% 0 0)
+									red, 
+									blue
 								);
 				--background: var(--backgroundPrime);
 				--foregroundPrime: light-dark(
