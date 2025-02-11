@@ -20,7 +20,7 @@ function routesidebar(options) {
 					</button>
 				</div>
 			</header>
-			<h1>Rebar</h1>
+			<h1>Rebar TEST</h1>
 			<section>
 				<button data-button="sidebar" data-name="gettingstarted" onclick='routegettingstarted({modifier: false, navtype: "forwards"})'>
 					<div class="labelSidebar">
