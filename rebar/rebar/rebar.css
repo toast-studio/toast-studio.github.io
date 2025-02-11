@@ -6403,6 +6403,10 @@
 			overflow: hidden;
 			position: revert;
 			
+			[data-os="ios"] & {
+				background: var(--background);
+			}
+			
 			[data-os="macos"] & {
 				background: var(--foreground);
 			}
