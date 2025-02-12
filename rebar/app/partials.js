@@ -324,7 +324,7 @@ const gettingstarted = {
 								<li>iMac 2024, Android, and Windows accents</li>
 								<li><code>storedOS()</code> function to grab the users' selected OS</li>
 								<li>A new <code>data-device</code> attribute is added to the <code>body</code> onload</li>
-								<li><code>iconStyle()</code> and <code>gripperIcon()</code> functions for rendering icons based on the selected theme</li>
+								<li><code>iconList()</code> and <code>iconGripper()</code> functions for rendering icons based on the selected theme</li>
 							</ul>
 							
 							<h5>Updated</h5>
@@ -342,6 +342,7 @@ const gettingstarted = {
 								<li>Renamed "iMacMulti" to "imacMulti" for consistency</li>
 								<li>You only now need to list the custom accents in the Config file</li>
 								<li>Media queries now use Range Syntax</li>
+								<li><code>insertShareButton()</code> and <code>insertBackButton()</code> updated to match <code>iconList()</code> and <code>iconGripper()</code></li>
 							</ul>
 							
 							<h5>Fixed</h5>
@@ -2008,7 +2009,7 @@ const controls = {
 <pre>
 //FLAT
 &lt;button data-button="item-flat" data-icon-size="fixed"&gt;
-	&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{icon}&lt;/span&gt;
+	&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{iconList()}&lt;/span&gt;
 	&lt;div class="label"&gt;
 		&lt;span>&lt;/span&gt;
 		&lt;span class="subtext"&gt;&lt;/span&gt;
@@ -2017,7 +2018,7 @@ const controls = {
 
 //ROUNDED
 &lt;button data-button="item-rounded" data-icon-size="fixed"&gt;
-	&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{icon}&lt;/span&gt;
+	&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{iconList()}&lt;/span&gt;
 	&lt;div class="label"&gt;
 		&lt;span>&lt;/span&gt;
 		&lt;span class="subtext"&gt;&lt;/span&gt;
@@ -2361,7 +2362,7 @@ const controls = {
 							<div class="containerContextButton" data-setting="context1" data-position="left">
 								<button data-button="action-fill" class="buttonContext primary">
 									<span class="contextLabel">Label</span>
-									<span class="gripper">${gripperIcon()}</span>
+									<span class="gripper">${iconGripper()}</span>
 								</button>
 								<div class="contextContainerMenu">
 									<button data-button="menu-item" data-value="first">First</button>
@@ -2379,7 +2380,7 @@ const controls = {
 							<div class="containerContextButton" data-setting="context2" data-position="left">
 								<button data-button="action-transparent" class="buttonContext primary">
 									<span class="contextLabel">Label</span>
-									<span class="gripper">${gripperIcon()}</span>
+									<span class="gripper">${iconGripper()}</span>
 								</button>
 								<div class="contextContainerMenu">
 									<button data-button="menu-item" data-value="first">First</button>
@@ -2397,7 +2398,7 @@ const controls = {
 							<div class="containerContextButton" data-setting="context3" data-position="left">
 								<button data-button="action-fill" class="buttonContext secondary">
 									<span class="contextLabel">Label</span>
-									<span class="gripper">${gripperIcon()}</span>
+									<span class="gripper">${iconGripper()}</span>
 								</button>
 								<div class="contextContainerMenu">
 									<button data-button="menu-item" data-value="first">First</button>
@@ -2415,7 +2416,7 @@ const controls = {
 							<div class="containerContextButton" data-setting="context4" data-position="left">
 								<button data-button="action-fill" class="buttonContext primary" title="Example with icon and no label">
 									${iconShapes.triangleRightCircleStroke}
-									<span class="gripper">${gripperIcon()}</span>
+									<span class="gripper">${iconGripper()}</span>
 								</button>
 								<div class="contextContainerMenu">
 									<button data-button="menu-item" data-value="first">First</button>
@@ -2433,7 +2434,7 @@ const controls = {
 							<div class="containerContextButton" data-setting="context5" data-position="left">
 								<button data-button="action-transparent" class="buttonContext primary" title="Example with icon and no label">
 									${iconShapes.triangleRightCircleStroke}
-									<span class="gripper">${gripperIcon()}</span>
+									<span class="gripper">${iconGripper()}</span>
 								</button>
 								<div class="contextContainerMenu">
 									<button data-button="menu-item" data-value="first">First</button>
@@ -2451,7 +2452,7 @@ const controls = {
 							<div class="containerContextButton" data-setting="context6" data-position="left">
 								<button data-button="action-fill" class="buttonContext primary">
 									<span class="contextLabel">Label</span>
-									<span class="gripper">${gripperIcon()}</span>
+									<span class="gripper">${iconGripper()}</span>
 								</button>
 								<div class="contextContainerMenu">
 									<button data-button="menu-item" data-value="first">First</button>
@@ -2469,7 +2470,7 @@ const controls = {
 							<div class="containerContextButton" data-setting="context6" data-position="center">
 								<button data-button="action-fill" class="buttonContext primary">
 									<span class="contextLabel">Label</span>
-									<span class="gripper">${gripperIcon()}</span>
+									<span class="gripper">${iconGripper()}</span>
 								</button>
 								<div class="contextContainerMenu">
 									<button data-button="menu-item" data-value="first">First</button>
@@ -2487,7 +2488,7 @@ const controls = {
 							<div class="containerContextButton" data-setting="context6" data-position="right">
 								<button data-button="action-fill" class="buttonContext primary">
 									<span class="contextLabel">Label</span>
-									<span class="gripper">${gripperIcon()}</span>
+									<span class="gripper">${iconGripper()}</span>
 								</button>
 								<div class="contextContainerMenu">
 									<button data-button="menu-item" data-value="first">First</button>
@@ -2505,7 +2506,7 @@ const controls = {
 							<div class="containerContextButton" data-setting="context7" data-type="icons" data-position="left">
 								<button data-button="action-fill" class="buttonContext primary">
 									<span class="contextLabel">${iconObjects.trashStroke} Label</span>
-									<span class="gripper">${gripperIcon()}</span>
+									<span class="gripper">${iconGripper()}</span>
 								</button>
 								<div class="contextContainerMenu">
 									<button data-button="menu-item" data-value="love">
@@ -2559,7 +2560,7 @@ const controls = {
 							<div class="containerContextButton" data-setting="context9" data-position="left">
 								<button data-button="action-fill" class="buttonContext primary">
 									<span class="contextLabel">Label</span>
-									<span class="gripper">${gripperIcon()}</span>
+									<span class="gripper">${iconGripper()}</span>
 								</button>
 								<div class="contextContainerMenu">
 									<button data-button="menu-item" data-value="first">First</button>
@@ -2577,7 +2578,7 @@ const controls = {
 							<div class="containerContextButton" data-setting="context" data-type="pickericons" data-position="left" data-accent="red">
 								<button data-button="action-transparent" class="buttonContext primary">
 									<span class="contextLabel"><div class="colorChip" data-accent="red"></div> Red</span>
-									<span class="gripper">${gripperIcon()}</span>
+									<span class="gripper">${iconGripper()}</span>
 								</button>
 								<div class="contextContainerMenu">
 									<button data-button="menu-item" class="picked" data-value="first">
@@ -2610,7 +2611,7 @@ const controls = {
 							<div class="containerContextButton" data-setting="picker1" data-position="left" data-type="picker">
 								<button data-button="action-fill" class="buttonContext primary">
 									<span class="contextLabel"></span>
-									<span class="gripper">${gripperIcon()}</span>
+									<span class="gripper">${iconGripper()}</span>
 								</button>
 								<div class="contextContainerMenu">
 									<button data-button="menu-item" data-value="first" data-label="First">First</button>
@@ -2628,7 +2629,7 @@ const controls = {
 							<div class="containerContextButton" data-setting="picker1" data-position="left" data-type="pickericons">
 								<button data-button="action-fill" class="buttonContext primary">
 									<span class="contextLabel"></span>
-									<span class="gripper">${gripperIcon()}</span>
+									<span class="gripper">${iconGripper()}</span>
 								</button>
 								<div class="contextContainerMenu">
 									<button data-button="menu-item" data-value="first" data-label="First">
@@ -2714,7 +2715,7 @@ const controls = {
 &lt;div class="containerContextButton" data-setting="" data-position="" data-type="" data-icongroup="" data-iconname=""&gt;
 	&lt;button data-button="action-fill" class="buttonContext primary"&gt;
 		&lt;span class="contextLabel"&gt;&lt;/span&gt;
-		&lt;span class="gripper"&gt;&#36;{gripperIcon()}&lt;/span&gt;
+		&lt;span class="gripper"&gt;&#36;{iconGripper()}&lt;/span&gt;
 	&lt;/button&gt;
 	&lt;div class="contextContainerMenu"&gt;
 		&lt;button data-value="" data-label=""&gt;&lt;/button&gt;
@@ -2732,7 +2733,7 @@ const controls = {
 			</ol>
 			<p>No value is saved to local storage by default. Instead use the Preferences system with the returned value and label.</p>
 			
-			<p class="spacerTriple"><code>gripperIcon()</code> is also associated with Context Menus as it will render the correct chevron based on the OS theme.</p>
+			<p class="spacerTriple"><code>iconGripper()</code> is also associated with Context Menus as it will render the correct chevron based on the OS theme.</p>
 			
 			<h3>CSS</h3>
 			<p>Most of the styling is handled for you. If you use a standard Button all of the Button styling classes will apply. On top of this you don't have to use a Button, any element with the <code>buttonContext</code> class will make the element clickable.</p>
@@ -7033,6 +7034,10 @@ generateBlankState({
 						<td><code>noBorder</code></td>
 						<td>Sets the element to <code>border: none;</code></td>
 					</tr>
+					<tr>
+						<td><code>only-ios</code> <code>only-macos</code> <code>only-android</code> <code>only-windows</code></td>
+						<td>Makes an element only display on the respective OS. This is based on the OS theme the user sets, NOT the actual device OS. These can be combined to make an element show on more than one OS theme.</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -7787,9 +7792,52 @@ generateTipJar({
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
-			<p><code>iconStyle()</code> is a function to allow you to insert different styles of icons based on the OS. It should be inserted as <code>iconStyle(fillStyle, strokeStyle)</code>. iOS, macOS, and Android will take the fill style, Windows will take the stroke style.</p>
-			<h4>Example</h4>
-			${iconStyle(iconObjects.bookClosedFill, iconObjects.bookClosedStroke)}
+			<p>Below is a set of functions that insert different icons based on the selected OS:</p>
+		
+			<h1 class="headerSection">
+				<span class="h6">iconList()</span>
+			</h1>
+			<div class="containerSection">
+				<p>A function that inserts the correct icon style for Item List buttons. It should be inserted as <code>iconList(fillStyle, strokeStyle)</code>.</p>
+				<ul>
+					<li>iOS, macOS, and Android will use the fill style</li>
+					<li>Windows will use the stroke style.</li>
+				</ul>
+				<h4>Example</h4>
+				<span class="alwaysMain">${iconList(iconObjects.bookClosedFill, iconObjects.bookClosedStroke)}</span>
+			</div>
+			
+			<h1 class="headerSection">
+				<span class="h6">iconGripper()</span>
+			</h1>
+			<div class="containerSection">
+				<p>A function that inserts the correct icon style for Context Menu buttons. It should be inserted as <code>iconGripper()</code>.</p>
+				<ul>
+					<li>iOS and macOS will insert double chevrons</li>
+					<li>Android will insert a single downwards thick chevron</li>
+					<li>Windows will insert a single downwards thin chevron</li>
+				</ul>
+				<h4>Example</h4>
+				<span class="alwaysMain">${iconGripper()}</span>
+			</div>
+			
+			<h1 class="headerSection">
+				<span class="h6">insertShareButton()</span>
+			</h1>
+			<div class="containerSection">
+				<p>A function that inserts the correct icon style for Share buttons. It should be inserted as <code>insertShareButton("Label")</code>.</p>
+				<h4>Example</h4>
+				<span class="alwaysMain">${insertShareButton("Test")}</span>
+			</div>
+			
+			<h1 class="headerSection">
+				<span class="h6">insertBackButton()</span>
+			</h1>
+			<div class="containerSection">
+				<p>A function that inserts the correct icon style for Back buttons. It should be inserted as <code>insertBackButton("label")</code>.</p>
+				<h4>Example</h4>
+				<span class="alwaysMain">${insertBackButton("Label")}</span>
+			</div>
 		</div>
 	`,
 }

@@ -1392,24 +1392,12 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	});
 	
 	function insertShareButton(options) {
-		let icon
-		
-		switch (storedOS()) {
-			case 'windows':
-				icon = iconInterfaceElements.shareWindows
-				break;
-			case 'android':
-				icon = iconInterfaceElements.shareAndroidStroke
-				break;
-			default:
-				icon = iconInterfaceElements.shareAppleUpStroke
-				break
-		}
-		
 		if (navigator.share) {
 			return `
 				<button data-button="action-transparent" class="share ${options.style}" title="${options.title}">
-					${icon}
+					<span class="only-ios only-macos">${iconInterfaceElements.shareAppleUpStroke}</span> 
+					<span class="only-android">${iconInterfaceElements.shareAndroidStroke}</span> 
+					<span class="only-windows">${iconInterfaceElements.shareWindows}</span>
 				</button>
 			`
 		} else {
@@ -1419,20 +1407,11 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	
 //BACK BUTTON
 	function insertBackButton(label) {
-		switch (storedOS()) {
-			case 'ios':
-				return `${iconShapes.chevronBackwardsStroke} ${label}`
-				break
-			case 'macos':
-				return `${iconShapes.chevronBackwardsStroke}`
-				break
-			case 'android':
-				return `${iconShapes.arrowSingleLeft}`
-				break;
-			case 'windows':
-				return `${iconShapes.arrowSingleLeft}`
-				break;
-		}
+		return `
+			<span class="only-ios">${iconShapes.chevronBackwardsStroke}</span> <span class="only-ios">${label}</span>
+			<span class="only-macos">${iconShapes.chevronBackwardsStroke}</span> 
+			<span class="only-android only-windows">${iconShapes.arrowSingleLeft}</span> 
+		`
 	}
 	
 //THEME PICKER
@@ -2103,28 +2082,15 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	}
 	
 //ICON STYLE
-	function iconStyle(fill, stroke) {
-		if (storedOS() == "ios" || storedOS() == "macos" || storedOS() == "android") {
-			return fill
-		}
-		
-		if (storedOS() == "windows") {
-			return stroke
-		}
+	function iconList(fill, stroke) {
+		return `<span class="only-ios only-macos only-android">${fill}</span>
+				<span class="only-windows">${stroke}</span>`
 	}
 	
-	function gripperIcon() {
-		if (storedOS() == "ios" || storedOS() == "macos") {
-			return iconShapes.chevronOutwardsVerticalFill
-		}
-		
-		if (storedOS() == "android") {
-			return iconShapes.chevronSingleDownFill
-		}
-		
-		if (storedOS() == "windows") {
-			return iconShapes.chevronSingleDownStroke
-		}
+	function iconGripper() {
+		return `<span class="only-ios only-macos">${iconShapes.chevronOutwardsVerticalFill}</span> 
+				<span class="only-android">${iconShapes.chevronSingleDownFill}</span> 
+				<span class="only-windows">${iconShapes.chevronSingleDownStroke}</span>`
 	}
 	
 //PREFERENCE MANAGEMENT

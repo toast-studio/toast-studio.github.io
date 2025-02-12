@@ -1547,6 +1547,38 @@
 		.hidden {
 			display: none !important;
 		}
+		
+		.only-ios {
+			display: none;
+			
+			[data-os="ios"] & {
+				display: block;
+			}
+		}
+		
+		.only-macos {
+			display: none;
+			
+			[data-os="macos"] & {
+				display: block;
+			}
+		}
+		
+		.only-android {
+			display: none;
+			
+			[data-os="android"] & {
+				display: block;
+			}
+		}
+		
+		.only-windows {
+			display: none;
+			
+			[data-os="windows"] & {
+				display: block;
+			}
+		}
 
 
 	/* APP FRAME */
@@ -4991,7 +5023,9 @@
 				}
 				
 				& svg, 
-				& img {
+				& img, 
+				& .only-ios, 
+				& .only-windows {
 					width: var(--icon-size);
 					height: var(--icon-size);
 					min-width: var(--icon-size);

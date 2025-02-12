@@ -114,31 +114,31 @@ function routegettingstarted(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="filestructure" onclick='routegettingstarted({modifier: "filestructure", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: #4DA5FA;">${iconStyle(iconObjects.folderHorizontalFill, iconObjects.folderHorizontalStroke)}</span>
+								<span class="containerIcon" style="--icon-container: #4DA5FA;">${iconList(iconObjects.folderHorizontalFill, iconObjects.folderHorizontalStroke)}</span>
 								<div class="label">
 									<span>File Structure</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="appstructure" onclick='routegettingstarted({modifier: "appstructure", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: #4DA5FA;">${iconStyle(iconObjects.legoFill, iconObjects.legoStroke)}</span>
+								<span class="containerIcon" style="--icon-container: #4DA5FA;">${iconList(iconObjects.legoFill, iconObjects.legoStroke)}</span>
 								<div class="label">
 									<span>App Structure</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="config" onclick='routegettingstarted({modifier: "config", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: grey;">${iconStyle(iconObjects.cogFill, iconObjects.cogStroke)}</span>
+								<span class="containerIcon" style="--icon-container: grey;">${iconList(iconObjects.cogFill, iconObjects.cogStroke)}</span>
 								<div class="label">
 									<span>Config</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="versionhistory" onclick='routegettingstarted({modifier: "versionhistory", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: grey;">${iconStyle(iconShapes.plusSquareRoundedFill, iconShapes.plusSquareRoundedStroke)}</span>
+								<span class="containerIcon" style="--icon-container: grey;">${iconList(iconShapes.plusSquareRoundedFill, iconShapes.plusSquareRoundedStroke)}</span>
 								<div class="label">
 									<span>Version History</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="requirements" onclick='routegettingstarted({modifier: "requirements", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: grey;">${iconStyle(iconShapes.checkmarkCircleFill, iconShapes.checkmarkCircleStroke)}</span>
+								<span class="containerIcon" style="--icon-container: grey;">${iconList(iconShapes.checkmarkCircleFill, iconShapes.checkmarkCircleStroke)}</span>
 								<div class="label">
 									<span>Requirements</span>
 								</div>
@@ -203,13 +203,13 @@ function routecontrols(options) {
 						<h2 class="headerList">Buttons</h2>
 						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="buttons" onclick='routecontrols({modifier: "buttons", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: lightseagreen;">${iconStyle(iconShapes.rectangleHorizontalDoubleFill, iconShapes.rectangleHorizontalDoubleStroke)}</span>
+								<span class="containerIcon" style="--icon-container: lightseagreen;">${iconList(iconShapes.rectangleHorizontalDoubleFill, iconShapes.rectangleHorizontalDoubleStroke)}</span>
 								<div class="label">
 									<span>Action Buttons</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="sidebaritems" onclick='routecontrols({modifier: "sidebaritems", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: orchid;">${iconStyle(iconInterfaceElements.sidebarLeftFill, iconInterfaceElements.sidebarLeftStroke)}</span>
+								<span class="containerIcon" style="--icon-container: orchid;">${iconList(iconInterfaceElements.sidebarLeftFill, iconInterfaceElements.sidebarLeftStroke)}</span>
 								<div class="label">
 									<span>Sidebar Items</span>
 								</div>
@@ -260,7 +260,7 @@ function routecontrols(options) {
 						<h2 class="headerList">Other Controls</h2>
 						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="contextmenus" onclick='routecontrols({modifier: "contextmenus", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: olivedrab;">${iconStyle(iconInterfaceElements.menuFill, iconInterfaceElements.menuStroke)}</span>
+								<span class="containerIcon" style="--icon-container: olivedrab;">${iconList(iconInterfaceElements.menuFill, iconInterfaceElements.menuStroke)}</span>
 								<div class="label">
 									<span>Context Menus</span>
 								</div>
@@ -278,7 +278,7 @@ function routecontrols(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="forminputs" onclick='routecontrols({modifier: "forminputs", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: slateblue;">${iconStyle(iconHardware.keyboardFill, iconHardware.keyboardStroke)}</span>
+								<span class="containerIcon" style="--icon-container: slateblue;">${iconList(iconHardware.keyboardFill, iconHardware.keyboardStroke)}</span>
 								<div class="label">
 									<span>Form Inputs</span>
 								</div>
@@ -290,13 +290,13 @@ function routecontrols(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="selectiongrids" onclick='routecontrols({modifier: "selectiongrids", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: tomato;">${iconStyle(iconShapes.checkmarkCircleFill, iconShapes.checkmarkCircleStroke)}</span>
+								<span class="containerIcon" style="--icon-container: tomato;">${iconList(iconShapes.checkmarkCircleFill, iconShapes.checkmarkCircleStroke)}</span>
 								<div class="label">
 									<span>Selection Grids</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="tokens" onclick='routecontrols({modifier: "tokens", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: tomato;">${iconStyle(iconObjects.tagLeftFill, iconObjects.tagLeftStroke)}</span>
+								<span class="containerIcon" style="--icon-container: tomato;">${iconList(iconObjects.tagLeftFill, iconObjects.tagLeftStroke)}</span>
 								<div class="label">
 									<span>Tokens</span>
 								</div>
@@ -458,7 +458,7 @@ function routelayout(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="sidebars" onclick='routelayout({modifier: "sidebars", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: lightskyblue;">${iconStyle(iconInterfaceElements.sidebarLeftFill, iconInterfaceElements.sidebarLeftStroke)}</span>
+								<span class="containerIcon" style="--icon-container: lightskyblue;">${iconList(iconInterfaceElements.sidebarLeftFill, iconInterfaceElements.sidebarLeftStroke)}</span>
 								<div class="label">
 									<span>Sidebars</span>
 								</div>
@@ -515,7 +515,7 @@ function routelayout(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="iframes" onclick='routelayout({modifier: "iframes", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: var(--info);">${iconStyle(iconObjects.compassFill, iconObjects.compassStroke)}</span>
+								<span class="containerIcon" style="--icon-container: var(--info);">${iconList(iconObjects.compassFill, iconObjects.compassStroke)}</span>
 								<div class="label">
 									<span>iframes</span>
 								</div>
@@ -636,7 +636,7 @@ function routemodals(options) {
 						<h2 class="headerList">Functions</h2>
 						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="dialogs" onclick='routemodals({modifier: "dialogs", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: grey;">${iconStyle(iconShapes.rectangleOverlapHorizontalFill, iconShapes.rectangleOverlapHorizontalStroke)}</span>
+								<span class="containerIcon" style="--icon-container: grey;">${iconList(iconShapes.rectangleOverlapHorizontalFill, iconShapes.rectangleOverlapHorizontalStroke)}</span>
 								<div class="label">
 									<span>Dialogs</span>
 								</div>
@@ -645,7 +645,7 @@ function routemodals(options) {
 						<h2 class="headerList">Modal Types</h2>
 						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="sheets" onclick='routemodals({modifier: "sheets", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: var(--info);">${iconStyle(iconShapes.rectangleStackHorizontalFill, iconShapes.rectangleStackHorizontalStroke)}</span>
+								<span class="containerIcon" style="--icon-container: var(--info);">${iconList(iconShapes.rectangleStackHorizontalFill, iconShapes.rectangleStackHorizontalStroke)}</span>
 								<div class="label">
 									<span>Sheets</span>
 								</div>
@@ -657,13 +657,13 @@ function routemodals(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="alerts" onclick='routemodals({modifier: "alerts", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: var(--warning);">${iconStyle(iconObjects.bellFill, iconObjects.bellStroke)}</span>
+								<span class="containerIcon" style="--icon-container: var(--warning);">${iconList(iconObjects.bellFill, iconObjects.bellStroke)}</span>
 								<div class="label">
 									<span>Alerts</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="toasts" onclick='routemodals({modifier: "toasts", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: var(--warning);">${iconStyle(iconInterfaceElements.exclamationCircleFill, iconInterfaceElements.exclamationCircleStroke)}</span>
+								<span class="containerIcon" style="--icon-container: var(--warning);">${iconList(iconInterfaceElements.exclamationCircleFill, iconInterfaceElements.exclamationCircleStroke)}</span>
 								<div class="label">
 									<span>Toasts</span>
 								</div>
@@ -749,13 +749,13 @@ function routevisuals(options) {
 						<h2 class="headerList">Generated Views</h2>
 						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="displayoptions" onclick='routevisuals({modifier: "displayoptions", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: grey;">${iconStyle(iconInterfaceElements.gridCircleFill, iconInterfaceElements.gridCircleStroke)}</span>
+								<span class="containerIcon" style="--icon-container: grey;">${iconList(iconInterfaceElements.gridCircleFill, iconInterfaceElements.gridCircleStroke)}</span>
 								<div class="label">
 									<span>Display Options</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="blankstates" onclick='routevisuals({modifier: "blankstates", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: grey;">${iconStyle(iconInterfaceElements.questionCircleFill, iconInterfaceElements.questionCircleStroke)}</span>
+								<span class="containerIcon" style="--icon-container: grey;">${iconList(iconInterfaceElements.questionCircleFill, iconInterfaceElements.questionCircleStroke)}</span>
 								<div class="label">
 									<span>Blank States</span>
 								</div>
@@ -782,7 +782,7 @@ function routevisuals(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="iconsguide" onclick='routevisuals({modifier: "iconsguide", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: darkorchid;">${iconStyle(iconShapes.starFivePointFill, iconShapes.starFivePointStroke)}</span>
+								<span class="containerIcon" style="--icon-container: darkorchid;">${iconList(iconShapes.starFivePointFill, iconShapes.starFivePointStroke)}</span>
 								<div class="label">
 									<span>Icons</span>
 								</div>
@@ -818,7 +818,7 @@ function routevisuals(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="reducemotion" onclick='routevisuals({modifier: "reducemotion", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: dodgerblue;">${iconStyle(iconObjects.dialOffFill, iconObjects.dialOffStroke)}</span>
+								<span class="containerIcon" style="--icon-container: dodgerblue;">${iconList(iconObjects.dialOffFill, iconObjects.dialOffStroke)}</span>
 								<div class="label">
 									<span>Reduce Motion</span>
 								</div>
@@ -839,7 +839,7 @@ function routevisuals(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="utilityclasses" onclick='routevisuals({modifier: "utilityclasses", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: grey;">${iconStyle(iconObjects.hammerFill, iconObjects.hammerStroke)}</span>
+								<span class="containerIcon" style="--icon-container: grey;">${iconList(iconObjects.hammerFill, iconObjects.hammerStroke)}</span>
 								<div class="label">
 									<span>Utility Classes</span>
 								</div>
@@ -1278,7 +1278,7 @@ function routehelpers(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="tipjar" onclick='routehelpers({modifier: "tipjar", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: limegreen;">${iconStyle(iconObjects.currencyCoinDollarFill, iconObjects.currencyCoinDollarStroke)}</span>
+								<span class="containerIcon" style="--icon-container: limegreen;">${iconList(iconObjects.currencyCoinDollarFill, iconObjects.currencyCoinDollarStroke)}</span>
 								<div class="label">
 									<span>Tip Jar</span>
 								</div>
@@ -1290,19 +1290,19 @@ function routehelpers(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="copytoclipboard" onclick='routehelpers({modifier: "copytoclipboard", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: var(--info);">${iconStyle(iconObjects.clipboardFill, iconObjects.clipboardStroke)}</span>
+								<span class="containerIcon" style="--icon-container: var(--info);">${iconList(iconObjects.clipboardFill, iconObjects.clipboardStroke)}</span>
 								<div class="label">
 									<span>Copy to Clipboard</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="iconstyle" onclick='routehelpers({modifier: "iconstyle", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: var(--info);">${iconStyle(iconShapes.starFivePointFill, iconShapes.starFivePointStroke)}</span>
+								<span class="containerIcon" style="--icon-container: var(--info);">${iconList(iconShapes.starFivePointFill, iconShapes.starFivePointStroke)}</span>
 								<div class="label">
 									<span>Icon Style</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="settimelength" onclick='routehelpers({modifier: "settimelength", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: tomato;">${iconStyle(iconObjects.clockFill, iconObjects.clockStroke)}</span>
+								<span class="containerIcon" style="--icon-container: tomato;">${iconList(iconObjects.clockFill, iconObjects.clockStroke)}</span>
 								<div class="label">
 									<span>Set Time Length</span>
 								</div>
@@ -1314,7 +1314,7 @@ function routehelpers(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="graburlparameters" onclick='routehelpers({modifier: "graburlparameters", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: slateblue;">${iconStyle(iconObjects.compassFill, iconObjects.compassStroke)}</span>
+								<span class="containerIcon" style="--icon-container: slateblue;">${iconList(iconObjects.compassFill, iconObjects.compassStroke)}</span>
 								<div class="label">
 									<span>Grab URL Parameters</span>
 								</div>
@@ -1326,7 +1326,7 @@ function routehelpers(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="scrolltotop" onclick='routehelpers({modifier: "scrolltotop", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: var(--info);">${iconStyle(iconShapes.chevronSingleCircleUpFill, iconShapes.chevronSingleCircleUpStroke)}</span>
+								<span class="containerIcon" style="--icon-container: var(--info);">${iconList(iconShapes.chevronSingleCircleUpFill, iconShapes.chevronSingleCircleUpStroke)}</span>
 								<div class="label">
 									<span>Scroll to Top</span>
 								</div>
@@ -1390,31 +1390,31 @@ function routeicons(options) {
 					<div class="containerItemList inset">
 						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="interfaceicons" onclick='routeicons({modifier: "interfaceicons", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: steelblue;">${iconStyle(iconInterfaceElements.sliderVerticalFill, iconInterfaceElements.sliderVerticalStroke)}</span>
+								<span class="containerIcon" style="--icon-container: steelblue;">${iconList(iconInterfaceElements.sliderVerticalFill, iconInterfaceElements.sliderVerticalStroke)}</span>
 								<div class="label">
 									<span>Interface Elements</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="shapesicons" onclick='routeicons({modifier: "shapesicons", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: steelblue;">${iconStyle(iconShapes.plusCircleFill, iconShapes.plusCircleStroke)}</span>
+								<span class="containerIcon" style="--icon-container: steelblue;">${iconList(iconShapes.plusCircleFill, iconShapes.plusCircleStroke)}</span>
 								<div class="label">
 									<span>Shapes</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="objectsicons" onclick='routeicons({modifier: "objectsicons", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: steelblue;">${iconStyle(iconObjects.legoFill, iconObjects.legoStroke)}</span>
+								<span class="containerIcon" style="--icon-container: steelblue;">${iconList(iconObjects.legoFill, iconObjects.legoStroke)}</span>
 								<div class="label">
 									<span>Objects</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="indiciesicons" onclick='routeicons({modifier: "indiciesicons", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: steelblue;">${iconStyle(iconIndices.oneCircleFill, iconIndices.oneCircleStroke)}</span>
+								<span class="containerIcon" style="--icon-container: steelblue;">${iconList(iconIndices.oneCircleFill, iconIndices.oneCircleStroke)}</span>
 								<div class="label">
 									<span>Indices</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="natureicons" onclick='routeicons({modifier: "natureicons", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: steelblue;">${iconStyle(iconNature.sunFill, iconNature.sunStroke)}</span>
+								<span class="containerIcon" style="--icon-container: steelblue;">${iconList(iconNature.sunFill, iconNature.sunStroke)}</span>
 								<div class="label">
 									<span>Nature</span>
 								</div>
@@ -1426,19 +1426,19 @@ function routeicons(options) {
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="humanicons" onclick='routeicons({modifier: "humanicons", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: steelblue;">${iconStyle(iconHuman.userFill, iconHuman.userStroke)}</span>
+								<span class="containerIcon" style="--icon-container: steelblue;">${iconList(iconHuman.userFill, iconHuman.userStroke)}</span>
 								<div class="label">
 									<span>Human</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="hardwareicons" onclick='routeicons({modifier: "hardwareicons", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: steelblue;">${iconStyle(iconHardware.keyboardFill, iconHardware.keyboardStroke)}</span>
+								<span class="containerIcon" style="--icon-container: steelblue;">${iconList(iconHardware.keyboardFill, iconHardware.keyboardStroke)}</span>
 								<div class="label">
 									<span>Hardware</span>
 								</div>
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="transporticons" onclick='routeicons({modifier: "transporticons", navtype: "forwards"})'>
-								<span class="containerIcon" style="--icon-container: steelblue;">${iconStyle(iconTransport.carFill, iconTransport.carStroke)}</span>
+								<span class="containerIcon" style="--icon-container: steelblue;">${iconList(iconTransport.carFill, iconTransport.carStroke)}</span>
 								<div class="label">
 									<span>Transport</span>
 								</div>
