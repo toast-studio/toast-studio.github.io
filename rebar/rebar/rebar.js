@@ -1988,7 +1988,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 						<button data-button="close" class="translucent" id="dismiss" title="Dismiss Tips Panel" onclick="stopTipsPrompts()">${iconShapes.timesFill}</button>
 						<div class="containerTipJar mini">
 							<img class="spacerSingle" src="rebar/images/tips.webp" srcset="rebar/images/tips@2x.webp 2x" width="400" alt="" />
-							<p class="textAlignCenter">Support ${appName} by leaving <a href="https://twitter.com/trevormkay" target="_blank">Trevor</a> and <a href="https://christophermuller.net" target="_blank">Chris</a> a tip. It's appreciated!</p>
+							<p class="textAlignCenter">Support ${appName} by leaving <a href="https://www.trevorkay.me/connect/" target="_blank">Trevor</a> and <a href="https://christophermuller.net" target="_blank">Chris</a> a tip. It's appreciated!</p>
 							<div class="containerButtons">
 								<a href="${tipsLinks.default}" target="_blank" class="noDecoration">
 									<button data-button="action-fill" class="primary" onclick="stopTipsPrompts()">Donate $2</button>
@@ -2007,7 +2007,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 			return `
 				<div class="containerTipJar">
 					<img class="spacerSingle" src="rebar/images/tips.webp" srcset="rebar/images/tips@2x.webp 2x" width="400" alt="" />
-					<p class="textAlignCenter h5 spacerDouble">${appName} is developed by <a href="https://twitter.com/trevormkay" target="_blank">Trevor</a> and <a href="https://christophermuller.net" target="_blank">Chris</a>. If you'd like to show your support you can leave us a tip. It's much appreciated!</p>
+					<p class="textAlignCenter h5 spacerDouble">${appName} is developed by <a href="https://www.trevorkay.me/connect/" target="_blank">Trevor</a> and <a href="https://christophermuller.net" target="_blank">Chris</a>. If you'd like to show your support you can leave us a tip. It's much appreciated!</p>
 					<div class="containerButtons spacerSingle">
 						<a href="${tipsLinks.default}" target="_blank" class="noDecoration">
 							<button data-button="action-fill" class="primary" onclick="stopTipsPrompts()">Donate $2</button>
@@ -2088,9 +2088,11 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	}
 	
 	function iconGripper() {
-		return `<span class="only-ios only-macos">${iconShapes.chevronOutwardsVerticalFill}</span> 
-				<span class="only-android">${iconShapes.chevronSingleDownFill}</span> 
-				<span class="only-windows">${iconShapes.chevronSingleDownStroke}</span>`
+		return `<span class="only-ios">${iconShapes.chevronOutwardsVerticalFill}</span> 
+				<span class="only-macos outsideToolbar">${iconShapes.chevronOutwardsVerticalFill}</span> 
+				<span class="only-macos insideToolbar">${iconShapes.chevronDownwardsFill}</span> 
+				<span class="only-android">${iconShapes.chevronDownwardsFill}</span> 
+				<span class="only-windows">${iconShapes.chevronDownwardsStroke}</span>`
 	}
 	
 //PREFERENCE MANAGEMENT

@@ -298,7 +298,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.3</h3>
-						<p class="subtext excludeMargin">11 Feb 2025</p>
+						<p class="subtext excludeMargin">21 Feb 2025</p>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -319,7 +319,7 @@ const gettingstarted = {
 								<li>Added <code>text-wrap: balance;</code> to headings</li>
 								<li>New <code>--accentPrime</code>, <code>--backgroundPrime</code>, <code>--foregroundPrime</code>, and <code>--systempanelPrime</code> variables to support the removal of excess <code>color-mix()</code> for Android and Windows</li>
 								<li>Display Tile button for use in Display Options</li>
-								<li>Android, Windows, Small Text, Medium Text, and Large Text icons</li>
+								<li>Android, Windows, Small Text, Medium Text, Large Text, Chevron Downwards, and Chevron Upwards icons</li>
 								<li>Shantell Sans, System Mono, Segoe UI, and SF Pro as a font options</li>
 								<li>iMac 2024, Android, and Windows accents</li>
 								<li><code>storedOS()</code> function to grab the users' selected OS</li>
@@ -332,17 +332,23 @@ const gettingstarted = {
 								<li>Colour variables now use OKLCH in Display P3 and <code>light-dark()</code></li>
 								<li>Improved the visibility of Banners on Android</li>
 								<li>Made improvements when increase contrast is active</li>
+								<li>Made improvements when large text is selected</li>
 								<li>Reworked the styling of Buttons to make them more clearer to work with</li>
 								<li>Buttons are now called Action Buttons</li>
+								<li>Context Menu buttons no longer use the Action Button styles, instead they have a specific <code>dropdown</code> style</li>
 								<li>There is now a <code>primary</code> style for Action Buttons</li>
 								<li>Switches are now checkboxes instead of buttons</li>
 								<li>Updated styling of components to match iOS 18, iPadOS 18, and Android 15</li>
 								<li>Tokens now require the <code>button</code> element</li>
+								<li>Tokens now handle styling SVGs if they contain one</li>
 								<li>Updated the styling of Display Options to be a more visual experience</li>
 								<li>Renamed "iMacMulti" to "imacMulti" for consistency</li>
 								<li>You only now need to list the custom accents in the Config file</li>
 								<li>Media queries now use Range Syntax</li>
 								<li><code>insertShareButton()</code> and <code>insertBackButton()</code> updated to match <code>iconList()</code> and <code>iconGripper()</code></li>
+								<li>Tip Jar image and links are now current</li>
+								<li>Context Menus when in an List Item while large text is selected will always default to left position</li>
+								<li>The <code>.always</code> set of classes will now apply to child <code>span</code></li>
 							</ul>
 							
 							<h5>Fixed</h5>
@@ -1735,38 +1741,48 @@ const controls = {
 			<h3 class="h6">Default Any Size</h3>
 			<section class="containerSection">
 				<button data-button="item-flat" data-icon-size="auto">
-					${iconHuman.userCircleStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						${iconHuman.userCircleStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-flat" data-icon-size="auto">
-					${iconTransport.rocketStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						${iconTransport.rocketStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-flat" data-icon-size="auto">
-					${iconObjects.paintbrushStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						${iconObjects.paintbrushStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-flat" data-icon-size="auto" class="picked">
-					${iconShapes.rectangleStackHorizontalStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						${iconShapes.rectangleStackHorizontalStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-flat" data-icon-size="auto">
-					${iconInterfaceElements.locationStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						${iconInterfaceElements.locationStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<div data-button="item-flat" data-icon-size="auto">
@@ -1796,44 +1812,57 @@ const controls = {
 							<span class="subtext">Sub Label</span>
 						</div>
 					</div>
-					<button data-button="switch" class="off" data-setting="switch1" title="Off" onclick="exampleSwitches(this)"></button>
+					<label for="switch2">
+						<input type="checkbox" switch="" checked="" id="switch2" name="switch2" value="" onclick="exampleSwitches(this)">
+						<div class="fakeCheckbox"></div>
+					</label>
 				</div>
 			</section>
 			<h3 class="h6">Default Fixed Size</h3>
 			<section class="containerSection">
-				<button data-button="item-flat" data-icon-size="fixed">
-					${iconHuman.userCircleStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+				<button data-button="item-flat" data-icon-size="fixed">\
+					<div class="containerLeading">
+						${iconHuman.userCircleStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-flat" data-icon-size="fixed">
-					${iconTransport.rocketStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						${iconTransport.rocketStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-flat" data-icon-size="fixed">
-					${iconObjects.paintbrushStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						${iconObjects.paintbrushStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-flat" data-icon-size="fixed" class="picked">
-					${iconShapes.rectangleStackHorizontalStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+						<div class="containerLeading">
+						${iconShapes.rectangleStackHorizontalStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-flat" data-icon-size="fixed">
-					${iconInterfaceElements.locationStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						${iconInterfaceElements.locationStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<div data-button="item-flat" data-icon-size="fixed">
@@ -1863,44 +1892,57 @@ const controls = {
 							<span class="subtext">Sub Label</span>
 						</div>
 					</div>
-					<button data-button="switch" class="off" data-setting="switch1" title="Off" onclick="exampleSwitches(this)"></button>
+					<label for="switch2">
+						<input type="checkbox" switch="" checked="" id="switch2" name="switch2" value="" onclick="exampleSwitches(this)">
+						<div class="fakeCheckbox"></div>
+					</label>
 				</div>
 			</section>
 			<h3 class="h6">Rounded Any Size</h3>
 			<section class="containerSection">
 				<button data-button="item-rounded" data-icon-size="auto">
-					${iconHuman.userCircleStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						${iconHuman.userCircleStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-rounded" data-icon-size="auto">
-					${iconTransport.rocketStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						${iconTransport.rocketStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-rounded" data-icon-size="auto">
-					${iconObjects.paintbrushStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						${iconObjects.paintbrushStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-rounded" data-icon-size="auto" class="picked">
-					${iconShapes.rectangleStackHorizontalStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						${iconShapes.rectangleStackHorizontalStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-rounded" data-icon-size="auto">
-					${iconInterfaceElements.locationStroke}
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						${iconInterfaceElements.locationStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<div data-button="item-rounded" data-icon-size="auto">
@@ -1920,7 +1962,16 @@ const controls = {
 							<span class="subtext">Sub Label</span>
 						</div>
 					</div>
-					<button data-button="action-fill" class="primary">Hello</button>
+					<div class="containerContextButton" data-setting="" data-position="" data-type="" data-icongroup="" data-iconname="">
+						<button data-button="action-fill" class="buttonContext primary">
+							<span class="contextLabel">Test Context Menu</span>
+							<span class="gripper">${iconGripper()}</span>
+						</button>
+						<div class="contextContainerMenu">
+							<button data-button="menu-item" data-value="" data-label="">Item 1</button>
+							<button data-button="menu-item" data-value="" data-label="">Item 2</button>
+						</div>
+					</div>
 				</div>
 				<div data-button="item-rounded" data-icon-size="auto">
 					<div class="containerLeading">
@@ -1930,44 +1981,57 @@ const controls = {
 							<span class="subtext">Sub Label</span>
 						</div>
 					</div>
-					<button data-button="switch" class="off" data-setting="switch1" title="Off" onclick="exampleSwitches(this)"></button>
+					<label for="switch2">
+						<input type="checkbox" switch="" checked="" id="switch2" name="switch2" value="" onclick="exampleSwitches(this)">
+						<div class="fakeCheckbox"></div>
+					</label>
 				</div>
 			</section>
 			<h3 class="h6">Rounded Fixed Size</h3>
 			<section class="containerSection">
 				<button data-button="item-rounded" data-icon-size="fixed">
-					<span class="containerIcon" style="--icon-container: red;">${iconHuman.userCircleFill}</span>
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: red;">${iconHuman.userCircleFill}</span>
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-rounded" data-icon-size="fixed">
-					<span class="containerIcon" style="--icon-container: orange;">${iconTransport.rocketFill}</span>
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: orange;">${iconTransport.rocketFill}</span>
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
-				<button data-button="item-rounded" data-icon-size="fixed">
-					<span class="containerIcon" style="--icon-container: gold;">${iconObjects.paintbrushFill}</span>
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+				<button data-button="item-rounded" data-icon-size="fixed">\
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: gold;">${iconObjects.paintbrushFill}</span>
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-rounded" data-icon-size="fixed" class="picked">
-					<span class="containerIcon" style="--icon-container: limegreen;">${iconShapes.rectangleStackHorizontalFill}</span>
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: limegreen;">${iconShapes.rectangleStackHorizontalFill}</span>
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<button data-button="item-rounded" data-icon-size="fixed">
-					<span class="containerIcon" style="--icon-container: deepskyblue;">${iconInterfaceElements.locationFill}</span>
-					<div class="label">
-						<span>Button</span>
-						<span class="subtext">Sub Label</span>
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: deepskyblue;">${iconInterfaceElements.locationFill}</span>
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
 					</div>
 				</button>
 				<div data-button="item-rounded" data-icon-size="fixed">
@@ -1987,7 +2051,16 @@ const controls = {
 							<span class="subtext">Sub Label</span>
 						</div>
 					</div>
-					<button data-button="action-fill" class="primary">Hello</button>
+					<div class="containerContextButton" data-setting="" data-position="" data-type="" data-icongroup="" data-iconname="">
+						<button data-button="action-fill" class="buttonContext primary">
+							<span class="contextLabel">Test Context Menu</span>
+							<span class="gripper">${iconGripper()}</span>
+						</button>
+						<div class="contextContainerMenu">
+							<button data-button="menu-item" data-value="" data-label="">Item 1</button>
+							<button data-button="menu-item" data-value="" data-label="">Item 2</button>
+						</div>
+					</div>
 				</div>
 				<div data-button="item-rounded" data-icon-size="fixed">
 					<div class="containerLeading">
@@ -1997,32 +2070,50 @@ const controls = {
 							<span class="subtext">Sub Label</span>
 						</div>
 					</div>
-					<button data-button="switch" class="off" data-setting="switch1" title="Off" onclick="exampleSwitches(this)"></button>
+					<label for="switch2">
+						<input type="checkbox" switch="" checked="" id="switch2" name="switch2" value="" onclick="exampleSwitches(this)">
+						<div class="fakeCheckbox"></div>
+					</label>
 				</div>
+				<button data-button="item-rounded" data-icon-size="fixed">
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: deepskyblue;">${iconInterfaceElements.locationFill}</span>
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</button>
 			</section>
 			
 			<h2>Documentation</h2>
 			<p>List Items are buttons with the <code>data-button="flat"</code> or <code>data-button="rounded"</code> attributes. They come with default and <code>picked</code> states. An icon is not mandatory, if you do include one it can be any size but you can fix it to a Rebar defined size with the <code>data-icon-size="fixed"</code> attribute. If you don't wish to set a size for the icons you can use the <code>data-button="auto"</code> attribute. If you need to include a sublabel that's possible with the <code>subtext</code> class.</p>
 			<p>The icons can be wrapped in a span with the <code>containerIcon</code> class which will give them the correct appearance on iOS and macOS. It is required to include <code>style="--icon-container: color;"</code> to fill in the background.</p>
-			<p>For DIVs that contain a control on the trailing size you will need to wrap the leading contents in a div with the <code>containerLeading</code> class.</p>
+			<p>You always need to wrap the leading contents in a div with the <code>containerLeading</code> class. This helps when you have a control on the right and when large text is selected.</p>
 			<h3 class="h6">Template</h3>
 <pre>
 //FLAT
 &lt;button data-button="item-flat" data-icon-size="fixed"&gt;
-	&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{iconList()}&lt;/span&gt;
-	&lt;div class="label"&gt;
-		&lt;span>&lt;/span&gt;
-		&lt;span class="subtext"&gt;&lt;/span&gt;
+	&lt;div class="containerLeading"&gt;
+		&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{iconList()}&lt;/span&gt;
+		&lt;div class="label"&gt;
+			&lt;span>&lt;/span&gt;
+			&lt;span class="subtext"&gt;&lt;/span&gt;
+		&lt;/div&gt;
 	&lt;/div&gt;
+	//Place any controls here
 &lt;/button&gt;
 
 //ROUNDED
 &lt;button data-button="item-rounded" data-icon-size="fixed"&gt;
-	&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{iconList()}&lt;/span&gt;
-	&lt;div class="label"&gt;
-		&lt;span>&lt;/span&gt;
-		&lt;span class="subtext"&gt;&lt;/span&gt;
+	&lt;div class="containerLeading"&gt;
+		&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{iconList()}&lt;/span&gt;
+		&lt;div class="label"&gt;
+			&lt;span>&lt;/span&gt;
+			&lt;span class="subtext"&gt;&lt;/span&gt;
+		&lt;/div&gt;
 	&lt;/div&gt;
+	//Place any controls here
 &lt;/button&gt;
 </pre>
 
@@ -2348,7 +2439,7 @@ const controls = {
 			${
 				insertBanner({
 					type: 'info',
-					content: 'Context Menus have different styling based on the <code>pointer</code> and OS used',
+					content: 'Context Menus have different styling based on the <code>pointer</code> used, OS used, and the parent container',
 					icon: false,
 					size: 'large',
 				})
@@ -2357,10 +2448,10 @@ const controls = {
 			<table class="definitions spacerTriple">
 				<tbody>
 					<tr>
-						<td>Primary Button Style</td>
+						<td>Default</td>
 						<td>
-							<div class="containerContextButton" data-setting="context1" data-position="left">
-								<button data-button="action-fill" class="buttonContext primary">
+							<div class="containerContextButton" data-setting="context1" data-position="right">
+								<button data-button="dropdown" class="buttonContext">
 									<span class="contextLabel">Label</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
@@ -2375,37 +2466,45 @@ const controls = {
 						</td>
 					</tr>
 					<tr>
-						<td>Transparent Button Style</td>
+						<td>List Item</td>
 						<td>
-							<div class="containerContextButton" data-setting="context2" data-position="left">
-								<button data-button="action-transparent" class="buttonContext primary">
-									<span class="contextLabel">Label</span>
-									<span class="gripper">${iconGripper()}</span>
-								</button>
-								<div class="contextContainerMenu">
-									<button data-button="menu-item" data-value="first">First</button>
-									<button data-button="menu-item" data-value="second">Second</button>
-									<button data-button="menu-item" data-value="third">Third</button>
-									<button data-button="menu-item" data-value="fourth">Fourth</button>
-									<button data-button="menu-item" data-value="fifth">Fifth</button>
+							<div data-button="item-rounded" data-icon-size="fixed">
+								<div class="containerLeading">
+									<span class="containerIcon" style="--icon-container: var(--accent);">${iconObjects.badgeUserFill}</span>
+									<div class="label">List Item</div>
+								</div>
+								<div class="containerContextButton" data-setting="context1" data-position="right">
+									<button data-button="dropdown" class="buttonContext">
+										<span class="contextLabel">Label</span>
+										<span class="gripper">${iconGripper()}</span>
+									</button>
+									<div class="contextContainerMenu">
+										<button data-button="menu-item" data-value="first">First</button>
+										<button data-button="menu-item" data-value="second">Second</button>
+										<button data-button="menu-item" data-value="third">Third</button>
+										<button data-button="menu-item" data-value="fourth">Fourth</button>
+										<button data-button="menu-item" data-value="fifth">Fifth</button>
+									</div>
 								</div>
 							</div>
 						</td>
 					</tr>
 					<tr>
-						<td>Secondary Button Style</td>
+						<td>Toolbar</td>
 						<td>
-							<div class="containerContextButton" data-setting="context3" data-position="left">
-								<button data-button="action-fill" class="buttonContext secondary">
-									<span class="contextLabel">Label</span>
-									<span class="gripper">${iconGripper()}</span>
-								</button>
-								<div class="contextContainerMenu">
-									<button data-button="menu-item" data-value="first">First</button>
-									<button data-button="menu-item" data-value="second">Second</button>
-									<button data-button="menu-item" data-value="third">Third</button>
-									<button data-button="menu-item" data-value="fourth">Fourth</button>
-									<button data-button="menu-item" data-value="fifth">Fifth</button>
+							<div class="containerToolbar" style="position: relative;">
+								<div class="containerContextButton" data-setting="context1" data-position="left">
+									<button data-button="dropdown" class="buttonContext">
+										<span class="contextLabel">Label</span>
+										<span class="gripper">${iconGripper()}</span>
+									</button>
+									<div class="contextContainerMenu">
+										<button data-button="menu-item" data-value="first">First</button>
+										<button data-button="menu-item" data-value="second">Second</button>
+										<button data-button="menu-item" data-value="third">Third</button>
+										<button data-button="menu-item" data-value="fourth">Fourth</button>
+										<button data-button="menu-item" data-value="fifth">Fifth</button>
+									</div>
 								</div>
 							</div>
 						</td>
@@ -2414,25 +2513,7 @@ const controls = {
 						<td>Primary Icon Button</td>
 						<td>
 							<div class="containerContextButton" data-setting="context4" data-position="left">
-								<button data-button="action-fill" class="buttonContext primary" title="Example with icon and no label">
-									${iconShapes.triangleRightCircleStroke}
-									<span class="gripper">${iconGripper()}</span>
-								</button>
-								<div class="contextContainerMenu">
-									<button data-button="menu-item" data-value="first">First</button>
-									<button data-button="menu-item" data-value="second">Second</button>
-									<button data-button="menu-item" data-value="third">Third</button>
-									<button data-button="menu-item" data-value="fourth">Fourth</button>
-									<button data-button="menu-item" data-value="fifth">Fifth</button>
-								</div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Transparent Icon Button</td>
-						<td>
-							<div class="containerContextButton" data-setting="context5" data-position="left">
-								<button data-button="action-transparent" class="buttonContext primary" title="Example with icon and no label">
+								<button data-button="dropdown" class="buttonContext" title="Example with icon and no label">
 									${iconShapes.triangleRightCircleStroke}
 									<span class="gripper">${iconGripper()}</span>
 								</button>
@@ -2450,7 +2531,7 @@ const controls = {
 						<td>Left Menu</td>
 						<td>
 							<div class="containerContextButton" data-setting="context6" data-position="left">
-								<button data-button="action-fill" class="buttonContext primary">
+								<button data-button="dropdown" class="buttonContext">
 									<span class="contextLabel">Label</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
@@ -2468,7 +2549,7 @@ const controls = {
 						<td>Center Menu</td>
 						<td>
 							<div class="containerContextButton" data-setting="context6" data-position="center">
-								<button data-button="action-fill" class="buttonContext primary">
+								<button data-button="dropdown" class="buttonContext">
 									<span class="contextLabel">Label</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
@@ -2486,7 +2567,7 @@ const controls = {
 						<td>Right Menu</td>
 						<td>
 							<div class="containerContextButton" data-setting="context6" data-position="right">
-								<button data-button="action-fill" class="buttonContext primary">
+								<button data-button="dropdown" class="buttonContext">
 									<span class="contextLabel">Label</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
@@ -2504,7 +2585,7 @@ const controls = {
 						<td>With Icons</td>
 						<td>
 							<div class="containerContextButton" data-setting="context7" data-type="icons" data-position="left">
-								<button data-button="action-fill" class="buttonContext primary">
+								<button data-button="dropdown" class="buttonContext">
 									<span class="contextLabel">${iconObjects.trashStroke} Label</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
@@ -2558,7 +2639,7 @@ const controls = {
 						<td>Specific Width Button</td>
 						<td>
 							<div class="containerContextButton" data-setting="context9" data-position="left">
-								<button data-button="action-fill" class="buttonContext primary">
+								<button data-button="dropdown" class="buttonContext">
 									<span class="contextLabel">Label</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
@@ -2576,7 +2657,7 @@ const controls = {
 						<td>Colour Chips</td>
 						<td>
 							<div class="containerContextButton" data-setting="context" data-type="pickericons" data-position="left" data-accent="red">
-								<button data-button="action-transparent" class="buttonContext primary">
+								<button data-button="dropdown" class="buttonContext">
 									<span class="contextLabel"><div class="colorChip" data-accent="red"></div> Red</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
@@ -2609,7 +2690,7 @@ const controls = {
 						<td>Picker</td>
 						<td>
 							<div class="containerContextButton" data-setting="picker1" data-position="left" data-type="picker">
-								<button data-button="action-fill" class="buttonContext primary">
+								<button data-button="dropdown" class="buttonContext">
 									<span class="contextLabel"></span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
@@ -2627,7 +2708,7 @@ const controls = {
 						<td>Picker with Icons</td>
 						<td>
 							<div class="containerContextButton" data-setting="picker1" data-position="left" data-type="pickericons">
-								<button data-button="action-fill" class="buttonContext primary">
+								<button data-button="dropdown" class="buttonContext">
 									<span class="contextLabel"></span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
@@ -2656,7 +2737,7 @@ const controls = {
 						<td>Popover</td>
 						<td>
 							<div class="containerContextButton" data-setting="examplePopover" data-position="center" data-type="popover">
-								<button data-button="action-fill" class="buttonContext primary">Label</button>
+								<button data-button="action-fill" class="buttonContext">Label</button>
 								<div class="contextContainerMenu">
 									<div class="containerPopoverContent">
 										<h1 class="textAlignCenter excludePadding">This is an example Popover</h1>
@@ -2670,9 +2751,8 @@ const controls = {
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
-			<p>Context Menus come in two parts, an element with the <code>buttonContext</code> class and a container of buttons with the <code>contextContainerMenu</code>. Both of these sit inside a <code>.containerContextButton</code> container.</p>
+			<p>Context Menus come in two parts, an element with the <code>buttonContext</code> class and a container of buttons with the <code>data-button="dropdown"</code> attribute. Both of these sit inside a <code>.containerContextButton</code> container.</p>
 			<p>They also come in two varities, a Standard Menu and a Picker Menu. Both will display a list of options when clicked but only the Picker Menu will update the label of the button. Picker Menus will also save their selected value to local storage while Standard Menus will not.</p>
-			<p>When setting up a Context Menu it's important to add the appropriate data attributes. These will help with styling and functionality.</p>
 			<table class="definitions spacerTriple">
 				<thead>
 					<tr>
@@ -2712,14 +2792,14 @@ const controls = {
 			</table>
 			<h4 class="h6">Template</h4>
 <pre class="spacerTriple">
-&lt;div class="containerContextButton" data-setting="" data-position="" data-type="" data-icongroup="" data-iconname=""&gt;
-	&lt;button data-button="action-fill" class="buttonContext primary"&gt;
+&lt;div class="containerContextButton" data-setting="" data-position="right" data-type="" data-icongroup="" data-iconname=""&gt;
+	&lt;button data-button="dropdown" class="buttonContext"&gt;
 		&lt;span class="contextLabel"&gt;&lt;/span&gt;
 		&lt;span class="gripper"&gt;&#36;{iconGripper()}&lt;/span&gt;
 	&lt;/button&gt;
 	&lt;div class="contextContainerMenu"&gt;
-		&lt;button data-value="" data-label=""&gt;&lt;/button&gt;
-		&lt;button data-value="" data-label=""&gt;&lt;/button&gt;
+		&lt;button data-button="menu-item" data-value="" data-label=""&gt;&lt;/button&gt;
+		&lt;button data-button="menu-item" data-value="" data-label=""&gt;&lt;/button&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 </pre>
@@ -2736,7 +2816,7 @@ const controls = {
 			<p class="spacerTriple"><code>iconGripper()</code> is also associated with Context Menus as it will render the correct chevron based on the OS theme.</p>
 			
 			<h3>CSS</h3>
-			<p>Most of the styling is handled for you. If you use a standard Button all of the Button styling classes will apply. On top of this you don't have to use a Button, any element with the <code>buttonContext</code> class will make the element clickable.</p>
+			<p>Styling is handled for you and will adjust according to the element a Dropdown button is contained in. On top of this you don't have to use a Button, any element with the <code>buttonContext</code> class will make the element clickable.</p>
 			<p>Menu items must be Buttons. They will infer styling from the <code>.contextContainerMenu</code> class. You can add the <code>destructive</code> class to a menu item Button to change the text and icon to red.</p>
 			<p>Menu items can be grouped in a container with the <code>.group</code> class to help with dynamic menu generation</p>
 		</div>
