@@ -287,12 +287,34 @@ const gettingstarted = {
 					${iconInterfaceElements.sidebarLeftStroke}
 				</button>
 			</div>
-			<h1 class="headerToolbar">Version</h1>
+			<h1 class="headerToolbar">Version History</h1>
 			<div class="pinRight">
 				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
 			</div>
 		</header>
 		<div class="scrollview cropToolbar paddingContent">
+		
+			<div class="containerAccordion hideOverflow spacerSingle">
+				<div class="headerAccordion headerSection">
+					<span>
+						<h3>2.3.1</h3>
+						<p class="subtext excludeMargin">11 March 2025</p>
+					</span>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<section class="containerSection">
+							<ul class="excludeMargin">
+								<li>Fixed the spacing and hover styles of Back Buttons so they don't overflow titles</li>
+								<li>Updated Container Queries to use Range Syntax</li>
+								<li>Context Menus can break out of List Item containers on small screens</li>
+								<li>Improved contrast issues for Segmented Controls on iOS</li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</div>
 		
 			<div class="containerAccordion hideOverflow spacerSingle">
 				<div class="headerAccordion headerSection">
@@ -1310,6 +1332,10 @@ const gettingstarted = {
 					</tr>
 				</thead>
 					<tr>
+						<td class="textBold">2.3.1</td>
+						<td>No changes</td>
+					</tr>
+					<tr>
 						<td class="textBold">2.3</td>
 						<td>
 							<p class="subtext">Added <code>oklch()</code>, <code>light-dark()</code>, Relative Color Syntax, <code>text-wrap: balance</code>, and Range Syntax</p>
@@ -1962,8 +1988,8 @@ const controls = {
 							<span class="subtext">Sub Label</span>
 						</div>
 					</div>
-					<div class="containerContextButton" data-setting="" data-position="" data-type="" data-icongroup="" data-iconname="">
-						<button data-button="action-fill" class="buttonContext primary">
+					<div class="containerContextButton" data-setting="" data-position="right" data-type="" data-icongroup="" data-iconname="">
+						<button data-button="dropdown" class="buttonContext primary">
 							<span class="contextLabel">Test Context Menu</span>
 							<span class="gripper">${iconGripper()}</span>
 						</button>
@@ -2007,7 +2033,7 @@ const controls = {
 						</div>
 					</div>
 				</button>
-				<button data-button="item-rounded" data-icon-size="fixed">\
+				<button data-button="item-rounded" data-icon-size="fixed">
 					<div class="containerLeading">
 						<span class="containerIcon" style="--icon-container: gold;">${iconObjects.paintbrushFill}</span>
 						<div class="label">
@@ -2051,8 +2077,8 @@ const controls = {
 							<span class="subtext">Sub Label</span>
 						</div>
 					</div>
-					<div class="containerContextButton" data-setting="" data-position="" data-type="" data-icongroup="" data-iconname="">
-						<button data-button="action-fill" class="buttonContext primary">
+					<div class="containerContextButton" data-setting="" data-position="right" data-type="" data-icongroup="" data-iconname="">
+						<button data-button="dropdown" class="buttonContext primary">
 							<span class="contextLabel">Test Context Menu</span>
 							<span class="gripper">${iconGripper()}</span>
 						</button>
@@ -6428,7 +6454,6 @@ const visuals = {
 			<h2>Documentation</h2>
 			<h3>Text Size</h3>
 			<p>Dynamic Type is the text size engine of Rebar. Components are designed to scale with <code>--base-font-size</code> and Dynamic Type can override this with a new value. By default Rebar has 3 text sizes: <code>small</code> (12px), <code>medium</code> (16px), and <code>large</code> (24px). The default size is <code>medium</code>.</p>
-			<p>If required you can include any amount of extra sizes that you need. To do this add more sizes to the <code>dynamicTypeSizes</code> constant in the <code>config.js</code> file. The Dynamic Type Picker will need to be modified accordingly. It is worth noting that on first run when no size is set Rebar will default to <code>medium</code>, if this is missing it will fallback to whatever value is set for <code>--base-font-size</code>.
 			<p class="spacerTriple">Rebar comes with a Text Size Picker in the form of Display Options. You can set up your own custom picker but it is not recommended.</p>
 
 			<h3>Bold Text</h3>
@@ -6436,16 +6461,7 @@ const visuals = {
 			<p class="spacerTriple">Rebar comes with a Bold Text Picker in the form of Display Options. You can set up your own custom picker but it is not recommended.</p>
 
 			<h3>Fonts</h3>
-			<p>Rebar comes with different fonts for Accessibility. Included are:</p>
-			<ul>
-				<li>System: The default font for the device</li>
-				<li>Open Dyslexic 3: For users with Dyslexia</li>
-				<li>Atkinson Hyperlegible: For users with low vision</li>
-			</ul>
-			<p class="spacerTriple">A picker for this font is included in the Display Options and when set it will override ALL fonts of every component. You can set up your own custom picker but it is not recommended.</p>
-		
-			<h3>OS Specific fonts</h3>
-			<p>By default when not using an accessible font Rebar will render text using <code>system-ui</code> which works well for every browser except Android. Chrome on Android will use Roboto for <code>system-ui</code> but this doesn't match Material You. To that end Rebar includes a copy of Product Sans and will use that when Android is set for <code>data-os</code>.</p>
+			<p class="spacerTriple">Rebar comes with a range of fonts that match the different OSes and ones that support accessibility. A picker for this font is included in the Display Options and when set it will override ALL fonts of every component. You can set up your own custom picker but it is not recommended.</p>
 		</div>
 	`,
 	images: `

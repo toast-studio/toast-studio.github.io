@@ -1,4 +1,4 @@
-/* REBAR 2.3 */
+/* REBAR 2.3.1 */
 /* COPYRIGHT TOAST STUDIO */
 
 /* SETUP */
@@ -2265,6 +2265,12 @@
 				@media (width < 640px) {
 					& .containerSection {
 						overflow: hidden;
+						
+						& .containerContextButton {
+							/* This allows menus within lists to break out of the container */
+							position: absolute;
+							right: calc(var(--base-gap-size) + (var(--base-gap-size) / 2));
+						}
 					}
 				}
 				
@@ -2417,7 +2423,7 @@
 			justify-content: space-around;
 			align-items: center;
 			
-			@container (min-width: 640px) {
+			@container (width >= 640px) {
 				--tabbar-height: 55px;
 			}
 			
@@ -3455,6 +3461,14 @@
 				}
 				
 				&.back {
+					gap: calc(var(--base-gap-size) / 6);
+					padding: 0px !important;
+					background: none !important;
+					
+					&:hover {
+						opacity: 0.5;
+					}
+					
 					& svg {
 						width: calc(var(--base-font-size) * 1.5);
 						height: calc(var(--base-font-size) * 1.5);
@@ -3797,6 +3811,7 @@
 						border: 1px solid transparent;
 						
 						[data-os="ios"] &.picked {
+							color-scheme: light;
 							color: var(--accent);
 							
 							& path {
@@ -4045,7 +4060,7 @@
 						fill: white !important;
 					}
 					
-					@container (min-width: 640px) {
+					@container (width >= 640px) {
 						body:not([data-os="android"]) .containerTabBar & {
 							flex-direction: row;
 							gap: calc(var(--base-gap-size) / 2);
@@ -4832,12 +4847,12 @@
 					& span:last-child {
 						text-align: right;
 						
-						@container (max-width: 400px) {
+						@container (width <= 400px) {
 							text-align: left;
 						}
 					}
 					
-					@container (max-width: 400px) {
+					@container (width <= 400px) {
 						display: grid;
 						flex-direction: column;
 						align-items: flex-start;
@@ -7592,7 +7607,7 @@
 			display: grid;
 			gap: calc(var(--base-gap-size) / 2);
 			
-			@container (min-width: 600px) {
+			@container (width >= 600px) {
 				grid-template-columns: 1fr 1fr;
 				
 				[data-textsize="large"] & {
