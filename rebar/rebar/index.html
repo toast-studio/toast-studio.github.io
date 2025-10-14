@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Rebar Sample App</title>
+		<meta name="title" content="Rebar Sample App">
+		<meta name="description" content="A sample app showing all of the Rebar components">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="theme-color" content="rgb(0,0,0)">
+		<meta name="keywords" content="rebar, layout, sample">
+		
+		<link rel="stylesheet" href="main.css">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png?m=20210505">
+		<link rel="icon" href="favicon.ico">
+		<link rel="icon" href="favicon.svg" type="image/svg+xml">
+		<link rel="manifest" href="manifest.json">
+		
+		<!-- Open Graph -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="XXXXXXXXX">
+		<meta property="og:title" content="Rebar Sample App">
+		<meta property="og:description" content="A sample app showing all of the Rebar components">
+		<meta property="og:image" content="XXXXXXXXX">
+		
+		<!-- Fediverse -->
+		<meta name="fediverse:creator" content="@trevorkay@mastodon.social" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="XXXXXXXXX">
+		<meta property="twitter:title" content="Rebar Sample App">
+		<meta property="twitter:description" content="A sample app showing all of the Rebar components">
+		<meta property="twitter:image" content="XXXXXXXXX">
+	</head>
+	<body>
+		<div class="containerApp columnsThree">
+			<aside class="containerAside double">
+				<div class="columnPrimary containerSidebar" id="primaryNav"></div>
+				<div class="columnSecondary" id="secondaryNav"></div>
+			</aside>
+			<main class="columnTertiary"></main>
+			<div id="appGlyph">
+				<svg width="240px" height="240px" viewBox="0 0 240 240" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<path d="M134.722432,10.9370482 L207.277568,52.7437843 C216.387841,57.9931819 222,67.6944687 222,78.193264 L222,161.806736 C222,172.305531 216.387841,182.006818 207.277568,187.256216 L134.722432,229.062952 C131.638426,230.839976 128.31216,232.015442 124.907654,232.589351 L124.907477,232.648357 L124.536805,232.64944 C121.530992,233.116853 118.469008,233.116853 115.463195,232.64944 L115.092523,232.648357 L115.092346,232.589351 C111.68784,232.015442 108.361574,230.839976 105.277568,229.062952 L32.7224319,187.256216 C23.6121593,182.006818 18,172.305531 18,161.806736 L18,78.193264 C18,67.6944687 23.6121593,57.9931819 32.7224319,52.7437843 L105.277568,10.9370482 C114.387841,5.6876506 125.612159,5.6876506 134.722432,10.9370482 Z M28.1446576,74.6152891 C27.9505286,75.6586839 27.8401662,76.7249253 27.8187948,77.8049822 L27.8149546,78.193264 L27.8149546,161.806736 L27.8187948,162.195018 C27.8678028,164.671766 28.3847796,167.075864 29.3067238,169.298407 L54.0285263,155.014447 C56.3741127,153.659167 59.3764392,154.458201 60.7344103,156.79914 C62.0923813,159.140079 61.2917609,162.136458 58.9461745,163.491738 L35.2680297,177.173396 C35.9089645,177.679148 36.58537,178.1479 37.2948999,178.575596 L37.6299092,178.773056 L110.185045,220.579792 L110.543915,220.781614 C111.996576,221.57871 113.525336,222.17913 115.092642,222.582874 L115.092,131.05 L88.6755934,146.314069 C86.330007,147.66935 83.3276805,146.870316 81.9697095,144.529376 C80.6117384,142.188437 81.4123588,139.192059 83.7579452,137.836778 L108.431,123.58 L28.1446576,74.6152891 Z M211.855342,74.6152891 L129.597,124.782 L152.188243,137.836778 C154.533829,139.192059 155.33445,142.188437 153.976479,144.529376 C152.657307,146.803432 149.7864,147.622432 147.4732,146.424975 L147.270595,146.314069 L124.907,133.393 L124.907439,222.582854 C126.472071,222.179791 127.998288,221.580723 129.448728,220.785649 L129.814955,220.579792 L202.370091,178.773056 L202.7051,178.575596 L202.899,178.456 L177.000014,163.491738 C174.654427,162.136458 173.853807,159.140079 175.211778,156.79914 C176.53095,154.525085 179.401856,153.706084 181.715057,154.903542 L181.917662,155.014447 L209.816934,171.13509 C211.285986,168.42763 212.11836,165.371057 212.181205,162.195018 L212.185045,161.806736 L212.185045,78.193264 L212.181205,77.8049822 C212.159834,76.7249253 212.049471,75.6586839 211.855342,74.6152891 Z M124.90739,17.4171336 L124.907477,51.4314348 C124.907477,54.1363901 122.710325,56.3291895 120,56.3291895 C117.362927,56.3291895 115.211663,54.253318 115.097304,51.6496 L115.092523,51.4314348 L115.09261,17.4171336 C113.553094,17.8137217 112.050769,18.4000733 110.621227,19.1761885 L110.185045,19.4202081 L37.6299092,61.2269442 L37.2948999,61.4244042 C35.3859121,62.5751192 33.7167045,64.0230268 32.3329732,65.6891357 L115.092,116.164 L115.092523,85.7157174 C115.092523,83.0107622 117.289675,80.8179628 120,80.8179628 C122.637073,80.8179628 124.788337,82.8938343 124.902696,85.4975522 L124.907477,85.7157174 L124.907,116.164 L207.667027,65.6891357 C206.283295,64.0230268 204.614088,62.5751192 202.7051,61.4244042 L202.370091,61.2269442 L129.814955,19.4202081 L129.378773,19.1761885 C127.949231,18.4000733 126.446906,17.8137217 124.90739,17.4171336 Z" fill="#000000"></path>
+					</g>
+				</svg>
+			</div>
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script src="rebar/jquery.tablesorter.js"></script>
+		<script src="rebar/icons/charts.js"></script>
+		<script src="rebar/icons/hardware.js"></script>
+		<script src="rebar/icons/human.js"></script>
+		<script src="rebar/icons/indicies.js"></script>
+		<script src="rebar/icons/interface.js"></script>
+		<script src="rebar/icons/logos.js"></script>
+		<script src="rebar/icons/nature.js"></script>
+		<script src="rebar/icons/objects.js"></script>
+		<script src="rebar/icons/shapes.js"></script>
+		<script src="rebar/icons/transport.js"></script>
+		<script src="rebar/rebar.js"></script>
+		<script src="app/config.js"></script>
+		<script src="app/routes.js"></script>
+		<script src="app/partials.js"></script>
+		<script src="app/app.js"></script>
+		<script>
+			function onNewServiceWorker(registration, callback) {
+			  if (registration.waiting) {
+				//SW is waiting to activate. Can occur if multiple clients open and one of the clients is refreshed.
+				return callback();
+			  }
+			  function listenInstalledStateChange() {
+				registration.installing.addEventListener('statechange', function(event) {
+				  if (event.target.state === 'installed') {
+					//A new service worker is available, inform the user
+					callback();
+				  }
+				});
+			  };
+			  if (registration.installing) {
+				return listenInstalledStateChange();
+			  }
+			  //We are currently controlled so a new SW may be found... Add a listener in case a new SW is found,
+			  registration.addEventListener('updatefound', listenInstalledStateChange);
+			}
+
+			window.addEventListener('load', function() {
+			var refreshing;
+			//When the user asks to refresh the UI, we'll need to reload the window
+			navigator.serviceWorker.addEventListener('controllerchange', function(event) {
+				if (refreshing) return; // prevent infinite refresh loop when you use "Update on Reload"
+				refreshing = true;
+				console.log('Controller loaded');
+				//window.location.reload();
+				
+				// summonPanel({ 
+				// 	type: 'toast', 
+				// 	backing: 'gradient', 
+				// 	title: `Tap to update ${appName}`,
+				// 	icon: `${iconInterfaceElements.refreshComplete}`,
+				// 	containerID: "buttonUpdateApp"
+				// });
+			});
+			
+			
+
+			navigator.serviceWorker.register('/sw.js')
+			.then(function (registration) {
+				//Track updates to the Service Worker.
+				if (!navigator.serviceWorker.controller) {
+				//The window client isn't currently controlled so it's a new service worker that will activate immediately
+				return;
+				}
+				registration.update();
+			});
+			});
+		</script>
+	</body>
+</html> 
