@@ -11,69 +11,73 @@ function routesidebar(options) {
 	
 	if ( $(".columnPrimary").children().length == 0 ) {
 		$(".columnPrimary").append(`
-			<header class="containerToolbar noBackground">
-				<div class="pinLeft"></div>
-				<h1 class="headerToolbar">Rebar</h1>
-				<div class="pinRight">
-					<button data-button="action-transparent" class="toolbarItem" onclick="location.reload()">
-						${iconInterfaceElements.refreshForwards}
-					</button>
-				</div>
-			</header>
-			<h1>Rebar</h1>
-			<section>
-				<button data-button="sidebar" data-name="gettingstarted" onclick='routegettingstarted({modifier: false, navtype: "forwards"})'>
-					<div class="labelSidebar">
-						${iconShapes.triangleRightCircleStroke}
-						Getting Started
+			<div class="wrapperSidebar material-liquidglass-thin">
+				<header class="containerToolbar layoutDefault noBackground">
+					<div class="wrapperToolbarStart"></div>
+					<div class="wrapperToolbarMiddle"></div>
+					<div class="wrapperToolbarEnd">
+						<div class="pinRight">
+							<button data-button="action-transparent" class="toolbarItem" onclick="location.reload()">
+								${iconInterfaceElements.refreshForwards}
+							</button>
+						</div>
 					</div>
-				</button>
-				<button data-button="sidebar" data-name="controls" onclick='routecontrols({modifier: false, navtype: "forwards"})'>
-					<div class="labelSidebar">
-						${iconInterfaceElements.switchDoubleTopOnFill}
-						Controls
+				</header>
+				<section class="scrollview inset-T">
+					<div class="layoutGrid">
+						<button data-button="sidebar" data-name="gettingstarted" onclick='routegettingstarted({modifier: false, navtype: "forwards"})'>
+							<div class="labelSidebar">
+								${iconShapes.triangleRightCircleStroke}
+								Getting Started
+							</div>
+						</button>
+						<button data-button="sidebar" data-name="controls" onclick='routecontrols({modifier: false, navtype: "forwards"})'>
+							<div class="labelSidebar">
+								${iconInterfaceElements.switchDoubleTopOnFill}
+								Controls
+							</div>
+						</button>
+						<button data-button="sidebar" data-name="layout" onclick='routelayout({modifier: false, navtype: "forwards"})'>
+							<div class="labelSidebar">
+								${iconObjects.blueprintStroke}
+								Layout
+							</div>
+						</button>
+						<button data-button="sidebar" data-name="modals" onclick='routemodals({modifier: false, navtype: "forwards"})'>
+							<div class="labelSidebar">
+								${iconShapes.rectangleOverlapHorizontalStroke}
+								Modals
+							</div>
+						</button>
+						<button data-button="sidebar" data-name="visuals" onclick='routevisuals({modifier: false, navtype: "forwards"})'>
+							<div class="labelSidebar">
+								${iconObjects.paintbrushStroke}
+								Visuals
+							</div>
+						</button>
+						<button data-button="sidebar" data-name="charts" onclick='routecharts({modifier: false, navtype: "forwards"})'>
+							<div class="labelSidebar">
+								${iconCharts.barUp}
+								Charts
+							</div>
+						</button>
+						<button data-button="sidebar" data-name="helpers" onclick='routehelpers({modifier: false, navtype: "forwards"})'>
+							<div class="labelSidebar">
+								${iconObjects.cogStroke}
+								Helpers
+							</div>
+						</button>
+						<button data-button="sidebar" data-name="icons" onclick='routeicons({modifier: false, navtype: "forwards"})'>
+							<div class="labelSidebar">
+								${iconShapes.starFivePointStroke}
+								Icons
+							</div>
+						</button>
 					</div>
-				</button>
-				<button data-button="sidebar" data-name="layout" onclick='routelayout({modifier: false, navtype: "forwards"})'>
-					<div class="labelSidebar">
-						${iconObjects.blueprintStroke}
-						Layout
-					</div>
-				</button>
-				<button data-button="sidebar" data-name="modals" onclick='routemodals({modifier: false, navtype: "forwards"})'>
-					<div class="labelSidebar">
-						${iconShapes.rectangleOverlapHorizontalStroke}
-						Modals
-					</div>
-				</button>
-				<button data-button="sidebar" data-name="visuals" onclick='routevisuals({modifier: false, navtype: "forwards"})'>
-					<div class="labelSidebar">
-						${iconObjects.paintbrushStroke}
-						Visuals
-					</div>
-				</button>
-				<button data-button="sidebar" data-name="charts" onclick='routecharts({modifier: false, navtype: "forwards"})'>
-					<div class="labelSidebar">
-						${iconCharts.barUp}
-						Charts
-					</div>
-				</button>
-				<button data-button="sidebar" data-name="helpers" onclick='routehelpers({modifier: false, navtype: "forwards"})'>
-					<div class="labelSidebar">
-						${iconObjects.cogStroke}
-						Helpers
-					</div>
-				</button>
-				<button data-button="sidebar" data-name="icons" onclick='routeicons({modifier: false, navtype: "forwards"})'>
-					<div class="labelSidebar">
-						${iconShapes.starFivePointStroke}
-						Icons
-					</div>
-				</button>
-			</section>
+				</section>
+			</div>
 		`)
 	}
-	
 }
 
 function routegettingstarted(options) {
@@ -94,16 +98,20 @@ function routegettingstarted(options) {
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
 			$(".columnSecondary").append(`
-				<header class="containerToolbar">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${insertBackButton("Rebar")}
-						</button>
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart">
+						<div class="pinToolbar material-liquidglass-thin">
+							<span onclick='routesidebar({modifier: false, navtype: "backwards"})'>
+								${insertBackButton()}
+							</span>
+						</div>
 					</div>
-					<h1 class="headerToolbar">Getting Started</h1>
-					<div class="pinRight"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Getting Started</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
 				</header>
-				<div class="scrollview cropToolbar">
+				<div class="scrollview inset-T">
 					<div class="containerItemList inset">
 						<h2 class="headerList">Get to know Rebar</h2>
 						<section class="containerSection excludePadding">
@@ -201,16 +209,20 @@ function routecontrols(options) {
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
 			$(".columnSecondary").append(`
-				<header class="containerToolbar">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${insertBackButton("Rebar")}
-						</button>
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart">
+						<div class="pinToolbar material-liquidglass-thin">
+							<span onclick='routesidebar({modifier: false, navtype: "backwards"})'>
+								${insertBackButton()}
+							</span>
+						</div>
 					</div>
-					<h1 class="headerToolbar">Controls</h1>
-					<div class="pinRight"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Controls</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
 				</header>
-				<div class="scrollview cropToolbar">
+				<div class="scrollview inset-T">
 					<div class="containerItemList inset">
 						<h2 class="headerList">Buttons</h2>
 						<section class="containerSection excludePadding">
@@ -234,7 +246,7 @@ function routecontrols(options) {
 										<span class="contextLabel">Click Me</span>
 										<span class="gripper">${iconGripper()}</span>
 									</button>
-									<div class="contextContainerMenu">
+									<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 										<button data-button="menu-item" data-value="" data-label="">Item 1</button>
 										<button data-button="menu-item" data-value="" data-label="">Item 2</button>
 										<button data-button="menu-item" data-value="" data-label="">Item 3</button>
@@ -324,7 +336,7 @@ function routecontrols(options) {
 										<span class="contextLabel">Click Me</span>
 										<span class="gripper">${iconGripper()}</span>
 									</button>
-									<div class="contextContainerMenu">
+									<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 										<button data-button="menu-item" data-value="" data-label="">Item 1</button>
 										<button data-button="menu-item" data-value="" data-label="">Item 2</button>
 										<button data-button="menu-item" data-value="" data-label="">Item 3</button>
@@ -399,7 +411,7 @@ function routecontrols(options) {
 							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="badges" onclick='routecontrols({modifier: "badges", navtype: "forwards"})'>
 								<div class="containerLeading">
-									<span class="containerIcon" style="--icon-container: forestgreen;">${iconShapes.roundedrectangleHorizontalFill}</span>
+									<span class="containerIcon" style="--icon-container: forestgreen;">${iconShapes.roundedrectangleHorizontalFillFull}</span>
 									<div class="label">
 										<span>Badges</span>
 									</div>
@@ -466,7 +478,7 @@ function routecontrols(options) {
 					];
 					$.each( pokemon, function( key, val ) {
 						$("#pokemon").append(`
-							<div data-button="item-flat">
+							<div data-button="item-flat" class="rowPokemon">
 								<div class="label">
 									<span class="itemLabel">${val}</span>
 								</div>
@@ -478,7 +490,7 @@ function routecontrols(options) {
 					search({
 						inputID: "pokemonSearch",
 						parentID: "pokemon",
-						itemClass: "itemList",
+						itemClass: "rowPokemon",
 						valueClass: "itemLabel",
 						emptyIcon: iconNature.sparkleDuo,
 						emptyMessage: "No Pok&eacute;mon Found",
@@ -527,16 +539,20 @@ function routelayout(options) {
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
 			$(".columnSecondary").append(`
-				<header class="containerToolbar">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${insertBackButton("Rebar")}
-						</button>
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart">
+						<div class="pinToolbar material-liquidglass-thin">
+							<span onclick='routesidebar({modifier: false, navtype: "backwards"})'>
+								${insertBackButton()}
+							</span>
+						</div>
 					</div>
-					<h1 class="headerToolbar">Layout</h1>
-					<div class="pinRight"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Layout</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
 				</header>
-				<div class="scrollview cropToolbar">
+				<div class="scrollview inset-T">
 					<div class="containerItemList inset">
 						<h2 class="headerList">Functions</h2>
 						<section class="containerSection excludePadding">
@@ -588,6 +604,14 @@ function routelayout(options) {
 									<span class="containerIcon" style="--icon-container: lightskyblue">${iconInterfaceElements.windowBarTopFill}</span>
 									<div class="label">
 										<span>Toolbars</span>
+									</div>
+								</div>
+							</button>
+							<button data-button="item-rounded" data-icon-size="fixed" data-name="actionbars" onclick='routelayout({modifier: "actionbars", navtype: "forwards"})'>
+								<div class="containerLeading">
+									<span class="containerIcon" style="--icon-container: lightskyblue">${iconInterfaceElements.windowBarBottomFill}</span>
+									<div class="label">
+										<span>Action Bars</span>
 									</div>
 								</div>
 							</button>
@@ -669,26 +693,10 @@ function routelayout(options) {
 			
 			switch (options.modifier) {
 				case 'toolbars':
-					//TOOLBAR SCROLL DIVIDERS
-					toolbarDivider({
-						scrollview: "#headerContent2",
-						toolbar: "#accessoryParent1",
-						height: 50
-					});
-					toolbarDivider({
-						scrollview: "#headerContent3",
-						toolbar: "#accessoryParent2",
-						height: 50
-					});
-					toolbarDivider({
-						scrollview: "#headerContent4Parent",
-						toolbar: "#accessoryParent3",
-						height: 50
-					});
 					toolbarVisibility({
 						scrollview: "#disappearingScrollview",
 						toolbar: "#disappearingToolbar",
-						height: 50
+						height: 150
 					});
 					
 					break;
@@ -719,6 +727,9 @@ function routelayout(options) {
 					$("#primaryContent").append(secondaryNav.itemLists);
 					$("[data-source='itemListStandard'] [data-value='button3']").addClass("picked");
 					break;
+				case 'accordions':
+					$(window).on('resize', () => openAccordionsLargeScreens(700)).trigger('resize');
+					break;
 			}
 		}
 	}
@@ -742,16 +753,20 @@ function routemodals(options) {
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
 			$(".columnSecondary").append(`
-				<header class="containerToolbar">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${insertBackButton("Rebar")}
-						</button>
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart">
+						<div class="pinToolbar material-liquidglass-thin">
+							<span onclick='routesidebar({modifier: false, navtype: "backwards"})'>
+								${insertBackButton()}
+							</span>
+						</div>
 					</div>
-					<h1 class="headerToolbar">Modals</h1>
-					<div class="pinRight"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Modals</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
 				</header>
-				<div class="scrollview cropToolbar">
+				<div class="scrollview inset-T">
 					<div class="containerItemList inset">
 						${generateInstallPanel()}
 					
@@ -873,16 +888,20 @@ function routevisuals(options) {
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
 			$(".columnSecondary").append(`
-				<header class="containerToolbar">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${insertBackButton("Rebar")}
-						</button>
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart">
+						<div class="pinToolbar material-liquidglass-thin">
+							<span onclick='routesidebar({modifier: false, navtype: "backwards"})'>
+								${insertBackButton("Rebar")}
+							</span>
+						</div>
 					</div>
-					<h1 class="headerToolbar">Visuals</h1>
-					<div class="pinRight"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Visuals</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
 				</header>
-				<div class="scrollview cropToolbar">
+				<div class="scrollview inset-T">
 					<div class="containerItemList inset">
 						<h2 class="headerList">Generated Views</h2>
 						<section class="containerSection excludePadding">
@@ -950,6 +969,14 @@ function routevisuals(options) {
 									<span class="containerIcon" style="--icon-container: darkorchid;">${iconObjects.photoLandscapeStroke}</span>
 									<div class="label">
 										<span>Images</span>
+									</div>
+								</div>
+							</button>
+							<button data-button="item-rounded" data-icon-size="fixed" data-name="materials" onclick='routevisuals({modifier: "materials", navtype: "forwards"})'>
+								<div class="containerLeading">
+									<span class="containerIcon" style="--icon-container: darkorchid;">${iconShapes.squareRoundedSparkleStroke}</span>
+									<div class="label">
+										<span>Materials</span>
 									</div>
 								</div>
 							</button>
@@ -1162,16 +1189,20 @@ function routecharts(options) {
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
 			$(".columnSecondary").append(`
-				<header class="containerToolbar">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${insertBackButton("Rebar")}
-						</button>
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart">
+						<div class="pinToolbar material-liquidglass-thin">
+							<span onclick='routesidebar({modifier: false, navtype: "backwards"})'>
+								${insertBackButton()}
+							</span>
+						</div>
 					</div>
-					<h1 class="headerToolbar">Charts</h1>
-					<div class="pinRight"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Charts</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
 				</header>
-				<div class="scrollview cropToolbar">
+				<div class="scrollview inset-T">
 					<div class="containerItemList inset">
 						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="pie" onclick='routecharts({modifier: "pie", navtype: "forwards"})'>
@@ -1432,22 +1463,27 @@ function routehelpers(options) {
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
 			$(".columnSecondary").append(`
-				<header class="containerToolbar">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${insertBackButton("Rebar")}
-						</button>
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart">
+						<div class="pinToolbar material-liquidglass-thin">
+							<span onclick='routesidebar({modifier: false, navtype: "backwards"})'>
+								${insertBackButton()}
+							</span>
+						</div>
 					</div>
-					<h1 class="headerToolbar">Helpers</h1>
-					<div class="pinRight"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Helpers</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
 				</header>
-				<div class="scrollview cropToolbar">
+				<div class="scrollview inset-T">
 					<div class="containerItemList inset">
 						${
 							generateTipJar({
 								mini: true,
 							})
 						}
+						<h4 class="headerList">Preferences</h4>
 						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="preferences" onclick='routehelpers({modifier: "preferences", navtype: "forwards"})'>
 								<div class="containerLeading">
@@ -1457,6 +1493,26 @@ function routehelpers(options) {
 									</div>
 								</div>
 							</button>
+							<button data-button="item-rounded" data-icon-size="fixed" data-name="saverecents" onclick='routehelpers({modifier: "saverecents", navtype: "forwards"})'>
+								<div class="containerLeading">
+									<span class="containerIcon" style="--icon-container: grey;">${iconInterfaceElements.skipBackwards}</span>
+									<div class="label">
+										<span>Save Recents</span>
+									</div>
+								</div>
+							</button>
+							<button data-button="item-rounded" data-icon-size="fixed" data-name="toggleprefitems" onclick='routehelpers({modifier: "toggleprefitems", navtype: "forwards"})'>
+								<div class="containerLeading">
+									<span class="containerIcon" style="--icon-container: grey;">${iconList(iconInterfaceElements.switchOnFill, iconInterfaceElements.switchOnStroke)}</span>
+									<div class="label">
+										<span>Toggle Pref Items</span>
+									</div>
+								</div>
+							</button>
+						</section>
+						
+						<h4 class="headerList">Money</h4>
+						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="tipjar" onclick='routehelpers({modifier: "tipjar", navtype: "forwards"})'>
 								<div class="containerLeading">
 									<span class="containerIcon" style="--icon-container: limegreen;">${iconList(iconObjects.currencyCoinDollarFill, iconObjects.currencyCoinDollarStroke)}</span>
@@ -1465,6 +1521,10 @@ function routehelpers(options) {
 									</div>
 								</div>
 							</button>
+						</section>
+						
+						<h4 class="headerList">Utilities</h4>
+						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="capitalizeword" onclick='routehelpers({modifier: "capitalizeword", navtype: "forwards"})'>
 								<div class="containerLeading">
 									<span class="containerIcon" style="--icon-container: var(--info);">${iconInterfaceElements.textCapital}</span>
@@ -1481,6 +1541,14 @@ function routehelpers(options) {
 									</div>
 								</div>
 							</button>
+							<button data-button="item-rounded" data-icon-size="fixed" data-name="scrolltotop" onclick='routehelpers({modifier: "scrolltotop", navtype: "forwards"})'>
+								<div class="containerLeading">
+									<span class="containerIcon" style="--icon-container: var(--info);">${iconList(iconShapes.chevronSingleCircleUpFill, iconShapes.chevronSingleCircleUpStroke)}</span>
+									<div class="label">
+										<span>Scroll to Top</span>
+									</div>
+								</div>
+							</button>
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="iconstyle" onclick='routehelpers({modifier: "iconstyle", navtype: "forwards"})'>
 								<div class="containerLeading">
 									<span class="containerIcon" style="--icon-container: var(--info);">${iconList(iconShapes.starFivePointFill, iconShapes.starFivePointStroke)}</span>
@@ -1489,6 +1557,38 @@ function routehelpers(options) {
 									</div>
 								</div>
 							</button>
+						</section>
+						
+						<h4 class="headerList">Data</h4>
+						<section class="containerSection excludePadding">
+							<button data-button="item-rounded" data-icon-size="fixed" data-name="filters" onclick='routehelpers({modifier: "filters", navtype: "forwards"})'>
+								<div class="containerLeading">
+									<span class="containerIcon" style="--icon-container: goldenrod;">${iconInterfaceElements.filterStroke}</span>
+									<div class="label">
+										<span>Filters</span>
+									</div>
+								</div>
+							</button>
+							<button data-button="item-rounded" data-icon-size="fixed" data-name="sorting" onclick='routehelpers({modifier: "sorting", navtype: "forwards"})'>
+								<div class="containerLeading">
+									<span class="containerIcon" style="--icon-container: goldenrod;">${iconShapes.caretOutwardsVertical}</span>
+									<div class="label">
+										<span>Sorting</span>
+									</div>
+								</div>
+							</button>
+							<button data-button="item-rounded" data-icon-size="fixed" data-name="grouping" onclick='routehelpers({modifier: "grouping", navtype: "forwards"})'>
+								<div class="containerLeading">
+									<span class="containerIcon" style="--icon-container: goldenrod;">${iconList(iconInterfaceElements.grouplistFill, iconInterfaceElements.grouplistStroke)}</span>
+									<div class="label">
+										<span>Grouping</span>
+									</div>
+								</div>
+							</button>
+						</section>
+						
+						<h4 class="headerList">Animations</h4>
+						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="settimelength" onclick='routehelpers({modifier: "settimelength", navtype: "forwards"})'>
 								<div class="containerLeading">
 									<span class="containerIcon" style="--icon-container: tomato;">${iconList(iconObjects.clockFill, iconObjects.clockStroke)}</span>
@@ -1505,6 +1605,10 @@ function routehelpers(options) {
 									</div>
 								</div>
 							</button>
+						</section>
+						
+						<h4 class="headerList">Get Values</h4>
+						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="graburlparameters" onclick='routehelpers({modifier: "graburlparameters", navtype: "forwards"})'>
 								<div class="containerLeading">
 									<span class="containerIcon" style="--icon-container: slateblue;">${iconList(iconObjects.compassFill, iconObjects.compassStroke)}</span>
@@ -1518,14 +1622,6 @@ function routehelpers(options) {
 									<span class="containerIcon" style="--icon-container: slateblue;">${iconHardware.monitorStroke}</span>
 									<div class="label">
 										<span>Grab OS</span>
-									</div>
-								</div>
-							</button>
-							<button data-button="item-rounded" data-icon-size="fixed" data-name="scrolltotop" onclick='routehelpers({modifier: "scrolltotop", navtype: "forwards"})'>
-								<div class="containerLeading">
-									<span class="containerIcon" style="--icon-container: var(--info);">${iconList(iconShapes.chevronSingleCircleUpFill, iconShapes.chevronSingleCircleUpStroke)}</span>
-									<div class="label">
-										<span>Scroll to Top</span>
 									</div>
 								</div>
 							</button>
@@ -1553,6 +1649,18 @@ function routehelpers(options) {
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
 			$(".columnTertiary").append(helpers[options.modifier])
+			
+			switch (options.modifier) {
+				case 'filters':
+					filterPeople('all')
+					break;
+				case 'sorting':
+					sortPeople('none')
+					break;
+				case 'grouping':
+					groupPeople('none')
+					break;
+			}
 		}
 	}
 }
@@ -1575,16 +1683,20 @@ function routeicons(options) {
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
 			$(".columnSecondary").append(`
-				<header class="containerToolbar">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="back slim toolbarItem" onclick='routesidebar({modifier: false, navtype: "backwards"})' title="Navigate Back">
-							${insertBackButton("Rebar")}
-						</button>
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart">
+						<div class="pinToolbar material-liquidglass-thin">
+							<span onclick='routesidebar({modifier: false, navtype: "backwards"})'>
+								${insertBackButton()}
+							</span>
+						</div>
 					</div>
-					<h1 class="headerToolbar">Icons</h1>
-					<div class="pinRight"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Icons</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
 				</header>
-				<div class="scrollview cropToolbar">
+				<div class="scrollview inset-T">
 					<div class="containerItemList inset">
 						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="interfaceicons" onclick='routeicons({modifier: "interfaceicons", navtype: "forwards"})'>
@@ -1761,22 +1873,32 @@ function routeicons(options) {
 			
 			//APPEND SKELETON
 				$(".columnTertiary").append(`
-					<header class="containerToolbar alwaysLeft withAccessory withInlineAccessory" id="galleryHeader">
-						<div class="pinLeft">
-							<button data-button="action-transparent" class="back slim toolbarItem" onclick='routeicons({modifier: false, navtype: "backwards"})' title="Navigate Back">
-								${iconShapes.chevronBackwardsStroke}
-								Icons
-							</button>
-							<button data-button="action-transparent" class="toolbarItem collapseAside">
-								${iconInterfaceElements.sidebarLeftStroke}
-							</button>
+					<header class="containerToolbar layoutInlineAccessory" id="galleryHeader">
+						<div class="wrapperToolbarStart">
+							<div class="pinToolbar material-liquidglass-thin">
+								<span onclick='routeicons({modifier: false, navtype: "backwards"})'>
+									${insertBackButton()}
+								</span>
+								<button data-button="action-transparent" class="toolbarItem collapseAside">
+									${iconInterfaceElements.sidebarLeftStroke}
+								</button>
+							</div>
 						</div>
-						<h1 class="headerToolbar">${groupName}</h1>
-						<div class="pinRight">
-							<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+						<div class="wrapperToolbarMiddle">
+							<h1 class="headerToolbar">${groupName}</h1>
+						</div>
+						<div class="wrapperToolbarEnd">
+							<div class="pinToolbar material-liquidglass-thin">
+								<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+							</div>
+							<div class="containerSearch material-liquidglass-thin itemAccessory">
+								<input type="search" placeholder="Search Icons" id="iconSearch" />
+								<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+								<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
+							</div>
 						</div>
 					</header>
-					<div class="containerInlineAccessory">
+					<div class="scrollview inset-T">
 						<div class="containerAccessoryBar">
 							<div class="containerSearch">
 								<input type="search" placeholder="Search Icons" id="iconSearch" />
@@ -1784,7 +1906,7 @@ function routeicons(options) {
 								<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
 							</div>
 						</div>
-						<div class="scrollview paddingContent " id="iconGallery"></div>
+						<div class="paddingContent " id="iconGallery"></div>
 					</div>
 				`)
 				
@@ -1824,13 +1946,6 @@ function routeicons(options) {
 						clearButton: this
 					})
 				});
-							
-				//TOOLBAR SCROLL DIVIDERS
-					toolbarDivider({
-						scrollview: ".containerInlineAccessory",
-						toolbar: "#galleryHeader",
-						height: 50
-					});
 		}
 	}
 }

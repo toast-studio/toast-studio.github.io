@@ -1,4 +1,4 @@
-const CACHE = '2024-12-21';
+const CACHE = '2025-05-17';
 const precacheFiles = [
 	'./',
 	'./icon.png',
@@ -49,6 +49,8 @@ const precacheFiles = [
 	'./rebar/images/browser-samsunginternet@2x.webp',
 	'./rebar/images/tick-dark.svg',
 	'./rebar/images/tick-light.svg',
+	'./rebar/images/times-dark.svg',
+	'./rebar/images/times-light.svg',
 	'./rebar/images/tips.webp',
 	'./rebar/images/tips@2x.webp',
 ];

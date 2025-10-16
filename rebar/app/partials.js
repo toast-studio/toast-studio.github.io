@@ -1,20 +1,26 @@
 const gettingstarted = {
 	welcome: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Getting&hellip;")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin"">
+					<span onclick='routegettingstarted({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar"></h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar"></h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<div id="containerWelcome" class="spacerTriple">
 				<div class="alwaysAccent spacerSingle" id="logo">
 					${iconLogos.rebarThinDuo}
@@ -26,7 +32,7 @@ const gettingstarted = {
 				<section class="containerSection excludeMargin">
 					<div class="alwaysAccent spacerHalf" data-accent="red">${iconShapes.heartFill}</div>
 					<h3 class="h4">Native Feel</h3>
-					<p class="excludeMargin">Rebar is designed to feel like a native app but not look 100% like one. This is because a Rebar app can be run on any platform with a web browser. You should strive to include what feels best from various platforms while maintaining your own uniqueness.</p>
+					<p class="excludeMargin">Rebar is designed to feel like a native app that works on any platform. You should strive to include what feels best from various platforms while maintaining your own uniqueness.</p>
 				</section>
 				
 				<section class="containerSection excludeMargin">
@@ -52,21 +58,27 @@ const gettingstarted = {
 		</div>
 	`,
 	filestructure: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Getting&hellip;")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routegettingstarted({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">File Structure</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">File Structure</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<ul id="filestructure">
 				<li>${iconObjects.folderHorizontalFill} app</li>
 				<ul class="excludeMargin">
@@ -146,21 +158,27 @@ const gettingstarted = {
 		</div>
 	`,
 	appstructure: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Getting&hellip;")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routegettingstarted({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">App Structure</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">App Structure</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p>Setting up a three column Rebar app requires this stucture:</p>
 <pre>
 &lt;div class="containerApp columnsThree"&gt;
@@ -178,21 +196,27 @@ const gettingstarted = {
 		</div>
 	`,
 	config: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Getting&hellip;")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routegettingstarted({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Config</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Config</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p>Config in the context of Rebar is a JS file named <code>config.js</code> that holds important properties for managing how your app looks, works, and is filled with content. It is mandatory to include this file and nothing should be left out. Below is an explanation of what each property is used for:</p>			
 			<table class="definitions spacerTriple" id="config">
 				<thead>
@@ -278,23 +302,100 @@ const gettingstarted = {
 		</div>
 	`,
 	versionhistory: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Getting&hellip;")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routegettingstarted({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Version History</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Version History</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 		
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle active" data-accordiongroup="history">
+				<div class="headerAccordion headerSection">
+					<span>
+						<h3>3.0</h3>
+						<p class="subtext excludeMargin">14 Oct 2025</p>
+					</span>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<section class="containerSection">
+							${
+								insertBanner({
+									type: 'warning',
+									content: 'This version includes breaking changes for the Service Worker cache list, Sidebars, Toolbars, Scrollviews, Back Buttons, Accordions, clickSwitch(), and Icon names',
+									icon: false,
+									size: "large",
+								})
+							}
+							
+							<h4>Added</h4>
+							<ul>
+								<li>Materials which allow you to render material styles from different OSes to any element</li>
+								<li>Rounded Square with Sparkle, Times Small, Tablet with Phone Landscape, iPhone Face Landscape, iPod Face landscape, iPhone with Cog Landscape, iPad with Cog Landscape, iPod touch with Cog Landscape, Apple Vision Cog, Rotate Sphere, List Item, Rounded Rectangle Half, Optic ID, and Overlap Windows icons</li>
+								<li><code>insertConfirmationButton()</code> and <code>insertCancelButton()</code> functions for displaying the correct toolbar buttons on different OSes</li>
+								<li>Action Bars</li>
+								<li><code>times-light</code> and <code>times-dark</code> system images</li>
+								<li>Accordion headers can now contain a leading image</li>
+								<li><code>saveRecent()</code> function to have a consistent way for apps to save recents to localstorage</li>
+								<li><code>togglePrefItem()</code> function to have a consistent way for apps to toggle the state of items in localstorage</li>
+								<li>New Large size for Segmented Controls</li>
+								<li>New Platter style for List Items</li>
+								<li>Accordions can now be opened by default on larger screens, appear as plain sections on larger screens, and work as exclusive accordions in groups</li>
+								<li><code>dataFilter()</code>, <code>dataSort()</code>, <code>dataGroup()</code> helper functions for working with data</li>
+							</ul>
+							
+							<h4>Changes</h4>
+							<ul>
+								<li>Updated components to their Material 3 Expressive appearance on Android</li>
+								<li>Updated components to their Liquid Glass appearance on iOS and macOS</li>
+								<li>Renamed icon <code>tabletphoneStroke</code> to <code>tabletPhonePortraitStroke</code></li>
+								<li>Renamed icon <code>iphoneFace*</code> to <code>iphoneFacePortrait*</code></li>
+								<li>Renamed icon <code>ipodtouchFace*</code> to <code>ipodtouchFacePortrait*</code></li>
+								<li>Renamed icon <code>roundedrectangle*Stroke</code> to <code>roundedrectangle*StrokeFull</code></li>
+								<li>Updated Device with Cog Portrait icons</li>
+								<li>Sidebars now require a <code>.wrapperSidebar</code> parent with the <code>.material-liquidglass-thin</code> Material class</li>
+								<li>Inputs no longer have built-in margins</li>
+								<li>Refactored toolbars with new content containers to make layout easier and cleaner</li>
+								<li><code>insertBackButton()</code> now inserts the whole button instead of just the glyph. The button must be wrapped in a span that holds the navigation function</li>
+								<li>Refactored the crop classes on Scrollviews and iframes to avoid cascade issues</li>
+								<li>When accordions are open the <code>.active</code> class is applied to the accordion container instead of the individual accordion pieces. It is now mandatory for accordions to be wrapped in <code>.containerAccordion</code>.</li>
+								<li>The <code>clickSwitch</code> function will now return <code>true/false</code> instead of <code>"on"/"off"</code> as a cleaner way to save preferences</p>
+								<li>Updated the stop animations function when resizing to ensure it works every time</li>
+							</ul>
+							
+							<h4>Fixes</h4>
+							<ul>
+								<li>Grid layout for Sidebar Items</li>
+								<li>Styling of buttons in Alerts on Android when you hover on them</li>
+							</ul>
+							
+							<h4>Removed</h4>
+							<ul class="excludeMargin">
+								<li>Desaturation from dialog <code>::backdrop</code> and reduced the opacity of the dark variant</li>
+								<li><code>toolbarDivider()</code> function</li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</div>
+		
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.3.1</h3>
@@ -316,7 +417,7 @@ const gettingstarted = {
 				</section>
 			</div>
 		
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.3</h3>
@@ -389,7 +490,7 @@ const gettingstarted = {
 				</section>
 			</div>
 		
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.2.5</h3>
@@ -410,7 +511,7 @@ const gettingstarted = {
 				</section>
 			</div>
 		
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.2.4</h3>
@@ -429,7 +530,7 @@ const gettingstarted = {
 				</section>
 			</div>
 		
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.2.3</h3>
@@ -448,7 +549,7 @@ const gettingstarted = {
 				</section>
 			</div>
 		
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.2.2</h3>
@@ -467,7 +568,7 @@ const gettingstarted = {
 				</section>
 			</div>
 		
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.2.1</h3>
@@ -490,7 +591,7 @@ const gettingstarted = {
 				</section>
 			</div>
 		
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.2</h3>
@@ -527,7 +628,7 @@ const gettingstarted = {
 				</section>
 			</div>
 		
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.1</h3>
@@ -574,7 +675,7 @@ const gettingstarted = {
 			</div>
 		
 		
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.0.3</h3>
@@ -606,7 +707,7 @@ const gettingstarted = {
 				</section>
 			</div>
 		
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.0.2</h3>
@@ -626,7 +727,7 @@ const gettingstarted = {
 				</section>
 			</div>
 		
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.0.1</h3>
@@ -664,7 +765,7 @@ const gettingstarted = {
 				</section>
 			</div>
 		
-			<div class="containerAccordion hideOverflow large spacerSingle">
+			<div class="containerAccordion hideOverflow large spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.0</h3>
@@ -751,7 +852,7 @@ const gettingstarted = {
 				</section>
 			</div>
 			
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.4.1</h3>
@@ -779,7 +880,7 @@ const gettingstarted = {
 				</section>
 			</div>
 			
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.4</h3>
@@ -812,7 +913,7 @@ const gettingstarted = {
 				</section>
 			</div>
 			
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.3.1</h3>
@@ -832,7 +933,7 @@ const gettingstarted = {
 				</section>
 			</div>
 			
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.3</h3>
@@ -856,7 +957,7 @@ const gettingstarted = {
 				</section>
 			</div>
 			
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.2.1</h3>
@@ -877,7 +978,7 @@ const gettingstarted = {
 				</section>
 			</div>
 			
-			<div class="containerAccordion hideOverflow spacerSingle large">
+			<div class="containerAccordion hideOverflow spacerSingle large" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.2</h3>
@@ -1029,7 +1130,7 @@ const gettingstarted = {
 				</section>
 			</div>
 			
-			<div class="containerAccordion hideOverflow large spacerSingle">
+			<div class="containerAccordion hideOverflow large spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.1</h3>
@@ -1285,7 +1386,7 @@ const gettingstarted = {
 				</section>
 			</div>
 		
-			<div class="containerAccordion hideOverflow spacerSingle">
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.0</h3>
@@ -1307,21 +1408,27 @@ const gettingstarted = {
 		</div>
 	`,
 	requirements: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routegettingstarted({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Getting&hellip;")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routegettingstarted({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Requirements</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Requirements</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p>These requirements are based on needing to support modern CSS features. For this reason (among many others) no version of Internet Explorer is supported. The minimum requirements for any Rebar app are:</p>
 			
 			<table class="definitions">
@@ -1332,6 +1439,19 @@ const gettingstarted = {
 					</tr>
 				</thead>
 					<tr>
+						<td class="textBold">3.0</td>
+						<td>
+							<ul class="excludeMargin">
+								<li class="textBold">jQuery 3.7.1</li>
+								<li>Chrome 123</li>
+								<li>Edge 123</li>
+								<li>Firefox 128</li>
+								<li>Safari 18</li>
+								<li>Opera 109</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
 						<td class="textBold">2.3.1</td>
 						<td>No changes</td>
 					</tr>
@@ -1341,11 +1461,11 @@ const gettingstarted = {
 							<p class="subtext">Added <code>oklch()</code>, <code>light-dark()</code>, Relative Color Syntax, <code>text-wrap: balance</code>, and Range Syntax</p>
 							<ul class="excludeMargin">
 								<li>jQuery 3.6.4</li>
-								<li>Chrome 123</li>
-								<li>Edge 123</li>
-								<li>Firefox 128</li>
-								<li>Safari 18</li>
-								<li>Opera 109</li>
+								<li class="textBold">Chrome 123</li>
+								<li class="textBold">Edge 123</li>
+								<li class="textBold">Firefox 128</li>
+								<li class="textBold">Safari 18</li>
+								<li class="textBold">Opera 109</li>
 							</ul>
 						</td>
 					</tr>
@@ -1359,11 +1479,11 @@ const gettingstarted = {
 							<p class="subtext">Added CSS Nesting</p>
 							<ul class="excludeMargin">
 								<li>jQuery 3.6.4</li>
-								<li>Chrome 112</li>
-								<li>Edge 112</li>
-								<li>Firefox 117</li>
-								<li>Safari 16.5</li>
-								<li>Opera 98</li>
+								<li class="textBold">Chrome 112</li>
+								<li class="textBold">Edge 112</li>
+								<li class="textBold">Firefox 117</li>
+								<li class="textBold">Safari 16.5</li>
+								<li class="textBold">Opera 98</li>
 							</ul>
 						</td>
 					</tr>
@@ -1372,12 +1492,12 @@ const gettingstarted = {
 						<td>
 							<p class="subtext">Added <code>@container</code> and <code>color-mix()</code></p>
 							<ul class="excludeMargin">
-								<li>jQuery 3.6.4</li>
-								<li>Chrome 106</li>
-								<li>Edge 106</li>
-								<li>Firefox 113</li>
-								<li>Safari 16</li>
-								<li>Opera 94</li>
+								<li class="textBold">jQuery 3.6.4</li>
+								<li class="textBold">Chrome 106</li>
+								<li class="textBold">Edge 106</li>
+								<li class="textBold">Firefox 113</li>
+								<li class="textBold">Safari 16</li>
+								<li class="textBold">Opera 94</li>
 							</ul>
 						</td>
 					</tr>
@@ -1390,12 +1510,12 @@ const gettingstarted = {
 						<td>
 							<p class="subtext">Added <code>dialog</code>, <code>@layer</code>, and <code>scrollbar-gutter</code>.</p>
 							<ul class="excludeMargin">
-								<li>jQuery 3.6.1</li>
-								<li>Chrome 99</li>
-								<li>Edge 99</li>
-								<li>Firefox 98</li>
-								<li>Safari 15.4</li>
-								<li>Opera 86</li>
+								<li class="textBold">jQuery 3.6.1</li>
+								<li class="textBold">Chrome 99</li>
+								<li class="textBold">Edge 99</li>
+								<li class="textBold">Firefox 98</li>
+								<li class="textBold">Safari 15.4</li>
+								<li class="textBold">Opera 86</li>
 							</ul>
 						</td>
 					</tr>
@@ -1409,11 +1529,11 @@ const gettingstarted = {
 							<p class="subtext">Added <code>aspect-ratio</code>.</p>
 							<ul class="excludeMargin">
 								<li>jQuery 3.6.0</li>
-								<li>Chrome 88</li>
-								<li>Edge 88</li>
-								<li>Firefox 89</li>
-								<li>Safari 15</li>
-								<li>Opera 74</li>
+								<li class="textBold">Chrome 88</li>
+								<li class="textBold">Edge 88</li>
+								<li class="textBold">Firefox 89</li>
+								<li class="textBold">Safari 15</li>
+								<li class="textBold">Opera 74</li>
 							</ul>
 						</td>
 					</tr>
@@ -1439,32 +1559,28 @@ const gettingstarted = {
 
 const controls = {
 	buttons: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Action Buttons</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Action Buttons</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Buttons have different styling based on the <code>pointer</code> and OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
-			<h2>Examples</h2>
-			
+		<div class="scrollview inset-T paddingContent">
+			<h2>Examples</h2>			
 			<table class="definitions spacerTriple" id="buttons">
 				<thead>
 					<tr>
@@ -1587,6 +1703,27 @@ const controls = {
 					</tr>
 				</tbody>
 			</table>
+			
+			<table class="definitions spacerTriple" id="buttons">
+				<thead>
+					<tr>
+						<th>Materials</th>
+						<th>Primary</th>
+						<th>Secondary</th>
+						<th>Translucent</th>
+						<th>Destructive</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Liquid Glass Thin</td>
+						<td><button data-button="action-fill" class="primary material-liquidglass-tinted">Label</button></td>
+						<td><button data-button="action-fill" class="secondary material-liquidglass-thin">Label</button></td>
+						<td><button data-button="action-fill" class="translucent">Label</button></td>
+						<td><button data-button="action-fill" class="destructive material-liquidglass-tinted">Label</button></td>
+					</tr>
+				</tbody>
+			</table>
 				
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
@@ -1647,32 +1784,32 @@ const controls = {
 			</table>
 			
 			<p>There are many other styles but they are specific to different components. What is listed here can be used with any button but primarily intended for form buttons.</p>
+			<h4>Materials</h4>
+			<p>Materials can be applied to a button if the platform requires it. All buttons are already setup with their <code>--material-tint</code>.</p>
 		</div>
 	`,
 	sidebaritems: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Sidebar Items</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Sidebar Items</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Sidebar Items have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<section class="containerSection">
 				<button data-button="sidebar">
@@ -1740,29 +1877,27 @@ const controls = {
 		</div>
 	`,
 	listitems: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">List Items</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">List Items</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent" id="containerListItems">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'List Items have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
+		<div class="scrollview inset-T paddingContent" id="containerListItems">
 			<h2>Examples</h2>
 			<h3 class="h6">Default Any Size</h3>
 			<section class="containerSection">
@@ -1844,6 +1979,8 @@ const controls = {
 					</label>
 				</div>
 			</section>
+			
+			
 			<h3 class="h6">Default Fixed Size</h3>
 			<section class="containerSection">
 				<button data-button="item-flat" data-icon-size="fixed">\
@@ -1924,6 +2061,8 @@ const controls = {
 					</label>
 				</div>
 			</section>
+			
+			
 			<h3 class="h6">Rounded Any Size</h3>
 			<section class="containerSection">
 				<button data-button="item-rounded" data-icon-size="auto">
@@ -1993,7 +2132,7 @@ const controls = {
 							<span class="contextLabel">Test Context Menu</span>
 							<span class="gripper">${iconGripper()}</span>
 						</button>
-						<div class="contextContainerMenu">
+						<div class="contextContainerMenu material-liquidglass-thin">
 							<button data-button="menu-item" data-value="" data-label="">Item 1</button>
 							<button data-button="menu-item" data-value="" data-label="">Item 2</button>
 						</div>
@@ -2013,6 +2152,8 @@ const controls = {
 					</label>
 				</div>
 			</section>
+			
+			
 			<h3 class="h6">Rounded Fixed Size</h3>
 			<section class="containerSection">
 				<button data-button="item-rounded" data-icon-size="fixed">
@@ -2082,7 +2223,7 @@ const controls = {
 							<span class="contextLabel">Test Context Menu</span>
 							<span class="gripper">${iconGripper()}</span>
 						</button>
-						<div class="contextContainerMenu">
+						<div class="contextContainerMenu material-liquidglass-thin">
 							<button data-button="menu-item" data-value="" data-label="">Item 1</button>
 							<button data-button="menu-item" data-value="" data-label="">Item 2</button>
 						</div>
@@ -2112,8 +2253,199 @@ const controls = {
 				</button>
 			</section>
 			
+			
+			<h3 class="h6">Platter Any Size</h3>
+			<section class="containerSection">
+				<button data-button="item-platter" data-icon-size="auto">
+					<div class="containerLeading">
+						${iconHuman.userCircleStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</button>
+				<button data-button="item-platter" data-icon-size="auto">
+					<div class="containerLeading">
+						${iconTransport.rocketStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</button>
+				<button data-button="item-platter" data-icon-size="auto">
+					<div class="containerLeading">
+						${iconObjects.paintbrushStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</button>
+				<button data-button="item-platter" data-icon-size="auto" class="picked">
+					<div class="containerLeading">
+						${iconShapes.rectangleStackHorizontalStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</button>
+				<button data-button="item-platter" data-icon-size="auto">
+					<div class="containerLeading">
+						${iconInterfaceElements.locationStroke}
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</button>
+				<div data-button="item-platter" data-icon-size="auto">
+					<div class="containerLeading">
+						${iconHardware.applewatchSideStroke}
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</div>
+				<div data-button="item-platter" data-icon-size="auto">
+					<div class="containerLeading">
+						${iconShapes.starSixPointStroke}
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+					<div class="containerContextButton" data-setting="" data-position="right" data-type="" data-icongroup="" data-iconname="">
+						<button data-button="dropdown" class="buttonContext primary">
+							<span class="contextLabel">Test Context Menu</span>
+							<span class="gripper">${iconGripper()}</span>
+						</button>
+						<div class="contextContainerMenu material-liquidglass-thin">
+							<button data-button="menu-item" data-value="" data-label="">Item 1</button>
+							<button data-button="menu-item" data-value="" data-label="">Item 2</button>
+						</div>
+					</div>
+				</div>
+				<div data-button="item-platter" data-icon-size="auto">
+					<div class="containerLeading">
+						${iconInterfaceElements.screenshotStroke}
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+					<label for="switch2">
+						<input type="checkbox" switch="" checked="" id="switch2" name="switch2" value="" onclick="exampleSwitches(this)">
+						<div class="fakeCheckbox"></div>
+					</label>
+				</div>
+			</section>
+			
+			
+			<h3 class="h6">Platter Fixed Size</h3>
+			<section class="containerSection">
+				<button data-button="item-platter" data-icon-size="fixed">
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: red;">${iconHuman.userCircleFill}</span>
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</button>
+				<button data-button="item-platter" data-icon-size="fixed">
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: orange;">${iconTransport.rocketFill}</span>
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</button>
+				<button data-button="item-platter" data-icon-size="fixed">
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: gold;">${iconObjects.paintbrushFill}</span>
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</button>
+				<button data-button="item-platter" data-icon-size="fixed" class="picked">
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: limegreen;">${iconShapes.rectangleStackHorizontalFill}</span>
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</button>
+				<button data-button="item-platter" data-icon-size="fixed">
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: deepskyblue;">${iconInterfaceElements.locationFill}</span>
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</button>
+				<div data-button="item-platter" data-icon-size="fixed">
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: darkblue;">${iconHardware.applewatchSideStroke}</span>
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</div>
+				<div data-button="item-platter" data-icon-size="fixed">
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: darkorchid;">${iconShapes.starSixPointFill}</span>
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+					<div class="containerContextButton" data-setting="" data-position="right" data-type="" data-icongroup="" data-iconname="">
+						<button data-button="dropdown" class="buttonContext primary">
+							<span class="contextLabel">Test Context Menu</span>
+							<span class="gripper">${iconGripper()}</span>
+						</button>
+						<div class="contextContainerMenu material-liquidglass-thin">
+							<button data-button="menu-item" data-value="" data-label="">Item 1</button>
+							<button data-button="menu-item" data-value="" data-label="">Item 2</button>
+						</div>
+					</div>
+				</div>
+				<div data-button="item-platter" data-icon-size="fixed">
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: hotpink;">${iconInterfaceElements.screenshotStroke}</span>
+						<div class="label">
+							<span>DIV</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+					<label for="switch2">
+						<input type="checkbox" switch="" checked="" id="switch2" name="switch2" value="" onclick="exampleSwitches(this)">
+						<div class="fakeCheckbox"></div>
+					</label>
+				</div>
+				<button data-button="item-platter" data-icon-size="fixed">
+					<div class="containerLeading">
+						<span class="containerIcon" style="--icon-container: deepskyblue;">${iconInterfaceElements.locationFill}</span>
+						<div class="label">
+							<span>Button</span>
+							<span class="subtext">Sub Label</span>
+						</div>
+					</div>
+				</button>
+			</section>
+			
 			<h2>Documentation</h2>
-			<p>List Items are buttons with the <code>data-button="flat"</code> or <code>data-button="rounded"</code> attributes. They come with default and <code>picked</code> states. An icon is not mandatory, if you do include one it can be any size but you can fix it to a Rebar defined size with the <code>data-icon-size="fixed"</code> attribute. If you don't wish to set a size for the icons you can use the <code>data-button="auto"</code> attribute. If you need to include a sublabel that's possible with the <code>subtext</code> class.</p>
+			<p>List Items are buttons with the <code>data-button="item-flat"</code>, <code>data-button="item-rounded"</code>, or <code>data-button="item-platter"</code> attributes. They come with default and <code>picked</code> states. An icon is not mandatory, if you do include one it can be any size but you can fix it to a Rebar defined size with the <code>data-icon-size="fixed"</code> attribute. If you don't wish to set a size for the icons you can use the <code>data-button="auto"</code> attribute. If you need to include a sublabel that's possible with the <code>subtext</code> class.</p>
 			<p>The icons can be wrapped in a span with the <code>containerIcon</code> class which will give them the correct appearance on iOS and macOS. It is required to include <code>style="--icon-container: color;"</code> to fill in the background.</p>
 			<p>You always need to wrap the leading contents in a div with the <code>containerLeading</code> class. This helps when you have a control on the right and when large text is selected.</p>
 			<h3 class="h6">Template</h3>
@@ -2141,6 +2473,18 @@ const controls = {
 	&lt;/div&gt;
 	//Place any controls here
 &lt;/button&gt;
+
+//PLATTER
+&lt;button data-button="item-platter" data-icon-size="fixed"&gt;
+	&lt;div class="containerLeading"&gt;
+		&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{iconList()}&lt;/span&gt;
+		&lt;div class="label"&gt;
+			&lt;span>&lt;/span&gt;
+			&lt;span class="subtext"&gt;&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	//Place any controls here
+&lt;/button&gt;
 </pre>
 
 			<h3>CSS</h3>
@@ -2148,21 +2492,27 @@ const controls = {
 		</div>
 	`,
 	badges: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Badges</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Badges</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<table class="definitions spacerTriple">
 			<tbody>
@@ -2227,30 +2577,27 @@ const controls = {
 		</div>
 	`,
 	segmenteditems: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Segmented Items</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Segmented Items</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Segmented Items have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-			
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<h3 class="h6">Default Style</h3>
 			<section class="containerSection">
@@ -2287,61 +2634,60 @@ const controls = {
 		</div>
 	`,
 	toolbaritems: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Toolbar Items</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Toolbar Items</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Toolbar Items have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<section class="containerSection">
 				<button data-button="action-transparent" class="toolbarItem" title="Example Button">${iconShapes.plusCircleStroke}</button>
+				<button data-button="action-fill" class="primary toolbarItem material-liquidglass-tinted" title="Done">${iconShapes.checkmarkStroke}</button>
+				<button data-button="action-transparent" class="toolbarItem material-liquidglass-thin" title="Cancel">${iconShapes.timesSmallStroke}</button>
 			</section>
 			<h2>Documentation</h2>
-			<p>This button style is intended to give a more native look to toolbar buttons when viewed on different devices by the <code>toolbarItem</code> class with the <code>data-button="transparent"</code> attribute. If this isn't required please use the other transparent button styles.</p>
+			<p>This button style is intended to give a more native look to toolbar buttons when viewed on different devices by the <code>toolbarItem</code> class with the <code>data-button="transparent"</code> attribute.</p>
+			<p>You should not add Liquid Glass directly to this button. It should be done to a parent container for grouping purposes.</p>
 		</div>
 	`,
 	tabbaritems: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Tab Bar Items</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Tab Bar Items</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Tab Bars Items have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<section class="containerSection">
 				<button data-button="tab">
@@ -2370,71 +2716,35 @@ const controls = {
 		</div>
 	`,
 	backbutton: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Back Button</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Back Button</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'The Back Button will use a different icon based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
-			<h2>Examples</h2>
-			
-			<table class="definitions spacerTriple">
-				<thead>
-					<tr>
-						<th>Types</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Default</td>
-						<td>
-							<button data-button="action-transparent" class="back slim toolbarItem" style="display: inline-flex;" title="Navigate Back">
-								${iconShapes.chevronBackwardsStroke}
-								Label
-							</button>
-						</td>
-					</tr>
-					<tr>
-						<td>Android or Windows</td>
-						<td>
-							<button data-button="action-transparent" class="back toolbarItem" style="display: inline-flex;" title="Navigate Back">
-								${iconShapes.arrowSingleLeft}
-							</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>	
-			
-			<button data-button="action-fill" class="primary">
-				${insertBackButton("label")}
-			</button>
-			
+		<div class="scrollview inset-T paddingContent">
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
-			<p>The Back button is the single way in Rebar to navigate backwards between views. It should always be included in Secondary and Main columns. Including a label is recommended but not mandatory</p>
+			<p>The Back button is the single way in Rebar to navigate backwards between views. It should always be included in Secondary and Main columns. Do not include a label.</p>
 			<h4 class="h6">Template</h4>
 <pre class="spacerTriple">
-&lt;button data-button="action-transparent" class="back slim" onclick='routename({modifier: false, navtype: "backwards"})' title="Navigate Back"&gt;
-	&#36;{insertBackButton("label")}
-&lt;/button&gt;
+&lt;span onclick='routename({modifier: false, navtype: "backwards"})'&gt;
+	&#36;{insertBackButton()}
+&lt;/span&gt;
 </pre>
 			
 			<h3>Functions</h3>
@@ -2442,46 +2752,43 @@ const controls = {
 			<p class="spacerTriple">For rendering the contents you should use the <code>insertBackButton()</code> function which will handle displaying the correct arrow for you based on the OS.</p>
 			
 			<h3>CSS</h3>
-			<p>On larger screens the Back Button will hide itself as it's not necessary since all columns are always visible (The examples on this page are being forced to be always visible so they can be seen). At it's core the Back Button is a standard Button which means it can inherit all the styling classes as needed. You should use the <code>data-button="action-transparent"</code> attribute.</p>
-			<p>For Back Buttons with the chevron not in a circle you need to add the <code>slim</code> class to the button to adjust the size of the SVG to avoid excess whitespace.</p>
+			<p>On larger screens the Back Button will hide itself as it's not necessary since all columns are always visible.</p>
 		</div>
 	`,
 	contextmenus: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Context Menus</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Context Menus</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Context Menus have different styling based on the <code>pointer</code> used, OS used, and the parent container',
-					icon: false,
-					size: 'large',
-				})
-			}
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<table class="definitions spacerTriple">
 				<tbody>
 					<tr>
 						<td>Default</td>
 						<td>
-							<div class="containerContextButton" data-setting="context1" data-position="right">
+							<div class="containerContextButton" data-setting="context1" data-position="left">
 								<button data-button="dropdown" class="buttonContext">
 									<span class="contextLabel">Label</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
-								<div class="contextContainerMenu">
+								<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 									<button data-button="menu-item" data-value="first">First</button>
 									<button data-button="menu-item" data-value="second">Second</button>
 									<button data-button="menu-item" data-value="third">Third</button>
@@ -2504,7 +2811,7 @@ const controls = {
 										<span class="contextLabel">Label</span>
 										<span class="gripper">${iconGripper()}</span>
 									</button>
-									<div class="contextContainerMenu">
+									<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 										<button data-button="menu-item" data-value="first">First</button>
 										<button data-button="menu-item" data-value="second">Second</button>
 										<button data-button="menu-item" data-value="third">Third</button>
@@ -2524,7 +2831,7 @@ const controls = {
 										<span class="contextLabel">Label</span>
 										<span class="gripper">${iconGripper()}</span>
 									</button>
-									<div class="contextContainerMenu">
+									<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 										<button data-button="menu-item" data-value="first">First</button>
 										<button data-button="menu-item" data-value="second">Second</button>
 										<button data-button="menu-item" data-value="third">Third</button>
@@ -2543,7 +2850,7 @@ const controls = {
 									${iconShapes.triangleRightCircleStroke}
 									<span class="gripper">${iconGripper()}</span>
 								</button>
-								<div class="contextContainerMenu">
+								<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 									<button data-button="menu-item" data-value="first">First</button>
 									<button data-button="menu-item" data-value="second">Second</button>
 									<button data-button="menu-item" data-value="third">Third</button>
@@ -2561,7 +2868,7 @@ const controls = {
 									<span class="contextLabel">Label</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
-								<div class="contextContainerMenu">
+								<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 									<button data-button="menu-item" data-value="first">First</button>
 									<button data-button="menu-item" data-value="second">Second</button>
 									<button data-button="menu-item" data-value="third">Third</button>
@@ -2579,7 +2886,7 @@ const controls = {
 									<span class="contextLabel">Label</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
-								<div class="contextContainerMenu">
+								<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 									<button data-button="menu-item" data-value="first">First</button>
 									<button data-button="menu-item" data-value="second">Second</button>
 									<button data-button="menu-item" data-value="third">Third</button>
@@ -2597,7 +2904,7 @@ const controls = {
 									<span class="contextLabel">Label</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
-								<div class="contextContainerMenu">
+								<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 									<button data-button="menu-item" data-value="first">First</button>
 									<button data-button="menu-item" data-value="second">Second</button>
 									<button data-button="menu-item" data-value="third">Third</button>
@@ -2615,32 +2922,32 @@ const controls = {
 									<span class="contextLabel">${iconObjects.trashStroke} Label</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
-								<div class="contextContainerMenu">
+								<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 									<button data-button="menu-item" data-value="love">
-										<span class="label">Save to Playlist&hellip;</span>
 										${iconShapes.plusCircleStroke}
+										<span class="label">Save to Playlist&hellip;</span>
 									</button>
 									<button data-button="menu-item" data-value="second">
-										<span class="label">Love</span>
 										${iconShapes.heartStroke}
+										<span class="label">Love</span>
 									</button>
 									<button data-button="menu-item" data-value="second">
-										<span class="label">View Album</span>
 										${iconShapes.musicnoteDouble}
+										<span class="label">View Album</span>
 									</button>
 									<button data-button="menu-item" data-value="second">
-										<span class="label">Add to Up Next&hellip;</span>
 										${iconInterfaceElements.listStroke}
+										<span class="label">Add to Up Next&hellip;</span>
 									</button>
 									<div class="divider"></div>
 									<button data-button="menu-item" data-value="third">
-										<span class="label">Profile</span>
 										<img src="app/images/ui/sidebar1.png" />
+										<span class="label">Profile</span>
 									</button>
 									<div class="divider"></div>
 									<button data-button="menu-item" data-value="fourth" class="destructive">
-										<span class="label">Delete</span>
 										${iconObjects.trashStroke}
+										<span class="label">Delete</span>
 									</button>
 								</div>
 							</div>
@@ -2651,7 +2958,7 @@ const controls = {
 						<td>
 							<div class="containerContextButton" data-setting="context8" data-position="center">
 								<img class="buttonContext" src="app/images/ui/sidebar1.png" width="32"  title="Example with image" />
-								<div class="contextContainerMenu">
+								<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 									<button data-button="menu-item" data-value="first">First</button>
 									<button data-button="menu-item" data-value="second">Second</button>
 									<button data-button="menu-item" data-value="third">Third</button>
@@ -2669,7 +2976,7 @@ const controls = {
 									<span class="contextLabel">Label</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
-								<div class="contextContainerMenu">
+								<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 									<button data-button="menu-item" data-value="first">First</button>
 									<button data-button="menu-item" data-value="second">Second</button>
 									<button data-button="menu-item" data-value="third">Third</button>
@@ -2687,26 +2994,26 @@ const controls = {
 									<span class="contextLabel"><div class="colorChip" data-accent="red"></div> Red</span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
-								<div class="contextContainerMenu">
+								<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 									<button data-button="menu-item" class="picked" data-value="first">
-										<span class="label">Red</span>
 										<div class="colorChip" data-accent="red"></div>
+										<span class="label">Red</span>
 									</button>
 									<button data-button="menu-item" data-value="second">
-										<span class="label">Blue</span>
 										<div class="colorChip" data-accent="blue"></div>
+										<span class="label">Blue</span>
 									</button>
 									<button data-button="menu-item" data-value="third">
-										<span class="label">Green</span>
 										<div class="colorChip" data-accent="green"></div>
+										<span class="label">Green</span>
 									</button>
 									<button data-button="menu-item" data-value="fourth">
-										<span class="label">Yellow</span>
 										<div class="colorChip" data-accent="yellow"></div>
+										<span class="label">Yellow</span>
 									</button>
 									<button data-button="menu-item" data-value="fifth">
-										<span class="label">Purple</span>
 										<div class="colorChip" data-accent="purple"></div>
+										<span class="label">Purple</span>
 									</button>
 								</div>
 							</div>
@@ -2720,7 +3027,7 @@ const controls = {
 									<span class="contextLabel"></span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
-								<div class="contextContainerMenu">
+								<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 									<button data-button="menu-item" data-value="first" data-label="First">First</button>
 									<button data-button="menu-item" data-value="second" data-label="Second">Second</button>
 									<button data-button="menu-item" data-value="third" data-label="Third">Third</button>
@@ -2738,22 +3045,22 @@ const controls = {
 									<span class="contextLabel"></span>
 									<span class="gripper">${iconGripper()}</span>
 								</button>
-								<div class="contextContainerMenu">
+								<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 									<button data-button="menu-item" data-value="first" data-label="First">
-										<span class="label">Paintbrush</span>
 										${iconObjects.paintbrushFill}
+										<span class="label">Paintbrush</span>
 									</button>
 									<button data-button="menu-item" data-value="second" data-label="Second">
-										<span class="label">Highlighter</span>
 										${iconObjects.highlighterFill}
+										<span class="label">Highlighter</span>
 									</button>
 									<button data-button="menu-item" data-value="third" data-label="Third">
-										<span class="label">Pencil</span>
 										${iconObjects.pencilFill}
+										<span class="label">Pencil</span>
 									</button>
 									<button data-button="menu-item" data-value="fourth" data-label="Fourth">
-										<span class="label">Pen</span>
 										${iconObjects.penFill}
+										<span class="label">Pen</span>
 									</button>
 								</div>
 							</div>
@@ -2764,7 +3071,7 @@ const controls = {
 						<td>
 							<div class="containerContextButton" data-setting="examplePopover" data-position="center" data-type="popover">
 								<button data-button="action-fill" class="buttonContext">Label</button>
-								<div class="contextContainerMenu">
+								<div class="contextContainerMenu material-liquidglass-thick material-acrylic">
 									<div class="containerPopoverContent">
 										<h1 class="textAlignCenter excludePadding">This is an example Popover</h1>
 									</div>
@@ -2823,7 +3130,7 @@ const controls = {
 		&lt;span class="contextLabel"&gt;&lt;/span&gt;
 		&lt;span class="gripper"&gt;&#36;{iconGripper()}&lt;/span&gt;
 	&lt;/button&gt;
-	&lt;div class="contextContainerMenu"&gt;
+	&lt;div class="contextContainerMenu material-liquidglass-thick material-acrylic"&gt;
 		&lt;button data-button="menu-item" data-value="" data-label=""&gt;&lt;/button&gt;
 		&lt;button data-button="menu-item" data-value="" data-label=""&gt;&lt;/button&gt;
 	&lt;/div&gt;
@@ -2845,36 +3152,35 @@ const controls = {
 			<p>Styling is handled for you and will adjust according to the element a Dropdown button is contained in. On top of this you don't have to use a Button, any element with the <code>buttonContext</code> class will make the element clickable.</p>
 			<p>Menu items must be Buttons. They will infer styling from the <code>.contextContainerMenu</code> class. You can add the <code>destructive</code> class to a menu item Button to change the text and icon to red.</p>
 			<p>Menu items can be grouped in a container with the <code>.group</code> class to help with dynamic menu generation</p>
+			<p>The menu container should use Thick Liquid Glass material.</p>
 		</div>
 	`,
 	popovers: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Popovers</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Popovers</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Popovers have different styling based on the <code>pointer</code> and OS used',
-					icon: false,
-					size: 'large',
-				})
-			}
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div class="containerContextButton spacerTriple" data-setting="examplePopover" data-position="left" data-type="popover">
 				<button data-button="action-fill" class="buttonContext primary">Show</button>
-				<div class="contextContainerMenu">
+				<div class="contextContainerMenu material-liquidglass-thin material-acrylic">
 					<div class="containerPopoverContent">
 						<h1 class="textAlignCenter excludePadding">This is an example Popover</h1>
 					</div>
@@ -2892,38 +3198,38 @@ const controls = {
 			<p>It is important to note that <code>contextContainerMenu</code> can not have any padding added to it because Chrome will display this when the menu is collapsed. Instead add a container inside and add the padding to that.</p>
 			<p>You will need to manually set the <code>min-width</code>, <code>max-width</code>, <code>min-height</code>, and <code>max-height</code> for <code>.contextContainerMenu</code>. Rebar does not want to make any assumptions about how you want to size each Popover.</p>
 			<p>All other styling considerations are inherited from Context Menus.</code>
+			<p>Popovers can use Thick or Think Liquid Glass.</p>
 		</div>
 	`,
 	segmentedcontrols: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Segmented Controls</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Segmented Controls</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Segmented Controls have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<h3 class="h6">Default</h3>
 			<section class="containerSection">
 				<div class="controlSegmented" data-setting="segment1">
 					<button data-button="segment" data-name="defaultsegment1" onclick="routesegmentexampledefault('defaultsegment1')">Watch Now</button>
+					<button data-button="segment" data-name="defaultsegment4" onclick="routesegmentexampledefault('defaultsegment4')">Library</button>
+					<button data-button="segment" data-name="defaultsegment5" onclick="routesegmentexampledefault('defaultsegment5')">Store</button>
 					<button data-button="segment" class="picked" data-name="defaultsegment2" onclick="routesegmentexampledefault('defaultsegment2')">${iconTransport.rocketStroke}</button>
 					<button data-button="segment" data-name="defaultsegment3" onclick="routesegmentexampledefault('defaultsegment3')"><img src="app/images/ui/sidebar1.png" /></button>
 				</div>
@@ -2933,6 +3239,8 @@ const controls = {
 			<section class="containerSection">
 				<div class="controlSegmented split" data-setting="segment2">
 					<button data-button="segment" data-name="splitsegment1" onclick="routesegmentexamplesplit('splitsegment1')">Watch Now</button>
+					<button data-button="segment" data-name="splitsegment4" onclick="routesegmentexamplesplit('splitsegment4')">Library</button>
+					<button data-button="segment" data-name="splitsegment5" onclick="routesegmentexamplesplit('splitsegment5')">Store</button>
 					<button data-button="segment" class="picked" data-name="splitsegment2" onclick="routesegmentexamplesplit('splitsegment2')">${iconTransport.rocketStroke}</button>
 					<button data-button="segment" data-name="splitsegment3" onclick="routesegmentexamplesplit('splitsegment3')"><img src="app/images/ui/sidebar1.png" /></button>
 				</div>
@@ -2940,10 +3248,23 @@ const controls = {
 			
 			<h3 class="h6">Display</h3>
 			<section class="containerSection">
-				<div class="controlSegmented display" data-setting="segment4">
+				<div class="controlSegmented display material-liquidglass-thin" data-setting="segment4">
 					<button data-button="segment" data-name="displaysegment1" onclick="routesegmentexampledisplay('displaysegment1')">Watch Now</button>
+					<button data-button="segment" data-name="displaysegment4" onclick="routesegmentexampledisplay('displaysegment4')">Library</button>
+					<button data-button="segment" data-name="displaysegment5" onclick="routesegmentexampledisplay('displaysegment5')">Store</button>
 					<button data-button="segment" class="picked" data-name="displaysegment2" onclick="routesegmentexampledisplay('displaysegment2')">${iconTransport.rocketStroke}</button>
 					<button data-button="segment" data-name="displaysegment3" onclick="routesegmentexampledisplay('displaysegment3')"><img src="app/images/ui/sidebar1.png" /></button>
+				</div>
+			</section>
+			
+			<h3 class="h6">Large Size</h3>
+			<section class="containerSection">
+				<div class="controlSegmented sizeLarge" data-setting="segment1">
+					<button data-button="segment" data-name="defaultsegment1" onclick="routesegmentexampledefault('defaultsegment1')">${iconHardware.tvStroke} Watch Now</button>
+					<button data-button="segment" data-name="defaultsegment4" onclick="routesegmentexampledefault('defaultsegment4')">${iconObjects.bookOpenStroke} Library</button>
+					<button data-button="segment" data-name="defaultsegment5" onclick="routesegmentexampledefault('defaultsegment5')">${iconObjects.bagStroke} Store</button>
+					<button data-button="segment" class="picked" data-name="defaultsegment2" onclick="routesegmentexampledefault('defaultsegment2')">${iconTransport.rocketStroke}</button>
+					<button data-button="segment" data-name="defaultsegment3" onclick="routesegmentexampledefault('defaultsegment3')"><img src="app/images/ui/sidebar1.png" /> Favourites</button>
 				</div>
 			</section>
 			
@@ -2952,7 +3273,7 @@ const controls = {
 			<p>Segmented Controls are just a set of Buttons that sit in a <code>controlSegmented</code> container. The selected Button will gain a <code>picked</code> class.</p>
 			<h4 class="h6">Template</h4>
 <pre class="spacerTriple">
-&lt;div class="controlSegmented" data-setting="">
+&lt;div class="controlSegmented material-liquidglass-thin" data-setting="">
 	&lt;button data-button="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
 	&lt;button data-button="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
 	&lt;button data-button="segment" data-name="" onclick="routename('modifier')"&gt;&lt;/button&gt;
@@ -2971,30 +3292,27 @@ const controls = {
 		</div>
 	`,
 	switches: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Switches</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Switches</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Switches have different styling based on the <code>pointer</code> and OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<table class="definitions spacerSingle">
 				<tbody>
@@ -3032,8 +3350,19 @@ const controls = {
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
 			<p>Switches are checkboxes that have the <code>switch</code> attribute added to them. Currently they use the fake checkbox code but in the future will be updated to remove this when there is wider support for the Switch element.</p>
+			
 			<h3>Functions</h3>
-			<p>The <code>clickSwitch()</code> function checks what state the Switch has changed to when you click it. No value is saved to local storage by default. Instead use the Preferences system with the returned value.</p>
+			<p>The <code>clickSwitch()</code> function checks what state the Switch has changed to when you click it and returns <code>true</code> and <code>false</code>. No value is saved to local storage by default. Instead use the Preferences system with the returned value.</p>
+			
+			${
+				insertBanner({
+					type: 'warning',
+					content: '<code>clickSwitch()</code> returned <code>"on"</code> and <code>"off"</code> in Rebar 1 and 2',
+					icon: false,
+					size: 'large',
+				})
+			}
+			
 <pre class="spacerTriple">
 $(document).on('click', '#switch', function() {
 	let state = clickSwitch(this);
@@ -3046,29 +3375,27 @@ $(document).on('click', '#switch', function() {
 		</div>
 	`,
 	forminputs: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Form Inputs</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Form Inputs</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Form Inputs have different styling based on the OS used',
-					icon: false,
-					size: 'large',
-				})
-			}
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<h3 class="h6">Radio Buttons</h3>
 			<section class="containerSection">
@@ -3127,23 +3454,25 @@ $(document).on('click', '#switch', function() {
 			<p class="subtext"><code>font-size</code> on these fields is clamped to a minimum of 16px to avoid Mobile Safari's page zoom when the field has <code>:focus</code>.</p>
 			<section class="containerSection">
 				<form class="excludeMargin">
-					<div class="containerInput">
+					<div class="containerInput spacerSingle">
 						<label for="textfield1">Textfield</label>
 						<br>
 						<input type="text" id="textfield1" name="textfield1" placeholder="This is a placeholder">
 					</div>
-					<div class="containerInput">
+					<div class="containerInput spacerSingle">
 						<label for="textfield2">Stepper</label>
 						<br>
 						<input type="number" id="textfield2" name="textfield2">
 					</div>
-					<div class="containerInput">
+					<div class="containerInput spacerSingle">
 						<label for="textfield3">Textarea</label>
 						<br>
 						<textarea id="textfield3" name="textfield3" rows="4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui.</textarea>
 					</div>
-					<div class="containerInput excludeMargin">
-						<input type="search" id="textfield4" name="textfield4" placeholder="Search">
+					<div class="containerSearch">
+						<input type="search" placeholder="Search" id="pokemonSearch" />
+						<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+						<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
 					</div>
 				</form>
 			</section>
@@ -3169,43 +3498,44 @@ $(document).on('click', '#switch', function() {
 		</div>
 	`,
 	searchbars: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Search Bars</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Search Bars</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Search Bars have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div class="containerGeneric excludePadding spacerTriple" id="scrollview1">
-				<header class="containerToolbar singleItem withAccessory">
-					<h1 class="headerToolbar">National Dex</h1>
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">National Dex</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
 				</header>
-				<div class="containerAccessoryBar">
+				<div class="containerAccessoryBar layoutFixed">
 					<div class="containerSearch">
 						<input type="search" placeholder="Search Pok&eacute;mon" id="pokemonSearch" />
 						<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
 						<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
 					</div>
 				</div>
-				<div class="scrollview cropToolbar cropAccessoryBar alwaysForegroundColor">
+				<div class="scrollview inset-TA alwaysForegroundColor">
 					<div class="containerItemList" id="pokemon"></div>
 				</div>
 			</div>
@@ -3217,7 +3547,7 @@ $(document).on('click', '#switch', function() {
 			<p>It is a requirement that an ID is applied to the search input and the list of items container. It is a requirement for a class to be applied to the item container and the container that contains the text to be searched.</p>
 			<h4 class="h6">Template</h4>
 <pre class="spacerTriple">
-&lt;div class="containerSearch"&gt;
+&lt;div class="containerSearch material-liquidglass-thin"&gt;
 	&lt;input type="search" placeholder="" id="" /&gt;
 	&lt;div class="buttonClearSearch"&gt;&#36;{iconShapes.timesCircleFill}&lt;/div&gt;
 	&lt;div class="iconSearch"&gt;&#36;{iconInterfaceElements.searchStroke}&lt;/div&gt;
@@ -3293,21 +3623,27 @@ $(document).on('click', '.buttonClearSearch', function() {
 		</div>
 	`,
 	selectiongrids: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Selection Grids</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Selection Grids</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<h3 class="h6">Single Selection</h3>
 			<div class="spacerDouble containerTokens" id="exampleTokenField" data-max="1" data-setting="critters">
@@ -3403,29 +3739,27 @@ $(document).on('click', '.buttonClearSearch', function() {
 		</div>
 	`,
 	tokens: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Tokens</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Tokens</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Tokens have different styling based on the OS used',
-					icon: false,
-					size: 'large',
-				})
-			}
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div class="spacerTriple containerTokens" id="exampleTokenField" data-max="2" data-setting="type">
 				<button data-button="token" data-value="normal">Normal</button>
@@ -3467,30 +3801,27 @@ $(document).on('click', '.buttonClearSearch', function() {
 		</div>
 	`,
 	sharebutton: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecontrols({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Controls")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecontrols({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Share Button</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Share Button</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'The Share Button will use a different icon based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<p class="subtext">Note: If you are using a browser that do not support <code>navigator.share</code> then a non-functional button will be displayed for illustrative purposes.</p>
 			
@@ -3551,21 +3882,27 @@ $(document).on('click', '.buttonClearSearch', function() {
 
 const layout = {
 	routing: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Layout")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routelayout({modifier: false, navtype: "backwards"})'>
+						${insertBackButton("Layout")}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Routing</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Routing</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Documentation</h2>
 			<p>Routing is the primary way to generate and navigate through views in Rebar. It will handle forwards navigation, backwards navigation, and loading a deeplink.
 			<p>There is minimal setup required:</p>
@@ -3735,21 +4072,27 @@ if (url.query == "") {
 		</div>
 	`,
 	columns: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Layout")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routelayout({modifier: false, navtype: "backwards"})'>
+						${insertBackButton("Layout")}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Columns</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Columns</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h3>HTML</h3>
 			<table class="definitions spacerSingle">
 				<thead>
@@ -3810,197 +4153,37 @@ if (url.query == "") {
 		</div>
 	`,
 	sidebars: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Layout")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routelayout({modifier: false, navtype: "backwards"})'>
+						${insertBackButton("Layout")}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Sidebars</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Sidebars</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Sidebars have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
-			<h2>Examples</h2>
-			<p class="subtext">Note: Examples provided here are for illustrative purposes only and are non-functional. To view functional examples the Sample app itself uses Sidebars and the Columns section also has working examples.</p>
-			<h4 class="h6">Standard layout</h4>
-			<div class="containerGeneric excludePadding spacerTriple" id="exampleSidebar1">
-				<aside class="containerAside single">
-					<div class="containerSidebar" id="sidebarWithHeader" data-target="contentArea1">
-						<h1>Header</h1>
-						<div class="containerSearch">
-							<input type="search" placeholder="Search Pok&eacute;mon" id="pokemonSearch" />
-							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
-							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
-						</div>
-						<section>
-							<button data-button="sidebar" data-value="pickedItem">
-								<div class="labelSidebar">
-									${iconNature.sunStroke}
-									Picked Item
-								</div>
-								<p class="containerBadge excludeMargin" data-type="sidebar">120</p>
-							</button>
-							<button data-button="sidebar" data-value="unpickedItem">
-								<div class="labelSidebar">
-									${iconNature.moonLeftStroke}
-									Unpicked Item
-								</div>
-								<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
-							</button>
-						</section>
-						<div class="headerAccordion active">
-							<h3 class="headerList">SVG</h3>
-							<div class="containerChevron">${iconShapes.chevronSingleRightFill}</div>
-						</div>
-						<section class="containerAccordionContents active">
-							<div class="wrapper">
-								<button data-button="sidebar" data-value="svg1">
-									<div class="labelSidebar">
-										${iconIndices.oneCircleStroke}
-										SVG Item 1
-									</div>
-								</button>
-								<button data-button="sidebar" data-value="svg2">
-									<div class="labelSidebar">
-										${iconIndices.twoCircleStroke}
-										SVG Item 2
-									</div>
-								</button>
-								<button data-button="sidebar" data-value="svg3">
-									<div class="labelSidebar">
-										${iconIndices.threeCircleStroke}
-										SVG Item 3
-									</div>
-								</button>
-							</div>
-						</section>
-						<h2 class="headerList">Images</h2>
-						<section>
-							<button data-button="sidebar" data-value="image1">
-								<div class="labelSidebar">
-									<img src="app/images/ui/sidebar1.png" alt="" />
-									Image Item 1
-								</div>
-							</button>
-							<button data-button="sidebar" data-value="image2">
-								<div class="labelSidebar">
-									<img src="app/images/ui/sidebar2.png" alt="" />
-									Image Item 2
-								</div>
-							</button>
-							<button data-button="sidebar" data-value="image3">
-								<div class="labelSidebar">
-									<img src="app/images/ui/sidebar3.png" alt="" />
-									Image Item 3
-								</div>
-							</button>
-						</section>
-					</div>
-				</aside>
-				<main id="contentArea1"></main>
-			</div>
-			
-			<h3 class="h6">Grid Layout</h3>
-			<div class="containerGeneric excludePadding spacerTriple" id="exampleSidebar2">
-				<aside class="containerAside single">
-					<div class="containerSidebar" id="sidebarWithoutHeader" data-target="contentArea2">
-						<h1>Header</h1>
-						<div class="containerSearch">
-							<input type="search" placeholder="Search Pok&eacute;mon" id="pokemonSearch" />
-							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
-							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
-						</div>
-						<section class="grid">
-							<button data-button="sidebar" data-value="pickedItem">
-								<div class="labelSidebar">
-									${iconNature.sunStroke}
-									Picked Item
-								</div>
-								<p class="containerBadge excludeMargin" data-type="sidebar">120</p>
-							</button>
-							<button data-button="sidebar" data-value="unpickedItem">
-								<div class="labelSidebar">
-									${iconNature.moonLeftStroke}
-									Unpicked Item
-								</div>
-								<p class="containerBadge excludeMargin" data-type="sidebar">14</p>
-							</button>
-						</section>
-						<div class="headerAccordion active">
-							<h3 class="headerList">SVG</h3>
-							<div class="containerChevron">${iconShapes.chevronSingleRightFill}</div>
-						</div>
-						<section class="containerAccordionContents active">
-							<div class="wrapper grid">
-								<button data-button="sidebar" data-value="svg1">
-									<div class="labelSidebar">
-										${iconIndices.oneCircleStroke}
-										SVG Item 1
-									</div>
-								</button>
-								<button data-button="sidebar" data-value="svg2">
-									<div class="labelSidebar">
-										${iconIndices.twoCircleStroke}
-										SVG Item 2
-									</div>
-								</button>
-								<button data-button="sidebar" data-value="svg3">
-									<div class="labelSidebar">
-										${iconIndices.threeCircleStroke}
-										SVG Item 3
-									</div>
-								</button>
-							</div>
-						</section>
-						<h2 class="headerList">Images</h2>
-						<section class="grid">
-							<button data-button="sidebar" data-value="image1">
-								<div class="labelSidebar">
-									<img src="app/images/ui/sidebar1.png" alt="" />
-									Image Item 1
-								</div>
-							</button>
-							<button data-button="sidebar" data-value="image2">
-								<div class="labelSidebar">
-									<img src="app/images/ui/sidebar2.png" alt="" />
-									Image Item 2
-								</div>
-							</button>
-							<button data-button="sidebar" data-value="image3">
-								<div class="labelSidebar">
-									<img src="app/images/ui/sidebar3.png" alt="" />
-									Image Item 3
-								</div>
-							</button>
-						</section>
-					</div>
-				</aside>
-				<main id="contentArea2"></main>
-			</div>
-	
+		<div class="scrollview inset-T paddingContent">
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
-			<p>Sidebars require two containers for their buttons, <code>.containerAside</code> and <code>containerSidebar</code>. <code>.containerAside</code> defines the position of the Sidebar and <code>.containerSidebar</code> enables all of the styling to make an Item List in to a Sidebar. The <code>.containerAside</code> class does not need to be applied to an aside element.</p>
-			<h4 class="h6">Templates</h4>
-<pre class="spacerTriple">
-&lt;aside class="containerAside"&gt;
-	&lt;div class="containerSidebar" id=""&gt;&lt;/div&gt;
-&lt;/aside"&gt;
-</pre>
+			<p>Sidebars require these containers for their buttons:</p>
+			<ul>
+				<li><code>.containerAside</code> defines the position of the Sidebar (this does not need to be applied to an aside element)</li>
+				<li><code>.containerSidebar</code> enables all of the styling to make an Item List in to a Sidebar</li>
+				<li><code>.wrapperSidebar</code> enables the inset that Liqid Glass requires</li>
+			</ul>
+			
+			<p>It is important that all of the buttons sit inside a <code>.scrollview</code>.</p>
 			
 			<h3>Functions</h3>
 			<p>At their core Sidebars are just Source Lists with a particular set of styles applied which means they use the <code>controllerRoute()</code> function. Refer to the Routing section for more information.</p>
@@ -4008,34 +4191,32 @@ if (url.query == "") {
 			<h3>CSS</h3>
 			<p>Sections can be grouped using the <code>section</code> element, margin will automatically be applied to space out each section. They can also be made collapsible by turning them in to Accordions, refer to the Accordions section on how to do this.</p>
 			<p>The <code>controllerRoute()</code> function will handle setting the correct styling to picked items depending at what level the currently selected navigation item is at.</p>
-			<p>If you wish to have a tiled layout for your Sidebar on smaller screens you can add the <code>.grid</code> class to the <code>containerSidebar</code> container. This style is great for Sidebars with a short list of items.</p>
+			<p>If you wish to have a tiled layout for your Sidebar on smaller screens you can add the <code>.layoutGrid</code> class to a wrapper container. This style is great for Sidebars with a short list of items.</p>
+			<p>To always have a tiled layout for a section use the <code>.layoutAlwaysGrid</code> class.</p>
 		</div>
 	`,
 	itemlists: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Layout")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routelayout({modifier: false, navtype: "backwards"})'>
+						${insertBackButton("Layout")}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Item Lists</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Item Lists</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Item Lists have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h3>
 			<h3 class="h6">Standard buttons with inset</h3>
 			<div class="containerGeneric excludePadding spacerTriple" id="exampleTableview1">
@@ -4519,98 +4700,140 @@ if (url.query == "") {
 		</div>
 	`,
 	toolbars: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Layout")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routelayout({modifier: false, navtype: "backwards"})'>
+						${insertBackButton("Layout")}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Toolbars</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Toolbars</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Toolbars Items have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent" id="exampleToolbars">
 			<h2>Examples</h2>
 			
+			<ul id="legendToolbars">
+				<li><div class="colorChip" style="--accent: red;"></div> wrapperToolbarStart</li>
+				<li><div class="colorChip" style="--accent: orange;"></div> wrapperToolbarMiddle</li>
+				<li><div class="colorChip" style="--accent: violet;"></div> wrapperToolbarEnd</li>
+				<li><div class="colorChip" style="--accent: aquamarine;"></div> containerAccessoryBar</li>
+			</ul>
+			
 			<h3 class="h6">Toolbar Layouts</h3>
-			<div class="containerGeneric excludePadding" id="exampleToolbar1">
+			<!-- DEFAULT LAYOUT -->
+			<div class="containerGeneric excludePadding exampleToolbar">
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart">
+						<div class="pinToolbar material-liquidglass-thin">
+							<button data-button="action-transparent" class="toolbarItem">${iconInterfaceElements.filterStroke}</button>
+						</div>
+					</div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Default Layout</h1>
+					</div>
+					<div class="wrapperToolbarEnd">
+						<div class="pinToolbar material-liquidglass-thin">
+							<button data-button="action-transparent" class="toolbarItem">${iconShapes.rectangleOverlapHorizontalStroke}</button>
+							<button data-button="action-transparent" class="toolbarItem">${iconObjects.trashStroke}</button>
+							</button>
+						</div>
+					</div>
+				</header>
+				
+				<div class="scrollview inset-T">
+					<p style="padding: var(--base-gap-size);">The <code>.layoutDefault</code> modifier will set the layout of the toolbar to match each respective OS. This is the layout you should use for the majority of your toolbars.</p>
+				</div>
+			</div>
+			
+			<!-- TRAILING LAYOUT -->
+			<div class="containerGeneric excludePadding exampleToolbar">
+				<header class="containerToolbar layoutTrailing">
+					<div class="wrapperToolbarStart">
+						<div class="pinToolbar material-liquidglass-thin">
+							<button data-button="action-transparent" class="toolbarItem">${iconInterfaceElements.filterStroke}</button>
+						</div>
+					</div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Trailing Layout</h1>
+					</div>
+					<div class="wrapperToolbarEnd">
+						<div class="pinToolbar material-liquidglass-thin">
+							<button data-button="action-transparent" class="toolbarItem">${iconShapes.rectangleOverlapHorizontalStroke}</button>
+							<button data-button="action-transparent" class="toolbarItem">${iconObjects.trashStroke}</button>
+							</button>
+						</div>
+					</div>
+				</header>
+				
+				<div class="scrollview inset-T">
+					<p style="padding: var(--base-gap-size);">The <code>.layoutTrailing</code> modifier will set both left and right pins to be on the trailing edge.</p>
+				</div>
+			</div>
+			
+			<!-- SHEET LAYOUT -->
+			<div class="containerGeneric excludePadding exampleToolbar">
+				<header class="containerToolbar layoutSheet">
+					<div class="wrapperToolbarStart"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Sheet Layout</h1>
+					</div>
+					<div class="wrapperToolbarEnd">
+						<div class="pinToolbar material-liquidglass-thin">
+							${insertCancelButton()}
+						</div>
+					</div>
+				</header>
+				
+				<div class="scrollview inset-T">
+					<p style="padding: var(--base-gap-size);">The <code>.layoutSheet</code> modifier is intended for Toolbars that contain a single Cancel button. If you have both Cancel and Done buttons OR a single Done button please use the Default Layout.</p>
+				</div>
+			</div>
+			
+			<!-- NO LAYOUT MODIFIER -->
+			<div class="containerGeneric excludePadding exampleToolbar">
 				<header class="containerToolbar">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="primary">${iconInterfaceElements.filterCircleStroke}</button>
-					</div>
-					<h1 class="headerToolbar">Standard Items</h1>
-					<div class="pinRight">
-						<button data-button="action-transparent" class="primary">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button data-button="action-transparent" class="primary">${iconObjects.trashStroke}</button>
-					</div>
-				</header>
-			</div>
-			
-			<div class="containerGeneric excludePadding" id="exampleToolbar1">
-				<header class="containerToolbar">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="toolbarItem">${iconInterfaceElements.filterCircleStroke}</button>
-					</div>
-					<h1 class="headerToolbar">Native Items</h1>
-					<div class="pinRight">
-						<button data-button="action-transparent" class="toolbarItem">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button data-button="action-transparent" class="toolbarItem">${iconObjects.trashStroke}</button>
-						</button>
-					</div>
-				</header>
-			</div>
-			
-			<div class="containerGeneric excludePadding" id="exampleToolbar1">
-				<header class="containerToolbar alwaysLeft">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="primary">
-							${iconInterfaceElements.filterCircleStroke}
-						</button>
-					</div>
-					<h1 class="headerToolbar">Keep Left</h1>
-					<div class="pinRight">
-						<button data-button="action-transparent" class="primary">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button data-button="action-transparent" class="primary">${iconObjects.trashStroke}</button>
-					</div>
-				</header>
-			</div>
-			
-			<div class="containerGeneric excludePadding spacerDouble" id="exampleToolbar1">
-				<header class="containerToolbar singleItem">
-					<div class="containerSearch">
-						<input type="search" placeholder="Single item" id="pokemonSearch" />
+					<div class="containerSearch material-liquidglass-thin">
+						<input type="search" placeholder="No layout modifier" />
 						<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
 						<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
 					</div>
 				</header>
+				
+				<div class="scrollview inset-T">
+					<p style="padding: var(--base-gap-size);">A Toolbar with no layout modifer will act like a standard DIV that has some padding.</p>
+				</div>
 			</div>
 			
-			<h3 class="h6">Accessory Bars</h3>
-			<div class="containerGeneric excludePadding spacerDouble" id="exampleToolbar2">
-				<header class="containerToolbar withAccessory" id="accessoryParent1">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="primary">${iconInterfaceElements.filterCircleStroke}</button>
+			<!-- ACCESSORY BAR -->
+			<div class="containerGeneric excludePadding spacerDouble exampleToolbar" id="exampleToolbar2">
+				<header class="containerToolbar layoutDefault" id="accessoryParent1">
+					<div class="wrapperToolbarStart">
+						<div class="pinToolbar material-liquidglass-thin">
+							<button data-button="action-transparent" class="toolbarItem">${iconInterfaceElements.filterStroke}</button>
+						</div>
 					</div>
-					<h1 class="headerToolbar">Header</h1>
-					<div class="pinRight">
-						<button data-button="action-transparent" class="primary">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button data-button="action-transparent" class="primary">${iconObjects.trashStroke}</button>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Accessory Bar</h1>
+					</div>
+					<div class="wrapperToolbarEnd">
+						<div class="pinToolbar material-liquidglass-thin">
+							<button data-button="action-transparent" class="toolbarItem">${iconShapes.rectangleOverlapHorizontalStroke}</button>
+							<button data-button="action-transparent" class="toolbarItem">${iconObjects.trashStroke}</button>
+						</div>
 					</div>
 				</header>
-				<div class="scrollview" id="headerContent2">
+				<div class="scrollview inset-T">
 					<div class="containerAccessoryBar">
 						<div class="containerSearch">
 							<input type="search" placeholder="Search text" id="pokemonSearch" />
@@ -4619,6 +4842,8 @@ if (url.query == "") {
 						</div>
 					</div>
 					<div class="groupText">
+						<p>For this setup the Toolbar itself can use the Default or Trailing layout modifiers. To have the Accessory Bar sit in a fixed position add the <code>.layoutFixed</code> modifier.</p>
+						<br />
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
 						<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
 						<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
@@ -4632,58 +4857,76 @@ if (url.query == "") {
 				</div>
 			</div>
 			
-			
-			<h3 class="h6">Inline Accessory Bars</h3>
-			<div class="containerGeneric excludePadding spacerDouble" id="exampleToolbar4">
-				<header class="containerToolbar withAccessory withInlineAccessory" id="accessoryParent3">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="primary">${iconInterfaceElements.filterCircleStroke}</button>
+			<!-- "INLINE" ACCESSORY BAR -->
+			<div class="containerGeneric excludePadding spacerDouble exampleToolbar" id="exampleToolbar2">
+				<header class="containerToolbar layoutInlineAccessory">
+					<div class="wrapperToolbarStart">
+						<div class="pinToolbar material-liquidglass-thin">
+							<button data-button="action-transparent" class="toolbarItem">${iconInterfaceElements.filterStroke}</button>
+						</div>
 					</div>
-					<h1 class="headerToolbar">Header</h1>
-					<div class="pinRight">
-						<button data-button="action-transparent" class="primary">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button data-button="action-transparent" class="primary">${iconObjects.trashStroke}</button>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Inline Accessory Layout</h1>
 					</div>
-				</header>
-				<div class="containerInlineAccessory" id="headerContent4Parent">
-					<div class="containerAccessoryBar">
-						<div class="containerSearch">
-							<input type="search" placeholder="Search text" id="pokemonSearch" />
+					<div class="wrapperToolbarEnd">
+						<div class="pinToolbar material-liquidglass-thin">
+							<button data-button="action-transparent" class="toolbarItem">${iconShapes.rectangleOverlapHorizontalStroke}</button>
+							<button data-button="action-transparent" class="toolbarItem">${iconObjects.trashStroke}</button>
+						</div>
+						<div class="containerSearch material-liquidglass-thin itemAccessory">
+							<input type="search" placeholder="Search B" id="pokemonSearch" />
 							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
 							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
 						</div>
 					</div>
-					<div class="scrollview">
-						<div class="groupText">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
-							<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
-							<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
-							<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
-							<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
-							<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
-							<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+				</header>
+				<div class="scrollview inset-T">
+					<div class="containerAccessoryBar">
+						<div class="containerSearch material-liquidglass-thin">
+							<input type="search" placeholder="Search A" id="pokemonSearch" />
+							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
 						</div>
+					</div>
+					<div class="groupText">
+						<p>The <code>.layoutInlineAccessory</code> modifier is intended to hide and show the duplicated Accessory bar that sits inside the main toolbar. Duplicated content is required here so that everything layers correctly. Any duplicated items in the main toolbar should have the <code>.itemAccessory</code> class.</p>
+						<br />
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
 					</div>
 				</div>
 			</div>
 			
-			<h3 class="h6">Vanishing Toolbar</h3>
-			<div class="containerGeneric excludePadding spacerTriple" id="exampleToolbar2">
-				<header class="containerToolbar vanishing noBackground" id="disappearingToolbar">
-					<div class="pinLeft">
-						<button data-button="action-transparent" class="primary">${iconInterfaceElements.filterCircleStroke}</button>
+			<!-- VANISHING TITLE -->
+			<div class="containerGeneric excludePadding spacerTriple exampleToolbar" id="exampleToolbar2">
+				<header class="containerToolbar layoutDefault vanishing" id="disappearingToolbar">
+					<div class="wrapperToolbarStart">
+						<div class="pinToolbar material-liquidglass-thin">
+							<button data-button="action-transparent" class="toolbarItem">${iconInterfaceElements.filterStroke}</button>
+						</div>
 					</div>
-					<h1 class="headerToolbar">Header</h1>
-					<div class="pinRight">
-						<button data-button="action-transparent" class="primary">${iconShapes.rectangleOverlapHorizontalStroke}</button>
-						<button data-button="action-transparent" class="primary">${iconObjects.trashStroke}</button>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Vanishing Title</h1>
+					</div>
+					<div class="wrapperToolbarEnd">
+						<div class="pinToolbar material-liquidglass-thin">
+							<button data-button="action-transparent" class="toolbarItem">${iconShapes.rectangleOverlapHorizontalStroke}</button>
+							<button data-button="action-transparent" class="toolbarItem">${iconObjects.trashStroke}</button>
+						</div>
 					</div>
 				</header>
-				<div class="scrollview" id="disappearingScrollview">
+				<div class="scrollview inset-T" id="disappearingScrollview">
 					<div class="groupText">
-						<h1>Header</h1>
+						<h1>Vanishing Title</h1>
+						<p>The <code>.vanishing</code> modifier when combined with the toolbarVisibility() function will cause the title to hide by default and show after the set scroll height.</p>
+						<br />
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
 						<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
 						<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
@@ -4699,53 +4942,13 @@ if (url.query == "") {
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
-			<p>Toolbars are the primary way of adding a header to a view. They are designed to contain a title and up to four buttons (two on each side). They can also contain navigation controls in the form of a Back Button and Aside Collapse Button.</p>
-			<p>Accessory Bars sit inside the scrollview underneath the scrollview's Toolbar and will scroll with the content. It's important to use the <code>toolbarDivider()</code> function to ensure the bottom border gets displayed properly.</p>
+			<p>Toolbars are the primary way of adding a header to a view. They are designed to contain a title and buttons on each side. They can also contain navigation controls in the form of a Back Button and Aside Collapse Button.</p>
+			<p>Accessory Bars sit inside the scrollview underneath the scrollview's Toolbar and will scroll with the content.</p>
 			<p>Inline Accessory Bars will sit to the right of the Toolbar on larger screens. They require a different setup to standard Accessory Bars to work.</p>
-			<p>Hidden Toolbars are set to hide the background, border, and title until the Scrollview has been scrolled past a defined point. You must include the <code>noBackground</code> class on <code>.containerToolbar</code> and use the <code>toolbarVisibility()</code> function to make the standard state appear.</p>
-			<h4 class="h6">Templates</h4>
-<pre class="spacerTriple">
-//TOOLBAR
-&lt;header class="containerToolbar"&gt;
-	&lt;div class="pinLeft"&gt;&lt;/div&gt;
-	&lt;h1 class="headerToolbar"&gt;&lt;/h1&gt;
-	&lt;div class="pinRight"&gt;&lt;/div&gt;
-&lt;/header&gt;
-
-
-//ACCESSORY BAR
-&lt;header class="containerToolbar withAccessory"&gt;
-	&lt;div class="pinLeft"&gt;&lt;/div&gt;
-	&lt;h1 class="headerToolbar"&gt;&lt;/h1&gt;
-	&lt;div class="pinRight"&gt;&lt;/div&gt;
-&lt;/header&gt;
-&lt;div class="scrollview"&gt;
-	&lt;div class="containerAccessoryBar"&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-
-//INLINE ACCESSORY BAR
-&lt;header class="containerToolbar withAccessory withInlineAccessory"&gt;
-	&lt;div class="pinLeft"&gt;&lt;/div&gt;
-	&lt;h1 class="headerToolbar"&gt;&lt;/h1&gt;
-	&lt;div class="pinRight"&gt;&lt;/div&gt;
-&lt;/header&gt;
-&lt;div class="containerInlineAccessory"&gt;
-	&lt;div class="containerAccessoryBar"&gt;&lt;/div&gt;
-	&lt;div class="scrollview">&lt;/div&gt;
-&lt;/div&gt;
-
-
-//VANISHING TOOLBAR
-&lt;header class="containerToolbar vanishing noBackground"&gt;
-	&lt;div class="pinLeft"&gt;&lt;/div&gt;
-	&lt;h1 class="headerToolbar"&gt;&lt;/h1&gt;
-	&lt;div class="pinRight"&gt;&lt;/div&gt;
-&lt;/header&gt;
-</pre>
+			<p>Vanishing Toolbars hide the title until the Scrollview has scrolled past a defined point. You must include the <code>.vanishing</code> class on <code>.containerToolbar</code> and use the <code>toolbarVisibility()</code> function to make the standard state appear.</p>
 			
 			<h3>Functions</h3>
-			<p>There are two functions related to Toolbars, <code>toolbarDivider()</code> and <code>toolbarVisibility()</code>. They each handle visibility of styles when the corresponding Scrollview is scrolled. Both functions take the same options:</p>
+			<p>The <code>toolbarVisibility()</code> function is intended for hiding and showing the title on scroll. This function takes the options:</p>
 			<table class="definitions spacerSingle">
 				<thead>
 					<tr>
@@ -4770,12 +4973,6 @@ if (url.query == "") {
 			
 			
 <pre class="spacerTriple">
-toolbarDivider({
-	scrollview: "#name",
-	toolbar: "#name",
-	height: XXX
-});
-
 toolbarVisibility({
 	scrollview: "#name",
 	toolbar: "#name",
@@ -4784,105 +4981,36 @@ toolbarVisibility({
 </pre>
 			
 			<h3>CSS</h3>
-			<p>There are a number of clases associated with Toolbars that make everything work:</p>
-			
-			<table class="definitions spacerSingle" id="config">
-				<thead>
-					<tr>
-						<th>Classes</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><code>containerToolbar</code></td>
-						<td>Sets a container as a Toolbar.</td>
-					</tr>
-					<tr>
-						<td><code>withAccessory</code></td>
-						<td>Removes the bottom border so that Accessory Bars sit flush underneath the Toolbar.</td>
-					</tr>
-					<tr>
-						<td><code>withInlineAccessory</code></td>
-						<td>Adds back the bottom border on larger screens due to the Accessory Bar no longer being flush.</td>
-					</tr>
-					<tr>
-						<td><code>containerInlineAccessory</code></td>
-						<td>Shuffles around an Accessory Bar and Scrollview so that on smaller screens the Accessory Bar can scroll away but on larger screens will be fixed to the right of the Toolbar.</td>
-					</tr>
-					<tr>
-						<td><code>containerAccessoryBar</code></td>
-						<td>Sets a container as an Accessory Bar.</td>
-					</tr>
-					<tr>
-						<td><code>pinLeft</code></td>
-						<td>Holds content to the leading edge of the Toolbar.</td>
-					</tr>
-					<tr>
-						<td><code>pinRight</code></td>
-						<td>Holds content to the trailing edge of the Toolabr.</td>
-					</tr>
-					<tr>
-						<td><code>headerToolbar</code></td>
-						<td>Holds the title of the Toolbar.</td>
-					</tr>
-					<tr>
-						<td><code>dividerBottom</code></td>
-						<td>Adds back the bottom border that <code>.withAccessory</code> removes. This is used with the <code>toolbarDivider()</code> function.</td>
-					</tr>
-					<tr>
-						<td><code>vanishing</code></td>
-						<td>Used in conjuction with <code>noBackground</code> to set the transition for the background of Vanishing Toolbars.</td>
-					</tr>
-					<tr>
-						<td><code>noBackground</code></td>
-						<td>Hides the background, border, and title of a Toolbar. This is used with the <code>toolbarVisibility()</code> function.</td>
-					</tr>
-					<tr>
-						<td><code>singleItem</code></td>
-						<td>Used with Toolbars that only contain one child item (this is primarily intended for Toolbars that contain a single Search Input).</td>
-					</tr>
-					<tr>
-						<td><code>translucent</code></td>
-						<td>Changes the background to the Translucent Material.</td>
-					</tr>
-					<tr>
-						<td><code>alwaysLeft</code></td>
-						<td>Sets <code>.pinLeft</code> to always sit on the leading edge regardless of screen size.</td>
-					</tr>
-				</tbody>
-			</table>
+			<p>Refer to above examples for layout modifier classes.</p>
 		</div>
 	`,
 	tabbars: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Layout")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routelayout({modifier: false, navtype: "backwards"})'>
+						${insertBackButton("Layout")}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Tab Bars</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Tab Bars</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Tab Bars have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<h3 class="h6">Tab Bar</h3>
 			<div class="containerGeneric excludePadding" id="exampleTabBar1">
 				<div class="wrapperTabBar">
-					<footer class="containerTabBar" id="tabBar1">
+					<footer class="containerTabBar material-liquidglass-thin" id="tabBar1">
 						<button data-button="tab" data-name="tabfirst" onclick="routetabs('tabfirst')">
 							<div class="wrapper">
 								${iconObjects.handsetLeadingFill}
@@ -4922,7 +5050,7 @@ toolbarVisibility({
 
 			<h3 class="h6">Segmented Control</h3>
 			<div class="containerGeneric" id="exampleTabBar2">
-				<div class="controlSegmented display" id="tabBar2">
+				<div class="controlSegmented display material-liquidglass-thin" id="tabBar2">
 					<button data-button="segment" data-name="segmentfirst" onclick="routesegment('segmentfirst')">First</button>
 					<button data-button="segment" data-name="segmentsecond" onclick="routesegment('segmentsecond')">Second</button>
 					<button data-button="segment" data-name="segmentthird" onclick="routesegment('segmentthird')">Third</button>
@@ -4974,341 +5102,395 @@ toolbarVisibility({
 			<p class="spacerTriple">Tab Bars make use of <code>controllerTab()</code> and more information can be found in the Routing section.</p>
 			
 			<h3>CSS</h3>
-			<p>Tab Bars can use the <code>translucent</code> class to make the background of the bar translucent if required. The other styling class available to you is the <code>picked</code> class which sets the style of the picked tab.</p>
+			<p>The Tab Bar container should use Thin Liquid Glass material.</p>
 		</div>
 	`,
 	scrollviews: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Layout")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routelayout({modifier: false, navtype: "backwards"})'>
+						${insertBackButton("Layout")}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Scrollviews</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Scrollviews</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
-			<h3 class="h6">Scrollview only</h3>
+			
+			<!-- SCROLLVIEW ONLY -->
 			<div class="containerGeneric excludePadding spacerDouble" id="scrollview1">
 				<div class="scrollview">
 					<div class="groupText">
+						<h1>Scrollview Only</h1>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
 						<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
 						<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
+						<img src="app/images/ui/materials-background.jpg" />
 						<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
 						<p>Vestibulum purus urna, efficitur consectetur venenatis non, efficitur et erat. Fusce bibendum orci sed sapien vehicula hendrerit. Suspendisse ac metus et urna commodo dignissim vitae id velit. Aliquam pretium urna eleifend metus vehicula egestas. Quisque fringilla felis mi, nec hendrerit lectus pharetra vitae. Etiam eleifend risus vitae mauris tincidunt consequat. Proin quis quam mattis, posuere erat vitae, tincidunt lorem. Aliquam viverra risus at sem euismod, in fermentum velit venenatis. Curabitur ante mauris, commodo in varius id, ornare in augue. Donec condimentum turpis non diam sagittis ultrices. Mauris in iaculis enim. Praesent volutpat vulputate iaculis.</p>
 					</div>
 				</div>
 			</div>
 			
-			<h3 class="h6">Scrollview with Toolbar</h3>
+			<!-- TOOLBAR ONLY -->
 			<div class="containerGeneric excludePadding spacerDouble" id="scrollview1">
-				<header class="containerToolbar alwaysLeft">
-					<div class="pinLeft"></div>
-					<h1 class="headerToolbar">Toolbar</h1>
-					<div class="pinRight"></div>
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Toolbar Only</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
 				</header>
-				<div class="scrollview cropToolbar">
+				<div class="scrollview inset-T">
 					<div class="groupText">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
 						<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
 						<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
+						<img src="app/images/ui/materials-background.jpg" />
 						<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
 						<p>Vestibulum purus urna, efficitur consectetur venenatis non, efficitur et erat. Fusce bibendum orci sed sapien vehicula hendrerit. Suspendisse ac metus et urna commodo dignissim vitae id velit. Aliquam pretium urna eleifend metus vehicula egestas. Quisque fringilla felis mi, nec hendrerit lectus pharetra vitae. Etiam eleifend risus vitae mauris tincidunt consequat. Proin quis quam mattis, posuere erat vitae, tincidunt lorem. Aliquam viverra risus at sem euismod, in fermentum velit venenatis. Curabitur ante mauris, commodo in varius id, ornare in augue. Donec condimentum turpis non diam sagittis ultrices. Mauris in iaculis enim. Praesent volutpat vulputate iaculis.</p>
 					</div>
 				</div>
 			</div>
 			
-			<h3 class="h6">Scrollview with Toolbar and scrolling Accessory Bar</h3>
+			<!-- TOOLBAR AND SCROLLING ACCESSORY BAR -->
 			<div class="containerGeneric excludePadding spacerDouble" id="scrollview1">
-				<header class="containerToolbar withAccessory alwaysLeft">
-					<div class="pinLeft"></div>
-					<h1 class="headerToolbar">Toolbar</h1>
-					<div class="pinRight"></div>
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Toolbar and scrolling Accessory Bar</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
 				</header>
-				<div class="scrollview cropToolbar">
+				<div class="scrollview inset-T">
 					<div class="containerAccessoryBar">
-						<input type="search" placeholder="Search text">
-					</div>
-					<div class="groupText">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
-						<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
-						<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
-						<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
-						<p>Vestibulum purus urna, efficitur consectetur venenatis non, efficitur et erat. Fusce bibendum orci sed sapien vehicula hendrerit. Suspendisse ac metus et urna commodo dignissim vitae id velit. Aliquam pretium urna eleifend metus vehicula egestas. Quisque fringilla felis mi, nec hendrerit lectus pharetra vitae. Etiam eleifend risus vitae mauris tincidunt consequat. Proin quis quam mattis, posuere erat vitae, tincidunt lorem. Aliquam viverra risus at sem euismod, in fermentum velit venenatis. Curabitur ante mauris, commodo in varius id, ornare in augue. Donec condimentum turpis non diam sagittis ultrices. Mauris in iaculis enim. Praesent volutpat vulputate iaculis.</p>
-					</div>
-				</div>
-			</div>
-			
-			<h3 class="h6">Scrollview with Toolbar and fixed Accessory Bar</h3>
-			<div class="containerGeneric excludePadding spacerDouble" id="scrollview1">
-				<header class="containerToolbar withAccessory alwaysLeft">
-					<div class="pinLeft"></div>
-					<h1 class="headerToolbar">Toolbar</h1>
-					<div class="pinRight"></div>
-				</header>
-				<div class="containerAccessoryBar">
-					<input type="search" placeholder="Search text">
-				</div>
-				<div class="scrollview cropToolbar cropAccessoryBar">
-					<div class="groupText">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
-						<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
-						<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
-						<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
-						<p>Vestibulum purus urna, efficitur consectetur venenatis non, efficitur et erat. Fusce bibendum orci sed sapien vehicula hendrerit. Suspendisse ac metus et urna commodo dignissim vitae id velit. Aliquam pretium urna eleifend metus vehicula egestas. Quisque fringilla felis mi, nec hendrerit lectus pharetra vitae. Etiam eleifend risus vitae mauris tincidunt consequat. Proin quis quam mattis, posuere erat vitae, tincidunt lorem. Aliquam viverra risus at sem euismod, in fermentum velit venenatis. Curabitur ante mauris, commodo in varius id, ornare in augue. Donec condimentum turpis non diam sagittis ultrices. Mauris in iaculis enim. Praesent volutpat vulputate iaculis.</p>
-					</div>
-				</div>
-			</div>
-			
-			<h3 class="h6">Scrollview with Toolbar and Inline Accessory Bar</h3>
-			<div class="containerGeneric excludePadding" id="scrollview1">
-				<header class="containerToolbar withAccessory withInlineAccessory">
-					<div class="pinLeft"></div>
-					<h1 class="headerToolbar">Toolbar</h1>
-					<div class="pinRight"></div>
-				</header>
-				<div class="containerInlineAccessory">
-					<div class="containerAccessoryBar">
-						<input type="search" placeholder="Search text">
-					</div>
-					<div class="scrollview">
-						<div class="groupText">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
-							<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
-							<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
-							<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
-							<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
-							<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
-							<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						<div class="containerSearch">
+							<input type="search" placeholder="Search" id="pokemonSearch" />
+							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			
-			<h3 class="h6">Scrollview with Tab Bar</h3>
-			<div class="containerGeneric excludePadding spacerDouble" id="scrollview1">
-				<div class="scrollview cropTabBar">
 					<div class="groupText">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
 						<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
 						<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
+						<img src="app/images/ui/materials-background.jpg" />
 						<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
 						<p>Vestibulum purus urna, efficitur consectetur venenatis non, efficitur et erat. Fusce bibendum orci sed sapien vehicula hendrerit. Suspendisse ac metus et urna commodo dignissim vitae id velit. Aliquam pretium urna eleifend metus vehicula egestas. Quisque fringilla felis mi, nec hendrerit lectus pharetra vitae. Etiam eleifend risus vitae mauris tincidunt consequat. Proin quis quam mattis, posuere erat vitae, tincidunt lorem. Aliquam viverra risus at sem euismod, in fermentum velit venenatis. Curabitur ante mauris, commodo in varius id, ornare in augue. Donec condimentum turpis non diam sagittis ultrices. Mauris in iaculis enim. Praesent volutpat vulputate iaculis.</p>
 					</div>
 				</div>
-				<footer class="containerTabBar" id="tabBar1" data-target="contentAreaTabs1">
-					<button class="tab" data-value="tab1">
-						${iconShapes.starFivePointFill}
-						First
-					</button>
-					<button class="tab" data-value="tab2">
-						${iconObjects.loupeFill}
-						Second
-					</button>
-					<button class="tab" data-value="tab3">
-						${iconObjects.bagFill}
-						Third
-					</button>
-					<button class="tab" data-value="tab4">
-						${iconObjects.folderHorizontalFill}
-						Fourth
-					</button>
-					<button class="tab" data-value="tab5">
-						${iconObjects.bellFill}
-						Fifth
-					</button>
-				</footer>
 			</div>
 			
-			<h3 class="h6">Scrollview with Toolbar and Tab Bar</h3>
+			<!-- TOOLBAR AND FIXED ACCESSORY BAR -->
 			<div class="containerGeneric excludePadding spacerDouble" id="scrollview1">
-				<header class="containerToolbar alwaysLeft">
-					<div class="pinLeft"></div>
-					<h1 class="headerToolbar">Toolbar</h1>
-					<div class="pinRight"></div>
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Toolbar and fixed Accessory Bar</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
 				</header>
-				<div class="scrollview cropToolbar cropTabBar">
+				<div class="containerAccessoryBar layoutFixed">
+					<div class="containerSearch">
+						<input type="search" placeholder="Search" id="pokemonSearch" />
+						<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+						<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
+					</div>
+				</div>
+				<div class="scrollview inset-TA">
 					<div class="groupText">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
 						<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
 						<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
+						<img src="app/images/ui/materials-background.jpg" />
 						<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
 						<p>Vestibulum purus urna, efficitur consectetur venenatis non, efficitur et erat. Fusce bibendum orci sed sapien vehicula hendrerit. Suspendisse ac metus et urna commodo dignissim vitae id velit. Aliquam pretium urna eleifend metus vehicula egestas. Quisque fringilla felis mi, nec hendrerit lectus pharetra vitae. Etiam eleifend risus vitae mauris tincidunt consequat. Proin quis quam mattis, posuere erat vitae, tincidunt lorem. Aliquam viverra risus at sem euismod, in fermentum velit venenatis. Curabitur ante mauris, commodo in varius id, ornare in augue. Donec condimentum turpis non diam sagittis ultrices. Mauris in iaculis enim. Praesent volutpat vulputate iaculis.</p>
 					</div>
 				</div>
-				<footer class="containerTabBar" id="tabBar1" data-target="contentAreaTabs1">
-					<button class="tab" data-value="tab1">
-						${iconShapes.starFivePointFill}
-						First
-					</button>
-					<button class="tab" data-value="tab2">
-						${iconObjects.loupeFill}
-						Second
-					</button>
-					<button class="tab" data-value="tab3">
-						${iconObjects.bagFill}
-						Third
-					</button>
-					<button class="tab" data-value="tab4">
-						${iconObjects.folderHorizontalFill}
-						Fourth
-					</button>
-					<button class="tab" data-value="tab5">
-						${iconObjects.bellFill}
-						Fifth
-					</button>
-				</footer>
 			</div>
 			
-			<h3 class="h6">Scrollview with Toolbar, fixed Accessory Bar, and Tab Bar</h3>
-			<div class="containerGeneric excludePadding spacerDouble" id="scrollview1">
-				<header class="containerToolbar withAccessory alwaysLeft">
-					<div class="pinLeft"></div>
-					<h1 class="headerToolbar">Toolbar</h1>
-					<div class="pinRight"></div>
-				</header>
-				<div class="containerAccessoryBar">
-					<input type="search" placeholder="Search text">
-				</div>
-				<div class="scrollview cropToolbar cropAccessoryBar cropTabBar">
-					<div class="groupText">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
-						<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
-						<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
-						<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
-						<p>Vestibulum purus urna, efficitur consectetur venenatis non, efficitur et erat. Fusce bibendum orci sed sapien vehicula hendrerit. Suspendisse ac metus et urna commodo dignissim vitae id velit. Aliquam pretium urna eleifend metus vehicula egestas. Quisque fringilla felis mi, nec hendrerit lectus pharetra vitae. Etiam eleifend risus vitae mauris tincidunt consequat. Proin quis quam mattis, posuere erat vitae, tincidunt lorem. Aliquam viverra risus at sem euismod, in fermentum velit venenatis. Curabitur ante mauris, commodo in varius id, ornare in augue. Donec condimentum turpis non diam sagittis ultrices. Mauris in iaculis enim. Praesent volutpat vulputate iaculis.</p>
-					</div>
-				</div>
-				<footer class="containerTabBar" id="tabBar1" data-target="contentAreaTabs1">
-					<button class="tab" data-value="tab1">
-						${iconShapes.starFivePointFill}
-						First
-					</button>
-					<button class="tab" data-value="tab2">
-						${iconObjects.loupeFill}
-						Second
-					</button>
-					<button class="tab" data-value="tab3">
-						${iconObjects.bagFill}
-						Third
-					</button>
-					<button class="tab" data-value="tab4">
-						${iconObjects.folderHorizontalFill}
-						Fourth
-					</button>
-					<button class="tab" data-value="tab5">
-						${iconObjects.bellFill}
-						Fifth
-					</button>
-				</footer>
-			</div>
-			
-			<h3 class="h6">Scrollview with Toolbar, Inline Accessory Bar, and Tab Bar</h3>
+			<!-- TOOLBAR AND INLINE ACCESSSORY BAR -->
 			<div class="containerGeneric excludePadding" id="scrollview1">
-				<header class="containerToolbar withAccessory withInlineAccessory">
-					<div class="pinLeft"></div>
-					<h1 class="headerToolbar">Toolbar</h1>
-					<div class="pinRight"></div>
-				</header>
-				<div class="containerInlineAccessory cropTabBar">
-					<div class="containerAccessoryBar">
-						<input type="search" placeholder="Search text">
+				<header class="containerToolbar layoutInlineAccessory">
+					<div class="wrapperToolbarStart"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Toolbar and Inline Accessory Bar</h1>
 					</div>
-					<div class="scrollview">
-						<div class="groupText">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
-							<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
-							<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
-							<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
-							<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
-							<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
-							<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+					<div class="wrapperToolbarEnd">
+						<div class="containerSearch material-liquidglass-thin itemAccessory">
+							<input type="search" placeholder="Search" id="pokemonSearch" />
+							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
 						</div>
 					</div>
+				</header>
+				<div class="scrollview inset-T">
+					<div class="containerAccessoryBar">
+						<div class="containerSearch">
+							<input type="search" placeholder="Search" id="pokemonSearch" />
+							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
+						</div>
+					</div>
+					<div class="groupText">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						<img src="app/images/ui/materials-background.jpg" />
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+					</div>
 				</div>
-				<footer class="containerTabBar" id="tabBar1" data-target="contentAreaTabs1">
-					<button class="tab" data-value="tab1">
-						${iconShapes.starFivePointFill}
-						First
-					</button>
-					<button class="tab" data-value="tab2">
-						${iconObjects.loupeFill}
-						Second
-					</button>
-					<button class="tab" data-value="tab3">
-						${iconObjects.bagFill}
-						Third
-					</button>
-					<button class="tab" data-value="tab4">
-						${iconObjects.folderHorizontalFill}
-						Fourth
-					</button>
-					<button class="tab" data-value="tab5">
-						${iconObjects.bellFill}
-						Fifth
-					</button>
-				</footer>
 			</div>
 			
-			<h3 class="h6">Scrollview that sits underneath Translucent Bars</h3>
+			<!-- TAB BAR ONLY -->
 			<div class="containerGeneric excludePadding spacerDouble" id="scrollview1">
-				<header class="containerToolbar translucent alwaysLeft">
-					<div class="pinLeft"></div>
-					<h1 class="headerToolbar">Toolbar</h1>
-					<div class="pinRight"></div>
-				</header>
-				<div class="scrollview insetToolbar insetTabBar">
+				<div class="scrollview inset-B">
 					<div class="groupText">
+						<h1>Tab Bar Only</h1>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
-						<img src="app/images/ui/image.jpg" width="400" style="min-width: 100%" class="spacerSingle" />
 						<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
 						<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
+						<img src="app/images/ui/materials-background.jpg" />
 						<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
 						<p>Vestibulum purus urna, efficitur consectetur venenatis non, efficitur et erat. Fusce bibendum orci sed sapien vehicula hendrerit. Suspendisse ac metus et urna commodo dignissim vitae id velit. Aliquam pretium urna eleifend metus vehicula egestas. Quisque fringilla felis mi, nec hendrerit lectus pharetra vitae. Etiam eleifend risus vitae mauris tincidunt consequat. Proin quis quam mattis, posuere erat vitae, tincidunt lorem. Aliquam viverra risus at sem euismod, in fermentum velit venenatis. Curabitur ante mauris, commodo in varius id, ornare in augue. Donec condimentum turpis non diam sagittis ultrices. Mauris in iaculis enim. Praesent volutpat vulputate iaculis.</p>
 					</div>
 				</div>
-				<footer class="containerTabBar translucent" id="tabBar1" data-target="contentAreaTabs1">
-					<button class="tab" data-value="tab1">
-						${iconShapes.starFivePointFill}
-						First
-					</button>
-					<button class="tab" data-value="tab2">
-						${iconObjects.loupeFill}
-						Second
-					</button>
-					<button class="tab" data-value="tab3">
-						${iconObjects.bagFill}
-						Third
-					</button>
-					<button class="tab" data-value="tab4">
-						${iconObjects.folderHorizontalFill}
-						Fourth
-					</button>
-					<button class="tab" data-value="tab5">
-						${iconObjects.bellFill}
-						Fifth
-					</button>
-				</footer>
+				<div class="wrapperTabBar">
+					<footer class="containerTabBar material-liquidglass-thin" id="tabBar1" data-target="contentAreaTabs1">
+						<button data-button="tab" data-value="tab1" class="picked">
+							<div class="wrapper">
+								${iconShapes.starFivePointFill}
+							</div>
+							First
+						</button>
+						<button data-button="tab" data-value="tab2">
+							<div class="wrapper">
+								${iconObjects.loupeFill}
+							</div>
+							Second
+						</button>
+						<button data-button="tab" data-value="tab3">
+							<div class="wrapper">
+								${iconObjects.bagFill}
+							</div>
+							Third
+						</button>
+						<button data-button="tab" data-value="tab4">
+							<div class="wrapper">
+								${iconObjects.folderHorizontalFill}
+							</div>
+							Fourth
+						</button>
+						<button data-button="tab" data-value="tab5">
+							<div class="wrapper">
+								${iconObjects.bellFill}
+							</div>
+							Fifth
+						</button>
+					</footer>
+				</div>
+			</div>
+			
+			<!-- TOOLBAR AND TAB BAR -->
+			<div class="containerGeneric excludePadding spacerDouble" id="scrollview1">
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Toolbar and Tab Bar</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
+				</header>
+				<div class="scrollview inset-TB">
+					<div class="groupText">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
+						<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
+						<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
+						<img src="app/images/ui/materials-background.jpg" />
+						<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
+						<p>Vestibulum purus urna, efficitur consectetur venenatis non, efficitur et erat. Fusce bibendum orci sed sapien vehicula hendrerit. Suspendisse ac metus et urna commodo dignissim vitae id velit. Aliquam pretium urna eleifend metus vehicula egestas. Quisque fringilla felis mi, nec hendrerit lectus pharetra vitae. Etiam eleifend risus vitae mauris tincidunt consequat. Proin quis quam mattis, posuere erat vitae, tincidunt lorem. Aliquam viverra risus at sem euismod, in fermentum velit venenatis. Curabitur ante mauris, commodo in varius id, ornare in augue. Donec condimentum turpis non diam sagittis ultrices. Mauris in iaculis enim. Praesent volutpat vulputate iaculis.</p>
+					</div>
+				</div>
+				<div class="wrapperTabBar">
+					<footer class="containerTabBar material-liquidglass-thin" id="tabBar1" data-target="contentAreaTabs1">
+						<button data-button="tab" data-value="tab1" class="picked">
+							<div class="wrapper">
+								${iconShapes.starFivePointFill}
+							</div>
+							First
+						</button>
+						<button data-button="tab" data-value="tab2">
+							<div class="wrapper">
+								${iconObjects.loupeFill}
+							</div>
+							Second
+						</button>
+						<button data-button="tab" data-value="tab3">
+							<div class="wrapper">
+								${iconObjects.bagFill}
+							</div>
+							Third
+						</button>
+					</footer>
+				</div>
+			</div>
+			
+			<!-- TOOLBAR, FIXED ACCESSORY BAR, AND TAB BAR -->
+			<div class="containerGeneric excludePadding spacerDouble" id="scrollview1">
+				<header class="containerToolbar layoutDefault">
+					<div class="wrapperToolbarStart"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Toolbar, Fixed Accessory Bar, and Tab Bar</h1>
+					</div>
+					<div class="wrapperToolbarEnd"></div>
+				</header>
+				<div class="containerAccessoryBar layoutFixed">
+					<div class="containerSearch">
+						<input type="search" placeholder="Search" id="pokemonSearch" />
+						<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+						<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
+					</div>
+				</div>
+				<div class="scrollview inset-TAB">
+					<div class="groupText">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
+						<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
+						<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
+						<img src="app/images/ui/materials-background.jpg" />
+						<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
+						<p>Vestibulum purus urna, efficitur consectetur venenatis non, efficitur et erat. Fusce bibendum orci sed sapien vehicula hendrerit. Suspendisse ac metus et urna commodo dignissim vitae id velit. Aliquam pretium urna eleifend metus vehicula egestas. Quisque fringilla felis mi, nec hendrerit lectus pharetra vitae. Etiam eleifend risus vitae mauris tincidunt consequat. Proin quis quam mattis, posuere erat vitae, tincidunt lorem. Aliquam viverra risus at sem euismod, in fermentum velit venenatis. Curabitur ante mauris, commodo in varius id, ornare in augue. Donec condimentum turpis non diam sagittis ultrices. Mauris in iaculis enim. Praesent volutpat vulputate iaculis.</p>
+					</div>
+				</div>
+				<div class="wrapperTabBar">
+					<footer class="containerTabBar material-liquidglass-thin" id="tabBar1" data-target="contentAreaTabs1">
+						<button data-button="tab" data-value="tab1" class="picked">
+							<div class="wrapper">
+								${iconShapes.starFivePointFill}
+							</div>
+							First
+						</button>
+						<button data-button="tab" data-value="tab2">
+							<div class="wrapper">
+								${iconObjects.loupeFill}
+							</div>
+							Second
+						</button>
+						<button data-button="tab" data-value="tab3">
+							<div class="wrapper">
+								${iconObjects.bagFill}
+							</div>
+							Third
+						</button>
+						<button data-button="tab" data-value="tab4">
+							<div class="wrapper">
+								${iconObjects.folderHorizontalFill}
+							</div>
+							Fourth
+						</button>
+						<button data-button="tab" data-value="tab5">
+							<div class="wrapper">
+								${iconObjects.bellFill}
+							</div>
+							Fifth
+						</button>
+					</footer>
+				</div>
+			</div>
+			
+			<!-- TOOLBAR, INLINE ACCESSORY BAR, AND TAB BAR -->
+			<div class="containerGeneric excludePadding" id="scrollview1">
+				<header class="containerToolbar layoutInlineAccessory">
+					<div class="wrapperToolbarStart"></div>
+					<div class="wrapperToolbarMiddle">
+						<h1 class="headerToolbar">Toolbar, Inline Accessory Bar, and Tab Bar</h1>
+					</div>
+					<div class="wrapperToolbarEnd">
+						<div class="containerSearch  mataerial-liquidglass-thin itemAccessory">
+							<input type="search" placeholder="Search" id="pokemonSearch" />
+							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
+						</div>
+					</div>
+				</header>
+				<div class="scrollview inset-TB">
+					<div class="containerAccessoryBar">
+						<div class="containerSearch">
+							<input type="search" placeholder="Search" id="pokemonSearch" />
+							<div class="buttonClearSearch" title="Clear Search">${iconShapes.timesCircleFill}</div>
+							<div class="iconSearch">${iconInterfaceElements.searchStroke}</div>
+						</div>
+					</div>
+					<div class="groupText">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						<img src="app/images/ui/materials-background.jpg" />
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p>Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p>Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+					</div>
+				</div>
+				<div class="wrapperTabBar">
+					<footer class="containerTabBar material-liquidglass-thin" id="tabBar1" data-target="contentAreaTabs1">
+						<button data-button="tab" data-value="tab1" class="picked">
+							<div class="wrapper">
+								${iconShapes.starFivePointFill}
+							</div>
+							First
+						</button>
+						<button data-button="tab" data-value="tab2">
+							<div class="wrapper">
+								${iconObjects.loupeFill}
+							</div>
+							Second
+						</button>
+						<button data-button="tab" data-value="tab3">
+							<div class="wrapper">
+								${iconObjects.bagFill}
+							</div>
+							Third
+						</button>
+						<button data-button="tab" data-value="tab4">
+							<div class="wrapper">
+								${iconObjects.folderHorizontalFill}
+							</div>
+							Fourth
+						</button>
+						<button data-button="tab" data-value="tab5">
+							<div class="wrapper">
+								${iconObjects.bellFill}
+							</div>
+							Fifth
+						</button>
+					</footer>
+				</div>
 			</div>
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
-			<p>Scrollviews are designed to manage most scrollable regions within Rebar (some components like Sidebars come with scrolling baked in to save you having to insert a Scrollview in to them). To make a Scrollview you wrap the content you want to scroll in a <code>.scrollview</code> container and apply different classes to tell the container how much to inset itself.</p>
-			<p class="spacerTriple">The purpose of this is to make sure scrollbars do not sit underneath bars or within them (There are two exceptions here, Accessory Bars and Translucent Bars. Accessory Bars have to have the scrollbar sit to the side due to their nature and Translucent Bars have to have scrollbar sit underneath them to get the translucent effect to work).</p>
+			<p class="spacerTriple">Scrollviews are designed to manage most scrollable regions within Rebar. To make a Scrollview you wrap the content you want to scroll in a <code>.scrollview</code> container and apply different classes to tell the container how much to inset itself.</p>
 			
 			<h3>Functions</h3>
-			<p class="spacerTriple">The only function associated with Scrollviews is related to Accessory Bars to make sure the border on the Toolbar appears properly. Refer to the Toolbars section for more information.</p>
+			<p class="spacerTriple">There are no related functions.</p>
 			
 			<h3>CSS</h3>
 			<table class="definitions spacerSingle">
@@ -5319,58 +5501,59 @@ toolbarVisibility({
 				</thead>
 				<tbody>
 					<tr>
-						<td><code>.cropToolbar</code></td>
+						<td><code>.inset-T</code></td>
 						<td>Insets the Scrollview from the top by the height of the Toolbar.</td>
 					</tr>
 					<tr>
-						<td><code>.cropAccessoryBar</code></td>
+						<td><code>.inset-A</code></td>
 						<td>Insets the Scrollview from the top by the height of the Accessory Bar.</td>
 					</tr>
 					<tr>
-						<td><code>.cropTabBar</code></td>
+						<td><code>.inset-B</code></td>
 						<td>Insets the Scrollview from the bottom by the height of the Tab Bar.</td>
 					</tr>
 					<tr>
-						<td><code>.insetToolbar</code></td>
-						<td>Adds top padding to the Scrollview that is the height of the Toolbar.</td>
-					</tr>
-					<tr>
-						<td><code>.insetTabBar</code></td>
-						<td>Adds bottom padding to the Scrollview that is the height of the Tab Bar.</td>
+						<td><code>.inset-X</code></td>
+						<td>Insets the Scrollview from the bottom by the height of the Accessory Bar.</td>
 					</tr>
 				</tbody>
 			</table>
 			
-			<p>It is intended to combine the different <code>.crop</code> classes together to get a Scrollview that fits within the bars of your view. The <code>.inset</code> classes should be combined if you want Translucent Bars. It is not recommended to combine the <code>.crop</code> and <code>.inset</code> classes on a single Scrollview.</p>
+			<p>It is intended to combine the different <code>.inset</code> classes together to get a Scrollview that fits within the bars of your view. For example if you has a Scrollview with a Toolbar and Tab Bar you would use the class <code>.inset-TB</code>.</p>
+			${
+				insertBanner({
+					type: 'warning',
+					content: 'It is important that the order of the letters in the class follows T A B X',
+					icon: false,
+					size: "large",
+				})
+			}
+			<p>Due to the styling of the different OSes some will shrink the height of the Scrollview whereas others will add additional padding.</p>
 			<p>If the Scrollview is a content container you should add the <code>paddingContent</code> class.</p>
-			<p>In the future most of these classes will be deprecated for <code>:has()</code> when that is supported by browsers.</p>
 		</div>
 	`,
 	sections: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Layout")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routelayout({modifier: false, navtype: "backwards"})'>
+						${insertBackButton("Layout")}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Sections</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Sections</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Sections have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<section class="containerSection">
 				<p class="excludeMargin">This is a standard section.</p>
@@ -5408,34 +5591,31 @@ toolbarVisibility({
 		</div>
 	`,
 	accordions: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Layout")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routelayout({modifier: false, navtype: "backwards"})'>
+						${insertBackButton("Layout")}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Accordions</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Accordions</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Accordions have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div class="containerAccordion spacerSingle noBorder">
 				<div class="headerAccordion">
-					<h3>Header</h3>
+					<h4>Default Style</h4>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
@@ -5446,9 +5626,10 @@ toolbarVisibility({
 					</div>
 				</section>
 			</div>
-			<div class="containerAccordion spacerTriple" id="exampleAccordion2">
+			
+			<div class="containerAccordion spacerSingle" id="exampleAccordion2">
 				<div class="headerAccordion headerSection">
-					<h3>Header</h3>
+					<h3>Section Style</h3>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
@@ -5462,11 +5643,154 @@ toolbarVisibility({
 				</section>
 			</div>
 			
+			<div class="containerAccordion largeOpen spacerSingle" id="exampleAccordion2">
+				<div class="headerAccordion headerSection">
+					<h3>Open on Larger Screens</h3>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<div class="containerSection">
+							<p class="excludeMargin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+			
+			<div class="containerAccordion largeSection spacerTriple" id="exampleAccordion2">
+				<div class="headerAccordion headerSection">
+					<h3>Section on Larger Screens</h3>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<div class="containerSection">
+							<p class="excludeMargin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+			
+			
+			<div class="containerAccordion spacerHalf" data-accordiongroup="group1" id="exampleAccordion2">
+				<div class="headerAccordion headerSection">
+					<h3>Accordion Group 1</h3>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<div class="containerSection">
+							<p class="excludeMargin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+			
+			<div class="containerAccordion spacerHalf" data-accordiongroup="group1" id="exampleAccordion2">
+				<div class="headerAccordion headerSection">
+					<h3>Accordion Group 1</h3>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<div class="containerSection">
+							<p class="excludeMargin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+			
+			<div class="containerAccordion spacerHalf" data-accordiongroup="group1" id="exampleAccordion2">
+				<div class="headerAccordion headerSection">
+					<h3>Accordion Group 1</h3>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<div class="containerSection">
+							<p class="excludeMargin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+			
+			<div class="containerAccordion spacerTriple" data-accordiongroup="group1" id="exampleAccordion2">
+				<div class="headerAccordion headerSection">
+					<h3>Accordion Group 1</h3>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<div class="containerSection">
+							<p class="excludeMargin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+			
+			
+			<div class="containerAccordion spacerHalf" data-accordiongroup="group2" id="exampleAccordion2">
+				<div class="headerAccordion headerSection">
+					<h3>Accordion Group 2</h3>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<div class="containerSection">
+							<p class="excludeMargin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+			
+			<div class="containerAccordion spacerHalf active" data-accordiongroup="group2" id="exampleAccordion2">
+				<div class="headerAccordion headerSection">
+					<h3>Accordion Group 2</h3>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<div class="containerSection">
+							<p class="excludeMargin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+			
+			<div class="containerAccordion spacerHalf" data-accordiongroup="group2" id="exampleAccordion2">
+				<div class="headerAccordion headerSection">
+					<h3>Accordion Group 2</h3>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<div class="containerSection">
+							<p class="excludeMargin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+			
+			<div class="containerAccordion spacerTriple" data-accordiongroup="group2" id="exampleAccordion2">
+				<div class="headerAccordion headerSection">
+					<h3>Accordion Group 2</h3>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<div class="containerSection">
+							<p class="excludeMargin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
-			<p>Accordions are designed to hide content by default leaving only a header to click on to show that content. Accordions in Rebar are comprised of two pieces, <code>.headerAccordion</code> and <code>.containerAccordionContents</code> containers. You can wrap these two containers in a <code>.containerAccordion</code> container but that isn't necessary for the function for the Accordion (it can help you with spacing).</p>
+			<p>Accordions are designed to hide content by default leaving only a header to click on to show that content. Accordions in Rebar are comprised of two pieces, <code>.headerAccordion</code> and <code>.containerAccordionContents</code> containers. You are required wrap these two containers in a <code>.containerAccordion</code> container.</p>
 			<p>For Accordions that are supposed to look like a <code>.containerSection</code> with a <code>.headerSection</code> this requires a little more setup.</p>
 			<p>It is not required to include the chevron SVG but it's recommended so that users can identify that this is an Accordion. You can include any style of chevron you want as long as it's wrapped in a <code>.containerChevron</code> container. By default Rebar points chevrons in the direction the respective OSes expect them to be in.</p>
+			<p>If you wish to include a leading image wrap the image and the heading in a <code>.containerContent</code> wrapper. You must set the size of the image as Rebar does not enforce sizing here.</p>
 <pre class="spacerTriple">
 //STANDARD
 &lt;div class="containerAccordion"&gt;
@@ -5494,32 +5818,47 @@ toolbarVisibility({
 </pre>
 			
 			<h3>Functions</h3>
-			<p class="spacerTriple">Accordions have an automatic click function associated with them. As long as your header has the <code>headerAccordion</code> class then the click function will fire.</p>
+			<p class="spacerTriple">Accordions have an automatic click function associated with them. As long as your header has the <code>.headerAccordion</code> class then the click function will fire.</p>
+			
+			<h3>Styles</h3>
+			<h4>Open on Larger Screens</h4>
+			<p>If you need an accordion to be open by default on larger screens you can add the <code>.largeOpen</code> modifier along with the <code>$(window).on('resize', () => openAccordionsLargeScreens(1100)).trigger('resize');</code> function in the route with the accordion. You can set whatever value you want for the accordion to open but it is bound to the viewport, not the container.</p>
+			
+			<h4>Section on Larger Screens</h4>
+			<p>If you need an accordion to appear as a section with no accordion functionality on larger screens you can add the <code>.largeSection</code> modifier. This is currently set to 700 px bound to the container within Rebar itself. If you need a different size you will need to manually overwrite this in <code>app.css</code>.</p>
+			
+			<h4>Exclusive Accordions</h4>
+			<p class="spacerTriple">If you have a group of accordions where you want only one to be open at a time you can add the <code>data-accordiongroup=""</code> attribute to <code>.containerAccordion</code> to group them together. The click function is automatically handled on <code>.headerAccordion</code></p>
 			
 			<h3>CSS</h3>
 			<p>Accordions don't carry much in the way of inherent styles. You are pretty free to style the contents as you see fit. The only styling requirement is if you want it to look like a Section Container then you need to follow the structure above for that to work.</p>
 			<p>When placed in a Sidebar some styling will be applied to make sure the header fits in with the other headers.</p>
 			<p>If you wish to have the accordion open on load, add the <code>active</code> class to the <code>.headerAccordion</code> and <code>.containerAccordionContents</code> containers.</p>
 			<p>It's important to know that accordions do not carry an <code>overflow: hidden;</code> and if you need rounded corners you will need to use the <code>.hideOverflow</code> class.</p>
-			<p>Accordions have a <code>max-height</code> of 1000px. If this is not enough you can addd the <code>.large</code> class to increase it.</li>
 		</div>
 	`,
 	iframes: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Layout")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routelayout({modifier: false, navtype: "backwards"})'>
+						${insertBackButton("Layout")}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">iframes</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">iframes</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div class="containerGeneric excludePadding spacerTriple" id="scrollview1">
 				<iframe src="https://toast-studio.com/"></iframe>
@@ -5530,30 +5869,27 @@ toolbarVisibility({
 		</div>
 	`,
 	tables: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Layout")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routelayout({modifier: false, navtype: "backwards"})'>
+						${insertBackButton("Layout")}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Tables</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Tables</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Tables have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<h3 class="h6">Information Table</h3>
 			<table class="spacerDouble tableGuideIcons">
@@ -5701,21 +6037,27 @@ searchTable({
 		</div>
 	`,
 	banners: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routelayout({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Layout")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routelayout({modifier: false, navtype: "backwards"})'>
+						${insertBackButton("Layout")}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Banners</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Banners</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			${insertBanner({
 				type: 'warning', 
@@ -5828,25 +6170,130 @@ insertBanner({
 			<p class="spacerTriple">No styling is required, the banners will handle everything for you. Currently there is no way to override the default <code>margin</code> that Sections come with. The icon of the Banner type must always be displayed.</p>
 		</div>
 	`,
+	actionbars: `
+			<header class="containerToolbar layoutDefault">
+				<div class="wrapperToolbarStart">
+					<div class="pinToolbar material-liquidglass-thin">
+						<span onclick='routelayout({modifier: false, navtype: "backwards"})'>
+							${insertBackButton("Layout")}
+						</span>
+						<button data-button="action-transparent" class="toolbarItem collapseAside">
+							${iconInterfaceElements.sidebarLeftStroke}
+						</button>
+					</div>
+				</div>
+				<div class="wrapperToolbarMiddle">
+					<h1 class="headerToolbar">Action Bars</h1>
+				</div>
+				<div class="wrapperToolbarEnd">
+					<div class="pinToolbar material-liquidglass-thin">
+						<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+					</div>
+				</div>
+			</header>
+			<div class="scrollview inset-T paddingContent">
+				<h2>Examples</h2>
+				
+				<!-- TRAILING LAYOUT -->
+				<div class="containerGeneric excludePadding exampleToolbar">
+					<div class="scrollview inset-X">
+						<p style="padding: var(--base-gap-size);">The <code>.layoutTrailing</code> modifier will set the content to the end of the Action Bar. This is the default layout.</p>
+						<p style="padding-inline: var(--base-gap-size);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p style="padding-inline: var(--base-gap-size);">Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p style="padding-inline: var(--base-gap-size);">Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						<p style="padding-inline: var(--base-gap-size);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p style="padding-inline: var(--base-gap-size);">Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p style="padding-inline: var(--base-gap-size);">Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						<p style="padding-inline: var(--base-gap-size);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p style="padding-inline: var(--base-gap-size);">Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p style="padding-inline: var(--base-gap-size);">Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+					</div>
+					<footer class="containerActionBar layoutTrailing">
+						<button data-button="action-transparent" class="primary">Don't Save</button>
+						<button data-button="action-fill" class="primary material-liquidglass-tinted">Save</button>
+					</footer>
+				</div>
+				
+				<!-- SPLIT LAYOUT -->
+				<div class="containerGeneric excludePadding exampleToolbar">
+					<div class="scrollview inset-X">
+						<p style="padding: var(--base-gap-size);">The <code>.layoutSplit</code> modifier will set the content with a <code>space-between</code> spacing.</p>
+						<p style="padding-inline: var(--base-gap-size);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p style="padding-inline: var(--base-gap-size);">Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p style="padding-inline: var(--base-gap-size);">Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						<p style="padding-inline: var(--base-gap-size);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p style="padding-inline: var(--base-gap-size);">Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p style="padding-inline: var(--base-gap-size);">Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						<p style="padding-inline: var(--base-gap-size);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p style="padding-inline: var(--base-gap-size);">Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p style="padding-inline: var(--base-gap-size);">Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+					</div>
+					<footer class="containerActionBar layoutSplit">
+						<div class="pinActionBar">
+							<button data-button="action-transparent" class="destructive">${iconObjects.trashStroke} Delete</button>
+						</div>
+						<div class="pinActionBar">
+							<button data-button="action-transparent" class="primary">Don't Update</button>
+							<button data-button="action-fill" class="primary material-liquidglass-tinted">Update</button>
+						</div>
+					</footer>
+				</div>
+				
+				<!-- CENTER LAYOUT -->
+				<div class="containerGeneric excludePadding exampleToolbar">
+					<div class="scrollview inset-X">
+						<p style="padding: var(--base-gap-size);">The <code>.layoutCenter</code> modifier will set the content to the center of the Action Bar.</p>
+						<p style="padding-inline: var(--base-gap-size);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p style="padding-inline: var(--base-gap-size);">Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p style="padding-inline: var(--base-gap-size);">Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						<p style="padding-inline: var(--base-gap-size);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p style="padding-inline: var(--base-gap-size);">Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p style="padding-inline: var(--base-gap-size);">Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+						<p style="padding-inline: var(--base-gap-size);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
+						<p style="padding-inline: var(--base-gap-size);">Sed sit amet accumsan nibh, a vehicula magna. Nunc hendrerit massa vel magna faucibus luctus. Nunc eu malesuada dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque ultricies sit amet mauris eget elementum. Duis finibus sapien at elit commodo, aliquet tincidunt augue mollis. Pellentesque malesuada ex at mollis feugiat. Mauris non consectetur sem. Ut non ultrices purus. Proin a ligula eu felis dapibus ultricies. Curabitur nec fringilla tellus.</p>
+						<p style="padding-inline: var(--base-gap-size);">Phasellus a blandit odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer placerat lectus nec lorem porta, sit amet auctor sapien dapibus. Nulla tincidunt enim tincidunt neque ultricies posuere. Nulla nibh lorem, condimentum ac fringilla quis, consectetur non sem. Nullam imperdiet lorem a odio eleifend pellentesque. Curabitur bibendum ex neque, et elementum elit ornare sed. Mauris tempor nisl elit, id vulputate metus scelerisque quis. Pellentesque consectetur feugiat sem id ornare. Sed rhoncus pellentesque placerat.</p>
+					</div>
+					<footer class="containerActionBar layoutCenter">
+						<button data-button="action-fill" class="primary material-liquidglass-tinted">Install App</button>
+					</footer>
+				</div>
+				
+				<h2>Documentation</h2>
+				<h3>HTML</h3>
+				<p class="spacerTriple">Action Bars are a container for the primary action buttons of a view. You are free to place whatever content you need inside them.</p>
+				
+				<h3>Functions</h3>
+				<p class="spacerTriple">Action Bars have no functions associated with them.</p>
+				
+				<h3>CSS</h3>
+				<p class="spacerTriple">Action Bars come with several layout modifiers to help you place buttons correctly.</p>
+			</div>
+		`,
 }
 
 const modals = {
 	dialogs: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Modals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routemodals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Dialogs</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Dialogs</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>HTML</h2>
 			<p class="spacerTriple">Dialogs power all of the modals within Rebar and are the basis of Sheets, Lightboxes, Alerts, Toasts, the Shortcuts Panel, and the Install Banner. Dialogs are simple containers that use the <code>dialog</code> element and can be filled with type specific content. HTML examples for controls powered by Panels can be found in their own sections.</p>
 			
@@ -5858,30 +6305,27 @@ const modals = {
 		</div>
 	`,
 	sheets: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Modals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routemodals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Sheets</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Sheets</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Sheets will have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<table class="examples spacerTriple">
 				<thead>
@@ -5959,21 +6403,27 @@ summonSheet({
 		</div>
 	`,
 	lightboxes: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Modals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routemodals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Lightboxes</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Lightboxes</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<button data-button="action-fill" class="primary spacerDouble" onclick="exampleLightbox()">Show Lightbox</button>
 			
@@ -5996,30 +6446,27 @@ summonLightbox({
 		</div>
 	`,
 	alerts: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Modals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routemodals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Alerts</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Alerts</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Alerts will have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<table class="examples spacerTriple">
 				<thead>
@@ -6045,7 +6492,7 @@ summonLightbox({
 			
 			<h2>Documentation</h2>
 			<h3>HTML</h3>
-			<p class="spacerTriple">Alerts are Sheets that have a different purpose and differnt styling but function the same. They both bring up a modal to display content, Alerts however are intended to be disruptive a force the choice of an option which means they can not be dismissed by clicking on the backdrop.</p>
+			<p class="spacerTriple">Alerts are Sheets that have a different purpose and differnt styling but function the same. They both bring up a modal to display content, Alerts however are intended to be disruptive and force the choice of an option which means they can not be dismissed by clicking on the backdrop.</p>
 			
 			<h3>Functions</h3>
 			<p>The <code>summonAlert()</code> function will handle generating an Alert for you and invoking the dialog.</p>
@@ -6080,21 +6527,27 @@ summonAlert({
 		</div>
 	`,
 	toasts: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Modals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routemodals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Toasts</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Toasts</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<table class="examples spacerTriple">
 				<thead>
@@ -6139,21 +6592,27 @@ summonToast({
 		</div>
 	`,
 	shortcutspanel: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Modals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routemodals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Shortcuts Panel</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Shortcuts Panel</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<p>Press <code>Control</code> to bring up the Shortcuts Panel.</p>
 			
@@ -6192,21 +6651,27 @@ let shortcutKeys = {
 		</div>
 	`,
 	installbanner: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Modals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routemodals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Install Banner</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Install Banner</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			${generateInstallPanel()}
 			
@@ -6228,21 +6693,27 @@ let shortcutKeys = {
 		</div>
 	`,
 	whatsnewpanel: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routemodals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Modals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routemodals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">What's New Panel</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">What's New Panel</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<table class="examples spacerTriple">
 				<thead>
@@ -6272,21 +6743,27 @@ let shortcutKeys = {
 
 const visuals = {
 	iconsguide: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Icons</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Icons</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Documentation</h2>
 			<p>Rebar comes with a built-in icon set. The icons in this set are geared towards common interface elements. Where appropriate icons will come in 4 styles:</p>
 			<table class="definitions spacerSingle" id="icons">
@@ -6358,21 +6835,27 @@ const visuals = {
 		</div>
 	`,
 	typography: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Typography</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Typography</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p>This properties typography library are based on the CSS variables provided. Changing the <code>--base-font-size</code> will cause all typography to scale accordingly.</p>
 			<h2 class="headerSection">Headings</h2>
 			<section class="containerSection">
@@ -6425,30 +6908,27 @@ const visuals = {
 		</div>
 	`,
 	dynamictype: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Dynamic Type</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Dynamic Type</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Fonts have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div id="pickerText"></div>
 			<h2>Documentation</h2>
@@ -6465,24 +6945,32 @@ const visuals = {
 		</div>
 	`,
 	images: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Images</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Images</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p>These images are provided as part of Rebar to be displayed within it's components. They all have a colour baked in so will need to be edited to match your theme.</p>
 			<img src="rebar/images/tick-light.svg" />
 			<img src="rebar/images/tick-dark.svg" />
+			<img src="rebar/images/times-light.svg" />
+			<img src="rebar/images/times-dark.svg" />
 			<img src="rebar/images/arrow-back-dark.svg" />
 			<img src="rebar/images/arrow-back-light.svg" />
 			<img src="rebar/images/arrow-forward-dark.svg" />
@@ -6497,21 +6985,27 @@ const visuals = {
 		</div>
 	`,
 	displayoptions: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Display Options</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Display Options</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div class="excludePadding" id="exampleDisplayOptions"></div>
 			
@@ -6569,21 +7063,27 @@ generateDisplayOptions({
 		</div>
 	`,
 	appearance: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Appearance</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Appearance</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div id="pickerTheme"></div>
 			<h2>Documentation</h2>
@@ -6604,21 +7104,27 @@ modifyPreference({
 		</div>
 	`,
 	accent: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Accent</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Accent</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div id="exampleAccents"></div>
 
@@ -6674,21 +7180,27 @@ modifyPreference({
 		</div>
 	`,
 	reducemotion: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Reduce Motion</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Reduce Motion</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div id="pickerMotion"></div>
 			
@@ -6698,21 +7210,27 @@ modifyPreference({
 		</div>
 	`,
 	blankstates: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Blank States</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Blank States</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div class="containerGeneric excludePadding alwaysForegroundColor" id="exampleBlankState"></div>
 			
@@ -6776,21 +7294,27 @@ generateBlankState({
 		</div>
 	`,
 	cssvariables: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">CSS Variables</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">CSS Variables</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p>Rebar uses CSS Variables to set predefined values. All of them are fully overridable both at the <code>:root</code> level and at any selector level to allow for theming. These are the included set of variables and their default values:</p>
 			<table class="definitions spacerSingle">
 				<thead>
@@ -6995,16 +7519,20 @@ generateBlankState({
 						<td>The size of border radii.</td>
 					</tr>
 					<tr>
-						<td><code>--tabbar-height</code></td>
-						<td>The height of Tab Bars.</td>
-					</tr>
-					<tr>
 						<td><code>--toolbar-height</code></td>
 						<td>The height of Toolbars.</td>
 					</tr>
 					<tr>
 						<td><code>--accessorybar-height</code></td>
 						<td>The height of Accessory Bars.</td>
+					</tr>
+					<tr>
+						<td><code>--tabbar-height</code></td>
+						<td>The height of Tab Bars.</td>
+					</tr>
+					<tr>
+						<td><code>--actionbar-height</code></td>
+						<td>The height of Action Bars.</td>
 					</tr>
 					<tr>
 						<td><code>--aside-width</code></td>
@@ -7015,21 +7543,27 @@ generateBlankState({
 		</div>
 	`,
 	utilityclasses: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Utility Classes</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Utility Classes</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p>Utility classes are styling classes that have a more global context (Rebar tries to scope most component classes with some specificity to avoid conflicts).</p>
 			<table class="definitions spacerTriple" id="config">
 				<thead>
@@ -7139,21 +7673,27 @@ generateBlankState({
 		</div>
 	`,
 	breakpoints: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Breakpoints</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Breakpoints</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p>Rebar follows these standard breakpoints (you can use any that you require):</p>
 			<table class="definitions spacerSingle" id="breakpoints">
 				<thead>
@@ -7188,21 +7728,27 @@ generateBlankState({
 		</div>
 	`,
 	increasedcontrast: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Increased Contrast</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Increased Contrast</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div class="spacerTriple" id="pickerContrast"></div>
 			
@@ -7245,21 +7791,27 @@ generateBlankState({
 		</div>
 	`,
 	spinners: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Spinners</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Spinners</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Example</h2>
 			<div class="spacerTriple" id="exampleSpinner"></div>
 			
@@ -7275,21 +7827,27 @@ generateSpinner({
 		</div>
 	`,
 	appglyph: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">App Glyph</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">App Glyph</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Documentation</h2>
 			<p>The App Glyph is a place to display an image in blank content columns. It is not required but does help fill out blank views.</p>
 			<p>You will need to manually insert an SVG in to <code>index.html</code>, an image should not be used here. Rebar Icons are unable to be used for this.</p>
@@ -7297,41 +7855,53 @@ generateSpinner({
 		</div>
 	`,
 	thememetatag: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Theme Meta Tag</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Theme Meta Tag</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p><code>setMetaTheme()</code> is a function that is used to update the value in the <code>theme</code> meta tag. This is done to make sure the UI of Safari 15 and Android Chrome blends in with your app. It will set the theme value to your <code>--foreground</code> CSS variable's current value.</p>
 			<p>Rebar is already set up to invoke this function when needed. So only call this when changing the current app theme in a custom way.</p>
 		</div>
 	`,
 	colours: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routevisuals({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Visuals")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Semantic Colours</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Semantic Colours</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div class="spacerTriple" id="gridColours">
 				<div class="tile">
@@ -7380,25 +7950,149 @@ generateSpinner({
 			<p>Rebar comes with a variety of semantic colours that are used in components and available to use within your app. Each colour is already set to work with Increased Contrast. It should be noted there are Multi style icons that make use of Semantic Colours.</p>
 		</div>
 	`,
+	materials: `
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routevisuals({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
+			</div>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Materials</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
+			</div>
+		</header>
+		<div class="scrollview inset-T paddingContent">
+			<p>Rebar includes various materials to help your app feel more integrated with the different OSes. Each material is for a specific OS and will only show up there, if you wish to override this you can set the <code>data-os</code> attribute on a parent container.</p>
+			<h2>Liquid Glass</h2>
+			<p>Liquid Glass is the primary material for iOS, iPadOS, and macOS. It features a molten glass appearance that refracts light. The Liquid Glass that is included with Rebar is an approximation of this and is limited by the capabilities of CSS.</li>
+			<p>Classes: <code>material-liquidglass-thin</code>, <code>material-liquidglass-thick</code>, and <code>material-liquidglass-tinted</code></p>
+			<table class="tableMaterials spacerSingle">
+				<thead>
+					<tr>
+						<th>iOS</th>
+						<th>macOS</th>
+						<th>Android</th>
+						<th>Windows</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>${iconShapes.checkmarkCircleMulti}</td>
+						<td>${iconShapes.checkmarkCircleMulti}</td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="containerMaterialExamples spacerTriple" data-os="ios">
+				<div class="materialStandard material-liquidglass-thin"></div>
+				<div class="materialStandard material-liquidglass-thick"></div>
+				<div class="materialTinted material-liquidglass-tinted"></div>
+			</div>
+			
+			<h2>Acrylic</h2>
+			<p>Acrylic is one of the materials for Windows. It is made out of sheets of thick acrylic and allows some of the content underneath to filter through it.</p>
+			<p>Attributes: <code>material-acrylic</code></p>
+			<table class="tableMaterials spacerSingle">
+				<thead>
+					<tr>
+						<th>iOS</th>
+						<th>macOS</th>
+						<th>Android</th>
+						<th>Windows</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>${iconShapes.checkmarkCircleMulti}</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="containerMaterialExamples spacerTriple" data-os="windows">
+				<div class="materialStandard material-acrylic"></div>
+				<div class="materialTinted material-acrylic"></div>
+				<div class="materialStandard material-acrylic"></div>
+			</div>
+			
+			<h2>Translucent</h2>
+			<p>Translucent is a generic material for any OS. It is a blur with a saturation boost that comes in two different blur amounts.</p>
+			<p>Attributes: <code>material-translucent-thick</code> and <code>material-translucent-thin</code></p>
+			<table class="tableMaterials spacerSingle">
+				<thead>
+					<tr>
+						<th>iOS</th>
+						<th>macOS</th>
+						<th>Android</th>
+						<th>Windows</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>${iconShapes.checkmarkCircleMulti}</td>
+						<td>${iconShapes.checkmarkCircleMulti}</td>
+						<td>${iconShapes.checkmarkCircleMulti}</td>
+						<td>${iconShapes.checkmarkCircleMulti}</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Thick</h3>
+			<div class="containerMaterialExamples spacerTriple">
+				<div class="materialStandard material-translucent-thick"></div>
+				<div class="materialTinted material-translucent-thick"></div>
+				<div class="materialStandard material-translucent-thick"></div>
+			</div>
+			<h3>Thin</h3>
+			<div class="containerMaterialExamples spacerTriple">
+				<div class="materialStandard material-translucent-thin"></div>
+				<div class="materialTinted material-translucent-thin"></div>
+				<div class="materialStandard material-translucent-thin"></div>
+			</div>
+			
+			<h2>Combining Materials</h2>
+			<p>Materials can be combined to provide different looks for different OSes. In the example below we are using Liquid Glass and Acrylic (Android will not show anything).</li>
+			<div class="containerMaterialExamples">
+				<div class="materialStandard material-liquidglass-thin material-acrylic"></div>
+			</div>
+		</div>
+	`,
 }
 
 const charts = {
 	pie: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Charts")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecharts({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</button>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Pie and Donut Charts</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Pie and Donut Charts</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div class="spacerTriple" id="exampleChartPie">
 				<div class="containerSection" id="containerFruit"></div>
@@ -7454,30 +8148,27 @@ const charts = {
 		</div>
 	`,
 	gantt: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Charts")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecharts({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</button>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Gantt Chart</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Gantt Chart</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
-			${
-				insertBanner({
-					type: 'info',
-					content: 'Gantt Charts have different styling based on the OS being used',
-					icon: false,
-					size: 'large',
-				})
-			}
-		
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<div class="spacerTriple" id="exampleChartGantt"></div>
 			
@@ -7533,21 +8224,27 @@ const charts = {
 		</div>
 	`,
 	stats: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routecharts({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Charts")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routecharts({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</button>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Stats Chart</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Stats Chart</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<h3>Landscape</h3>
 			<div class="spacerTriple" id="exampleChartStatsLandscape"></div>
@@ -7594,21 +8291,27 @@ const charts = {
 
 const helpers = {
 	preferences: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Helpers")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Preferences System</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Preferences System</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p>The Preferences System in Rebar is designed to be a robust way to store, modify, and delete records in local storage. Preferences can be saved in to groups to keep the local storage clean.</p>
 			<p>It offers the ability to bake-in default preferences that are saved to local storage on first run guaranteeing that you have access to those values from the get go.</p>
 			<p>Lastly there is the concept of a preference version number where if you have to make large breaking changes you can change the version number and Rebar will completely reset what is stored in local storage back to your new default set of preferences.</p>
@@ -7660,7 +8363,7 @@ const appPreferencesDefault = {
 				</tr>
 				<tr>
 					<td><code>append</code></td>
-					<td>Takes what is in <code>config.js</code> and compare it to what is in local storage. It will them append any values that are not present in local storage while leaving any existing values alone (if nothing is found in local storage it will save all default values to local storage).</td>
+					<td>Takes what is in <code>config.js</code> and compares it to what is in local storage. It will then append any values that are not present in local storage while leaving any existing values alone (if nothing is found in local storage it will save all default values to local storage).</td>
 				</tr>
 			</tbody>
 		</table>
@@ -7694,22 +8397,91 @@ modifyPreference({
 </pre>
 		</div>
 	`,
-	tipjar: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Helpers")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+	saverecents: `
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Tip jar</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Save Recents</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
+			<p>This function gives you a consistent way to save recents to the Rebar preferences system. It's flexible in allowing you to define a max limit for how many items can be in the recents list. It's important to note this function will save new items to the <b>start</b> of the array.</p>
+			<p>It is a requirement you have a preference group already set up and it contains a key named <code>recent</code> with a value of an empty array.</p>
+			<pre>
+saveRecent({
+	group: string of the preference group name,
+	id: string you want to save in to the array,
+	max: number of limit of items,
+})</pre>
+		</div>
+	`,
+	toggleprefitems: `
+			<header class="containerToolbar layoutDefault">
+				<div class="wrapperToolbarStart">
+					<div class="pinToolbar material-liquidglass-thin">
+						<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+							${insertBackButton()}
+						</span>
+						<button data-button="action-transparent" class="toolbarItem collapseAside">
+							${iconInterfaceElements.sidebarLeftStroke}
+						</button>
+					</div>
+				</div>
+				<div class="wrapperToolbarMiddle">
+					<h1 class="headerToolbar">Toggle Pref Items</h1>
+				</div>
+				<div class="wrapperToolbarEnd">
+					<div class="pinToolbar material-liquidglass-thin">
+						<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+					</div>
+				</div>
+			</header>
+			<div class="scrollview inset-T paddingContent">
+				<p>This function gives you a consistent way to toggle the state of an item in the Rebar preferences system. It's important to note this function will save new items to the <b>start</b> of the array.</p>
+				<p>It is a requirement you have a preference group already set up and it contains a key named <code>favourite</code> with a value of an empty array.</p>
+				<pre>
+	togglePrefItem({
+		group: string of the preference group name,
+		id: string you want to save in to the array,
+	})</pre>
+			</div>
+		`,
+	tipjar: `
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
+			</div>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Tip jar</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
+			</div>
+		</header>
+		<div class="scrollview inset-T paddingContent">
 			<h2>Generate Tip Jar</h2>
 			<p><code>generateTipJar()</code> is a function for creating a standard Tip Jar which can be displayed in whatever view you need. It is intended to be used inline and returns the HTML. The messaging is standard but will pick up <code>appName</code>, <code>appEmail</code>, <code>appPrivacyPolicy</code>, and <code>tipsLinks</code> from your config file to customise it.</p>
 <pre>
@@ -7733,117 +8505,153 @@ generateTipJar({
 		</div>
 	`,
 	capitalizeword: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Helpers")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Capitalize Word</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Capitalize Word</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p><code>capitalize()</code> is a function to help you capitalize a single word that you might automatically get as lowercase from some JSON. To make it work you need to pass text in to the function. It currently only supports single words. It will return the capitalized word.</p>
 		</div>
 	`,
 	copytoclipboard: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Helpers")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Copy to Clipboard</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Copy to Clipboard</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p><code>copyToClipboard()</code> is a function to help you copy provided text to the clipboard. To make it work you need to pass text in to the function. It currently only supports text and will not copy images or other content to the clipboard.</p>
 			<p>The function will also generate a Toast notifying users that the copy was successful (which will auto-dismiss after a short period of time).</p>
 		</div>
 	`,
 	settimelength:  `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Helpers")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Set Time Length</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Set Time Length</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p><code>setTimeLength()</code> is a function that is used to set the <code>--base-time-length</code> variable. It will look to both the device and app settings to determine which is the appropriate value to set. When not setting the variable to 0 it will use the value in the <code>baseTimeLength</code> constant.</p>
 		</div>
 	`,
-	temporaryanimationpause:  `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Helpers")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+	temporaryanimationpause: `
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Temporary Animation pause</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Temporary Animation pause</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p><code>tempAnimationStop()</code> is a function that termporarily disables animations by setting <code>--base-time-length</code> to <code>0</code> and then resets <code>--base-time-length</code> to the default value.</p>
 		</div>
 	`,
 	graburlparameters: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Helpers")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Grab URL Parameters</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Grab URL Parameters</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p><code>grabURLParameter()</code> is a function to retrieve the current URL query string for you. If the URL is set up as <code>?leading=trailing</code> it will return both <code>leading</code> and <code>trailing</code>. It will also return a <code>type</code> of </code>deeplink</code> which is used for the routing system.</p>
 		</div>
 	`,
 	grabos: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Helpers")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Grab OS</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Grab OS</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p><code>grabOS()</code> is a function to retrieve the OS of the device Rebar is currently loaded in for you. It will return a string of text with the OS name.</p>
 			<p>Meanwhile <code>storedOS()</code> is a function to retrieve the OS the user has set in localstorage.<p>
 			<p>For styling purposes Rebar automatically inserts two data attributes on the <code>body</code> tag. <code>data-os</code> is the OS theme stored in preferences and <code>data-device</code> is device's actual OS.</p>
@@ -7854,40 +8662,52 @@ generateTipJar({
 		</div>
 	`,
 	scrolltotop: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Helpers")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Scroll to Top</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Scroll to Top</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p><code>scrollToTop()</code> is a function to scroll an element to the top of a list. It takes an ID as the single parameter (it must be an ID as other elements did not work well).</p>
 		</div>
 	`,
 	iconstyle: `
-		<header class="containerToolbar alwaysLeft">
-			<div class="pinLeft">
-				<button data-button="action-transparent" class="back slim toolbarItem" onclick='routehelpers({modifier: false, navtype: "backwards"})' title="Navigate Back">
-					${insertBackButton("Helpers")}
-				</button>
-				<button data-button="action-transparent" class="toolbarItem collapseAside">
-					${iconInterfaceElements.sidebarLeftStroke}
-				</button>
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
 			</div>
-			<h1 class="headerToolbar">Icon Style</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Icon Style</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar paddingContent">
+		<div class="scrollview inset-T paddingContent">
 			<p>Below is a set of functions that insert different icons based on the selected OS:</p>
 		
 			<h1 class="headerSection">
@@ -7934,23 +8754,279 @@ generateTipJar({
 				<h4>Example</h4>
 				<span class="alwaysMain">${insertBackButton("Label")}</span>
 			</div>
+			
+			<h1 class="headerSection">
+				<span class="h6">insertConfirmationButton()</span>
+			</h1>
+			<div class="containerSection">
+				<p>A function that inserts the correct Confirmation button. It should be inserted as <code>insertConfirmationButton()</code>.</p>
+				<h4>Example</h4>
+				${insertConfirmationButton()}
+			</div>
+			
+			<h1 class="headerSection">
+				<span class="h6">insertCancelButton()</span>
+			</h1>
+			<div class="containerSection">
+				<p>A function that inserts the correct Cancel button. It should be inserted as <code>insertCancelButton()</code>.</p>
+				<h4>Example</h4>
+				${insertCancelButton()}
+			</div>
+		</div>
+	`,
+	filters: `
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
+			</div>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Filters</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
+			</div>
+		</header>
+		<div class="scrollview inset-T paddingContent">
+			<h2>Examples</h2>
+			<div class="spacerSingle" id="exampleFilterControls">
+				<button data-button="action-fill" class="primary" onclick="filterPeople('name')">Last Name (Smith)</button>
+				<button data-button="action-fill" class="primary" onclick="filterPeople('nameMulti')">Last Name (Smith OR Patel)</button>
+				<button data-button="action-fill" class="primary" onclick="filterPeople('weight')">60&#8211;70 kg</button>
+				<button data-button="action-fill" class="primary" onclick="filterPeople('weightLow')">Below 60 kg</button>
+				<button data-button="action-fill" class="primary" onclick="filterPeople('height')">Male and 178 cm</button>
+				<button data-button="action-fill" class="primary" onclick="filterPeople('type')">Water Type</button>
+				<button data-button="action-fill" class="primary" onclick="filterPeople('notwater')">Not Water Type</button>
+				<button data-button="action-fill" class="primary" onclick="filterPeople('food')">Toast</button>
+				<button data-button="action-fill" class="primary" onclick="filterPeople('key')">Key (Jane OR Alex)</button>
+				<button data-button="action-fill" class="primary" onclick="filterPeople('all')">All</button>
+			</div>
+			
+			<section class="containerSection excludePadding spacerTriple" id="exampleFilter"></section>
+			
+			<h2>Documentation</h2>
+			<p>The <code>dataFilter()</code> function allows you to filter objects on multiple keys. You can filter these data types:</p>
+			<ul>
+				<li>Text Strings</li>
+				<li>Numbers</li>
+				<li>Booleans</li>
+				<li>Arrays</li>
+				<li>Objects</li>
+			</ul>
+			<p>The function is constructed as <code>dataFilter(dataObject, {command})</code>. You can chain multiple paramters together:</p>
+			<table class="data withBorder" id="tableFilterSpecs">
+				<thead>
+					<tr>
+						<th>Command</th>
+						<th>Definition</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>''</td>
+						<td>Returns all values in the original data set</td>
+					</tr>
+					<tr>
+						<td>{property: 'string'}</td>
+						<td>Filter a single Text String for an exact match</td>
+					</tr>
+					<tr>
+						<td>{property: ['string1', 'string2', 'string3']}</td>
+						<td>Filter multiple Text Strings (works as an OR filter)</td>
+					</tr>
+					<tr>
+						<td>s => /x/i.test(s) && !/^x$/i.test(s)</td>
+						<td>Filter a single Text String for a partial match (replace x for your string)</td>
+					</tr>
+					<tr>
+						<td>{property: number}</td>
+						<td>Filter Numbers</td>
+					</tr>
+					<tr>
+						<td>{property: { $min: lowestNumber, $max: highestNumber }}</td>
+						<td>Filter a range of Numbers</td>
+					</tr>
+					<tr>
+						<td>{property: v => v * number}</td>
+						<td>Filter Numbers based on an inequality statement where * can be >=, >, <=, or <</td>
+					</tr>
+					<tr>
+						<td>{property: boolean}</td>
+						<td>Filters Booleans with TRUE or FALSE</td>
+					</tr>
+					<tr>
+						<td>{property: ['string1', 'string2']}</td>
+						<td>Filters an Array (works as an OR filter when you include multiple strings)</td>
+					</tr>
+					<tr>
+						<td>{property: {$all: ['string1', 'string2']}}</td>
+						<td>Filters an Array (works as an AND filter)</td>
+					</tr>
+					<tr>
+						<td>{property: {$none: ['string1', 'string2']}}</td>
+						<td>Filters an Array (works as a NOR filter)</td>
+					</tr>
+					<tr>
+						<td>{'level1.level2': *}</td>
+						<td>Filters an Object using dot notation for the key and then any of the other commands can be used for the value</td>
+					</tr>
+					<tr>
+						<td>{$key: ['string1', 'string2']}</td>
+						<td>Filters the keys of the data structure you provide (works as an OR filter)</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	`,
+	sorting: `
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
+			</div>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Sorting</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
+			</div>
+		</header>
+		<div class="scrollview inset-T paddingContent">
+			<h2>Examples</h2>
+			<div class="spacerSingle" id="exampleFilterControls">
+				<button data-button="action-fill" class="primary" onclick="sortPeople('nameAsc')">Last Name ${iconShapes.caretUp}</button>
+				<button data-button="action-fill" class="primary" onclick="sortPeople('nameDesc')">Last Name ${iconShapes.caretDown}</button>
+				<button data-button="action-fill" class="primary" onclick="sortPeople('heightAsc')">Height ${iconShapes.caretUp}</button>
+				<button data-button="action-fill" class="primary" onclick="sortPeople('heightDesc')">Height ${iconShapes.caretDown}</button>
+				<button data-button="action-fill" class="primary" onclick="sortPeople('typeAsc')">Type ${iconShapes.caretUp}</button>
+				<button data-button="action-fill" class="primary" onclick="sortPeople('typeDesc')">Type ${iconShapes.caretDown}</button>
+				<button data-button="action-fill" class="primary" onclick="sortPeople('glassesAsc')">Glasses ${iconShapes.caretUp}</button>
+				<button data-button="action-fill" class="primary" onclick="sortPeople('glassesDesc')">Glasses ${iconShapes.caretDown}</button>
+				<button data-button="action-fill" class="primary" onclick="sortPeople('foodAsc')">Breakfast ${iconShapes.caretUp}</button>
+				<button data-button="action-fill" class="primary" onclick="sortPeople('foodDesc')">Breakfast ${iconShapes.caretDown}</button>
+				<button data-button="action-fill" class="primary" onclick="sortPeople('none')">None</button>
+			</div>
+			
+			<section class="containerSection excludePadding spacerTriple" id="exampleFilter"></section>
+			
+			<h2>Documentation</h2>
+			<p>The <code>dataSort()</code> function allows you to sort objects on a single key in ascending or descending order. If you need sort on a second point, do a second pass. You can filter on these data types:</p>
+			<ul>
+				<li>Text Strings</li>
+				<li>Numbers</li>
+				<li>Booleans</li>
+				<li>Arrays</li>
+				<li>Objects</li>
+			</ul>
+			<p>Please note that booleans are <code>TRUE or FALSE</code> and this is what is sorted on so the order returned may be opposite to what you expect. Also Arrays are sorted by the first item in the Array.</p>
+			<p>The function is constructed as <code>dataSort(dataObject, 'key', 'order')</code>. To sort by an Object use dot notation such as <code>'food.breakfast'</code>.</p>
+		</div>
+	`,
+	grouping: `
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routehelpers({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
+			</div>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Grouping</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
+			</div>
+		</header>
+		<div class="scrollview inset-T paddingContent">
+			<h2>Examples</h2>
+			<div class="spacerSingle" id="exampleFilterControls">
+				<button data-button="action-fill" class="primary" onclick="groupPeople('nameAsc')">Last Name ${iconShapes.caretUp}</button>
+				<button data-button="action-fill" class="primary" onclick="groupPeople('nameDesc')">Last Name ${iconShapes.caretDown}</button>
+				<button data-button="action-fill" class="primary" onclick="groupPeople('weightAsc')">Weight ${iconShapes.caretUp}</button>
+				<button data-button="action-fill" class="primary" onclick="groupPeople('weightDesc')">Weight ${iconShapes.caretDown}</button>
+				<button data-button="action-fill" class="primary" onclick="groupPeople('glassesAsc')">Glasses ${iconShapes.caretUp}</button>
+				<button data-button="action-fill" class="primary" onclick="groupPeople('glassesDesc')">Glasses ${iconShapes.caretDown}</button>
+				<button data-button="action-fill" class="primary" onclick="groupPeople('typeAsc')">Type ${iconShapes.caretUp}</button>
+				<button data-button="action-fill" class="primary" onclick="groupPeople('typeDesc')">Type ${iconShapes.caretDown}</button>
+				<button data-button="action-fill" class="primary" onclick="groupPeople('genderAsc')">Gender ${iconShapes.caretUp}</button>
+				<button data-button="action-fill" class="primary" onclick="groupPeople('genderDesc')">Gender ${iconShapes.caretDown}</button>
+				<button data-button="action-fill" class="primary" onclick="groupPeople('foodAsc')">Breakfast ${iconShapes.caretUp}</button>
+				<button data-button="action-fill" class="primary" onclick="groupPeople('foodDesc')">Breakfast ${iconShapes.caretDown}</button>
+				<button data-button="action-fill" class="primary" onclick="groupPeople('none')">None</button>
+			</div>
+			
+			<section id="exampleFilter"></section>
+			
+			<h2>Documentation</h2>
+			<p>The <code>dataGroup()</code> function allows you to group objects on a single key. You can filter on these data types:</p>
+			<ul>
+				<li>Text Strings</li>
+				<li>Numbers</li>
+				<li>Booleans</li>
+				<li>Arrays</li>
+				<li>Objects</li>
+			</ul>
+			<p>The function is constructed as <code>dataGroup(dataObject, 'key', 'direction')</code>. To group by an Object use dot notation such as <code>'food.breakfast'</code>. The function will sort the groups based on <code>asc</code> or <code>desc</code> direction you give it.</p>
+			<p>To append content you will need to use a specific structure:</p>
+<pre>
+let groups = dataGroup(filterExample, parameter, direction)
+
+$(PARENT ID).empty()
+const $container = $(#ID);
+	
+groups.forEach((val, key) => {
+	$container.append(HEADER APPEAND HERE);
+	const $containerGroup = $(#KEY ID);
+	
+	val.forEach((item, id) => {
+		$containerGroup.append(ROW APPEND HERE);
+	});
+});
+</pre>
 		</div>
 	`,
 }
 
-//EXAMPLES
+//SHEET EXAMPLES
 const sheetExamples = {
 	full: `
-		<header class="containerToolbar">
-			<div class="pinLeft"></div>
-			<h1 class="headerToolbar">Full Sheet</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem confirm" data-function="closedialog" autofocus>Done</button>
+		<header class="containerToolbar layoutSheet">
+			<div class="wrapperToolbarStart"></div>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Full Sheet</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span data-function="closedialog" autofocus>${insertCancelButton()}</span>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar">
-			<button data-button="action-fill" class="primary spacerSingle" onclick="exampleSheetHalf()">View Half Sheet</button>
+		<div class="scrollview inset-T">
+			<button data-button="action-fill" class="primary material-liquidglass-tinted spacerSingle" onclick="exampleSheetHalf()">View Half Sheet</button>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
+			<img src="app/images/ui/materials-background.jpg" class="scrollviewexampleimage" />
 			<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
 			<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
 			<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
@@ -7958,16 +9034,21 @@ const sheetExamples = {
 		</div>
 	`,
 	half: `
-		<header class="containerToolbar">
-			<div class="pinLeft"></div>
-			<h1 class="headerToolbar">Half Sheet</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem confirm" data-function="closedialog" autofocus>Done</button>
+		<header class="containerToolbar layoutSheet">
+			<div class="wrapperToolbarStart"></div>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Half Sheet</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span data-function="closedialog" autofocus>${insertCancelButton()}</span>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar">
-			<button data-button="action-fill" class="primary spacerSingle" onclick="exampleSheetSmall()">View Small Sheet</button>
+		<div class="scrollview inset-T">
+			<button data-button="action-fill" class="primary material-liquidglass-tinted spacerSingle" onclick="exampleSheetSmall()">View Small Sheet</button>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
+			<img src="app/images/ui/materials-background.jpg" class="scrollviewexampleimage" />
 			<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
 			<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
 			<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
@@ -7975,16 +9056,21 @@ const sheetExamples = {
 		</div>
 	`,
 	small: `
-		<header class="containerToolbar">
-			<div class="pinLeft"></div>
-			<h1 class="headerToolbar">Small Sheet</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem confirm" data-function="closedialog" autofocus>Done</button>
+		<header class="containerToolbar layoutSheet">
+			<div class="wrapperToolbarStart"></div>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Small Sheet</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span data-function="closedialog" autofocus>${insertCancelButton()}</span>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar">
-			<button data-button="action-fill" class="primary spacerSingle" onclick="exampleToast2()">View Toast</button>
+		<div class="scrollview inset-T">
+			<button data-button="action-fill" class="primary spacerSingle material-liquidglass-tinted" onclick="exampleToast2()">View Toast</button>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
+			<img src="app/images/ui/materials-background.jpg" class="scrollviewexampleimage" />
 			<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
 			<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
 			<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
@@ -7992,15 +9078,20 @@ const sheetExamples = {
 		</div>
 	`,
 	themed: `
-		<header class="containerToolbar">
-			<div class="pinLeft"></div>
-			<h1 class="headerToolbar">Themed Sheet</h1>
-			<div class="pinRight">
-				<button data-button="action-transparent" class="toolbarItem confirm" data-function="closedialog" autofocus>Done</button>
+		<header class="containerToolbar layoutSheet">
+			<div class="wrapperToolbarStart"></div>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Themed Sheet</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span data-function="closedialog" autofocus>${insertCancelButton()}</span>
+				</div>
 			</div>
 		</header>
-		<div class="scrollview cropToolbar">
+		<div class="scrollview inset-T">
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
+			<img src="app/images/ui/materials-background.jpg" class="scrollviewexampleimage" />
 			<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
 			<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
 			<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
@@ -8015,6 +9106,7 @@ const sheetExamples = {
 				<button data-button="action-fill" class="translucent">Add to Guides</button>
 			</div>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus vitae dui eu congue. Ut pharetra iaculis urna eget varius. Mauris augue libero, fringilla id dui at, eleifend luctus quam. Sed scelerisque massa quis ultricies porta. Integer euismod, nisl eget auctor dapibus, enim ipsum sollicitudin urna, volutpat sollicitudin nunc nulla vitae odio. Duis pharetra euismod hendrerit. Phasellus dignissim, purus ut iaculis tempor, urna est porttitor ex, non venenatis justo nulla vel mi. Nulla eu ante vitae sapien suscipit convallis.</p>
+			<img src="app/images/ui/materials-background.jpg" class="scrollviewexampleimage" />
 			<p>Ut tristique, diam feugiat tempus pretium, quam neque aliquet risus, sed viverra ante arcu at arcu. Integer eget cursus tortor. Ut quam ante, cursus nec neque scelerisque, placerat gravida leo. Donec sit amet auctor orci. Aliquam aliquet in lectus vel ultrices. Fusce porta lacus neque, ac vestibulum risus blandit nec. Pellentesque semper mollis sapien in bibendum. Vestibulum consequat convallis cursus. Sed vel eros eget nisi lacinia fringilla. Curabitur ullamcorper malesuada magna, vel bibendum purus congue quis. Nulla finibus mauris magna, in mattis massa mattis vitae. In efficitur nisi ac arcu eleifend, in eleifend tellus ultricies. In blandit tincidunt turpis, ut hendrerit ante gravida in. Donec cursus elit varius facilisis bibendum. Mauris tincidunt tristique eros, ut ultrices ligula dictum id.</p>
 			<p>Suspendisse rutrum quis leo vitae ullamcorper. Vivamus accumsan hendrerit nunc consectetur efficitur. Etiam ante nunc, suscipit vitae sem et, lacinia vehicula eros. Nulla facilisi. Donec eu congue nisi. Suspendisse potenti. Pellentesque at lacus nec purus aliquet varius. Sed nec est quis neque ornare vestibulum eu ut magna. Vivamus vitae rhoncus tortor. Donec efficitur pretium volutpat. Ut sed justo eu libero maximus placerat non eu nunc. Suspendisse non nisi porta, luctus dui non, tempor felis. Mauris gravida mi id turpis hendrerit, vitae pellentesque velit consectetur. Vestibulum sit amet nunc ut odio posuere scelerisque. Ut purus nisl, pretium ut cursus quis, elementum in elit.</p>
 			<p>Praesent ut mi purus. Fusce fermentum leo sit amet felis pulvinar blandit. Cras cursus venenatis varius. Phasellus egestas hendrerit libero. Integer arcu dui, laoreet quis augue non, suscipit fermentum libero. Sed id egestas urna, quis aliquam magna. Mauris sagittis elit quis eleifend imperdiet. Nullam massa augue, hendrerit a fermentum at, tristique et odio.</p>
@@ -8022,3 +9114,25 @@ const sheetExamples = {
 		</div>
 	`,
 }
+
+//FILTER EXAMPLE
+const filterExample = {
+  jane:   { firstname: `jane`,   lastname: `smith`,  gender: `female`, height: 186, weight: 62, glasses: true,  type: [`fire`],               food: { breakfast: `oats`,        lunch: `grilled chicken salad`,     dinner: `salmon with greens` } },
+  alex:   { firstname: `alex`,   lastname: `smith`,  gender: `male`,   height: 186, weight: 78, glasses: true,  type: [`water`, `psychic`],   food: { breakfast: `yogurt`,     lunch: `sushi rolls`,               dinner: `thai green curry` } },
+  maria:  { firstname: `maria`,  lastname: `garcia`, gender: `female`, height: 171, weight: 58, glasses: false, type: [`steel`, `dark`],      food: { breakfast: `toast`,            lunch: `lentil soup`,               dinner: `paella` } },
+  lee:    { firstname: `lee`,    lastname: `nguyen`, gender: `mixed`,  height: 175, weight: 68, glasses: true,  type: [`steel`, `fire`],      food: { breakfast: `toast`,   lunch: `banh mi`,                   dinner: `bulgogi + rice` } },
+  taylor: { firstname: `taylor`, lastname: `smith`,  gender: `mixed`,  height: 162, weight: 52, glasses: false, type: [`dark`],               food: { breakfast: `yogurt`,             lunch: `quinoa bowl`,               dinner: `mushroom risotto` } },
+  chris:  { firstname: `chris`,  lastname: `owen`,   gender: `male`,   height: 186, weight: 85, glasses: true,  type: [`grass`],              food: { breakfast: `smoothie`,           lunch: `falafel wrap`,              dinner: `pesto pasta` } },
+  pat:    { firstname: `pat`,    lastname: `lee`,    gender: `female`, height: 168, weight: 60, glasses: false, type: [`electric`, `water`],  food: { breakfast: `toast`,    lunch: `poké bowl`,                 dinner: `lemon garlic prawn pasta` } },
+  sam:    { firstname: `sam`,    lastname: `smith`,  gender: `male`,   height: 182, weight: 90, glasses: false, type: [`water`],              food: { breakfast: `oats`,        lunch: `chicken caesar wrap`,       dinner: `butter chicken + rice` } },
+  jordan: { firstname: `jordan`, lastname: `patel`,  gender: `female`, height: 174, weight: 90, glasses: true,  type: [`normal`],             food: { breakfast: `porridge`,        lunch: `paneer tikka salad`,        dinner: `roast veg + couscous` } },
+  casey:  { firstname: `casey`,  lastname: `martin`, gender: `mixed`,  height: 160, weight: 52, glasses: false, type: [`ghost`],              food: { breakfast: `granola`,           lunch: `pho`,                       dinner: `black bean tacos` } },
+  riley:  { firstname: `riley`,  lastname: `garcia`, gender: `female`, height: 178, weight: 70, glasses: true,  type: [`normal`, `ghost`],    food: { breakfast: `bagel`,     lunch: `soba noodle salad`,         dinner: `grilled barramundi` } },
+  toni:   { firstname: `toni`,   lastname: `nguyen`, gender: `female`, height: 171, weight: 59, glasses: false, type: [`fairy`],              food: { breakfast: `bagel`,   lunch: `caprese sandwich`,          dinner: `gnocchi + tomato basil` } },
+  devon:  { firstname: `devon`,  lastname: `smith`,  gender: `male`,   height: 186, weight: 90, glasses: true,  type: [`fairy`],              food: { breakfast: `oats`,     lunch: `ramen`,                     dinner: `steak + salad` } },
+  quinn:  { firstname: `quinn`,  lastname: `patel`,  gender: `mixed`,  height: 165, weight: 57, glasses: false, type: [`fairy`, `electric`],  food: { breakfast: `smoothie`,         lunch: `sourdough toastie`,         dinner: `stir-fry tofu + veg` } },
+  morgan: { firstname: `morgan`, lastname: `smith`,  gender: `female`, height: 186, weight: 62, glasses: true,  type: [`rock`],               food: { breakfast: `muesli`,          lunch: `grilled halloumi salad`,    dinner: `lamb chops + beans` } },
+  asha:   { firstname: `asha`,   lastname: `owen`,   gender: `female`, height: 168, weight: 61, glasses: false, type: [`ground`],             food: { breakfast: `yogurt`,            lunch: `butter dosa`,               dinner: `dal + jeera rice` } },
+  blake:  { firstname: `blake`,  lastname: `garcia`, gender: `male`,   height: 178, weight: 73, glasses: true,  type: [`fire`],               food: { breakfast: `bagel`,                lunch: `peri-peri chicken bowl`,    dinner: `charred veg + couscous` } },
+  nila:   { firstname: `nila`,   lastname: `lee`,    gender: `mixed`,  height: 168, weight: 56, glasses: false, type: [`fire`, `fairy`],      food: { breakfast: `pancakes`,         lunch: `sushi sashimi set`,         dinner: `pumpkin ravioli` } }
+};

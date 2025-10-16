@@ -23,19 +23,23 @@ $(document).ready(function(){
 
 function miniThemePicker() {
 	summonSheet({
-		type: "smallsheet",
+		type: "fullsheet",
 		backing: "dark",
 		theme: false,
 		id: "themePicker",
 		content: `
-			<header class="containerToolbar">
-				<div class="pinLeft"></div>
-				<h1 class="headerToolbar">Display Options</h1>
-				<div class="pinRight">
-					<button data-button="action-transparent" class="toolbarItem confirm" data-function="closedialog" autofocus>Done</button>
+			<header class="containerToolbar layoutSheet">
+				<div class="wrapperToolbarStart"></div>
+				<div class="wrapperToolbarMiddle">
+					<h1 class="headerToolbar">Display Options</h1>
+				</div>
+				<div class="wrapperToolbarEnd">
+					<div class="pinToolbar material-liquidglass-thin">
+						<span data-function="closedialog" autofocus>${insertCancelButton()}</div>
+					</div>
 				</div>
 			</header>
-			<div class="scrollview cropToolbar" id="sheetDisplayOptions"></div>
+			<div class="scrollview inset-T" id="sheetDisplayOptions"></div>
 		`,
 	})
 	
@@ -252,4 +256,231 @@ function exampleTipsPrompt() {
 			</div>
 		`,
 	})
+}
+
+function filterPeople(kind) {
+	switch (kind) {
+		case 'all':
+			var parameters = '';
+			break;
+		case 'name':
+			var parameters = {lastname: "smith"};
+			break;
+		case 'nameMulti':
+			var parameters = {lastname: ["smith", "patel"]};
+			break;
+		case 'weight':
+			var parameters = { weight: { $min: 60, $max: 70 } };
+			break;
+		case 'weightLow':
+			var parameters = { weight: v => v < 60 };
+			break;
+		case 'height':
+			var parameters = { gender: "male", height: 178 };
+			break;
+		case 'type':
+			var parameters = { type: ['water'] };
+			break;
+		case 'notwater':
+			var parameters = { type: {$none: ['water']} };
+			break;
+		case 'food':
+			var parameters = { 'food.breakfast': 'toast' };
+			break;
+		case 'key':
+			var parameters = { $key: ['jane', 'alex'] };
+			break;
+	}
+	
+	let data = dataFilter(filterExample, parameters)
+	
+	$(`#exampleFilter`).empty()
+	
+	$.each( data, function( key, val ) {
+		let types = (val.type).slice(0, 2).map(capitalize).join(' + ');
+		
+		$(`#exampleFilter`).append(`
+			<div class="cardPerson">
+				<div class="left">
+					${iconHuman[`gender` + capitalize(val.gender)]}
+					<div>
+						<h6 class="excludePadding">${capitalize(val.firstname)} ${capitalize(val.lastname)}</h6>
+						<p class="excludeMargin">${val.height} cm &bull; ${val.weight} kg</p>
+					</div>
+				</div>
+				<div class="right">
+					<p>${val.glasses ? `Glases` : `No Glasses`}</p>
+					<p>${types}</p>
+					<p>${capitalize(val.food.breakfast)}</p>
+				</div>
+			</div>
+		`)
+	});
+}
+
+function sortPeople(kind) {
+	switch (kind) {
+		case 'none':
+			var parameter = '';
+			var direction = '';
+			break;
+		case 'nameAsc':
+			var parameter = 'lastname';
+			var direction = 'asc';
+			break;
+		case 'nameDesc':
+			var parameter = 'lastname';
+			var direction = 'desc';
+			break;
+		case 'heightAsc':
+			var parameter = 'height';
+			var direction = 'asc';
+			break;
+		case 'heightDesc':
+			var parameter = 'height';
+			var direction = 'desc';
+			break;
+		case 'typeAsc':
+			var parameter = 'type';
+			var direction = 'asc';
+			break;
+		case 'typeDesc':
+			var parameter = 'type';
+			var direction = 'desc';
+			break;
+		case 'glassesAsc':
+			var parameter = 'glasses';
+			var direction = 'asc';
+			break;
+		case 'glassesDesc':
+			var parameter = 'glasses';
+			var direction = 'desc';
+			break;
+		case 'foodAsc':
+			var parameter = 'food.breakfast';
+			var direction = 'asc';
+			break;
+		case 'foodDesc':
+			var parameter = 'food.breakfast';
+			var direction = 'desc';
+			break;
+	}
+	
+	let data = dataSort(filterExample, parameter, direction)
+	console.log(data)
+	
+	$(`#exampleFilter`).empty()
+	
+	$.each( data, function( key, val ) {
+		let types = (val.type).slice(0, 2).map(capitalize).join(' + ');
+		
+		$(`#exampleFilter`).append(`
+			<div class="cardPerson">
+				<div class="left">
+					${iconHuman[`gender` + capitalize(val.gender)]}
+					<div>
+						<h6 class="excludePadding">${capitalize(val.firstname)} ${capitalize(val.lastname)}</h6>
+						<p class="excludeMargin">${val.height} cm &bull; ${val.weight} kg</p>
+					</div>
+				</div>
+				<div class="right">
+					<p>${val.glasses ? `Glases` : `No Glasses`}</p>
+					<p>${types}</p>
+					<p>${capitalize(val.food.breakfast)}</p>
+				</div>
+			</div>
+		`)
+	});
+}
+
+function groupPeople(kind) {
+	switch (kind) {
+		case 'none':
+			var parameter = '';
+			break;
+		case 'nameAsc':
+			var parameter = 'lastname';
+			var direction = 'asc'
+			break;
+		case 'nameDesc':
+			var parameter = 'lastname';
+			var direction = 'desc'
+			break;
+		case 'weightAsc':
+			var parameter = 'weight';
+			var direction = 'asc'
+			break;
+		case 'weightDesc':
+			var parameter = 'weight';
+			var direction = 'desc'
+			break;
+		case 'glassesAsc':
+			var parameter = 'glasses';
+			var direction = 'asc'
+			break;
+		case 'glassesDesc':
+			var parameter = 'glasses';
+			var direction = 'desc'
+			break;
+		case 'typeAsc':
+			var parameter = 'type';
+			var direction = 'asc'
+			break;
+		case 'typeDesc':
+			var parameter = 'type';
+			var direction = 'desc'
+			break;
+		case 'genderAsc':
+			var parameter = 'gender';
+			var direction = 'asc'
+			break;
+		case 'genderDesc':
+			var parameter = 'gender';
+			var direction = 'desc'
+			break;
+		case 'foodAsc':
+			var parameter = 'food.breakfast';
+			var direction = 'asc'
+			break;
+		case 'foodDesc':
+			var parameter = 'food.breakfast';
+			var direction = 'desc'
+			break;
+	}
+	
+	let groups = dataGroup(filterExample, parameter, direction)
+	
+	$(`#exampleFilter`).empty()
+	
+	//RENDER GROUPS
+	const $container = $(`#exampleFilter`);
+	
+	groups.forEach((val, key) => {
+		$container.append(`
+			<h4 class="headerList">${key}</h4>
+			<div class="containerSection excludePadding spacerSingle" id="${key}"></div>
+		`);
+		const $containerGroup = $(`#` + key);
+		
+		val.forEach((person, id) => {
+			let types = (person.type).slice(0, 2).map(capitalize).join(' + ');
+			
+			$containerGroup.append(`
+				<div class="cardPerson">
+					<div class="left">
+						${iconHuman[`gender` + capitalize(person.gender)]}
+						<div>
+							<h6 class="excludePadding">${capitalize(person.firstname)} ${capitalize(person.lastname)}</h6>
+							<p class="excludeMargin">${person.height} cm &bull; ${person.weight} kg</p>
+						</div>
+					</div>
+					<div class="right">
+						<p>${person.glasses ? `Glases` : `No Glasses`}</p>
+						<p>${types}</p>
+						<p>${capitalize(person.food.breakfast)}</p>
+					</div>
+				</div>
+			`);
+		});
+	});
 }

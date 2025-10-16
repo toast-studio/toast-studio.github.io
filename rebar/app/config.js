@@ -1,14 +1,17 @@
-const appVersion = "2.3.1";
+const appVersion = "3.0";
 const appName = "Rebar";
 const appDomain = "https://toast-studio.com/";
 const appPrivacyPolicy = "https://toast-studio.com/";
 const appEmail = "toaststudioinbox@gmail.com";
 const appReleaseNotes = [
-	`See Version History for the full changelog`,
-	`Item 2`,
-	`Item 3`,
-	`Item 4`,
-	`Item 5`,
+	`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in nunc egestas, elementum nisl vitae, ornare ante.`,
+	`Morbi rhoncus mollis iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus.`,
+	`Suspendisse a nulla quis lectus maximus sagittis.`,
+	`Duis eleifend tempus nibh ac mattis. Nam metus dui, aliquam ac quam vitae, venenatis tempus dolor. Proin turpis ante, porttitor vel est ac, pulvinar euismod lacus. Suspendisse id diam consequat, sagittis nisl id, vulputate enim.`,
+	`Donec in ligula tristique, auctor lectus ut, convallis lectus.`,
+	`Cras accumsan lacinia lorem ut lobortis. Praesent suscipit ligula volutpat lorem scelerisque pellentesque. In hac habitasse platea dictumst. Aenean efficitur arcu a maximus accumsan.`,
+	`Integer quis tincidunt diam, nec ullamcorper tellus. Integer vel orci ipsum.`,
+	`ellentesque pulvinar, urna in laoreet cursus, nibh ligula lobortis turpis, lobortis rutrum odio mi consequat lorem. Ut urna diam, vulputate sit amet lorem in, laoreet vestibulum tortor. Etiam elementum auctor aliquam. Nam aliquam tortor eros, vel interdum urna aliquet quis.`,
 ];
 const appThemes = {
 	system: {
