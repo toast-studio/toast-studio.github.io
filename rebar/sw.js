@@ -1,4 +1,4 @@
-const CACHE = '2025-05-17';
+const CACHE = '2026-01-23';
 const precacheFiles = [
 	'./',
 	'./icon.png',

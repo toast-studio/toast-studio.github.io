@@ -686,3 +686,24 @@
 #tableFilterSpecs tr {
 	grid-template-columns: 1fr 1fr;
 }
+
+.containerGeneric {
+	background: var(--background);
+	border: 1px solid var(--divider);
+	margin-block-end: var(--base-gap-size);
+	padding: var(--base-gap-size);
+}
+
+#exampleAccordion2 path {
+	fill: var(--main);
+}
+
+#exampleCopy {
+	display: flex;
+	flex-direction: row;
+	gap: calc(var(--base-gap-size) / 2);
+	
+	& button {
+		white-space: nowrap;
+	}
+}

@@ -57,6 +57,84 @@ const gettingstarted = {
 			<div id="toastCrafted">${iconLogos.toastCrafted}</div>
 		</div>
 	`,
+	principles: `
+		<header class="containerToolbar layoutDefault">
+			<div class="wrapperToolbarStart">
+				<div class="pinToolbar material-liquidglass-thin">
+					<span onclick='routegettingstarted({modifier: false, navtype: "backwards"})'>
+						${insertBackButton()}
+					</span>
+					<button data-button="action-transparent" class="toolbarItem collapseAside">
+						${iconInterfaceElements.sidebarLeftStroke}
+					</button>
+				</div>
+			</div>
+			<div class="wrapperToolbarMiddle">
+				<h1 class="headerToolbar">Princples</h1>
+			</div>
+			<div class="wrapperToolbarEnd">
+				<div class="pinToolbar material-liquidglass-thin">
+					<button data-button="action-transparent" class="toolbarItem" onclick="miniThemePicker()">${iconObjects.paintbrushStroke}</button>
+				</div>
+			</div>
+		</header>
+		<div class="scrollview inset-T paddingContent">
+			<p>Let these principles guide you as you work with Rebar:</p>
+			
+			<h2 class="headerSection withIcon">
+				<span class="alwaysAccent containerIcon">${iconObjects.blueprintStroke}</span>
+				<span>HTML</span>
+			</h2>
+			<div class="containerSection">
+				<ul class="excludeMargin">
+					<li>Make use of semantic tags</li>
+					<li>Inside tags it's preferred to put classes before identifiers as it makes the identifiers easier to find at the end of the tag</li>
+					<li>Keep div soup to a minimum</li>
+					<li>Use IDs for named objects that need to be hooked in to JS</li>
+				</ul>
+			</div>
+			
+			<h2 class="headerSection withIcon">
+				<span class="alwaysAccent containerIcon">${iconObjects.paintbrushStroke}</span>
+				<span>CSS</span>
+			</h2>
+			<div class="containerSection">
+				<ul class="excludeMargin">
+					<li>Use Camel Case for class names</li>
+					<li>Use CSS Nesting to keep component code together, including nesting Media Queries and Container Queries</li>
+					<li>Clear separation of theme styles, there should be minimal setting and then unsetting. Make use of <code>:not()</code> if necessary</li>
+					<li>This is a monolithic file, so make use of the defined sections</li>
+					<li>Always consider the accessibility modes and style accordingly</li>
+					<li>Make use of the base variables and do <code>calc()</code> for scaling</li>
+					<li>If a component lives inside of a column it should probably be using a Container Query for responsiveness</li>
+					<li>Use Range Syntax for queries, it allows for more precise control</li>
+					<li>If two or more properties share a value, use a meta variable to show they are intrinsicly linked</li>
+					<li>Try to keep to this nesting pattern:
+						<ol class="excludeMargin">
+							<li>Local variables</li>
+							<li>Parent element styles</li>
+							<li>Psuedo selectors</li>
+							<li>Theme selectors</li>
+							<li>Child elements based on HTML ordering</li>
+						</ol>
+					</li>
+				</ul>
+			</div>
+			
+			<h2 class="headerSection withIcon">
+				<span class="alwaysAccent containerIcon">${iconObjects.hammerStroke}</span>
+				<span>JS</span>
+			</h2>
+			<div class="containerSection">
+				<ul class="excludeMargin">
+					<li>Keep functions small</li>
+					<li>Use Camel Case for function names</li>
+					<li>Make use of <code>return</code> instead of appending to an ID or Class</li>
+					<li>Always include comments for each block of code to help understand the flow of code, they should act as headers in the style of <code>//COMMENT</code></li>
+				</ul>
+			</div>
+		</div>
+	`,
 	filestructure: `
 		<header class="containerToolbar layoutDefault">
 			<div class="wrapperToolbarStart">
@@ -327,8 +405,55 @@ const gettingstarted = {
 			<div class="containerAccordion hideOverflow spacerSingle active" data-accordiongroup="history">
 				<div class="headerAccordion headerSection">
 					<span>
+						<h3>3.1</h3>
+						<small class="excludeMargin">TBD</small>
+					</span>
+					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
+				</div>
+				<section class="containerAccordionContents">
+					<div class="wrapper">
+						<section class="containerSection">
+							${
+								insertBanner({
+									type: 'warning',
+									content: 'This version includes breaking changes for Sidebars and elements with the <code>.subtext</code> class',
+									icon: false,
+									size: "large",
+								})
+							}
+						
+							<h4>Added</h4>
+							<ul>
+								<li><code>.headerSidebar</code> for headers in Sidebars</li>
+							</ul>
+						
+							<h4>Changes</h4>
+							<ul>
+								<li>Refactored a lot of <code>rebar.css</code> to be cleaner and to separate out the OS styles</li>
+								<li>Refactored a lot of <code>rebar.js</code> to be cleaner, safer, and more modern</li>
+								<li>Removed the black background on the <code>html</code> tag</li>
+								<li><code>.layoutAlwaysGrid</code> has been replaced with <code>.layoutGrid.always</code> in Sidebars</li>
+								<li><code>.subtext</code> has been replaced with the <code>small</code> tag</li>
+							</ul>
+							
+							<h4>Removed</h4>
+							<ul class="excludeMargin">
+								<li><code>.shapeCircle</code> utility class</li>
+								<li><code>.containerGeneric</code> was removed because it was only used in the Sample app</li>
+								<li>There are no longer styles for a H1 that would sit at the top of a Sidebar</li>
+								<li><code>.inline</code> Item List class</li>
+								<li><code>-webkit</code> prefixes on <code>backdrop-filter</code>, <code>mask</code>, and <code>appearance</code></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</div>
+		
+			<div class="containerAccordion hideOverflow spacerSingle" data-accordiongroup="history">
+				<div class="headerAccordion headerSection">
+					<span>
 						<h3>3.0</h3>
-						<p class="subtext excludeMargin">14 Oct 2025</p>
+						<small class="excludeMargin">14 Oct 2025</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -347,7 +472,7 @@ const gettingstarted = {
 							<h4>Added</h4>
 							<ul>
 								<li>Materials which allow you to render material styles from different OSes to any element</li>
-								<li>Rounded Square with Sparkle, Times Small, Tablet with Phone Landscape, iPhone Face Landscape, iPod Face landscape, iPhone with Cog Landscape, iPad with Cog Landscape, iPod touch with Cog Landscape, Apple Vision Cog, Rotate Sphere, List Item, Rounded Rectangle Half, Optic ID, and Overlap Windows icons</li>
+								<li>Rounded Square with Sparkle, Times Small, Tablet with Phone Landscape, iPhone Face Landscape, iPod Face landscape, iPhone with Cog Landscape, iPad with Cog Landscape, iPod touch with Cog Landscape, Apple Vision Cog, Rotate Sphere, List Item, Rounded Rectangle Half, Optic ID, Overlap Windows, Triangle icons</li>
 								<li><code>insertConfirmationButton()</code> and <code>insertCancelButton()</code> functions for displaying the correct toolbar buttons on different OSes</li>
 								<li>Action Bars</li>
 								<li><code>times-light</code> and <code>times-dark</code> system images</li>
@@ -399,7 +524,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.3.1</h3>
-						<p class="subtext excludeMargin">11 March 2025</p>
+						<small class="excludeMargin">11 March 2025</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -421,7 +546,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.3</h3>
-						<p class="subtext excludeMargin">21 Feb 2025</p>
+						<small class="excludeMargin">21 Feb 2025</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -494,7 +619,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.2.5</h3>
-						<p class="subtext excludeMargin">19 October 2024</p>
+						<small class="excludeMargin">19 October 2024</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -515,7 +640,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.2.4</h3>
-						<p class="subtext excludeMargin">11 June 2024</p>
+						<small class="excludeMargin">11 June 2024</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -534,7 +659,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.2.3</h3>
-						<p class="subtext excludeMargin">2 March 2024</p>
+						<small class="excludeMargin">2 March 2024</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -553,7 +678,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.2.2</h3>
-						<p class="subtext excludeMargin">24 February 2024</p>
+						<small class="excludeMargin">24 February 2024</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -572,7 +697,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.2.1</h3>
-						<p class="subtext excludeMargin">18 December 2023</p>
+						<small class="excludeMargin">18 December 2023</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -595,7 +720,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.2</h3>
-						<p class="subtext excludeMargin">13 September 2023</p>
+						<small class="excludeMargin">13 September 2023</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -632,7 +757,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.1</h3>
-						<p class="subtext excludeMargin">19 June 2023</p>
+						<small class="excludeMargin">19 June 2023</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -679,7 +804,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.0.3</h3>
-						<p class="subtext excludeMargin">30 January 2023</p>
+						<small class="excludeMargin">30 January 2023</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -711,7 +836,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.0.2</h3>
-						<p class="subtext excludeMargin">26 January 2023</p>
+						<small class="excludeMargin">26 January 2023</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -731,7 +856,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.0.1</h3>
-						<p class="subtext excludeMargin">8 January 2023</p>
+						<small class="excludeMargin">8 January 2023</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -769,7 +894,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.0</h3>
-						<p class="subtext excludeMargin">4 November 2022</p>
+						<small class="excludeMargin">4 November 2022</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -856,7 +981,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.4.1</h3>
-						<p class="subtext excludeMargin">4 October 2022</p>
+						<small class="excludeMargin">4 October 2022</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -884,7 +1009,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.4</h3>
-						<p class="subtext excludeMargin">12 September 2022</p>
+						<small class="excludeMargin">12 September 2022</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -917,7 +1042,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.3.1</h3>
-						<p class="subtext excludeMargin">2 August 2022</p>
+						<small class="excludeMargin">2 August 2022</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -937,7 +1062,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.3</h3>
-						<p class="subtext excludeMargin">15 June 2022</p>
+						<small class="excludeMargin">15 June 2022</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -961,7 +1086,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.2.1</h3>
-						<p class="subtext excludeMargin">19 March 2022</p>
+						<small class="excludeMargin">19 March 2022</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -982,7 +1107,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.2</h3>
-						<p class="subtext excludeMargin">27 February 2022</p>
+						<small class="excludeMargin">27 February 2022</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -1134,7 +1259,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.1</h3>
-						<p class="subtext excludeMargin">3 December 2021</p>
+						<small class="excludeMargin">3 December 2021</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -1390,7 +1515,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>1.0</h3>
-						<p class="subtext excludeMargin">10 October 2021</p>
+						<small class="excludeMargin">10 October 2021</small>
 					</span>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
@@ -1458,7 +1583,7 @@ const gettingstarted = {
 					<tr>
 						<td class="textBold">2.3</td>
 						<td>
-							<p class="subtext">Added <code>oklch()</code>, <code>light-dark()</code>, Relative Color Syntax, <code>text-wrap: balance</code>, and Range Syntax</p>
+							<small>Added <code>oklch()</code>, <code>light-dark()</code>, Relative Color Syntax, <code>text-wrap: balance</code>, and Range Syntax</small>
 							<ul class="excludeMargin">
 								<li>jQuery 3.6.4</li>
 								<li class="textBold">Chrome 123</li>
@@ -1476,7 +1601,7 @@ const gettingstarted = {
 					<tr>
 						<td class="textBold">2.2</td>
 						<td>
-							<p class="subtext">Added CSS Nesting</p>
+							<small>Added CSS Nesting</small>
 							<ul class="excludeMargin">
 								<li>jQuery 3.6.4</li>
 								<li class="textBold">Chrome 112</li>
@@ -1490,7 +1615,7 @@ const gettingstarted = {
 					<tr>
 						<td class="textBold">2.1</td>
 						<td>
-							<p class="subtext">Added <code>@container</code> and <code>color-mix()</code></p>
+							<small>Added <code>@container</code> and <code>color-mix()</code></small>
 							<ul class="excludeMargin">
 								<li class="textBold">jQuery 3.6.4</li>
 								<li class="textBold">Chrome 106</li>
@@ -1508,7 +1633,7 @@ const gettingstarted = {
 					<tr>
 						<td class="textBold">2.0</td>
 						<td>
-							<p class="subtext">Added <code>dialog</code>, <code>@layer</code>, and <code>scrollbar-gutter</code>.</p>
+							<small>Added <code>dialog</code>, <code>@layer</code>, and <code>scrollbar-gutter</code>.</small>
 							<ul class="excludeMargin">
 								<li class="textBold">jQuery 3.6.1</li>
 								<li class="textBold">Chrome 99</li>
@@ -1526,7 +1651,7 @@ const gettingstarted = {
 					<tr>
 						<td class="textBold">1.1</td>
 						<td>
-							<p class="subtext">Added <code>aspect-ratio</code>.</p>
+							<small>Added <code>aspect-ratio</code>.</small>
 							<ul class="excludeMargin">
 								<li>jQuery 3.6.0</li>
 								<li class="textBold">Chrome 88</li>
@@ -1906,7 +2031,7 @@ const controls = {
 						${iconHuman.userCircleStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -1915,7 +2040,7 @@ const controls = {
 						${iconTransport.rocketStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -1924,7 +2049,7 @@ const controls = {
 						${iconObjects.paintbrushStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -1933,7 +2058,7 @@ const controls = {
 						${iconShapes.rectangleStackHorizontalStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -1942,7 +2067,7 @@ const controls = {
 						${iconInterfaceElements.locationStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -1951,7 +2076,7 @@ const controls = {
 						${iconHardware.applewatchSideStroke}
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</div>
@@ -1960,7 +2085,7 @@ const controls = {
 						${iconShapes.starSixPointStroke}
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 					<button data-button="action-fill" class="primary">Test with a Long Label</button>
@@ -1970,7 +2095,7 @@ const controls = {
 						${iconInterfaceElements.screenshotStroke}
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 					<label for="switch2">
@@ -1988,7 +2113,7 @@ const controls = {
 						${iconHuman.userCircleStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -1997,7 +2122,7 @@ const controls = {
 						${iconTransport.rocketStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2006,7 +2131,7 @@ const controls = {
 						${iconObjects.paintbrushStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2015,7 +2140,7 @@ const controls = {
 						${iconShapes.rectangleStackHorizontalStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2024,7 +2149,7 @@ const controls = {
 						${iconInterfaceElements.locationStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2033,7 +2158,7 @@ const controls = {
 						${iconHardware.applewatchSideStroke}
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</div>
@@ -2042,7 +2167,7 @@ const controls = {
 						${iconShapes.starSixPointStroke}
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 					<button data-button="action-fill" class="primary">Hello</button>
@@ -2052,7 +2177,7 @@ const controls = {
 						${iconInterfaceElements.screenshotStroke}
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 					<label for="switch2">
@@ -2070,7 +2195,7 @@ const controls = {
 						${iconHuman.userCircleStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2079,7 +2204,7 @@ const controls = {
 						${iconTransport.rocketStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2088,7 +2213,7 @@ const controls = {
 						${iconObjects.paintbrushStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2097,7 +2222,7 @@ const controls = {
 						${iconShapes.rectangleStackHorizontalStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2106,7 +2231,7 @@ const controls = {
 						${iconInterfaceElements.locationStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2115,7 +2240,7 @@ const controls = {
 						${iconHardware.applewatchSideStroke}
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</div>
@@ -2124,7 +2249,7 @@ const controls = {
 						${iconShapes.starSixPointStroke}
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 					<div class="containerContextButton" data-setting="" data-position="right" data-type="" data-icongroup="" data-iconname="">
@@ -2143,7 +2268,7 @@ const controls = {
 						${iconInterfaceElements.screenshotStroke}
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 					<label for="switch2">
@@ -2161,7 +2286,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: red;">${iconHuman.userCircleFill}</span>
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2170,7 +2295,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: orange;">${iconTransport.rocketFill}</span>
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2179,7 +2304,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: gold;">${iconObjects.paintbrushFill}</span>
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2188,7 +2313,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: limegreen;">${iconShapes.rectangleStackHorizontalFill}</span>
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2197,7 +2322,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: deepskyblue;">${iconInterfaceElements.locationFill}</span>
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2206,7 +2331,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: darkblue;">${iconHardware.applewatchSideStroke}</span>
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</div>
@@ -2215,7 +2340,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: darkorchid;">${iconShapes.starSixPointFill}</span>
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 					<div class="containerContextButton" data-setting="" data-position="right" data-type="" data-icongroup="" data-iconname="">
@@ -2234,7 +2359,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: hotpink;">${iconInterfaceElements.screenshotStroke}</span>
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 					<label for="switch2">
@@ -2247,7 +2372,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: deepskyblue;">${iconInterfaceElements.locationFill}</span>
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2261,7 +2386,7 @@ const controls = {
 						${iconHuman.userCircleStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2270,7 +2395,7 @@ const controls = {
 						${iconTransport.rocketStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2279,7 +2404,7 @@ const controls = {
 						${iconObjects.paintbrushStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2288,7 +2413,7 @@ const controls = {
 						${iconShapes.rectangleStackHorizontalStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2297,7 +2422,7 @@ const controls = {
 						${iconInterfaceElements.locationStroke}
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2306,7 +2431,7 @@ const controls = {
 						${iconHardware.applewatchSideStroke}
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</div>
@@ -2315,7 +2440,7 @@ const controls = {
 						${iconShapes.starSixPointStroke}
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 					<div class="containerContextButton" data-setting="" data-position="right" data-type="" data-icongroup="" data-iconname="">
@@ -2334,7 +2459,7 @@ const controls = {
 						${iconInterfaceElements.screenshotStroke}
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 					<label for="switch2">
@@ -2352,7 +2477,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: red;">${iconHuman.userCircleFill}</span>
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2361,7 +2486,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: orange;">${iconTransport.rocketFill}</span>
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2370,7 +2495,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: gold;">${iconObjects.paintbrushFill}</span>
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2379,7 +2504,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: limegreen;">${iconShapes.rectangleStackHorizontalFill}</span>
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2388,7 +2513,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: deepskyblue;">${iconInterfaceElements.locationFill}</span>
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
@@ -2397,7 +2522,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: darkblue;">${iconHardware.applewatchSideStroke}</span>
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</div>
@@ -2406,7 +2531,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: darkorchid;">${iconShapes.starSixPointFill}</span>
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 					<div class="containerContextButton" data-setting="" data-position="right" data-type="" data-icongroup="" data-iconname="">
@@ -2425,7 +2550,7 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: hotpink;">${iconInterfaceElements.screenshotStroke}</span>
 						<div class="label">
 							<span>DIV</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 					<label for="switch2">
@@ -2438,14 +2563,16 @@ const controls = {
 						<span class="containerIcon" style="--icon-container: deepskyblue;">${iconInterfaceElements.locationFill}</span>
 						<div class="label">
 							<span>Button</span>
-							<span class="subtext">Sub Label</span>
+							<small class="excludeMargin">Sub Label</small>
 						</div>
 					</div>
 				</button>
 			</section>
 			
 			<h2>Documentation</h2>
-			<p>List Items are buttons with the <code>data-button="item-flat"</code>, <code>data-button="item-rounded"</code>, or <code>data-button="item-platter"</code> attributes. They come with default and <code>picked</code> states. An icon is not mandatory, if you do include one it can be any size but you can fix it to a Rebar defined size with the <code>data-icon-size="fixed"</code> attribute. If you don't wish to set a size for the icons you can use the <code>data-button="auto"</code> attribute. If you need to include a sublabel that's possible with the <code>subtext</code> class.</p>
+			<p>List Items are buttons with the <code>data-button="item-flat"</code>, <code>data-button="item-rounded"</code>, or <code>data-button="item-platter"</code> attributes. They come with default and <code>.picked</code> states.</p>
+			<p>An icon is not mandatory, if you do include one it can be any size but you can fix it to a Rebar defined size with the <code>data-icon-size="fixed"</code> attribute. If you don't wish to set a size for the icons you can use the <code>data-button="auto"</code> attribute.</p>
+			<p>If you need to include a sublabel that's possible with the <code>small</code> tag.</p>
 			<p>The icons can be wrapped in a span with the <code>containerIcon</code> class which will give them the correct appearance on iOS and macOS. It is required to include <code>style="--icon-container: color;"</code> to fill in the background.</p>
 			<p>You always need to wrap the leading contents in a div with the <code>containerLeading</code> class. This helps when you have a control on the right and when large text is selected.</p>
 			<h3 class="h6">Template</h3>
@@ -2455,8 +2582,8 @@ const controls = {
 	&lt;div class="containerLeading"&gt;
 		&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{iconList()}&lt;/span&gt;
 		&lt;div class="label"&gt;
-			&lt;span>&lt;/span&gt;
-			&lt;span class="subtext"&gt;&lt;/span&gt;
+			&lt;span&gt;&lt;/span&gt;
+			&lt;small class="excludeMargin"&gt;&lt;/small&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 	//Place any controls here
@@ -2467,8 +2594,8 @@ const controls = {
 	&lt;div class="containerLeading"&gt;
 		&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{iconList()}&lt;/span&gt;
 		&lt;div class="label"&gt;
-			&lt;span>&lt;/span&gt;
-			&lt;span class="subtext"&gt;&lt;/span&gt;
+			&lt;span&gt;&lt;/span&gt;
+			&lt;small class="excludeMargin"&gt;&lt;/small&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 	//Place any controls here
@@ -2479,8 +2606,8 @@ const controls = {
 	&lt;div class="containerLeading"&gt;
 		&lt;span class="containerIcon" style="--icon-container: color;"&gt;&#36;{iconList()}&lt;/span&gt;
 		&lt;div class="label"&gt;
-			&lt;span>&lt;/span&gt;
-			&lt;span class="subtext"&gt;&lt;/span&gt;
+			&lt;span&gt;&lt;/span&gt;
+			&lt;small class="excludeMargin"&gt;&lt;/small&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 	//Place any controls here
@@ -3451,7 +3578,7 @@ $(document).on('click', '#switch', function() {
 				</form>
 			</section>
 			<h3 class="h6">Fields</h3>
-			<p class="subtext"><code>font-size</code> on these fields is clamped to a minimum of 16px to avoid Mobile Safari's page zoom when the field has <code>:focus</code>.</p>
+			<small><code>font-size</code> on these fields is clamped to a minimum of 16px to avoid Mobile Safari's page zoom when the field has <code>:focus</code>.</small>
 			<section class="containerSection">
 				<form class="excludeMargin">
 					<div class="containerInput spacerSingle">
@@ -3823,7 +3950,7 @@ $(document).on('click', '.buttonClearSearch', function() {
 		</header>
 		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
-			<p class="subtext">Note: If you are using a browser that do not support <code>navigator.share</code> then a non-functional button will be displayed for illustrative purposes.</p>
+			<small>Note: If you are using a browser that does not support <code>navigator.share</code> then a non-functional button will be displayed for illustrative purposes.</small>
 			
 			<table class="definitions spacerSingle">
 				<thead>
@@ -4104,21 +4231,21 @@ if (url.query == "") {
 					<tr>
 						<td>
 							<span>Small</span>
-							<span class="subtext">0 px &#8211; 639 px</span>
+							<small>0 px &#8211; 639 px</small>
 						</td>
 						<td>Columns sit off-screen and will slide in to view when an <code>active</code> class is added. The column that is generating the view transition will gain a <code>slightSlide</code> class that will cause it to slightly slide underneath the column that has just been set to <code>active</code>.</td>
 					</tr>
 					<tr>
 						<td>
 							<span>Medium</span>
-							<span class="subtext">640 px &#8211; 1099 px</span>
+							<small>640 px &#8211; 1099 px</small>
 						</td>
 						<td>With a three column layout the <code>.columnPrimary</code> and <code>.columnSecondary</code> columns will transition but the <code>.columnTertiary</code> column will always remain in view.</td>
 					</tr>
 					<tr>
 						<td>
 							<span>Large</span>
-							<span class="subtext">1100 px onwards</span>
+							<small>1100 px onwards</small>
 						</td>
 						<td>All columns will always be present on screen and no transitions happen.</td>
 					</tr>
@@ -4141,7 +4268,7 @@ if (url.query == "") {
 &lt;/aside&gt;
 &lt;main class="columnTertiary"&gt;&lt;/main&gt;
 </pre>
-			<p class="subtext spacerTriple"><code>controllerRoute()</code> will set the right classes based on the number of columns for the route.</p>
+			<small class="spacerTriple"><code>controllerRoute()</code> will set the right classes based on the number of columns for the route.</small>
 			
 			<h3>Functions</h3>
 			<p>The columns themselves do not have any functions attached to them. Navigation is handled through <code>controllerRoute()</code> on the list items in a column (See Routing for more info). Backwards navigation is also handled through <code>controllerRoute()</code>.</p>
@@ -4192,7 +4319,7 @@ if (url.query == "") {
 			<p>Sections can be grouped using the <code>section</code> element, margin will automatically be applied to space out each section. They can also be made collapsible by turning them in to Accordions, refer to the Accordions section on how to do this.</p>
 			<p>The <code>controllerRoute()</code> function will handle setting the correct styling to picked items depending at what level the currently selected navigation item is at.</p>
 			<p>If you wish to have a tiled layout for your Sidebar on smaller screens you can add the <code>.layoutGrid</code> class to a wrapper container. This style is great for Sidebars with a short list of items.</p>
-			<p>To always have a tiled layout for a section use the <code>.layoutAlwaysGrid</code> class.</p>
+			<p>To always have a tiled layout for a section use the <code>.always</code> class on the <code>.layoutGrid</code> container.</p>
 		</div>
 	`,
 	itemlists: `
@@ -4220,13 +4347,13 @@ if (url.query == "") {
 			<h2>Examples</h3>
 			<h3 class="h6">Standard buttons with inset</h3>
 			<div class="containerGeneric excludePadding spacerTriple" id="exampleTableview1">
-				<div class="containerItemList inset alwaysBackgroundColor" id="tableview1" data-target="testTarget" data-parent="testParent">
+				<div class="containerItemList inset alwaysBackgroundColor noBorder" id="tableview1" data-target="testTarget" data-parent="testParent">
 					<h2 class="headerList">Text Only</h2>
 					<section class="containerSection excludePadding">
 						<button data-button="item-flat">
 							<div class="label">
 								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+								<small class="excludeMargin">Sub-Label</small>
 							</div>
 						</button>
 						<button data-button="item-flat">
@@ -4253,7 +4380,7 @@ if (url.query == "") {
 								${iconShapes.heartStroke}
 								<div class="label">
 									<span>Item 1</span>
-									<span class="subtext">Sub-Label</span>
+									<small class="excludeMargin">Sub-Label</small>
 								</div>
 							</div>
 							<button data-button="action-fill" class="primary">Test with a long label</button>
@@ -4281,7 +4408,7 @@ if (url.query == "") {
 							${iconShapes.heartStroke}
 							<div class="label">
 								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+								<small class="excludeMargin">Sub-Label</small>
 							</div>
 						</button>
 						<button data-button="item-flat" data-icon-size="fixed">
@@ -4310,7 +4437,7 @@ if (url.query == "") {
 							<img src="app/images/ui/sidebar1.png" width="30" />
 							<div class="label">
 								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+								<small class="excludeMargin">Sub-Label</small>
 							</div>
 						</button>
 						<button data-button="item-flat" data-icon-size="fixed">
@@ -4339,7 +4466,7 @@ if (url.query == "") {
 							${iconTransport.rocketStroke}
 							<div class="label">
 								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+								<small class="excludeMargin">Sub-Label</small>
 							</div>
 						</button>
 						<button data-button="item-flat" data-icon-size="auto">
@@ -4366,13 +4493,13 @@ if (url.query == "") {
 			
 			<h3 class="h6">Standard buttons with no inset</h3>
 			<div class="containerGeneric excludePadding spacerTriple" id="exampleTableview1">
-				<div class="containerItemList alwaysBackgroundColor" id="tableview1" data-target="testTarget" data-parent="testParent">
+				<div class="containerItemList alwaysBackgroundColor noBorder" id="tableview1" data-target="testTarget" data-parent="testParent">
 					<h2 class="headerList">Text Only</h2>
 					<section class="containerSection excludePadding">
 						<button data-button="item-flat">
 							<div class="label">
 								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+								<small class="excludeMargin">Sub-Label</small>
 							</div>
 						</button>
 						<button data-button="item-flat">
@@ -4399,7 +4526,7 @@ if (url.query == "") {
 								${iconShapes.heartStroke}
 								<div class="label">
 									<span>Item 1</span>
-									<span class="subtext">Sub-Label</span>
+									<small class="excludeMargin">Sub-Label</small>
 								</div>
 							</div>
 							<button data-button="action-fill" class="primary">Test with a long label</button>
@@ -4427,7 +4554,7 @@ if (url.query == "") {
 							${iconShapes.heartStroke}
 							<div class="label">
 								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+								<small class="excludeMargin">Sub-Label</small>
 							</div>
 						</button>
 						<button data-button="item-flat" data-icon-size="fixed">
@@ -4456,7 +4583,7 @@ if (url.query == "") {
 							<img src="app/images/ui/sidebar1.png" width="30" />
 							<div class="label">
 								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+								<small class="excludeMargin">Sub-Label</small>
 							</div>
 						</button>
 						<button data-button="item-flat" data-icon-size="fixed">
@@ -4485,7 +4612,7 @@ if (url.query == "") {
 							${iconTransport.rocketStroke}
 							<div class="label">
 								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+								<small class="excludeMargin">Sub-Label</small>
 							</div>
 						</button>
 						<button data-button="item-flat" data-icon-size="auto">
@@ -4512,13 +4639,13 @@ if (url.query == "") {
 			
 			<h3 class="h6">Rounded Buttons</h3>
 			<div class="containerGeneric excludePadding spacerTriple" id="exampleTableview1">
-				<div class="containerItemList inset alwaysBackgroundColor" id="tableview1" data-target="testTarget" data-parent="testParent">
+				<div class="containerItemList inset alwaysBackgroundColor noBorder" id="tableview1" data-target="testTarget" data-parent="testParent">
 					<h2 class="headerList">Text Only</h2>
 					<section class="spacerDouble">
 						<button data-button="item-rounded">
 							<div class="label">
 								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+								<small class="excludeMargin">Sub-Label</small>
 							</div>
 						</button>
 						<button data-button="item-rounded">
@@ -4545,7 +4672,7 @@ if (url.query == "") {
 								${iconShapes.heartStroke}
 								<div class="label">
 									<span>Item 1</span>
-									<span class="subtext">Sub-Label</span>
+									<small class="excludeMargin">Sub-Label</small>
 								</div>
 							</div>
 							<button data-button="action-fill" class="primary">Test with a long label</button>
@@ -4573,7 +4700,7 @@ if (url.query == "") {
 							<span class="containerIcon" style="--icon-container: tomato;">${iconShapes.heartStroke}</span>
 							<div class="label">
 								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+								<small class="excludeMargin">Sub-Label</small>
 							</div>
 						</button>
 						<button data-button="item-rounded" data-icon-size="fixed">
@@ -4602,7 +4729,7 @@ if (url.query == "") {
 							<span class="containerIcon" style="--icon-container: white;"><img src="app/images/ui/sidebar1.png" /></span>
 							<div class="label">
 								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+								<small class="excludeMargin">Sub-Label</small>
 							</div>
 						</button>
 						<button data-button="item-rounded" data-icon-size="fixed">
@@ -4631,7 +4758,7 @@ if (url.query == "") {
 							<span class="containerIcon" style="--icon-container: orange;">${iconTransport.rocketStroke}</span>
 							<div class="label">
 								<span>Item 1</span>
-								<span class="subtext">Sub-Label</span>
+								<small class="excludeMargin">Sub-Label</small>
 							</div>
 						</button>
 						<button data-button="item-rounded" data-icon-size="auto">
@@ -4684,10 +4811,6 @@ if (url.query == "") {
 					<tr>
 						<td><code>alwaysBackgroundColor</code></td>
 						<td>Forces the container to always use the <code>--background</code> colour.</td>
-					</tr>
-					<tr>
-						<td><code>inline</code></td>
-						<td>Makes Item Lists work in the middle of a content column. If you want rounded corners for your sections you can use the <code>inset</code> class but <code>inline</code> will forcefully remove the padding.</td>
 					</tr>
 					<tr>
 						<td><code>rounded</code></td>
@@ -5564,7 +5687,7 @@ toolbarVisibility({
 			</section>
 			<h2 class="headerSection withIcon">
 				<span class="alwaysAccent containerIcon">${iconInterfaceElements.locationStroke}</span>
-				<span class="h6">Header with Icon</span>
+				<span>Header with Icon</span>
 			</h2>
 			<section class="containerSection">
 				<p class="excludeMargin">This is a section with a section header.</p>
@@ -5582,9 +5705,9 @@ toolbarVisibility({
 &lt;section class="containerSection"&gt;&lt;/section&gt;
 
 //SECTION WITH HEADER THAT HAS AN ICON
-&lt;h1 class="headerSection"&gt;
+&lt;h1 class="headerSection withIcon"&gt;
 	&lt;span class="alwaysAccent containerIcon"&gt;&lt;/span&gt;
-	&lt;span class="h6"&gt;&lt;/span&gt;
+	&lt;span&gt;Your header goes here&lt;/span&gt;
 &lt;/h1&gt;
 &lt;section class="containerSection"&gt;&lt;/section&gt;
 </pre>
@@ -5665,6 +5788,7 @@ toolbarVisibility({
 				<section class="containerAccordionContents">
 					<div class="wrapper">
 						<div class="containerSection">
+							<h3>Section on Larger Screens</h3>
 							<p class="excludeMargin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae pretium justo. Ut nec finibus lacus, a elementum nulla. Ut consequat, turpis eget tempor pretium, ligula augue auctor urna, ac ultrices leo libero sed dui. Suspendisse potenti. Etiam a tempor ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras faucibus nisl vel mauris dignissim gravida. Etiam ac hendrerit elit, id condimentum mauris. Sed nec congue justo, eu gravida mi. Maecenas faucibus, purus sit amet tincidunt sodales, felis eros placerat ligula, accumsan consectetur tellus erat vitae nulla.</p>
 						</div>
 					</div>
@@ -5702,7 +5826,10 @@ toolbarVisibility({
 			
 			<div class="containerAccordion spacerHalf" data-accordiongroup="group1" id="exampleAccordion2">
 				<div class="headerAccordion headerSection">
-					<h3>Accordion Group 1</h3>
+					<div class="containerContent">
+						${iconObjects.bellStroke}
+						<h3>Accordion Group 1</h3>
+					</div>
 					<div class="containerChevron">${iconShapes.chevronSingleRightStroke}</div>
 				</div>
 				<section class="containerAccordionContents">
@@ -6866,10 +6993,10 @@ const visuals = {
 				<h5>This is an H5</h5>
 				<h6 class="spacerDouble">This is an H6</h6>
 				
-				<p class="subtext excludeMargin">Headings have <code>text-wrap: balance;</code> applied to them resulting in a more pleasing look across multiple lines. An example with it applied:</p>
+				<small class="excludeMargin">Headings have <code>text-wrap: balance;</code> applied to them resulting in a more pleasing look across multiple lines. An example with it applied:</small>
 				<h3 class="spacerDouble textAlignCenter">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum neque a odio mattis suscipit. In tempor velit orci, ut ultrices orci pretium in. Nunc vitae elit ultricies, aliquet risus vitae, varius eros.</h3>
 				
-				<p class="subtext excludeMargin">And an example without it applied:</p>
+				<small class="excludeMargin">And an example without it applied:</small>
 				<h3 class="textAlignCenter" style="text-wrap: wrap;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum neque a odio mattis suscipit. In tempor velit orci, ut ultrices orci pretium in. Nunc vitae elit ultricies, aliquet risus vitae, varius eros.</h3>
 			</section>
 			
@@ -6889,7 +7016,7 @@ const visuals = {
 					<li>Third</li>
 				</ol>
 				<p><a href="https://toast-studio.com/">This is a link</a></p>
-				<p class="subtext">This is subtext with a <a href="https://toast-studio.com/">link</a></p>
+				<small>This is small with a <a href="https://toast-studio.com/">link</a></small>
 				<code>Text wrapped in a code tag</code>
 				<br /><br />
 				<pre>Text wrapped in a pre tag</pre>
@@ -7597,10 +7724,6 @@ generateBlankState({
 						<td>Sets the font size to match the respective heading size.</td>
 					</tr>
 					<tr>
-						<td><code>subtext</code></td>
-						<td>Sets text to a small size and half opacity.</td>
-					</tr>
-					<tr>
 						<td><span><code>textAlignLeft</code>, <code>textAlignCenter</code>, and <code>textAlignRight</code></span></td>
 						<td>Sets the alignment of text.</td>
 					</tr>
@@ -7639,10 +7762,6 @@ generateBlankState({
 					<tr>
 						<td><code>paddingContentTight</code></td>
 						<td>A narrower version of <code>paddingContent</code></td>
-					</tr>
-					<tr>
-						<td><code>shapeCircle</code></td>
-						<td>Sets a <code>border-radius</code> that will make a square element in to a circle</td>
 					</tr>
 					<tr>
 						<td><code>keepInitialWidth</code></td>
@@ -8526,7 +8645,9 @@ generateTipJar({
 			</div>
 		</header>
 		<div class="scrollview inset-T paddingContent">
-			<p><code>capitalize()</code> is a function to help you capitalize a single word that you might automatically get as lowercase from some JSON. To make it work you need to pass text in to the function. It currently only supports single words. It will return the capitalized word.</p>
+			<p><code>capitalize()</code> is a function to help you capitalize a single word that you might automatically get as lowercase from some JSON. To make it work you need to pass text in to the function.</p>
+			<p>It currently only supports single words. It will return the capitalized word.</p>
+			<p>Example: ${capitalize(`this is a lowercase string`)}</p>
 		</div>
 	`,
 	copytoclipboard: `
@@ -8553,6 +8674,11 @@ generateTipJar({
 		<div class="scrollview inset-T paddingContent">
 			<p><code>copyToClipboard()</code> is a function to help you copy provided text to the clipboard. To make it work you need to pass text in to the function. It currently only supports text and will not copy images or other content to the clipboard.</p>
 			<p>The function will also generate a Toast notifying users that the copy was successful (which will auto-dismiss after a short period of time).</p>
+			<h3>Example</h3>
+			<div class="containerSection" id="exampleCopy">
+				<button onclick="copyToClipboard(new Date().getFullYear())" data-button="action-fill" class="primary">Copy Year</button>
+				<input type="text"></input>
+			</div>
 		</div>
 	`,
 	settimelength:  `
@@ -8684,6 +8810,68 @@ generateTipJar({
 		</header>
 		<div class="scrollview inset-T paddingContent">
 			<p><code>scrollToTop()</code> is a function to scroll an element to the top of a list. It takes an ID as the single parameter (it must be an ID as other elements did not work well).</p>
+			<h3>Examples</h3>
+			<h4 id="header1">Header 1</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			
+			<h4 id="header2">Header 2</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis ex id nulla finibus mollis nec id lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam dictum, mi a dignissim maximus, risus ex ullamcorper erat, consectetur hendrerit nulla nisl ut urna. Cras nec purus diam. Phasellus tincidunt scelerisque purus, sollicitudin faucibus ex molestie in. Duis venenatis dui et est efficitur, vel euismod turpis feugiat. Duis hendrerit placerat porttitor.</p>
+			<button data-button="action-fill" class="primary" onclick="scrollToTop('header1')">Back to Header 1</button>
+			<button data-button="action-fill" class="primary" onclick="scrollToTop('header2')">Back to Header 2</button>
 		</div>
 	`,
 	iconstyle: `

@@ -1,4 +1,4 @@
-//REBAR 3.0
+//REBAR 3.1
 //COPYRIGHT TOAST STUDIO
 
 var iconHuman = {

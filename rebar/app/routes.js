@@ -24,7 +24,7 @@ function routesidebar(options) {
 					</div>
 				</header>
 				<section class="scrollview inset-T">
-					<div class="layoutGrid">
+					<section class="layoutGrid">
 						<button data-button="sidebar" data-name="gettingstarted" onclick='routegettingstarted({modifier: false, navtype: "forwards"})'>
 							<div class="labelSidebar">
 								${iconShapes.triangleRightCircleStroke}
@@ -73,7 +73,61 @@ function routesidebar(options) {
 								Icons
 							</div>
 						</button>
+					</section>
+					
+					<section class="containerAccordion noBorder">
+						<div class="headerAccordion headerSidebar">
+							<h5>Accordion</h5>
+							<div class="containerChevron">${iconShapes.chevronSingleRightFill}</div>
+						</div>
+						<section class="containerAccordionContents">
+							<div class="wrapper">
+								<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})'>
+									<div class="labelSidebar">
+										${iconIndices.oneCircleStroke}
+										Item 1
+									</div>
+								</button>
+								<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})'>
+									<div class="labelSidebar">
+										${iconIndices.twoCircleStroke}
+										Item 2
+									</div>
+								</button>
+								<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})'>
+									<div class="labelSidebar">
+										${iconIndices.threeCircleStroke}
+										Item 3
+									</div>
+								</button>
+							</div>
+						</section>
+					</section>
+					
+					
+					<div class="headerSidebar">
+						<h5>Grid</h5>
 					</div>
+					<section class="layoutGrid always">
+						<button data-button="sidebar" data-name="icons" onclick='routeicons({modifier: false, navtype: "forwards"})'>
+							<div class="labelSidebar">
+								${iconObjects.loupeStroke}
+								Item A
+							</div>
+						</button>
+						<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})'>
+							<div class="labelSidebar">
+								${iconTransport.rocketStroke}
+								Item B
+							</div>
+						</button>
+						<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})'>
+							<div class="labelSidebar">
+								${iconNature.sunStroke}
+								Item C
+							</div>
+						</button>
+					</section>
 				</section>
 			</div>
 		`)
@@ -123,11 +177,23 @@ function routegettingstarted(options) {
 									</div>
 								</div>
 							</button>
+							<button data-button="item-rounded" data-icon-size="fixed" data-name="principles" onclick='routegettingstarted({modifier: "principles", navtype: "forwards"})'>
+								<div class="containerLeading">
+									<span class="containerIcon" style="--icon-container: var(--warning);">${iconList(iconObjects.bookClosedFill, iconObjects.bookClosedStroke)}</span>
+									<div class="label">
+										<span>Principles</span>
+									</div>
+								</div>
+							</button>
+						</section>
+						
+						<h2 class="headerList">Structure</h2>
+						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="filestructure" onclick='routegettingstarted({modifier: "filestructure", navtype: "forwards"})'>
 								<div class="containerLeading">
 									<span class="containerIcon" style="--icon-container: #4DA5FA;">${iconList(iconObjects.folderHorizontalFill, iconObjects.folderHorizontalStroke)}</span>
 									<div class="label">
-										<span>File Structure</span>
+										<span>Files</span>
 									</div>
 								</div>
 							</button>
@@ -135,10 +201,14 @@ function routegettingstarted(options) {
 								<div class="containerLeading">
 									<span class="containerIcon" style="--icon-container: #4DA5FA;">${iconList(iconObjects.legoFill, iconObjects.legoStroke)}</span>
 									<div class="label">
-										<span>App Structure</span>
+										<span>App Frame</span>
 									</div>
 								</div>
 							</button>
+						</section>
+						
+						<h2 class="headerList">Other</h2>
+						<section class="containerSection excludePadding">
 							<button data-button="item-rounded" data-icon-size="fixed" data-name="config" onclick='routegettingstarted({modifier: "config", navtype: "forwards"})'>
 								<div class="containerLeading">
 									<span class="containerIcon" style="--icon-container: grey;">${iconList(iconObjects.cogFill, iconObjects.cogStroke)}</span>

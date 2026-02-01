@@ -1,4 +1,4 @@
-//REBAR 3.0
+//REBAR 3.1
 //COPYRIGHT TOAST STUDIO
 
 //GLOBALS
@@ -81,7 +81,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 								<p class="excludeMargin textAlignCenter">Samsung Internet</p>
 							</div>
 						</div>
-						<p class="subtext textAlignCenter">If you have any issues please contact <a href="mailto:${appEmail}?subject=Help%20with%20installing%20${appName}">Support</a>.</p>
+						<small class="textAlignCenter">If you have any issues please contact <a href="mailto:${appEmail}?subject=Help%20with%20installing%20${appName}">Support</a>.</small>
 					</div>
 				`)
 				break;
@@ -199,7 +199,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
 											<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
 										</ol>
-										<p class="subtext">iOS 16.4 onwards</p>
+										<small>iOS 16.4 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -218,7 +218,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
 											<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
 										</ol>
-										<p class="subtext">iPadOS 16.4 onwards</p>
+										<small>iPadOS 16.4 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -237,7 +237,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Tap <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installChromeMobileStroke}</span> <span class="textBold alwaysAccent">Install app</span></li>
 											<li>Tap <span class="textBold alwaysAccent">Install</span></li>
 										</ol>
-										<p class="subtext">iPadOS 16.4 onwards</p>
+										<small>iPadOS 16.4 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -255,7 +255,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Click the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installChromeDesktopStroke}</span> button</li>
 											<li>Click <span class="textBold alwaysAccent">Install</span></li>
 										</ol>
-										<p class="subtext">Chrome 39 onwards</p>
+										<small>Chrome 39 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -273,7 +273,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Click the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installChromeDesktopStroke}</span> button</li>
 											<li>Click <span class="textBold alwaysAccent">Install</span></li>
 										</ol>
-										<p class="subtext">Chrome 39 onwards</p>
+										<small>Chrome 39 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -313,7 +313,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
 											<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
 										</ol>
-										<p class="subtext">iOS 16.4 onwards</p>
+										<small>iOS 16.4 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -332,7 +332,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
 											<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
 										</ol>
-										<p class="subtext">iPadOS 16.4 onwards</p>
+										<small>iPadOS 16.4 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -351,7 +351,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Tap <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installEdgeMobileStroke}</span> <span class="textBold alwaysAccent">Add to phone</span></li>
 											<li>Tap <span class="textBold alwaysAccent">Add</span></li>
 										</ol>
-										<p class="subtext">Edge 79 onwards</p>
+										<small>Edge 79 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -369,7 +369,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Click the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installEdgeDesktopStroke}</span> button</li>
 											<li>Click <span class="textBold alwaysAccent">Install</span></li>
 										</ol>
-										<p class="subtext">Edge 79 onwards</p>
+										<small>Edge 79 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -387,7 +387,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Click the <span class="installShareIcon alwaysAccent">${iconInterfaceElements.installEdgeDesktopStroke}</span> button</li>
 											<li>Click <span class="textBold alwaysAccent">Install</span></li>
 										</ol>
-										<p class="subtext">Edge 79 onwards</p>
+										<small>Edge 79 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -428,7 +428,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
 											<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
 										</ol>
-										<p class="subtext">iOS 16.4 onwards</p>
+										<small>iOS 16.4 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -448,7 +448,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
 											<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
 										</ol>
-										<p class="subtext">iPadOS 16.4 onwards</p>
+										<small>iPadOS 16.4 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -515,7 +515,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
 											<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
 										</ol>
-										<p class="subtext">iOS 1.1.3 onwards</p>
+										<small>iOS 1.1.3 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -534,7 +534,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Tap <span class="textBold alwaysAccent">Add to Home Screen</span></li>
 											<li>Set a name and tap <span class="textBold alwaysAccent">Add</span></li>
 										</ol>
-										<p class="subtext">iPadOS 4 onwards</p>
+										<small>iPadOS 4 onwards</small>
 									</div>
 								</div>
 							</section>
@@ -553,7 +553,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 											<li>Click <span class="textBold alwaysAccent">Add to Dock&hellip;</span></li>
 											<li>Set a name and click <span class="textBold alwaysAccent">Add</span></li>
 										</ol>
-										<p class="subtext">macOS 14 Sonoma onwards</p>
+										<small>macOS 14 Sonoma onwards</small>
 									</div>
 								</div>
 							</section>
@@ -615,7 +615,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 					<div class="wrapperToolbarMiddle"></div>
 					<div class="wrapperToolbarEnd">
 						<div class="pinToolbar material-liquidglass-thin">
-							<span id="buttonSheetDismiss" data-function="closedialog" autofocus>${insertCancelButton()}</button>
+							<span id="buttonSheetDismiss" data-function="closedialog" autofocus>${insertCancelButton()}</span>
 						</div>
 					</div>
 				</header>
@@ -1908,7 +1908,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 						
 						if (queryIncreasedContrast == true) {
 							$('#increaseContrast').prop('checked', true).addClass("disabled");
-							$("#displayContrast div:first-child").append(`<p class="subtext">Using device settings</p>`)
+							$("#displayContrast div:first-child").append(`<small>Using device settings</small>`)
 						}
 				}
 			
@@ -1935,7 +1935,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 					
 					if (queryReducedMotion == true) {
 						$('#reduceMotion').prop('checked', true).addClass("disabled");
-						$("#displayMotion div:first-child").append(`<p class="subtext">Using device settings</p>`)
+						$("#displayMotion div:first-child").append(`<small>Using device settings</small>`)
 					}
 				}
 		}
@@ -2275,7 +2275,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 							<button data-button="action-fill" class="secondary" onclick="stopTipsPrompts()">Any Amount</button>
 						</a>
 					</div>
-					<p class="textAlignCenter subtext">Prices are set in USD and payment is handled by Stripe. ${appName} does not require payment to use. If you have any issues, please contact <a href="mailto:${appEmail}?subject=Help%20with%20${appName}%20tip%20jar">Support</a>. For more information on how your data is handled please refer to the <a href="${appPrivacyPolicy}" target="_blank">Toast Studio Privacy Policy</a> and the <a href="https://stripe.com/privacy" target="_blank">Stripe Privacy Policy</a>.</p>
+					<small class="textAlignCenter">Prices are set in USD and payment is handled by Stripe. ${appName} does not require payment to use. If you have any issues, please contact <a href="mailto:${appEmail}?subject=Help%20with%20${appName}%20tip%20jar">Support</a>. For more information on how your data is handled please refer to the <a href="${appPrivacyPolicy}" target="_blank">Toast Studio Privacy Policy</a> and the <a href="https://stripe.com/privacy" target="_blank">Stripe Privacy Policy</a>.</small>
 				</div>
 			`
 		}
@@ -2309,39 +2309,59 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 	
 //CAPITALIZE WORD
 	function capitalize(word) {
+		//GUARD
+		if (word == null) return "";
+		word = String(word);
+		if (!word.length) return "";
+		
+		//CONVERT
 		return word[0].toUpperCase() + word.slice(1).toLowerCase();
 	}
 
-//COPT TO CLIPBOARD
-	function copyToClipboard(text) {
+//COPY TO CLIPBOARD
+	function copyToClipboard(input) {
+		//GUARD
+		var output = input == null ? "" : String(input);
+	
 		//COPY CONTENT
-			var $temp = $("<input>");
-			$("body").append($temp);
-			$temp.val(text).select();
-			document.execCommand("copy");
-			$temp.remove();
-		
+		navigator.clipboard.writeText(output);
+	
 		//DISPLAY TOAST
-			summonToast({
-				backing: "gradient",
-				id: false,
-				icon: iconShapes.checkmarkCircleMulti,
-				message: `Copied to Clipboard`,
-				closeButton: false,
-			})
-		
+		summonToast({
+			backing: "gradient",
+			id: false,
+			icon: iconShapes.checkmarkCircleMulti,
+			message: "Copied to Clipboard",
+			closeButton: false,
+		});
+	
 		//DESTROY TOAST
-			setTimeout(function(){ dismissDialog(); }, 1800);
+		setTimeout(function () { dismissDialog(); }, 1800);
 	}
 	
 //SCROLL ITEM TO TOP
 	function scrollToTop(value) {
-		var elmnt = document.getElementById(value);
-		elmnt.scrollIntoView();
+		//GUARD
+		if (!value) return;
+	
+		//GET TARGET ELEMENT
+		var element = document.getElementById(value);
+		if (!element) return;
+	
+		//SCROLL INTO VIEW
+		element.scrollIntoView({
+			behavior: `smooth`,
+			container: `nearest`,
+		});
 	}
 	
 //ICON STYLE
 	function iconList(fill, stroke) {
+		//GUARD
+		if (fill == null) fill = "";
+		if (stroke == null) stroke = "";
+		
+		//RETURN ICONS
 		return `<span class="only-ios only-macos only-android">${fill}</span>
 				<span class="only-windows">${stroke}</span>`
 	}
@@ -2590,7 +2610,7 @@ const queryIncreasedContrast = window.matchMedia('(prefers-contrast: more)').mat
 								${options.images ? `<img src="${currentData.image}" width="50" height="50" /> ` : ``}
 								<div>
 									${currentData.name} 
-									${options.subtext ? `<p class="subtext excludeMargin">${currentData.subtext}</p>` : ``} 
+									${options.subtext ? `<small class="excludeMargin">${currentData.subtext}</small>` : ``} 
 									${options.badge ? `${currentData.badge}` : ``}
 								</div>
 							</td>
