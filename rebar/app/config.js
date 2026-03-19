@@ -16,33 +16,24 @@ const appReleaseNotes = [
 const appThemes = {
 	system: {
 		name: "Device",
-		iconGroup: "iconInterfaceElements",
-		iconName: "appearance",
+		icon: generateIcon(iconInterfaceElements.appearance, 'stroke'),
 	},
 	light: {
 		name: "Light",
-		iconGroup: "iconNature",
-		iconName: "sunFill",
+		icon: generateIcon(iconNature.sun, 'fill'),
 	},
 	dark: {
 		name: "Dark",
-		iconGroup: "iconNature",
-		iconName: "moonRightFill",
+		icon:generateIcon(iconNature.moonRight, 'fill'),
 	},
 	custom: {
 		name: "Custom",
-		iconGroup: "iconNature",
-		iconName: "sparkleFill",
+		icon: generateIcon(iconNature.sparkle, 'fill'),
 	},
 };
 const appAccents = {
 	default: "Rebar",
 	custom: "Custom",
-};
-const appTextSizes = {
-	small: "Small",
-	medium: "Medium",
-	large: "Large"
 };
 const appPreferencesVersion = 1;
 const appPreferencesDefault = {
@@ -52,8 +43,8 @@ const appPreferencesDefault = {
 		os: "default",
 		openings: 0,
 		firstRun: null,
-		accent: ["default"],
-		appearance: ["system"],
+		accent: "default",
+		appearance: "system",
 		dynamicTypeSize: {
 			value: "medium",
 			label: "Medium",
@@ -61,9 +52,8 @@ const appPreferencesDefault = {
 		textWeight: "regular",
 		textFont: "system",
 		increaseContrast: "less",
-		reduceMotion: "off",
+		reduceMotion: false,
 		clickedDonationLink: false,
-		
 	},
 }
 const topLevelRoute = "routesidebar";
@@ -79,6 +69,7 @@ const tipsLinks = {
 	default: "https://buy.stripe.com/fZe3fE6m8f2S2judQQ",
 	custom: "https://buy.stripe.com/dR65nMcKw3ka0bm4gh",
 };
+const tipsMessage = "Your tip helps us update Rebar with cool new things"
 const shortcutKeys = {
 	"groupa": {
 		"label": "Group A",

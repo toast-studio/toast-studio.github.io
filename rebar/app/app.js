@@ -39,7 +39,7 @@ function miniThemePicker() {
 					</div>
 				</div>
 			</header>
-			<div class="scrollview inset-T" id="sheetDisplayOptions"></div>
+			<div class="scrollview inset-T" id="sheetDisplayOptions">${generateDisplayOptions()}</div>
 		`,
 	})
 	
@@ -85,7 +85,7 @@ function exampleToast2() {
 	summonToast({
 		backing: "gradient",
 		id: "exampleSVGToast",
-		icon: iconHuman.thumbsUpLeftFill,
+		icon: generateIcon(iconHuman.thumbsUpLeft, 'fill'),
 		message: "This is an example Toast with an SVG",
 		closeButton: true,
 	})
@@ -193,7 +193,7 @@ function exampleAlertCustom() {
 	summonAlert({
 		backing: "dark",
 		id: "alert3",
-		icon: iconHuman.userCircleFill,
+		icon: generateIcon(iconHuman.userCircle, 'fill'),
 		iconType: "alwaysAccent",
 		title: "Custom Content",
 		message: false,
@@ -209,7 +209,9 @@ function exampleAlertCustom() {
 
 function copyIconName(self) {
 	let text = $(self).data("iconname")
-	copyToClipboard(text)
+	let variant = $(self).data("variant")
+	let constructed = `generateIcon(${text}, '${variant}')`
+	copyToClipboard(constructed)
 }
 
 function exampleSwitches(self) {
@@ -484,3 +486,62 @@ function groupPeople(kind) {
 		});
 	});
 }
+
+//SHORTCUT KEYS
+$(document).keyup(async function(e) {
+	let checkFocus = (document.activeElement === document.getElementsByTagName('input')[0])
+
+	//WAIT HELPER
+	const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+
+	if (checkFocus == false) {
+		switch (e.key) {
+			case '1':
+				setTheme('ios')
+				break;
+			case '2':
+				setTheme('macos')
+				break;
+			case '3':
+				setTheme('android')
+				break;
+			case '4':
+				setTheme('windows')
+				break;
+			case '5':
+				setTheme('ios')
+				await wait(1500)
+
+				setTheme('macos')
+				await wait(1500)
+
+				setTheme('android')
+				await wait(1500)
+
+				setTheme('windows')
+				break;
+			case '0':
+				const accents = {
+					...accentsApple,
+					...accentsAndroid,
+					...accentsWindows,
+				};
+				
+				const accentKeys = Object.keys(accents);
+				
+				if (!accentKeys.length) break;
+				
+				const newAccent = accentKeys[Math.floor(Math.random() * accentKeys.length)];
+				
+				modifyPreference({
+					group: "rebar.appSettings",
+					mode: "update",
+					preference: "accent",
+					value: newAccent,
+				});
+				
+				$("body").attr("data-accent", newAccent);
+				break;
+		}
+	}
+});

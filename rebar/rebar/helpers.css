@@ -1,0 +1,181 @@
+/* VISUALS */
+	.excludeMargin { margin: 0px; }
+	.excludePadding { padding: 0px; }
+	
+	.noBackgroundColor {
+		background: none;
+	}
+	
+	.disablePointer {
+		pointer-events: none;
+	}
+	
+	.hidden {
+		display: none;
+	}
+	
+/* ACCENTS */
+	.alwaysBackgroundColor {
+		background: var(--background);
+		fill: var(--background);
+	}
+	
+	.alwaysForegroundColor {
+		background: var(--foreground);
+		fill: var(--foreground);
+	}
+
+	/* ALWAYS ACCENT */
+		.alwaysAccent:not(.useInitialFill), 
+		.alwaysAccent:not(.useInitialFill) path, 
+		.alwaysAccent:not(.useInitialFill) span {
+			color: var(--accent);
+			fill: var(--accent);
+		}
+		
+		svg.alwaysAccent {
+			--size: var(--base-font-size);
+			
+			width: var(--size);
+			height: var(--size);
+		}
+	
+	
+	/* ALWAYS DESTRUCTIVE */
+		.alwaysDestructive:not(.useInitialFill), 
+		.alwaysDestructive:not(.useInitialFill) path, 
+		.alwaysDestructive:not(.useInitialFill) span {
+			color: var(--destructive);
+			fill: var(--destructive);
+		}
+	
+	
+	/* ALWAYS POSITIVE */
+		.alwaysPositive:not(.useInitialFill), 
+		.alwaysPositive:not(.useInitialFill) path, 
+		.alwaysPositive:not(.useInitialFill) span {
+			color: var(--positive);
+			fill: var(--positive);
+		}
+	
+	
+	/* ALWAYS WARNING */
+		.alwaysWarning:not(.useInitialFill), 
+		.alwaysWarning:not(.useInitialFill) path, 
+		.alwaysWarning:not(.useInitialFill) span {
+			color: var(--warning);
+			fill: var(--warning);
+		}
+	
+	
+	/* ALWAYS INFO */
+		.alwaysInfo:not(.useInitialFill), 
+		.alwaysInfo:not(.useInitialFill) path, 
+		.alwaysInfo:not(.useInitialFill) span {
+			color: var(--info);
+			fill: var(--info);
+		}
+	
+	
+	/* ALWAYS MAIN */
+		.alwaysMain:not(.useInitialFill), 
+		.alwaysMain:not(.useInitialFill) path, 
+		.alwaysMain:not(.useInitialFill) span {
+			color: var(--main);
+			fill: var(--main);
+		}
+		
+		.alwaysMainInvert:not(.useInitialFill), 
+		.alwaysMainInvert:not(.useInitialFill) path, 
+		.alwaysMainInvert:not(.useInitialFill) span {
+			color: var(--mainInvert);
+			fill: var(--mainInvert);
+		}
+
+/* TEXT */
+	.textAlignLeft { text-align: left; }
+	.textAlignCenter { text-align: center; }
+	.textAlignRight { text-align: right; }
+	
+	.textRegular { font-family: var(--font-regular); }
+	.textRounded { font-family: var(--font-rounded); }
+	.textMonospace { font-family: var(--font-monospace); }
+	.textSerif { font-family: var(--font-serif); }
+
+	.textBold {
+		[data-os="ios"] &, 
+		[data-os="macos"] & {
+			font-weight: bold;
+		}
+		
+		[data-os="android"] & {
+			font-family: var(--font-regular-bold);
+			font-weight: normal;
+		}
+		
+		[data-os="windows"] & {
+			font-weight: 600;
+		}
+	}
+	
+	.noDecoration,
+	.noDecoration:hover {
+		text-decoration: none;
+	}
+	
+	[data-textweight="bold"] .textBold {
+		font-weight: bolder;
+	}
+	
+	[data-textweight="bold"] * {
+		font-weight: bold;
+	}
+
+/* THEME */
+	.only-ios {
+		display: none;
+		
+		[data-os="ios"] & {
+			display: block;
+		}
+	}
+	
+	.only-macos {
+		display: none;
+		
+		[data-os="macos"] & {
+			display: block;
+		}
+	}
+	
+	.only-android {
+		display: none;
+		
+		[data-os="android"] & {
+			display: block;
+		}
+	}
+	
+	.only-windows {
+		display: none;
+		
+		[data-os="windows"] & {
+			display: block;
+		}
+	}
+	
+	[data-os="macos"] .containerToolbar button[data-button="dropdown"] .gripper {
+		& .outsideToolbar { display: none; }
+		& .insideToolbar { display: block; }
+	}
+	
+	[data-os="macos"] button[data-button="dropdown"] .gripper {
+		& .insideToolbar { display: none; }
+	}
+	
+
+/* SPACERS */
+	.spacerHalf { margin-block-end: calc(var(--base-gap-size) / 2); }
+	.spacerSingle { margin-block-end: var(--base-gap-size); }
+	.spacerDouble { margin-block-end: calc(var(--base-gap-size) * 2); }
+	.spacerTriple { margin-block-end: calc(var(--base-gap-size) * 3); }

@@ -1,4 +1,5 @@
-@layer rebar, app;
+@layer rebar, app, helpers;
 
 @import url('rebar/rebar.css') layer(rebar);
+@import url('rebar/helpers.css') layer(helpers);
 @import url('app/app.css') layer(app);
