@@ -535,7 +535,7 @@ footer .toast:hover {
                             "clearread"
                             "startpageredirect"
                             "linkbadges"
-                            "empty";
+                            "radiantgradients";
 }
 
 .toast-page main section {
@@ -615,7 +615,7 @@ footer .toast:hover {
         grid-template-areas:    "screensizes simplescales"
                                 "typedex critterdex" 
                                 "clearread startpageredirect"
-                                "linkbadges lifecast";
+                                "linkbadges radiantgradients";
     }
 
     .toast-page main aside {
@@ -1084,6 +1084,60 @@ footer .toast:hover {
     }
 }
 
+.toast-page #radiantgradients {
+    grid-area: radiantgradients;
+}
+
+@media (min-width: 768px) {
+    .toast-page #radiantgradients h2 {
+        font-size: 40px;
+    }
+
+    .toast-page #radiantgradients h3 {
+        font-size: 18px;
+    }
+
+    .toast-page #radiantgradients div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .toast-page #radiantgradients aside {
+        position: absolute;
+        bottom: 20px;
+        width: 380px;
+        max-width: 90%;
+    }
+
+    .toast-page #radiantgradients .promo {
+        align-self: center;
+        position: absolute;
+        top: 6%;
+        max-width: 100%;
+        left: 0px;
+    }
+}
+
+@media (min-width: 1340px) {
+    .toast-page #radiantgradients h2 {
+        font-size: 50px;
+    }
+
+    .toast-page #radiantgradients h3 {
+        font-size: 24px;
+    }
+
+    .toast-page #radiantgradients aside {
+        bottom: 40px;
+    }
+
+    .toast-page #radiantgradients .promo {
+        width: 537px;
+        top: 60px;
+    }
+}
+
+
 .toast-page #empty {
     grid-area: empty;
     background: none;
@@ -1473,6 +1527,22 @@ footer .toast:hover {
     .startpageredirect-page footer .toast:hover {
         background: url(/screen-sizes/images/toast-active-dark.svg);
     }
+}
+
+
+/* RADIANT GRADIENTS */
+.radiantgradients-page {
+    --background: #FFFFFF;
+    --main: #000000;
+    --tint: #C66DCE;
+}
+
+.radiantgradients-page footer .toast {
+    background: url(/screen-sizes/images/toast.svg);
+}
+
+.radiantgradients-page footer .toast:hover {
+    background: url(/screen-sizes/images/toast-active.svg);
 }
 
 .privacy-page {
