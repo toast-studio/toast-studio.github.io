@@ -31,14 +31,22 @@
 			<p>Radiant Gradients requires iOS 26, iPadOS 26, and macOS 26</p>
 			<br /><br />
 			<h1>FAQ</h1>
-			<h2 style="margin-top: 10px;">Does Radiant Gradients use on-device or server models for the Playground feature?</h2>
-			<p>That is determined by the Apple Intelligence system but it is a lightweight prompt so most likely uses the on-device model</p>
+			<h2 style="margin-top: 10px;">Issues with macOS wallpaper cache</h2>
+			<p>There is an issue with the way macOS caches wallpapers where you can end up with a large amount of old wallpapers on disk. These are stored at: <code>~/Library/Containers/com.apple.wallpaper.agent/Data/Library/Caches/com.apple.wallpaper.caches/extension-com.apple.wallpaper.extension.image</code></p>
+			<p>To browse to this folder in Finder select the Go menu and hold Option which will reveal the Library menu item. Opening Library, you can browse from there. Alternatively in the Go menu select Go to Folder&hellip; and paste the file path.</p>
+			<p>Since this is a cache you are free to delete files within this folder. If you have a frequent refresh interval you will need to clean this folder out regularly.</p> 
+			
+			<h2>Does Radiant Gradients use on-device or server models for the Playground feature?</h2>
+			<p>That is determined by the Apple Intelligence system but it is a lightweight prompt so most likely uses the on-device model.</p>
 			
 			<h2>Can I set specific colours?</h2>
-			<p>Not currently as Radiant Gradients is intended to give a fresh new gradient every time it generates a wallpaper.</p>
+			<p>You can with the Custom colour mode.</p>
 			
 			<h2>How do I set my wallpaper to automatically update on iOS?</h2>
 			<p>You will need to use Shortcuts. A step-by-step guide can be found inside the app.</p>
+			
+			<h2>Does Radiant Gradients require a subscription?</h2>
+			<p>No, Radiant Gradients is a free download with a one-off purchase to unlock full functionality.</p>
 			
 			<a href="/">
 				<svg xmlns="http://www.w3.org/2000/svg" width="218" height="89" viewBox="0 0 218 89" class="logo">
