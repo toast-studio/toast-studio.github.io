@@ -32,7 +32,7 @@
 	function contentInstallSheet(type) {
 		const installContent = {
 			default: `
-				<div class="containerToolbar layoutSheet vanishing" id="toolbarInstall">
+				<div class="containerToolbar layoutSheet" id="toolbarInstall">
 					<div class="wrapperToolbarStart"></div>
 					<div class="wrapperToolbarMiddle"></div>
 					<div class="wrapperToolbarEnd">
@@ -131,7 +131,7 @@
 				</div>
 			`,
 			brave: `
-				<div class="containerToolbar layoutSheet vanishing" id="toolbarInstall">
+				<div class="containerToolbar layoutSheet" id="toolbarInstall">
 					<div class="wrapperToolbarStart">
 						<div class="pinToolbar material-liquidglass-thin">
 							<button data-button="action-transparent" class="toolbarItem" onclick="contentInstallSheet('default')">Other Browsers</button>
@@ -231,7 +231,7 @@
 				</div>
 			`,
 			chrome: `
-				<div class="containerToolbar layoutSheet vanishing" id="toolbarInstall">
+				<div class="containerToolbar layoutSheet" id="toolbarInstall">
 					<div class="wrapperToolbarStart">
 						<div class="pinToolbar material-liquidglass-thin">
 							<button data-button="action-transparent" class="toolbarItem" onclick="contentInstallSheet('default')">Other Browsers</button>
@@ -369,7 +369,7 @@
 				</div>
 			`,
 			edge: `
-				<div class="containerToolbar layoutSheet vanishing" id="toolbarInstall">
+				<div class="containerToolbar layoutSheet" id="toolbarInstall">
 					<div class="wrapperToolbarStart">
 						<div class="pinToolbar material-liquidglass-thin">
 							<button data-button="action-transparent" class="toolbarItem" onclick="contentInstallSheet('default')">Other Browsers</button>
@@ -507,7 +507,7 @@
 				</div>
 			`,
 			firefox: `
-				<div class="containerToolbar layoutSheet vanishing" id="toolbarInstall">
+				<div class="containerToolbar layoutSheet" id="toolbarInstall">
 					<div class="wrapperToolbarStart">
 						<div class="pinToolbar material-liquidglass-thin">
 							<button data-button="action-transparent" class="toolbarItem" onclick="contentInstallSheet('default')">Other Browsers</button>
@@ -613,7 +613,7 @@
 				</div>
 			`,
 			safari: `
-				<div class="containerToolbar layoutSheet vanishing" id="toolbarInstall">
+				<div class="containerToolbar layoutSheet" id="toolbarInstall">
 					<div class="wrapperToolbarStart">
 						<div class="pinToolbar material-liquidglass-thin">
 							<button data-button="action-transparent" class="toolbarItem" onclick="contentInstallSheet('default')">Other Browsers</button>
@@ -718,7 +718,7 @@
 				</div>
 			`,
 			samsunginternet: `
-				<div class="containerToolbar layoutSheet vanishing" id="toolbarInstall">
+				<div class="containerToolbar layoutSheet" id="toolbarInstall">
 					<div class="wrapperToolbarStart">
 						<div class="pinToolbar material-liquidglass-thin">
 							<button data-button="action-transparent" class="toolbarItem" onclick="contentInstallSheet('default')">Other Browsers</button>
@@ -1001,16 +1001,16 @@
 		const h = window.innerHeight
 		
 		//IGNORE FALSE POSITIVES
-		if (w === lastW && h === lastH) return; //->
+		if (w === lastW && h === lastH) return
 		
 		lastW = w
 		lastH = h
 		
-		clearTimeout(id);
+		clearTimeout(id)
 		
-		id = setTimeout(setTimeLength(), 500);
-		document.documentElement.style.setProperty('--base-time-length', '0s');
-	});
+		document.documentElement.style.setProperty('--base-time-length', '0s')
+		id = setTimeout(setTimeLength, 500)
+	})
 
 //CONTEXT MENUS
 //These functions will be removed when Anchor Positioning is supported in transformed parent containers
@@ -1226,19 +1226,6 @@
 				window.history.pushState(null, null, `?${options.route}=${options.modifier}`);
 			}
 		}
-
-//TOOLBARS
-//This function will be removed when Scroll-Driven Animations are baseline
-	var toolbarVisibility = function(options) {
-		$(options.scrollview).scroll(function() {
-			var y = $(options.scrollview).scrollTop();
-			if (y > options.height) {
-				$(options.toolbar).removeClass("vanishing");
-			} else {
-				$(options.toolbar).addClass("vanishing");
-			}
-		});
-	}
 		
 //COLLAPSE ASIDE BUTTONS
 	$(document).on('click', 'button.collapseAside', function() {
@@ -1443,18 +1430,31 @@
 		const selector = options.inputSelector || `#${options.inputID}`;
 		
 		$(document).off("input.search", selector).on("input.search", selector, function() {
-			//GATHER THE INPUTED TEXT
+			//GET ACTIVE INPUT
 			const input = this;
 			const enteredText = input.value.toUpperCase();
+			
+			//GET RELATED SEARCH INPUTS
+			const searchInputs = document.querySelectorAll(selector);
+			
+			//GET SEARCH CONTAINER
 			const parentContainer = document.getElementById(options.parentID);
 			const items = parentContainer.getElementsByClassName(options.itemClass);
 			const $parentContainer = $(`#${options.parentID}`);
 			const $searchWrapper = $parentContainer.parent();
 			
+			//SYNC OTHER SEARCH BOXES WITHOUT SHOWING THEIR CLEAR BUTTONS
+			searchInputs.forEach(searchInput => {
+				if (searchInput !== input) {
+					searchInput.value = input.value;
+					$(searchInput).next().removeClass("active");
+				}
+			});
+			
 			//SET THE CONTAINER SCROLL BACK TO THE TOP
 			parentContainer.scrollTop = 0;
 			
-			//HIDE AND SHOW THE CLEAR SEARCH BUTTON
+			//HIDE AND SHOW THE ACTIVE CLEAR SEARCH BUTTON ONLY
 			if (enteredText.length === 0) {
 				$(input).next().removeClass("active");
 				$parentContainer.removeClass("activeSearch");
@@ -1493,13 +1493,22 @@
 	}
 	
 	function searchTable(options) {
-		//GET ELEMENTS
-		const input = document.getElementById(options.inputID);
+		//GET ACTIVE INPUT
+		const selector = options.inputSelector || `#${options.inputID}`;
+		const input = options.enteredText || document.querySelector(selector);
 		const parent = document.getElementById(options.parentID);
+		
+		//STOP IF REQUIRED ELEMENTS ARE MISSING
+		if (!input || !parent) {
+			return;
+		}
+		
+		//GET ELEMENTS
 		const $input = $(input);
 		const $parent = $(parent);
 		const $wrapper = $parent.parent();
 		const searchValue = input.value.toLowerCase();
+		const searchInputs = document.querySelectorAll(selector);
 		
 		//GET TABLE ROWS WITHIN THE TARGET PARENT
 		const $rows = $parent.find("tr").not("thead tr");
@@ -1507,7 +1516,15 @@
 		//RESET SCROLL POSITION
 		parent.scrollTop = 0;
 		
-		//TOGGLE CLEAR BUTTON
+		//SYNC OTHER SEARCH BOXES WITHOUT SHOWING THEIR CLEAR BUTTONS
+		searchInputs.forEach(searchInput => {
+			if (searchInput !== input) {
+				searchInput.value = input.value;
+				$(searchInput).next().removeClass("active");
+			}
+		});
+		
+		//TOGGLE ACTIVE CLEAR BUTTON ONLY
 		$input.next().toggleClass("active", searchValue.length > 0);
 		
 		//FILTER ROWS
@@ -2027,10 +2044,68 @@ const accentsWindows = {
 }
 	
 //DISPLAY OPTIONS
+	function getFreshAppSettings() {
+		//GET SAVED SETTINGS DIRECTLY FROM LOCAL STORAGE
+		const rawSettings = localStorage.getItem("rebar.appSettings");
+		
+		//FALL BACK TO CURRENT PREFERENCE HELPER
+		if (!rawSettings) return getPreferenceGroup("rebar.appSettings"); //->
+		
+		//PARSE SAVED SETTINGS
+		try {
+			return JSON.parse(rawSettings);
+		} catch(error) {
+			console.warn("Could not parse rebar.appSettings", error);
+			return getPreferenceGroup("rebar.appSettings"); //->
+		}
+	}
+	
+	function syncDisplayOptionsState() {
+		//GET CURRENT SETTINGS
+		const settings = getFreshAppSettings();
+		
+		//STOP IF DISPLAY OPTIONS ARE NOT CURRENTLY ON THE PAGE
+		if (!document.querySelector("#containerVisuals, #containerText")) return; //->
+		
+		//SYNC THEME
+		$("#displayTheme button").removeClass("picked");
+		$(`#displayTheme button[data-value="${settings.os}"]`).addClass("picked");
+		
+		//SYNC APPEARANCE
+		$("#displayAppearance button").removeClass("picked");
+		$(`#displayAppearance button[data-value="${settings.appearance}"]`).addClass("picked");
+		
+		//SYNC ACCENT
+		$("#displayAccent button").removeClass("picked");
+		$(`#displayAccent button[data-value="${settings.accent}"]`).addClass("picked");
+		
+		//SYNC INCREASE CONTRAST
+		const increaseContrast = settings.increaseContrast === "more" || queryIncreasedContrast === true;
+		$("#increaseContrast").prop("checked", increaseContrast);
+		
+		//SYNC REDUCE MOTION
+		const reduceMotion = settings.reduceMotion === true || settings.reduceMotion === "on" || queryReducedMotion === true;
+		$("#reduceMotion").prop("checked", reduceMotion);
+		
+		//SYNC TEXT SIZE
+		const textSize = settings.dynamicTypeSize?.value;
+		
+		$("#displayTextSize button").removeClass("picked");
+		$(`#displayTextSize button[data-value="${textSize}"]`).addClass("picked");
+		
+		//SYNC BOLD TEXT
+		const boldText = settings.textWeight === "bold";
+		$("#boldText").prop("checked", boldText);
+		
+		//SYNC FONT
+		$("#displayFont button").removeClass("picked");
+		$(`#displayFont button[data-value="${settings.textFont}"]`).addClass("picked");
+	}
+
 	//GENERATE DISPLAY OPTIONS
 		//SECTIONS
 		function sectionTheme() {
-			const selectedTheme = getPreferenceGroup("rebar.appSettings").os;
+			const selectedTheme = getFreshAppSettings().os;
 		
 			const themeOptions = [
 				{
@@ -2081,7 +2156,7 @@ const accentsWindows = {
 		}
 		
 		function sectionAppearance() {
-			const selectedAppearance = getPreferenceGroup("rebar.appSettings").appearance;
+			const selectedAppearance = getFreshAppSettings().appearance;
 			
 			return `
 				<div class="containerDisplayRow containerSection" id="displayAppearance">
@@ -2110,7 +2185,7 @@ const accentsWindows = {
 		}
 		
 		function sectionAccent() {
-			const selectedAccent = getPreferenceGroup("rebar.appSettings").accent;
+			const selectedAccent = getFreshAppSettings().accent;
 			
 			const accentGroups = [
 				{
@@ -2169,7 +2244,7 @@ const accentsWindows = {
 		}
 		
 		function sectionIncreaseContrast() {
-			const selectedIncreaseContrast = getPreferenceGroup("rebar.appSettings").increaseContrast;
+			const selectedIncreaseContrast = getFreshAppSettings().increaseContrast;
 			
 			return `
 				<div class="containerDisplayRow containerSection" id="displayContrast" style="--layout: grid; align-items: center;">
@@ -2196,7 +2271,7 @@ const accentsWindows = {
 		}
 		
 		function sectionReduceMotion() {
-			const selectedReduceMotion = getPreferenceGroup("rebar.appSettings").reduceMotion;
+			const selectedReduceMotion = getFreshAppSettings().reduceMotion;
 			
 			return `
 				<div class="containerDisplayRow containerSection" id="displayMotion" style="--layout: grid; align-items: center;">
@@ -2214,8 +2289,8 @@ const accentsWindows = {
 							value="" 
 							${selectedReduceMotion === true || selectedReduceMotion === "on" || queryReducedMotion == true ? `checked` : ``}
 							${queryReducedMotion == true ? `disabled` : ``}
-							onclick="(setReduceMotion(event))
-						">
+							onclick="setReduceMotion(event)"
+						>
 						<div class="fakeCheckbox"></div>
 					</label>
 				</div>
@@ -2223,7 +2298,7 @@ const accentsWindows = {
 		}
 		
 		function sectionTextSize() {
-			const selectedTextSize = getPreferenceGroup("rebar.appSettings").dynamicTypeSize.value;
+			const selectedTextSize = getFreshAppSettings().dynamicTypeSize.value;
 			
 			const textSizeOptions = [
 				{
@@ -2270,7 +2345,7 @@ const accentsWindows = {
 		}
 		
 		function sectionBoldText() {
-			const selectedBoldText = getPreferenceGroup("rebar.appSettings").textWeight;
+			const selectedBoldText = getFreshAppSettings().textWeight;
 			
 			return `
 				<div class="containerDisplayRow containerSection" id="displayBoldText" style="--layout: grid; align-items: center;">
@@ -2294,7 +2369,7 @@ const accentsWindows = {
 		}
 		
 		function sectionFont() {
-			const selectedFont = getPreferenceGroup("rebar.appSettings").textFont;
+			const selectedFont =getFreshAppSettings().textFont;
 			
 			const fontGroups = [
 				{
@@ -2416,7 +2491,7 @@ const accentsWindows = {
 					${sectionBoldText()}
 					${sectionFont()}
 				</section>
-			`
+			`;
 		}
 	
 	//SET DISPLAY OPTIONS
@@ -2451,6 +2526,9 @@ const accentsWindows = {
 			//SET PICKED
 			$(button).siblings().removeClass("picked");
 			$(button).addClass("picked");
+			
+			//SYNC DISPLAY OPTIONS
+			syncDisplayOptionsState();
 		}
 		
 		function setAppearance(event) {
@@ -2472,6 +2550,9 @@ const accentsWindows = {
 			//SET PICKED
 			$(button).siblings().removeClass("picked");
 			$(button).addClass(`picked`)
+			
+			//SYNC DISPLAY OPTIONS
+			syncDisplayOptionsState();
 		}
 		
 		function setAccent(event) {
@@ -2492,6 +2573,9 @@ const accentsWindows = {
 			//SET PICKED
 			$(button).closest(`#displayAccent`).find(`button`).removeClass(`picked`);
 			$(button).addClass(`picked`)
+			
+			//SYNC DISPLAY OPTIONS
+			syncDisplayOptionsState();
 		}
 		
 		function setIncreaseContrast(event) {
@@ -2510,6 +2594,9 @@ const accentsWindows = {
 			
 			//SET STATE
 			$("body").attr("data-contrast", newState);
+			
+			//SYNC DISPLAY OPTIONS
+			syncDisplayOptionsState();
 		}
 		
 		function setReduceMotion(event) {
@@ -2517,8 +2604,6 @@ const accentsWindows = {
 			const button = event.currentTarget
 			const newValue = clickSwitch(button)
 			const timeLength = newValue ? `0s` : baseTimeLength
-			
-			console.log(clickSwitch(button))
 			
 			//SET NEW VALUE
 			modifyPreference({
@@ -2530,6 +2615,9 @@ const accentsWindows = {
 			
 			//SET STATE
 			document.documentElement.style.setProperty('--base-time-length', timeLength);
+			
+			//SYNC DISPLAY OPTIONS
+			syncDisplayOptionsState();
 		}
 		
 		function setTextSize(event) {
@@ -2555,6 +2643,9 @@ const accentsWindows = {
 			//SET PICKED
 			$(button).siblings().removeClass("picked");
 			$(button).addClass(`picked`)
+			
+			//SYNC DISPLAY OPTIONS
+			syncDisplayOptionsState();
 		}
 		
 		function setBoldText(event) {
@@ -2573,6 +2664,9 @@ const accentsWindows = {
 			
 			//SET STATE
 			$("body").attr("data-textweight", newState);
+			
+			//SYNC DISPLAY OPTIONS
+			syncDisplayOptionsState();
 		}
 		
 		function setFont(event) {
@@ -2593,6 +2687,9 @@ const accentsWindows = {
 			//SET PICKED
 			$(button).siblings().removeClass("picked");
 			$(button).addClass(`picked`)
+			
+			//SYNC DISPLAY OPTIONS
+			syncDisplayOptionsState();
 		}
 	
 
@@ -2817,41 +2914,58 @@ const accentsWindows = {
 	
 	//MODIFY PREFERENCE 
 	function modifyPreference(options) {
+		//OPTIONS
 		//options.group = the name of the preference group
 		//options.mode = whether this change will save a modified entry or delete an existing entry
 		//options.preference = the name of the child item to be modified or deleted
 		//options.value = the content to save in to the selected preference
 		
-		//RETRIEVE THE PREFERENCE GROUP FROM LOCAL STORAGE
-		let prefs = getPreferenceGroup(options.group)
+		//GET STORED PREFERENCES DIRECTLY FROM LOCAL STORAGE
+		const storedPrefs = localStorage.getItem(options.group);
 		
-		//UPDATE THE IN MEMORY PREFERENCE GROUP
+		//PARSE STORED PREFERENCES OR FALL BACK TO DEFAULTS
+		let prefs = storedPrefs
+			? JSON.parse(storedPrefs)
+			: structuredClone(appPreferencesDefault[options.group] ?? {});
+		
+		//UPDATE THE PREFERENCE GROUP
 		switch (options.mode) {
-			case 'update':
-				prefs[options.preference] = options.value //This will both add a new item and modify an existing one
+			case "update":
+				prefs[options.preference] = options.value;
 				break;
-			case 'delete':
-				delete prefs[options.preference]
-				break
-			case 'append':
-				let storedSettings = prefs
-				let metadataSettings = appPreferencesDefault[options.group]
-				let mergedSettings = {}
 				
-				$.each( metadataSettings, function( key, val ) {
-					if (key in storedSettings == true) {
-						Object.assign(mergedSettings, {[key]: storedSettings[key]}) //Takes the key/value pair stored in localstorage and pushes it to the new merged object
-					} else {
-						Object.assign(mergedSettings, {[key]: metadataSettings[key]}) //Takes the key/value pair stored in metadata.js and pushes it to the new merged object
-					}
-				});
+			case "delete":
+				delete prefs[options.preference];
+				break;
 				
-				prefs = mergedSettings
+			case "append":
+				//GET DEFAULT SETTINGS
+				const defaultSettings = appPreferencesDefault[options.group] ?? {};
+				
+				//MERGE DEFAULT SETTINGS WITH STORED SETTINGS
+				prefs = {
+					...structuredClone(defaultSettings),
+					...prefs,
+				};
+				
 				break;
 		}
 		
-		//UPDATE THE PREFERENCE GROUP IN LOCAL STORAGE
+		//SAVE THE UPDATED PREFERENCE GROUP
 		localStorage.setItem(options.group, JSON.stringify(prefs));
+		
+		//BROADCAST THE PREFERENCE CHANGE
+		window.dispatchEvent(new CustomEvent("rebarPreferenceChange", {
+			detail: {
+				group: options.group,
+				preference: options.preference,
+				value: options.value,
+				prefs: prefs,
+			},
+		}));
+		
+		//RETURN UPDATED PREFERENCES
+		return prefs;
 	}
 	
 	//SAVE RECENT
@@ -3036,7 +3150,7 @@ const accentsWindows = {
 				}).join("");
 				
 				return `
-					<tr class="row" data-row="${index}" data-rowid="${item.key}" style="grid-template-columns: ${gridColumns};">
+					<tr class="row ${item.class || ''}" data-row="${index}" data-rowid="${item.key}" style="grid-template-columns: ${gridColumns};">
 						<td data-id="${item.key}">
 							${options.images ? `<img src="${item.image}" width="50" height="50" />` : ``}
 							<div>

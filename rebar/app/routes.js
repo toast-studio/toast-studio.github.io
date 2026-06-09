@@ -11,125 +11,123 @@ function routesidebar(options) {
 	
 	if ( $(".columnPrimary").children().length == 0 ) {
 		$(".columnPrimary").append(`
-			<div class="wrapperSidebar material-liquidglass-thin">
-				<header class="containerToolbar layoutDefault noBackground">
-					<div class="wrapperToolbarStart"></div>
-					<div class="wrapperToolbarMiddle"></div>
-					<div class="wrapperToolbarEnd">
-						<div class="pinRight">
-							<button data-button="action-transparent" class="toolbarItem" onclick="location.reload()">
-								${generateIcon(iconInterfaceElements.refreshForwards, 'stroke')}
+			<header class="containerToolbar soft layoutDefault noBackground">
+				<div class="wrapperToolbarStart"></div>
+				<div class="wrapperToolbarMiddle"></div>
+				<div class="wrapperToolbarEnd">
+					<div class="pinRight">
+						<button data-button="action-transparent" class="toolbarItem" onclick="location.reload()">
+							${generateIcon(iconInterfaceElements.refreshForwards, 'stroke')}
+						</button>
+					</div>
+				</div>
+			</header>
+			<section class="scrollview inset-T">
+				<section class="layoutGrid">
+					<button data-button="sidebar" data-name="gettingstarted" onclick='routegettingstarted({modifier: false, navtype: "forwards"})'>
+						<div class="labelSidebar">
+							${generateIcon(iconShapes.triangleRightCircle, 'stroke')}
+							Getting Started
+						</div>
+					</button>
+					<button data-button="sidebar" data-name="controls" onclick='routecontrols({modifier: false, navtype: "forwards"})'>
+						<div class="labelSidebar">
+							${generateIcon(iconInterfaceElements.switchDoubleTopOn, 'fill')}
+							Controls
+						</div>
+					</button>
+					<button data-button="sidebar" data-name="layout" onclick='routelayout({modifier: false, navtype: "forwards"})'>
+						<div class="labelSidebar">
+							${generateIcon(iconObjects.blueprint, 'stroke')}
+							Layout
+						</div>
+					</button>
+					<button data-button="sidebar" data-name="modals" onclick='routemodals({modifier: false, navtype: "forwards"})'>
+						<div class="labelSidebar">
+							${generateIcon(iconShapes.rectangleOverlapHorizontal, 'stroke')}
+							Modals
+						</div>
+					</button>
+					<button data-button="sidebar" data-name="visuals" onclick='routevisuals({modifier: false, navtype: "forwards"})'>
+						<div class="labelSidebar">
+							${generateIcon(iconObjects.paintbrush, 'stroke')}
+							Visuals
+						</div>
+					</button>
+					<button data-button="sidebar" data-name="charts" onclick='routecharts({modifier: false, navtype: "forwards"})'>
+						<div class="labelSidebar">
+							${generateIcon(iconCharts.barUp, 'stroke')}
+							Charts
+						</div>
+					</button>
+					<button data-button="sidebar" data-name="helpers" onclick='routehelpers({modifier: false, navtype: "forwards"})'>
+						<div class="labelSidebar">
+							${generateIcon(iconObjects.cog, 'stroke')}
+							Helpers
+						</div>
+					</button>
+					<button data-button="sidebar" data-name="icons" onclick='routeicons({modifier: false, navtype: "forwards"})'>
+						<div class="labelSidebar">
+							${generateIcon(iconShapes.starFivePoint, 'stroke')}
+							Icons
+						</div>
+					</button>
+				</section>
+				
+				<section class="containerAccordion noBorder">
+					<div class="headerAccordion headerSidebar">
+						<h5>Accordion</h5>
+						<div class="containerChevron">${generateIcon(iconShapes.chevronSingleRight, 'fill')}</div>
+					</div>
+					<section class="containerAccordionContents">
+						<div class="wrapper">
+							<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})'>
+								<div class="labelSidebar">
+									${generateIcon(iconIndices.oneCircle, 'stroke')}
+									Item 1
+								</div>
+							</button>
+							<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})'>
+								<div class="labelSidebar">
+									${generateIcon(iconIndices.twoCircle, 'stroke')}
+									Item 2
+								</div>
+							</button>
+							<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})'>
+								<div class="labelSidebar">
+									${generateIcon(iconIndices.threeCircle, 'stroke')}
+									Item 3
+								</div>
 							</button>
 						</div>
-					</div>
-				</header>
-				<section class="scrollview inset-T">
-					<section class="layoutGrid">
-						<button data-button="sidebar" data-name="gettingstarted" onclick='routegettingstarted({modifier: false, navtype: "forwards"})'>
-							<div class="labelSidebar">
-								${generateIcon(iconShapes.triangleRightCircle, 'stroke')}
-								Getting Started
-							</div>
-						</button>
-						<button data-button="sidebar" data-name="controls" onclick='routecontrols({modifier: false, navtype: "forwards"})'>
-							<div class="labelSidebar">
-								${generateIcon(iconInterfaceElements.switchDoubleTopOn, 'fill')}
-								Controls
-							</div>
-						</button>
-						<button data-button="sidebar" data-name="layout" onclick='routelayout({modifier: false, navtype: "forwards"})'>
-							<div class="labelSidebar">
-								${generateIcon(iconObjects.blueprint, 'stroke')}
-								Layout
-							</div>
-						</button>
-						<button data-button="sidebar" data-name="modals" onclick='routemodals({modifier: false, navtype: "forwards"})'>
-							<div class="labelSidebar">
-								${generateIcon(iconShapes.rectangleOverlapHorizontal, 'stroke')}
-								Modals
-							</div>
-						</button>
-						<button data-button="sidebar" data-name="visuals" onclick='routevisuals({modifier: false, navtype: "forwards"})'>
-							<div class="labelSidebar">
-								${generateIcon(iconObjects.paintbrush, 'stroke')}
-								Visuals
-							</div>
-						</button>
-						<button data-button="sidebar" data-name="charts" onclick='routecharts({modifier: false, navtype: "forwards"})'>
-							<div class="labelSidebar">
-								${generateIcon(iconCharts.barUp, 'stroke')}
-								Charts
-							</div>
-						</button>
-						<button data-button="sidebar" data-name="helpers" onclick='routehelpers({modifier: false, navtype: "forwards"})'>
-							<div class="labelSidebar">
-								${generateIcon(iconObjects.cog, 'stroke')}
-								Helpers
-							</div>
-						</button>
-						<button data-button="sidebar" data-name="icons" onclick='routeicons({modifier: false, navtype: "forwards"})'>
-							<div class="labelSidebar">
-								${generateIcon(iconShapes.starFivePoint, 'stroke')}
-								Icons
-							</div>
-						</button>
-					</section>
-					
-					<section class="containerAccordion noBorder">
-						<div class="headerAccordion headerSidebar">
-							<h5>Accordion</h5>
-							<div class="containerChevron">${generateIcon(iconShapes.chevronSingleRight, 'fill')}</div>
-						</div>
-						<section class="containerAccordionContents">
-							<div class="wrapper">
-								<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})'>
-									<div class="labelSidebar">
-										${generateIcon(iconIndices.oneCircle, 'stroke')}
-										Item 1
-									</div>
-								</button>
-								<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})'>
-									<div class="labelSidebar">
-										${generateIcon(iconIndices.twoCircle, 'stroke')}
-										Item 2
-									</div>
-								</button>
-								<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})'>
-									<div class="labelSidebar">
-										${generateIcon(iconIndices.threeCircle, 'stroke')}
-										Item 3
-									</div>
-								</button>
-							</div>
-						</section>
-					</section>
-					
-					
-					<div class="headerSidebar">
-						<h5>Grid</h5>
-					</div>
-					<section class="layoutGrid always">
-						<button data-button="sidebar" data-name="icons" onclick='routeicons({modifier: false, navtype: "forwards"})' style="--fill: var(--accent);">
-							<div class="labelSidebar">
-								${generateIcon(iconObjects.loupe, 'fill')}
-								Item A
-							</div>
-						</button>
-						<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})' style="--fill: var(--positive);">
-							<div class="labelSidebar">
-								${generateIcon(iconTransport.rocket, 'fill')}
-								Item B
-							</div>
-						</button>
-						<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})' style="--fill: rebeccapurple;">
-							<div class="labelSidebar">
-								${generateIcon(iconNature.sun, 'fill')}
-								Item C
-							</div>
-						</button>
 					</section>
 				</section>
-			</div>
+				
+				
+				<div class="headerSidebar">
+					<h5>Grid</h5>
+				</div>
+				<section class="layoutGrid always">
+					<button data-button="sidebar" data-name="icons" onclick='routeicons({modifier: false, navtype: "forwards"})' style="--fill: var(--accent);">
+						<div class="labelSidebar">
+							${generateIcon(iconObjects.loupe, 'fill')}
+							Item A
+						</div>
+					</button>
+					<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})' style="--fill: var(--positive);">
+						<div class="labelSidebar">
+							${generateIcon(iconTransport.rocket, 'fill')}
+							Item B
+						</div>
+					</button>
+					<button data-button="sidebar" data-name="" onclick='routeicons({modifier: false, navtype: "forwards"})' style="--fill: rebeccapurple;">
+						<div class="labelSidebar">
+							${generateIcon(iconNature.sun, 'fill')}
+							Item C
+						</div>
+					</button>
+				</section>
+			</section>
 		`)
 	}
 }
@@ -578,7 +576,7 @@ function routecontrols(options) {
 					
 					//SEARCH LIST
 					search({
-						inputID: "pokemonSearch",
+						inputSelector: ".pokemonSearch",
 						parentID: "pokemon",
 						itemClass: "rowPokemon",
 						valueClass: "itemLabel",
@@ -1190,6 +1188,8 @@ function routevisuals(options) {
 		
 		if (options.navtype == "forwards" || options.navtype == "deeplink") {
 			$(".columnTertiary").append(visuals[options.modifier])
+			
+			syncDisplayOptionsState();
 		}
 	}
 }

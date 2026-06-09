@@ -527,6 +527,12 @@
 #exampleChartGantt {
 	overflow: auto;
 	border: 1px solid var(--divider);
+	
+	& .fav {
+		background: oklch(from var(--warning) l c h / .2);
+		color: var(--warning);
+		font-weight: bold;
+	}
 }
 
 #filestructure {
@@ -728,6 +734,7 @@
 	border: 1px solid var(--divider);
 	margin-block-end: var(--base-gap-size);
 	padding: var(--base-gap-size);
+	timeline-scope: --toolbar-visibility;
 }
 
 #accordionicon {

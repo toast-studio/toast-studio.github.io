@@ -24,7 +24,7 @@ const appThemes = {
 	},
 	dark: {
 		name: "Dark",
-		icon:generateIcon(iconNature.moonRight, 'fill'),
+		icon: generateIcon(iconNature.moonRight, 'fill'),
 	},
 	custom: {
 		name: "Custom",

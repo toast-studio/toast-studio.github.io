@@ -438,7 +438,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>3.1</h3>
-						<small class="excludeMargin">19 Mar 2026</small>
+						<small class="excludeMargin">9 June 2026</small>
 					</span>
 					<div class="containerChevron">${generateIcon(iconShapes.chevronSingleRight, 'fill')}</div>
 				</div>
@@ -454,6 +454,7 @@ const gettingstarted = {
 								<li>Search bars now use the <code>search</code> element instead of a div with the class <code>.containerSearch</code></li>
 								<li>Replaced <code>.disabled</code> with the <code>disabled</code> attribute. This is more semantic and helps with keyboard navigation</li>
 								<li>Spinners, Blank States, Pie Charts, Gantt Charts, Stats Charts, and Display Options are now an inline return instead of an append</li>
+								<li>The route that holds Display options now needs the <code>syncDisplayOptionsState()</code> function to stop stale preferences from showing</li>
 								<li>You can no longer insert individual Display Options, all will be shown</li>
 								<li>Updated the <code>viewport</code> meta tag to use the correct initial scale of <code>1.0</code></li>
 								<li>The default <code>accent</code> and <code>appearance</code> in <code>config.js</code> are now strings instead of an array with a single value</li>
@@ -466,6 +467,10 @@ const gettingstarted = {
 								<li><code>roundedrectangleHorizontalFull</code>, <code>roundedrectangleHorizontalHalf</code>, <code>roundedrectangleVerticalFull</code>, and <code>roundedrectangleVerticalHalf</code> were renamed for consistency</li>
 								<li>The <code>iconList()</code> function now works with the <code>generateIcon()</code> function and only needs a single icon as the parameter</li>
 								<li>The structure for <code>appThemes</code> in <code>config.js</code> has changed to support the changes made to Rebar Icons</li>
+								<li>Tokens now come in two sizes and this requires adding the <code>data-size</code> attribute to the parent container</li>
+								<li>Updated the <code>search()</code> functions to work with multiple search boxes on a single page</li>
+								<li>Removed the requirement for Sidebars to be in a parent of <code>.wrapperSidebar</code> and the <code>.material-liquidglass-thin</code> Material class due to the changes in iOS 27 and macOS 27</li>
+								<li><code>toolbarVisibility()</code> has been removed in favor of Scroll-Driven Animations</li>
 							</ul>
 						
 							<h4>Added</h4>
@@ -482,6 +487,7 @@ const gettingstarted = {
 								<li><code>h*</code>, <code>p</code>, and <code>li</code> can now include inline SVGs and images that will be scaled to match the text size</li>
 								<li><code>--vertical-align</code> variable</li>
 								<li><code>iconTab()</code> for Tab Bar icons</li>
+								<li>Tulip, Snowflake, Orientation Landscape, Orientation Portrait, Display Zoom Default, Display Zoom Larger Text, Display Zoom More Space, Search Plus, Search Minus, Search Equals, Minus Rounded Square, and Equals Rounded Square icons</li>
 							</ul>
 						
 							<h4>Changes</h4>
@@ -501,6 +507,11 @@ const gettingstarted = {
 								<li>Improved the hover styles of all elements with transitions</li>
 								<li>Combined the Apple accent colours in to one block in Display Options</li>
 								<li>The <code>reduceMotion</code> Config setting is now set to <code>false</code> instead of <code>"off"</code></li>
+								<li>The data of a Gantt Chart can now accept a <code>class</code> value that will be applied as a .class on the row</li>
+								<li>Updated the styling of Tokens on Windows</li>
+								<li>Updated the styling of the Liquid Glass material to match iOS 27 and macOS 27</li>
+								<li>In iOS 27 and macOS 27 Toolbars now have a hard edge. If a progressive blur is still needed you can use the <code>.soft</code> modifier</li>
+								<li>Removed the progressive blur behind Tab Bars on iOS and macOS as that was removed in iOS 27 and macOS 27</li>
 							</ul>
 							
 							<h4>Fixes</h4>
@@ -512,6 +523,9 @@ const gettingstarted = {
 								<li>Removed the padding from Action Circular Buttons on iOS</li>
 								<li>Header fonts on Windows now render correctly</li>
 								<li>The <code>theme-color</code> meta tag is now being set correctly with a colour again instead of the raw value of the <code>--foreground</code> variable</li>
+								<li>The correct colour is applied to the icon in picked Tokens</li>
+								<li>Images inside Tokens will now be the correct size</li>
+								<li>Removed excess padding in scrollviews in dialogs</li>
 							</ul>
 							
 							<h4>Removed</h4>
@@ -657,7 +671,7 @@ const gettingstarted = {
 				<div class="headerAccordion headerSection">
 					<span>
 						<h3>2.3</h3>
-						<small class="excludeMargin">21 Feb 2025</small>
+						<small class="excludeMargin">21 February 2025</small>
 					</span>
 					<div class="containerChevron">${generateIcon(iconShapes.chevronSingleRight, 'fill')}</div>
 				</div>
@@ -1702,7 +1716,17 @@ const gettingstarted = {
 				<tbody>
 					<tr>
 						<td class="textBold">3.1</td>
-						<td>No changes</td>
+						<td>
+							<small>Added <code>scroll-timeline</code></small>
+							<ul class="excludeMargin">
+								<li>jQuery 3.7.1</li>
+								<li>Chrome 123</li>
+								<li>Edge 123</li>
+								<li>Firefox 128</li>
+								<li class="textBold">Safari 26</li>
+								<li>Opera 109</li>
+							</ul>
+						</td>
 					</tr>
 					<tr>
 						<td class="textBold">3.0</td>
@@ -2945,7 +2969,7 @@ const controls = {
 			<section class="containerSection containerWallpaper">
 				<h4 class="h6">Small</h4>
 				<section>
-					<div class="controlSegmented spacerSingle material-liquidglass-thick" data-segments="display" data-size="small" data-setting="segment3A">
+					<div class="controlSegmented spacerSingle material-liquidglass-thick translucent" data-segments="display" data-size="small" data-setting="segment3A">
 						<button data-button="segment" data-name="displaysegment1" onclick="routesegmentexampledisplay('displaysegment1')">Up Next</button>
 						<button data-button="segment" data-name="displaysegment4" onclick="routesegmentexampledisplay('displaysegment4')">Library</button>
 						<button data-button="segment" class="picked" data-name="displaysegment2" onclick="routesegmentexampledisplay('displaysegment2')">${generateIcon(iconObjects.bag, 'stroke')}</button>
@@ -2955,7 +2979,7 @@ const controls = {
 				
 				<h4 class="h6">Large</h4>
 				<section>
-					<div class="controlSegmented material-liquidglass-thick" data-segments="display" data-size="large" data-setting="segment3B">
+					<div class="controlSegmented material-liquidglass-thick translucent" data-segments="display" data-size="large" data-setting="segment3B">
 						<button data-button="segment" data-name="displaysegment1" onclick="routesegmentexampledisplay('displaysegment1')">${generateIcon(iconHardware.tv, 'stroke')} Up Next</button>
 						<button data-button="segment" data-name="displaysegment4" onclick="routesegmentexampledisplay('displaysegment4')">${generateIcon(iconObjects.bookOpen, 'stroke')} Library</button>
 						<button data-button="segment" class="picked" data-name="displaysegment2" onclick="routesegmentexampledisplay('displaysegment2')">${generateIcon(iconObjects.bag, 'stroke')}</button>
@@ -2967,20 +2991,20 @@ const controls = {
 			<h3 class="headerSection">Chip</h3>
 			<section class="containerSection containerWallpaper">
 				<div class="controlSegmented" data-segments="chip" data-setting="segment2B">
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment1" onclick="routesegmentexamplesplit('chipsegment1')">Up Next</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment4" onclick="routesegmentexamplesplit('chipsegment4')">${generateIcon(iconObjects.bookOpen, 'stroke')}</button>
-					<button class="material-liquidglass-thick picked" data-button="segment" data-name="chipsegment2" onclick="routesegmentexamplesplit('chipsegment2')">${generateIcon(iconObjects.bag, 'fill')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment3" onclick="routesegmentexamplesplit('chipsegment3')"><img src="app/images/ui/sidebar1.png" /></button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment5" onclick="routesegmentexamplesplit('chipsegment5')">${generateIcon(iconObjects.compass, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment6" onclick="routesegmentexamplesplit('chipsegment6')">${generateIcon(iconObjects.paintbrush, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment7" onclick="routesegmentexamplesplit('chipsegment7')">${generateIcon(iconObjects.highlighter, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment8" onclick="routesegmentexamplesplit('chipsegment8')">${generateIcon(iconObjects.hammer, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment9" onclick="routesegmentexamplesplit('chipsegment9')">${generateIcon(iconObjects.cog, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment10" onclick="routesegmentexamplesplit('chipsegment10')">${generateIcon(iconObjects.mapMarkerHole, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment11" onclick="routesegmentexamplesplit('chipsegment11')">${generateIcon(iconObjects.dialOff, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment12" onclick="routesegmentexamplesplit('chipsegment12')">${generateIcon(iconObjects.badgeUser, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment13" onclick="routesegmentexamplesplit('chipsegment13')">${generateIcon(iconObjects.trash, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment14" onclick="routesegmentexamplesplit('chipsegment14')">${generateIcon(iconObjects.loupe, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment1" onclick="routesegmentexamplesplit('chipsegment1')">Up Next</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment4" onclick="routesegmentexamplesplit('chipsegment4')">${generateIcon(iconObjects.bookOpen, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent picked" data-button="segment" data-name="chipsegment2" onclick="routesegmentexamplesplit('chipsegment2')">${generateIcon(iconObjects.bag, 'fill')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment3" onclick="routesegmentexamplesplit('chipsegment3')"><img src="app/images/ui/sidebar1.png" /></button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment5" onclick="routesegmentexamplesplit('chipsegment5')">${generateIcon(iconObjects.compass, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment6" onclick="routesegmentexamplesplit('chipsegment6')">${generateIcon(iconObjects.paintbrush, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment7" onclick="routesegmentexamplesplit('chipsegment7')">${generateIcon(iconObjects.highlighter, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment8" onclick="routesegmentexamplesplit('chipsegment8')">${generateIcon(iconObjects.hammer, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment9" onclick="routesegmentexamplesplit('chipsegment9')">${generateIcon(iconObjects.cog, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment10" onclick="routesegmentexamplesplit('chipsegment10')">${generateIcon(iconObjects.mapMarkerHole, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment11" onclick="routesegmentexamplesplit('chipsegment11')">${generateIcon(iconObjects.dialOff, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment12" onclick="routesegmentexamplesplit('chipsegment12')">${generateIcon(iconObjects.badgeUser, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment13" onclick="routesegmentexamplesplit('chipsegment13')">${generateIcon(iconObjects.trash, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment14" onclick="routesegmentexamplesplit('chipsegment14')">${generateIcon(iconObjects.loupe, 'stroke')}</button>
 				</div>
 			</section>
 			
@@ -3992,7 +4016,7 @@ $(document).on('click', '#switch', function() {
 				</header>
 				<div class="containerAccessoryBar layoutFixed">
 					<search>
-						<input type="search" placeholder="Search Pok&eacute;mon" id="pokemonSearch" />
+						<input type="search" placeholder="Search Pok&eacute;mon" id="pokemonSearch" class="pokemonSearch" />
 						<div class="buttonClearSearch" title="Clear Search">${generateIcon(iconShapes.timesCircle, 'fill')}</div>
 						<div class="iconSearch">${generateIcon(iconInterfaceElements.search, 'stroke')}</div>
 					</search>
@@ -4026,8 +4050,12 @@ $(document).on('click', '#switch', function() {
 				</thead>
 				<tbody>
 					<tr>
-						<td><code>inputID</code></td>
-						<td>The ID of the search input.</td>
+						<td><code>enteredText</code></td>
+						<td>Should always be set to <code>this</code></td>
+					</tr>
+					<tr>
+						<td><code>inputSelector</code></td>
+						<td>The selector of the search input (this should primarily be a class).</td>
 					</tr>
 					<tr>
 						<td><code>parentID</code></td>
@@ -4062,13 +4090,21 @@ $(document).on('click', '#switch', function() {
 			
 <pre class="spacerTriple">
 search({
-	inputID: "",
+	inputSelector: "",
 	parentID: "",
 	itemClass: "",
 	valueClass: "",
 	emptyIcon: ,
 	emptyMessage: "",
 })
+
+searchTable({
+	enteredText: this,
+	inputSelector: "",
+	parentID: "",
+	emptyIcon: ,
+	emptyMessage: "",
+});
 
 $(document).on('click', '.buttonClearSearch', function() {
 	searchClear({
@@ -4108,14 +4144,14 @@ $(document).on('click', '.buttonClearSearch', function() {
 		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
 			<h3 class="h6">Single Selection</h3>
-			<div class="spacerDouble containerTokens" id="exampleTokenField" data-max="1" data-setting="critters">
+			<div class="spacerDouble containerTokens" id="exampleTokenField" data-max="1" data-setting="critters" data-size="default">
 				<button data-button="token" data-value="all" onclick="selectionGrid(this)">All</button>
 				<button data-button="token" data-value="fish" onclick="selectionGrid(this)">Fish</button>
 				<button data-button="token" data-value="insects" onclick="selectionGrid(this)">Insects</button>
 				<button data-button="token" data-value="seacreatures" onclick="selectionGrid(this)">Sea Creatures</button>
 			</div>
 			<h3 class="h6">Multiple Selection</h3>
-			<div class="spacerTriple containerTokens" id="exampleTokenField" data-max="2" data-setting="type">
+			<div class="spacerTriple containerTokens" id="exampleTokenField" data-max="2" data-setting="type" data-size="default">
 				<button data-button="token" data-value="normal" onclick="selectionGrid(this)">Normal</button>
 				<button data-button="token" data-value="fighting" onclick="selectionGrid(this)">Fighting</button>
 				<button data-button="token" data-value="flying" onclick="selectionGrid(this)">Flying</button>
@@ -4223,16 +4259,39 @@ $(document).on('click', '.buttonClearSearch', function() {
 		</header>
 		<div class="scrollview inset-T paddingContent">
 			<h2>Examples</h2>
-			<div class="spacerTriple containerTokens" id="exampleTokenField" data-max="2" data-setting="type">
-				<button data-button="token" data-value="normal">Normal</button>
-				<button data-button="token" data-value="fighting">Fighting</button>
-				<button data-button="token" class="picked" data-value="flying">Flying</button>
+			<h3 class="headerList">Default</h3>
+			<div class="spacerTriple containerTokens" id="exampleTokenField" data-size="default" data-max="2" data-setting="type">
+				<button data-button="token" class="picked" data-value="normal">${generateIcon(iconShapes.starFivePoint, 'stroke')} Normal</button>
+				<button data-button="token" data-value="fighting"><img src="app/images/ui/sidebar1.png" /> Fighting</button>
+				<button data-button="token" data-value="flying">Flying</button>
 				<button data-button="token" data-value="poison">Poison</button>
 				<button data-button="token" data-value="ground">Ground</button>
 				<button data-button="token" data-value="rock">Rock</button>
 				<button data-button="token" data-value="bug">Bug</button>
 				<button data-button="token" data-value="ghost">Ghost</button>
-				<button data-button="token"picked" data-value="steel">Steel</button>
+				<button data-button="token" data-value="steel">Steel</button>
+				<button data-button="token" data-value="fire">Fire</button>
+				<button data-button="token" data-value="grass">Grass</button>
+				<button data-button="token" data-value="water">Water</button>
+				<button data-button="token" data-value="electric">Electric</button>
+				<button data-button="token" data-value="psychic">Psychic</button>
+				<button data-button="token" data-value="ice">Ice</button>
+				<button data-button="token" data-value="dragon">Dragon</button>
+				<button data-button="token" data-value="dark">Dark</button>
+				<button data-button="token" data-value="fairy">Fairy</button>
+			</div>
+			
+			<h3 class="headerList">Small</h3>
+			<div class="spacerTriple containerTokens" id="exampleTokenField" data-size="small" data-max="2" data-setting="type">
+				<button data-button="token" class="picked" data-value="normal">${generateIcon(iconShapes.starFivePoint, 'stroke')} Normal</button>
+				<button data-button="token" data-value="fighting"><img src="app/images/ui/sidebar1.png" /> Fighting</button>
+				<button data-button="token" data-value="flying">Flying</button>
+				<button data-button="token" data-value="poison">Poison</button>
+				<button data-button="token" data-value="ground">Ground</button>
+				<button data-button="token" data-value="rock">Rock</button>
+				<button data-button="token" data-value="bug">Bug</button>
+				<button data-button="token" data-value="ghost">Ghost</button>
+				<button data-button="token" data-value="steel">Steel</button>
 				<button data-button="token" data-value="fire">Fire</button>
 				<button data-button="token" data-value="grass">Grass</button>
 				<button data-button="token" data-value="water">Water</button>
@@ -4248,7 +4307,7 @@ $(document).on('click', '.buttonClearSearch', function() {
 			<h3>HTML</h3>
 			<p>Tokens are buttons with the <code>data-button="token"</code> attribute applied to them. To align them to a grid they should be in a container with the  <code>containerTokens</code> class.</p>
 <pre class="spacerTriple">
-&lt;div class="containerTokens" id="" data-max="" data-setting=""&gt;
+&lt;div class="containerTokens" id="" data-size="" data-max="" data-setting=""&gt;
 	&lt;button data-button="token" data-value=""&gt;&lt;/button&gt;
 	&lt;button data-button="token" data-value=""&gt;&lt;/button&gt;
 	&lt;button data-button="token" data-value=""&gt;&lt;/button&gt;
@@ -4259,7 +4318,7 @@ $(document).on('click', '.buttonClearSearch', function() {
 			<p class="spacerTriple">Tokens themselves have no function but the <code>.containerTokens</code> container will use the <code>selectionGrid()</code> function to grant functionality to the Tokens.</p>
 			
 			<h3>CSS</h3>
-			<p>The only styling class for Tokens is their <code>.picked</code> state.</p>
+			<p>Tokens come in two sizes: <code>default</code> and <code>small</code>. It is mandatory to include the <code>data-size</code> attribute on the parent container.</p>
 		</div>
 	`,
 	sharebutton: `
@@ -5427,7 +5486,7 @@ toolbarVisibility({
 </pre>
 			
 			<h3>CSS</h3>
-			<p>Refer to above examples for layout modifier classes.</p>
+			<p>Refer to above examples for layout modifier classes. For iOS and macOS they default to a hard edge. If you need a progressive blur you can use the <code>.soft</code> modifier.</p>
 		</div>
 	`,
 	tabbars: `
@@ -7405,7 +7464,7 @@ const visuals = {
 					<li>Third</li>
 				</ol>
 				<p><a href="https://toast-studio.com/">This is a link</a></p>
-				<small>This is small with a <a href="https://toast-studio.com/">link</a></small>
+				<small>${generateIcon(iconInterfaceElements.infoCircle, 'multi')} This is small with a <a href="https://toast-studio.com/">link</a></small>
 				<code>Text wrapped in a code tag</code>
 				<br /><br />
 				<pre>Text wrapped in a pre tag</pre>
@@ -7575,6 +7634,7 @@ const visuals = {
 					</tr>
 				</tbody>
 			</table>
+			<p>You must include the <code>syncDisplayOptionsState()</code> function in the route that holds the Displays Options to stop stale preferences from showing.</p>
 			
 			<h3>CSS</h3>
 			<p>There are no styling classes for the Display Options component.</p>
@@ -8900,7 +8960,7 @@ generateSpinner(icon);
 			<p>Rebar includes various materials to help your app feel more integrated with the different OSes. Each material is for a specific OS and will only show up there, if you wish to override this you can set the <code>data-os</code> attribute on a parent container.</p>
 			<h2>Liquid Glass</h2>
 			<p>Liquid Glass is the primary material for iOS, iPadOS, and macOS. It features a molten glass appearance that refracts light. The Liquid Glass that is included with Rebar is an approximation of this and is limited by the capabilities of CSS.</li>
-			<p>Classes: <code>material-liquidglass-thin</code>, <code>material-liquidglass-thick</code>, and <code>material-liquidglass-tinted</code></p>
+			<p>Classes: <code>material-liquidglass-thin</code>, <code>material-liquidglass-thick</code>, and <code>material-liquidglass-tinted</code>. You can chain a <code>.translucent</code> class if the Thin or Thick material sits on top of coloured content and this will adjust the specular highlights to be less prominent.</p>
 			<table class="tableMaterials spacerSingle">
 				<thead>
 					<tr>
@@ -9135,54 +9195,18 @@ const charts = {
 						badge: true,
 						direction: 'ascending',
 						columnTitles: [
-							{
-								label: 'JAN',
-								value: 1,
-							},
-							{
-								label: 'FEB',
-								value: 2,
-							},
-							{
-								label: 'MAR',
-								value: 3,
-							},
-							{
-								label: 'APR',
-								value: 4,
-							},
-							{
-								label: 'MAY',
-								value: 5,
-							},
-							{
-								label: 'JUN',
-								value: 6,
-							},
-							{
-								label: 'JUL',
-								value: 7,
-							},
-							{
-								label: 'AUG',
-								value: 8,
-							},
-							{
-								label: 'SEP',
-								value: 9,
-							},
-							{
-								label: 'OCT',
-								value: 10,
-							},
-							{
-								label: 'NOV',
-								value: 11,
-							},
-							{
-								label: 'DEC',
-								value: 12,
-							},
+							{ label: 'JAN', value: 1 },
+							{ label: 'FEB', value: 2 },
+							{ label: 'MAR', value: 3 },
+							{ label: 'APR', value: 4 },
+							{ label: 'MAY', value: 5 },
+							{ label: 'JUN', value: 6 },
+							{ label: 'JUL', value: 7 },
+							{ label: 'AUG', value: 8 },
+							{ label: 'SEP', value: 9 },
+							{ label: 'OCT', value: 10 },
+							{ label: 'NOV', value: 11 },
+							{ label: 'DEC', value: 12 },
 						],
 						data: [
 							{
@@ -9202,6 +9226,7 @@ const charts = {
 								badge: '',
 								start: 2,
 								end: 6,
+								class: 'fav',
 							},
 							{
 								name:'Lemon',
@@ -9260,10 +9285,10 @@ const charts = {
 			<h3>generateChartGantt()</h3>
 			<p>This is designed to work inline so it must be included in an <code>.append()</code>.</p>
 			
-			<table class="definitions spacerTriple">
+			<table class="definitions spacerSingle">
 				<thead>
 					<tr>
-						<th>Properties</th>
+						<th>Function Properties</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -9294,6 +9319,48 @@ const charts = {
 					<tr>
 						<td><code>data</code></td>
 						<td>An array of objects where each object contains a name string, a key string, a start value, and an end value. A string for an image URL can also be included. The name, key, and image will be used in the primary cell of the row. The start and end values will be used to generate the bar for the row.</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<table class="definitions spacerTriple">
+				<thead>
+					<tr>
+						<th>Data Properties</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>name</code></td>
+						<td>The label to be displayed at the start of the row</td>
+					</tr>
+					<tr>
+						<td><code>key</code></td>
+						<td>An ID that will be applied to the row</td>
+					</tr>
+					<tr>
+						<td><code>image</code></td>
+						<td>The image to be displayed at the start of the row</td>
+					</tr>
+					<tr>
+						<td><code>subtext</code></td>
+						<td>The line of subtext to be displayed at the start of the row</td>
+					</tr>
+					<tr>
+						<td><code>badge</code></td>
+						<td>A free slot to include some HTML of your choosing with the main intention being a Badge</td>
+					</tr>
+					<tr>
+						<td><code>start</code></td>
+						<td>The value the bar should start at matching the column values</td>
+					</tr>
+					<tr>
+						<td><code>end</code></td>
+						<td>The value the bar should end at matching the column values</td>
+					</tr>
+					<tr>
+						<td><code>class</code></td>
+						<td>An optional class that can be applied to the row</td>
 					</tr>
 				</tbody>
 			</table>
