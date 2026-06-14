@@ -34,7 +34,7 @@
 			<h2 style="margin-top: 10px;">Issues with macOS wallpaper cache</h2>
 			<p>There is an issue with the way macOS caches wallpapers where you can end up with a large amount of old wallpapers on disk. These are stored at: <code>~/Library/Containers/com.apple.wallpaper.agent/Data/Library/Caches/com.apple.wallpaper.caches/extension-com.apple.wallpaper.extension.image</code></p>
 			<p>To browse to this folder in Finder select the Go menu and hold Option which will reveal the Library menu item. Opening Library, you can browse from there. Alternatively in the Go menu select Go to Folder&hellip; and paste the file path.</p>
-			<p>Since this is a cache you are free to delete files within this folder. If you have a frequent refresh interval you will need to clean this folder out regularly.</p> 
+			<p>Since this is a cache you are free to delete files within this folder. If you have a frequent refresh interval you will need to clean this folder out regularly. You can do this manually or download the <a href="radiantcachecleaner.zip">Radiant Cache Cleaner</a> to do this for you routinely.</p> 
 			
 			<h2>Does Radiant Gradients use on-device or server models for the Playground feature?</h2>
 			<p>That is determined by the Apple Intelligence system but it is a lightweight prompt so most likely uses the on-device model.</p>
@@ -46,7 +46,185 @@
 			<p>You will need to use Shortcuts. A step-by-step guide can be found inside the app.</p>
 			
 			<h2>Does Radiant Gradients require a subscription?</h2>
-			<p>No, Radiant Gradients is a free download with a one-off purchase to unlock full functionality.</p>
+			<p>No, Radiant Gradients is a free download with a one-off purchase to unlock full functionality. Here is a breakdown of features:</p>
+			<table id="tablePaidFeatures">
+				<thead>
+					<tr>
+						<th>Feature</th>
+						<th>Free</th>
+						<th>Radiant+</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="rowheader">Palette</td>
+					</tr>
+					<tr>
+						<td>Random</td>
+						<td>&check;</td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Hue</td>
+						<td>&check;</td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Complimentary</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Rainbow</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Solar</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Playground</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Custom</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Photo</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Appearance</td>
+						<td>&check;</td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Vibrancy</td>
+						<td>&check;</td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td class="rowheader">Overlay</td>
+					</tr>
+					<tr>
+						<td>Random</td>
+						<td>&check;</td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>None</td>
+						<td>&check;</td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Grain</td>
+						<td>&check;</td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Dots</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Grid</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Contour</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Custom</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td class="rowheader">Gradient</td>
+					</tr>
+					<tr>
+						<td>Random</td>
+						<td>&check;</td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Mesh</td>
+						<td>&check;</td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Horizontal</td>
+						<td>&check;</td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Vertical</td>
+						<td>&check;</td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Radial</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Arches</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td class="rowheader">Distortion</td>
+					</tr>
+					<tr>
+						<td>Random</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>None</td>
+						<td>&check;</td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Ripple</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Wave</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Starburst</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Crease</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Hologram</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+					<tr>
+						<td>Glitch</td>
+						<td></td>
+						<td>&check;</td>
+					</tr>
+				</tbody>
+			</table>
 			
 			<a href="/">
 				<svg xmlns="http://www.w3.org/2000/svg" width="218" height="89" viewBox="0 0 218 89" class="logo">

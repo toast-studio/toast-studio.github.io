@@ -1729,3 +1729,45 @@ footer .toast:hover {
         grid-template-columns: repeat(5, 1fr);
     }
 }
+
+#tablePaidFeatures {
+    width: 100%;
+    padding: 0px;
+    
+    & tr {
+       display: grid;
+       grid-template-columns: 1fr 200px 200px; 
+    }
+    
+    & .rowheader {
+        grid-column: 1 / -1;
+        background: oklch(0 0 0 / .02);
+        font-weight: bold;
+    }
+    
+    & th {
+        font-family: var(--font-body);
+        padding: 8px;
+        
+        &:first-child {
+            text-align: left;
+        }
+    }
+    
+    & td {
+        border-block-end: 1px solid oklch(0 0 0 / .1);
+        border-inline-end: 1px solid oklch(0 0 0 / .1);
+        width: 100%;
+        padding: 8px;
+        font-family: var(--font-body);
+        
+        &:not(:first-child) {
+            text-align: center;
+        }
+        
+        &:last-child {
+            border-inline: none;
+        }
+    }
+    
+}
