@@ -1624,132 +1624,574 @@
 	}
 	
 //DATA HANDLING
-	function dataFilter(data, where = {}) {
-		const getByPath = (obj, path) => path.split('.').reduce((acc, k) => (acc == null ? acc : acc[k]), obj);
+	//FILTERING
+		const FILTER_METHODS = {
+			is: {
+				args: { type: 'scalar', count: 1 },
+				field: 'scalar',
+				test: (value, [expected]) => value === expected
+			},
+			isNot: {
+				args: { type: 'scalar', count: 1 },
+				field: 'scalar',
+				test: (value, [expected]) => value !== expected
+			},
+			isOneOf: {
+				args: { type: 'scalarList', allowEmpty: true },
+				field: 'scalar',
+				test: (value, [values]) => values.includes(value)
+			},
+			isNotOneOf: {
+				args: { type: 'scalarList', allowEmpty: false },
+				field: 'scalar',
+				test: (value, [values]) => !values.includes(value)
+			},
+			isBetween: {
+				args: { type: 'numberRange' },
+				field: 'number',
+				test: (value, [min, max]) => value >= min && value <= max
+			},
+			fromMin: {
+				args: { type: 'number', count: 1 },
+				field: 'number',
+				test: (value, [min]) => value >= min
+			},
+			aboveMin: {
+				args: { type: 'number', count: 1 },
+				field: 'number',
+				test: (value, [min]) => value > min
+			},
+			toMax: {
+				args: { type: 'number', count: 1 },
+				field: 'number',
+				test: (value, [max]) => value <= max
+			},
+			belowMax: {
+				args: { type: 'number', count: 1 },
+				field: 'number',
+				test: (value, [max]) => value < max
+			},
+			includes: {
+				args: { type: 'scalar', count: 1 },
+				field: 'array',
+				test: (value, [expected]) => value.includes(expected)
+			},
+			includesAny: {
+				args: { type: 'scalarList', allowEmpty: false },
+				field: 'array',
+				test: (value, [values]) => values.some(item => value.includes(item))
+			},
+			includesAll: {
+				args: { type: 'scalarList', allowEmpty: false },
+				field: 'array',
+				test: (value, [values]) => values.every(item => value.includes(item))
+			},
+			includesNone: {
+				args: { type: 'scalarList', allowEmpty: false },
+				field: 'array',
+				test: (value, [values]) => !values.some(item => value.includes(item))
+			},
+			contains: {
+				args: { type: 'contains' },
+				field: 'string',
+				test: (value, [text, options = {}]) => stringIncludes(value, text, options)
+			},
+			doesNotContain: {
+				args: { type: 'contains' },
+				field: 'string',
+				test: (value, [text, options = {}]) => !stringIncludes(value, text, options)
+			},
+			passes: {
+				args: { type: 'function' },
+				field: 'any'
+			},
+			exists: {
+				args: { type: 'none' },
+				field: 'presence',
+				test: value => !isUnavailable(value)
+			},
+			isEmpty: {
+				args: { type: 'none' },
+				field: 'presence',
+				test: isEmptyValue
+			},
+			isNotEmpty: {
+				args: { type: 'none' },
+				field: 'presence',
+				test: value => !isEmptyValue(value)
+			}
+		};
 		
-		const matches = (fieldValue, criterion, row) => {
+		function dataFilter(data, where) {
+			if (arguments.length > 1) return runLegacyDataFilter(data, where);
+			return createDataFilterBuilder(data);
+		}
+		
+		function createDataFilterBuilder(data) {
+			const conditions = [];
+			let current = null;
+			let gate = null;
+			let nextConditionId = 1;
+		
+			const builder = {
+				when,
+				where,
+				whereKey,
+				treatAs,
+				results
+			};
+		
+			Object.keys(FILTER_METHODS).forEach(method => {
+				builder[method] = (...args) => addCondition(method, args);
+			});
+		
+			return builder;
+		
+			function when(condition) {
+				finalizeCurrent();
+				if (gate) warn(`dataFilter: previous .when() was overwritten before a filter condition was added.`);
+				if (arguments.length !== 1) {
+					warn(`dataFilter: .when() expected exactly one condition.`);
+					gate = { active: false };
+					return builder;
+				}
+				gate = { active: !!condition };
+				return builder;
+			}
+		
+			function where(path) {
+				finalizeCurrent();
+				const active = consumeGate();
+				const invalid = arguments.length !== 1 || typeof path !== 'string' || path.length === 0;
+				if (active && invalid) warn(`dataFilter: .where() expected one non-empty string path.`);
+				current = { active, invalid, path, useKey: false, treatAs: [] };
+				return builder;
+			}
+		
+			function whereKey() {
+				finalizeCurrent();
+				const active = consumeGate();
+				if (active && arguments.length !== 0) warn(`dataFilter: .whereKey() does not take arguments.`);
+				current = { active, invalid: false, path: '$key', useKey: true, treatAs: [] };
+				return builder;
+			}
+		
+			function treatAs(matchValue, replacement) {
+				if (!current) {
+					if (!gate || gate.active) warn(`dataFilter: .treatAs() must follow .where() or .whereKey().`);
+					return builder;
+				}
+				if (!current.active) return builder;
+				if (arguments.length !== 2) {
+					warn(`dataFilter: .treatAs() expected exactly two arguments.`);
+					return builder;
+				}
+				current.treatAs.push({ matchValue, replacement });
+				return builder;
+			}
+		
+			function addCondition(method, args) {
+				if (!current) {
+					if (gate) {
+						const active = consumeGate();
+						if (!active) return builder;
+					}
+					warn(`dataFilter: .${method}() must follow .where() or .whereKey().`);
+					return builder;
+				}
+		
+				const field = current;
+				current = null;
+				if (!field.active) return builder;
+		
+				const validationError = field.invalid ? null : validateArgs(method, args);
+				if (validationError) warn(validationError);
+		
+				conditions.push({
+					id: nextConditionId++,
+					invalid: field.invalid || !!validationError,
+					method,
+					path: field.path,
+					useKey: field.useKey,
+					args: validationError ? [] : args,
+					treatAs: validationError ? [] : field.treatAs.slice()
+				});
+				return builder;
+			}
+		
+			function results() {
+				finalizeCurrent();
+				if (gate) {
+					warn(`dataFilter: .when() has no filter condition.`);
+					gate = null;
+				}
+				return runChainDataFilter(data, conditions);
+			}
+		
+			function finalizeCurrent() {
+				if (!current) return;
+				if (current.active) warn(`dataFilter: .where("${formatPath(current)}") has no condition.`);
+				current = null;
+			}
+		
+			function consumeGate() {
+				if (!gate) return true;
+				const active = gate.active;
+				gate = null;
+				return active;
+			}
+		
+			function warn(message) {
+				console.warn(message);
+			}
+		}
+		
+		function runChainDataFilter(data, conditions) {
+			const warnState = new Set();
+			return filterData(data, warnState, (entryKey, row) =>
+				conditions.every(condition => evaluateCondition(condition, row, entryKey, warnState))
+			);
+		}
+		
+		function runLegacyDataFilter(data, where) {
+			const warnState = new Set();
+			let commands = where;
+		
+			if (!isPlainObject(commands)) {
+				warnOnce(warnState, 'legacy-where', `dataFilter: legacy filter commands must be an object. Using an empty filter.`);
+				commands = {};
+			}
+		
+			return filterData(data, warnState, (entryKey, row) =>
+				Object.entries(commands).every(([path, criterion]) => {
+					const fieldValue = path === '$key' ? entryKey : getByPath(row, path);
+					return legacyMatches(fieldValue, criterion, row);
+				})
+			);
+		}
+		
+		function filterData(data, warnState, testEntry) {
+			if (!isFilterableData(data)) {
+				warnOnce(warnState, 'invalid-data', `dataFilter: data must be an array or object. Returning {}.`);
+				return {};
+			}
+		
+			if (Array.isArray(data)) return data.filter((row, index) => testEntry(String(index), row));
+			return Object.fromEntries(Object.entries(data).filter(([entryKey, row]) => testEntry(entryKey, row)));
+		}
+		
+		function evaluateCondition(condition, row, entryKey, warnState) {
+			if (condition.invalid) return false;
+		
+			const spec = FILTER_METHODS[condition.method];
+			if (!spec) {
+				warnOnce(warnState, `${condition.id}:unknown-method`, `dataFilter: unknown filter method "${condition.method}".`);
+				return false;
+			}
+		
+			const pathLabel = condition.useKey ? '$key' : condition.path;
+			const rawValue = condition.useKey ? entryKey : getByPath(row, condition.path);
+			const fieldValue = applyTreatAs(rawValue, condition.treatAs);
+		
+			if (condition.method === 'passes') return runCustomPredicate(condition, fieldValue, row, entryKey, pathLabel, warnState);
+			if (!fieldMatchesSpec(condition, spec, fieldValue, pathLabel, warnState)) return false;
+		
+			return spec.test(fieldValue, condition.args);
+		}
+		
+		function runCustomPredicate(condition, fieldValue, row, entryKey, pathLabel, warnState) {
+			try {
+				return !!condition.args[0](fieldValue, row, entryKey);
+			} catch (error) {
+				warnOnce(warnState, `${condition.id}:passes:error`, `dataFilter: .passes() threw for "${pathLabel}".`, error);
+				return false;
+			}
+		}
+		
+		function fieldMatchesSpec(condition, spec, value, pathLabel, warnState) {
+			if (spec.field === 'presence') return true;
+			if (spec.field === 'any') return true;
+			if (isUnavailable(value)) return false;
+		
+			if (spec.field === 'scalar' && isScalarValue(value)) return true;
+			if (spec.field === 'number' && isFiniteNumber(value)) return true;
+			if (spec.field === 'string' && typeof value === 'string') return true;
+			if (spec.field === 'array' && Array.isArray(value) && value.every(isScalarValue)) return true;
+		
+			warnOnce(
+				warnState,
+				`${condition.id}:${spec.field}-field-type`,
+				`dataFilter: .${condition.method}() expected "${pathLabel}" to be ${fieldExpectationLabel(spec.field)}, but received ${describeType(value)}.`
+			);
+			return false;
+		}
+		
+		function validateArgs(method, args) {
+			const rule = FILTER_METHODS[method].args;
+		
+			if (rule.type === 'none') {
+				if (args.length !== 0) return `dataFilter: .${method}() expected no arguments.`;
+				return null;
+			}
+		
+			if (rule.type === 'function') {
+				if (args.length !== 1) return `dataFilter: .${method}() expected exactly one function argument.`;
+				if (typeof args[0] !== 'function') return `dataFilter: .${method}() expected a function argument.`;
+				return null;
+			}
+		
+			if (rule.type === 'contains') return validateContainsArgs(method, args);
+		
+			if (args.length !== rule.count && rule.type !== 'scalarList' && rule.type !== 'numberRange') {
+				return `dataFilter: .${method}() expected exactly ${rule.count} argument${rule.count === 1 ? '' : 's'}.`;
+			}
+		
+			if (rule.type === 'scalar') {
+				if (!isScalarValue(args[0])) return `dataFilter: .${method}() expected a scalar argument.`;
+				return null;
+			}
+		
+			if (rule.type === 'scalarList') {
+				if (args.length !== 1) return `dataFilter: .${method}() expected exactly one array argument.`;
+				if (!Array.isArray(args[0])) return `dataFilter: .${method}() expected an array argument.`;
+				if (!rule.allowEmpty && args[0].length === 0) return `dataFilter: .${method}() expected a non-empty array.`;
+				if (!args[0].every(isScalarValue)) return `dataFilter: .${method}() expected an array of scalar values.`;
+				return null;
+			}
+		
+			if (rule.type === 'number') {
+				if (!args.every(isFiniteNumber)) return `dataFilter: .${method}() expected finite number arguments.`;
+				return null;
+			}
+		
+			if (rule.type === 'numberRange') {
+				if (args.length !== 2) return `dataFilter: .${method}() expected exactly two arguments.`;
+				if (!args.every(isFiniteNumber)) return `dataFilter: .${method}() expected finite number arguments.`;
+				if (args[0] > args[1]) return `dataFilter: .${method}() expected min to be less than or equal to max.`;
+			}
+		
+			return null;
+		}
+		
+		function validateContainsArgs(method, args) {
+			if (args.length < 1 || args.length > 2) return `dataFilter: .${method}() expected text and optional options arguments.`;
+			if (typeof args[0] !== 'string') return `dataFilter: .${method}() expected search text to be a string.`;
+			if (args[0].length === 0) return `dataFilter: .${method}() expected non-empty search text.`;
+			if (args.length === 1) return null;
+		
+			const options = args[1];
+			if (!isPlainObject(options)) return `dataFilter: .${method}() options must be an object.`;
+		
+			const unknownKey = Object.keys(options).find(key => key !== 'caseSensitive');
+			if (unknownKey) return `dataFilter: .${method}() received unknown option "${unknownKey}".`;
+			if ('caseSensitive' in options && typeof options.caseSensitive !== 'boolean') {
+				return `dataFilter: .${method}() option "caseSensitive" must be a boolean.`;
+			}
+			return null;
+		}
+		
+		function legacyMatches(fieldValue, criterion, row) {
 			if (typeof criterion === 'function') return !!criterion(fieldValue, row);
 			if (Array.isArray(criterion)) {
-				if (Array.isArray(fieldValue)) return fieldValue.some(v => criterion.includes(v));
+				if (Array.isArray(fieldValue)) return fieldValue.some(value => criterion.includes(value));
 				return criterion.includes(fieldValue);
 			}
 			if (criterion && typeof criterion === 'object' && !Array.isArray(criterion)) {
 				if (('$min' in criterion) || ('$max' in criterion)) {
-					const min = criterion.$min ?? -Infinity, max = criterion.$max ?? Infinity;
+					const min = criterion.$min ?? -Infinity;
+					const max = criterion.$max ?? Infinity;
 					return fieldValue >= min && fieldValue <= max;
 				}
 				if (Array.isArray(fieldValue)) {
-					if ('$all' in criterion)  return criterion.$all.every(v => fieldValue.includes(v));
-					if ('$any' in criterion)  return criterion.$any.some(v => fieldValue.includes(v));
-					if ('$none' in criterion) return !criterion.$none.some(v => fieldValue.includes(v));
+					if ('$all' in criterion) return criterion.$all.every(value => fieldValue.includes(value));
+					if ('$any' in criterion) return criterion.$any.some(value => fieldValue.includes(value));
+					if ('$none' in criterion) return !criterion.$none.some(value => fieldValue.includes(value));
 				}
 			}
 			return fieldValue === criterion;
-		};
+		}
+		
+		function getByPath(obj, path) {
+			return path.split('.').reduce((acc, key) => (acc == null ? acc : acc[key]), obj);
+		}
+		
+		function applyTreatAs(value, replacements) {
+			return replacements.reduce(
+				(current, replacement) => (current === replacement.matchValue ? replacement.replacement : current),
+				value
+			);
+		}
+		
+		function stringIncludes(value, text, options) {
+			const caseSensitive = options.caseSensitive !== false;
+			const source = caseSensitive ? value : value.toLowerCase();
+			const search = caseSensitive ? text : text.toLowerCase();
+			return source.includes(search);
+		}
+		
+		function isFilterableData(value) {
+			return Array.isArray(value) || (value !== null && typeof value === 'object');
+		}
+		
+		function isPlainObject(value) {
+			return Object.prototype.toString.call(value) === '[object Object]';
+		}
+		
+		function isFiniteNumber(value) {
+			return typeof value === 'number' && Number.isFinite(value);
+		}
+		
+		function isUnavailable(value) {
+			return value === false || value == null || (typeof value === 'number' && !Number.isFinite(value));
+		}
+		
+		function isScalarValue(value) {
+			return (
+				value == null
+				|| typeof value === 'string'
+				|| typeof value === 'boolean'
+				|| isFiniteNumber(value)
+			);
+		}
+		
+		function isEmptyValue(value) {
+			if (isUnavailable(value)) return true;
+			if (value === '') return true;
+			if (Array.isArray(value)) return value.length === 0;
+			if (isPlainObject(value)) return Object.keys(value).length === 0;
+			return false;
+		}
+		
+		function warnOnce(state, key, message, extra) {
+			if (state.has(key)) return;
+			state.add(key);
+			if (arguments.length >= 4) console.warn(message, extra);
+			else console.warn(message);
+		}
+		
+		function fieldExpectationLabel(fieldType) {
+			if (fieldType === 'scalar') return 'a scalar value';
+			if (fieldType === 'number') return 'a finite number';
+			if (fieldType === 'string') return 'a string';
+			if (fieldType === 'array') return 'an array of scalar values';
+			return `a ${fieldType} value`;
+		}
+		
+		function formatPath(current) {
+			if (current.useKey) return '$key';
+			if (typeof current.path === 'string') return current.path;
+			return String(current.path);
+		}
+		
+		function describeType(value) {
+			if (value === null) return 'null';
+			if (Array.isArray(value)) return 'array';
+			if (Number.isNaN(value)) return 'NaN';
+			if (value === Infinity) return 'Infinity';
+			if (value === -Infinity) return '-Infinity';
+			return typeof value;
+		}
+		
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = dataFilter;
+		}
+
+	
+	//SORTING
+		function dataSort(data, key, dir = 'asc') {
+			const isArr = Array.isArray(data);
+			const toEntries = isArr ? data.map((v, i) => [String(i), v]) : Object.entries(data);
+			const get = typeof key === 'function' ? key : makeGetter(key);
+			const mult = String(dir).toLowerCase() === 'desc' ? -1 : 1;
 			
-		const testEntry = (entryKey, row) =>
-			Object.entries(where).every(([path, criterion]) => {
-				const fieldValue = path === '$key' ? entryKey : getByPath(row, path);
-				return matches(fieldValue, criterion, row);
+			toEntries.sort((a, b) => {
+				const av = get(a[1]);
+				const bv = get(b[1]);
+				return cmp(av, bv) * mult;
 			});
 			
-		if (Array.isArray(data)) return data.filter((row, i) => testEntry(String(i), row));
-		return Object.fromEntries(Object.entries(data).filter(([k, row]) => testEntry(k, row)));
-	}
-	
-	function dataSort(data, key, dir = 'asc') {
-		const isArr = Array.isArray(data);
-		const toEntries = isArr ? data.map((v, i) => [String(i), v]) : Object.entries(data);
-		const get = typeof key === 'function' ? key : makeGetter(key);
-		const mult = String(dir).toLowerCase() === 'desc' ? -1 : 1;
-		
-		toEntries.sort((a, b) => {
-			const av = get(a[1]);
-			const bv = get(b[1]);
-			return cmp(av, bv) * mult;
-		});
-		
-		const out = {};
-		if (isArr) {
-			for (let i = 0; i < toEntries.length; i++) out[String(i)] = toEntries[i][1];
-		} else {
-			for (const [k, v] of toEntries) out[k] = v;
-		}
-		return out;
-		
-		function makeGetter(path) {
-			if (!path) return x => x;
-			const parts = String(path).replace(/\[(\d+)\]/g, '.$1').split('.').filter(Boolean);
-			return obj => {
-				let cur = obj;
-				for (const p of parts) { if (cur == null) return undefined; cur = cur[p]; }
-				return cur;
-			};
-		}
-		
-		function cmp(a, b) {
-			const aN = a == null, bN = b == null;
-			if (aN || bN) return aN && bN ? 0 : (aN ? 1 : -1); // nulls last
-			if (Array.isArray(a) && Array.isArray(b)) {
-				const n = Math.min(a.length, b.length);
-				for (let i = 0; i < n; i++) { const c = cmp(a[i], b[i]); if (c) return c; }
-				return a.length - b.length; //SHORTER FIRST
+			const out = {};
+			if (isArr) {
+				for (let i = 0; i < toEntries.length; i++) out[String(i)] = toEntries[i][1];
+			} else {
+				for (const [k, v] of toEntries) out[k] = v;
 			}
-			if (typeof a === 'number' && typeof b === 'number') return a - b;
-			if (typeof a === 'boolean' && typeof b === 'boolean') return (a === b) ? 0 : (a ? 1 : -1);
+			return out;
 			
-			//STRONGS OR MIXED -> COMPARE AS STRINGS WITH NUMERIC
-			const sa = typeof a === 'string' ? a : String(a);
-			const sb = typeof b === 'string' ? b : String(b);
-			return sa.localeCompare(sb, undefined, { numeric: true, sensitivity: 'base' });
-		}
-	}
-	
-	function dataGroup(collection, by, options = {}) {
-		if (typeof options === 'string') options = { sort: options };
-		const {
-			label = (v) => String(v),
-			empty = 'Unspecified',
-			sort = 'none',
-			locale,
-			numeric = true,
-			sensitivity = 'base',
-		} = options;
-		
-		const get = (obj, path) =>
-			typeof by === 'function' ? by(obj) :
-			typeof path === 'string' ? path.split('.').reduce((o,k)=>o?.[k], obj) :
-			obj?.[path];
-		
-		const entries = Array.isArray(collection)
-			? collection.map((v, i) => [String(i), v])
-			: Object.entries(collection);
-		
-		const groups = new Map(); // outer map
-		
-		for (const [id, item] of entries) {
-			const raw = get(item, by);
-			const vals = Array.isArray(raw) ? raw : [raw];
-			const groupVals = vals.length ? vals : [undefined];
+			function makeGetter(path) {
+				if (!path) return x => x;
+				const parts = String(path).replace(/\[(\d+)\]/g, '.$1').split('.').filter(Boolean);
+				return obj => {
+					let cur = obj;
+					for (const p of parts) { if (cur == null) return undefined; cur = cur[p]; }
+					return cur;
+				};
+			}
 			
-			for (const v of groupVals) {
-				const name = v == null || v === '' ? empty : label(v);
-				if (!groups.has(name)) groups.set(name, new Map());
-				groups.get(name).set(id, item);
+			function cmp(a, b) {
+				const aN = a == null, bN = b == null;
+				if (aN || bN) return aN && bN ? 0 : (aN ? 1 : -1); // nulls last
+				if (Array.isArray(a) && Array.isArray(b)) {
+					const n = Math.min(a.length, b.length);
+					for (let i = 0; i < n; i++) { const c = cmp(a[i], b[i]); if (c) return c; }
+					return a.length - b.length; //SHORTER FIRST
+				}
+				if (typeof a === 'number' && typeof b === 'number') return a - b;
+				if (typeof a === 'boolean' && typeof b === 'boolean') return (a === b) ? 0 : (a ? 1 : -1);
+				
+				//STRONGS OR MIXED -> COMPARE AS STRINGS WITH NUMERIC
+				const sa = typeof a === 'string' ? a : String(a);
+				const sb = typeof b === 'string' ? b : String(b);
+				return sa.localeCompare(sb, undefined, { numeric: true, sensitivity: 'base' });
 			}
 		}
-		
-		if (!sort || sort === 'none') return groups;
-		
-		const coll = new Intl.Collator(locale, { numeric, sensitivity });
-		const cmp = typeof sort === 'function'
-			? sort
-			: (a, b) => sort === 'desc' ? coll.compare(b, a) : coll.compare(a, b);
-		
-		const ordered = new Map();
-		for (const k of [...groups.keys()].sort(cmp)) ordered.set(k, groups.get(k));
-		return ordered;
-	}
+	
+	//GROUPING
+		function dataGroup(collection, by, options = {}) {
+			if (typeof options === 'string') options = { sort: options };
+			const {
+				label = (v) => String(v),
+				empty = 'Unspecified',
+				sort = 'none',
+				locale,
+				numeric = true,
+				sensitivity = 'base',
+			} = options;
+			
+			const get = (obj, path) =>
+				typeof by === 'function' ? by(obj) :
+				typeof path === 'string' ? path.split('.').reduce((o,k)=>o?.[k], obj) :
+				obj?.[path];
+			
+			const entries = Array.isArray(collection)
+				? collection.map((v, i) => [String(i), v])
+				: Object.entries(collection);
+			
+			const groups = new Map(); // outer map
+			
+			for (const [id, item] of entries) {
+				const raw = get(item, by);
+				const vals = Array.isArray(raw) ? raw : [raw];
+				const groupVals = vals.length ? vals : [undefined];
+				
+				for (const v of groupVals) {
+					const name = v == null || v === '' ? empty : label(v);
+					if (!groups.has(name)) groups.set(name, new Map());
+					groups.get(name).set(id, item);
+				}
+			}
+			
+			if (!sort || sort === 'none') return groups;
+			
+			const coll = new Intl.Collator(locale, { numeric, sensitivity });
+			const cmp = typeof sort === 'function'
+				? sort
+				: (a, b) => sort === 'desc' ? coll.compare(b, a) : coll.compare(a, b);
+			
+			const ordered = new Map();
+			for (const k of [...groups.keys()].sort(cmp)) ordered.set(k, groups.get(k));
+			return ordered;
+		}
 	
 //BLANK STATES
 	function generateBlankState(options) {

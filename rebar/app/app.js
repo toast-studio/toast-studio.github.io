@@ -261,45 +261,48 @@ function exampleTipsPrompt() {
 }
 
 function filterPeople(kind) {
+	const people = dataFilter(filterExample);
+
 	switch (kind) {
 		case 'all':
-			var parameters = '';
 			break;
 		case 'name':
-			var parameters = {lastname: "smith"};
+			people.where('lastname').is('smith');
 			break;
 		case 'nameMulti':
-			var parameters = {lastname: ["smith", "patel"]};
+			people.where('lastname').isOneOf(['smith', 'patel']);
 			break;
 		case 'weight':
-			var parameters = { weight: { $min: 60, $max: 70 } };
+			people.where('weight').isBetween(60, 70);
 			break;
 		case 'weightLow':
-			var parameters = { weight: v => v < 60 };
+			people.where('weight').belowMax(60);
 			break;
 		case 'height':
-			var parameters = { gender: "male", height: 178 };
+			people
+				.where('gender').is('male')
+				.where('height').is(178);
 			break;
 		case 'type':
-			var parameters = { type: ['water'] };
+			people.where('type').includes('water');
 			break;
 		case 'notwater':
-			var parameters = { type: {$none: ['water']} };
+			people.where('type').includesNone(['water']);
 			break;
 		case 'food':
-			var parameters = { 'food.breakfast': 'toast' };
+			people.where('food.breakfast').is('toast');
 			break;
 		case 'key':
-			var parameters = { $key: ['jane', 'alex'] };
+			people.whereKey().isOneOf(['jane', 'alex']);
 			break;
 	}
-	
-	let data = dataFilter(filterExample, parameters)
-	
-	$(`#exampleFilter`).empty()
-	
-	$.each( data, function( key, val ) {
-		let types = (val.type).slice(0, 2).map(capitalize).join(' + ');
+
+	const data = people.results();
+
+	$(`#exampleFilter`).empty();
+
+	$.each(data, function(key, val) {
+		let types = val.type.slice(0, 2).map(capitalize).join(' + ');
 		
 		$(`#exampleFilter`).append(`
 			<div class="cardPerson">
@@ -316,7 +319,7 @@ function filterPeople(kind) {
 					<p>${capitalize(val.food.breakfast)}</p>
 				</div>
 			</div>
-		`)
+		`);
 	});
 }
 

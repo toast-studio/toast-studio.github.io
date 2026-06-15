@@ -512,6 +512,7 @@ const gettingstarted = {
 								<li>Updated the styling of the Liquid Glass material to match iOS 27 and macOS 27</li>
 								<li>In iOS 27 and macOS 27 Toolbars now have a hard edge. If a progressive blur is still needed you can use the <code>.soft</code> modifier</li>
 								<li>Removed the progressive blur behind Tab Bars on iOS and macOS as that was removed in iOS 27 and macOS 27</li>
+								<li>Completely reworked <code>.dataFilter()</code> to use a more natural language approach. The old command structure is still available but considered deprecated</li>
 							</ul>
 							
 							<h4>Fixes</h4>
@@ -3671,7 +3672,7 @@ const controls = {
 			<section class="containerSection containerWallpaper">
 				<h4 class="h6">Small</h4>
 				<section>
-					<div class="controlSegmented spacerSingle material-liquidglass-thick" data-segments="display" data-size="small" data-setting="segment3A">
+					<div class="controlSegmented spacerSingle material-liquidglass-thick translucent" data-segments="display" data-size="small" data-setting="segment3A">
 						<button data-button="segment" data-name="displaysegment1" onclick="routesegmentexampledisplay('displaysegment1')">Up Next</button>
 						<button data-button="segment" data-name="displaysegment4" onclick="routesegmentexampledisplay('displaysegment4')">Library</button>
 						<button data-button="segment" class="picked" data-name="displaysegment2" onclick="routesegmentexampledisplay('displaysegment2')">${generateIcon(iconObjects.bag, 'stroke')}</button>
@@ -3681,7 +3682,7 @@ const controls = {
 				
 				<h4 class="h6">Large</h4>
 				<section>
-					<div class="controlSegmented material-liquidglass-thick" data-segments="display" data-size="large" data-setting="segment3B">
+					<div class="controlSegmented material-liquidglass-thick translucent" data-segments="display" data-size="large" data-setting="segment3B">
 						<button data-button="segment" data-name="displaysegment1" onclick="routesegmentexampledisplay('displaysegment1')">${generateIcon(iconHardware.tv, 'stroke')} Up Next</button>
 						<button data-button="segment" data-name="displaysegment4" onclick="routesegmentexampledisplay('displaysegment4')">${generateIcon(iconObjects.bookOpen, 'stroke')} Library</button>
 						<button data-button="segment" class="picked" data-name="displaysegment2" onclick="routesegmentexampledisplay('displaysegment2')">${generateIcon(iconObjects.bag, 'stroke')}</button>
@@ -3693,20 +3694,30 @@ const controls = {
 			<h3 class="headerSection">Chip</h3>
 			<section class="containerSection containerWallpaper">
 				<div class="controlSegmented" data-segments="chip" data-setting="segment2B">
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment1" onclick="routesegmentexamplesplit('chipsegment1')">Up Next</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment4" onclick="routesegmentexamplesplit('chipsegment4')">${generateIcon(iconObjects.bookOpen, 'stroke')}</button>
-					<button class="material-liquidglass-thick picked" data-button="segment" data-name="chipsegment2" onclick="routesegmentexamplesplit('chipsegment2')">${generateIcon(iconObjects.bag, 'fill')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment3" onclick="routesegmentexamplesplit('chipsegment3')"><img src="app/images/ui/sidebar1.png" /></button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment5" onclick="routesegmentexamplesplit('chipsegment5')">${generateIcon(iconObjects.compass, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment6" onclick="routesegmentexamplesplit('chipsegment6')">${generateIcon(iconObjects.paintbrush, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment7" onclick="routesegmentexamplesplit('chipsegment7')">${generateIcon(iconObjects.highlighter, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment8" onclick="routesegmentexamplesplit('chipsegment8')">${generateIcon(iconObjects.hammer, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment9" onclick="routesegmentexamplesplit('chipsegment9')">${generateIcon(iconObjects.cog, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment10" onclick="routesegmentexamplesplit('chipsegment10')">${generateIcon(iconObjects.mapMarkerHole, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment11" onclick="routesegmentexamplesplit('chipsegment11')">${generateIcon(iconObjects.dialOff, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment12" onclick="routesegmentexamplesplit('chipsegment12')">${generateIcon(iconObjects.badgeUser, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment13" onclick="routesegmentexamplesplit('chipsegment13')">${generateIcon(iconObjects.trash, 'stroke')}</button>
-					<button class="material-liquidglass-thick" data-button="segment" data-name="chipsegment14" onclick="routesegmentexamplesplit('chipsegment14')">${generateIcon(iconObjects.loupe, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment1" onclick="routesegmentexamplesplit('chipsegment1')">Up Next</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment4" onclick="routesegmentexamplesplit('chipsegment4')">${generateIcon(iconObjects.bookOpen, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent picked" data-button="segment" data-name="chipsegment2" onclick="routesegmentexamplesplit('chipsegment2')">${generateIcon(iconObjects.bag, 'fill')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment3" onclick="routesegmentexamplesplit('chipsegment3')"><img src="app/images/ui/sidebar1.png" /></button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment5" onclick="routesegmentexamplesplit('chipsegment5')">${generateIcon(iconObjects.compass, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment6" onclick="routesegmentexamplesplit('chipsegment6')">${generateIcon(iconObjects.paintbrush, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment7" onclick="routesegmentexamplesplit('chipsegment7')">${generateIcon(iconObjects.highlighter, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment8" onclick="routesegmentexamplesplit('chipsegment8')">${generateIcon(iconObjects.hammer, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment9" onclick="routesegmentexamplesplit('chipsegment9')">${generateIcon(iconObjects.cog, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment10" onclick="routesegmentexamplesplit('chipsegment10')">${generateIcon(iconObjects.mapMarkerHole, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment11" onclick="routesegmentexamplesplit('chipsegment11')">${generateIcon(iconObjects.dialOff, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment12" onclick="routesegmentexamplesplit('chipsegment12')">${generateIcon(iconObjects.badgeUser, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment13" onclick="routesegmentexamplesplit('chipsegment13')">${generateIcon(iconObjects.trash, 'stroke')}</button>
+					<button class="material-liquidglass-thick translucent" data-button="segment" data-name="chipsegment14" onclick="routesegmentexamplesplit('chipsegment14')">${generateIcon(iconObjects.loupe, 'stroke')}</button>
+				</div>
+			</section>
+			
+			<h3 class="headerSection">Fluid</h3>
+			<section class="containerSection">
+				<div class="controlSegmented" data-segments="fluid" data-setting="segment2B">
+					<button data-button="segment" data-name="fluidsegment1" onclick="routesegmentexamplesplit('fluidsegment1')" style="--fill: var(--destructive);">${generateIcon(iconHardware.tv, 'stroke')} <span class="label">Up Next</span></button>
+					<button data-button="segment" data-name="fluidsegment4" onclick="routesegmentexamplesplit('fluidsegment4')" style="--fill: orange;">${generateIcon(iconObjects.bookOpen, 'stroke')} <span class="label">Library</span></button>
+					<button data-button="segment" class="picked" data-name="fluidsegment2" onclick="routesegmentexamplesplit('fluidsegment2')" style="--fill: var(--positive);">${generateIcon(iconObjects.bag, 'stroke')} <span class="label">Store</span></button>
+					<button data-button="segment" data-name="fluidsegment3" onclick="routesegmentexamplesplit('fluidsegment3')" style="--fill: var(--info);"><img src="app/images/ui/sidebar1.png" /> <span class="label">Profile</span></button>
 				</div>
 			</section>
 			
@@ -10083,69 +10094,133 @@ generateTipJar({
 				<li>Arrays</li>
 				<li>Objects</li>
 			</ul>
-			<p>The function is constructed as <code>dataFilter(dataObject, {command})</code>. You can chain multiple paramters together:</p>
-			<table class="data withBorder" id="tableFilterSpecs">
+			<p>The function is constructed as <code>dataFilter(dataObject).when().where().condition().results()</code>. You can chain multiple filters together. You must finish the filter with a <code>.results()</code> to return the filtered data.</p>
+			<p>You can start with a <code>.where()</code> or <code>.when()</code>. <code>.where()</code> is the key to be filtered and <code>.when()</code> acts as a conditional gate. <code>.when()</code> should come before <code>.where()</code> and only one <code>.when()</code> can be used (if there are multiple the last one will win).</p>
+			<p><code>.where()</code> selects a field using dot notation and <code>.whereKey()</code> selects the object key or array index as a string.</p>
+			<p><code>.when()</code> supports AND/OR with <code>&&</code> and <code>||</code>.</p>
+			<p>If you need to transform a value (such as counting <code>false</code> as <code>currentYear</code>) then you can use <code>.treatAs(value, replacement)</code>. In the chain this should be placed as <code>.when().where().treatAs().condition().results()</code>. You can use multiple <code>.treatAs()</code> in the one chain.</p>
+			<p>Invalid filters will return <code>{}</code> and log a warning to the console.</p>
+			
+			<table class="data withBorder spacerSingle" id="tableFilterSpecs">
 				<thead>
 					<tr>
-						<th>Command</th>
+						<th>Condition</th>
 						<th>Definition</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>''</td>
-						<td>Returns all values in the original data set</td>
+						<td><b>VALUES</b></td>
 					</tr>
 					<tr>
-						<td>{property: 'string'}</td>
-						<td>Filter a single Text String for an exact match</td>
+						<td>.is('value')</td>
+						<td>Strictly equal to the provided value</td>
 					</tr>
 					<tr>
-						<td>{property: ['string1', 'string2', 'string3']}</td>
-						<td>Filter multiple Text Strings (works as an OR filter)</td>
+						<td>.isNot('value')</td>
+						<td>Strictly not equal to the provided value</td>
 					</tr>
 					<tr>
-						<td>s => /x/i.test(s) && !/^x$/i.test(s)</td>
-						<td>Filter a single Text String for a partial match (replace x for your string)</td>
+						<td>.isOneOf('value', 'value')</td>
+						<td>Is strictly equal to one of the provided values</td>
 					</tr>
 					<tr>
-						<td>{property: number}</td>
-						<td>Filter Numbers</td>
+						<td>.isNotOneOf('value', 'value')</td>
+						<td>Is strictly not equal to one of the provided values</td>
+					</tr>
+					
+					<tr>
+						<td><b>NUMBERS</b></td>
+					</tr>
+					
+					<tr>
+						<td>.isBetween('min', 'max')</td>
+						<td>>= min and <= max</td>
 					</tr>
 					<tr>
-						<td>{property: { $min: lowestNumber, $max: highestNumber }}</td>
-						<td>Filter a range of Numbers</td>
+						<td>.fromMin('value')</td>
+						<td>>= value</td>
 					</tr>
 					<tr>
-						<td>{property: v => v * number}</td>
-						<td>Filter Numbers based on an inequality statement where * can be >=, >, <=, or <</td>
+						<td>.aboveMin('value')</td>
+						<td>> value</td>
 					</tr>
 					<tr>
-						<td>{property: boolean}</td>
-						<td>Filters Booleans with TRUE or FALSE</td>
+						<td>.toMax('value')</td>
+						<td><= value</td>
 					</tr>
 					<tr>
-						<td>{property: ['string1', 'string2']}</td>
-						<td>Filters an Array (works as an OR filter when you include multiple strings)</td>
+						<td>.belowMax('value')</td>
+						<td>< value</td>
+					</tr>
+					
+					<tr>
+						<td><b>ARRAYS</b></td>
+					</tr>
+					
+					<tr>
+						<td>.includes('value')</td>
+						<td>An array contains the provided value</td>
 					</tr>
 					<tr>
-						<td>{property: {$all: ['string1', 'string2']}}</td>
-						<td>Filters an Array (works as an AND filter)</td>
+						<td>.includesAny('value', 'value')</td>
+						<td>An array contains at least one provided value</td>
 					</tr>
 					<tr>
-						<td>{property: {$none: ['string1', 'string2']}}</td>
-						<td>Filters an Array (works as a NOR filter)</td>
+						<td>.includesAll('value', 'value')</td>
+						<td>An array contains all provided values</td>
 					</tr>
 					<tr>
-						<td>{'level1.level2': *}</td>
-						<td>Filters an Object using dot notation for the key and then any of the other commands can be used for the value</td>
+						<td>.includesNone('value', 'value')</td>
+						<td>An array does not contain all provided values</td>
+					</tr>
+					
+					<tr>
+						<td><b>TEXT</b></td>
+					</tr>
+					
+					<tr>
+						<td>.contains('text', {options})</td>
+						<td>A string contains the provided text. You can provide <code>{caseSensitive: false}</code> for lowercase matching (by default this function is case sensitive).</td>
 					</tr>
 					<tr>
-						<td>{$key: ['string1', 'string2']}</td>
-						<td>Filters the keys of the data structure you provide (works as an OR filter)</td>
+						<td>.doesNotContain('text', {options})</td>
+						<td>A string does not contain the provided text. You can provide <code>{caseSensitive: false}</code> for lowercase matching (by default this function is case sensitive).</td>
+					</tr>
+					
+					<tr>
+						<td><b>LOGIC</b></td>
+					</tr>
+					
+					<tr>
+						<td>.passes(function)</td>
+						<td>This allows you to run custom filtering logic</td>
+					</tr>
+					<tr>
+						<td>.exists('value')</td>
+						<td>
+							<span>Value is not <code>false</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>, <code>Infinity</code>, or <code>-Infinity</code>.</span>
+						</td>
+					</tr>
+					<tr>
+						<td>.isEmpty('value')</td>
+						<td>
+							<span>Value is <code>false</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>, <code>""</code>, <code>[]</code>, or <code>{}</code>.</span>
+						</td>
+					</tr>
+					<tr>
+						<td>.isNotEmpty()</td>
+						<td><span>Opposite of <code>.isEmpty()</code></span></td>
 					</tr>
 				</tbody>
 			</table>
+			
+			${insertBanner({
+				type: 'warning',
+				content: 'Rebar 3.0 used a command-object filter syntax. Rebar 3.1 introduces chained filter commands. The legacy command-object syntax remains supported for compatibility, but is now deprecated and will not receive new filter features.',
+				icon: false,
+				size: 'large',
+			})}
 		</div>
 	`,
 	sorting: `
@@ -10196,7 +10271,7 @@ generateTipJar({
 				<li>Arrays</li>
 				<li>Objects</li>
 			</ul>
-			<p>Please note that booleans are <code>TRUE or FALSE</code> and this is what is sorted on so the order returned may be opposite to what you expect. Also Arrays are sorted by the first item in the Array.</p>
+			<p>Please note that booleans are <code>TRUE</code> or <code>FALSE</code> and this is what is sorted on so the order returned may be opposite to what you expect. Also Arrays are sorted by the first item in the Array.</p>
 			<p>The function is constructed as <code>dataSort(dataObject, 'key', 'order')</code>. To sort by an Object use dot notation such as <code>'food.breakfast'</code>.</p>
 		</div>
 	`,
