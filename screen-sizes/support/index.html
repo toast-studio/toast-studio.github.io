@@ -31,11 +31,17 @@
 			<p>Screen Sizes requires Chrome 123, Edge 123, Firefox 128, Safari 26, and Opera 109 (Screen Sizes may work on older browsers but performance is not guaranteed).</p>
 			<br /><br />
 			<h1>FAQ</h1>
-			<h2 style="margin-top: 10px;">Why doesn't Screen Sizes list Macs or Vision Pro?</h2>
-			<p>Screen Sizes is primarily focused on helping you create and export correctly sized assets. macOS and visionOS both use resizable windows in varying amounts of resolution, for this reason I only list specific things where you will need export sizes like icons.</p>
+			<h2 style="margin-top: 10px;">Why doesn't Screen Sizes list all devices or sizes?</h2>
+			<p>Screen Sizes is primarily focused on helping you create and export correctly sized assets. When variable sized items (such as windows or keyboards) are present Screen Sizes wouldn't be able to provide you an appropriate size.</p>
+			<h2 style="margin-top: 10px;">How does data get entered in to Screen Sizes?</h2>
+			<p>A mix of Simulator extraction and hand-entering data. As many values are derived from Simulator extraction as possible but the Simulator does not contain all information a physical device would contain.</p>
+			<p>Simulator extraction is used from Screen Sizes 3.1 onwards so some values might have changed slightly from what they were previously.</p>
+			<h2 style="margin-top: 10px;">What rounding method does Screen Sizes use?</h2>
+			<p>Apple OSes include a lot of non-integer values these days. These are either from a scale factor being applied or an intentional choice. Design tools work better with whole numbers, so Screen Sizes rounds values to the nearest decimal point.</p>
+			<p>This rounding method is applied consistently to values from Screen Sizes 3.1 onwards so some values might have changed slightly from what they were previously.</p>
 			<h2 style="margin-top: 10px;">Why doesn't Screen Sizes list Android devices?</h2>
-			<p>For Screen Sizes we hand enter data, there is no open data source to subscribe to for the data. Android devices are too varied even just amongst flagship models to make a compendium like this useful.</p>
-			<p>Android is also more responsive in nature compared to iOS so the first FAQ question also applies. We do list out icon export sizes for Android and well as the Play Store screenshot requirements.</p>
+			<p>Android devices are too varied even just amongst flagship models to make a compendium like this useful. The preferred method of data acquisition is Simulator extraction and without that we would prefer not to expand support to Android.</p>
+			<p>Android is also responsive in nature so the first FAQ question also applies. We do list out icon export sizes for Android and well as the Play Store screenshot requirements.</p>
 			<br /><br />
 			<h1>Shortcut Keys</h1>
 			<ul>
